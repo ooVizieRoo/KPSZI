@@ -19,7 +19,7 @@ namespace KPSZI
             //типа первый коммент
 
             //БАГ КАГОЙ-ТА
-            using (KPSZIContext db = KPSZIContext())
+            using (KPSZIContext db = new KPSZIContext())
             {
                 ;
             }
