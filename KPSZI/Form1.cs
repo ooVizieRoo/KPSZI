@@ -15,6 +15,7 @@ namespace KPSZI
         public Form1()
         {
             InitializeComponent();
+            //типа первый коммент
         }
     }
 }
