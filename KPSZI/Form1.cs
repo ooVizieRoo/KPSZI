@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KPSZI.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,6 +17,13 @@ namespace KPSZI
         {
             InitializeComponent();
             //типа первый коммент
+
+            //БАГ КАГОЙ-ТА
+            using (KPSZIContext db = KPSZIContext())
+            {
+                ;
+            }
         }
+
     }
 }
