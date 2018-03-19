@@ -81,6 +81,10 @@
     <Compile Include="Migrations\201803190557445_Sashkiny_Tables.Designer.cs">
       <DependentUpon>201803190557445_Sashkiny_Tables.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803190625011_korolev.cs" />
+    <Compile Include="Migrations\201803190625011_korolev.Designer.cs">
+      <DependentUpon>201803190625011_korolev.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\InfoType.cs" />
     <Compile Include="Model\IntruderType.cs" />
@@ -96,6 +100,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803190557445_Sashkiny_Tables.resx">
       <DependentUpon>201803190557445_Sashkiny_Tables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803190625011_korolev.resx">
+      <DependentUpon>201803190625011_korolev.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
