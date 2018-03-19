@@ -17,8 +17,10 @@ namespace KPSZI
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+
             //VASYA
             //TRUEBYDLOCODE
+            //ZALUPA
         }
     }
 }
