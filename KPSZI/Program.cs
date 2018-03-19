@@ -19,6 +19,8 @@ namespace KPSZI
             Application.Run(new Form1());
             //lalalala
             //VizieR is the best nickname!
+            //VASYA
+            //TRUEBYDLOCODE
         }
     }
 }
