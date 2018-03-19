@@ -12,6 +12,8 @@ namespace KPSZI.Model
         public KPSZIContext() : base("DbConnection") { }
 
         public DbSet<Threat> Threats { get; set; }
+        public DbSet<SFH> SFHs { get; set; }
+        public DbSet<SFH_Type> SFH_Types { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder builder)
         {
