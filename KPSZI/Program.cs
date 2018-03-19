@@ -17,8 +17,13 @@ namespace KPSZI
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+
             // comment 1
             // comment 2
+            //lalalala
+            //VizieR is the best nickname!
+            //VASYA
+            //TRUEBYDLOCODE
         }
     }
 }
