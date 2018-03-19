@@ -35,7 +35,7 @@
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
-      <Private>True</Private>
+      <Private>False</Private>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
@@ -73,11 +73,30 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803190452473_testToPublic.cs" />
+    <Compile Include="Migrations\201803190452473_testToPublic.Designer.cs">
+      <DependentUpon>201803190452473_testToPublic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803190557445_Sashkiny_Tables.cs" />
+    <Compile Include="Migrations\201803190557445_Sashkiny_Tables.Designer.cs">
+      <DependentUpon>201803190557445_Sashkiny_Tables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Model\InfoType.cs" />
+    <Compile Include="Model\IntruderType.cs" />
     <Compile Include="Model\KPSZIContext.cs" />
+    <Compile Include="Model\SFH.cs" />
+    <Compile Include="Model\SFH_Type.cs" />
     <Compile Include="Model\Threat.cs" />
     <Compile Include="Model\ThreatSource.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Migrations\201803190452473_testToPublic.resx">
+      <DependentUpon>201803190452473_testToPublic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803190557445_Sashkiny_Tables.resx">
+      <DependentUpon>201803190557445_Sashkiny_Tables.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
