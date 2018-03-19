@@ -77,6 +77,10 @@
     <Compile Include="Migrations\201803190452473_testToPublic.Designer.cs">
       <DependentUpon>201803190452473_testToPublic.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803190557445_Sashkiny_Tables.cs" />
+    <Compile Include="Migrations\201803190557445_Sashkiny_Tables.Designer.cs">
+      <DependentUpon>201803190557445_Sashkiny_Tables.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\InfoType.cs" />
     <Compile Include="Model\IntruderType.cs" />
@@ -88,6 +92,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Migrations\201803190452473_testToPublic.resx">
       <DependentUpon>201803190452473_testToPublic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803190557445_Sashkiny_Tables.resx">
+      <DependentUpon>201803190557445_Sashkiny_Tables.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
