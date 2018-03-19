@@ -9,12 +9,12 @@ namespace KPSZI.Model
     /// <summary>
     /// Класс справочник типов структурно-функциональных характеристик (По архитектуре, по подкл. и другим сетям, etc.)
     /// </summary>
-    public class SFH_Type
+    public class SFHType
     {
         /// <summary>
         /// Первичный ключ - Id типа СФХ
         /// </summary>
-        public int SFH_TypeID { get; set; }
+        public int SFHTypeId { get; set; }
         /// <summary>
         /// Наименование типа СФХ
         /// </summary>

@@ -16,7 +16,7 @@ namespace KPSZI.Model
         public DbSet<IntruderType> IntruderTypes { get; set; }
         public DbSet<InfoType> InfoTypes { get; set; }
         public DbSet<SFH> SFHs { get; set; }
-        public DbSet<SFH_Type> SFH_Types { get; set; }
+        public DbSet<SFHType> SFHTypes { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder builder)
         {

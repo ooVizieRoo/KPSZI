@@ -85,12 +85,20 @@
     <Compile Include="Migrations\201803190625011_korolev.Designer.cs">
       <DependentUpon>201803190625011_korolev.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803190633061_korolev1.cs" />
+    <Compile Include="Migrations\201803190633061_korolev1.Designer.cs">
+      <DependentUpon>201803190633061_korolev1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803190636338_korolev2.cs" />
+    <Compile Include="Migrations\201803190636338_korolev2.Designer.cs">
+      <DependentUpon>201803190636338_korolev2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\InfoType.cs" />
     <Compile Include="Model\IntruderType.cs" />
     <Compile Include="Model\KPSZIContext.cs" />
     <Compile Include="Model\SFH.cs" />
-    <Compile Include="Model\SFH_Type.cs" />
+    <Compile Include="Model\SFHType.cs" />
     <Compile Include="Model\Threat.cs" />
     <Compile Include="Model\ThreatSource.cs" />
     <Compile Include="Program.cs" />
@@ -103,6 +111,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803190625011_korolev.resx">
       <DependentUpon>201803190625011_korolev.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803190633061_korolev1.resx">
+      <DependentUpon>201803190633061_korolev1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803190636338_korolev2.resx">
+      <DependentUpon>201803190636338_korolev2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
