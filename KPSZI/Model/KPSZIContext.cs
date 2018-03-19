@@ -12,6 +12,7 @@ namespace KPSZI.Model
         public KPSZIContext() : base("DbConnection") { }
 
         public DbSet<Threat> Threats { get; set; }
+        public DbSet<ThreatSource> ThreatSources { get; set; }
         public DbSet<IntruderType> IntruderTypes { get; set; }
         public DbSet<InfoType> InfoTypes { get; set; }
         public DbSet<SFH> SFHs { get; set; }
