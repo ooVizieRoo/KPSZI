@@ -20,7 +20,7 @@ namespace KPSZI.Model
 
         protected override void OnModelCreating(DbModelBuilder builder)
         {
-            builder.HasDefaultSchema("public");
+            builder.HasDefaultSchema("korolev");
             base.OnModelCreating(builder);
         }
     }

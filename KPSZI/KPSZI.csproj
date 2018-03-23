@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{878B353E-0106-448F-8AA0-ECDFE7F1F498}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>KPSZI</RootNamespace>
     <AssemblyName>KPSZI</AssemblyName>
@@ -31,6 +31,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -93,6 +96,14 @@
     <Compile Include="Migrations\201803190636338_korolev2.Designer.cs">
       <DependentUpon>201803190636338_korolev2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803231454168_korolev3.cs" />
+    <Compile Include="Migrations\201803231454168_korolev3.Designer.cs">
+      <DependentUpon>201803231454168_korolev3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803231458079_korolev4.cs" />
+    <Compile Include="Migrations\201803231458079_korolev4.Designer.cs">
+      <DependentUpon>201803231458079_korolev4.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\InfoType.cs" />
     <Compile Include="Model\IntruderType.cs" />
@@ -117,6 +128,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803190636338_korolev2.resx">
       <DependentUpon>201803190636338_korolev2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803231454168_korolev3.resx">
+      <DependentUpon>201803231454168_korolev3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803231458079_korolev4.resx">
+      <DependentUpon>201803231458079_korolev4.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
