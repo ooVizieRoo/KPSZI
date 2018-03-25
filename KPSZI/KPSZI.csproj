@@ -76,6 +76,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helper\ExcelReader.cs" />
     <Compile Include="Migrations\201803190452473_testToPublic.cs" />
     <Compile Include="Migrations\201803190452473_testToPublic.Designer.cs">
       <DependentUpon>201803190452473_testToPublic.cs</DependentUpon>
@@ -114,6 +115,9 @@
     <Compile Include="Model\ThreatSource.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803190452473_testToPublic.resx">
       <DependentUpon>201803190452473_testToPublic.cs</DependentUpon>
     </EmbeddedResource>
