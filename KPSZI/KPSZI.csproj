@@ -104,16 +104,33 @@
     <Compile Include="Migrations\201803231458079_korolev4.Designer.cs">
       <DependentUpon>201803231458079_korolev4.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803270418210_myschema.cs" />
+    <Compile Include="Migrations\201803270418210_myschema.Designer.cs">
+      <DependentUpon>201803270418210_myschema.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Model\GISMeasure.cs" />
     <Compile Include="Model\InfoType.cs" />
     <Compile Include="Model\IntruderType.cs" />
+    <Compile Include="Model\ISPDNMeasure.cs" />
     <Compile Include="Model\KPSZIContext.cs" />
+    <Compile Include="Model\MeasureGroup.cs" />
+    <Compile Include="Model\RealizationPossibility.cs" />
     <Compile Include="Model\SFH.cs" />
     <Compile Include="Model\SFHType.cs" />
+    <Compile Include="Model\SZI.cs" />
+    <Compile Include="Model\SZIType.cs" />
+    <Compile Include="Model\TCUIThreat.cs" />
+    <Compile Include="Model\TCUIType.cs" />
+    <Compile Include="Model\TechnogenicMeasure.cs" />
+    <Compile Include="Model\TechnogenicThreat.cs" />
     <Compile Include="Model\Threat.cs" />
     <Compile Include="Model\ThreatSource.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803190452473_testToPublic.resx">
       <DependentUpon>201803190452473_testToPublic.cs</DependentUpon>
     </EmbeddedResource>
@@ -134,6 +151,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803231458079_korolev4.resx">
       <DependentUpon>201803231458079_korolev4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803270418210_myschema.resx">
+      <DependentUpon>201803270418210_myschema.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
