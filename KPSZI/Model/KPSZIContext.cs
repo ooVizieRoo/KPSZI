@@ -29,7 +29,7 @@ namespace KPSZI.Model
         
         protected override void OnModelCreating(DbModelBuilder builder)
         {
-            builder.HasDefaultSchema("nak");
+            builder.HasDefaultSchema("public");
             base.OnModelCreating(builder);
         }
     }
