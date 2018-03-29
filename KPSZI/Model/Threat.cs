@@ -16,7 +16,7 @@ namespace KPSZI.Model
         /// <summary>
         /// ID угрозы
         /// </summary>
-        public int ThreatId { get; set; }
+        public int? ThreatId { get; set; }
         /// <summary>
         /// Номер угрозы по списку ФСТЭКа
         /// </summary>
@@ -54,17 +54,46 @@ namespace KPSZI.Model
         /// </summary>
         public DateTime DateOfChange { get; set; }
 
-        public static Threat[] GetThreatsFromXlsx(FileInfo file)
+        /// <summary>
+        /// Коллекция всех источников угроз, которые характерны для данной угрозы
+        /// </summary>
+        public ICollection<ThreatSource> ThreatSources { get; set; }
+
+        public Threat()
+        {
+            ThreatSources = new List<ThreatSource>();
+        }
+
+        /// <summary>
+        /// Метод выстаскивает текстовое описание угроз, парсит, привеодит к типу Threat и возвращает массив объектов Threat.
+        /// </summary>
+        /// <param name="file"></param>
+        /// <returns></returns>
+        public static List<Threat> GetThreatsFromXlsx(FileInfo file, KPSZIContext db)
         {
             List<List<string>> listOfXlslxRows = File_Selected_New(file);
+            List<ThreatSource> tss = db.ThreatSources.ToList();
 
-            Threat[] listOfAllThreatsFromFile = new Threat[listOfXlslxRows.Count];
-            for (int i = 0; i < listOfAllThreatsFromFile.Length - 1; i++)
+            List<Threat> listOfAllThreatsFromFile = new List<Threat>();
+            for (int i = 0; i < listOfXlslxRows[0].Count; i++)
             {
-                listOfAllThreatsFromFile[i].ThreatNumber = listOfXlslxRows[1][i];
+                Threat thr = new Threat();
+                thr.ThreatNumber = Convert.ToInt32(listOfXlslxRows[0][i]);
+                thr.Name = listOfXlslxRows[1][i];
+                thr.Description = listOfXlslxRows[2][i];
+                thr.ThreatSources = ThreatSource.Parse(listOfXlslxRows[3][i], tss); 
+                thr.ObjectOfInfluence = listOfXlslxRows[4][i];
+                thr.ConfidenceViolation = (listOfXlslxRows[5][i] == "1") ? true : false;
+                thr.IntegrityViolation = (listOfXlslxRows[6][i] == "1") ? true : false;
+                thr.AvailabilityViolation = (listOfXlslxRows[7][i] == "1") ? true : false;
+                thr.DateOfAdd = DateTime.Parse(listOfXlslxRows[8][i]);
+                thr.DateOfChange = DateTime.Parse(listOfXlslxRows[9][i]);
+
+                listOfAllThreatsFromFile.Add(thr);
+
             }
 
-            return null;
+            return listOfAllThreatsFromFile;
         }
 
         private static string GetConnectionString(FileInfo _file)

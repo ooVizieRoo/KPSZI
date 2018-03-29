@@ -29,8 +29,13 @@ namespace KPSZI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            FileInfo fi = new FileInfo("thrlist.xlsx");
-            Threat.GetThreatsFromXlsx(fi);
+            using (KPSZIContext db = new KPSZIContext())
+            {
+                FileInfo fi = new FileInfo("thrlist.xlsx");
+                
+                db.Threats.AddRange(Threat.GetThreatsFromXlsx(fi, db));
+                db.SaveChanges();
+            }
         }
     }
 }
