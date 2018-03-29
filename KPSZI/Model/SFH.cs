@@ -20,9 +20,9 @@ namespace KPSZI.Model
         public int SFHId { get; set; }
         
         /// <summary>
-        /// Внешний ключ на тип СФХ
+        /// Навигационное поле - внешний ключ на тип СФХ
         /// </summary>
-        public int SFH_TypeID { get; set; }
+        public virtual SFHType SFHType { get; set; }
 
         /// <summary>
         ///  Наименование СФХ

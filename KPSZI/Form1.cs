@@ -17,14 +17,6 @@ namespace KPSZI
         public Form1()
         {
             InitializeComponent();
-
-            //using (KPSZIContext db = new KPSZIContext())
-            //{
-            //    foreach (Threat thr in db.Threats)
-            //    {
-            //        Console.WriteLine("{0}:{1}:{2}:{3}", thr.ThreatId, thr.ThreatNumber, thr.Name, thr.Description);
-            //    }
-            //}
         }
 
         private void button1_Click(object sender, EventArgs e)
