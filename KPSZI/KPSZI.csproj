@@ -32,10 +32,13 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>KPSZI.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
-      <Private>False</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
@@ -73,6 +76,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\201803190452473_testToPublic.cs" />
     <Compile Include="Migrations\201803190452473_testToPublic.Designer.cs">
       <DependentUpon>201803190452473_testToPublic.cs</DependentUpon>
@@ -93,6 +102,14 @@
     <Compile Include="Migrations\201803190636338_korolev2.Designer.cs">
       <DependentUpon>201803190636338_korolev2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803231454168_korolev3.cs" />
+    <Compile Include="Migrations\201803231454168_korolev3.Designer.cs">
+      <DependentUpon>201803231454168_korolev3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803231458079_korolev4.cs" />
+    <Compile Include="Migrations\201803231458079_korolev4.Designer.cs">
+      <DependentUpon>201803231458079_korolev4.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\InfoType.cs" />
     <Compile Include="Model\IntruderType.cs" />
@@ -103,6 +120,9 @@
     <Compile Include="Model\ThreatSource.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803190452473_testToPublic.resx">
       <DependentUpon>201803190452473_testToPublic.cs</DependentUpon>
     </EmbeddedResource>
@@ -117,6 +137,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803190636338_korolev2.resx">
       <DependentUpon>201803190636338_korolev2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803231454168_korolev3.resx">
+      <DependentUpon>201803231454168_korolev3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803231458079_korolev4.resx">
+      <DependentUpon>201803231458079_korolev4.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -137,7 +163,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Security.config" />
+    <None Include="Security.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

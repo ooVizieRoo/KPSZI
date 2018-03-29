@@ -16,6 +16,10 @@ namespace KPSZI.Model
         /// </summary>
         public int ThreatId { get; set; }
         /// <summary>
+        /// Номер угрозы по списку ФСТЭКа
+        /// </summary>
+        public int ThreatNumber { get; set; }
+        /// <summary>
         /// Наименование УБИ
         /// </summary>
         public string Name { get; set; }

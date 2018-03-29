@@ -16,13 +16,14 @@ namespace KPSZI
         public Form1()
         {
             InitializeComponent();
-            //типа первый коммент
 
-            //БАГ КАГОЙ-ТА
-            using (KPSZIContext db = new KPSZIContext())
+            /*using (KPSZIContext db = new KPSZIContext())
             {
-                ;
-            }
+                foreach (Threat thr in db.Threats)
+                {
+                    Console.WriteLine("{0}:{1}:{2}:{3}", thr.ThreatId, thr.ThreatNumber, thr.Name, thr.Description);
+                }
+            }*/
         }
 
     }
