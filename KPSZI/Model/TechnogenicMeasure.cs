@@ -19,6 +19,6 @@ namespace KPSZI.Model
         /// <summary>
         /// Описание меры
         /// </summary>
-        public string Description { get; set}
+        public string Description { get; set; }
     }
 }

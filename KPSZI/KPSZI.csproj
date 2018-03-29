@@ -76,37 +76,9 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201803190452473_testToPublic.cs" />
-    <Compile Include="Migrations\201803190452473_testToPublic.Designer.cs">
-      <DependentUpon>201803190452473_testToPublic.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803190557445_Sashkiny_Tables.cs" />
-    <Compile Include="Migrations\201803190557445_Sashkiny_Tables.Designer.cs">
-      <DependentUpon>201803190557445_Sashkiny_Tables.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803190625011_korolev.cs" />
-    <Compile Include="Migrations\201803190625011_korolev.Designer.cs">
-      <DependentUpon>201803190625011_korolev.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803190633061_korolev1.cs" />
-    <Compile Include="Migrations\201803190633061_korolev1.Designer.cs">
-      <DependentUpon>201803190633061_korolev1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803190636338_korolev2.cs" />
-    <Compile Include="Migrations\201803190636338_korolev2.Designer.cs">
-      <DependentUpon>201803190636338_korolev2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803231454168_korolev3.cs" />
-    <Compile Include="Migrations\201803231454168_korolev3.Designer.cs">
-      <DependentUpon>201803231454168_korolev3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803231458079_korolev4.cs" />
-    <Compile Include="Migrations\201803231458079_korolev4.Designer.cs">
-      <DependentUpon>201803231458079_korolev4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803270418210_myschema.cs" />
-    <Compile Include="Migrations\201803270418210_myschema.Designer.cs">
-      <DependentUpon>201803270418210_myschema.cs</DependentUpon>
+    <Compile Include="Migrations\201803290359364_12345.cs" />
+    <Compile Include="Migrations\201803290359364_12345.Designer.cs">
+      <DependentUpon>201803290359364_12345.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\GISMeasure.cs" />
@@ -131,29 +103,8 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803190452473_testToPublic.resx">
-      <DependentUpon>201803190452473_testToPublic.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803190557445_Sashkiny_Tables.resx">
-      <DependentUpon>201803190557445_Sashkiny_Tables.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803190625011_korolev.resx">
-      <DependentUpon>201803190625011_korolev.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803190633061_korolev1.resx">
-      <DependentUpon>201803190633061_korolev1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803190636338_korolev2.resx">
-      <DependentUpon>201803190636338_korolev2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803231454168_korolev3.resx">
-      <DependentUpon>201803231454168_korolev3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803231458079_korolev4.resx">
-      <DependentUpon>201803231458079_korolev4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803270418210_myschema.resx">
-      <DependentUpon>201803270418210_myschema.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201803290359364_12345.resx">
+      <DependentUpon>201803290359364_12345.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

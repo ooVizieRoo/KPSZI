@@ -7,13 +7,13 @@ namespace KPSZI.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class korolev3 : IMigrationMetadata
+    public sealed partial class _12345 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(korolev3));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(_12345));
         
         string IMigrationMetadata.Id
         {
-            get { return "201803231454168_korolev3"; }
+            get { return "201803290359364_12345"; }
         }
         
         string IMigrationMetadata.Source

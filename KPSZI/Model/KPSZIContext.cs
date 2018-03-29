@@ -25,7 +25,7 @@ namespace KPSZI.Model
         public DbSet<TCUIThreat> TCUIThreats { get; set; }
         public DbSet<TCUIType> TCUITypes { get; set; }
         public DbSet<TechnogenicMeasure> TechnogenicMeasures { get; set; }
-        public DbSet<TechnogenicThreat> TechnogenicThreats{ get; set; }
+        public DbSet<TechnogenicThreat> TechnogenicThreats { get; set; }
         
         protected override void OnModelCreating(DbModelBuilder builder)
         {

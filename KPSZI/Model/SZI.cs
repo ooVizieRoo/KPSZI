@@ -59,8 +59,8 @@ namespace KPSZI.Model
 
         public SZI()
         {
-            this.GISMeasures = new List<GISMeasures>();
-            this.ISPDNMeasures = new List<ISPDNMeasures>();
+            this.GISMeasures = new List<GISMeasure>();
+            this.ISPDNMeasures = new List<ISPDNMeasure>();
         }
     }
 }
