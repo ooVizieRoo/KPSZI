@@ -41,9 +41,14 @@ namespace KPSZI.Model
             //base.Seed(context);
 
             SFHType sfh1 = new SFHType();
-            sfh1.Name = "По структуре ИС";
-            sfh1.SFHs.AddRange( new SFH { Name = "Автономное автоматизированное рабочее место", ProjectSecurity = 2 },
-                                new SFH { Name = "Локальная ИС", ProjectSecurity = 1 });
+                sfh1.Name = "По структуре ИС";
+                sfh1.SFHs.Add(new SFH { Name = "Автономное автоматизированное рабочее место", ProjectSecurity = 2 });
+                sfh1.SFHs.Add(new SFH { Name = "Локальная ИС", ProjectSecurity = 1 });
+                sfh1.SFHs.Add(new SFH { Name = "Распределенная ИС", ProjectSecurity = 0 });
+
+            context.SFHTypes.Add(sfh1);
+            context.SaveChanges();
+
         }
     } 
 }
