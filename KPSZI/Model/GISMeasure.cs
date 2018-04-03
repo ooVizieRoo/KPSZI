@@ -30,10 +30,23 @@ namespace KPSZI.Model
         /// Описание меры
         /// </summary>
         public string Description { get; set; }
-        
+
         /// <summary>
         /// Минимально необходимый класс защиты ГИС, для которого должна применяться данная мера. К примеру, =3 => в 3,2,1 требуется применение данной меры
         /// </summary>
         public int MinimalRequirementDefenceClass { get; set; }
+
+        /// <summary>
+        /// Навигационное поле - коллекция СЗИ, реализующих меры
+        /// </summary>
+        public virtual ICollection<SZI> SZIs { get; set; }
+
+        /// <summary>
+        /// Конструктор для инициализации коллекции навигационного поля
+        /// </summary>
+        public GISMeasure()
+        {
+            this.SZIs = new List<SZI>();
+        }
     }
 }
