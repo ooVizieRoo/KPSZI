@@ -30,7 +30,7 @@ namespace KPSZI.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// Уровень проектной защищенности: 3 - высокий, 2 - средний, 1 - низкий.
+        /// Уровень проектной защищенности: 2 - высокий, 1 - средний, 0 - низкий.
         /// </summary>
         public int ProjectSecurity { get; set; }
     }
