@@ -17,9 +17,14 @@ namespace KPSZI.Model
         public int MeasureGroupId { get; set;}
         
         /// <summary>
-        /// Название
+        /// Полное название группы мер
         /// </summary>
         public string Name { get; set; }
+        
+        /// <summary>
+        /// Сокращенное названия группы мер
+        /// </summary>
+        public string ShortName { get; set; }
 
         /// <summary>
         /// Описание группы мер

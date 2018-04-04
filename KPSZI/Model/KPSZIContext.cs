@@ -29,21 +29,137 @@ namespace KPSZI.Model
         
         protected override void OnModelCreating(DbModelBuilder builder)
         {
-            builder.HasDefaultSchema("nak");
+            builder.HasDefaultSchema("soooqa");
             base.OnModelCreating(builder);
         }
 
-        static void Seed(KPSZIContext context)
+        public static void Seed(KPSZIContext context)
         {
             //base.Seed(context);
 
-            SFHType sfh1 = new SFHType();
-                sfh1.Name = "По структуре ИС";
-                sfh1.SFHs.Add(new SFH { Name = "Автономное автоматизированное рабочее место", ProjectSecurity = 2 });
-                sfh1.SFHs.Add(new SFH { Name = "Локальная ИС", ProjectSecurity = 1 });
-                sfh1.SFHs.Add(new SFH { Name = "Распределенная ИС", ProjectSecurity = 0 });
+            #region Меры от НСД для ГИС
+            MeasureGroup iaf = new MeasureGroup();
+            iaf.Name = "Идентификация и аутентификация субъектов доступа и объектов доступа";
+            iaf.ShortName = "ИАФ";
+            iaf.Description = "";
+            iaf.GISMeasures.Add(new GISMeasure { Number = 1, Description = "Идентификация и аутентификация пользователей, являющихся работниками оператора", MinimalRequirementDefenceClass = 3 });
+            iaf.GISMeasures.Add(new GISMeasure { Number = 2, Description = "Идентификация и аутентификация устройств, в том числе стационарных, мобильных и портативных", MinimalRequirementDefenceClass = 2 });
+            iaf.GISMeasures.Add(new GISMeasure { Number = 3, Description = "Управление идентификаторами, в том числе создание, присвоение, уничтожение идентификаторов", MinimalRequirementDefenceClass = 3 });
+            iaf.GISMeasures.Add(new GISMeasure { Number = 4, Description = "Управление средствами аутентификации, в том числе хранение, выдача, инициализация, блокирование средств аутентификации и принятие мер в случае утраты и(или) компрометации средств аутентификации", MinimalRequirementDefenceClass = 3 });
+            iaf.GISMeasures.Add(new GISMeasure { Number = 5, Description = "Защита обратной связи при вводе аутентификационной информации", MinimalRequirementDefenceClass = 3 });
+            iaf.GISMeasures.Add(new GISMeasure { Number = 6, Description = "Идентификация и аутентификация пользователей, не являющихся работниками оператора (внешних пользователей)", MinimalRequirementDefenceClass = 3 });
+            iaf.GISMeasures.Add(new GISMeasure { Number = 7, Description = "Идентификация и аутентификация объектов файловой системы, запускаемых и исполняемых модулей, объектов систем управления базами данных, объектов, создаваемых прикладным и специальным программным обеспечением, иных объектов доступа", MinimalRequirementDefenceClass = 0 });
 
-            context.SFHTypes.Add(sfh1);
+            MeasureGroup upd = new MeasureGroup();
+            upd.Name = "Управление доступом субъектов доступа к объектам доступа";
+            upd.ShortName = "УПД";
+            upd.Description = "";
+            upd.GISMeasures.Add(new GISMeasure { Number = 1, Description = "Управление (заведение, активация, блокирование и уничтожение) учетными записями пользователей, в том числе внешних пользователей", MinimalRequirementDefenceClass = 3 });
+            upd.GISMeasures.Add(new GISMeasure { Number = 2, Description = "Реализация необходимых методов (дискреционный, мандатный, ролевой или иной метод), типов(чтение, запись, выполнение или иной тип) и правил разграничения доступа", MinimalRequirementDefenceClass = 3 });
+            upd.GISMeasures.Add(new GISMeasure { Number = 3, Description = "Управление (фильтрация, маршрутизация, контроль соединений, однонаправленная передача и иные способы управления) информационными потоками между устройствами, сегментами информационной системы, а также между информационными системами", MinimalRequirementDefenceClass = 3 });
+            upd.GISMeasures.Add(new GISMeasure { Number = 4, Description = "Разделение полномочий (ролей) пользователей, администраторов и лиц, обеспечивающих функционирование информационной системы", MinimalRequirementDefenceClass = 3 });
+            upd.GISMeasures.Add(new GISMeasure { Number = 5, Description = "Назначение минимально необходимых прав и привилегий пользователям, администраторам и лицам, обеспечивающим функционирование информационной системы", MinimalRequirementDefenceClass = 3 });
+            upd.GISMeasures.Add(new GISMeasure { Number = 6, Description = "Ограничение неуспешных попыток входа в информационную систему(доступа к информационной системе)", MinimalRequirementDefenceClass = 3 });
+            upd.GISMeasures.Add(new GISMeasure { Number = 7, Description = "Предупреждение пользователя при его входе в информационную систему о том, что в информационной системе реализованы меры защиты информации, и о необходимости соблюдения им установленных оператором правил обработки информации", MinimalRequirementDefenceClass = 0 });
+            upd.GISMeasures.Add(new GISMeasure { Number = 8, Description = "Оповещение пользователя после успешного входа в информационную систему о его предыдущем входе в информационную систему", MinimalRequirementDefenceClass = 0 });
+            upd.GISMeasures.Add(new GISMeasure { Number = 9, Description = "Ограничение числа параллельных сеансов доступа для каждой учетной записи пользователя информационной системы", MinimalRequirementDefenceClass = 1 });
+            upd.GISMeasures.Add(new GISMeasure { Number = 10, Description = "Блокирование сеанса доступа в информационную систему после установленного времени бездействия (неактивности) пользователя или по его запросу", MinimalRequirementDefenceClass = 3 });
+            upd.GISMeasures.Add(new GISMeasure { Number = 11, Description = "Разрешение (запрет) действий пользователей, разрешенных до идентификации и аутентификации", MinimalRequirementDefenceClass = 3 });
+            upd.GISMeasures.Add(new GISMeasure { Number = 12, Description = "Поддержка и сохранение атрибутов безопасности (меток безопасности), связанных с информацией в процессе ее хранения и обработки", MinimalRequirementDefenceClass = 0 });
+            upd.GISMeasures.Add(new GISMeasure { Number = 13, Description = "Реализация защищенного удаленного доступа субъектов доступа к объектам доступа через внешние информационно - телекоммуникационные сети", MinimalRequirementDefenceClass = 3 });
+            upd.GISMeasures.Add(new GISMeasure { Number = 14, Description = "Регламентация и контроль использования в информационной системе технологий беспроводного доступа", MinimalRequirementDefenceClass = 3 });
+            upd.GISMeasures.Add(new GISMeasure { Number = 15, Description = "Регламентация и контроль использования в информационной системе мобильных технических средств", MinimalRequirementDefenceClass = 3 });
+            upd.GISMeasures.Add(new GISMeasure { Number = 16, Description = "Управление взаимодействием с информационными системами сторонних организаций(внешние информационные системы)", MinimalRequirementDefenceClass = 3 });
+            upd.GISMeasures.Add(new GISMeasure { Number = 17, Description = "Обеспечение доверенной загрузки средств вычислительной техники", MinimalRequirementDefenceClass = 2 });
+
+            MeasureGroup ops = new MeasureGroup();
+            ops.Name = "Ограничение программной среды";
+            ops.ShortName = "ОПС";
+            ops.Description = "";
+            ops.GISMeasures.Add(new GISMeasure { Number = 1, Description = "Управление запуском (обращениями) компонентов программного обеспечения, в том числе определение запускаемых компонентов, настройка параметров запуска компонентов, контроль за запуском компонентов программного обеспечения", MinimalRequirementDefenceClass = 1 });
+            ops.GISMeasures.Add(new GISMeasure { Number = 2, Description = "Управление установкой (инсталляцией) компонентов программного обеспечения, в том числе определение компонентов, подлежащих установке, настройка параметров установки компонентов, контроль за установкой компонентов программного обеспечения", MinimalRequirementDefenceClass = 2 });
+            ops.GISMeasures.Add(new GISMeasure { Number = 3, Description = "Установка (инсталляция) только разрешенного к использованию программного обеспечения и(или) его компонентов", MinimalRequirementDefenceClass = 3 });
+            ops.GISMeasures.Add(new GISMeasure { Number = 4, Description = "Управление временными файлами, в том числе запрет, разрешение, перенаправление записи, удаление временных файлов", MinimalRequirementDefenceClass = 0 });
+
+            MeasureGroup zni = new MeasureGroup();
+            zni.Name = "Защита машинных носителей информации";
+            zni.ShortName = "ЗНИ";
+            zni.Description = "";
+            zni.GISMeasures.Add(new GISMeasure { Number = 1, Description = "Учет машинных носителей информации", MinimalRequirementDefenceClass = 3 });
+            zni.GISMeasures.Add(new GISMeasure { Number = 2, Description = "Управление доступом к машинным носителям информации", MinimalRequirementDefenceClass = 3 });
+            zni.GISMeasures.Add(new GISMeasure { Number = 3, Description = "Контроль перемещения машинных носителей информации за пределы контролируемой зоны", MinimalRequirementDefenceClass = 0 });
+            zni.GISMeasures.Add(new GISMeasure { Number = 4, Description = "Исключение возможности несанкционированного ознакомления с содержанием информации, хранящейся на машинных носителях, и(или) использования носителей информации в иных информационных системах", MinimalRequirementDefenceClass = 0 });
+            zni.GISMeasures.Add(new GISMeasure { Number = 5, Description = "Контроль использования интерфейсов ввода (вывода) информации на машинные носители информации", MinimalRequirementDefenceClass = 2 });
+            zni.GISMeasures.Add(new GISMeasure { Number = 6, Description = "Контроль ввода (вывода) информации на машинные носители информации", MinimalRequirementDefenceClass = 0 });
+            zni.GISMeasures.Add(new GISMeasure { Number = 7, Description = "Контроль подключения машинных носителей информации", MinimalRequirementDefenceClass = 0 });
+            zni.GISMeasures.Add(new GISMeasure { Number = 8, Description = "Уничтожение (стирание) информации на машинных носителях при их передаче между пользователями, в сторонние организации для ремонта или утилизации, а также контроль уничтожения(стирания)", MinimalRequirementDefenceClass = 3 });
+
+            MeasureGroup rsb = new MeasureGroup();
+            rsb.Name = "Регистрация событий безопасности";
+            rsb.ShortName = "РСБ";
+            rsb.Description = "";
+            rsb.GISMeasures.Add(new GISMeasure { Number = 1, Description = "Определение событий безопасности, подлежащих регистрации, и сроков их хранения", MinimalRequirementDefenceClass = 3 });
+            rsb.GISMeasures.Add(new GISMeasure { Number = 2, Description = "Определение состава и содержания информации о событиях безопасности, подлежащих регистрации", MinimalRequirementDefenceClass = 3 });
+            rsb.GISMeasures.Add(new GISMeasure { Number = 3, Description = "Сбор, запись и хранение информации о событиях безопасности в течение установленного времени хранения", MinimalRequirementDefenceClass = 3 });
+            rsb.GISMeasures.Add(new GISMeasure { Number = 4, Description = "Реагирование на сбои при регистрации событий безопасности, в том числе аппаратные и программные ошибки, сбои в механизмах сбора информации и достижение предела или переполнения объема (емкости) памяти", MinimalRequirementDefenceClass = 3 });
+            rsb.GISMeasures.Add(new GISMeasure { Number = 5, Description = "Мониторинг (просмотр, анализ) результатов регистрации событий безопасности и реагирование на них", MinimalRequirementDefenceClass = 3 });
+            rsb.GISMeasures.Add(new GISMeasure { Number = 6, Description = "Генерирование временных меток и (или) синхронизация системного времени в информационной системе", MinimalRequirementDefenceClass = 3 });
+            rsb.GISMeasures.Add(new GISMeasure { Number = 7, Description = "Защита информации о событиях безопасности", MinimalRequirementDefenceClass = 3 });
+            rsb.GISMeasures.Add(new GISMeasure { Number = 8, Description = "Обеспечение возможности просмотра и анализа информации о действиях отдельных пользователей в информационной системе", MinimalRequirementDefenceClass = 0 });
+
+            MeasureGroup avz = new MeasureGroup();
+            avz.Name = "Антивирусная защита";
+            avz.ShortName = "АВЗ";
+            avz.Description = "";
+            avz.GISMeasures.Add(new GISMeasure { Number = 1, Description = "Реализация антивирусной защиты", MinimalRequirementDefenceClass = 3 });
+            avz.GISMeasures.Add(new GISMeasure { Number = 2, Description = "Обновление базы данных признаков вредоносных компьютерных программ (вирусов)", MinimalRequirementDefenceClass = 3 });
+
+            MeasureGroup sov = new MeasureGroup();
+            sov.Name = "Обнаружение вторжений";
+            sov.ShortName = "СОВ";
+            sov.Description = "";
+            sov.GISMeasures.Add(new GISMeasure { Number = 1, Description = "Обнаружение вторжений", MinimalRequirementDefenceClass = 2 });
+            sov.GISMeasures.Add(new GISMeasure { Number = 2, Description = "Обновление базы решающих правил", MinimalRequirementDefenceClass = 2 });
+
+            MeasureGroup anz = new MeasureGroup();
+            anz.Name = "Контроль (анализ) защищенности информации";
+            anz.ShortName = "АНЗ";
+            anz.Description = "";
+            anz.GISMeasures.Add(new GISMeasure { Number = 1, Description = "Выявление, анализ уязвимостей информационной системы и оперативное устранение вновь выявленных уязвимостей", MinimalRequirementDefenceClass = 3 });
+            anz.GISMeasures.Add(new GISMeasure { Number = 2, Description = "Контроль установки обновлений программного обеспечения, включая обновление программного обеспечения средств защиты информации", MinimalRequirementDefenceClass = 3 });
+            anz.GISMeasures.Add(new GISMeasure { Number = 3, Description = "Контроль работоспособности, параметров настройки и правильности функционирования программного обеспечения и средств защиты информации", MinimalRequirementDefenceClass = 3 });
+            anz.GISMeasures.Add(new GISMeasure { Number = 4, Description = "Контроль состава технических средств, программного обеспечения и средств защиты информации", MinimalRequirementDefenceClass = 3 });
+            anz.GISMeasures.Add(new GISMeasure { Number = 5, Description = "Контроль правил генерации и смены паролей пользователей, заведения и удаления учетных записей пользователей, реализации правил разграничения доступом, полномочий пользователей в информационной системе", MinimalRequirementDefenceClass = 3 });
+
+            MeasureGroup ocl = new MeasureGroup();
+            ocl.Name = "Обеспечение целостности информационной системы и информации";
+            ocl.ShortName = "ОЦЛ";
+            ocl.Description = "";
+            ocl.GISMeasures.Add(new GISMeasure { Number = 1, Description = "Контроль целостности программного обеспечения, включая программное обеспечение средств защиты информации", MinimalRequirementDefenceClass = 2 });
+            ocl.GISMeasures.Add(new GISMeasure { Number = 2, Description = "Контроль целостности информации, содержащейся в базах данных информационной системы", MinimalRequirementDefenceClass = 0 });
+            ocl.GISMeasures.Add(new GISMeasure { Number = 3, Description = "Обеспечение возможности восстановления программного обеспечения, включая программное обеспечение средств защиты информации, при возникновении нештатных ситуаций", MinimalRequirementDefenceClass = 3 });
+            ocl.GISMeasures.Add(new GISMeasure { Number = 4, Description = "Обнаружение и реагирование на поступление в информационную систему незапрашиваемых электронных сообщений(писем, документов) и иной информации, не относящихся к функционированию информационной системы(защита от спама)", MinimalRequirementDefenceClass = 2 });
+            ocl.GISMeasures.Add(new GISMeasure { Number = 5, Description = "Контроль содержания информации, передаваемой из информационной системы (контейнерный, основанный на свойствах объекта доступа, и контентный, основанный на поиске запрещенной к передаче информации с использованием сигнатур, масок и иных методов), и исключение неправомерной передачи информации из информационной системы", MinimalRequirementDefenceClass = 0 });
+            ocl.GISMeasures.Add(new GISMeasure { Number = 6, Description = "Ограничение прав пользователей по вводу информации в информационную систему", MinimalRequirementDefenceClass = 1 });
+            ocl.GISMeasures.Add(new GISMeasure { Number = 7, Description = "Контроль точности, полноты и правильности данных, вводимых в информационную систему", MinimalRequirementDefenceClass = 0 });
+            ocl.GISMeasures.Add(new GISMeasure { Number = 8, Description = "Контроль ошибочных действий пользователей по вводу и(или) передаче информации и предупреждение пользователей об ошибочных действиях", MinimalRequirementDefenceClass = 0 });
+
+            // тута остановился
+            MeasureGroup odt = new MeasureGroup();
+            odt.Name = "Обеспечение доступности информации";
+            odt.ShortName = "ОДТ";
+            odt.Description = "";
+            odt.GISMeasures.Add(new GISMeasure { Number = 1, Description = "", MinimalRequirementDefenceClass = 3 });
+            odt.GISMeasures.Add(new GISMeasure { Number = 2, Description = "", MinimalRequirementDefenceClass = 3 });
+            odt.GISMeasures.Add(new GISMeasure { Number = 3, Description = "", MinimalRequirementDefenceClass = 3 });
+            odt.GISMeasures.Add(new GISMeasure { Number = 4, Description = "", MinimalRequirementDefenceClass = 3 });
+            odt.GISMeasures.Add(new GISMeasure { Number = 5, Description = "", MinimalRequirementDefenceClass = 3 });
+            odt.GISMeasures.Add(new GISMeasure { Number = 6, Description = "", MinimalRequirementDefenceClass = 3 });
+            odt.GISMeasures.Add(new GISMeasure { Number = 7, Description = "", MinimalRequirementDefenceClass = 3 });
+
+            #endregion
+
+
             context.SaveChanges();
         }
     } 

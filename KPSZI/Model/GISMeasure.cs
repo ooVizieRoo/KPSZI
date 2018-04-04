@@ -22,9 +22,9 @@ namespace KPSZI.Model
         public int Number { get; set; }
 
         /// <summary>
-        /// Внешний ключ на группу мер, к примеру ИАФ, УПД
+        /// Навигационное поле - внешний ключ на группу мер
         /// </summary>
-        public int MeasureGroupId { get; set; }
+        public virtual MeasureGroup MeasureGroup { get; set; }
 
         /// <summary>
         /// Описание меры
@@ -32,7 +32,9 @@ namespace KPSZI.Model
         public string Description { get; set; }
 
         /// <summary>
-        /// Минимально необходимый класс защиты ГИС, для которого должна применяться данная мера. К примеру, =3 => в 3,2,1 требуется применение данной меры
+        /// Минимально необходимый класс защиты ГИС, для которого должна применяться данная мера. 
+        /// Возможные варианты: 3,2,1,0. Где 0 - значит не требуется КЗ ГИС.
+        /// К примеру, =3 => в 3,2,1 требуется применение данной меры
         /// </summary>
         public int MinimalRequirementDefenceClass { get; set; }
 
