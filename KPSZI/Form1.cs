@@ -23,10 +23,12 @@ namespace KPSZI
         {
             using (KPSZIContext db = new KPSZIContext())
             {
-                FileInfo fi = new FileInfo("thrlist.xlsx");
-                
-                db.Threats.AddRange(Threat.GetThreatsFromXlsx(fi, db));
-                db.SaveChanges();
+                //FileInfo fi = new FileInfo("thrlist.xlsx");
+
+                //db.Threats.AddRange(Threat.GetThreatsFromXlsx(fi, db));
+                //db.SaveChanges();
+
+                var hui = db.SFHTypes.ToList();
             }
         }
     }

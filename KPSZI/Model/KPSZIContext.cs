@@ -32,11 +32,8 @@ namespace KPSZI.Model
             builder.HasDefaultSchema("nak");
             base.OnModelCreating(builder);
         }
-    }
 
-    class DBInitializer:DropCreateDatabaseAlways<KPSZIContext>
-    {
-        protected override void Seed(KPSZIContext context)
+        static void Seed(KPSZIContext context)
         {
             //base.Seed(context);
 
@@ -48,7 +45,6 @@ namespace KPSZI.Model
 
             context.SFHTypes.Add(sfh1);
             context.SaveChanges();
-
         }
     } 
 }
