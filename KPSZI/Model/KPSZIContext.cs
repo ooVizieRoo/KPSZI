@@ -288,7 +288,6 @@ namespace KPSZI.Model
 
             #endregion
 
-
             #region Виды обрабатываемой информации
             InfoType it1 = new InfoType();
             it1.TypeName = "Персональные данные";
@@ -301,7 +300,6 @@ namespace KPSZI.Model
 
             context.InfoTypes.AddRange(new List<InfoType> { it1, it2, it3 });
             #endregion
-
 
             #region ТКУИ (типы, каналы, угрозы)
             
@@ -379,8 +377,6 @@ namespace KPSZI.Model
             vid.TCUIs.Add(vidovoi);
             context.TCUITypes.AddRange(new List<TCUIType> { vid, aqoost, pemin, perehvat });
             #endregion
-
-
 
             context.SaveChanges();
         }
