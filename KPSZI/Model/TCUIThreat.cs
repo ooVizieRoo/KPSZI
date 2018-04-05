@@ -17,15 +17,20 @@ namespace KPSZI.Model
         public int TCUIThreatId { get; set; }
 
         /// <summary>
-        /// Навигационное поле - внешний ключ на тип ТКУИ
+        /// Навигационное поле - внешний ключ на ТКУИ
         /// </summary>
-        public virtual TCUIType TCUIType { get; set; }
+        public virtual TCUI TCUI{ get; set; }
 
         /// <summary>
         /// Идентификатор угрозы, типа ТК.01 etc.
         /// </summary>
         public string Identificator { get; set; }
 
+        /// <summary>
+        /// Название угрозы
+        /// </summary>
+        public string Name { get; set; }
+        
         /// <summary>
         /// Описание угрозы
         /// </summary>

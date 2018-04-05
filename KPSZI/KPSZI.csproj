@@ -88,6 +88,7 @@
     <Compile Include="Model\SFHType.cs" />
     <Compile Include="Model\SZI.cs" />
     <Compile Include="Model\SZIType.cs" />
+    <Compile Include="Model\TCUI.cs" />
     <Compile Include="Model\TCUIThreat.cs" />
     <Compile Include="Model\TCUIType.cs" />
     <Compile Include="Model\TechnogenicMeasure.cs" />

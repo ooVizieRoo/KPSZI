@@ -24,14 +24,14 @@ namespace KPSZI.Model
         /// <summary>
         /// Навигационное поле для угроз данного типа
         /// </summary>
-        public virtual ICollection<TCUIThreat> TCUIThreats { get; set; }
+        public virtual ICollection<TCUI> TCUIs { get; set; }
 
         /// <summary>
         /// Конструктор для создания списка
         /// </summary>
         public TCUIType()
         {
-            this.TCUIThreats = new List<TCUIThreat>();
+            this.TCUIs = new List<TCUI>();
         }
     }
 }
