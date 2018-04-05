@@ -82,11 +82,22 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\GISClassification.cs" />
+    <Compile Include="Model\GISMeasure.cs" />
     <Compile Include="Model\InfoType.cs" />
     <Compile Include="Model\IntruderType.cs" />
+    <Compile Include="Model\ISPDNMeasure.cs" />
     <Compile Include="Model\KPSZIContext.cs" />
+    <Compile Include="Model\MeasureGroup.cs" />
+    <Compile Include="Model\RealizationPossibility.cs" />
     <Compile Include="Model\SFH.cs" />
     <Compile Include="Model\SFHType.cs" />
+    <Compile Include="Model\SZI.cs" />
+    <Compile Include="Model\SZIType.cs" />
+    <Compile Include="Model\TCUIThreat.cs" />
+    <Compile Include="Model\TCUIType.cs" />
+    <Compile Include="Model\TechnogenicMeasure.cs" />
+    <Compile Include="Model\TechnogenicThreat.cs" />
     <Compile Include="Model\Threat.cs" />
     <Compile Include="Model\ThreatSource.cs" />
     <Compile Include="Program.cs" />
@@ -94,6 +105,9 @@
     <Compile Include="Stage.cs" />
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+	</EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
