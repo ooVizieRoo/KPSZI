@@ -12,23 +12,48 @@ namespace KPSZI
 {
     public partial class MainForm : Form
     {
-        TabPage tab1, tab2;
+        // Dictionary - аналог ассоциативных массивов в C#
+        // Обращаемся к элементу массива (коллекции) по названию (string)
+        // 
+        internal Dictionary<string, Stage> stages = new Dictionary<string, Stage>();
 
         public MainForm()
         {
             InitializeComponent();
 
-            /*TabControl.TabPageCollection pages = tabControl.TabPages;
-            foreach (TabPage page in pages)
-            {
-            }*/
-
-            tabControl.SelectTab(tabControl.TabPages.IndexOfKey("tabPage1"));
-            tab1 = tabControl.SelectedTab;
-            tabControl.SelectTab(tabControl.TabPages.IndexOfKey("tabPage2"));
-            tab2 = tabControl.SelectedTab;
-
+            // Заполняем коллекцию этапами (название, ссылка на вкладку, ссылка на пункт в дереве) 
+            stages.Add("Node0", new Stage(tabControl.TabPages[tabControl.TabPages.IndexOfKey("tabPage1")],
+                treeView1.Nodes[0], this));
+            stages.Add("Node1", new Stage(tabControl.TabPages[tabControl.TabPages.IndexOfKey("tabPage2")],
+                treeView1.Nodes[1], this));
+            stages.Add("Node2", new Stage(tabControl.TabPages[tabControl.TabPages.IndexOfKey("tabPage3")],
+                treeView1.Nodes[0], this));
+            stages.Add("Node3", new Stage(tabControl.TabPages[tabControl.TabPages.IndexOfKey("tabPage4")],
+                treeView1.Nodes[1], this));
+            
+            // закрываем все вкладки в TabControl
             tabControl.TabPages.Clear();
+
+
+            // балуюсь с разными иконками в дереве
+            treeView1.ImageList = imageList1;            
+            treeView1.Nodes[0].ImageIndex = 0;
+            treeView1.Nodes[0].SelectedImageIndex = 0;
+            treeView1.Nodes[1].ImageIndex = 1;
+            treeView1.Nodes[1].SelectedImageIndex = 1;
+            treeView1.Nodes[2].ImageIndex = 2;
+            treeView1.Nodes[2].SelectedImageIndex = 2;
+        }
+        
+        // переключение этапа в дереве
+        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            tabControl.TabPages.Clear();
+            // берем
+            string nodeName = treeView1.SelectedNode.Name;
+            tabControl.TabPages.Add(stages[nodeName].stageTab);
+            tabControl.SelectedTab.Text = treeView1.SelectedNode.Text;
+
         }
 
         private void создатьПроектToolStripMenuItem_Click(object sender, EventArgs e)
@@ -46,27 +71,6 @@ namespace KPSZI
 
         }
 
-        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
-        {
-
-            tabControl.TabPages.Clear();
-
-            if (treeView1.SelectedNode.Name == "Node0_0")
-            {
-                tabControl.TabPages.Add(tab1);
-                tab1.Text = treeView1.SelectedNode.Text;
-
-            }
-
-            if (treeView1.SelectedNode.Name == "Node0_1")
-            {
-                tabControl.TabPages.Add(tab2);
-                tab2.Text = treeView1.SelectedNode.Text;
-
-
-            }
-
-
-        }
+        
     }
 }
