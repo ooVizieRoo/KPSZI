@@ -39,7 +39,7 @@ namespace KPSZI
                         Console.Write("\n\t{0}:{1}:{2}", s.SFHId, s.Name, s.ProjectSecurity);
                     }
                 }
-            }
+            }*/
         }
     }
 }
