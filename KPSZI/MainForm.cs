@@ -22,14 +22,11 @@ namespace KPSZI
             InitializeComponent();
 
             // Заполняем коллекцию этапами (название, ссылка на вкладку, ссылка на пункт в дереве) 
-            stages.Add("Node0", new Stage(tabControl.TabPages[tabControl.TabPages.IndexOfKey("tabPage1")],
+            stages.Add("tnOptions", new StageOptions(tabControl.TabPages[tabControl.TabPages.IndexOfKey("tpOptions")],
+                treeView1.Nodes[0].Nodes[0], this));
+            stages.Add("Node0", new Stage(tabControl.TabPages[tabControl.TabPages.IndexOfKey("tabPage2")],
                 treeView1.Nodes[0], this));
-            stages.Add("Node1", new Stage(tabControl.TabPages[tabControl.TabPages.IndexOfKey("tabPage2")],
-                treeView1.Nodes[1], this));
-            stages.Add("Node2", new Stage(tabControl.TabPages[tabControl.TabPages.IndexOfKey("tabPage3")],
-                treeView1.Nodes[0], this));
-            stages.Add("Node3", new Stage(tabControl.TabPages[tabControl.TabPages.IndexOfKey("tabPage4")],
-                treeView1.Nodes[1], this));
+            
             
             // закрываем все вкладки в TabControl
             tabControl.TabPages.Clear();
@@ -37,12 +34,8 @@ namespace KPSZI
 
             // балуюсь с разными иконками в дереве
             treeView1.ImageList = imageList1;            
-            treeView1.Nodes[0].ImageIndex = 0;
-            treeView1.Nodes[0].SelectedImageIndex = 0;
-            treeView1.Nodes[1].ImageIndex = 1;
-            treeView1.Nodes[1].SelectedImageIndex = 1;
-            treeView1.Nodes[2].ImageIndex = 2;
-            treeView1.Nodes[2].SelectedImageIndex = 2;
+            
+            
         }
         
         // переключение этапа в дереве

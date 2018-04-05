@@ -30,23 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("1.1. Параметры ИС");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("1.2. Класификация ИС");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("1.3. Технологическая информация");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("1. Обследование ИС", new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3});
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("2.1. Оценка УБИ (НСД)");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("2.2. Оценка УБИ (ТКУИ)");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("2.3 Оценка УБИ. (техногенные)");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("2.4. Оценка УБИ (СКЗИ)");
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("2. Формирование требований", new System.Windows.Forms.TreeNode[] {
-            treeNode5,
-            treeNode6,
-            treeNode7,
-            treeNode8});
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("3. Проектирование СЗИ");
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("4. Внедрение ИС");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("1. Обследование ИС", new System.Windows.Forms.TreeNode[] {
+            treeNode1});
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -54,7 +39,7 @@
             this.createProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.treeView1 = new System.Windows.Forms.TreeView();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tpOptions = new System.Windows.Forms.TabPage();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.lbIsName = new System.Windows.Forms.Label();
             this.tabControl = new System.Windows.Forms.TabControl();
@@ -77,7 +62,7 @@
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.menuStrip1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.tpOptions.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.SuspendLayout();
@@ -128,48 +113,27 @@
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Left;
             this.treeView1.Location = new System.Drawing.Point(0, 24);
             this.treeView1.Name = "treeView1";
-            treeNode1.Name = "Node0_0";
+            treeNode1.Name = "tnOptions";
             treeNode1.Text = "1.1. Параметры ИС";
-            treeNode2.Name = "Node0_1";
-            treeNode2.Text = "1.2. Класификация ИС";
-            treeNode3.Name = "Node1_2";
-            treeNode3.Text = "1.3. Технологическая информация";
-            treeNode4.Name = "Node0";
-            treeNode4.Text = "1. Обследование ИС";
-            treeNode5.Name = "Node1_0";
-            treeNode5.Text = "2.1. Оценка УБИ (НСД)";
-            treeNode6.Name = "Node1_1";
-            treeNode6.Text = "2.2. Оценка УБИ (ТКУИ)";
-            treeNode7.Name = "Node1_2";
-            treeNode7.Text = "2.3 Оценка УБИ. (техногенные)";
-            treeNode8.Name = "Node1_3";
-            treeNode8.Text = "2.4. Оценка УБИ (СКЗИ)";
-            treeNode9.Name = "Node1";
-            treeNode9.Text = "2. Формирование требований";
-            treeNode10.Name = "Node2";
-            treeNode10.Text = "3. Проектирование СЗИ";
-            treeNode11.Name = "Node3";
-            treeNode11.Text = "4. Внедрение ИС";
+            treeNode2.Name = "Node0";
+            treeNode2.Text = "1. Обследование ИС";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode4,
-            treeNode9,
-            treeNode10,
-            treeNode11});
+            treeNode2});
             this.treeView1.Size = new System.Drawing.Size(256, 483);
             this.treeView1.TabIndex = 3;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
-            // tabPage1
+            // tpOptions
             // 
-            this.tabPage1.Controls.Add(this.textBox1);
-            this.tabPage1.Controls.Add(this.lbIsName);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(967, 457);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tpOptions.Controls.Add(this.textBox1);
+            this.tpOptions.Controls.Add(this.lbIsName);
+            this.tpOptions.Location = new System.Drawing.Point(4, 22);
+            this.tpOptions.Name = "tpOptions";
+            this.tpOptions.Padding = new System.Windows.Forms.Padding(3);
+            this.tpOptions.Size = new System.Drawing.Size(967, 457);
+            this.tpOptions.TabIndex = 0;
+            this.tpOptions.Text = "tabPage1";
+            this.tpOptions.UseVisualStyleBackColor = true;
             // 
             // textBox1
             // 
@@ -189,7 +153,7 @@
             // 
             // tabControl
             // 
-            this.tabControl.Controls.Add(this.tabPage1);
+            this.tabControl.Controls.Add(this.tpOptions);
             this.tabControl.Controls.Add(this.tabPage2);
             this.tabControl.Controls.Add(this.tabPage3);
             this.tabControl.Controls.Add(this.tabPage4);
@@ -403,8 +367,8 @@
             this.Text = "Комплекс ПСЗИ";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
+            this.tpOptions.ResumeLayout(false);
+            this.tpOptions.PerformLayout();
             this.tabControl.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -419,7 +383,7 @@
         private System.Windows.Forms.ToolStripMenuItem projectToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem createProjectToolStripMenuItem;
         public System.Windows.Forms.TreeView treeView1;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tpOptions;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label lbIsName;
         public System.Windows.Forms.TabControl tabControl;
