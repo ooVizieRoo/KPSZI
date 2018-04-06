@@ -31,9 +31,9 @@ namespace KPSZI
         public void nextTab()
         {
             mf.tabControl.TabPages.Clear();
-            string nodeName = mf.treeView1.SelectedNode.Name;
+            string nodeName = mf.treeView.SelectedNode.Name;
             mf.tabControl.TabPages.Add(mf.stages[nodeName].stageTab);
-            mf.tabControl.SelectedTab.Text = mf.treeView1.SelectedNode.Text;
+            mf.tabControl.SelectedTab.Text = mf.treeView.SelectedNode.Text;
         }
 
 
