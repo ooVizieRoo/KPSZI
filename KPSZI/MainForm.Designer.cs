@@ -29,26 +29,25 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("1.1. Параметры ИС");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("1.2. Классификация ИС");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("1.3. Технологическая инф.");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("1. Обследование ИС", new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3});
+            System.Windows.Forms.TreeNode treeNode33 = new System.Windows.Forms.TreeNode("1.1. Параметры ИС");
+            System.Windows.Forms.TreeNode treeNode34 = new System.Windows.Forms.TreeNode("1.2. Классификация ИС");
+            System.Windows.Forms.TreeNode treeNode35 = new System.Windows.Forms.TreeNode("1.3. Технологическая инф.");
+            System.Windows.Forms.TreeNode treeNode36 = new System.Windows.Forms.TreeNode("1. Обследование ИС", new System.Windows.Forms.TreeNode[] {
+            treeNode33,
+            treeNode34,
+            treeNode35});
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.projectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.treeView = new System.Windows.Forms.TreeView();
             this.tpOptions = new System.Windows.Forms.TabPage();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.lbIsName = new System.Windows.Forms.Label();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tpClassification = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
@@ -64,7 +63,9 @@
             this.tabPage15 = new System.Windows.Forms.TabPage();
             this.tabPage16 = new System.Windows.Forms.TabPage();
             this.splitter1 = new System.Windows.Forms.Splitter();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.iconList = new System.Windows.Forms.ImageList(this.components);
+            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.tpOptions.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -89,7 +90,6 @@
             this.menuStrip1.Size = new System.Drawing.Size(1231, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
-            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // projectToolStripMenuItem
             // 
@@ -102,9 +102,8 @@
             // createProjectToolStripMenuItem
             // 
             this.createProjectToolStripMenuItem.Name = "createProjectToolStripMenuItem";
-            this.createProjectToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.createProjectToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.createProjectToolStripMenuItem.Text = "Создать";
-            this.createProjectToolStripMenuItem.Click += new System.EventHandler(this.createProjectToolStripMenuItem_Click);
             // 
             // settingsToolStripMenuItem
             // 
@@ -112,24 +111,24 @@
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
             this.settingsToolStripMenuItem.Text = "Настройки";
             // 
-            // treeView1
+            // treeView
             // 
-            this.treeView1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.treeView1.Location = new System.Drawing.Point(0, 24);
-            this.treeView1.Name = "treeView1";
-            treeNode1.Name = "tnOptions";
-            treeNode1.Text = "1.1. Параметры ИС";
-            treeNode2.Name = "tnClassification";
-            treeNode2.Text = "1.2. Классификация ИС";
-            treeNode3.Name = "tnTechno";
-            treeNode3.Text = "1.3. Технологическая инф.";
-            treeNode4.Name = "Node0";
-            treeNode4.Text = "1. Обследование ИС";
-            this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode4});
-            this.treeView1.Size = new System.Drawing.Size(256, 483);
-            this.treeView1.TabIndex = 3;
-            this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
+            this.treeView.Dock = System.Windows.Forms.DockStyle.Left;
+            this.treeView.Location = new System.Drawing.Point(0, 24);
+            this.treeView.Name = "treeView";
+            treeNode33.Name = "tnOptions";
+            treeNode33.Text = "1.1. Параметры ИС";
+            treeNode34.Name = "tnClassification";
+            treeNode34.Text = "1.2. Классификация ИС";
+            treeNode35.Name = "tnTechno";
+            treeNode35.Text = "1.3. Технологическая инф.";
+            treeNode36.Name = "Node0";
+            treeNode36.Text = "1. Обследование ИС";
+            this.treeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode36});
+            this.treeView.Size = new System.Drawing.Size(256, 483);
+            this.treeView.TabIndex = 3;
+            this.treeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView_AfterSelect);
             // 
             // tpOptions
             // 
@@ -187,6 +186,7 @@
             // tpClassification
             // 
             this.tpClassification.Controls.Add(this.button1);
+            this.tpClassification.Controls.Add(this.checkedListBox1);
             this.tpClassification.Location = new System.Drawing.Point(4, 22);
             this.tpClassification.Name = "tpClassification";
             this.tpClassification.Padding = new System.Windows.Forms.Padding(3);
@@ -194,15 +194,6 @@
             this.tpClassification.TabIndex = 1;
             this.tpClassification.Text = "tabPage2";
             this.tpClassification.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(18, 19);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(134, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Получить диплом";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // tabPage3
             // 
@@ -352,13 +343,32 @@
             this.splitter1.TabIndex = 5;
             this.splitter1.TabStop = false;
             // 
-            // imageList1
+            // iconList
             // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "folder-icon.png");
-            this.imageList1.Images.SetKeyName(1, "if_Tick_Mark_Dark_1398912.png");
-            this.imageList1.Images.SetKeyName(2, "if_Close_Icon_Dark_1398917.png");
+            this.iconList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("iconList.ImageStream")));
+            this.iconList.TransparentColor = System.Drawing.Color.Transparent;
+            this.iconList.Images.SetKeyName(0, "folder-icon.png");
+            this.iconList.Images.SetKeyName(1, "if_Tick_Mark_Dark_1398912.png");
+            this.iconList.Images.SetKeyName(2, "if_Close_Icon_Dark_1398917.png");
+            // 
+            // checkedListBox1
+            // 
+            this.checkedListBox1.CheckOnClick = true;
+            this.checkedListBox1.FormattingEnabled = true;
+            this.checkedListBox1.Location = new System.Drawing.Point(7, 7);
+            this.checkedListBox1.Name = "checkedListBox1";
+            this.checkedListBox1.Size = new System.Drawing.Size(412, 229);
+            this.checkedListBox1.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(72, 275);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // MainForm
             // 
@@ -367,7 +377,7 @@
             this.ClientSize = new System.Drawing.Size(1231, 529);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.tabControl);
-            this.Controls.Add(this.treeView1);
+            this.Controls.Add(this.treeView);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -390,14 +400,13 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem projectToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem createProjectToolStripMenuItem;
-        public System.Windows.Forms.TreeView treeView1;
+        public System.Windows.Forms.TreeView treeView;
         private System.Windows.Forms.TabPage tpOptions;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label lbIsName;
         public System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.TabPage tpClassification;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
@@ -413,6 +422,8 @@
         private System.Windows.Forms.TabPage tabPage14;
         private System.Windows.Forms.TabPage tabPage15;
         private System.Windows.Forms.TabPage tabPage16;
-        private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.ImageList iconList;
+        private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private System.Windows.Forms.Button button1;
     }
 }
