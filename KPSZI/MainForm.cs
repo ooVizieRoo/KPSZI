@@ -48,6 +48,8 @@ namespace KPSZI
             tabControl.TabPages.Add(stages[nodeName].stageTab);
             tabControl.SelectedTab.Text = treeView1.SelectedNode.Text;
             
+            if
+
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
