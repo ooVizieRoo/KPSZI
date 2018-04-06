@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("1.1. Параметры ИС");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("1.2. Классификация ИС");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("1.3. Технологическая инф.");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("1. Обследование ИС", new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3});
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("1.1. Параметры ИС");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("1.2. Классификация ИС");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("1.3. Технологическая инф.");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("1. Обследование ИС", new System.Windows.Forms.TreeNode[] {
+            treeNode5,
+            treeNode6,
+            treeNode7});
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -55,8 +55,8 @@
             this.comboBoxAvailability = new System.Windows.Forms.ComboBox();
             this.comboBoxConfidentiality = new System.Windows.Forms.ComboBox();
             this.labelConfidentiality = new System.Windows.Forms.Label();
-            //this.label4 = new System.Windows.Forms.Label();
-            //this.label5 = new System.Windows.Forms.Label();
+            this.labelIntegrity = new System.Windows.Forms.Label();
+            this.labelAvailability = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.comboBoxScale = new System.Windows.Forms.ComboBox();
             this.label = new System.Windows.Forms.Label();
@@ -130,16 +130,16 @@
             this.treeView.Dock = System.Windows.Forms.DockStyle.Left;
             this.treeView.Location = new System.Drawing.Point(0, 24);
             this.treeView.Name = "treeView";
-            treeNode1.Name = "tnOptions";
-            treeNode1.Text = "1.1. Параметры ИС";
-            treeNode2.Name = "tnClassification";
-            treeNode2.Text = "1.2. Классификация ИС";
-            treeNode3.Name = "tnTechno";
-            treeNode3.Text = "1.3. Технологическая инф.";
-            treeNode4.Name = "Node0";
-            treeNode4.Text = "1. Обследование ИС";
+            treeNode5.Name = "tnOptions";
+            treeNode5.Text = "1.1. Параметры ИС";
+            treeNode6.Name = "tnClassification";
+            treeNode6.Text = "1.2. Классификация ИС";
+            treeNode7.Name = "tnTechno";
+            treeNode7.Text = "1.3. Технологическая инф.";
+            treeNode8.Name = "Node0";
+            treeNode8.Text = "1. Обследование ИС";
             this.treeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode4});
+            treeNode8});
             this.treeView.Size = new System.Drawing.Size(256, 483);
             this.treeView.TabIndex = 3;
             this.treeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView_AfterSelect);
@@ -173,12 +173,12 @@
             this.lbIsName.TabIndex = 2;
             this.lbIsName.Text = "Название ИС";
             // 
-            // checkedListBox1
+            // lbInfoTypes
             // 
             this.lbInfoTypes.CheckOnClick = true;
             this.lbInfoTypes.FormattingEnabled = true;
             this.lbInfoTypes.Location = new System.Drawing.Point(7, 7);
-            this.lbInfoTypes.Name = "checkedListBox1";
+            this.lbInfoTypes.Name = "lbInfoTypes";
             this.lbInfoTypes.Size = new System.Drawing.Size(412, 229);
             this.lbInfoTypes.TabIndex = 0;
             // 
@@ -236,9 +236,9 @@
             this.tabPage1.Controls.Add(this.comboBoxIntegrit);
             this.tabPage1.Controls.Add(this.comboBoxAvailability);
             this.tabPage1.Controls.Add(this.comboBoxConfidentiality);
-            this.tabPage1.Controls.Add(this.label3);
-            this.tabPage1.Controls.Add(this.label4);
-            this.tabPage1.Controls.Add(this.label5);
+            this.tabPage1.Controls.Add(this.labelConfidentiality);
+            this.tabPage1.Controls.Add(this.labelIntegrity);
+            this.tabPage1.Controls.Add(this.labelAvailability);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -287,32 +287,32 @@
             this.comboBoxConfidentiality.Size = new System.Drawing.Size(121, 21);
             this.comboBoxConfidentiality.TabIndex = 9;
             // 
-            // label3
+            // labelConfidentiality
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(20, 21);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(117, 13);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Конфиденциальность";
+            this.labelConfidentiality.AutoSize = true;
+            this.labelConfidentiality.Location = new System.Drawing.Point(20, 21);
+            this.labelConfidentiality.Name = "labelConfidentiality";
+            this.labelConfidentiality.Size = new System.Drawing.Size(117, 13);
+            this.labelConfidentiality.TabIndex = 5;
+            this.labelConfidentiality.Text = "Конфиденциальность";
             // 
-            // label4
+            // labelIntegrity
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(20, 51);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(73, 13);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Целостность";
+            this.labelIntegrity.AutoSize = true;
+            this.labelIntegrity.Location = new System.Drawing.Point(20, 51);
+            this.labelIntegrity.Name = "labelIntegrity";
+            this.labelIntegrity.Size = new System.Drawing.Size(73, 13);
+            this.labelIntegrity.TabIndex = 6;
+            this.labelIntegrity.Text = "Целостность";
             // 
-            // label5
+            // labelAvailability
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(20, 81);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(73, 13);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "Доступность";
+            this.labelAvailability.AutoSize = true;
+            this.labelAvailability.Location = new System.Drawing.Point(20, 81);
+            this.labelAvailability.Name = "labelAvailability";
+            this.labelAvailability.Size = new System.Drawing.Size(73, 13);
+            this.labelAvailability.TabIndex = 7;
+            this.labelAvailability.Text = "Доступность";
             // 
             // tabPage2
             // 
@@ -569,8 +569,8 @@
         private System.Windows.Forms.ImageList iconList;
         private System.Windows.Forms.ComboBox comboBoxConfidentiality;
         private System.Windows.Forms.ComboBox comboBoxIntegrit;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label labelAvailability;
+        private System.Windows.Forms.Label labelIntegrity;
         private System.Windows.Forms.Label labelConfidentiality;
         private System.Windows.Forms.Label label;
         private System.Windows.Forms.Label labelScale;
