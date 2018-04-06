@@ -65,7 +65,6 @@
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.iconList = new System.Windows.Forms.ImageList(this.components);
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.comboBoxAvailability = new System.Windows.Forms.ComboBox();
             this.labelScale = new System.Windows.Forms.Label();
             this.label = new System.Windows.Forms.Label();
@@ -204,7 +203,6 @@
             this.tpClassification.Controls.Add(this.comboBoxScale);
             this.tpClassification.Controls.Add(this.label);
             this.tpClassification.Controls.Add(this.labelScale);
-            this.tpClassification.Controls.Add(this.button1);
             this.tpClassification.Controls.Add(this.checkedListBox1);
             this.tpClassification.Location = new System.Drawing.Point(4, 22);
             this.tpClassification.Name = "tpClassification";
@@ -378,13 +376,6 @@
             this.checkedListBox1.Name = "checkedListBox1";
             this.checkedListBox1.Size = new System.Drawing.Size(412, 229);
             this.checkedListBox1.TabIndex = 0;
-
-            // imageList1
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "folder-icon.png");
-            this.imageList1.Images.SetKeyName(1, "if_Tick_Mark_Dark_1398912.png");
-            this.imageList1.Images.SetKeyName(2, "if_Close_Icon_Dark_1398917.png");
             // 
             // comboBoxAvailability
             // 
