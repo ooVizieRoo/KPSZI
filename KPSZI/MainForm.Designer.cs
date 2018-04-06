@@ -54,9 +54,9 @@
             this.comboBoxIntegrit = new System.Windows.Forms.ComboBox();
             this.comboBoxAvailability = new System.Windows.Forms.ComboBox();
             this.comboBoxConfidentiality = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.labelConfidentiality = new System.Windows.Forms.Label();
+            //this.label4 = new System.Windows.Forms.Label();
+            //this.label5 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.comboBoxScale = new System.Windows.Forms.ComboBox();
             this.label = new System.Windows.Forms.Label();
@@ -571,7 +571,7 @@
         private System.Windows.Forms.ComboBox comboBoxIntegrit;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelConfidentiality;
         private System.Windows.Forms.Label label;
         private System.Windows.Forms.Label labelScale;
         private System.Windows.Forms.ComboBox comboBoxAvailability;
