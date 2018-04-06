@@ -30,8 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("1.1. Параметры ИС");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("1. Обследование ИС", new System.Windows.Forms.TreeNode[] {
-            treeNode1});
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("1.2. Классификация ИС");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("1.3. Технологическая инф.");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("1. Обследование ИС", new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2,
+            treeNode3});
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -43,7 +47,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.lbIsName = new System.Windows.Forms.Label();
             this.tabControl = new System.Windows.Forms.TabControl();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tpClassification = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
@@ -64,7 +68,7 @@
             this.menuStrip1.SuspendLayout();
             this.tpOptions.SuspendLayout();
             this.tabControl.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.tpClassification.SuspendLayout();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -115,10 +119,14 @@
             this.treeView1.Name = "treeView1";
             treeNode1.Name = "tnOptions";
             treeNode1.Text = "1.1. Параметры ИС";
-            treeNode2.Name = "Node0";
-            treeNode2.Text = "1. Обследование ИС";
+            treeNode2.Name = "tnClassification";
+            treeNode2.Text = "1.2. Классификация ИС";
+            treeNode3.Name = "tnTechno";
+            treeNode3.Text = "1.3. Технологическая инф.";
+            treeNode4.Name = "Node0";
+            treeNode4.Text = "1. Обследование ИС";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode2});
+            treeNode4});
             this.treeView1.Size = new System.Drawing.Size(256, 483);
             this.treeView1.TabIndex = 3;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
@@ -154,7 +162,7 @@
             // tabControl
             // 
             this.tabControl.Controls.Add(this.tpOptions);
-            this.tabControl.Controls.Add(this.tabPage2);
+            this.tabControl.Controls.Add(this.tpClassification);
             this.tabControl.Controls.Add(this.tabPage3);
             this.tabControl.Controls.Add(this.tabPage4);
             this.tabControl.Controls.Add(this.tabPage5);
@@ -176,16 +184,16 @@
             this.tabControl.Size = new System.Drawing.Size(975, 483);
             this.tabControl.TabIndex = 4;
             // 
-            // tabPage2
+            // tpClassification
             // 
-            this.tabPage2.Controls.Add(this.button1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(967, 457);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tpClassification.Controls.Add(this.button1);
+            this.tpClassification.Location = new System.Drawing.Point(4, 22);
+            this.tpClassification.Name = "tpClassification";
+            this.tpClassification.Padding = new System.Windows.Forms.Padding(3);
+            this.tpClassification.Size = new System.Drawing.Size(967, 457);
+            this.tpClassification.TabIndex = 1;
+            this.tpClassification.Text = "tabPage2";
+            this.tpClassification.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
@@ -371,7 +379,7 @@
             this.tpOptions.ResumeLayout(false);
             this.tpOptions.PerformLayout();
             this.tabControl.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
+            this.tpClassification.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -389,7 +397,7 @@
         private System.Windows.Forms.Label lbIsName;
         public System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.Splitter splitter1;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tpClassification;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
         private System.Windows.Forms.TabPage tabPage3;

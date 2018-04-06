@@ -24,7 +24,10 @@ namespace KPSZI
             // Заполняем коллекцию этапами (название, ссылка на вкладку, ссылка на пункт в дереве) 
             stages.Add("tnOptions", new StageOptions(tabControl.TabPages[tabControl.TabPages.IndexOfKey("tpOptions")],
                 treeView1.Nodes[0].Nodes[0], this));
-            stages.Add("Node0", new Stage(tabControl.TabPages[tabControl.TabPages.IndexOfKey("tabPage2")],
+            stages.Add("tnClassification", new StageOptions(tabControl.TabPages[tabControl.TabPages.IndexOfKey("tpClassification")],
+                treeView1.Nodes[0].Nodes[1], this));
+
+            stages.Add("Node0", new Stage(tabControl.TabPages[tabControl.TabPages.IndexOfKey("tabPage3")],
                 treeView1.Nodes[0], this));
             
             
@@ -33,9 +36,7 @@ namespace KPSZI
 
 
             // балуюсь с разными иконками в дереве
-            treeView1.ImageList = imageList1;            
-            
-            
+            treeView1.ImageList = imageList1;
         }
         
         // переключение этапа в дереве
@@ -46,7 +47,7 @@ namespace KPSZI
             string nodeName = treeView1.SelectedNode.Name;
             tabControl.TabPages.Add(stages[nodeName].stageTab);
             tabControl.SelectedTab.Text = treeView1.SelectedNode.Text;
-
+            
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
