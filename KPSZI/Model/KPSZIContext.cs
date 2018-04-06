@@ -298,6 +298,19 @@ namespace KPSZI.Model
             InfoType it3 = new InfoType();
             it3.TypeName = "Коммерческая тайна";
 
+            InfoType it4 = new InfoType();
+            it4.TypeName = "Сведения о сущности изобретения, полезной модели или промышленного образца до официальной публикации информации о них";
+
+            InfoType it5 = new InfoType();
+            it5.TypeName = "Тайна следствия и судопроизводства";
+
+            InfoType it6 = new InfoType();
+            it6.TypeName = "Профессиональная тайна";
+
+            InfoType it7 = new InfoType();
+            it7.TypeName = "Сведения, содержащиеся в личных делах осужденных, а также сведения о принудительном исполнении судебных актов, актов других органов и должностных лиц, кроме сведений, которые являются общедоступными ";
+
+
             context.InfoTypes.AddRange(new List<InfoType> { it1, it2, it3 });
             #endregion
 

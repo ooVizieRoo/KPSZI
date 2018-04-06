@@ -65,6 +65,7 @@
             this.tabPage16 = new System.Windows.Forms.TabPage();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.menuStrip1.SuspendLayout();
             this.tpOptions.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -415,5 +416,6 @@
         private System.Windows.Forms.TabPage tabPage15;
         private System.Windows.Forms.TabPage tabPage16;
         private System.Windows.Forms.ImageList imageList1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
