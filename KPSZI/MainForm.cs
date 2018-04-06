@@ -66,7 +66,7 @@ namespace KPSZI
         private void treeView_AfterSelect(object sender, TreeViewEventArgs e)
         {
             tabControl.TabPages.Clear();
-            // берем
+            // не берем
             string nodeName = treeView.SelectedNode.Name;
             if (treeView.SelectedNode.Nodes.Count == 0)
             {
