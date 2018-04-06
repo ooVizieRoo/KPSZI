@@ -49,11 +49,6 @@ namespace KPSZI
 
         }
 
-        private void создатьПроектToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
@@ -64,6 +59,10 @@ namespace KPSZI
 
         }
 
-        
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form1 fm = new Form1();
+            fm.Show();
+        }
     }
 }
