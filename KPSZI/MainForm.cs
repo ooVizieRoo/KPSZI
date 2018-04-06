@@ -40,12 +40,12 @@ namespace KPSZI
 
                 var hui = db.InfoTypes.ToList();                
                 
-                ((ListBox)checkedListBox1).DataSource = hui;
-                ((ListBox)checkedListBox1).DisplayMember = "TypeName";
-                ((ListBox)checkedListBox1).ValueMember = "InfoTypeId";
+                ((ListBox)lbInfoTypes).DataSource = hui;
+                ((ListBox)lbInfoTypes).DisplayMember = "TypeName";
+                ((ListBox)lbInfoTypes).ValueMember = "InfoTypeId";
             }
             
-            foreach (object itemChecked in checkedListBox1.CheckedItems)
+            foreach (object itemChecked in lbInfoTypes.CheckedItems)
             {
                 // add itemChecked to InfoType-list in IS class
             }
@@ -73,11 +73,6 @@ namespace KPSZI
                 tabControl.TabPages.Add(stages[nodeName].stageTab);
                 tabControl.SelectedTab.Text = treeView.SelectedNode.Text;
             }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
         }
     }
 }
