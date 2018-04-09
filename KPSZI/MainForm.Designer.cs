@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("1.1. Параметры ИС");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("1.2. Классификация ИС");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("1.3. Технологическая инф.");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("1. Обследование ИС", new System.Windows.Forms.TreeNode[] {
-            treeNode5,
-            treeNode6,
-            treeNode7});
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("1.1. Параметры ИС");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("1.2. Классификация ИС");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("1.3. Технологическая инф.");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("1. Обследование ИС", new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2,
+            treeNode3});
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -130,16 +130,16 @@
             this.treeView.Dock = System.Windows.Forms.DockStyle.Left;
             this.treeView.Location = new System.Drawing.Point(0, 24);
             this.treeView.Name = "treeView";
-            treeNode5.Name = "tnOptions";
-            treeNode5.Text = "1.1. Параметры ИС";
-            treeNode6.Name = "tnClassification";
-            treeNode6.Text = "1.2. Классификация ИС";
-            treeNode7.Name = "tnTechno";
-            treeNode7.Text = "1.3. Технологическая инф.";
-            treeNode8.Name = "Node0";
-            treeNode8.Text = "1. Обследование ИС";
+            treeNode1.Name = "tnOptions";
+            treeNode1.Text = "1.1. Параметры ИС";
+            treeNode2.Name = "tnClassification";
+            treeNode2.Text = "1.2. Классификация ИС";
+            treeNode3.Name = "tnTechno";
+            treeNode3.Text = "1.3. Технологическая инф.";
+            treeNode4.Name = "Node0";
+            treeNode4.Text = "1. Обследование ИС";
             this.treeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode8});
+            treeNode4});
             this.treeView.Size = new System.Drawing.Size(256, 483);
             this.treeView.TabIndex = 3;
             this.treeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView_AfterSelect);
@@ -182,6 +182,7 @@
             this.lbInfoTypes.Name = "lbInfoTypes";
             this.lbInfoTypes.Size = new System.Drawing.Size(293, 334);
             this.lbInfoTypes.TabIndex = 0;
+            this.lbInfoTypes.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.lbInfoTypes_ItemCheck);
             // 
             // tabControl
             // 
