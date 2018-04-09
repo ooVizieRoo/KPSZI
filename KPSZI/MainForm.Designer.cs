@@ -61,8 +61,6 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.comboBoxIntegrit = new System.Windows.Forms.ComboBox();
             this.comboBoxAvailability = new System.Windows.Forms.ComboBox();
-            this.tabControlInfoTypes = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.comboBoxConfidentiality = new System.Windows.Forms.ComboBox();
             this.comboBoxScale = new System.Windows.Forms.ComboBox();
@@ -783,7 +781,7 @@
         private System.Windows.Forms.ComboBox comboBoxHundred;
         private System.Windows.Forms.Label labelHundred;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.CheckedListBox lbInfoTypes;
+        internal System.Windows.Forms.CheckedListBox lbInfoTypes;
         private System.Windows.Forms.ToolStripMenuItem testPanelToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem threatToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rewriteThreatsDBToolStripMenuItem;
