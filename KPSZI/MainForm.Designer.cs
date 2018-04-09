@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("1.1. Параметры ИС");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("1.2. Классификация ИС");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("1.3. Технологическая инф.");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("1. Обследование ИС", new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3});
+            System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("1.1. Параметры ИС");
+            System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("1.2. Классификация ИС");
+            System.Windows.Forms.TreeNode treeNode31 = new System.Windows.Forms.TreeNode("1.3. Технологическая инф.");
+            System.Windows.Forms.TreeNode treeNode32 = new System.Windows.Forms.TreeNode("1. Обследование ИС", new System.Windows.Forms.TreeNode[] {
+            treeNode29,
+            treeNode30,
+            treeNode31});
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -49,18 +49,18 @@
             this.lbInfoTypes = new System.Windows.Forms.CheckedListBox();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tpClassification = new System.Windows.Forms.TabPage();
-            this.tabControlInfoTypes = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.comboBoxIntegrit = new System.Windows.Forms.ComboBox();
             this.comboBoxAvailability = new System.Windows.Forms.ComboBox();
-            this.comboBoxConfidentiality = new System.Windows.Forms.ComboBox();
-            this.labelConfidentiality = new System.Windows.Forms.Label();
-            this.labelIntegrity = new System.Windows.Forms.Label();
-            this.labelAvailability = new System.Windows.Forms.Label();
+            this.tabControlInfoTypes = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.comboBoxConfidentiality = new System.Windows.Forms.ComboBox();
             this.comboBoxScale = new System.Windows.Forms.ComboBox();
+            this.labelConfidentiality = new System.Windows.Forms.Label();
             this.label = new System.Windows.Forms.Label();
+            this.labelIntegrity = new System.Windows.Forms.Label();
             this.labelScale = new System.Windows.Forms.Label();
+            this.labelAvailability = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
@@ -129,16 +129,16 @@
             this.treeView.Dock = System.Windows.Forms.DockStyle.Left;
             this.treeView.Location = new System.Drawing.Point(0, 24);
             this.treeView.Name = "treeView";
-            treeNode1.Name = "tnOptions";
-            treeNode1.Text = "1.1. Параметры ИС";
-            treeNode2.Name = "tnClassification";
-            treeNode2.Text = "1.2. Классификация ИС";
-            treeNode3.Name = "tnTechno";
-            treeNode3.Text = "1.3. Технологическая инф.";
-            treeNode4.Name = "Node0";
-            treeNode4.Text = "1. Обследование ИС";
+            treeNode29.Name = "tnOptions";
+            treeNode29.Text = "1.1. Параметры ИС";
+            treeNode30.Name = "tnClassification";
+            treeNode30.Text = "1.2. Классификация ИС";
+            treeNode31.Name = "tnTechno";
+            treeNode31.Text = "1.3. Технологическая инф.";
+            treeNode32.Name = "Node0";
+            treeNode32.Text = "1. Обследование ИС";
             this.treeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode4});
+            treeNode32});
             this.treeView.Size = new System.Drawing.Size(256, 483);
             this.treeView.TabIndex = 3;
             this.treeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView_AfterSelect);
@@ -177,9 +177,13 @@
             // 
             this.lbInfoTypes.CheckOnClick = true;
             this.lbInfoTypes.FormattingEnabled = true;
+            this.lbInfoTypes.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3"});
             this.lbInfoTypes.Location = new System.Drawing.Point(7, 54);
             this.lbInfoTypes.Name = "lbInfoTypes";
-            this.lbInfoTypes.Size = new System.Drawing.Size(293, 334);
+            this.lbInfoTypes.Size = new System.Drawing.Size(293, 109);
             this.lbInfoTypes.TabIndex = 0;
             this.lbInfoTypes.SelectedIndexChanged += new System.EventHandler(this.lbInfoTypes_SelectedIndexChanged);
             // 
@@ -228,26 +232,6 @@
             this.tpClassification.Text = "tabPage2";
             this.tpClassification.UseVisualStyleBackColor = true;
             // 
-            // tabControlInfoTypes
-            // 
-            this.tabControlInfoTypes.Controls.Add(this.tabPage1);
-            this.tabControlInfoTypes.Controls.Add(this.tabPage2);
-            this.tabControlInfoTypes.Location = new System.Drawing.Point(271, 54);
-            this.tabControlInfoTypes.Name = "tabControlInfoTypes";
-            this.tabControlInfoTypes.SelectedIndex = 0;
-            this.tabControlInfoTypes.Size = new System.Drawing.Size(303, 151);
-            this.tabControlInfoTypes.TabIndex = 11;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(295, 125);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
             // comboBoxIntegrit
             // 
             this.comboBoxIntegrit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -274,6 +258,36 @@
             this.comboBoxAvailability.Size = new System.Drawing.Size(121, 21);
             this.comboBoxAvailability.TabIndex = 2;
             // 
+            // tabControlInfoTypes
+            // 
+            this.tabControlInfoTypes.Controls.Add(this.tabPage1);
+            this.tabControlInfoTypes.Controls.Add(this.tabPage2);
+            this.tabControlInfoTypes.Location = new System.Drawing.Point(271, 54);
+            this.tabControlInfoTypes.Name = "tabControlInfoTypes";
+            this.tabControlInfoTypes.SelectedIndex = 0;
+            this.tabControlInfoTypes.Size = new System.Drawing.Size(303, 151);
+            this.tabControlInfoTypes.TabIndex = 11;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(295, 125);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(295, 125);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
             // comboBoxConfidentiality
             // 
             this.comboBoxConfidentiality.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -288,43 +302,6 @@
             this.comboBoxConfidentiality.Size = new System.Drawing.Size(121, 21);
             this.comboBoxConfidentiality.TabIndex = 9;
             // 
-            // labelConfidentiality
-            // 
-            this.labelConfidentiality.AutoSize = true;
-            this.labelConfidentiality.Location = new System.Drawing.Point(620, 73);
-            this.labelConfidentiality.Name = "labelConfidentiality";
-            this.labelConfidentiality.Size = new System.Drawing.Size(117, 13);
-            this.labelConfidentiality.TabIndex = 5;
-            this.labelConfidentiality.Text = "Конфиденциальность";
-            // 
-            // labelIntegrity
-            // 
-            this.labelIntegrity.AutoSize = true;
-            this.labelIntegrity.Location = new System.Drawing.Point(620, 103);
-            this.labelIntegrity.Name = "labelIntegrity";
-            this.labelIntegrity.Size = new System.Drawing.Size(73, 13);
-            this.labelIntegrity.TabIndex = 6;
-            this.labelIntegrity.Text = "Целостность";
-            // 
-            // labelAvailability
-            // 
-            this.labelAvailability.AutoSize = true;
-            this.labelAvailability.Location = new System.Drawing.Point(620, 133);
-            this.labelAvailability.Name = "labelAvailability";
-            this.labelAvailability.Size = new System.Drawing.Size(73, 13);
-            this.labelAvailability.TabIndex = 7;
-            this.labelAvailability.Text = "Доступность";
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(295, 125);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
             // comboBoxScale
             // 
             this.comboBoxScale.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -338,6 +315,15 @@
             this.comboBoxScale.Size = new System.Drawing.Size(121, 21);
             this.comboBoxScale.TabIndex = 10;
             // 
+            // labelConfidentiality
+            // 
+            this.labelConfidentiality.AutoSize = true;
+            this.labelConfidentiality.Location = new System.Drawing.Point(620, 73);
+            this.labelConfidentiality.Name = "labelConfidentiality";
+            this.labelConfidentiality.Size = new System.Drawing.Size(117, 13);
+            this.labelConfidentiality.TabIndex = 5;
+            this.labelConfidentiality.Text = "Конфиденциальность";
+            // 
             // label
             // 
             this.label.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -347,6 +333,15 @@
             this.label.TabIndex = 4;
             this.label.Text = "Степень ущерба для свойств безопасности информации";
             // 
+            // labelIntegrity
+            // 
+            this.labelIntegrity.AutoSize = true;
+            this.labelIntegrity.Location = new System.Drawing.Point(620, 103);
+            this.labelIntegrity.Name = "labelIntegrity";
+            this.labelIntegrity.Size = new System.Drawing.Size(73, 13);
+            this.labelIntegrity.TabIndex = 6;
+            this.labelIntegrity.Text = "Целостность";
+            // 
             // labelScale
             // 
             this.labelScale.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -355,6 +350,15 @@
             this.labelScale.Size = new System.Drawing.Size(198, 52);
             this.labelScale.TabIndex = 3;
             this.labelScale.Text = "Масштаб информационной системы";
+            // 
+            // labelAvailability
+            // 
+            this.labelAvailability.AutoSize = true;
+            this.labelAvailability.Location = new System.Drawing.Point(620, 133);
+            this.labelAvailability.Name = "labelAvailability";
+            this.labelAvailability.Size = new System.Drawing.Size(73, 13);
+            this.labelAvailability.TabIndex = 7;
+            this.labelAvailability.Text = "Доступность";
             // 
             // tabPage3
             // 
@@ -545,7 +549,7 @@
         private System.Windows.Forms.ToolStripMenuItem projectToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem createProjectToolStripMenuItem;
         public System.Windows.Forms.TreeView treeView;
-        private System.Windows.Forms.TabPage tpOptions;
+        public System.Windows.Forms.TabPage tpOptions;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label lbIsName;
         public System.Windows.Forms.TabControl tabControl;
@@ -580,6 +584,6 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.CheckedListBox lbInfoTypes;
+        public System.Windows.Forms.CheckedListBox lbInfoTypes;
     }
 }

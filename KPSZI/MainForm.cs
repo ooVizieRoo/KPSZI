@@ -22,7 +22,6 @@ namespace KPSZI
 
         public MainForm()
         {
-            
             InitializeComponent();
 
             // Заполняем коллекцию этапами (название, ссылка на вкладку, ссылка на пункт в дереве) 
@@ -34,24 +33,6 @@ namespace KPSZI
 
             // связываем дерево с набором иконок
             treeView.ImageList = iconList;
-
-
-
-            using (KPSZIContext db = new KPSZIContext())
-            {
-                //KPSZIContext.Seed(db);
-
-                var hui = db.InfoTypes.ToList();                
-                
-                ((ListBox)lbInfoTypes).DataSource = hui;
-                ((ListBox)lbInfoTypes).DisplayMember = "TypeName";
-                ((ListBox)lbInfoTypes).ValueMember = "InfoTypeId";
-            }
-
-            foreach (object itemChecked in lbInfoTypes.CheckedItems)
-            {
-                // add itemChecked to InfoType-list in IS class
-            }
         }
         
         // возвращает ссылку на TabPage по имени вкладки
