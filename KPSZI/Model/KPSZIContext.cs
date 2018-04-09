@@ -30,7 +30,7 @@ namespace KPSZI.Model
         
         protected override void OnModelCreating(DbModelBuilder builder)
         {
-            builder.HasDefaultSchema("soooka");
+            builder.HasDefaultSchema("soooqa");
             base.OnModelCreating(builder);
         }
 
