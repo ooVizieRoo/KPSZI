@@ -49,7 +49,7 @@
             this.lbInfoTypes = new System.Windows.Forms.CheckedListBox();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tpClassification = new System.Windows.Forms.TabPage();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabControlInfoTypes = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.comboBoxIntegrit = new System.Windows.Forms.ComboBox();
             this.comboBoxAvailability = new System.Windows.Forms.ComboBox();
@@ -82,8 +82,7 @@
             this.tpOptions.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tpClassification.SuspendLayout();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.tabControlInfoTypes.SuspendLayout();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -182,7 +181,7 @@
             this.lbInfoTypes.Name = "lbInfoTypes";
             this.lbInfoTypes.Size = new System.Drawing.Size(293, 334);
             this.lbInfoTypes.TabIndex = 0;
-            this.lbInfoTypes.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.lbInfoTypes_ItemCheck);
+            this.lbInfoTypes.SelectedIndexChanged += new System.EventHandler(this.lbInfoTypes_SelectedIndexChanged);
             // 
             // tabControl
             // 
@@ -211,10 +210,16 @@
             // 
             // tpClassification
             // 
-            this.tpClassification.Controls.Add(this.tabControl1);
+            this.tpClassification.Controls.Add(this.comboBoxIntegrit);
+            this.tpClassification.Controls.Add(this.comboBoxAvailability);
+            this.tpClassification.Controls.Add(this.tabControlInfoTypes);
+            this.tpClassification.Controls.Add(this.comboBoxConfidentiality);
             this.tpClassification.Controls.Add(this.comboBoxScale);
+            this.tpClassification.Controls.Add(this.labelConfidentiality);
             this.tpClassification.Controls.Add(this.label);
+            this.tpClassification.Controls.Add(this.labelIntegrity);
             this.tpClassification.Controls.Add(this.labelScale);
+            this.tpClassification.Controls.Add(this.labelAvailability);
             this.tpClassification.Location = new System.Drawing.Point(4, 22);
             this.tpClassification.Name = "tpClassification";
             this.tpClassification.Padding = new System.Windows.Forms.Padding(3);
@@ -223,24 +228,18 @@
             this.tpClassification.Text = "tabPage2";
             this.tpClassification.UseVisualStyleBackColor = true;
             // 
-            // tabControl1
+            // tabControlInfoTypes
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(271, 54);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(303, 151);
-            this.tabControl1.TabIndex = 11;
+            this.tabControlInfoTypes.Controls.Add(this.tabPage1);
+            this.tabControlInfoTypes.Controls.Add(this.tabPage2);
+            this.tabControlInfoTypes.Location = new System.Drawing.Point(271, 54);
+            this.tabControlInfoTypes.Name = "tabControlInfoTypes";
+            this.tabControlInfoTypes.SelectedIndex = 0;
+            this.tabControlInfoTypes.Size = new System.Drawing.Size(303, 151);
+            this.tabControlInfoTypes.TabIndex = 11;
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.comboBoxIntegrit);
-            this.tabPage1.Controls.Add(this.comboBoxAvailability);
-            this.tabPage1.Controls.Add(this.comboBoxConfidentiality);
-            this.tabPage1.Controls.Add(this.labelConfidentiality);
-            this.tabPage1.Controls.Add(this.labelIntegrity);
-            this.tabPage1.Controls.Add(this.labelAvailability);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -257,7 +256,7 @@
             "Высокий",
             "Средний",
             "Низкий"});
-            this.comboBoxIntegrit.Location = new System.Drawing.Point(145, 48);
+            this.comboBoxIntegrit.Location = new System.Drawing.Point(745, 100);
             this.comboBoxIntegrit.Name = "comboBoxIntegrit";
             this.comboBoxIntegrit.Size = new System.Drawing.Size(121, 21);
             this.comboBoxIntegrit.TabIndex = 8;
@@ -270,7 +269,7 @@
             "Высокий",
             "Средний",
             "Низкий"});
-            this.comboBoxAvailability.Location = new System.Drawing.Point(145, 78);
+            this.comboBoxAvailability.Location = new System.Drawing.Point(745, 130);
             this.comboBoxAvailability.Name = "comboBoxAvailability";
             this.comboBoxAvailability.Size = new System.Drawing.Size(121, 21);
             this.comboBoxAvailability.TabIndex = 2;
@@ -284,7 +283,7 @@
             "Высокий",
             "Средний",
             "Низкий"});
-            this.comboBoxConfidentiality.Location = new System.Drawing.Point(145, 18);
+            this.comboBoxConfidentiality.Location = new System.Drawing.Point(745, 70);
             this.comboBoxConfidentiality.Name = "comboBoxConfidentiality";
             this.comboBoxConfidentiality.Size = new System.Drawing.Size(121, 21);
             this.comboBoxConfidentiality.TabIndex = 9;
@@ -292,7 +291,7 @@
             // labelConfidentiality
             // 
             this.labelConfidentiality.AutoSize = true;
-            this.labelConfidentiality.Location = new System.Drawing.Point(20, 21);
+            this.labelConfidentiality.Location = new System.Drawing.Point(620, 73);
             this.labelConfidentiality.Name = "labelConfidentiality";
             this.labelConfidentiality.Size = new System.Drawing.Size(117, 13);
             this.labelConfidentiality.TabIndex = 5;
@@ -301,7 +300,7 @@
             // labelIntegrity
             // 
             this.labelIntegrity.AutoSize = true;
-            this.labelIntegrity.Location = new System.Drawing.Point(20, 51);
+            this.labelIntegrity.Location = new System.Drawing.Point(620, 103);
             this.labelIntegrity.Name = "labelIntegrity";
             this.labelIntegrity.Size = new System.Drawing.Size(73, 13);
             this.labelIntegrity.TabIndex = 6;
@@ -310,7 +309,7 @@
             // labelAvailability
             // 
             this.labelAvailability.AutoSize = true;
-            this.labelAvailability.Location = new System.Drawing.Point(20, 81);
+            this.labelAvailability.Location = new System.Drawing.Point(620, 133);
             this.labelAvailability.Name = "labelAvailability";
             this.labelAvailability.Size = new System.Drawing.Size(73, 13);
             this.labelAvailability.TabIndex = 7;
@@ -532,9 +531,8 @@
             this.tpOptions.PerformLayout();
             this.tabControl.ResumeLayout(false);
             this.tpClassification.ResumeLayout(false);
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
+            this.tpClassification.PerformLayout();
+            this.tabControlInfoTypes.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -578,7 +576,7 @@
         private System.Windows.Forms.Label labelScale;
         private System.Windows.Forms.ComboBox comboBoxAvailability;
         private System.Windows.Forms.ComboBox comboBoxScale;
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tabControlInfoTypes;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
