@@ -717,7 +717,7 @@
         private System.Windows.Forms.ComboBox comboBoxAvailability;
         private System.Windows.Forms.ComboBox comboBoxScale;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.CheckedListBox lbInfoTypes;
+        public System.Windows.Forms.CheckedListBox lbInfoTypes;
         private System.Windows.Forms.TabControl tabControlInfoTypes;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
