@@ -24,7 +24,6 @@ namespace KPSZI
 
         public MainForm()
         {
-
             InitializeComponent();
 
             // Заполняем коллекцию этапами (название, ссылка на вкладку, ссылка на пункт в дереве) 
@@ -38,22 +37,8 @@ namespace KPSZI
             treeView.ImageList = iconList;
 
 
+            tabControlInfoTypes.TabPages.AddRange(((StageClassification)stages["tnClassification"]).tabPagesInfoTypes.ToArray());
 
-            using (KPSZIContext db = new KPSZIContext())
-            {
-                //KPSZIContext.Seed(db); - инициализация БД начальными значениями
-
-                var hui = db.InfoTypes.ToList();
-
-                ((ListBox)lbInfoTypes).DataSource = hui;
-                ((ListBox)lbInfoTypes).DisplayMember = "TypeName";
-                ((ListBox)lbInfoTypes).ValueMember = "InfoTypeId";
-            }
-
-            foreach (object itemChecked in lbInfoTypes.CheckedItems)
-            {
-                // add itemChecked to InfoType-list in IS class
-            }
         }
 
         // возвращает ссылку на TabPage по имени вкладки
@@ -82,9 +67,28 @@ namespace KPSZI
             if (treeView.SelectedNode.Name == "tnClassification")
             {
                 tabControlInfoTypes.TabPages.Clear();
+                //
+                panelPDN.Enabled = false;
+                panelPDN.Visible = false;
                 foreach (InfoType it in IS.listOfInfoTypes)
                 {
-                    tabControlInfoTypes.TabPages.Add(new TabPage { Name = it.TypeName, Text = it.TypeName });
+                    if (it.TypeName == "Персональные данные")
+                    {
+                        panelPDN.Enabled = true;
+                        panelPDN.Visible = true;
+                        continue;
+                    }
+                    tabControlInfoTypes.TabPages.Add(((StageClassification)stages["tnClassification"]).tabPagesInfoTypes.FindLast(t => t.Name == it.TypeName));
+                }                
+            }
+
+            if (treeView.SelectedNode.Name == "tnOptions")
+            {
+                // берем из экземпляра выбранные виды информации и возвращаем их в чеклистбокс при переходе по вкладкам
+                for (int i = 0; i < IS.listOfInfoTypes.Count; i++)
+                {
+                    int k = lbInfoTypes.Items.IndexOf(IS.listOfInfoTypes[i]);
+                    lbInfoTypes.SetItemChecked(k, true);
                 }
             }
         }
