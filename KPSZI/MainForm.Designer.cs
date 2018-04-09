@@ -54,10 +54,18 @@
             this.labelISPDN = new System.Windows.Forms.Label();
             this.tabControlInfoTypes = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.comboBoxIntegrit = new System.Windows.Forms.ComboBox();
+            this.comboBoxAvailability = new System.Windows.Forms.ComboBox();
+            this.tabControlInfoTypes = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.comboBoxConfidentiality = new System.Windows.Forms.ComboBox();
             this.comboBoxScale = new System.Windows.Forms.ComboBox();
+            this.labelConfidentiality = new System.Windows.Forms.Label();
             this.label = new System.Windows.Forms.Label();
+            this.labelIntegrity = new System.Windows.Forms.Label();
             this.labelScale = new System.Windows.Forms.Label();
+            this.labelAvailability = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
@@ -149,6 +157,7 @@
             // 
             // tpOptions
             // 
+            this.tpOptions.AutoScroll = true;
             this.tpOptions.Controls.Add(this.textBox1);
             this.tpOptions.Controls.Add(this.lbIsName);
             this.tpOptions.Controls.Add(this.lbInfoTypes);
@@ -162,15 +171,15 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(425, 23);
+            this.textBox1.Location = new System.Drawing.Point(7, 23);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.Size = new System.Drawing.Size(293, 20);
             this.textBox1.TabIndex = 0;
             // 
             // lbIsName
             // 
             this.lbIsName.AutoSize = true;
-            this.lbIsName.Location = new System.Drawing.Point(425, 7);
+            this.lbIsName.Location = new System.Drawing.Point(6, 7);
             this.lbIsName.Name = "lbIsName";
             this.lbIsName.Size = new System.Drawing.Size(75, 13);
             this.lbIsName.TabIndex = 2;
@@ -180,9 +189,13 @@
             // 
             this.lbInfoTypes.CheckOnClick = true;
             this.lbInfoTypes.FormattingEnabled = true;
-            this.lbInfoTypes.Location = new System.Drawing.Point(7, 7);
+            this.lbInfoTypes.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3"});
+            this.lbInfoTypes.Location = new System.Drawing.Point(7, 54);
             this.lbInfoTypes.Name = "lbInfoTypes";
-            this.lbInfoTypes.Size = new System.Drawing.Size(412, 229);
+            this.lbInfoTypes.Size = new System.Drawing.Size(293, 109);
             this.lbInfoTypes.TabIndex = 0;
             this.lbInfoTypes.SelectedIndexChanged += new System.EventHandler(this.lbInfoTypes_SelectedIndexChanged);
             // 
@@ -225,6 +238,76 @@
             this.tpClassification.TabIndex = 1;
             this.tpClassification.Text = "tabPage2";
             this.tpClassification.UseVisualStyleBackColor = true;
+            // 
+            // comboBoxIntegrit
+            // 
+            this.comboBoxIntegrit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxIntegrit.FormattingEnabled = true;
+            this.comboBoxIntegrit.Items.AddRange(new object[] {
+            "Высокий",
+            "Средний",
+            "Низкий"});
+            this.comboBoxIntegrit.Location = new System.Drawing.Point(745, 100);
+            this.comboBoxIntegrit.Name = "comboBoxIntegrit";
+            this.comboBoxIntegrit.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxIntegrit.TabIndex = 8;
+            // 
+            // comboBoxAvailability
+            // 
+            this.comboBoxAvailability.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxAvailability.FormattingEnabled = true;
+            this.comboBoxAvailability.Items.AddRange(new object[] {
+            "Высокий",
+            "Средний",
+            "Низкий"});
+            this.comboBoxAvailability.Location = new System.Drawing.Point(745, 130);
+            this.comboBoxAvailability.Name = "comboBoxAvailability";
+            this.comboBoxAvailability.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxAvailability.TabIndex = 2;
+            // 
+            // tabControlInfoTypes
+            // 
+            this.tabControlInfoTypes.Controls.Add(this.tabPage1);
+            this.tabControlInfoTypes.Controls.Add(this.tabPage2);
+            this.tabControlInfoTypes.Location = new System.Drawing.Point(271, 54);
+            this.tabControlInfoTypes.Name = "tabControlInfoTypes";
+            this.tabControlInfoTypes.SelectedIndex = 0;
+            this.tabControlInfoTypes.Size = new System.Drawing.Size(303, 151);
+            this.tabControlInfoTypes.TabIndex = 11;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(295, 125);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(295, 125);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // comboBoxConfidentiality
+            // 
+            this.comboBoxConfidentiality.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxConfidentiality.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.comboBoxConfidentiality.FormattingEnabled = true;
+            this.comboBoxConfidentiality.Items.AddRange(new object[] {
+            "Высокий",
+            "Средний",
+            "Низкий"});
+            this.comboBoxConfidentiality.Location = new System.Drawing.Point(745, 70);
+            this.comboBoxConfidentiality.Name = "comboBoxConfidentiality";
+            this.comboBoxConfidentiality.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxConfidentiality.TabIndex = 9;
             // 
             // panelPDN
             // 
@@ -302,6 +385,15 @@
             this.comboBoxScale.Size = new System.Drawing.Size(121, 21);
             this.comboBoxScale.TabIndex = 10;
             // 
+            // labelConfidentiality
+            // 
+            this.labelConfidentiality.AutoSize = true;
+            this.labelConfidentiality.Location = new System.Drawing.Point(620, 73);
+            this.labelConfidentiality.Name = "labelConfidentiality";
+            this.labelConfidentiality.Size = new System.Drawing.Size(117, 13);
+            this.labelConfidentiality.TabIndex = 5;
+            this.labelConfidentiality.Text = "Конфиденциальность";
+            // 
             // label
             // 
             this.label.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -311,6 +403,15 @@
             this.label.TabIndex = 4;
             this.label.Text = "Степень ущерба для свойств безопасности информации";
             // 
+            // labelIntegrity
+            // 
+            this.labelIntegrity.AutoSize = true;
+            this.labelIntegrity.Location = new System.Drawing.Point(620, 103);
+            this.labelIntegrity.Name = "labelIntegrity";
+            this.labelIntegrity.Size = new System.Drawing.Size(73, 13);
+            this.labelIntegrity.TabIndex = 6;
+            this.labelIntegrity.Text = "Целостность";
+            // 
             // labelScale
             // 
             this.labelScale.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -319,6 +420,15 @@
             this.labelScale.Size = new System.Drawing.Size(198, 52);
             this.labelScale.TabIndex = 3;
             this.labelScale.Text = "Масштаб информационной системы";
+            // 
+            // labelAvailability
+            // 
+            this.labelAvailability.AutoSize = true;
+            this.labelAvailability.Location = new System.Drawing.Point(620, 133);
+            this.labelAvailability.Name = "labelAvailability";
+            this.labelAvailability.Size = new System.Drawing.Size(73, 13);
+            this.labelAvailability.TabIndex = 7;
+            this.labelAvailability.Text = "Доступность";
             // 
             // tabPage3
             // 
@@ -575,7 +685,7 @@
         private System.Windows.Forms.ToolStripMenuItem projectToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem createProjectToolStripMenuItem;
         public System.Windows.Forms.TreeView treeView;
-        private System.Windows.Forms.TabPage tpOptions;
+        public System.Windows.Forms.TabPage tpOptions;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label lbIsName;
         public System.Windows.Forms.TabControl tabControl;
@@ -597,8 +707,14 @@
         private System.Windows.Forms.TabPage tabPage15;
         private System.Windows.Forms.TabPage tabPage16;
         private System.Windows.Forms.ImageList iconList;
+        private System.Windows.Forms.ComboBox comboBoxConfidentiality;
+        private System.Windows.Forms.ComboBox comboBoxIntegrit;
+        private System.Windows.Forms.Label labelAvailability;
+        private System.Windows.Forms.Label labelIntegrity;
+        private System.Windows.Forms.Label labelConfidentiality;
         private System.Windows.Forms.Label label;
         private System.Windows.Forms.Label labelScale;
+        private System.Windows.Forms.ComboBox comboBoxAvailability;
         private System.Windows.Forms.ComboBox comboBoxScale;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.CheckedListBox lbInfoTypes;
