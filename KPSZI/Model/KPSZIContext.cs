@@ -311,7 +311,7 @@ namespace KPSZI.Model
             it7.TypeName = "Сведения, содержащиеся в личных делах осужденных, а также сведения о принудительном исполнении судебных актов, актов других органов и должностных лиц, кроме сведений, которые являются общедоступными ";
 
 
-            context.InfoTypes.AddRange(new List<InfoType> { it1, it2, it3 });
+            context.InfoTypes.AddRange(new List<InfoType> { it1, it2, it3, it4, it5, it6, it7 });
             #endregion
 
             #region ТКУИ (типы, каналы, угрозы)
