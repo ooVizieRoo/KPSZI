@@ -18,8 +18,11 @@ namespace KPSZI
         // 
         internal Dictionary<string, Stage> stages = new Dictionary<string, Stage>();
 
+        InformationSystem IS = new InformationSystem();
+
         public MainForm()
         {
+            
             InitializeComponent();
 
             // Заполняем коллекцию этапами (название, ссылка на вкладку, ссылка на пункт в дереве) 
@@ -73,6 +76,21 @@ namespace KPSZI
                 tabControl.TabPages.Add(stages[nodeName].stageTab);
                 tabControl.SelectedTab.Text = treeView.SelectedNode.Text;
             }
+        }
+
+        private void lbInfoTypes_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            IS.ISName = textBox1.Text;
+            Array buf = IS.listOfInfoTypes.ToArray();
+            lbInfoTypes.SelectedItems.CopyTo(buf,0);
+            for (int i = 0; i < buf.Length; i++)
+            {
+                IS.listOfInfoTypes.Add( (InfoType) buf.GetValue(i));
+            }
+            MessageBox.Show( lbInfoTypes.CheckedItems.Count.ToString());
+            //for(int i = 0; i < lbInfoTypes.CheckedItems.Count; i++)
+            //{ IS.listOfInfoTypes.Add(lbInfoTypes.CheckedItems[i]); }
+            
         }
     }
 }

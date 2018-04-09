@@ -15,15 +15,15 @@ namespace KPSZI
         /// <summary>
         /// Наименование информационной системы
         /// </summary>
-        string ISName;
+        public string ISName;
         /// <summary>
         /// Список видов информации, обрабатываемых в данной ИС
         /// </summary>
-        List<InfoType> listOfInfoTypes;
+        public List<InfoType> listOfInfoTypes;
         /// <summary>
         /// Список СФХ, характерных для данной ИС
         /// </summary>
-        List<SFH> listOfSFHs;
+        public List<SFH> listOfSFHs;
 
         public InformationSystem ()
         {
