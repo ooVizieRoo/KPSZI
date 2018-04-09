@@ -76,21 +76,29 @@ namespace KPSZI
                 tabControl.TabPages.Add(stages[nodeName].stageTab);
                 tabControl.SelectedTab.Text = treeView.SelectedNode.Text;
             }
-        }
 
-        private void lbInfoTypes_ItemCheck(object sender, ItemCheckEventArgs e)
+            if (treeView.SelectedNode.Name == "tnClassification")
+            {
+                tabControlInfoTypes.TabPages.Clear();
+                foreach (InfoType it in IS.listOfInfoTypes)
+                {
+                    tabControlInfoTypes.TabPages.Add(new TabPage { Name = it.TypeName, Text = it.TypeName });
+                }
+            }
+        }
+        
+        private void lbInfoTypes_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // При нажатии на галочку все выбранные 
+            // виды информации помещаются в экземпляр ИС
             IS.ISName = textBox1.Text;
-            Array buf = IS.listOfInfoTypes.ToArray();
-            lbInfoTypes.SelectedItems.CopyTo(buf,0);
+            object[] buf = new object[lbInfoTypes.CheckedItems.Count];
+            IS.listOfInfoTypes.Clear();
+            lbInfoTypes.CheckedItems.CopyTo(buf, 0);
             for (int i = 0; i < buf.Length; i++)
             {
-                IS.listOfInfoTypes.Add( (InfoType) buf.GetValue(i));
+                IS.listOfInfoTypes.Add((InfoType)buf.GetValue(i));
             }
-            MessageBox.Show( lbInfoTypes.CheckedItems.Count.ToString());
-            //for(int i = 0; i < lbInfoTypes.CheckedItems.Count; i++)
-            //{ IS.listOfInfoTypes.Add(lbInfoTypes.CheckedItems[i]); }
-            
         }
     }
 }
