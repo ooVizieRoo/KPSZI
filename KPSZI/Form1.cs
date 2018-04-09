@@ -25,20 +25,21 @@ namespace KPSZI
             {
                 //FileInfo fi = new FileInfo("thrlist.xlsx");
 
-                //db.Threats.AddRange(Threat.GetThreatsFromXlsx(fi, db));
+                //db.Threats.AddRange(Threat.GetThreatsFromXlsx(fi, db));бббббббббббббббббббббббб
                 //db.SaveChanges();
 
-                KPSZIContext.Seed(db);
 
-                var hui = db.SFHTypes.ToList();
-                foreach (SFHType st in hui)
-                {
-                    Console.Write("\n{0}:{1}", st.SFHTypeId, st.Name);
-                    foreach (SFH s in st.SFHs)
-                    {
-                        Console.Write("\n\t{0}:{1}:{2}", s.SFHId, s.Name, s.ProjectSecurity);
-                    }
-                }
+                //KPSZIContext.Seed(db);
+
+                //var hui = db.SFHTypes.ToList();
+                //foreach (SFHType st in hui)
+                //{
+                //    Console.Write("\n{0}:{1}", st.SFHTypeId, st.Name);
+                //    foreach (SFH s in st.SFHs)
+                //    {
+                //        Console.Write("\n\t{0}:{1}:{2}", s.SFHId, s.Name, s.ProjectSecurity);
+                //    }
+                //}
             }
         }
     }

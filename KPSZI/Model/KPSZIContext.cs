@@ -401,6 +401,38 @@ namespace KPSZI.Model
             context.TCUITypes.AddRange(new List<TCUIType> { vid, aqoost, pemin, perehvat });
             #endregion
 
+            #region Источники угроз
+            ThreatSource ts1 = new ThreatSource();
+            ts1.InternalIntruder = true;
+            ts1.Potencial = 0;
+
+            ThreatSource ts2 = new ThreatSource();
+            ts2.InternalIntruder = true;
+            ts2.Potencial = 1;
+
+            ThreatSource ts3 = new ThreatSource();
+            ts3.InternalIntruder = true;
+            ts3.Potencial = 2;
+
+            ThreatSource ts4 = new ThreatSource();
+            ts4.InternalIntruder = false;
+            ts4.Potencial = 0;
+
+            ThreatSource ts5 = new ThreatSource();
+            ts5.InternalIntruder = false;
+            ts5.Potencial = 1;
+
+            ThreatSource ts6 = new ThreatSource();
+            ts6.InternalIntruder = false;
+            ts6.Potencial = 2;
+
+            ThreatSource tsNotNeeded = new ThreatSource();
+            tsNotNeeded.InternalIntruder = false;
+            tsNotNeeded.Potencial = 3;
+
+            context.ThreatSources.AddRange(new List<ThreatSource> { ts1, ts2, ts3, ts4, ts5, ts6, tsNotNeeded });
+            #endregion
+
             context.SaveChanges();
         }
     } 

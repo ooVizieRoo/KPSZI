@@ -90,7 +90,6 @@ namespace KPSZI.Model
                 thr.DateOfChange = DateTime.Parse(listOfXlslxRows[9][i]);
 
                 listOfAllThreatsFromFile.Add(thr);
-
             }
 
             return listOfAllThreatsFromFile;
@@ -99,7 +98,6 @@ namespace KPSZI.Model
         private static string GetConnectionString(FileInfo _file)
         {
             Dictionary<string, string> props = new Dictionary<string, string>();
-
 
             // XLSX - Excel 2007, 2010, 2012, 2013
             if (_file.Extension == ".xlsx")
@@ -114,7 +112,7 @@ namespace KPSZI.Model
                 props["Extended Properties"] = "Excel 8.0";
                 props["Data Source"] = "C:\\MyExcel.xls";
             }
-            else throw new Exception("Неизвестное расширение файла!");
+            else throw new Exception("Неизвестное расширение файла списка угроз \"thrlist.xlsx\"!");
 
             StringBuilder sb = new StringBuilder();
 
