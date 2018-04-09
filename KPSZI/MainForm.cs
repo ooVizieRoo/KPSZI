@@ -32,7 +32,7 @@ namespace KPSZI
             // связываем дерево с набором иконок
             treeView.ImageList = iconList;
 
-            
+
 
             using (KPSZIContext db = new KPSZIContext())
             {
@@ -44,7 +44,7 @@ namespace KPSZI
                 ((ListBox)lbInfoTypes).DisplayMember = "TypeName";
                 ((ListBox)lbInfoTypes).ValueMember = "InfoTypeId";
             }
-            
+
             foreach (object itemChecked in lbInfoTypes.CheckedItems)
             {
                 // add itemChecked to InfoType-list in IS class

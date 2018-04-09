@@ -146,6 +146,7 @@
             // 
             // tpOptions
             // 
+            this.tpOptions.AutoScroll = true;
             this.tpOptions.Controls.Add(this.textBox1);
             this.tpOptions.Controls.Add(this.lbIsName);
             this.tpOptions.Controls.Add(this.lbInfoTypes);
@@ -159,15 +160,15 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(425, 23);
+            this.textBox1.Location = new System.Drawing.Point(7, 23);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.Size = new System.Drawing.Size(293, 20);
             this.textBox1.TabIndex = 0;
             // 
             // lbIsName
             // 
             this.lbIsName.AutoSize = true;
-            this.lbIsName.Location = new System.Drawing.Point(425, 7);
+            this.lbIsName.Location = new System.Drawing.Point(6, 7);
             this.lbIsName.Name = "lbIsName";
             this.lbIsName.Size = new System.Drawing.Size(75, 13);
             this.lbIsName.TabIndex = 2;
@@ -177,9 +178,9 @@
             // 
             this.lbInfoTypes.CheckOnClick = true;
             this.lbInfoTypes.FormattingEnabled = true;
-            this.lbInfoTypes.Location = new System.Drawing.Point(7, 7);
+            this.lbInfoTypes.Location = new System.Drawing.Point(7, 54);
             this.lbInfoTypes.Name = "lbInfoTypes";
-            this.lbInfoTypes.Size = new System.Drawing.Size(412, 229);
+            this.lbInfoTypes.Size = new System.Drawing.Size(293, 334);
             this.lbInfoTypes.TabIndex = 0;
             // 
             // tabControl
