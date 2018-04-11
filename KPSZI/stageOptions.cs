@@ -11,8 +11,15 @@ namespace KPSZI
 {
     class StageOptions : Stage
     {
-        public StageOptions (TabPage stageTab, TreeNode stageNode, MainForm mainForm)
-            :base(stageTab, stageNode, mainForm)
+        List<InfoType> listInfoTypes;
+        List<SFH> listSFHs;
+        List<SFHType> listSFHTypes;
+
+        List<CheckBox> checkboxesSFH;
+        List<RadioButton> radiobuttonsSFH;
+
+        public StageOptions (TabPage stageTab, TreeNode stageNode, MainForm mainForm, InformationSystem IS)
+            :base(stageTab, stageNode, mainForm, IS)
         {
             initClass();
         }
@@ -21,28 +28,32 @@ namespace KPSZI
             using (KPSZIContext db = new KPSZIContext())
             {
                 // Инициализация списка видов угроз
-                var hui = db.InfoTypes.ToList();
 
-                ((ListBox)mf.lbInfoTypes).DataSource = hui;
+                listInfoTypes = db.InfoTypes.ToList();
+
+                ((ListBox)mf.lbInfoTypes).DataSource = listInfoTypes;
                 ((ListBox)mf.lbInfoTypes).DisplayMember = "TypeName";
                 ((ListBox)mf.lbInfoTypes).ValueMember = "InfoTypeId";
 
+                mf.lbInfoTypes.Size = new Size(293, 4 + 15 * mf.lbInfoTypes.Items.Count);
+
                 //Инициализация СФХ групбоксов
-                List<SFHType> listSFHTypes = db.SFHTypes.ToList();
-                List<SFH> listSFHs = db.SFHs.ToList();
+                listSFHTypes = db.SFHTypes.ToList();
+                listSFHs = db.SFHs.ToList();
 
                 GroupBox gb;
                 RadioButton rb;
                 CheckBox cb;
-                Dictionary<int, object> rbs = new Dictionary<int, object>();
+                checkboxesSFH = new List<CheckBox>();
+                radiobuttonsSFH = new List<RadioButton>();
                 int i = 0;
                 int j = 0;
-                int gbY = 7;
+                int gbY = 30;
 
                 foreach (SFHType itemSFHType in listSFHTypes)
                 {
                     gb = new GroupBox();
-                    gb.Location = new Point(306, gbY);                    
+                    gb.Location = new Point(313, gbY);                    
                     gb.Text = itemSFHType.Name;
                     foreach(SFH itemSFH in itemSFHType.SFHs)
                     {
@@ -53,7 +64,7 @@ namespace KPSZI
                             cb.Margin = new Padding(10, 5, 5, 5);
                             cb.Location = new Point(10, 17 + (17 * j));
                             cb.Size = new Size(440, 17);
-                            rbs.Add(itemSFH.SFHId, cb);
+                            checkboxesSFH.Add(cb);
                             gb.Controls.Add(cb);
                             j++;
                         } else
@@ -63,7 +74,7 @@ namespace KPSZI
                             rb.Margin = new Padding(10, 5, 5, 5);
                             rb.Location = new Point(10, 17 + (17 * j));
                             rb.Size = new Size(440, 17);
-                            rbs.Add(itemSFH.SFHId, rb);
+                            radiobuttonsSFH.Add(rb);
                             gb.Controls.Add(rb);
                             j++;
                         }
@@ -76,6 +87,72 @@ namespace KPSZI
                     i++;
                 }
             }
-        } 
+
+            mf.lbInfoTypes.SelectedIndexChanged += new System.EventHandler(lbInfoTypes_SelectedIndexChanged);
+        }
+        
+        public override void saveChanges()
+        {
+            IS.ISName = mf.tbISName.Text;
+
+            foreach (RadioButton rb in radiobuttonsSFH)
+            {
+                SFH sfh = returnSFH(rb.Text);
+                if (rb.Checked && !IS.listOfSFHs.Contains(sfh))
+                    IS.listOfSFHs.Add(sfh);
+                if (!rb.Checked && IS.listOfSFHs.Contains(sfh))
+                    IS.listOfSFHs.Remove(sfh);
+            }
+
+            foreach (CheckBox cb in checkboxesSFH)
+            {
+                SFH sfh = returnSFH(cb.Text);
+                if (cb.Checked && !IS.listOfSFHs.Contains(sfh))
+                    IS.listOfSFHs.Add(sfh);
+                if (!cb.Checked && IS.listOfSFHs.Contains(sfh))
+                    IS.listOfSFHs.Remove(sfh);
+            }
+        }
+
+        public override void enterTabPage()
+        {
+            // берем из экземпляра выбранные виды информации и возвращаем их в чеклистбокс при переходе по вкладкам
+            for (int i = 0; i < IS.listOfInfoTypes.Count; i++)
+            {
+                int k = mf.lbInfoTypes.Items.IndexOf(IS.listOfInfoTypes[i]);
+                mf.lbInfoTypes.SetItemChecked(k, true);
+            }
+        }
+
+        public SFH returnSFH(string SFHname)
+        {
+            foreach(SFH itemSFH in listSFHs)
+            {
+                if (itemSFH.Name == SFHname) return itemSFH;
+            }
+            return null;
+        }
+
+        private void rbSFH_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        #region Обработчики
+        private void lbInfoTypes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // При нажатии на галочку все выбранные 
+            // виды информации помещаются в экземпляр ИС
+
+            object[] buf = new object[mf.lbInfoTypes.CheckedItems.Count];
+            IS.listOfInfoTypes.Clear();
+            mf.lbInfoTypes.CheckedItems.CopyTo(buf, 0);
+            for (int i = 0; i < buf.Length; i++)
+            {
+                IS.listOfInfoTypes.Add((InfoType)buf.GetValue(i));
+            }
+        }
+        #endregion
+
     }
 }
