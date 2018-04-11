@@ -244,10 +244,10 @@
             this.lblSFH.TabIndex = 3;
             this.lblSFH.Text = "Структурно-функциональные характеристики";
             // 
-            // textBox1
+            // tbISName
             // 
             this.tbISName.Location = new System.Drawing.Point(7, 27);
-            this.tbISName.Name = "textBox1";
+            this.tbISName.Name = "tbISName";
             this.tbISName.Size = new System.Drawing.Size(293, 20);
             this.tbISName.TabIndex = 0;
             // 
@@ -337,7 +337,7 @@
             this.panelPDN.Controls.Add(this.labelISPDN);
             this.panelPDN.Location = new System.Drawing.Point(618, 6);
             this.panelPDN.Name = "panelPDN";
-            this.panelPDN.Size = new System.Drawing.Size(290, 338);
+            this.panelPDN.Size = new System.Drawing.Size(290, 361);
             this.panelPDN.TabIndex = 12;
             // 
             // labelISPDNLevel
@@ -345,7 +345,7 @@
             this.labelISPDNLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelISPDNLevel.Location = new System.Drawing.Point(21, 258);
             this.labelISPDNLevel.Name = "labelISPDNLevel";
-            this.labelISPDNLevel.Size = new System.Drawing.Size(261, 67);
+            this.labelISPDNLevel.Size = new System.Drawing.Size(261, 84);
             this.labelISPDNLevel.TabIndex = 21;
             this.labelISPDNLevel.Text = "Выберите все поля на форме, чтобы определить уровень защищенности персональных да" +
     "нных";
@@ -356,9 +356,7 @@
             this.comboBoxHundred.FormattingEnabled = true;
             this.comboBoxHundred.Items.AddRange(new object[] {
             "Менее 100,000",
-            "Более  100,000",
-            "Менее 100,000",
-            "Более  100,000"});
+            "Более 100,000"});
             this.comboBoxHundred.Location = new System.Drawing.Point(161, 220);
             this.comboBoxHundred.Name = "comboBoxHundred";
             this.comboBoxHundred.Size = new System.Drawing.Size(121, 21);
@@ -390,10 +388,6 @@
             "Специальные",
             "Биометрические",
             "Общедоступные",
-            "Иные",
-            "Специальные",
-            "Биометрические",
-            "Общедоступные",
             "Иные"});
             this.checkedListBoxCategoryPDN.Location = new System.Drawing.Point(152, 92);
             this.checkedListBoxCategoryPDN.Name = "checkedListBoxCategoryPDN";
@@ -413,9 +407,6 @@
             this.comboBoxActualThreatsType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxActualThreatsType.FormattingEnabled = true;
             this.comboBoxActualThreatsType.Items.AddRange(new object[] {
-            "1-го типа",
-            "2-го типа",
-            "3-го типа",
             "1-го типа",
             "2-го типа",
             "3-го типа"});
@@ -788,6 +779,6 @@
         private System.Windows.Forms.Label lblSFH;
         private System.Windows.Forms.Label label1;
         internal System.Windows.Forms.Label labelGISClass;
-        private System.Windows.Forms.Label labelISPDNLevel;
+        internal System.Windows.Forms.Label labelISPDNLevel;
     }
 }
