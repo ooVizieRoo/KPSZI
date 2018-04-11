@@ -64,8 +64,10 @@ namespace KPSZI
                 tabControl.SelectedTab.Text = treeView.SelectedNode.Text;
             }
 
+            #region Загрузка вкладки "Классификация"
             if (treeView.SelectedNode.Name == "tnClassification")
             {
+                
                 tabControlInfoTypes.TabPages.Clear();
                 //
                 panelPDN.Enabled = false;
@@ -79,9 +81,10 @@ namespace KPSZI
                         continue;
                     }
                     tabControlInfoTypes.TabPages.Add(((StageClassification)stages["tnClassification"]).tabPagesInfoTypes.FindLast(t => t.Name == it.TypeName));
-                }                
+                }
+                GISClassCalculate(null, null);               
             }
-
+            #endregion
             if (treeView.SelectedNode.Name == "tnOptions")
             {
                 // берем из экземпляра выбранные виды информации и возвращаем их в чеклистбокс при переходе по вкладкам
@@ -152,6 +155,102 @@ namespace KPSZI
             catch (Exception ex)
             {
                 Console.WriteLine("Проблемы при загрузке файла\n{0}", ex.Message);
+            }
+        }
+
+        public void GISClassCalculate(object sender, EventArgs e)
+        {
+            //Определение класса защищенности ГИС
+            if (comboBoxScale.SelectedItem == null || tabControlInfoTypes.TabPages.Count==0)
+            {
+                return;
+            }
+
+            string scaleGIS = comboBoxScale.SelectedItem.ToString();
+            string maxDegreeDamage = "";
+            List<string> scales = new List<string>();
+            foreach (TabPage tp in tabControlInfoTypes.TabPages)
+            {
+                foreach (Control con in tp.Controls)
+                    if (con is ComboBox)
+                    {
+                        if (((ComboBox)con).SelectedItem == null)
+                        {
+                            return;
+                        }
+                        scales.Add(((ComboBox)con).SelectedItem.ToString());
+                    }
+            }
+
+            maxDegreeDamage = "Низкий";
+            if (scales.Contains("Средний"))
+            {
+                maxDegreeDamage = "Средний";
+            }
+            if (scales.Contains("Высокий"))
+            {
+                maxDegreeDamage = "Высокий";
+            }
+
+            switch (maxDegreeDamage)
+            {
+                case "Высокий":
+                    {
+                        labelGISClass.Text = "К1 - 1 класс защищенности";
+                        break;
+                    }
+                case "Средний":
+                    {
+                        if (scaleGIS == "Федеральный")
+                            labelGISClass.Text = "К1 - 1 класс защищенности";
+                        else
+                            labelGISClass.Text = "К2 - 2 класс защищенности";
+                        break;
+                    }
+                case "Низкий":
+                    {
+                        if (scaleGIS == "Федеральный")
+                            labelGISClass.Text = "К2 - 2 класс защищенности";
+                        else
+                            labelGISClass.Text = "К3 - 3 класс защищенности";
+                        break;
+                    }
+            }
+        }
+
+        public void ISPDNLevelCalculate(object sender, EventArgs e)
+        {
+            string ActualThreats = comboBoxActualThreatsType.SelectedItem.ToString();
+            bool isStaffSubjects = checkBoxSubjectsStaff.Checked;
+            string SubjectsPDN = comboBoxHundred.SelectedItem.ToString();
+
+            switch (ActualThreats)
+            {
+                case "1-го типа":
+                    {
+                        break;
+                    }
+
+                case "2-го типа":
+                    {
+                        break;
+                    }
+
+                case "3-го типа":
+                    {
+                        break;
+                    }
+            }
+        }
+
+        private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            object[] buf = new object[checkedListBoxCategoryPDN.CheckedItems.Count];
+            IS.listOfCategoriesPDN.Clear();
+            checkedListBoxCategoryPDN.CheckedItems.CopyTo(buf, 0);
+            for (int i = 0; i < buf.Length; i++)
+            {
+                IS.listOfCategoriesPDN.Add((string)buf.GetValue(i));
             }
         }
     }
