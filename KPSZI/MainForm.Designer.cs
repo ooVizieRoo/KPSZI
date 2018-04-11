@@ -36,7 +36,6 @@
             treeNode1,
             treeNode2,
             treeNode3});
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.projectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -72,7 +71,7 @@
             this.comboBoxScale = new System.Windows.Forms.ComboBox();
             this.label = new System.Windows.Forms.Label();
             this.labelScale = new System.Windows.Forms.Label();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tpTechno = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.tabPage6 = new System.Windows.Forms.TabPage();
@@ -94,6 +93,8 @@
             this.labelAvailability = new System.Windows.Forms.Label();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.iconList = new System.Windows.Forms.ImageList(this.components);
+            this.PrevStage = new System.Windows.Forms.Button();
+            this.NextStage = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.tpOptions.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -103,9 +104,9 @@
             // 
             // statusStrip1
             // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 507);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 540);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1231, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1240, 22);
             this.statusStrip1.TabIndex = 0;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -117,7 +118,7 @@
             this.testPanelToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1231, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1240, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -191,6 +192,7 @@
             // treeView
             // 
             this.treeView.Dock = System.Windows.Forms.DockStyle.Left;
+            this.treeView.HideSelection = false;
             this.treeView.Location = new System.Drawing.Point(0, 24);
             this.treeView.Name = "treeView";
             treeNode1.Name = "tnOptions";
@@ -203,7 +205,7 @@
             treeNode4.Text = "1. Обследование ИС";
             this.treeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode4});
-            this.treeView.Size = new System.Drawing.Size(256, 483);
+            this.treeView.Size = new System.Drawing.Size(256, 516);
             this.treeView.TabIndex = 3;
             this.treeView.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.treeView_BeforeSelect);
             this.treeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView_AfterSelect);
@@ -219,7 +221,7 @@
             this.tpOptions.Location = new System.Drawing.Point(4, 22);
             this.tpOptions.Name = "tpOptions";
             this.tpOptions.Padding = new System.Windows.Forms.Padding(3);
-            this.tpOptions.Size = new System.Drawing.Size(967, 457);
+            this.tpOptions.Size = new System.Drawing.Size(976, 490);
             this.tpOptions.TabIndex = 0;
             this.tpOptions.Text = "tabPage1";
             this.tpOptions.UseVisualStyleBackColor = true;
@@ -244,10 +246,10 @@
             this.lblSFH.TabIndex = 3;
             this.lblSFH.Text = "Структурно-функциональные характеристики";
             // 
-            // textBox1
+            // tbISName
             // 
             this.tbISName.Location = new System.Drawing.Point(7, 27);
-            this.tbISName.Name = "textBox1";
+            this.tbISName.Name = "tbISName";
             this.tbISName.Size = new System.Drawing.Size(293, 20);
             this.tbISName.TabIndex = 0;
             // 
@@ -278,7 +280,7 @@
             // 
             this.tabControl.Controls.Add(this.tpOptions);
             this.tabControl.Controls.Add(this.tpClassification);
-            this.tabControl.Controls.Add(this.tabPage3);
+            this.tabControl.Controls.Add(this.tpTechno);
             this.tabControl.Controls.Add(this.tabPage4);
             this.tabControl.Controls.Add(this.tabPage5);
             this.tabControl.Controls.Add(this.tabPage6);
@@ -296,7 +298,7 @@
             this.tabControl.Location = new System.Drawing.Point(256, 24);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(975, 483);
+            this.tabControl.Size = new System.Drawing.Size(984, 516);
             this.tabControl.TabIndex = 4;
             // 
             // tpClassification
@@ -481,15 +483,15 @@
             this.labelScale.TabIndex = 3;
             this.labelScale.Text = "Масштаб информационной системы";
             // 
-            // tabPage3
+            // tpTechno
             // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(967, 457);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "tabPage3";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.tpTechno.Location = new System.Drawing.Point(4, 22);
+            this.tpTechno.Name = "tpTechno";
+            this.tpTechno.Padding = new System.Windows.Forms.Padding(3);
+            this.tpTechno.Size = new System.Drawing.Size(976, 490);
+            this.tpTechno.TabIndex = 2;
+            this.tpTechno.Text = "tabPage3";
+            this.tpTechno.UseVisualStyleBackColor = true;
             // 
             // tabPage4
             // 
@@ -692,23 +694,43 @@
             // 
             this.splitter1.Location = new System.Drawing.Point(256, 24);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 483);
+            this.splitter1.Size = new System.Drawing.Size(3, 516);
             this.splitter1.TabIndex = 5;
             this.splitter1.TabStop = false;
             // 
             // iconList
             // 
-            this.iconList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("iconList.ImageStream")));
+            this.iconList.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
+            this.iconList.ImageSize = new System.Drawing.Size(16, 16);
             this.iconList.TransparentColor = System.Drawing.Color.Transparent;
-            this.iconList.Images.SetKeyName(0, "folder-icon.png");
-            this.iconList.Images.SetKeyName(1, "if_Tick_Mark_Dark_1398912.png");
-            this.iconList.Images.SetKeyName(2, "if_Close_Icon_Dark_1398917.png");
+            // 
+            // PrevStage
+            // 
+            this.PrevStage.Location = new System.Drawing.Point(1, 516);
+            this.PrevStage.Name = "PrevStage";
+            this.PrevStage.Size = new System.Drawing.Size(75, 23);
+            this.PrevStage.TabIndex = 6;
+            this.PrevStage.Text = "<<";
+            this.PrevStage.UseVisualStyleBackColor = true;
+            this.PrevStage.Click += new System.EventHandler(this.PrevStage_Click);
+            // 
+            // NextStage
+            // 
+            this.NextStage.Location = new System.Drawing.Point(83, 516);
+            this.NextStage.Name = "NextStage";
+            this.NextStage.Size = new System.Drawing.Size(75, 23);
+            this.NextStage.TabIndex = 7;
+            this.NextStage.Text = ">>";
+            this.NextStage.UseVisualStyleBackColor = true;
+            this.NextStage.Click += new System.EventHandler(this.NextStage_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1231, 529);
+            this.ClientSize = new System.Drawing.Size(1240, 562);
+            this.Controls.Add(this.NextStage);
+            this.Controls.Add(this.PrevStage);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.treeView);
@@ -744,7 +766,7 @@
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.TabPage tpClassification;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
-        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage tpTechno;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.TabPage tabPage6;
@@ -789,5 +811,7 @@
         private System.Windows.Forms.Label label1;
         internal System.Windows.Forms.Label labelGISClass;
         private System.Windows.Forms.Label labelISPDNLevel;
+        private System.Windows.Forms.Button PrevStage;
+        private System.Windows.Forms.Button NextStage;
     }
 }

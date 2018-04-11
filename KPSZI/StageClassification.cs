@@ -68,7 +68,6 @@ namespace KPSZI
             }
 
             mf.comboBoxScale.SelectedIndexChanged += new System.EventHandler(GISClassCalculate);
-            mf.lbInfoTypes.SelectedIndexChanged += new System.EventHandler(lbInfoTypes_SelectedIndexChanged);
             mf.checkedListBoxCategoryPDN.SelectedIndexChanged += new System.EventHandler(checkedListBoxCategoryPDN_SelectedIndexChanged);
 
         }
@@ -191,20 +190,8 @@ namespace KPSZI
         }
 
 
-        #region обработчики
-        private void lbInfoTypes_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // При нажатии на галочку все выбранные 
-            // виды информации помещаются в экземпляр ИС
-            IS.ISName = mf.tbISName.Text;
-            object[] buf = new object[mf.lbInfoTypes.CheckedItems.Count];
-            IS.listOfInfoTypes.Clear();
-            mf.lbInfoTypes.CheckedItems.CopyTo(buf, 0);
-            for (int i = 0; i < buf.Length; i++)
-            {
-                IS.listOfInfoTypes.Add((InfoType)buf.GetValue(i));
-            }
-        }
+        #region Обработчики
+        
 
         private void checkedListBoxCategoryPDN_SelectedIndexChanged(object sender, EventArgs e)
         {

@@ -30,11 +30,13 @@ namespace KPSZI
             stages.Add("tnOptions", new StageOptions(returnTabPage("tpOptions"), returnTreeNode("tnOptions"), this, IS));
             stages.Add("tnClassification", new StageClassification(returnTabPage("tpClassification"), 
                 returnTreeNode("tnClassification"), this, IS));
+            stages.Add("tnTechno", new StageTechno(returnTabPage("tpTechno"), returnTreeNode("tnTechno"), this, IS));
 
             // закрываем все вкладки в TabControl
             tabControl.TabPages.Clear();
 
             // связываем дерево с набором иконок
+            iconList.Images.Add(Image.FromFile(@"res\icons\folder-icon.png"));
             treeView.ImageList = iconList;
 
             // развернуть дерево
@@ -69,6 +71,12 @@ namespace KPSZI
             }
 
             treeView.Focus();
+        }
+
+        private void treeView_BeforeSelect(object sender, TreeViewCancelEventArgs e)
+        {
+            if (treeView.SelectedNode != null && treeView.SelectedNode.Nodes.Count == 0)
+                stages[treeView.SelectedNode.Name].saveChanges();
         }
 
         private void rewriteThreatsDBToolStripMenuItem_Click(object sender, EventArgs e)
@@ -119,10 +127,18 @@ namespace KPSZI
             }
         }
 
-        private void treeView_BeforeSelect(object sender, TreeViewCancelEventArgs e)
+        private void PrevStage_Click(object sender, EventArgs e)
         {
-            if (treeView.SelectedNode != null && treeView.SelectedNode.Nodes.Count == 0)
-                stages[treeView.SelectedNode.Name].saveChanges();
+            TreeNode tn = treeView.SelectedNode.PrevNode;
+            if (tn != null)
+                treeView.SelectedNode = tn;
+        }
+
+        private void NextStage_Click(object sender, EventArgs e)
+        {
+            TreeNode tn = treeView.SelectedNode.NextNode;
+            if (tn != null)
+                treeView.SelectedNode = tn;
         }
     }
 }
