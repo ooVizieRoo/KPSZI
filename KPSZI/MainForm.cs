@@ -88,18 +88,43 @@ namespace KPSZI
                 {
                     FileInfo fi = new FileInfo("thrlist.xlsx");
 
-                    db.Threats.RemoveRange(db.Threats.ToList());
+                    //db.Threats.RemoveRange(db.Threats.ToList());
+                    try
+                    {
+                        // Каскадное удаление данных вместе с внешними ключами
+                        db.Database.ExecuteSqlCommand("SET SCHEMA '" + KPSZIContext.schema_name + "'; TRUNCATE \"Threats\" CASCADE;");
 
-                    db.Threats.AddRange(Threat.GetThreatsFromXlsx(fi, db));
-                    db.SaveChanges();
+                        db.Threats.AddRange(Threat.GetThreatsFromXlsx(fi, db));
+                        db.SaveChanges();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Ахтунг!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
                 }
+                MessageBox.Show("Таблица угроз успешно перезаписана!", "Это успех, парень!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
-        private void deleteAllTablesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void clearDBToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Снести всю базу
-            MessageBox.Show("WiP", "WiP", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+            if (MessageBox.Show("Будут очищены все таблицы (не удалены) кроме данных о миграциях", "Ахтунг!", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+            {
+                using (KPSZIContext db = new KPSZIContext())
+                {
+                    try
+                    {
+                        db.Database.ExecuteSqlCommand("SET SCHEMA '" + KPSZIContext.schema_name + "'; TRUNCATE \"GISMeasures\", \"ISPDNMeasures\", \"InfoTypes\", \"IntruderTypes\", \"MeasureGroups\", \"SFHTypes\", \"SFHs\", \"SZIGISMeasures\", \"SZIISPDNMeasures\", \"SZITypes\", \"SZIs\", \"TCUIThreats\", \"TCUITypes\", \"TCUIs\", \"TechnogenicMeasures\", \"TechnogenicThreats\", \"ThreatSourceThreats\", \"ThreatSourceThreats\", \"Threats\" CASCADE");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Ахтунг!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                MessageBox.Show("Таблицы базы данных успешно очищены", "Это успех, парень!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void refreshThreatDBToolStripMenuItem_Click(object sender, EventArgs e)
@@ -107,7 +132,61 @@ namespace KPSZI
             // Обновить список угроз
             if (MessageBox.Show("Будет проведено сравнение локальной базы угроз с данными из файла \"thrlist.xlsx\" и автоматическое обновление данных.\nПродолжить?", "Ахтунг!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
+                using (KPSZIContext db = new KPSZIContext())
+                {
+                    try
+                    {
+                        FileInfo fi = new FileInfo("thrlist.xlsx");
+                        List<Threat> listThreatsFromFile = Threat.GetThreatsFromXlsx(fi, db);
+                        List<Threat> listThreatsFromDB = db.Threats.OrderBy(t => t.ThreatNumber).ToList();
 
+                        // Получение даты последнего обновления угроз из БД
+                        DateTime lastUpdateOfLocalDB = listThreatsFromDB.Select(t => t.DateOfChange).Max();
+
+                        // Получение даты последнего обновления угроз из актуального файла с угрозами
+                        DateTime lastUpdateOfFile = listThreatsFromFile.Select(t => t.DateOfChange).Max();
+
+                        if (lastUpdateOfLocalDB == lastUpdateOfFile)
+                        {
+                            MessageBox.Show("База угроз не требует обновления!", "КПСЗИ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            return;
+                        }
+
+                        List<Threat> listChangedOrAddedThreats = listThreatsFromFile.Where(t => t.DateOfChange > lastUpdateOfLocalDB).ToList();
+
+                        foreach(Threat thr in listChangedOrAddedThreats)
+                        {
+                            Threat ThrFromDB = listThreatsFromDB.Where(t => t.ThreatNumber == thr.ThreatNumber).FirstOrDefault();
+
+                            if (ThrFromDB == null)
+                            {
+                                //listThreatsFromDB.Add(thr);
+                                db.Threats.Add(thr);
+
+                                continue;
+                            }
+
+                            ThrFromDB.AvailabilityViolation = thr.AvailabilityViolation;
+                            ThrFromDB.ConfidenceViolation = thr.ConfidenceViolation;
+                            ThrFromDB.DateOfAdd = thr.DateOfAdd;
+                            ThrFromDB.DateOfChange = thr.DateOfChange;
+                            ThrFromDB.Description = thr.Description;
+                            ThrFromDB.IntegrityViolation = thr.IntegrityViolation;
+                            ThrFromDB.Name = thr.Name;
+                            ThrFromDB.ObjectOfInfluence = thr.Name;
+                            ThrFromDB.ThreatNumber = thr.ThreatNumber;
+                            ThrFromDB.ThreatSources = thr.ThreatSources;
+                        }
+
+                        db.SaveChanges();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Ахтунг!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+                MessageBox.Show("Список угроз обновлен", "Это успех, парень!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -123,8 +202,9 @@ namespace KPSZI
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Проблемы при загрузке файла\n{0}", ex.Message);
+                MessageBox.Show("Проблемы при загрузке файла thrlist.xlsx.\n"+ ex.Message, "Ошибка загрузки файла", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            MessageBox.Show("Файл успешно загружен", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void PrevStage_Click(object sender, EventArgs e)
@@ -139,6 +219,27 @@ namespace KPSZI
             TreeNode tn = treeView.SelectedNode.NextNode;
             if (tn != null)
                 treeView.SelectedNode = tn;
+        }
+
+        private void initDBToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // инициализация БД начальным значениями из метода Model.KPSZIContext.Seed()
+
+            if (MessageBox.Show("БД будет проинициализирована начальными значениями. Перед выполнением процедуры необходимо очистить (не удалить!) все таблицы.\nПродолжить?", "Ахтунг!", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+            {
+                using (KPSZIContext db = new KPSZIContext())
+                {
+                    try
+                    {
+                        KPSZIContext.Seed(db);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Ахтунг!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                MessageBox.Show("База данных проинициализирована начальными значениями", "Это успех, парень!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

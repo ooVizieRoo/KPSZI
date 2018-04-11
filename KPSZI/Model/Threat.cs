@@ -57,7 +57,7 @@ namespace KPSZI.Model
         /// <summary>
         /// Коллекция всех источников угроз, которые характерны для данной угрозы
         /// </summary>
-        public ICollection<ThreatSource> ThreatSources { get; set; }
+        public virtual ICollection<ThreatSource> ThreatSources { get; set; }
 
         public Threat()
         {
