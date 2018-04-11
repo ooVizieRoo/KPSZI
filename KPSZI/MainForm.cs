@@ -71,20 +71,6 @@ namespace KPSZI
             treeView.Focus();
         }
 
-        private void lbInfoTypes_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // При нажатии на галочку все выбранные 
-            // виды информации помещаются в экземпляр ИС
-            IS.ISName = textBox1.Text;
-            object[] buf = new object[lbInfoTypes.CheckedItems.Count];
-            IS.listOfInfoTypes.Clear();
-            lbInfoTypes.CheckedItems.CopyTo(buf, 0);
-            for (int i = 0; i < buf.Length; i++)
-            {
-                IS.listOfInfoTypes.Add((InfoType)buf.GetValue(i));
-            }
-        }
-
         private void rewriteThreatsDBToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Перезаписать базу угроз
@@ -137,19 +123,6 @@ namespace KPSZI
         {
             if (treeView.SelectedNode != null && treeView.SelectedNode.Nodes.Count == 0)
                 stages[treeView.SelectedNode.Name].saveChanges();
-        }
-
-        
-
-        private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            object[] buf = new object[checkedListBoxCategoryPDN.CheckedItems.Count];
-            IS.listOfCategoriesPDN.Clear();
-            checkedListBoxCategoryPDN.CheckedItems.CopyTo(buf, 0);
-            for (int i = 0; i < buf.Length; i++)
-            {
-                IS.listOfCategoriesPDN.Add((string)buf.GetValue(i));
-            }
         }
     }
 }

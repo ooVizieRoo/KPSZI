@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("1.1. Параметры ИС");
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("1.2. Классификация ИС");
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("1.3. Технологическая инф.");
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("1. Обследование ИС", new System.Windows.Forms.TreeNode[] {
-            treeNode9,
-            treeNode10,
-            treeNode11});
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("1.1. Параметры ИС");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("1.2. Классификация ИС");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("1.3. Технологическая инф.");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("1. Обследование ИС", new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2,
+            treeNode3});
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -52,7 +52,7 @@
             this.tpOptions = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
             this.lblSFH = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbISName = new System.Windows.Forms.TextBox();
             this.lbIsName = new System.Windows.Forms.Label();
             this.lbInfoTypes = new System.Windows.Forms.CheckedListBox();
             this.tabControl = new System.Windows.Forms.TabControl();
@@ -193,16 +193,16 @@
             this.treeView.Dock = System.Windows.Forms.DockStyle.Left;
             this.treeView.Location = new System.Drawing.Point(0, 24);
             this.treeView.Name = "treeView";
-            treeNode9.Name = "tnOptions";
-            treeNode9.Text = "1.1. Параметры ИС";
-            treeNode10.Name = "tnClassification";
-            treeNode10.Text = "1.2. Классификация ИС";
-            treeNode11.Name = "tnTechno";
-            treeNode11.Text = "1.3. Технологическая инф.";
-            treeNode12.Name = "Node0";
-            treeNode12.Text = "1. Обследование ИС";
+            treeNode1.Name = "tnOptions";
+            treeNode1.Text = "1.1. Параметры ИС";
+            treeNode2.Name = "tnClassification";
+            treeNode2.Text = "1.2. Классификация ИС";
+            treeNode3.Name = "tnTechno";
+            treeNode3.Text = "1.3. Технологическая инф.";
+            treeNode4.Name = "Node0";
+            treeNode4.Text = "1. Обследование ИС";
             this.treeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode12});
+            treeNode4});
             this.treeView.Size = new System.Drawing.Size(256, 483);
             this.treeView.TabIndex = 3;
             this.treeView.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.treeView_BeforeSelect);
@@ -213,7 +213,7 @@
             this.tpOptions.AutoScroll = true;
             this.tpOptions.Controls.Add(this.label1);
             this.tpOptions.Controls.Add(this.lblSFH);
-            this.tpOptions.Controls.Add(this.textBox1);
+            this.tpOptions.Controls.Add(this.tbISName);
             this.tpOptions.Controls.Add(this.lbIsName);
             this.tpOptions.Controls.Add(this.lbInfoTypes);
             this.tpOptions.Location = new System.Drawing.Point(4, 22);
@@ -246,10 +246,10 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(7, 27);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(293, 20);
-            this.textBox1.TabIndex = 0;
+            this.tbISName.Location = new System.Drawing.Point(7, 27);
+            this.tbISName.Name = "textBox1";
+            this.tbISName.Size = new System.Drawing.Size(293, 20);
+            this.tbISName.TabIndex = 0;
             // 
             // lbIsName
             // 
@@ -273,7 +273,6 @@
             this.lbInfoTypes.Name = "lbInfoTypes";
             this.lbInfoTypes.Size = new System.Drawing.Size(293, 49);
             this.lbInfoTypes.TabIndex = 0;
-            this.lbInfoTypes.SelectedIndexChanged += new System.EventHandler(this.lbInfoTypes_SelectedIndexChanged);
             // 
             // tabControl
             // 
@@ -299,7 +298,6 @@
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(975, 483);
             this.tabControl.TabIndex = 4;
-            this.tabControl.SelectedIndexChanged += new System.EventHandler(this.tabControl_SelectedIndexChanged);
             // 
             // tpClassification
             // 
@@ -740,7 +738,7 @@
         private System.Windows.Forms.ToolStripMenuItem createProjectToolStripMenuItem;
         public System.Windows.Forms.TreeView treeView;
         public System.Windows.Forms.TabPage tpOptions;
-        private System.Windows.Forms.TextBox textBox1;
+        internal System.Windows.Forms.TextBox tbISName;
         private System.Windows.Forms.Label lbIsName;
         public System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.Splitter splitter1;
@@ -775,7 +773,7 @@
         private System.Windows.Forms.Label labelActualThreatType;
         private System.Windows.Forms.Label labelISPDN;
         internal System.Windows.Forms.CheckBox checkBoxSubjectsStaff;
-        private System.Windows.Forms.CheckedListBox checkedListBoxCategoryPDN;
+        internal System.Windows.Forms.CheckedListBox checkedListBoxCategoryPDN;
         private System.Windows.Forms.Label labelPDNCategory;
         internal System.Windows.Forms.ComboBox comboBoxActualThreatsType;
         internal System.Windows.Forms.ComboBox comboBoxHundred;
