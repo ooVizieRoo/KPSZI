@@ -11,8 +11,10 @@ namespace KPSZI
 {
     class StageOptions : Stage
     {
-        public StageOptions (TabPage stageTab, TreeNode stageNode, MainForm mainForm)
-            :base(stageTab, stageNode, mainForm)
+        List<InfoType> listInfoTypes;
+
+        public StageOptions (TabPage stageTab, TreeNode stageNode, MainForm mainForm, InformationSystem IS)
+            :base(stageTab, stageNode, mainForm, IS)
         {
             initClass();
         }
@@ -21,11 +23,14 @@ namespace KPSZI
             using (KPSZIContext db = new KPSZIContext())
             {
                 // Инициализация списка видов угроз
-                var hui = db.InfoTypes.ToList();
 
-                ((ListBox)mf.lbInfoTypes).DataSource = hui;
+                listInfoTypes = db.InfoTypes.ToList();
+
+                ((ListBox)mf.lbInfoTypes).DataSource = listInfoTypes;
                 ((ListBox)mf.lbInfoTypes).DisplayMember = "TypeName";
                 ((ListBox)mf.lbInfoTypes).ValueMember = "InfoTypeId";
+
+                mf.lbInfoTypes.Size = new Size(293, 4 + 15 * mf.lbInfoTypes.Items.Count);
 
                 //Инициализация СФХ групбоксов
                 List<SFHType> listSFHTypes = db.SFHTypes.ToList();
@@ -34,15 +39,16 @@ namespace KPSZI
                 GroupBox gb;
                 RadioButton rb;
                 CheckBox cb;
-                Dictionary<int, object> rbs = new Dictionary<int, object>();
+                Dictionary<int, CheckBox> cbs = new Dictionary<int, CheckBox>();
+                Dictionary<int, RadioButton> rbs = new Dictionary<int, RadioButton>();
                 int i = 0;
                 int j = 0;
-                int gbY = 7;
+                int gbY = 30;
 
                 foreach (SFHType itemSFHType in listSFHTypes)
                 {
                     gb = new GroupBox();
-                    gb.Location = new Point(306, gbY);                    
+                    gb.Location = new Point(313, gbY);                    
                     gb.Text = itemSFHType.Name;
                     foreach(SFH itemSFH in itemSFHType.SFHs)
                     {
@@ -53,7 +59,7 @@ namespace KPSZI
                             cb.Margin = new Padding(10, 5, 5, 5);
                             cb.Location = new Point(10, 17 + (17 * j));
                             cb.Size = new Size(440, 17);
-                            rbs.Add(itemSFH.SFHId, cb);
+                            cbs.Add(itemSFH.SFHId, cb);
                             gb.Controls.Add(cb);
                             j++;
                         } else
@@ -76,6 +82,13 @@ namespace KPSZI
                     i++;
                 }
             }
+        }
+        
+        public override void saveChanges()
+        {
+            Console.WriteLine(stageName);
+
+            //IS.listOfInfoTypes.Add();
         } 
     }
 }

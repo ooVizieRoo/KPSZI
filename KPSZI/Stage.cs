@@ -8,7 +8,7 @@ using System.Windows.Forms;
 namespace KPSZI
 {
     // экземпляр класса Stage - конкретный этап, реализованный в отдельной вкладке интерфейса
-    class Stage
+    abstract class Stage
     {
         public TabPage stageTab; // ссылка на вкладку 
         public TreeNode stageNode; // ссылка на пункт в дереве
@@ -16,9 +16,10 @@ namespace KPSZI
         public int treeImageIcon; // иконка этапа в дереве
         public bool isDone; // завершен ли этап
         public MainForm mf; // ссылка на главную форму интерфейса
+        public InformationSystem IS;
 
 
-        public Stage(TabPage stageTab, TreeNode stageNode, MainForm mainForm)
+        public Stage(TabPage stageTab, TreeNode stageNode, MainForm mainForm, InformationSystem IS)
         {
             this.stageTab = stageTab;
             this.stageNode = stageNode;
@@ -27,15 +28,8 @@ namespace KPSZI
             mf = mainForm;
         }
 
-        // метод переключения вкладки (не доделано!)
-        public void nextTab()
-        {
-            mf.tabControl.TabPages.Clear();
-            string nodeName = mf.treeView.SelectedNode.Name;
-            mf.tabControl.TabPages.Add(mf.stages[nodeName].stageTab);
-            mf.tabControl.SelectedTab.Text = mf.treeView.SelectedNode.Text;
-        }
-
+        // сохранение содержимого вкладки
+        public abstract void saveChanges();
 
     }
 }

@@ -27,8 +27,9 @@ namespace KPSZI
             InitializeComponent();
 
             // Заполняем коллекцию этапами (название, ссылка на вкладку, ссылка на пункт в дереве) 
-            stages.Add("tnOptions", new StageOptions(returnTabPage("tpOptions"), returnTreeNode("tnOptions"), this));
-            stages.Add("tnClassification", new StageClassification(returnTabPage("tpClassification"), returnTreeNode("tnClassification"), this));
+            stages.Add("tnOptions", new StageOptions(returnTabPage("tpOptions"), returnTreeNode("tnOptions"), this, IS));
+            stages.Add("tnClassification", new StageClassification(returnTabPage("tpClassification"), 
+                returnTreeNode("tnClassification"), this, IS));
 
             // закрываем все вкладки в TabControl
             tabControl.TabPages.Clear();
@@ -36,6 +37,8 @@ namespace KPSZI
             // связываем дерево с набором иконок
             treeView.ImageList = iconList;
 
+            // развернуть дерево
+            treeView.ExpandAll();
 
             tabControlInfoTypes.TabPages.AddRange(((StageClassification)stages["tnClassification"]).tabPagesInfoTypes.ToArray());
 
@@ -91,6 +94,8 @@ namespace KPSZI
                     lbInfoTypes.SetItemChecked(k, true);
                 }
             }
+
+            treeView.Focus();
         }
 
         private void lbInfoTypes_SelectedIndexChanged(object sender, EventArgs e)
@@ -153,6 +158,12 @@ namespace KPSZI
             {
                 Console.WriteLine("Проблемы при загрузке файла\n{0}", ex.Message);
             }
+        }
+
+        private void treeView_BeforeSelect(object sender, TreeViewCancelEventArgs e)
+        {
+            if (treeView.SelectedNode != null && treeView.SelectedNode.Nodes.Count == 0)
+                stages[treeView.SelectedNode.Name].saveChanges();
         }
     }
 }

@@ -11,8 +11,8 @@ namespace KPSZI
 {
     class StageClassification : Stage
     {
-        public StageClassification(TabPage stageTab, TreeNode stageNode, MainForm mainForm)
-            :base(stageTab, stageNode, mainForm)
+        public StageClassification(TabPage stageTab, TreeNode stageNode, MainForm mainForm, InformationSystem IS)
+            :base(stageTab, stageNode, mainForm, IS)
         {
             Init();
         }
@@ -65,5 +65,9 @@ namespace KPSZI
             }
         }
 
+        public override void saveChanges()
+        {
+            Console.WriteLine(stageName);
+        }
     }
 }
