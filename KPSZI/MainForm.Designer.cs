@@ -464,7 +464,6 @@
             this.comboBoxScale.Name = "comboBoxScale";
             this.comboBoxScale.Size = new System.Drawing.Size(121, 21);
             this.comboBoxScale.TabIndex = 10;
-            this.comboBoxScale.SelectedIndexChanged += new System.EventHandler(this.GISClassCalculate);
             // 
             // label
             // 
@@ -770,16 +769,16 @@
         private System.Windows.Forms.Label label;
         private System.Windows.Forms.Label labelScale;
         private System.Windows.Forms.ComboBox comboBoxAvailability;
-        private System.Windows.Forms.ComboBox comboBoxScale;
-        private System.Windows.Forms.TabControl tabControlInfoTypes;
-        private System.Windows.Forms.Panel panelPDN;
+        internal System.Windows.Forms.ComboBox comboBoxScale;
+        internal System.Windows.Forms.TabControl tabControlInfoTypes;
+        internal System.Windows.Forms.Panel panelPDN;
         private System.Windows.Forms.Label labelActualThreatType;
         private System.Windows.Forms.Label labelISPDN;
-        private System.Windows.Forms.CheckBox checkBoxSubjectsStaff;
+        internal System.Windows.Forms.CheckBox checkBoxSubjectsStaff;
         private System.Windows.Forms.CheckedListBox checkedListBoxCategoryPDN;
         private System.Windows.Forms.Label labelPDNCategory;
-        private System.Windows.Forms.ComboBox comboBoxActualThreatsType;
-        private System.Windows.Forms.ComboBox comboBoxHundred;
+        internal System.Windows.Forms.ComboBox comboBoxActualThreatsType;
+        internal System.Windows.Forms.ComboBox comboBoxHundred;
         private System.Windows.Forms.Label labelHundred;
         internal System.Windows.Forms.CheckedListBox lbInfoTypes;
         private System.Windows.Forms.ToolStripMenuItem testPanelToolStripMenuItem;
@@ -790,7 +789,7 @@
         private System.Windows.Forms.ToolStripMenuItem downloadThreatListthrlistxlsxToolStripMenuItem;
         private System.Windows.Forms.Label lblSFH;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label labelGISClass;
+        internal System.Windows.Forms.Label labelGISClass;
         private System.Windows.Forms.Label labelISPDNLevel;
     }
 }

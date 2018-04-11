@@ -65,42 +65,7 @@ namespace KPSZI
             {
                 tabControl.TabPages.Add(stages[nodeName].stageTab);
                 tabControl.SelectedTab.Text = treeView.SelectedNode.Text;
-            }
-
-            #region Загрузка вкладки "Классификация"
-            if (treeView.SelectedNode.Name == "tnClassification")
-            {
-                tabControlInfoTypes.TabPages.Clear();
-                if (IS.listOfInfoTypes.Count == 0 || ((IS.listOfInfoTypes.FindLast(t => t.TypeName == "Персональные данные") != null) && IS.listOfInfoTypes.Count == 1))
-                {
-                    TabPage startTabPage = new TabPage { Name = "startTabPage", Text = "Выберите виды информации" };
-                    startTabPage.Controls.Add(new Label { Text = "Выберите виды информации в параметрах информационной системы для определения степеней ущерба.", Location = new Point { X = 70, Y = 30 }, AutoSize = false, Size = new Size(new Point { X = 160, Y = 100 })});
-                    tabControlInfoTypes.TabPages.Add(startTabPage);
-                }
-                //
-                panelPDN.Enabled = false;
-                panelPDN.Visible = false;
-                foreach (InfoType it in IS.listOfInfoTypes)
-                {
-                    if (it.TypeName == "Персональные данные")
-                    {
-                        panelPDN.Enabled = true;
-                        panelPDN.Visible = true;
-                        continue;
-                    }
-                    tabControlInfoTypes.TabPages.Add(((StageClassification)stages["tnClassification"]).tabPagesInfoTypes.FindLast(t => t.Name == it.TypeName));
-                }
-                GISClassCalculate(null, null);               
-            }
-            #endregion
-            if (treeView.SelectedNode.Name == "tnOptions")
-            {
-                // берем из экземпляра выбранные виды информации и возвращаем их в чеклистбокс при переходе по вкладкам
-                for (int i = 0; i < IS.listOfInfoTypes.Count; i++)
-                {
-                    int k = lbInfoTypes.Items.IndexOf(IS.listOfInfoTypes[i]);
-                    lbInfoTypes.SetItemChecked(k, true);
-                }
+                stages[nodeName].enterTabPage();
             }
 
             treeView.Focus();
@@ -174,92 +139,7 @@ namespace KPSZI
                 stages[treeView.SelectedNode.Name].saveChanges();
         }
 
-        public void GISClassCalculate(object sender, EventArgs e)
-        {
-            //Определение класса защищенности ГИС
-            if (comboBoxScale.SelectedItem == null || tabControlInfoTypes.TabPages.Count==0)
-            {
-                labelGISClass.Text = "Выберите все поля на форме, чтобы определить уровень защищенности персональных данных";
-                return;
-            }
-
-            string scaleGIS = comboBoxScale.SelectedItem.ToString();
-            string maxDegreeDamage = "";
-            List<string> scales = new List<string>();
-            foreach (TabPage tp in tabControlInfoTypes.TabPages)
-            {
-                foreach (Control con in tp.Controls)
-                    if (con is ComboBox)
-                    {
-                        if (((ComboBox)con).SelectedItem == null)
-                        {
-                            labelGISClass.Text = "Выберите все поля на форме, чтобы определить уровень защищенности персональных данных";
-                            return;
-                        }
-                        scales.Add(((ComboBox)con).SelectedItem.ToString());
-                    }
-            }
-
-            maxDegreeDamage = "Низкий";
-            if (scales.Contains("Средний"))
-            {
-                maxDegreeDamage = "Средний";
-            }
-            if (scales.Contains("Высокий"))
-            {
-                maxDegreeDamage = "Высокий";
-            }
-
-            switch (maxDegreeDamage)
-            {
-                case "Высокий":
-                    {
-                        labelGISClass.Text = "К1 - 1 класс защищенности";
-                        break;
-                    }
-                case "Средний":
-                    {
-                        if (scaleGIS == "Федеральный")
-                            labelGISClass.Text = "К1 - 1 класс защищенности";
-                        else
-                            labelGISClass.Text = "К2 - 2 класс защищенности";
-                        break;
-                    }
-                case "Низкий":
-                    {
-                        if (scaleGIS == "Федеральный")
-                            labelGISClass.Text = "К2 - 2 класс защищенности";
-                        else
-                            labelGISClass.Text = "К3 - 3 класс защищенности";
-                        break;
-                    }
-            }
-        }
-
-        public void ISPDNLevelCalculate(object sender, EventArgs e)
-        {
-            string ActualThreats = comboBoxActualThreatsType.SelectedItem.ToString();
-            bool isStaffSubjects = checkBoxSubjectsStaff.Checked;
-            string SubjectsPDN = comboBoxHundred.SelectedItem.ToString();
-
-            switch (ActualThreats)
-            {
-                case "1-го типа":
-                    {
-                        break;
-                    }
-
-                case "2-го типа":
-                    {
-                        break;
-                    }
-
-                case "3-го типа":
-                    {
-                        break;
-                    }
-            }
-        }
+        
 
         private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
         {

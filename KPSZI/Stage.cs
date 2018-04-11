@@ -26,10 +26,13 @@ namespace KPSZI
             stageName = stageNode.Text;
             stageTab.Text = stageName;
             mf = mainForm;
+            this.IS = IS;
         }
 
         // сохранение содержимого вкладки
         public abstract void saveChanges();
+
+        public abstract void enterTabPage();
 
     }
 }

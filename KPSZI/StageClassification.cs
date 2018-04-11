@@ -42,21 +42,21 @@ namespace KPSZI
 
 
                     ComboBox cbConf = new ComboBox { Name = "cbConf", DropDownStyle = ComboBoxStyle.DropDownList };
-                    cbConf.SelectedIndexChanged += mf.GISClassCalculate;
+                    cbConf.SelectedIndexChanged += GISClassCalculate;
                     cbConf.Location = new Point { X = 135, Y = 7 };
                     cbConf.Items.Add("Высокий");
                     cbConf.Items.Add("Средний");
                     cbConf.Items.Add("Низкий");
 
                     ComboBox cbInteg = new ComboBox { Name = "cbInteg", DropDownStyle = ComboBoxStyle.DropDownList };
-                    cbInteg.SelectedIndexChanged += mf.GISClassCalculate;
+                    cbInteg.SelectedIndexChanged += GISClassCalculate;
                     cbInteg.Location = new Point { X = 135, Y = 37 };
                     cbInteg.Items.Add("Высокий");
                     cbInteg.Items.Add("Средний");
                     cbInteg.Items.Add("Низкий");
 
                     ComboBox cbAvail = new ComboBox { Name = "cbAvail", DropDownStyle = ComboBoxStyle.DropDownList };
-                    cbAvail.SelectedIndexChanged += mf.GISClassCalculate;
+                    cbAvail.SelectedIndexChanged += GISClassCalculate;
                     cbAvail.Location = new Point { X = 135, Y = 67 };
                     cbAvail.Items.Add("Высокий");
                     cbAvail.Items.Add("Средний");
@@ -66,11 +66,125 @@ namespace KPSZI
                     tabPagesInfoTypes.Add(tp);
                 }
             }
+
+            mf.comboBoxScale.SelectedIndexChanged += new System.EventHandler(GISClassCalculate);
         }
 
         public override void saveChanges()
         {
             Console.WriteLine(stageName);
+        }
+
+        public override void enterTabPage()
+        {
+            mf.tabControlInfoTypes.TabPages.Clear();
+            if (IS.listOfInfoTypes.Count == 0 || ((IS.listOfInfoTypes.FindLast(t => t.TypeName == "Персональные данные") != null) && IS.listOfInfoTypes.Count == 1))
+            {
+                TabPage startTabPage = new TabPage { Name = "startTabPage", Text = "Выберите виды информации" };
+                startTabPage.Controls.Add(new Label { Text = "Выберите виды информации в параметрах информационной системы для определения степеней ущерба.", Location = new Point { X = 70, Y = 30 }, AutoSize = false, Size = new Size(new Point { X = 160, Y = 100 }) });
+                mf.tabControlInfoTypes.TabPages.Add(startTabPage);
+            }
+            //
+            mf.panelPDN.Enabled = false;
+            mf.panelPDN.Visible = false;
+            foreach (InfoType it in IS.listOfInfoTypes)
+            {
+                if (it.TypeName == "Персональные данные")
+                {
+                    mf.panelPDN.Enabled = true;
+                    mf.panelPDN.Visible = true;
+                    continue;
+                }
+                mf.tabControlInfoTypes.TabPages.Add(((StageClassification)mf.stages["tnClassification"]).tabPagesInfoTypes.FindLast(t => t.Name == it.TypeName));
+            }
+            GISClassCalculate(null, null);
+        }
+
+        public void GISClassCalculate(object sender, EventArgs e)
+        {
+            //Определение класса защищенности ГИС
+            if (mf.comboBoxScale.SelectedItem == null || mf.tabControlInfoTypes.TabPages.Count == 0)
+            {
+                mf.labelGISClass.Text = "Выберите все поля на форме, чтобы определить уровень защищенности персональных данных";
+                return;
+            }
+
+            string scaleGIS = mf.comboBoxScale.SelectedItem.ToString();
+            string maxDegreeDamage = "";
+            List<string> scales = new List<string>();
+            foreach (TabPage tp in mf.tabControlInfoTypes.TabPages)
+            {
+                foreach (Control con in tp.Controls)
+                    if (con is ComboBox)
+                    {
+                        if (((ComboBox)con).SelectedItem == null)
+                        {
+                            mf.labelGISClass.Text = "Выберите все поля на форме, чтобы определить уровень защищенности персональных данных";
+                            return;
+                        }
+                        scales.Add(((ComboBox)con).SelectedItem.ToString());
+                    }
+            }
+
+            maxDegreeDamage = "Низкий";
+            if (scales.Contains("Средний"))
+            {
+                maxDegreeDamage = "Средний";
+            }
+            if (scales.Contains("Высокий"))
+            {
+                maxDegreeDamage = "Высокий";
+            }
+
+            switch (maxDegreeDamage)
+            {
+                case "Высокий":
+                    {
+                        mf.labelGISClass.Text = "К1 - 1 класс защищенности";
+                        break;
+                    }
+                case "Средний":
+                    {
+                        if (scaleGIS == "Федеральный")
+                            mf.labelGISClass.Text = "К1 - 1 класс защищенности";
+                        else
+                            mf.labelGISClass.Text = "К2 - 2 класс защищенности";
+                        break;
+                    }
+                case "Низкий":
+                    {
+                        if (scaleGIS == "Федеральный")
+                            mf.labelGISClass.Text = "К2 - 2 класс защищенности";
+                        else
+                            mf.labelGISClass.Text = "К3 - 3 класс защищенности";
+                        break;
+                    }
+            }
+        }
+
+        public void ISPDNLevelCalculate(object sender, EventArgs e)
+        {
+            string ActualThreats = mf.comboBoxActualThreatsType.SelectedItem.ToString();
+            bool isStaffSubjects = mf.checkBoxSubjectsStaff.Checked;
+            string SubjectsPDN = mf.comboBoxHundred.SelectedItem.ToString();
+
+            switch (ActualThreats)
+            {
+                case "1-го типа":
+                    {
+                        break;
+                    }
+
+                case "2-го типа":
+                    {
+                        break;
+                    }
+
+                case "3-го типа":
+                    {
+                        break;
+                    }
+            }
         }
     }
 }

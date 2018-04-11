@@ -89,6 +89,16 @@ namespace KPSZI
             Console.WriteLine(stageName);
 
             //IS.listOfInfoTypes.Add();
-        } 
+        }
+
+        public override void enterTabPage()
+        {
+            // берем из экземпляра выбранные виды информации и возвращаем их в чеклистбокс при переходе по вкладкам
+            for (int i = 0; i < IS.listOfInfoTypes.Count; i++)
+            {
+                int k = mf.lbInfoTypes.Items.IndexOf(IS.listOfInfoTypes[i]);
+                mf.lbInfoTypes.SetItemChecked(k, true);
+            }
+        }
     }
 }
