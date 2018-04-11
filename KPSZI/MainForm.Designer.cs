@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("1.1. Параметры ИС");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("1.2. Классификация ИС");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("1.3. Технологическая инф.");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("1. Обследование ИС", new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3});
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("1.1. Параметры ИС");
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("1.2. Классификация ИС");
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("1.3. Технологическая инф.");
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("1. Обследование ИС", new System.Windows.Forms.TreeNode[] {
+            treeNode9,
+            treeNode10,
+            treeNode11});
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -69,8 +69,6 @@
             this.labelActualThreatType = new System.Windows.Forms.Label();
             this.labelISPDN = new System.Windows.Forms.Label();
             this.tabControlInfoTypes = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.comboBoxScale = new System.Windows.Forms.ComboBox();
             this.label = new System.Windows.Forms.Label();
             this.labelScale = new System.Windows.Forms.Label();
@@ -101,7 +99,6 @@
             this.tabControl.SuspendLayout();
             this.tpClassification.SuspendLayout();
             this.panelPDN.SuspendLayout();
-            this.tabControlInfoTypes.SuspendLayout();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -196,16 +193,16 @@
             this.treeView.Dock = System.Windows.Forms.DockStyle.Left;
             this.treeView.Location = new System.Drawing.Point(0, 24);
             this.treeView.Name = "treeView";
-            treeNode1.Name = "tnOptions";
-            treeNode1.Text = "1.1. Параметры ИС";
-            treeNode2.Name = "tnClassification";
-            treeNode2.Text = "1.2. Классификация ИС";
-            treeNode3.Name = "tnTechno";
-            treeNode3.Text = "1.3. Технологическая инф.";
-            treeNode4.Name = "Node0";
-            treeNode4.Text = "1. Обследование ИС";
+            treeNode9.Name = "tnOptions";
+            treeNode9.Text = "1.1. Параметры ИС";
+            treeNode10.Name = "tnClassification";
+            treeNode10.Text = "1.2. Классификация ИС";
+            treeNode11.Name = "tnTechno";
+            treeNode11.Text = "1.3. Технологическая инф.";
+            treeNode12.Name = "Node0";
+            treeNode12.Text = "1. Обследование ИС";
             this.treeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode4});
+            treeNode12});
             this.treeView.Size = new System.Drawing.Size(256, 483);
             this.treeView.TabIndex = 3;
             this.treeView.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.treeView_BeforeSelect);
@@ -361,6 +358,8 @@
             this.comboBoxHundred.FormattingEnabled = true;
             this.comboBoxHundred.Items.AddRange(new object[] {
             "Менее 100,000",
+            "Более  100,000",
+            "Менее 100,000",
             "Более  100,000"});
             this.comboBoxHundred.Location = new System.Drawing.Point(161, 220);
             this.comboBoxHundred.Name = "comboBoxHundred";
@@ -393,6 +392,10 @@
             "Специальные",
             "Биометрические",
             "Общедоступные",
+            "Иные",
+            "Специальные",
+            "Биометрические",
+            "Общедоступные",
             "Иные"});
             this.checkedListBoxCategoryPDN.Location = new System.Drawing.Point(152, 92);
             this.checkedListBoxCategoryPDN.Name = "checkedListBoxCategoryPDN";
@@ -412,6 +415,9 @@
             this.comboBoxActualThreatsType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxActualThreatsType.FormattingEnabled = true;
             this.comboBoxActualThreatsType.Items.AddRange(new object[] {
+            "1-го типа",
+            "2-го типа",
+            "3-го типа",
             "1-го типа",
             "2-го типа",
             "3-го типа"});
@@ -440,33 +446,11 @@
             // 
             // tabControlInfoTypes
             // 
-            this.tabControlInfoTypes.Controls.Add(this.tabPage1);
-            this.tabControlInfoTypes.Controls.Add(this.tabPage2);
             this.tabControlInfoTypes.Location = new System.Drawing.Point(271, 54);
             this.tabControlInfoTypes.Name = "tabControlInfoTypes";
             this.tabControlInfoTypes.SelectedIndex = 0;
             this.tabControlInfoTypes.Size = new System.Drawing.Size(282, 151);
             this.tabControlInfoTypes.TabIndex = 11;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(274, 125);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(274, 125);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // comboBoxScale
             // 
@@ -723,78 +707,6 @@
             this.iconList.Images.SetKeyName(1, "if_Tick_Mark_Dark_1398912.png");
             this.iconList.Images.SetKeyName(2, "if_Close_Icon_Dark_1398917.png");
             // 
-            // comboBoxActualThreatsType
-            // 
-            this.comboBoxActualThreatsType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxActualThreatsType.FormattingEnabled = true;
-            this.comboBoxActualThreatsType.Items.AddRange(new object[] {
-            "1-го типа",
-            "2-го типа",
-            "3-го типа"});
-            this.comboBoxActualThreatsType.Location = new System.Drawing.Point(152, 58);
-            this.comboBoxActualThreatsType.Name = "comboBoxActualThreatsType";
-            this.comboBoxActualThreatsType.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxActualThreatsType.TabIndex = 15;
-            // 
-            // labelPDNCategory
-            // 
-            this.labelPDNCategory.Location = new System.Drawing.Point(12, 102);
-            this.labelPDNCategory.Name = "labelPDNCategory";
-            this.labelPDNCategory.Size = new System.Drawing.Size(122, 44);
-            this.labelPDNCategory.TabIndex = 16;
-            this.labelPDNCategory.Text = "Категория обрабатываемых персональных данных";
-            // 
-            // checkedListBoxCategoryPDN
-            // 
-            this.checkedListBoxCategoryPDN.CheckOnClick = true;
-            this.checkedListBoxCategoryPDN.FormattingEnabled = true;
-            this.checkedListBoxCategoryPDN.Items.AddRange(new object[] {
-            "Специальные",
-            "Биометрические",
-            "Общедоступные",
-            "Иные"});
-            this.checkedListBoxCategoryPDN.Location = new System.Drawing.Point(152, 92);
-            this.checkedListBoxCategoryPDN.Name = "checkedListBoxCategoryPDN";
-            this.checkedListBoxCategoryPDN.Size = new System.Drawing.Size(120, 64);
-            this.checkedListBoxCategoryPDN.TabIndex = 17;
-            // 
-            // checkBoxSubjectsStaff
-            // 
-            this.checkBoxSubjectsStaff.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.checkBoxSubjectsStaff.Location = new System.Drawing.Point(15, 162);
-            this.checkBoxSubjectsStaff.Name = "checkBoxSubjectsStaff";
-            this.checkBoxSubjectsStaff.Size = new System.Drawing.Size(220, 40);
-            this.checkBoxSubjectsStaff.TabIndex = 18;
-            this.checkBoxSubjectsStaff.Text = "Являются ли субъекты ПДн сотрудниками оператора";
-            this.checkBoxSubjectsStaff.UseVisualStyleBackColor = true;
-            // 
-            // labelHundred
-            // 
-            this.labelHundred.Location = new System.Drawing.Point(18, 214);
-            this.labelHundred.Name = "labelHundred";
-            this.labelHundred.Size = new System.Drawing.Size(100, 27);
-            this.labelHundred.TabIndex = 19;
-            this.labelHundred.Text = "Количество субъектов ПДн";
-            // 
-            // comboBoxHundred
-            // 
-            this.comboBoxHundred.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxHundred.FormattingEnabled = true;
-            this.comboBoxHundred.Items.AddRange(new object[] {
-            "Менее 100,000",
-            "Более  100,000"});
-            this.comboBoxHundred.Location = new System.Drawing.Point(161, 220);
-            this.comboBoxHundred.Name = "comboBoxHundred";
-            this.comboBoxHundred.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxHundred.TabIndex = 20;
-            // 
-            // downloadThreatListthrlistxlsxToolStripMenuItem
-            // 
-            this.downloadThreatListthrlistxlsxToolStripMenuItem.Name = "downloadThreatListthrlistxlsxToolStripMenuItem";
-            this.downloadThreatListthrlistxlsxToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
-            this.downloadThreatListthrlistxlsxToolStripMenuItem.Text = "Скачать файл \"thrlist.xlsx\"";
-            this.downloadThreatListthrlistxlsxToolStripMenuItem.Click += new System.EventHandler(this.downloadThreatListthrlistxlsxToolStripMenuItem_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -816,7 +728,6 @@
             this.tpClassification.ResumeLayout(false);
             this.panelPDN.ResumeLayout(false);
             this.panelPDN.PerformLayout();
-            this.tabControlInfoTypes.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -861,8 +772,6 @@
         private System.Windows.Forms.ComboBox comboBoxAvailability;
         private System.Windows.Forms.ComboBox comboBoxScale;
         private System.Windows.Forms.TabControl tabControlInfoTypes;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Panel panelPDN;
         private System.Windows.Forms.Label labelActualThreatType;
         private System.Windows.Forms.Label labelISPDN;

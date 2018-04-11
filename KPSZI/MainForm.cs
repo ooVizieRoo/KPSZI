@@ -70,8 +70,13 @@ namespace KPSZI
             #region Загрузка вкладки "Классификация"
             if (treeView.SelectedNode.Name == "tnClassification")
             {
-                
                 tabControlInfoTypes.TabPages.Clear();
+                if (IS.listOfInfoTypes.Count == 0 || ((IS.listOfInfoTypes.FindLast(t => t.TypeName == "Персональные данные") != null) && IS.listOfInfoTypes.Count == 1))
+                {
+                    TabPage startTabPage = new TabPage { Name = "startTabPage", Text = "Выберите виды информации" };
+                    startTabPage.Controls.Add(new Label { Text = "Выберите виды информации в параметрах информационной системы для определения степеней ущерба.", Location = new Point { X = 70, Y = 30 }, AutoSize = false, Size = new Size(new Point { X = 160, Y = 100 })});
+                    tabControlInfoTypes.TabPages.Add(startTabPage);
+                }
                 //
                 panelPDN.Enabled = false;
                 panelPDN.Visible = false;
@@ -174,6 +179,7 @@ namespace KPSZI
             //Определение класса защищенности ГИС
             if (comboBoxScale.SelectedItem == null || tabControlInfoTypes.TabPages.Count==0)
             {
+                labelGISClass.Text = "Выберите все поля на форме, чтобы определить уровень защищенности персональных данных";
                 return;
             }
 
@@ -187,6 +193,7 @@ namespace KPSZI
                     {
                         if (((ComboBox)con).SelectedItem == null)
                         {
+                            labelGISClass.Text = "Выберите все поля на форме, чтобы определить уровень защищенности персональных данных";
                             return;
                         }
                         scales.Add(((ComboBox)con).SelectedItem.ToString());
