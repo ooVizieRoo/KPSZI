@@ -70,8 +70,12 @@ namespace KPSZI
             mf.comboBoxScale.SelectedIndexChanged += new System.EventHandler(GISClassCalculate);
             mf.checkedListBoxCategoryPDN.SelectedIndexChanged += new System.EventHandler(checkedListBoxCategoryPDN_SelectedIndexChanged);
 
+            mf.checkedListBoxCategoryPDN.SelectedIndexChanged += new System.EventHandler(checkedListBoxCategoryPDN_SelectedIndexChanged);
+            mf.checkBoxSubjectsStaff.CheckedChanged += new System.EventHandler(checkBoxSubjectsStaff_CheckedChanged);
+            mf.comboBoxHundred.SelectedIndexChanged += new System.EventHandler(ISPDNLevelCalculate);
+            mf.comboBoxActualThreatsType.SelectedIndexChanged += new System.EventHandler(ISPDNLevelCalculate);
         }
-
+        
         public override void saveChanges()
         {
             Console.WriteLine(stageName);
@@ -107,7 +111,7 @@ namespace KPSZI
             //Определение класса защищенности ГИС
             if (mf.comboBoxScale.SelectedItem == null || mf.tabControlInfoTypes.TabPages.Count == 0)
             {
-                mf.labelGISClass.Text = "Выберите все поля на форме, чтобы определить уровень защищенности персональных данных";
+                mf.labelGISClass.Text = "Выберите все поля на форме, чтобы определить класс защищенности ГИС";
                 return;
             }
 
@@ -121,7 +125,7 @@ namespace KPSZI
                     {
                         if (((ComboBox)con).SelectedItem == null)
                         {
-                            mf.labelGISClass.Text = "Выберите все поля на форме, чтобы определить уровень защищенности персональных данных";
+                            mf.labelGISClass.Text = "Выберите все поля на форме, чтобы определить класс защищенности ГИС";
                             return;
                         }
                         scales.Add(((ComboBox)con).SelectedItem.ToString());
@@ -166,32 +170,139 @@ namespace KPSZI
 
         public void ISPDNLevelCalculate(object sender, EventArgs e)
         {
+            if (mf.comboBoxActualThreatsType.SelectedItem == null || mf.comboBoxHundred.SelectedItem == null || IS.listOfCategoriesPDN.Count == 0)
+            {
+                mf.labelISPDNLevel.Text = "Выберите все поля на форме, чтобы определить уровень защищенности персональных данных";
+                
+                if (mf.comboBoxActualThreatsType.SelectedItem != null && IS.listOfCategoriesPDN.Count == 1 && IS.listOfCategoriesPDN.Contains("Биометрические"))
+                {
+                    string actualThreats = mf.comboBoxActualThreatsType.SelectedItem.ToString();
+                    switch (actualThreats)
+                    {
+                        case "1-го типа":
+                            {
+                                mf.labelISPDNLevel.Text = "Уровень защищенности - 1";
+                                break;
+                            }
+                        case "2-го типа":
+                            {
+                                mf.labelISPDNLevel.Text = "Уровень защищенности - 2";
+                                break;
+                            }
+                        case "3-го типа":
+                            {
+                                mf.labelISPDNLevel.Text = "Уровень защищенности - 3";
+                                break;
+                            }
+                    }
+                }
+
+                return;
+            }
+
             string ActualThreats = mf.comboBoxActualThreatsType.SelectedItem.ToString();
             bool isStaffSubjects = mf.checkBoxSubjectsStaff.Checked;
             string SubjectsPDN = mf.comboBoxHundred.SelectedItem.ToString();
 
+            
+
+            List<int> levels = new List<int>();
             switch (ActualThreats)
             {
                 case "1-го типа":
                     {
+                        if (IS.listOfCategoriesPDN.Contains("Специальные") || IS.listOfCategoriesPDN.Contains("Биометрические") || IS.listOfCategoriesPDN.Contains("Иные"))
+                            levels.Add(1);
+                        if (IS.listOfCategoriesPDN.Contains("Общедоступные"))
+                            levels.Add(2);
                         break;
                     }
 
                 case "2-го типа":
                     {
+                        if (IS.listOfCategoriesPDN.Contains("Специальные") && mf.checkBoxSubjectsStaff.Checked == false && SubjectsPDN == "Более 100,000")
+                            levels.Add(1);
+                        if (IS.listOfCategoriesPDN.Contains("Специальные"))
+                            if ((isStaffSubjects == false && SubjectsPDN == "Менее 100,000") || isStaffSubjects == true )
+                                levels.Add(2);
+                        if (IS.listOfCategoriesPDN.Contains("Биометрические"))
+                            levels.Add(2);
+
+                        if (IS.listOfCategoriesPDN.Contains("Иные") && mf.checkBoxSubjectsStaff.Checked == false && SubjectsPDN == "Более 100,000")
+                            levels.Add(2);
+                        if (IS.listOfCategoriesPDN.Contains("Иные"))
+                            if ((isStaffSubjects == false && SubjectsPDN == "Менее 100,000") || isStaffSubjects == true)
+                                levels.Add(3);
+
+                        if (IS.listOfCategoriesPDN.Contains("Общедоступные") && mf.checkBoxSubjectsStaff.Checked == false && SubjectsPDN == "Более 100,000")
+                            levels.Add(2);
+                        if (IS.listOfCategoriesPDN.Contains("Общедоступные"))
+                            if ((isStaffSubjects == false && SubjectsPDN == "Менее 100,000") || isStaffSubjects == true)
+                                levels.Add(3);
+
                         break;
                     }
 
                 case "3-го типа":
                     {
+                        if (IS.listOfCategoriesPDN.Contains("Общедоступные"))
+                            levels.Add(4);
+                        if (IS.listOfCategoriesPDN.Contains("Биометрические"))
+                            levels.Add(3);
+
+                        if (IS.listOfCategoriesPDN.Contains("Специальные") && mf.checkBoxSubjectsStaff.Checked == false && SubjectsPDN == "Более 100,000")
+                            levels.Add(2);
+                        if (IS.listOfCategoriesPDN.Contains("Специальные"))
+                            if ((isStaffSubjects == false && SubjectsPDN == "Менее 100,000") || isStaffSubjects == true)
+                                levels.Add(3);
+
+                        if (IS.listOfCategoriesPDN.Contains("Иные") && mf.checkBoxSubjectsStaff.Checked == false && SubjectsPDN == "Более 100,000")
+                            levels.Add(3);
+                        if (IS.listOfCategoriesPDN.Contains("Иные"))
+                            if ((isStaffSubjects == false && SubjectsPDN == "Менее 100,000") || isStaffSubjects == true)
+                                levels.Add(4);
+
                         break;
                     }
             }
+            mf.labelISPDNLevel.Text = "Уровень защищенности - " + levels.Max();
+        }
+        
+        #region Обработчики
+        public void checkBoxSubjectsStaff_CheckedChanged(object sender, EventArgs e)
+        {
+            if (mf.checkBoxSubjectsStaff.Checked)
+            {
+                mf.comboBoxHundred.Items.Clear();
+                mf.comboBoxHundred.Items.Add("Не требуется");
+                mf.comboBoxHundred.SelectedIndex = 0;
+                mf.comboBoxHundred.Enabled = false;
+            }
+
+            if (mf.checkBoxSubjectsStaff.Checked == false)
+            {
+                mf.comboBoxHundred.Items.Clear();
+                mf.comboBoxHundred.Enabled = true;
+                mf.comboBoxHundred.Items.Add("Менее 100,000");
+                mf.comboBoxHundred.Items.Add("Более 100,000");
+            }
+            ISPDNLevelCalculate(null, null);
         }
 
-
-        #region Обработчики
-        
+        #region обработчики
+        private void lbInfoTypes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // При нажатии на галочку все выбранные 
+            // виды информации помещаются в экземпляр ИС
+            IS.ISName = mf.tbISName.Text;
+            object[] buf = new object[mf.lbInfoTypes.CheckedItems.Count];
+            IS.listOfInfoTypes.Clear();
+            mf.lbInfoTypes.CheckedItems.CopyTo(buf, 0);
+            for (int i = 0; i < buf.Length; i++)
+            {
+                IS.listOfInfoTypes.Add((InfoType)buf.GetValue(i));
+            }
+        }
 
         private void checkedListBoxCategoryPDN_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -202,6 +313,7 @@ namespace KPSZI
             {
                 IS.listOfCategoriesPDN.Add((string)buf.GetValue(i));
             }
+            ISPDNLevelCalculate(null, null);
         }
         #endregion
     }
