@@ -43,7 +43,6 @@
             this.createProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.testPanelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteAllTablesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.threatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.downloadThreatListthrlistxlsxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rewriteThreatsDBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -95,6 +94,9 @@
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.iconList = new System.Windows.Forms.ImageList(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.dataBaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clearAllTablesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.initDBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tpOptions.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -146,18 +148,11 @@
             // testPanelToolStripMenuItem
             // 
             this.testPanelToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.deleteAllTablesToolStripMenuItem,
-            this.threatToolStripMenuItem});
+            this.threatToolStripMenuItem,
+            this.dataBaseToolStripMenuItem});
             this.testPanelToolStripMenuItem.Name = "testPanelToolStripMenuItem";
             this.testPanelToolStripMenuItem.Size = new System.Drawing.Size(85, 20);
             this.testPanelToolStripMenuItem.Text = "Тест панель";
-            // 
-            // deleteAllTablesToolStripMenuItem
-            // 
-            this.deleteAllTablesToolStripMenuItem.Name = "deleteAllTablesToolStripMenuItem";
-            this.deleteAllTablesToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
-            this.deleteAllTablesToolStripMenuItem.Text = "Снести всю базу";
-            this.deleteAllTablesToolStripMenuItem.Click += new System.EventHandler(this.deleteAllTablesToolStripMenuItem_Click);
             // 
             // threatToolStripMenuItem
             // 
@@ -166,7 +161,7 @@
             this.rewriteThreatsDBToolStripMenuItem,
             this.refreshThreatDBToolStripMenuItem});
             this.threatToolStripMenuItem.Name = "threatToolStripMenuItem";
-            this.threatToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.threatToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.threatToolStripMenuItem.Text = "Угрозы";
             // 
             // downloadThreatListthrlistxlsxToolStripMenuItem
@@ -698,6 +693,29 @@
             this.iconList.Images.SetKeyName(1, "if_Tick_Mark_Dark_1398912.png");
             this.iconList.Images.SetKeyName(2, "if_Close_Icon_Dark_1398917.png");
             // 
+            // dataBaseToolStripMenuItem
+            // 
+            this.dataBaseToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.initDBToolStripMenuItem,
+            this.clearAllTablesToolStripMenuItem});
+            this.dataBaseToolStripMenuItem.Name = "dataBaseToolStripMenuItem";
+            this.dataBaseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.dataBaseToolStripMenuItem.Text = "База данных";
+            // 
+            // clearAllTablesToolStripMenuItem
+            // 
+            this.clearAllTablesToolStripMenuItem.Name = "clearAllTablesToolStripMenuItem";
+            this.clearAllTablesToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.clearAllTablesToolStripMenuItem.Text = "Очистить все таблицы";
+            this.clearAllTablesToolStripMenuItem.Click += new System.EventHandler(this.clearDBToolStripMenuItem_Click);
+            // 
+            // initDBToolStripMenuItem
+            // 
+            this.initDBToolStripMenuItem.Name = "initDBToolStripMenuItem";
+            this.initDBToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.initDBToolStripMenuItem.Text = "Инициализировать";
+            this.initDBToolStripMenuItem.Click += new System.EventHandler(this.initDBToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -781,9 +799,11 @@
         private System.Windows.Forms.ToolStripMenuItem threatToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rewriteThreatsDBToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem refreshThreatDBToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem deleteAllTablesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem downloadThreatListthrlistxlsxToolStripMenuItem;
         private System.Windows.Forms.Label labelGISClass;
         private System.Windows.Forms.Label labelISPDNLevel;
+        private System.Windows.Forms.ToolStripMenuItem dataBaseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem clearAllTablesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem initDBToolStripMenuItem;
     }
 }

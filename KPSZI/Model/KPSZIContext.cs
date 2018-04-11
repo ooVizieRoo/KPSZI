@@ -9,6 +9,11 @@ namespace KPSZI.Model
 {
     public class KPSZIContext : DbContext
     {
+        private static string _db_name = "kpszi";
+        private static string _schema_name = "soooqa";
+        public static string db_name { get { return _db_name; } private set { } }
+        public static string schema_name { get { return _schema_name; } private set { } }
+
         public KPSZIContext() : base("DbConnection") { }
 
         public DbSet<Threat> Threats { get; set; }
@@ -30,7 +35,7 @@ namespace KPSZI.Model
         
         protected override void OnModelCreating(DbModelBuilder builder)
         {
-            builder.HasDefaultSchema("soooqa");
+            builder.HasDefaultSchema(schema_name);
             base.OnModelCreating(builder);
         }
 

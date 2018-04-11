@@ -28,7 +28,7 @@ namespace KPSZI.Model
         /// <summary>
         /// Коллекция всех угроз, для которых характерен данный источник угроз
         /// </summary>
-        public ICollection<Threat> Threats { get; set; }
+        public virtual ICollection<Threat> Threats { get; set; }
 
         
         public ThreatSource()
@@ -85,7 +85,7 @@ namespace KPSZI.Model
                 }
                 else
                 {
-                    MessageBox.Show("Пиздец");
+                    MessageBox.Show("Произошла ошибка парсинга поля 'Источник угроз'.\nПриступай к дебаггингу", "Ахтунг!",  MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return null;
                 }
                 listOfTS.Add(ts);
