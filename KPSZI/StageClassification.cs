@@ -109,7 +109,7 @@ namespace KPSZI
         public void GISClassCalculate(object sender, EventArgs e)
         {
             //Определение класса защищенности ГИС
-            if (mf.comboBoxScale.SelectedItem == null || mf.tabControlInfoTypes.TabPages.Count == 0)
+            if (mf.comboBoxScale.SelectedItem == null || (IS.listOfInfoTypes.Count ==1 && IS.listOfInfoTypes.FindLast(t=>t.TypeName=="Персональные данные")!=null) || IS.listOfInfoTypes.Count == 0)
             {
                 mf.labelGISClass.Text = "Выберите все поля на форме, чтобы определить класс защищенности ГИС";
                 return;
@@ -265,7 +265,7 @@ namespace KPSZI
                         break;
                     }
             }
-            mf.labelISPDNLevel.Text = "Уровень защищенности - " + levels.Max();
+            mf.labelISPDNLevel.Text = "Уровень защищенности - " + levels.Min();
         }
         
         #region Обработчики
