@@ -78,7 +78,7 @@ namespace KPSZI
         
         public override void saveChanges()
         {
-            Console.WriteLine(stageName);
+            
         }
 
         public override void enterTabPage()
@@ -289,7 +289,6 @@ namespace KPSZI
             ISPDNLevelCalculate(null, null);
         }
 
-        #region обработчики
         private void lbInfoTypes_SelectedIndexChanged(object sender, EventArgs e)
         {
             // При нажатии на галочку все выбранные 
