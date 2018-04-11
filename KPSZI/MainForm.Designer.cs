@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("1.1. Параметры ИС");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("1.2. Классификация ИС");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("1.3. Технологическая инф.");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("1. Обследование ИС", new System.Windows.Forms.TreeNode[] {
-            treeNode5,
-            treeNode6,
-            treeNode7});
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("1.1. Параметры ИС");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("1.2. Классификация ИС");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("1.3. Технологическая инф.");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("1. Обследование ИС", new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2,
+            treeNode3});
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -57,7 +57,9 @@
             this.lbInfoTypes = new System.Windows.Forms.CheckedListBox();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tpClassification = new System.Windows.Forms.TabPage();
+            this.labelGISClass = new System.Windows.Forms.Label();
             this.panelPDN = new System.Windows.Forms.Panel();
+            this.labelISPDNLevel = new System.Windows.Forms.Label();
             this.comboBoxHundred = new System.Windows.Forms.ComboBox();
             this.labelHundred = new System.Windows.Forms.Label();
             this.checkBoxSubjectsStaff = new System.Windows.Forms.CheckBox();
@@ -194,16 +196,16 @@
             this.treeView.Dock = System.Windows.Forms.DockStyle.Left;
             this.treeView.Location = new System.Drawing.Point(0, 24);
             this.treeView.Name = "treeView";
-            treeNode5.Name = "tnOptions";
-            treeNode5.Text = "1.1. Параметры ИС";
-            treeNode6.Name = "tnClassification";
-            treeNode6.Text = "1.2. Классификация ИС";
-            treeNode7.Name = "tnTechno";
-            treeNode7.Text = "1.3. Технологическая инф.";
-            treeNode8.Name = "Node0";
-            treeNode8.Text = "1. Обследование ИС";
+            treeNode1.Name = "tnOptions";
+            treeNode1.Text = "1.1. Параметры ИС";
+            treeNode2.Name = "tnClassification";
+            treeNode2.Text = "1.2. Классификация ИС";
+            treeNode3.Name = "tnTechno";
+            treeNode3.Text = "1.3. Технологическая инф.";
+            treeNode4.Name = "Node0";
+            treeNode4.Text = "1. Обследование ИС";
             this.treeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode8});
+            treeNode4});
             this.treeView.Size = new System.Drawing.Size(256, 483);
             this.treeView.TabIndex = 3;
             this.treeView.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.treeView_BeforeSelect);
@@ -300,9 +302,11 @@
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(975, 483);
             this.tabControl.TabIndex = 4;
+            this.tabControl.SelectedIndexChanged += new System.EventHandler(this.tabControl_SelectedIndexChanged);
             // 
             // tpClassification
             // 
+            this.tpClassification.Controls.Add(this.labelGISClass);
             this.tpClassification.Controls.Add(this.panelPDN);
             this.tpClassification.Controls.Add(this.tabControlInfoTypes);
             this.tpClassification.Controls.Add(this.comboBoxScale);
@@ -316,8 +320,18 @@
             this.tpClassification.Text = "tabPage2";
             this.tpClassification.UseVisualStyleBackColor = true;
             // 
+            // labelGISClass
+            // 
+            this.labelGISClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelGISClass.Location = new System.Drawing.Point(271, 235);
+            this.labelGISClass.Name = "labelGISClass";
+            this.labelGISClass.Size = new System.Drawing.Size(278, 68);
+            this.labelGISClass.TabIndex = 14;
+            this.labelGISClass.Text = "Выберите все поля на форме, чтобы определить класс защищенности ГИС";
+            // 
             // panelPDN
             // 
+            this.panelPDN.Controls.Add(this.labelISPDNLevel);
             this.panelPDN.Controls.Add(this.comboBoxHundred);
             this.panelPDN.Controls.Add(this.labelHundred);
             this.panelPDN.Controls.Add(this.checkBoxSubjectsStaff);
@@ -326,10 +340,20 @@
             this.panelPDN.Controls.Add(this.comboBoxActualThreatsType);
             this.panelPDN.Controls.Add(this.labelActualThreatType);
             this.panelPDN.Controls.Add(this.labelISPDN);
-            this.panelPDN.Location = new System.Drawing.Point(619, 15);
+            this.panelPDN.Location = new System.Drawing.Point(618, 6);
             this.panelPDN.Name = "panelPDN";
-            this.panelPDN.Size = new System.Drawing.Size(290, 268);
+            this.panelPDN.Size = new System.Drawing.Size(290, 338);
             this.panelPDN.TabIndex = 12;
+            // 
+            // labelISPDNLevel
+            // 
+            this.labelISPDNLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelISPDNLevel.Location = new System.Drawing.Point(21, 258);
+            this.labelISPDNLevel.Name = "labelISPDNLevel";
+            this.labelISPDNLevel.Size = new System.Drawing.Size(261, 67);
+            this.labelISPDNLevel.TabIndex = 21;
+            this.labelISPDNLevel.Text = "Выберите все поля на форме, чтобы определить уровень защищенности персональных да" +
+    "нных";
             // 
             // comboBoxHundred
             // 
@@ -408,7 +432,7 @@
             // labelISPDN
             // 
             this.labelISPDN.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelISPDN.Location = new System.Drawing.Point(12, 11);
+            this.labelISPDN.Location = new System.Drawing.Point(11, 9);
             this.labelISPDN.Name = "labelISPDN";
             this.labelISPDN.Size = new System.Drawing.Size(271, 36);
             this.labelISPDN.TabIndex = 13;
@@ -456,6 +480,7 @@
             this.comboBoxScale.Name = "comboBoxScale";
             this.comboBoxScale.Size = new System.Drawing.Size(121, 21);
             this.comboBoxScale.TabIndex = 10;
+            this.comboBoxScale.SelectedIndexChanged += new System.EventHandler(this.GISClassCalculate);
             // 
             // label
             // 
@@ -698,6 +723,78 @@
             this.iconList.Images.SetKeyName(1, "if_Tick_Mark_Dark_1398912.png");
             this.iconList.Images.SetKeyName(2, "if_Close_Icon_Dark_1398917.png");
             // 
+            // comboBoxActualThreatsType
+            // 
+            this.comboBoxActualThreatsType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxActualThreatsType.FormattingEnabled = true;
+            this.comboBoxActualThreatsType.Items.AddRange(new object[] {
+            "1-го типа",
+            "2-го типа",
+            "3-го типа"});
+            this.comboBoxActualThreatsType.Location = new System.Drawing.Point(152, 58);
+            this.comboBoxActualThreatsType.Name = "comboBoxActualThreatsType";
+            this.comboBoxActualThreatsType.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxActualThreatsType.TabIndex = 15;
+            // 
+            // labelPDNCategory
+            // 
+            this.labelPDNCategory.Location = new System.Drawing.Point(12, 102);
+            this.labelPDNCategory.Name = "labelPDNCategory";
+            this.labelPDNCategory.Size = new System.Drawing.Size(122, 44);
+            this.labelPDNCategory.TabIndex = 16;
+            this.labelPDNCategory.Text = "Категория обрабатываемых персональных данных";
+            // 
+            // checkedListBoxCategoryPDN
+            // 
+            this.checkedListBoxCategoryPDN.CheckOnClick = true;
+            this.checkedListBoxCategoryPDN.FormattingEnabled = true;
+            this.checkedListBoxCategoryPDN.Items.AddRange(new object[] {
+            "Специальные",
+            "Биометрические",
+            "Общедоступные",
+            "Иные"});
+            this.checkedListBoxCategoryPDN.Location = new System.Drawing.Point(152, 92);
+            this.checkedListBoxCategoryPDN.Name = "checkedListBoxCategoryPDN";
+            this.checkedListBoxCategoryPDN.Size = new System.Drawing.Size(120, 64);
+            this.checkedListBoxCategoryPDN.TabIndex = 17;
+            // 
+            // checkBoxSubjectsStaff
+            // 
+            this.checkBoxSubjectsStaff.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.checkBoxSubjectsStaff.Location = new System.Drawing.Point(15, 162);
+            this.checkBoxSubjectsStaff.Name = "checkBoxSubjectsStaff";
+            this.checkBoxSubjectsStaff.Size = new System.Drawing.Size(220, 40);
+            this.checkBoxSubjectsStaff.TabIndex = 18;
+            this.checkBoxSubjectsStaff.Text = "Являются ли субъекты ПДн сотрудниками оператора";
+            this.checkBoxSubjectsStaff.UseVisualStyleBackColor = true;
+            // 
+            // labelHundred
+            // 
+            this.labelHundred.Location = new System.Drawing.Point(18, 214);
+            this.labelHundred.Name = "labelHundred";
+            this.labelHundred.Size = new System.Drawing.Size(100, 27);
+            this.labelHundred.TabIndex = 19;
+            this.labelHundred.Text = "Количество субъектов ПДн";
+            // 
+            // comboBoxHundred
+            // 
+            this.comboBoxHundred.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxHundred.FormattingEnabled = true;
+            this.comboBoxHundred.Items.AddRange(new object[] {
+            "Менее 100,000",
+            "Более  100,000"});
+            this.comboBoxHundred.Location = new System.Drawing.Point(161, 220);
+            this.comboBoxHundred.Name = "comboBoxHundred";
+            this.comboBoxHundred.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxHundred.TabIndex = 20;
+            // 
+            // downloadThreatListthrlistxlsxToolStripMenuItem
+            // 
+            this.downloadThreatListthrlistxlsxToolStripMenuItem.Name = "downloadThreatListthrlistxlsxToolStripMenuItem";
+            this.downloadThreatListthrlistxlsxToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
+            this.downloadThreatListthrlistxlsxToolStripMenuItem.Text = "Скачать файл \"thrlist.xlsx\"";
+            this.downloadThreatListthrlistxlsxToolStripMenuItem.Click += new System.EventHandler(this.downloadThreatListthrlistxlsxToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -784,5 +881,7 @@
         private System.Windows.Forms.ToolStripMenuItem downloadThreatListthrlistxlsxToolStripMenuItem;
         private System.Windows.Forms.Label lblSFH;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelGISClass;
+        private System.Windows.Forms.Label labelISPDNLevel;
     }
 }

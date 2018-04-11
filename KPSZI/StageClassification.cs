@@ -42,18 +42,21 @@ namespace KPSZI
 
 
                     ComboBox cbConf = new ComboBox { Name = "cbConf", DropDownStyle = ComboBoxStyle.DropDownList };
+                    cbConf.SelectedIndexChanged += mf.GISClassCalculate;
                     cbConf.Location = new Point { X = 135, Y = 7 };
                     cbConf.Items.Add("Высокий");
                     cbConf.Items.Add("Средний");
                     cbConf.Items.Add("Низкий");
 
                     ComboBox cbInteg = new ComboBox { Name = "cbInteg", DropDownStyle = ComboBoxStyle.DropDownList };
+                    cbInteg.SelectedIndexChanged += mf.GISClassCalculate;
                     cbInteg.Location = new Point { X = 135, Y = 37 };
                     cbInteg.Items.Add("Высокий");
                     cbInteg.Items.Add("Средний");
                     cbInteg.Items.Add("Низкий");
 
                     ComboBox cbAvail = new ComboBox { Name = "cbAvail", DropDownStyle = ComboBoxStyle.DropDownList };
+                    cbAvail.SelectedIndexChanged += mf.GISClassCalculate;
                     cbAvail.Location = new Point { X = 135, Y = 67 };
                     cbAvail.Items.Add("Высокий");
                     cbAvail.Items.Add("Средний");

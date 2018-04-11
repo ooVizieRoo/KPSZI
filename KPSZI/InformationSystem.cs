@@ -25,11 +25,14 @@ namespace KPSZI
         /// </summary>
         public List<SFH> listOfSFHs;
 
+        public List<string> listOfCategoriesPDN;
+
         public InformationSystem ()
         {
             ISName = "";
             listOfInfoTypes = new List<InfoType>();
             listOfSFHs = new List<SFH>();
+            listOfCategoriesPDN = new List<string>();
         }
     }
 }
