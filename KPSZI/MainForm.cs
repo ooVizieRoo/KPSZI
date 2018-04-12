@@ -30,7 +30,8 @@ namespace KPSZI
             stages.Add("tnOptions", new StageOptions(returnTabPage("tpOptions"), returnTreeNode("tnOptions"), this, IS));
             stages.Add("tnClassification", new StageClassification(returnTabPage("tpClassification"), 
                 returnTreeNode("tnClassification"), this, IS));
-            stages.Add("tnTechno", new StageTechno(returnTabPage("tpTechno"), returnTreeNode("tnTechno"), this, IS));
+            stages.Add("tnAccessMatrix", new StageAccessMatrix(returnTabPage("tpAccessMatrix"), returnTreeNode("tnAccessMatrix"), this, IS));
+            stages.Add("tnTopology", new StageTopology(returnTabPage("tpTopology"), returnTreeNode("tnTopology"), this, IS));
 
             // закрываем все вкладки в TabControl
             tabControl.TabPages.Clear();
@@ -57,14 +58,17 @@ namespace KPSZI
             return treeView.Nodes.Find(tnName, true)[0];
         }
 
-        // переключение этапа в дереве
+        // Событие: После переключения вкладки
         private void treeView_AfterSelect(object sender, TreeViewEventArgs e)
         {
             tabControl.TabPages.Clear();
-            // берем снова
+            
+            // Получаем имя Node в дереве
             string nodeName = treeView.SelectedNode.Name;
+            // Если дочерних Нодов нет ...
             if (treeView.SelectedNode.Nodes.Count == 0)
             {
+                // ... Открываем вкладку этапа и выполняем enterTabPage
                 tabControl.TabPages.Add(stages[nodeName].stageTab);
                 tabControl.SelectedTab.Text = treeView.SelectedNode.Text;
                 stages[nodeName].enterTabPage();
@@ -73,6 +77,7 @@ namespace KPSZI
             treeView.Focus();
         }
 
+        // Событие: До переключения вкладки
         private void treeView_BeforeSelect(object sender, TreeViewCancelEventArgs e)
         {
             if (treeView.SelectedNode != null && treeView.SelectedNode.Nodes.Count == 0)
@@ -213,13 +218,14 @@ namespace KPSZI
             MessageBox.Show("Файл успешно загружен", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+        // Перключение по вкладкам Вперед и Назад
+        // Работает в пределах одного родительского элемента
         private void PrevStage_Click(object sender, EventArgs e)
         {
             TreeNode tn = treeView.SelectedNode.PrevNode;
             if (tn != null)
                 treeView.SelectedNode = tn;
         }
-
         private void NextStage_Click(object sender, EventArgs e)
         {
             TreeNode tn = treeView.SelectedNode.NextNode;
