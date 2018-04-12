@@ -32,6 +32,7 @@ namespace KPSZI
                 returnTreeNode("tnClassification"), this, IS));
             stages.Add("tnAccessMatrix", new StageAccessMatrix(returnTabPage("tpAccessMatrix"), returnTreeNode("tnAccessMatrix"), this, IS));
             stages.Add("tnTopology", new StageTopology(returnTabPage("tpTopology"), returnTreeNode("tnTopology"), this, IS));
+            stages.Add("tnHardware", new StageHardware(returnTabPage("tpHardware"), returnTreeNode("tnHardware"), this, IS));
 
             // закрываем все вкладки в TabControl
             tabControl.TabPages.Clear();
