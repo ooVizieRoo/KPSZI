@@ -31,11 +31,15 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("1.1. Параметры ИС");
             System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("1.2. Классификация ИС");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("1.3. Технологическая инф.");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("1. Обследование ИС", new System.Windows.Forms.TreeNode[] {
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("1.3.1. Матрица доступа");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("1.3.2. Топология сети");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("1.3. Технологическая инф.", new System.Windows.Forms.TreeNode[] {
+            treeNode3,
+            treeNode4});
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("1. Обследование ИС", new System.Windows.Forms.TreeNode[] {
             treeNode1,
             treeNode2,
-            treeNode3});
+            treeNode5});
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.projectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,9 +50,12 @@
             this.downloadThreatListthrlistxlsxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rewriteThreatsDBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.refreshThreatDBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dataBaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.initDBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clearAllTablesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.treeView = new System.Windows.Forms.TreeView();
             this.tpOptions = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblInfoType = new System.Windows.Forms.Label();
             this.lblSFH = new System.Windows.Forms.Label();
             this.tbISName = new System.Windows.Forms.TextBox();
             this.lbIsName = new System.Windows.Forms.Label();
@@ -70,8 +77,8 @@
             this.comboBoxScale = new System.Windows.Forms.ComboBox();
             this.label = new System.Windows.Forms.Label();
             this.labelScale = new System.Windows.Forms.Label();
-            this.tpTechno = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.tpAccessMatrix = new System.Windows.Forms.TabPage();
+            this.tpTopology = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.tabPage7 = new System.Windows.Forms.TabPage();
@@ -94,9 +101,6 @@
             this.iconList = new System.Windows.Forms.ImageList(this.components);
             this.PrevStage = new System.Windows.Forms.Button();
             this.NextStage = new System.Windows.Forms.Button();
-            this.dataBaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.clearAllTablesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.initDBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tpOptions.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -160,7 +164,7 @@
             this.rewriteThreatsDBToolStripMenuItem,
             this.refreshThreatDBToolStripMenuItem});
             this.threatToolStripMenuItem.Name = "threatToolStripMenuItem";
-            this.threatToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.threatToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.threatToolStripMenuItem.Text = "Угрозы";
             // 
             // downloadThreatListthrlistxlsxToolStripMenuItem
@@ -184,6 +188,29 @@
             this.refreshThreatDBToolStripMenuItem.Text = "Обновить базу угроз";
             this.refreshThreatDBToolStripMenuItem.Click += new System.EventHandler(this.refreshThreatDBToolStripMenuItem_Click);
             // 
+            // dataBaseToolStripMenuItem
+            // 
+            this.dataBaseToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.initDBToolStripMenuItem,
+            this.clearAllTablesToolStripMenuItem});
+            this.dataBaseToolStripMenuItem.Name = "dataBaseToolStripMenuItem";
+            this.dataBaseToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.dataBaseToolStripMenuItem.Text = "База данных";
+            // 
+            // initDBToolStripMenuItem
+            // 
+            this.initDBToolStripMenuItem.Name = "initDBToolStripMenuItem";
+            this.initDBToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.initDBToolStripMenuItem.Text = "Инициализировать";
+            this.initDBToolStripMenuItem.Click += new System.EventHandler(this.initDBToolStripMenuItem_Click);
+            // 
+            // clearAllTablesToolStripMenuItem
+            // 
+            this.clearAllTablesToolStripMenuItem.Name = "clearAllTablesToolStripMenuItem";
+            this.clearAllTablesToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.clearAllTablesToolStripMenuItem.Text = "Очистить все таблицы";
+            this.clearAllTablesToolStripMenuItem.Click += new System.EventHandler(this.clearDBToolStripMenuItem_Click);
+            // 
             // treeView
             // 
             this.treeView.Dock = System.Windows.Forms.DockStyle.Left;
@@ -194,12 +221,16 @@
             treeNode1.Text = "1.1. Параметры ИС";
             treeNode2.Name = "tnClassification";
             treeNode2.Text = "1.2. Классификация ИС";
-            treeNode3.Name = "tnTechno";
-            treeNode3.Text = "1.3. Технологическая инф.";
-            treeNode4.Name = "Node0";
-            treeNode4.Text = "1. Обследование ИС";
+            treeNode3.Name = "tnAccessMatrix";
+            treeNode3.Text = "1.3.1. Матрица доступа";
+            treeNode4.Name = "tnTopology";
+            treeNode4.Text = "1.3.2. Топология сети";
+            treeNode5.Name = "tnTechno";
+            treeNode5.Text = "1.3. Технологическая инф.";
+            treeNode6.Name = "Node0";
+            treeNode6.Text = "1. Обследование ИС";
             this.treeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode4});
+            treeNode6});
             this.treeView.Size = new System.Drawing.Size(256, 516);
             this.treeView.TabIndex = 3;
             this.treeView.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.treeView_BeforeSelect);
@@ -208,7 +239,7 @@
             // tpOptions
             // 
             this.tpOptions.AutoScroll = true;
-            this.tpOptions.Controls.Add(this.label1);
+            this.tpOptions.Controls.Add(this.lblInfoType);
             this.tpOptions.Controls.Add(this.lblSFH);
             this.tpOptions.Controls.Add(this.tbISName);
             this.tpOptions.Controls.Add(this.lbIsName);
@@ -221,15 +252,15 @@
             this.tpOptions.Text = "tabPage1";
             this.tpOptions.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // lblInfoType
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(9, 57);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(129, 16);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Виды информации";
+            this.lblInfoType.AutoSize = true;
+            this.lblInfoType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblInfoType.Location = new System.Drawing.Point(9, 57);
+            this.lblInfoType.Name = "lblInfoType";
+            this.lblInfoType.Size = new System.Drawing.Size(129, 16);
+            this.lblInfoType.TabIndex = 4;
+            this.lblInfoType.Text = "Виды информации";
             // 
             // lblSFH
             // 
@@ -275,8 +306,8 @@
             // 
             this.tabControl.Controls.Add(this.tpOptions);
             this.tabControl.Controls.Add(this.tpClassification);
-            this.tabControl.Controls.Add(this.tpTechno);
-            this.tabControl.Controls.Add(this.tabPage4);
+            this.tabControl.Controls.Add(this.tpAccessMatrix);
+            this.tabControl.Controls.Add(this.tpTopology);
             this.tabControl.Controls.Add(this.tabPage5);
             this.tabControl.Controls.Add(this.tabPage6);
             this.tabControl.Controls.Add(this.tabPage7);
@@ -307,7 +338,7 @@
             this.tpClassification.Location = new System.Drawing.Point(4, 22);
             this.tpClassification.Name = "tpClassification";
             this.tpClassification.Padding = new System.Windows.Forms.Padding(3);
-            this.tpClassification.Size = new System.Drawing.Size(967, 457);
+            this.tpClassification.Size = new System.Drawing.Size(976, 490);
             this.tpClassification.TabIndex = 1;
             this.tpClassification.Text = "tabPage2";
             this.tpClassification.UseVisualStyleBackColor = true;
@@ -469,32 +500,32 @@
             this.labelScale.TabIndex = 3;
             this.labelScale.Text = "Масштаб информационной системы";
             // 
-            // tpTechno
+            // tpAccessMatrix
             // 
-            this.tpTechno.Location = new System.Drawing.Point(4, 22);
-            this.tpTechno.Name = "tpTechno";
-            this.tpTechno.Padding = new System.Windows.Forms.Padding(3);
-            this.tpTechno.Size = new System.Drawing.Size(976, 490);
-            this.tpTechno.TabIndex = 2;
-            this.tpTechno.Text = "tabPage3";
-            this.tpTechno.UseVisualStyleBackColor = true;
+            this.tpAccessMatrix.Location = new System.Drawing.Point(4, 22);
+            this.tpAccessMatrix.Name = "tpAccessMatrix";
+            this.tpAccessMatrix.Padding = new System.Windows.Forms.Padding(3);
+            this.tpAccessMatrix.Size = new System.Drawing.Size(976, 490);
+            this.tpAccessMatrix.TabIndex = 2;
+            this.tpAccessMatrix.Text = "tabPage3";
+            this.tpAccessMatrix.UseVisualStyleBackColor = true;
             // 
-            // tabPage4
+            // tpTopology
             // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(967, 457);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "tabPage4";
-            this.tabPage4.UseVisualStyleBackColor = true;
+            this.tpTopology.Location = new System.Drawing.Point(4, 22);
+            this.tpTopology.Name = "tpTopology";
+            this.tpTopology.Padding = new System.Windows.Forms.Padding(3);
+            this.tpTopology.Size = new System.Drawing.Size(976, 490);
+            this.tpTopology.TabIndex = 3;
+            this.tpTopology.Text = "tabPage4";
+            this.tpTopology.UseVisualStyleBackColor = true;
             // 
             // tabPage5
             // 
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(967, 457);
+            this.tabPage5.Size = new System.Drawing.Size(976, 490);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "tabPage5";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -504,7 +535,7 @@
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(967, 457);
+            this.tabPage6.Size = new System.Drawing.Size(976, 490);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "tabPage6";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -514,7 +545,7 @@
             this.tabPage7.Location = new System.Drawing.Point(4, 22);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(967, 457);
+            this.tabPage7.Size = new System.Drawing.Size(976, 490);
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "tabPage7";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -524,7 +555,7 @@
             this.tabPage8.Location = new System.Drawing.Point(4, 22);
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage8.Size = new System.Drawing.Size(967, 457);
+            this.tabPage8.Size = new System.Drawing.Size(976, 490);
             this.tabPage8.TabIndex = 7;
             this.tabPage8.Text = "tabPage8";
             this.tabPage8.UseVisualStyleBackColor = true;
@@ -534,7 +565,7 @@
             this.tabPage9.Location = new System.Drawing.Point(4, 22);
             this.tabPage9.Name = "tabPage9";
             this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage9.Size = new System.Drawing.Size(967, 457);
+            this.tabPage9.Size = new System.Drawing.Size(976, 490);
             this.tabPage9.TabIndex = 8;
             this.tabPage9.Text = "tabPage9";
             this.tabPage9.UseVisualStyleBackColor = true;
@@ -544,7 +575,7 @@
             this.tabPage10.Location = new System.Drawing.Point(4, 22);
             this.tabPage10.Name = "tabPage10";
             this.tabPage10.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage10.Size = new System.Drawing.Size(967, 457);
+            this.tabPage10.Size = new System.Drawing.Size(976, 490);
             this.tabPage10.TabIndex = 9;
             this.tabPage10.Text = "tabPage10";
             this.tabPage10.UseVisualStyleBackColor = true;
@@ -554,7 +585,7 @@
             this.tabPage11.Location = new System.Drawing.Point(4, 22);
             this.tabPage11.Name = "tabPage11";
             this.tabPage11.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage11.Size = new System.Drawing.Size(967, 457);
+            this.tabPage11.Size = new System.Drawing.Size(976, 490);
             this.tabPage11.TabIndex = 10;
             this.tabPage11.Text = "tabPage11";
             this.tabPage11.UseVisualStyleBackColor = true;
@@ -564,7 +595,7 @@
             this.tabPage12.Location = new System.Drawing.Point(4, 22);
             this.tabPage12.Name = "tabPage12";
             this.tabPage12.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage12.Size = new System.Drawing.Size(967, 457);
+            this.tabPage12.Size = new System.Drawing.Size(976, 490);
             this.tabPage12.TabIndex = 11;
             this.tabPage12.Text = "tabPage12";
             this.tabPage12.UseVisualStyleBackColor = true;
@@ -574,7 +605,7 @@
             this.tabPage13.Location = new System.Drawing.Point(4, 22);
             this.tabPage13.Name = "tabPage13";
             this.tabPage13.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage13.Size = new System.Drawing.Size(967, 457);
+            this.tabPage13.Size = new System.Drawing.Size(976, 490);
             this.tabPage13.TabIndex = 12;
             this.tabPage13.Text = "tabPage13";
             this.tabPage13.UseVisualStyleBackColor = true;
@@ -584,7 +615,7 @@
             this.tabPage14.Location = new System.Drawing.Point(4, 22);
             this.tabPage14.Name = "tabPage14";
             this.tabPage14.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage14.Size = new System.Drawing.Size(967, 457);
+            this.tabPage14.Size = new System.Drawing.Size(976, 490);
             this.tabPage14.TabIndex = 13;
             this.tabPage14.Text = "tabPage14";
             this.tabPage14.UseVisualStyleBackColor = true;
@@ -594,7 +625,7 @@
             this.tabPage15.Location = new System.Drawing.Point(4, 22);
             this.tabPage15.Name = "tabPage15";
             this.tabPage15.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage15.Size = new System.Drawing.Size(967, 457);
+            this.tabPage15.Size = new System.Drawing.Size(976, 490);
             this.tabPage15.TabIndex = 14;
             this.tabPage15.Text = "tabPage15";
             this.tabPage15.UseVisualStyleBackColor = true;
@@ -604,7 +635,7 @@
             this.tabPage16.Location = new System.Drawing.Point(4, 22);
             this.tabPage16.Name = "tabPage16";
             this.tabPage16.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage16.Size = new System.Drawing.Size(967, 457);
+            this.tabPage16.Size = new System.Drawing.Size(976, 490);
             this.tabPage16.TabIndex = 15;
             this.tabPage16.Text = "tabPage16";
             this.tabPage16.UseVisualStyleBackColor = true;
@@ -710,29 +741,6 @@
             this.NextStage.UseVisualStyleBackColor = true;
             this.NextStage.Click += new System.EventHandler(this.NextStage_Click);
             // 
-            // dataBaseToolStripMenuItem
-            // 
-            this.dataBaseToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.initDBToolStripMenuItem,
-            this.clearAllTablesToolStripMenuItem});
-            this.dataBaseToolStripMenuItem.Name = "dataBaseToolStripMenuItem";
-            this.dataBaseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.dataBaseToolStripMenuItem.Text = "База данных";
-            // 
-            // clearAllTablesToolStripMenuItem
-            // 
-            this.clearAllTablesToolStripMenuItem.Name = "clearAllTablesToolStripMenuItem";
-            this.clearAllTablesToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
-            this.clearAllTablesToolStripMenuItem.Text = "Очистить все таблицы";
-            this.clearAllTablesToolStripMenuItem.Click += new System.EventHandler(this.clearDBToolStripMenuItem_Click);
-            // 
-            // initDBToolStripMenuItem
-            // 
-            this.initDBToolStripMenuItem.Name = "initDBToolStripMenuItem";
-            this.initDBToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
-            this.initDBToolStripMenuItem.Text = "Инициализировать";
-            this.initDBToolStripMenuItem.Click += new System.EventHandler(this.initDBToolStripMenuItem_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -775,8 +783,8 @@
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.TabPage tpClassification;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
-        private System.Windows.Forms.TabPage tpTechno;
-        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.TabPage tpAccessMatrix;
+        private System.Windows.Forms.TabPage tpTopology;
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.TabPage tabPage6;
         private System.Windows.Forms.TabPage tabPage7;
@@ -816,7 +824,7 @@
         private System.Windows.Forms.ToolStripMenuItem refreshThreatDBToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem downloadThreatListthrlistxlsxToolStripMenuItem;
         private System.Windows.Forms.Label lblSFH;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblInfoType;
         internal System.Windows.Forms.Label labelGISClass;
         
         private System.Windows.Forms.Button PrevStage;
