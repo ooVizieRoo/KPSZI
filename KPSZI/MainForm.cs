@@ -34,6 +34,7 @@ namespace KPSZI
             stages.Add("tnTopology", new StageTopology(returnTabPage("tpTopology"), returnTreeNode("tnTopology"), this, IS));
             stages.Add("tnIntruder", new StageIntruder(returnTabPage("tpIntruder"), returnTreeNode("tnIntruder"), this, IS));
             stages.Add("tnActualThreats", new StageActualThreats(returnTabPage("tpActualThreats"), returnTreeNode("tnActualThreats"), this, IS));
+            stages.Add("tnHardware", new StageHardware(returnTabPage("tpHardware"), returnTreeNode("tnHardware"), this, IS));
 
             // закрываем все вкладки в TabControl
             tabControl.TabPages.Clear();
@@ -122,6 +123,7 @@ namespace KPSZI
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message, "Ахтунг!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
                     }
 
                 }
@@ -143,6 +145,7 @@ namespace KPSZI
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message, "Ахтунг!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
                     }
                 }
                 MessageBox.Show("Таблицы базы данных успешно очищены", "Это успех, парень!", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -168,14 +171,17 @@ namespace KPSZI
                         // Получение даты последнего обновления угроз из актуального файла с угрозами
                         DateTime lastUpdateOfFile = listThreatsFromFile.Select(t => t.DateOfChange).Max();
 
+                        // Если нет изменений, то прекратить обновление
                         if (lastUpdateOfLocalDB == lastUpdateOfFile)
                         {
                             MessageBox.Show("База угроз не требует обновления!", "КПСЗИ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             return;
                         }
 
+                        // Отбор угроз, претерпевшихизменения
                         List<Threat> listChangedOrAddedThreats = listThreatsFromFile.Where(t => t.DateOfChange > lastUpdateOfLocalDB).ToList();
 
+                        // Внесение изменений
                         foreach(Threat thr in listChangedOrAddedThreats)
                         {
                             Threat ThrFromDB = listThreatsFromDB.Where(t => t.ThreatNumber == thr.ThreatNumber).FirstOrDefault();
@@ -225,6 +231,7 @@ namespace KPSZI
             catch (Exception ex)
             {
                 MessageBox.Show("Проблемы при загрузке файла thrlist.xlsx.\n"+ ex.Message, "Ошибка загрузки файла", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
             MessageBox.Show("Файл успешно загружен", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
@@ -259,6 +266,7 @@ namespace KPSZI
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message, "Ахтунг!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
                     }
                 }
                 MessageBox.Show("База данных проинициализирована начальными значениями", "Это успех, парень!", MessageBoxButtons.OK, MessageBoxIcon.Information);

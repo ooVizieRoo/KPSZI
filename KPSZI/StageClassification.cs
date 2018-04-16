@@ -14,12 +14,12 @@ namespace KPSZI
         public StageClassification(TabPage stageTab, TreeNode stageNode, MainForm mainForm, InformationSystem IS)
             :base(stageTab, stageNode, mainForm, IS)
         {
-            Init();
+            //base.initTabPage();
         }
 
         public List<TabPage> tabPagesInfoTypes = new List<TabPage>();
 
-        public void Init()
+        public override void initTabPage()
         {
             using (Model.KPSZIContext db = new KPSZIContext())
             {

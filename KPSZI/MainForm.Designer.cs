@@ -29,17 +29,19 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("1.1. Параметры ИС");
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("1.2. Классификация ИС");
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("1.3.1. Матрица доступа");
-            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("1.3.2. Топология сети");
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("1.3. Технологическая инф.", new System.Windows.Forms.TreeNode[] {
-            treeNode12,
-            treeNode13});
-            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("1. Обследование ИС", new System.Windows.Forms.TreeNode[] {
-            treeNode10,
-            treeNode11,
-            treeNode14});
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("1.1. Параметры ИС");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("1.2. Классификация ИС");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("1.3.1. Матрица доступа");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("1.3.2. Топология сети");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("1.3.3. ЖЕЛЕЗО");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("1.3. Технологическая инф.", new System.Windows.Forms.TreeNode[] {
+            treeNode3,
+            treeNode4,
+            treeNode5});
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("1. Обследование ИС", new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2,
+            treeNode6});
             System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("2.1. Модель нарушителя");
             System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("2.2. Актуальные УБИ");
             System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("2. Модель угроз", new System.Windows.Forms.TreeNode[] {
@@ -85,6 +87,7 @@
             this.labelScale = new System.Windows.Forms.Label();
             this.tpAccessMatrix = new System.Windows.Forms.TabPage();
             this.tpTopology = new System.Windows.Forms.TabPage();
+            this.tpHardware = new System.Windows.Forms.TabPage();
             this.tpIntruder = new System.Windows.Forms.TabPage();
             this.lblImplementWays = new System.Windows.Forms.Label();
             this.clbImplementWays = new System.Windows.Forms.CheckedListBox();
@@ -233,28 +236,28 @@
             this.treeView.HotTracking = true;
             this.treeView.Location = new System.Drawing.Point(0, 24);
             this.treeView.Name = "treeView";
-            treeNode10.Name = "tnOptions";
-            treeNode10.Text = "1.1. Параметры ИС";
-            treeNode11.Name = "tnClassification";
-            treeNode11.Text = "1.2. Классификация ИС";
-            treeNode12.Name = "tnAccessMatrix";
-            treeNode12.Text = "1.3.1. Матрица доступа";
-            treeNode13.Name = "tnTopology";
-            treeNode13.Text = "1.3.2. Топология сети";
-            treeNode14.Name = "tnTechno";
-            treeNode14.Text = "1.3. Технологическая инф.";
-            treeNode15.Name = "Node0";
-            treeNode15.Text = "1. Обследование ИС";
-            treeNode16.Name = "tnIntruder";
+            treeNode1.Name = "tnOptions";
+            treeNode1.Text = "1.1. Параметры ИС";
+            treeNode2.Name = "tnClassification";
+            treeNode2.Text = "1.2. Классификация ИС";
+            treeNode3.Name = "tnAccessMatrix";
+            treeNode3.Text = "1.3.1. Матрица доступа";
+            treeNode4.Name = "tnTopology";
+            treeNode4.Text = "1.3.2. Топология сети";
+            treeNode5.Name = "tnHardware";
+            treeNode5.Text = "1.3.3. ЖЕЛЕЗО";
+            treeNode6.Name = "tnTechno";
+            treeNode6.Text = "1.3. Технологическая инф.";
+            treeNode7.Name = "Node0";
+            treeNode7.Text = "1. Обследование ИС";
             treeNode16.Text = "2.1. Модель нарушителя";
             treeNode17.Name = "tnActualThreats";
             treeNode17.Text = "2.2. Актуальные УБИ";
             treeNode18.Name = "Node3";
             treeNode18.Text = "2. Модель угроз";
             this.treeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode15,
-            treeNode18});
-            this.treeView.Size = new System.Drawing.Size(250, 516);
+            treeNode7});
+            this.treeView.Size = new System.Drawing.Size(256, 516);
             this.treeView.TabIndex = 3;
             this.treeView.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.treeView_BeforeSelect);
             this.treeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView_AfterSelect);
@@ -346,6 +349,7 @@
             this.tabControl.Controls.Add(this.tpClassification);
             this.tabControl.Controls.Add(this.tpAccessMatrix);
             this.tabControl.Controls.Add(this.tpTopology);
+            this.tabControl.Controls.Add(this.tpHardware);
             this.tabControl.Controls.Add(this.tpIntruder);
             this.tabControl.Controls.Add(this.tpActualThreats);
             this.tabControl.Controls.Add(this.tabPage7);
@@ -582,8 +586,16 @@
             this.lblImplementWays.TabIndex = 3;
             this.lblImplementWays.Text = "Способы реализации УБИ";
             // 
+            // tpHardware
             // clbImplementWays
             // 
+            this.tpHardware.Location = new System.Drawing.Point(4, 22);
+            this.tpHardware.Name = "tpHardware";
+            this.tpHardware.Padding = new System.Windows.Forms.Padding(3);
+            this.tpHardware.Size = new System.Drawing.Size(976, 490);
+            this.tpHardware.TabIndex = 5;
+            this.tpHardware.Text = "tpHardware";
+            this.tpHardware.UseVisualStyleBackColor = true;
             this.clbImplementWays.FormattingEnabled = true;
             this.clbImplementWays.Location = new System.Drawing.Point(6, 225);
             this.clbImplementWays.Name = "clbImplementWays";
@@ -892,6 +904,7 @@
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
         private System.Windows.Forms.TabPage tpAccessMatrix;
         private System.Windows.Forms.TabPage tpTopology;
+        private System.Windows.Forms.TabPage tpHardware;
         private System.Windows.Forms.TabPage tpIntruder;
         private System.Windows.Forms.TabPage tpActualThreats;
         private System.Windows.Forms.TabPage tabPage7;

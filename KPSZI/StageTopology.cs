@@ -17,10 +17,17 @@ namespace KPSZI
 
         public override void enterTabPage()
         {
+
         }
 
         public override void saveChanges()
         {
+
+        }
+
+        public override void initTabPage()
+        {
+
         }
     }
 }

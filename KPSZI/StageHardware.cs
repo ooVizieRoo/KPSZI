@@ -7,21 +7,21 @@ using System.Windows.Forms;
 
 namespace KPSZI
 {
-    class StageAccessMatrix : Stage
+    class StageHardware : Stage
     {
-        public StageAccessMatrix(TabPage stageTab, TreeNode stageNode, MainForm mainForm, InformationSystem IS)
+        public StageHardware(TabPage stageTab, TreeNode stageNode, MainForm mainForm, InformationSystem IS)
             : base(stageTab, stageNode, mainForm, IS)
         {
 
         }
 
         public override void enterTabPage()
-        {           
-             
+        {
+
         }
 
         public override void saveChanges()
-        {            
+        {
 
         }
 

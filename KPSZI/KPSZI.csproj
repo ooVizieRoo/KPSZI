@@ -119,6 +119,7 @@
     <Compile Include="StageClassification.cs" />
     <Compile Include="StageIntruder.cs" />
     <Compile Include="StageOptions.cs" />
+    <Compile Include="StageHardware.cs" />
     <Compile Include="StageTechno.cs" />
     <Compile Include="StageTopology.cs" />
     <EmbeddedResource Include="MainForm.resx">
