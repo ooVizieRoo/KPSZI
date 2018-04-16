@@ -34,6 +34,11 @@ namespace KPSZI
             
         }
 
+        public override void initTabPage()
+        {
+            
+        }
+
         public override void saveChanges()
         {
         }

@@ -42,11 +42,11 @@
             treeNode1,
             treeNode2,
             treeNode6});
-            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("2.1. Модель нарушителя");
-            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("2.2. Актуальные УБИ");
-            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("2. Модель угроз", new System.Windows.Forms.TreeNode[] {
-            treeNode16,
-            treeNode17});
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("2.1. Модель нарушителя");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("2.2. Актуальные УБИ");
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("2. Модель угроз", new System.Windows.Forms.TreeNode[] {
+            treeNode8,
+            treeNode9});
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.projectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -250,13 +250,15 @@
             treeNode6.Text = "1.3. Технологическая инф.";
             treeNode7.Name = "Node0";
             treeNode7.Text = "1. Обследование ИС";
-            treeNode16.Text = "2.1. Модель нарушителя";
-            treeNode17.Name = "tnActualThreats";
-            treeNode17.Text = "2.2. Актуальные УБИ";
-            treeNode18.Name = "Node3";
-            treeNode18.Text = "2. Модель угроз";
+            treeNode8.Name = "tnIntruder";
+            treeNode8.Text = "2.1. Модель нарушителя";
+            treeNode9.Name = "tnActualThreats";
+            treeNode9.Text = "2.2. Актуальные УБИ";
+            treeNode10.Name = "Node1";
+            treeNode10.Text = "2. Модель угроз";
             this.treeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode7});
+            treeNode7,
+            treeNode10});
             this.treeView.Size = new System.Drawing.Size(256, 516);
             this.treeView.TabIndex = 3;
             this.treeView.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.treeView_BeforeSelect);
@@ -274,7 +276,7 @@
             this.tpOptions.Location = new System.Drawing.Point(4, 22);
             this.tpOptions.Name = "tpOptions";
             this.tpOptions.Padding = new System.Windows.Forms.Padding(3);
-            this.tpOptions.Size = new System.Drawing.Size(982, 490);
+            this.tpOptions.Size = new System.Drawing.Size(976, 490);
             this.tpOptions.TabIndex = 0;
             this.tpOptions.Text = "tpOptions";
             this.tpOptions.UseVisualStyleBackColor = true;
@@ -363,11 +365,11 @@
             this.tabControl.Controls.Add(this.tabPage15);
             this.tabControl.Controls.Add(this.tabPage16);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl.Location = new System.Drawing.Point(250, 24);
+            this.tabControl.Location = new System.Drawing.Point(256, 24);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
             this.tabControl.ShowToolTips = true;
-            this.tabControl.Size = new System.Drawing.Size(990, 516);
+            this.tabControl.Size = new System.Drawing.Size(984, 516);
             this.tabControl.TabIndex = 4;
             // 
             // tpClassification
@@ -563,6 +565,16 @@
             this.tpTopology.Text = "tpTopology";
             this.tpTopology.UseVisualStyleBackColor = true;
             // 
+            // tpHardware
+            // 
+            this.tpHardware.Location = new System.Drawing.Point(4, 22);
+            this.tpHardware.Name = "tpHardware";
+            this.tpHardware.Padding = new System.Windows.Forms.Padding(3);
+            this.tpHardware.Size = new System.Drawing.Size(982, 490);
+            this.tpHardware.TabIndex = 5;
+            this.tpHardware.Text = "tpHardware";
+            this.tpHardware.UseVisualStyleBackColor = true;
+            // 
             // tpIntruder
             // 
             this.tpIntruder.Controls.Add(this.lblImplementWays);
@@ -586,16 +598,8 @@
             this.lblImplementWays.TabIndex = 3;
             this.lblImplementWays.Text = "Способы реализации УБИ";
             // 
-            // tpHardware
             // clbImplementWays
             // 
-            this.tpHardware.Location = new System.Drawing.Point(4, 22);
-            this.tpHardware.Name = "tpHardware";
-            this.tpHardware.Padding = new System.Windows.Forms.Padding(3);
-            this.tpHardware.Size = new System.Drawing.Size(976, 490);
-            this.tpHardware.TabIndex = 5;
-            this.tpHardware.Text = "tpHardware";
-            this.tpHardware.UseVisualStyleBackColor = true;
             this.clbImplementWays.FormattingEnabled = true;
             this.clbImplementWays.Location = new System.Drawing.Point(6, 225);
             this.clbImplementWays.Name = "clbImplementWays";
@@ -821,7 +825,7 @@
             // 
             // splitter1
             // 
-            this.splitter1.Location = new System.Drawing.Point(250, 24);
+            this.splitter1.Location = new System.Drawing.Point(256, 24);
             this.splitter1.Name = "splitter1";
             this.splitter1.Size = new System.Drawing.Size(3, 516);
             this.splitter1.TabIndex = 5;
