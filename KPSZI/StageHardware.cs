@@ -24,5 +24,10 @@ namespace KPSZI
         {
 
         }
+
+        public override void initTabPage()
+        {
+
+        }
     }
 }

@@ -34,5 +34,6 @@ namespace KPSZI
 
         public abstract void enterTabPage();
 
+        public abstract void initTabPage();
     }
 }
