@@ -29,17 +29,22 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("1.1. Параметры ИС");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("1.2. Классификация ИС");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("1.3.1. Матрица доступа");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("1.3.2. Топология сети");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("1.3. Технологическая инф.", new System.Windows.Forms.TreeNode[] {
-            treeNode3,
-            treeNode4});
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("1. Обследование ИС", new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode5});
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("1.1. Параметры ИС");
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("1.2. Классификация ИС");
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("1.3.1. Матрица доступа");
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("1.3.2. Топология сети");
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("1.3. Технологическая инф.", new System.Windows.Forms.TreeNode[] {
+            treeNode12,
+            treeNode13});
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("1. Обследование ИС", new System.Windows.Forms.TreeNode[] {
+            treeNode10,
+            treeNode11,
+            treeNode14});
+            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("2.1. Модель нарушителя");
+            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("2.2. Актуальные УБИ");
+            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("2. Модель угроз", new System.Windows.Forms.TreeNode[] {
+            treeNode16,
+            treeNode17});
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.projectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,6 +60,7 @@
             this.clearAllTablesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.treeView = new System.Windows.Forms.TreeView();
             this.tpOptions = new System.Windows.Forms.TabPage();
+            this.lblProjectSecutiryLvl = new System.Windows.Forms.Label();
             this.lblInfoType = new System.Windows.Forms.Label();
             this.lblSFH = new System.Windows.Forms.Label();
             this.tbISName = new System.Windows.Forms.TextBox();
@@ -79,8 +85,13 @@
             this.labelScale = new System.Windows.Forms.Label();
             this.tpAccessMatrix = new System.Windows.Forms.TabPage();
             this.tpTopology = new System.Windows.Forms.TabPage();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.tpIntruder = new System.Windows.Forms.TabPage();
+            this.lblImplementWays = new System.Windows.Forms.Label();
+            this.clbImplementWays = new System.Windows.Forms.CheckedListBox();
+            this.lblIntruderType = new System.Windows.Forms.Label();
+            this.clbIntruderType = new System.Windows.Forms.CheckedListBox();
+            this.tpActualThreats = new System.Windows.Forms.TabPage();
+            this.dgvThreats = new System.Windows.Forms.DataGridView();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.tabPage9 = new System.Windows.Forms.TabPage();
@@ -99,13 +110,16 @@
             this.labelAvailability = new System.Windows.Forms.Label();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.iconList = new System.Windows.Forms.ImageList(this.components);
-            this.PrevStage = new System.Windows.Forms.Button();
-            this.NextStage = new System.Windows.Forms.Button();
+            this.btPrevStage = new System.Windows.Forms.Button();
+            this.btNextStage = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.tpOptions.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tpClassification.SuspendLayout();
             this.panelPDN.SuspendLayout();
+            this.tpIntruder.SuspendLayout();
+            this.tpActualThreats.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvThreats)).BeginInit();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -213,25 +227,34 @@
             // 
             // treeView
             // 
+            this.treeView.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.treeView.Dock = System.Windows.Forms.DockStyle.Left;
             this.treeView.HideSelection = false;
+            this.treeView.HotTracking = true;
             this.treeView.Location = new System.Drawing.Point(0, 24);
             this.treeView.Name = "treeView";
-            treeNode1.Name = "tnOptions";
-            treeNode1.Text = "1.1. Параметры ИС";
-            treeNode2.Name = "tnClassification";
-            treeNode2.Text = "1.2. Классификация ИС";
-            treeNode3.Name = "tnAccessMatrix";
-            treeNode3.Text = "1.3.1. Матрица доступа";
-            treeNode4.Name = "tnTopology";
-            treeNode4.Text = "1.3.2. Топология сети";
-            treeNode5.Name = "tnTechno";
-            treeNode5.Text = "1.3. Технологическая инф.";
-            treeNode6.Name = "Node0";
-            treeNode6.Text = "1. Обследование ИС";
+            treeNode10.Name = "tnOptions";
+            treeNode10.Text = "1.1. Параметры ИС";
+            treeNode11.Name = "tnClassification";
+            treeNode11.Text = "1.2. Классификация ИС";
+            treeNode12.Name = "tnAccessMatrix";
+            treeNode12.Text = "1.3.1. Матрица доступа";
+            treeNode13.Name = "tnTopology";
+            treeNode13.Text = "1.3.2. Топология сети";
+            treeNode14.Name = "tnTechno";
+            treeNode14.Text = "1.3. Технологическая инф.";
+            treeNode15.Name = "Node0";
+            treeNode15.Text = "1. Обследование ИС";
+            treeNode16.Name = "tnIntruder";
+            treeNode16.Text = "2.1. Модель нарушителя";
+            treeNode17.Name = "tnActualThreats";
+            treeNode17.Text = "2.2. Актуальные УБИ";
+            treeNode18.Name = "Node3";
+            treeNode18.Text = "2. Модель угроз";
             this.treeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode6});
-            this.treeView.Size = new System.Drawing.Size(256, 516);
+            treeNode15,
+            treeNode18});
+            this.treeView.Size = new System.Drawing.Size(250, 516);
             this.treeView.TabIndex = 3;
             this.treeView.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.treeView_BeforeSelect);
             this.treeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView_AfterSelect);
@@ -239,6 +262,7 @@
             // tpOptions
             // 
             this.tpOptions.AutoScroll = true;
+            this.tpOptions.Controls.Add(this.lblProjectSecutiryLvl);
             this.tpOptions.Controls.Add(this.lblInfoType);
             this.tpOptions.Controls.Add(this.lblSFH);
             this.tpOptions.Controls.Add(this.tbISName);
@@ -247,34 +271,43 @@
             this.tpOptions.Location = new System.Drawing.Point(4, 22);
             this.tpOptions.Name = "tpOptions";
             this.tpOptions.Padding = new System.Windows.Forms.Padding(3);
-            this.tpOptions.Size = new System.Drawing.Size(976, 490);
+            this.tpOptions.Size = new System.Drawing.Size(982, 490);
             this.tpOptions.TabIndex = 0;
-            this.tpOptions.Text = "tabPage1";
+            this.tpOptions.Text = "tpOptions";
             this.tpOptions.UseVisualStyleBackColor = true;
+            // 
+            // lblProjectSecutiryLvl
+            // 
+            this.lblProjectSecutiryLvl.AutoSize = true;
+            this.lblProjectSecutiryLvl.Location = new System.Drawing.Point(458, 245);
+            this.lblProjectSecutiryLvl.Name = "lblProjectSecutiryLvl";
+            this.lblProjectSecutiryLvl.Size = new System.Drawing.Size(193, 13);
+            this.lblProjectSecutiryLvl.TabIndex = 5;
+            this.lblProjectSecutiryLvl.Text = "Уровень проектной защищенности: ";
             // 
             // lblInfoType
             // 
             this.lblInfoType.AutoSize = true;
-            this.lblInfoType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblInfoType.Location = new System.Drawing.Point(9, 57);
+            this.lblInfoType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblInfoType.Location = new System.Drawing.Point(461, 66);
             this.lblInfoType.Name = "lblInfoType";
-            this.lblInfoType.Size = new System.Drawing.Size(129, 16);
+            this.lblInfoType.Size = new System.Drawing.Size(144, 16);
             this.lblInfoType.TabIndex = 4;
             this.lblInfoType.Text = "Виды информации";
             // 
             // lblSFH
             // 
             this.lblSFH.AutoSize = true;
-            this.lblSFH.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblSFH.Location = new System.Drawing.Point(312, 7);
+            this.lblSFH.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblSFH.Location = new System.Drawing.Point(6, 61);
             this.lblSFH.Name = "lblSFH";
-            this.lblSFH.Size = new System.Drawing.Size(312, 16);
+            this.lblSFH.Size = new System.Drawing.Size(352, 16);
             this.lblSFH.TabIndex = 3;
             this.lblSFH.Text = "Структурно-функциональные характеристики";
             // 
             // tbISName
             // 
-            this.tbISName.Location = new System.Drawing.Point(7, 27);
+            this.tbISName.Location = new System.Drawing.Point(7, 29);
             this.tbISName.Name = "tbISName";
             this.tbISName.Size = new System.Drawing.Size(293, 20);
             this.tbISName.TabIndex = 0;
@@ -282,10 +315,10 @@
             // lbIsName
             // 
             this.lbIsName.AutoSize = true;
-            this.lbIsName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbIsName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbIsName.Location = new System.Drawing.Point(6, 7);
             this.lbIsName.Name = "lbIsName";
-            this.lbIsName.Size = new System.Drawing.Size(251, 16);
+            this.lbIsName.Size = new System.Drawing.Size(282, 16);
             this.lbIsName.TabIndex = 2;
             this.lbIsName.Text = "Название информационной системы";
             // 
@@ -293,13 +326,18 @@
             // 
             this.lbInfoTypes.CheckOnClick = true;
             this.lbInfoTypes.FormattingEnabled = true;
+            this.lbInfoTypes.HorizontalScrollbar = true;
             this.lbInfoTypes.Items.AddRange(new object[] {
             "1",
             "2",
-            "3"});
-            this.lbInfoTypes.Location = new System.Drawing.Point(7, 77);
+            "3",
+            "4",
+            "5",
+            "6",
+            "7"});
+            this.lbInfoTypes.Location = new System.Drawing.Point(461, 91);
             this.lbInfoTypes.Name = "lbInfoTypes";
-            this.lbInfoTypes.Size = new System.Drawing.Size(293, 49);
+            this.lbInfoTypes.Size = new System.Drawing.Size(440, 109);
             this.lbInfoTypes.TabIndex = 0;
             // 
             // tabControl
@@ -308,8 +346,8 @@
             this.tabControl.Controls.Add(this.tpClassification);
             this.tabControl.Controls.Add(this.tpAccessMatrix);
             this.tabControl.Controls.Add(this.tpTopology);
-            this.tabControl.Controls.Add(this.tabPage5);
-            this.tabControl.Controls.Add(this.tabPage6);
+            this.tabControl.Controls.Add(this.tpIntruder);
+            this.tabControl.Controls.Add(this.tpActualThreats);
             this.tabControl.Controls.Add(this.tabPage7);
             this.tabControl.Controls.Add(this.tabPage8);
             this.tabControl.Controls.Add(this.tabPage9);
@@ -321,10 +359,11 @@
             this.tabControl.Controls.Add(this.tabPage15);
             this.tabControl.Controls.Add(this.tabPage16);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl.Location = new System.Drawing.Point(256, 24);
+            this.tabControl.Location = new System.Drawing.Point(250, 24);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(984, 516);
+            this.tabControl.ShowToolTips = true;
+            this.tabControl.Size = new System.Drawing.Size(990, 516);
             this.tabControl.TabIndex = 4;
             // 
             // tpClassification
@@ -338,9 +377,9 @@
             this.tpClassification.Location = new System.Drawing.Point(4, 22);
             this.tpClassification.Name = "tpClassification";
             this.tpClassification.Padding = new System.Windows.Forms.Padding(3);
-            this.tpClassification.Size = new System.Drawing.Size(976, 490);
+            this.tpClassification.Size = new System.Drawing.Size(982, 490);
             this.tpClassification.TabIndex = 1;
-            this.tpClassification.Text = "tabPage2";
+            this.tpClassification.Text = "tpClassification";
             this.tpClassification.UseVisualStyleBackColor = true;
             // 
             // labelGISClass
@@ -505,9 +544,9 @@
             this.tpAccessMatrix.Location = new System.Drawing.Point(4, 22);
             this.tpAccessMatrix.Name = "tpAccessMatrix";
             this.tpAccessMatrix.Padding = new System.Windows.Forms.Padding(3);
-            this.tpAccessMatrix.Size = new System.Drawing.Size(976, 490);
+            this.tpAccessMatrix.Size = new System.Drawing.Size(982, 490);
             this.tpAccessMatrix.TabIndex = 2;
-            this.tpAccessMatrix.Text = "tabPage3";
+            this.tpAccessMatrix.Text = "tpAccessMatrix";
             this.tpAccessMatrix.UseVisualStyleBackColor = true;
             // 
             // tpTopology
@@ -515,37 +554,98 @@
             this.tpTopology.Location = new System.Drawing.Point(4, 22);
             this.tpTopology.Name = "tpTopology";
             this.tpTopology.Padding = new System.Windows.Forms.Padding(3);
-            this.tpTopology.Size = new System.Drawing.Size(976, 490);
+            this.tpTopology.Size = new System.Drawing.Size(982, 490);
             this.tpTopology.TabIndex = 3;
-            this.tpTopology.Text = "tabPage4";
+            this.tpTopology.Text = "tpTopology";
             this.tpTopology.UseVisualStyleBackColor = true;
             // 
-            // tabPage5
+            // tpIntruder
             // 
-            this.tabPage5.Location = new System.Drawing.Point(4, 22);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(976, 490);
-            this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "tabPage5";
-            this.tabPage5.UseVisualStyleBackColor = true;
+            this.tpIntruder.Controls.Add(this.lblImplementWays);
+            this.tpIntruder.Controls.Add(this.clbImplementWays);
+            this.tpIntruder.Controls.Add(this.lblIntruderType);
+            this.tpIntruder.Controls.Add(this.clbIntruderType);
+            this.tpIntruder.Location = new System.Drawing.Point(4, 22);
+            this.tpIntruder.Name = "tpIntruder";
+            this.tpIntruder.Padding = new System.Windows.Forms.Padding(3);
+            this.tpIntruder.Size = new System.Drawing.Size(982, 490);
+            this.tpIntruder.TabIndex = 4;
+            this.tpIntruder.Text = "tpIntruder";
+            this.tpIntruder.UseVisualStyleBackColor = true;
             // 
-            // tabPage6
+            // lblImplementWays
             // 
-            this.tabPage6.Location = new System.Drawing.Point(4, 22);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(976, 490);
-            this.tabPage6.TabIndex = 5;
-            this.tabPage6.Text = "tabPage6";
-            this.tabPage6.UseVisualStyleBackColor = true;
+            this.lblImplementWays.AutoSize = true;
+            this.lblImplementWays.Location = new System.Drawing.Point(6, 209);
+            this.lblImplementWays.Name = "lblImplementWays";
+            this.lblImplementWays.Size = new System.Drawing.Size(141, 13);
+            this.lblImplementWays.TabIndex = 3;
+            this.lblImplementWays.Text = "Способы реализации УБИ";
+            // 
+            // clbImplementWays
+            // 
+            this.clbImplementWays.FormattingEnabled = true;
+            this.clbImplementWays.Location = new System.Drawing.Point(6, 225);
+            this.clbImplementWays.Name = "clbImplementWays";
+            this.clbImplementWays.Size = new System.Drawing.Size(399, 244);
+            this.clbImplementWays.TabIndex = 2;
+            // 
+            // lblIntruderType
+            // 
+            this.lblIntruderType.AutoSize = true;
+            this.lblIntruderType.Location = new System.Drawing.Point(6, 13);
+            this.lblIntruderType.Name = "lblIntruderType";
+            this.lblIntruderType.Size = new System.Drawing.Size(97, 13);
+            this.lblIntruderType.TabIndex = 1;
+            this.lblIntruderType.Text = "Виды нарушителя";
+            // 
+            // clbIntruderType
+            // 
+            this.clbIntruderType.FormattingEnabled = true;
+            this.clbIntruderType.Items.AddRange(new object[] {
+            "специальные службы иностранных государств (блоков государств)",
+            "террористические, экстремистские группировки",
+            "преступные группы (криминальные структуры)",
+            "внешние субъекты (физические лица)",
+            "конкурирующие организации",
+            "разработчики, производители, поставщики программных, технических и программно-тех" +
+                "нических средств",
+            "бывшие работники (пользователи)",
+            "специальные службы иностранных государств (блоков государств)",
+            "пользователи информационной системы",
+            "лица, привлекаемые для установки, наладки, монтажа, пусконаладочных и иных видов " +
+                "работ",
+            "администраторы информационной системы и администраторы безопасности"});
+            this.clbIntruderType.Location = new System.Drawing.Point(6, 29);
+            this.clbIntruderType.Name = "clbIntruderType";
+            this.clbIntruderType.Size = new System.Drawing.Size(587, 169);
+            this.clbIntruderType.TabIndex = 0;
+            // 
+            // tpActualThreats
+            // 
+            this.tpActualThreats.Controls.Add(this.dgvThreats);
+            this.tpActualThreats.Location = new System.Drawing.Point(4, 22);
+            this.tpActualThreats.Name = "tpActualThreats";
+            this.tpActualThreats.Padding = new System.Windows.Forms.Padding(3);
+            this.tpActualThreats.Size = new System.Drawing.Size(982, 490);
+            this.tpActualThreats.TabIndex = 5;
+            this.tpActualThreats.Text = "tpActualThreats";
+            this.tpActualThreats.UseVisualStyleBackColor = true;
+            // 
+            // dgvThreats
+            // 
+            this.dgvThreats.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvThreats.Location = new System.Drawing.Point(18, 22);
+            this.dgvThreats.Name = "dgvThreats";
+            this.dgvThreats.Size = new System.Drawing.Size(934, 422);
+            this.dgvThreats.TabIndex = 0;
             // 
             // tabPage7
             // 
             this.tabPage7.Location = new System.Drawing.Point(4, 22);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(976, 490);
+            this.tabPage7.Size = new System.Drawing.Size(982, 490);
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "tabPage7";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -555,7 +655,7 @@
             this.tabPage8.Location = new System.Drawing.Point(4, 22);
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage8.Size = new System.Drawing.Size(976, 490);
+            this.tabPage8.Size = new System.Drawing.Size(982, 490);
             this.tabPage8.TabIndex = 7;
             this.tabPage8.Text = "tabPage8";
             this.tabPage8.UseVisualStyleBackColor = true;
@@ -565,7 +665,7 @@
             this.tabPage9.Location = new System.Drawing.Point(4, 22);
             this.tabPage9.Name = "tabPage9";
             this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage9.Size = new System.Drawing.Size(976, 490);
+            this.tabPage9.Size = new System.Drawing.Size(982, 490);
             this.tabPage9.TabIndex = 8;
             this.tabPage9.Text = "tabPage9";
             this.tabPage9.UseVisualStyleBackColor = true;
@@ -575,7 +675,7 @@
             this.tabPage10.Location = new System.Drawing.Point(4, 22);
             this.tabPage10.Name = "tabPage10";
             this.tabPage10.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage10.Size = new System.Drawing.Size(976, 490);
+            this.tabPage10.Size = new System.Drawing.Size(982, 490);
             this.tabPage10.TabIndex = 9;
             this.tabPage10.Text = "tabPage10";
             this.tabPage10.UseVisualStyleBackColor = true;
@@ -585,7 +685,7 @@
             this.tabPage11.Location = new System.Drawing.Point(4, 22);
             this.tabPage11.Name = "tabPage11";
             this.tabPage11.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage11.Size = new System.Drawing.Size(976, 490);
+            this.tabPage11.Size = new System.Drawing.Size(982, 490);
             this.tabPage11.TabIndex = 10;
             this.tabPage11.Text = "tabPage11";
             this.tabPage11.UseVisualStyleBackColor = true;
@@ -595,7 +695,7 @@
             this.tabPage12.Location = new System.Drawing.Point(4, 22);
             this.tabPage12.Name = "tabPage12";
             this.tabPage12.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage12.Size = new System.Drawing.Size(976, 490);
+            this.tabPage12.Size = new System.Drawing.Size(982, 490);
             this.tabPage12.TabIndex = 11;
             this.tabPage12.Text = "tabPage12";
             this.tabPage12.UseVisualStyleBackColor = true;
@@ -605,7 +705,7 @@
             this.tabPage13.Location = new System.Drawing.Point(4, 22);
             this.tabPage13.Name = "tabPage13";
             this.tabPage13.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage13.Size = new System.Drawing.Size(976, 490);
+            this.tabPage13.Size = new System.Drawing.Size(982, 490);
             this.tabPage13.TabIndex = 12;
             this.tabPage13.Text = "tabPage13";
             this.tabPage13.UseVisualStyleBackColor = true;
@@ -615,7 +715,7 @@
             this.tabPage14.Location = new System.Drawing.Point(4, 22);
             this.tabPage14.Name = "tabPage14";
             this.tabPage14.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage14.Size = new System.Drawing.Size(976, 490);
+            this.tabPage14.Size = new System.Drawing.Size(982, 490);
             this.tabPage14.TabIndex = 13;
             this.tabPage14.Text = "tabPage14";
             this.tabPage14.UseVisualStyleBackColor = true;
@@ -625,7 +725,7 @@
             this.tabPage15.Location = new System.Drawing.Point(4, 22);
             this.tabPage15.Name = "tabPage15";
             this.tabPage15.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage15.Size = new System.Drawing.Size(976, 490);
+            this.tabPage15.Size = new System.Drawing.Size(982, 490);
             this.tabPage15.TabIndex = 14;
             this.tabPage15.Text = "tabPage15";
             this.tabPage15.UseVisualStyleBackColor = true;
@@ -635,7 +735,7 @@
             this.tabPage16.Location = new System.Drawing.Point(4, 22);
             this.tabPage16.Name = "tabPage16";
             this.tabPage16.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage16.Size = new System.Drawing.Size(976, 490);
+            this.tabPage16.Size = new System.Drawing.Size(982, 490);
             this.tabPage16.TabIndex = 15;
             this.tabPage16.Text = "tabPage16";
             this.tabPage16.UseVisualStyleBackColor = true;
@@ -709,7 +809,7 @@
             // 
             // splitter1
             // 
-            this.splitter1.Location = new System.Drawing.Point(256, 24);
+            this.splitter1.Location = new System.Drawing.Point(250, 24);
             this.splitter1.Name = "splitter1";
             this.splitter1.Size = new System.Drawing.Size(3, 516);
             this.splitter1.TabIndex = 5;
@@ -721,33 +821,35 @@
             this.iconList.ImageSize = new System.Drawing.Size(16, 16);
             this.iconList.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // PrevStage
+            // btPrevStage
             // 
-            this.PrevStage.Location = new System.Drawing.Point(1, 516);
-            this.PrevStage.Name = "PrevStage";
-            this.PrevStage.Size = new System.Drawing.Size(75, 23);
-            this.PrevStage.TabIndex = 6;
-            this.PrevStage.Text = "<<";
-            this.PrevStage.UseVisualStyleBackColor = true;
-            this.PrevStage.Click += new System.EventHandler(this.PrevStage_Click);
+            this.btPrevStage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btPrevStage.Location = new System.Drawing.Point(1, 516);
+            this.btPrevStage.Name = "btPrevStage";
+            this.btPrevStage.Size = new System.Drawing.Size(75, 23);
+            this.btPrevStage.TabIndex = 6;
+            this.btPrevStage.Text = "Назад";
+            this.btPrevStage.UseVisualStyleBackColor = true;
+            this.btPrevStage.Click += new System.EventHandler(this.PrevStage_Click);
             // 
-            // NextStage
+            // btNextStage
             // 
-            this.NextStage.Location = new System.Drawing.Point(83, 516);
-            this.NextStage.Name = "NextStage";
-            this.NextStage.Size = new System.Drawing.Size(75, 23);
-            this.NextStage.TabIndex = 7;
-            this.NextStage.Text = ">>";
-            this.NextStage.UseVisualStyleBackColor = true;
-            this.NextStage.Click += new System.EventHandler(this.NextStage_Click);
+            this.btNextStage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btNextStage.Location = new System.Drawing.Point(83, 516);
+            this.btNextStage.Name = "btNextStage";
+            this.btNextStage.Size = new System.Drawing.Size(75, 23);
+            this.btNextStage.TabIndex = 7;
+            this.btNextStage.Text = "Далее";
+            this.btNextStage.UseVisualStyleBackColor = true;
+            this.btNextStage.Click += new System.EventHandler(this.NextStage_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1240, 562);
-            this.Controls.Add(this.NextStage);
-            this.Controls.Add(this.PrevStage);
+            this.Controls.Add(this.btNextStage);
+            this.Controls.Add(this.btPrevStage);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.treeView);
@@ -755,6 +857,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Комплекс ПСЗИ";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -764,6 +867,10 @@
             this.tpClassification.ResumeLayout(false);
             this.panelPDN.ResumeLayout(false);
             this.panelPDN.PerformLayout();
+            this.tpIntruder.ResumeLayout(false);
+            this.tpIntruder.PerformLayout();
+            this.tpActualThreats.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvThreats)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -785,8 +892,8 @@
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
         private System.Windows.Forms.TabPage tpAccessMatrix;
         private System.Windows.Forms.TabPage tpTopology;
-        private System.Windows.Forms.TabPage tabPage5;
-        private System.Windows.Forms.TabPage tabPage6;
+        private System.Windows.Forms.TabPage tpIntruder;
+        private System.Windows.Forms.TabPage tpActualThreats;
         private System.Windows.Forms.TabPage tabPage7;
         private System.Windows.Forms.TabPage tabPage8;
         private System.Windows.Forms.TabPage tabPage9;
@@ -827,11 +934,17 @@
         private System.Windows.Forms.Label lblInfoType;
         internal System.Windows.Forms.Label labelGISClass;
         
-        private System.Windows.Forms.Button PrevStage;
-        private System.Windows.Forms.Button NextStage;
+        private System.Windows.Forms.Button btPrevStage;
+        private System.Windows.Forms.Button btNextStage;
         internal System.Windows.Forms.Label labelISPDNLevel;
         private System.Windows.Forms.ToolStripMenuItem dataBaseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clearAllTablesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem initDBToolStripMenuItem;
+        internal System.Windows.Forms.Label lblProjectSecutiryLvl;
+        internal System.Windows.Forms.CheckedListBox clbImplementWays;
+        private System.Windows.Forms.Label lblIntruderType;
+        internal System.Windows.Forms.CheckedListBox clbIntruderType;
+        internal System.Windows.Forms.Label lblImplementWays;
+        internal System.Windows.Forms.DataGridView dgvThreats;
     }
 }

@@ -18,12 +18,16 @@ namespace KPSZI
         List<CheckBox> checkboxesSFH;
         List<RadioButton> radiobuttonsSFH;
 
+        double[] projectSecuritySumm;
+        double[] projectSecurityChecked;
+
         public StageOptions (TabPage stageTab, TreeNode stageNode, MainForm mainForm, InformationSystem IS)
             :base(stageTab, stageNode, mainForm, IS)
         {
             initClass();
         }
-         public void initClass()
+
+        public void initClass()
         {
             using (KPSZIContext db = new KPSZIContext())
             {
@@ -35,8 +39,8 @@ namespace KPSZI
                 ((ListBox)mf.lbInfoTypes).DisplayMember = "TypeName";
                 ((ListBox)mf.lbInfoTypes).ValueMember = "InfoTypeId";
 
-                mf.lbInfoTypes.Size = new Size(293, 4 + 15 * mf.lbInfoTypes.Items.Count);
-
+                mf.lbInfoTypes.Size = new Size(400, 35 + 15 * mf.lbInfoTypes.Items.Count);
+                
                 //Инициализация СФХ групбоксов
                 listSFHTypes = db.SFHTypes.ToList();
                 listSFHs = db.SFHs.ToList();
@@ -48,12 +52,12 @@ namespace KPSZI
                 radiobuttonsSFH = new List<RadioButton>();
                 int i = 0;
                 int j = 0;
-                int gbY = 30;
+                int gbY = 85;
 
                 foreach (SFHType itemSFHType in listSFHTypes)
                 {
                     gb = new GroupBox();
-                    gb.Location = new Point(313, gbY);                    
+                    gb.Location = new Point(7, gbY);                    
                     gb.Text = itemSFHType.Name;
                     foreach(SFH itemSFH in itemSFHType.SFHs)
                     {
@@ -64,6 +68,7 @@ namespace KPSZI
                             cb.Margin = new Padding(10, 5, 5, 5);
                             cb.Location = new Point(10, 17 + (17 * j));
                             cb.Size = new Size(440, 17);
+                            cb.CheckedChanged += new System.EventHandler(rbSFH_CheckedChanged);
                             checkboxesSFH.Add(cb);
                             gb.Controls.Add(cb);
                             j++;
@@ -74,6 +79,7 @@ namespace KPSZI
                             rb.Margin = new Padding(10, 5, 5, 5);
                             rb.Location = new Point(10, 17 + (17 * j));
                             rb.Size = new Size(440, 17);
+                            rb.CheckedChanged += new System.EventHandler(rbSFH_CheckedChanged);
                             radiobuttonsSFH.Add(rb);
                             gb.Controls.Add(rb);
                             j++;
@@ -93,15 +99,23 @@ namespace KPSZI
         
         public override void saveChanges()
         {
+            projectSecuritySumm = new double[3] { 0, 0, 0 };
+            projectSecurityChecked = new double[3] { 0, 0, 0 };
+
             IS.ISName = mf.tbISName.Text;
 
             foreach (RadioButton rb in radiobuttonsSFH)
             {
+                // Добавление СФХ в IS
                 SFH sfh = returnSFH(rb.Text);
                 if (rb.Checked && !IS.listOfSFHs.Contains(sfh))
                     IS.listOfSFHs.Add(sfh);
                 if (!rb.Checked && IS.listOfSFHs.Contains(sfh))
                     IS.listOfSFHs.Remove(sfh);
+
+                // Подсчет характеристик (проектная защищенность)
+                if (rb.Checked) projectSecurityChecked[sfh.ProjectSecurity]++;
+                projectSecuritySumm[sfh.ProjectSecurity]++;
             }
 
             foreach (CheckBox cb in checkboxesSFH)
@@ -111,7 +125,20 @@ namespace KPSZI
                     IS.listOfSFHs.Add(sfh);
                 if (!cb.Checked && IS.listOfSFHs.Contains(sfh))
                     IS.listOfSFHs.Remove(sfh);
+
+                if (cb.Checked) projectSecurityChecked[sfh.ProjectSecurity]++;
+                projectSecuritySumm[sfh.ProjectSecurity]++;
             }
+            Console.WriteLine(projectSecurityChecked[2] / projectSecuritySumm[2] + "");
+            Console.WriteLine(projectSecurityChecked[1] / projectSecuritySumm[1] + "");
+            // Вычисление уровня проектной защищенности
+            if (projectSecurityChecked[2] / projectSecuritySumm[2] >= 0.8 && projectSecurityChecked[0] == 0)
+                mf.lblProjectSecutiryLvl.Text = "Уровень проектной защищенности: " + "Высокий";
+            else
+                if (projectSecurityChecked[2] / projectSecuritySumm[2] + projectSecurityChecked[1] / projectSecuritySumm[1] >= 0.9)
+                mf.lblProjectSecutiryLvl.Text = "Уровень проектной защищенности: " + "Средний";
+            else
+                mf.lblProjectSecutiryLvl.Text = "Уровень проектной защищенности: " + "Низкий";
         }
 
         public override void enterTabPage()
@@ -132,13 +159,13 @@ namespace KPSZI
             }
             return null;
         }
-
+        
+        #region Обработчики
         private void rbSFH_CheckedChanged(object sender, EventArgs e)
         {
-
+            saveChanges();
         }
-
-        #region Обработчики
+        
         private void lbInfoTypes_SelectedIndexChanged(object sender, EventArgs e)
         {
             // При нажатии на галочку все выбранные 

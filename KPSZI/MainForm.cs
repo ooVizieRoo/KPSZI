@@ -32,16 +32,33 @@ namespace KPSZI
                 returnTreeNode("tnClassification"), this, IS));
             stages.Add("tnAccessMatrix", new StageAccessMatrix(returnTabPage("tpAccessMatrix"), returnTreeNode("tnAccessMatrix"), this, IS));
             stages.Add("tnTopology", new StageTopology(returnTabPage("tpTopology"), returnTreeNode("tnTopology"), this, IS));
+            stages.Add("tnIntruder", new StageIntruder(returnTabPage("tpIntruder"), returnTreeNode("tnIntruder"), this, IS));
+            stages.Add("tnActualThreats", new StageActualThreats(returnTabPage("tpActualThreats"), returnTreeNode("tnActualThreats"), this, IS));
 
             // закрываем все вкладки в TabControl
             tabControl.TabPages.Clear();
 
             // связываем дерево с набором иконок
             iconList.Images.Add(Image.FromFile(@"res\icons\folder-icon.png"));
+            iconList.Images.Add(Image.FromFile(@"res\icons\document-settings-icon.png"));
+            iconList.Images.Add(Image.FromFile(@"res\icons\left-arrow-icon.png"));
+            iconList.Images.Add(Image.FromFile(@"res\icons\right-arrow-icon.png"));
             treeView.ImageList = iconList;
 
             // развернуть дерево
             treeView.ExpandAll();
+
+            btPrevStage.ImageList = iconList;
+            btPrevStage.ImageIndex = 2;
+            btPrevStage.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btNextStage.ImageList = iconList;
+            btNextStage.ImageIndex = 3;
+            btNextStage.TextImageRelation = TextImageRelation.TextBeforeImage;
+            
+            foreach(TabPage tab in tabControl.TabPages)
+            {
+                tab.AutoScroll = true;
+            }
 
             tabControlInfoTypes.TabPages.AddRange(((StageClassification)stages["tnClassification"]).tabPagesInfoTypes.ToArray());
 

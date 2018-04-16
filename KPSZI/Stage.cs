@@ -27,6 +27,9 @@ namespace KPSZI
             stageTab.Text = stageName;
             mf = mainForm;
             this.IS = IS;
+
+            stageNode.ImageIndex = 1;
+            stageNode.SelectedImageIndex = 1;
         }
 
         // сохранение содержимого вкладки
