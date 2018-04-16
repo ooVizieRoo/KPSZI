@@ -509,5 +509,10 @@ namespace KPSZI
 
         }
         #endregion
+
+        public override void initTabPage()
+        {
+
+        }
     }
 }
