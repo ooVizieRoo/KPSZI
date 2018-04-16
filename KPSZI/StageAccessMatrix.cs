@@ -10,11 +10,6 @@ namespace KPSZI
 {
     class StageAccessMatrix : Stage
     {
-        public StageAccessMatrix(TabPage stageTab, TreeNode stageNode, MainForm mainForm, InformationSystem IS)
-            : base(stageTab, stageNode, mainForm, IS)
-        {
-            Init();
-        }
         DataGridView accessMatrixRules;
         DataGridView accessMatrixResources;
         Button addSubject;
@@ -29,122 +24,13 @@ namespace KPSZI
         Button addResource;
         Form dialogForm;
 
-        public void InitDialogForm()
+        public StageAccessMatrix(TabPage stageTab, TreeNode stageNode, MainForm mainForm, InformationSystem IS)
+            : base(stageTab, stageNode, mainForm, IS)
         {
-            System.Windows.Forms.CheckBox checkBoxRead;
-            System.Windows.Forms.CheckBox checkBoxWrite;
-            System.Windows.Forms.CheckBox checkBoxAdd;
-            System.Windows.Forms.CheckBox checkBoxDelete;
-            System.Windows.Forms.CheckBox checkBoxExec;
-            System.Windows.Forms.CheckBox checkBoxSZI;
-            System.Windows.Forms.Label labelInfo;
-            System.Windows.Forms.Button buttonAcceptPermissions;
-
-            dialogForm = new Form();
-            dialogForm.Size = new Size { Height = 100, Width = 150 };
-            dialogForm.FormBorderStyle = FormBorderStyle.Fixed3D;
-            dialogForm.Size = new Size { Height = 235, Width = 550 };
-
-            checkBoxRead = new System.Windows.Forms.CheckBox();
-            checkBoxWrite = new System.Windows.Forms.CheckBox();
-            checkBoxAdd = new System.Windows.Forms.CheckBox();
-            checkBoxDelete = new System.Windows.Forms.CheckBox();
-            checkBoxExec = new System.Windows.Forms.CheckBox();
-            checkBoxSZI = new System.Windows.Forms.CheckBox();
-            labelInfo = new System.Windows.Forms.Label();
-            buttonAcceptPermissions = new System.Windows.Forms.Button();
-            // 
-            // checkBoxRead
-            // 
-            checkBoxRead.Location = new System.Drawing.Point(43, 39);
-            checkBoxRead.Name = "checkBoxRead";
-            checkBoxRead.Size = new System.Drawing.Size(157, 56);
-            checkBoxRead.TabIndex = 0;
-            checkBoxRead.Text = "R - разрешение на открытие файлов только для чтения";
-            checkBoxRead.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxWrite
-            // 
-            checkBoxWrite.Location = new System.Drawing.Point(43, 101);
-            checkBoxWrite.Name = "checkBoxWrite";
-            checkBoxWrite.Size = new System.Drawing.Size(140, 56);
-            checkBoxWrite.TabIndex = 1;
-            checkBoxWrite.Text = "W - разрешение на открытие файлов для записи";
-            checkBoxWrite.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxAdd
-            // 
-            checkBoxAdd.Location = new System.Drawing.Point(206, 39);
-            checkBoxAdd.Name = "checkBoxAdd";
-            checkBoxAdd.Size = new System.Drawing.Size(142, 56);
-            checkBoxAdd.TabIndex = 2;
-            checkBoxAdd.Text = "A - разрешение на создание файлов на диске/создание таблиц в БД";
-            checkBoxAdd.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxDelete
-            // 
-            checkBoxDelete.Location = new System.Drawing.Point(206, 101);
-            checkBoxDelete.Name = "checkBoxDelete";
-            checkBoxDelete.Size = new System.Drawing.Size(142, 56);
-            checkBoxDelete.TabIndex = 3;
-            checkBoxDelete.Text = "D - разрешение на удаление файлов/записи в БД";
-            checkBoxDelete.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxExec
-            // 
-            checkBoxExec.Location = new System.Drawing.Point(354, 39);
-            checkBoxExec.Name = "checkBoxExec";
-            checkBoxExec.Size = new System.Drawing.Size(119, 56);
-            checkBoxExec.TabIndex = 4;
-            checkBoxExec.Text = "Х - разрешение на запуск программ";
-            checkBoxExec.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxSZI
-            // 
-            checkBoxSZI.Location = new System.Drawing.Point(354, 101);
-            checkBoxSZI.Name = "checkBoxSZI";
-            checkBoxSZI.Size = new System.Drawing.Size(119, 56);
-            checkBoxSZI.TabIndex = 5;
-            checkBoxSZI.Text = "S - разрешение на настройку средств защиты";
-            checkBoxSZI.UseVisualStyleBackColor = true;
-            // 
-            // labelInfo
-            // 
-            labelInfo.AutoSize = true;
-            labelInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            labelInfo.Location = new System.Drawing.Point(40, 9);
-            labelInfo.Name = "labelInfo";
-            labelInfo.Size = new System.Drawing.Size(467, 17);
-            labelInfo.TabIndex = 6;
-            labelInfo.Text = "Выберите права доступа к информационным ресурсам для субъекта";
-            // 
-            // buttonAcceptPermissions
-            // 
-            buttonAcceptPermissions.Location = new System.Drawing.Point(398, 160);
-            buttonAcceptPermissions.Name = "buttonAcceptPermissions";
-            buttonAcceptPermissions.Size = new System.Drawing.Size(75, 23);
-            buttonAcceptPermissions.TabIndex = 7;
-            buttonAcceptPermissions.Text = "Принять";
-            buttonAcceptPermissions.UseVisualStyleBackColor = true;
-            buttonAcceptPermissions.Click += new EventHandler(acceptPermissionsClick);
-            // 
-            // Form1
-            // 
-
-            dialogForm.Controls.Add(buttonAcceptPermissions);
-            dialogForm.Controls.Add(labelInfo);
-            dialogForm.Controls.Add(checkBoxSZI);
-            dialogForm.Controls.Add(checkBoxExec);
-            dialogForm.Controls.Add(checkBoxDelete);
-            dialogForm.Controls.Add(checkBoxAdd);
-            dialogForm.Controls.Add(checkBoxWrite);
-            dialogForm.Controls.Add(checkBoxRead);
-            dialogForm.Controls.Add(new Label { Name = "RowIndex", Visible = false });
-            dialogForm.Controls.Add(new Label { Name = "ColumnIndex", Visible = false });
+            initTabPage();
         }
 
-
-        public void Init()
+        public override void initTabPage()
         {
             accessMatrixRules = new DataGridView { Name = "Rules" };
             addObject = new Button();
@@ -281,6 +167,120 @@ namespace KPSZI
             #endregion
         }
 
+        public void InitDialogForm()
+        {
+            System.Windows.Forms.CheckBox checkBoxRead;
+            System.Windows.Forms.CheckBox checkBoxWrite;
+            System.Windows.Forms.CheckBox checkBoxAdd;
+            System.Windows.Forms.CheckBox checkBoxDelete;
+            System.Windows.Forms.CheckBox checkBoxExec;
+            System.Windows.Forms.CheckBox checkBoxSZI;
+            System.Windows.Forms.Label labelInfo;
+            System.Windows.Forms.Button buttonAcceptPermissions;
+
+            dialogForm = new Form();
+            dialogForm.Size = new Size { Height = 100, Width = 150 };
+            dialogForm.FormBorderStyle = FormBorderStyle.Fixed3D;
+            dialogForm.Size = new Size { Height = 235, Width = 550 };
+
+            checkBoxRead = new System.Windows.Forms.CheckBox();
+            checkBoxWrite = new System.Windows.Forms.CheckBox();
+            checkBoxAdd = new System.Windows.Forms.CheckBox();
+            checkBoxDelete = new System.Windows.Forms.CheckBox();
+            checkBoxExec = new System.Windows.Forms.CheckBox();
+            checkBoxSZI = new System.Windows.Forms.CheckBox();
+            labelInfo = new System.Windows.Forms.Label();
+            buttonAcceptPermissions = new System.Windows.Forms.Button();
+            // 
+            // checkBoxRead
+            // 
+            checkBoxRead.Location = new System.Drawing.Point(43, 39);
+            checkBoxRead.Name = "checkBoxRead";
+            checkBoxRead.Size = new System.Drawing.Size(157, 56);
+            checkBoxRead.TabIndex = 0;
+            checkBoxRead.Text = "R - разрешение на открытие файлов только для чтения";
+            checkBoxRead.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxWrite
+            // 
+            checkBoxWrite.Location = new System.Drawing.Point(43, 101);
+            checkBoxWrite.Name = "checkBoxWrite";
+            checkBoxWrite.Size = new System.Drawing.Size(140, 56);
+            checkBoxWrite.TabIndex = 1;
+            checkBoxWrite.Text = "W - разрешение на открытие файлов для записи";
+            checkBoxWrite.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxAdd
+            // 
+            checkBoxAdd.Location = new System.Drawing.Point(206, 39);
+            checkBoxAdd.Name = "checkBoxAdd";
+            checkBoxAdd.Size = new System.Drawing.Size(142, 56);
+            checkBoxAdd.TabIndex = 2;
+            checkBoxAdd.Text = "A - разрешение на создание файлов на диске/создание таблиц в БД";
+            checkBoxAdd.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxDelete
+            // 
+            checkBoxDelete.Location = new System.Drawing.Point(206, 101);
+            checkBoxDelete.Name = "checkBoxDelete";
+            checkBoxDelete.Size = new System.Drawing.Size(142, 56);
+            checkBoxDelete.TabIndex = 3;
+            checkBoxDelete.Text = "D - разрешение на удаление файлов/записи в БД";
+            checkBoxDelete.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxExec
+            // 
+            checkBoxExec.Location = new System.Drawing.Point(354, 39);
+            checkBoxExec.Name = "checkBoxExec";
+            checkBoxExec.Size = new System.Drawing.Size(119, 56);
+            checkBoxExec.TabIndex = 4;
+            checkBoxExec.Text = "Х - разрешение на запуск программ";
+            checkBoxExec.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxSZI
+            // 
+            checkBoxSZI.Location = new System.Drawing.Point(354, 101);
+            checkBoxSZI.Name = "checkBoxSZI";
+            checkBoxSZI.Size = new System.Drawing.Size(119, 56);
+            checkBoxSZI.TabIndex = 5;
+            checkBoxSZI.Text = "S - разрешение на настройку средств защиты";
+            checkBoxSZI.UseVisualStyleBackColor = true;
+            // 
+            // labelInfo
+            // 
+            labelInfo.AutoSize = true;
+            labelInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            labelInfo.Location = new System.Drawing.Point(40, 9);
+            labelInfo.Name = "labelInfo";
+            labelInfo.Size = new System.Drawing.Size(467, 17);
+            labelInfo.TabIndex = 6;
+            labelInfo.Text = "Выберите права доступа к информационным ресурсам для субъекта";
+            // 
+            // buttonAcceptPermissions
+            // 
+            buttonAcceptPermissions.Location = new System.Drawing.Point(398, 160);
+            buttonAcceptPermissions.Name = "buttonAcceptPermissions";
+            buttonAcceptPermissions.Size = new System.Drawing.Size(75, 23);
+            buttonAcceptPermissions.TabIndex = 7;
+            buttonAcceptPermissions.Text = "Принять";
+            buttonAcceptPermissions.UseVisualStyleBackColor = true;
+            buttonAcceptPermissions.Click += new EventHandler(acceptPermissionsClick);
+            // 
+            // Form1
+            // 
+
+            dialogForm.Controls.Add(buttonAcceptPermissions);
+            dialogForm.Controls.Add(labelInfo);
+            dialogForm.Controls.Add(checkBoxSZI);
+            dialogForm.Controls.Add(checkBoxExec);
+            dialogForm.Controls.Add(checkBoxDelete);
+            dialogForm.Controls.Add(checkBoxAdd);
+            dialogForm.Controls.Add(checkBoxWrite);
+            dialogForm.Controls.Add(checkBoxRead);
+            dialogForm.Controls.Add(new Label { Name = "RowIndex", Visible = false });
+            dialogForm.Controls.Add(new Label { Name = "ColumnIndex", Visible = false });
+        }
+
         public override void enterTabPage()
         {
             mf.tabControl.TabPages[stageTab.Name].Controls.Add(accessMatrixRules);
@@ -298,7 +298,8 @@ namespace KPSZI
         }
 
         public override void saveChanges()
-        {            
+        {
+                        
         }
 
         #region Обработчики событий
@@ -510,9 +511,5 @@ namespace KPSZI
         }
         #endregion
 
-        public override void initTabPage()
-        {
-
-        }
     }
 }
