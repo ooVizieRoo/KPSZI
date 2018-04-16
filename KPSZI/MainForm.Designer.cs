@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("1.1. Параметры ИС");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("1.2. Классификация ИС");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("1.3.1. Матрица доступа");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("1.3.2. Топология сети");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("1.3. Технологическая инф.", new System.Windows.Forms.TreeNode[] {
-            treeNode3,
-            treeNode4});
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("1. Обследование ИС", new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode5});
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("1.1. Параметры ИС");
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("1.2. Классификация ИС");
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("1.3.1. Матрица доступа");
+            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("1.3.2. Топология сети");
+            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("1.3. Технологическая инф.", new System.Windows.Forms.TreeNode[] {
+            treeNode15,
+            treeNode16});
+            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("1. Обследование ИС", new System.Windows.Forms.TreeNode[] {
+            treeNode13,
+            treeNode14,
+            treeNode17});
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.projectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -217,20 +217,20 @@
             this.treeView.HideSelection = false;
             this.treeView.Location = new System.Drawing.Point(0, 24);
             this.treeView.Name = "treeView";
-            treeNode1.Name = "tnOptions";
-            treeNode1.Text = "1.1. Параметры ИС";
-            treeNode2.Name = "tnClassification";
-            treeNode2.Text = "1.2. Классификация ИС";
-            treeNode3.Name = "tnAccessMatrix";
-            treeNode3.Text = "1.3.1. Матрица доступа";
-            treeNode4.Name = "tnTopology";
-            treeNode4.Text = "1.3.2. Топология сети";
-            treeNode5.Name = "tnTechno";
-            treeNode5.Text = "1.3. Технологическая инф.";
-            treeNode6.Name = "Node0";
-            treeNode6.Text = "1. Обследование ИС";
+            treeNode13.Name = "tnOptions";
+            treeNode13.Text = "1.1. Параметры ИС";
+            treeNode14.Name = "tnClassification";
+            treeNode14.Text = "1.2. Классификация ИС";
+            treeNode15.Name = "tnAccessMatrix";
+            treeNode15.Text = "1.3.1. Матрица доступа";
+            treeNode16.Name = "tnTopology";
+            treeNode16.Text = "1.3.2. Топология сети";
+            treeNode17.Name = "tnTechno";
+            treeNode17.Text = "1.3. Технологическая инф.";
+            treeNode18.Name = "Node0";
+            treeNode18.Text = "1. Обследование ИС";
             this.treeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode6});
+            treeNode18});
             this.treeView.Size = new System.Drawing.Size(256, 516);
             this.treeView.TabIndex = 3;
             this.treeView.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.treeView_BeforeSelect);
@@ -249,7 +249,7 @@
             this.tpOptions.Padding = new System.Windows.Forms.Padding(3);
             this.tpOptions.Size = new System.Drawing.Size(976, 490);
             this.tpOptions.TabIndex = 0;
-            this.tpOptions.Text = "tabPage1";
+            this.tpOptions.Text = "tpOptions";
             this.tpOptions.UseVisualStyleBackColor = true;
             // 
             // lblInfoType
@@ -340,7 +340,7 @@
             this.tpClassification.Padding = new System.Windows.Forms.Padding(3);
             this.tpClassification.Size = new System.Drawing.Size(976, 490);
             this.tpClassification.TabIndex = 1;
-            this.tpClassification.Text = "tabPage2";
+            this.tpClassification.Text = "tpClassification";
             this.tpClassification.UseVisualStyleBackColor = true;
             // 
             // labelGISClass
@@ -507,7 +507,7 @@
             this.tpAccessMatrix.Padding = new System.Windows.Forms.Padding(3);
             this.tpAccessMatrix.Size = new System.Drawing.Size(976, 490);
             this.tpAccessMatrix.TabIndex = 2;
-            this.tpAccessMatrix.Text = "tabPage3";
+            this.tpAccessMatrix.Text = "tpAccessMatrix";
             this.tpAccessMatrix.UseVisualStyleBackColor = true;
             // 
             // tpTopology

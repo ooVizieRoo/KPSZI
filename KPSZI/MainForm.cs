@@ -247,5 +247,15 @@ namespace KPSZI
                 MessageBox.Show("База данных проинициализирована начальными значениями", "Это успех, парень!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+        public void PressTheKey(KeyPressEventArgs e)
+        {
+            OnKeyPress(e);
+        } 
+
+        protected override void OnKeyPress(KeyPressEventArgs e)
+        { 
+            base.OnKeyPress(e);
+        }
     }
 }
