@@ -15,6 +15,7 @@ namespace KPSZI
         public string stageName; // название этапа, отображается в дереве
         public int treeImageIcon; // иконка этапа в дереве
         public bool isDone; // завершен ли этап
+        public bool stageAvailable;
         public MainForm mf; // ссылка на главную форму интерфейса
         public InformationSystem IS;
 

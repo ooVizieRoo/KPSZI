@@ -15,12 +15,7 @@ namespace KPSZI
         public StageIntruder(TabPage stageTab, TreeNode stageNode, MainForm mainForm, InformationSystem IS)
             : base(stageTab, stageNode, mainForm, IS)
         {
-            implementWays.Add("НСД и(или) воздействия на объекты на аппаратном уровне(программы(микропрограммы), «прошитые» в аппаратных компонентах(чипсетах))");
-            implementWays.Add("НСД и(или) воздействия на объекты на общесистемном уровне(базовые системы ввода - вывода, гипервизоры, операционные системы)");
-            implementWays.Add("НСД и(или) воздействия на объекты на прикладном уровне(системы управления базами данных, браузеры, web - приложения, иные прикладные программы общего и специального назначения)");
-            implementWays.Add("НСД и(или) воздействия на объекты на сетевом уровне(сетевое оборудование, сетевые приложения, сервисы)");
-            implementWays.Add("Несанкционированного физического доступа и(или) воздействия на линии, (каналы)связи, технические средства, машинные носители информации");
-            implementWays.Add("вВздействия на пользователей, администраторов безопасности, администраторов информационной системы или обслуживающий персонал(социальная инженерия)");
+            
         }
 
         public override void enterTabPage()
@@ -38,7 +33,7 @@ namespace KPSZI
                 yLoc += y;                                
                 k++;
                 mf.clbImplementWays.Controls.Add(cb);
-                Console.WriteLine(TextRenderer.MeasureText(s, mf.clbImplementWays.Font).Width + ", " + (mf.clbImplementWays.Width - 25) + ", " + (TextRenderer.MeasureText(s, mf.clbImplementWays.Font).Width / (mf.clbImplementWays.Width - 25)));
+                //Console.WriteLine(TextRenderer.MeasureText(s, mf.clbImplementWays.Font).Width + ", " + (mf.clbImplementWays.Width - 25) + ", " + (TextRenderer.MeasureText(s, mf.clbImplementWays.Font).Width / (mf.clbImplementWays.Width - 25)));
                 
             }
 

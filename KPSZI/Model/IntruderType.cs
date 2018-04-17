@@ -14,5 +14,9 @@ namespace KPSZI.Model
         /// Вид нарушителя
         /// </summary>
         public string TypeName { get; set; }
+        /// <summary>
+        /// Коллекция всех угроз, для которых характерен данный вид нарушителя
+        /// </summary>
+        public virtual ICollection<Threat> Threats { get; set; }
     }
 }

@@ -25,6 +25,9 @@ namespace KPSZI
                 mf.dgvThreats.Columns["ThreatSources"].Visible = false;
                 mf.dgvThreats.Columns["DateOfChange"].Visible = false;
                 mf.dgvThreats.Columns["DateOfAdd"].Visible = false;
+                mf.dgvThreats.Columns["ImplementWays"].Visible = false;
+                mf.dgvThreats.Columns["IntruderTypes"].Visible = false;
+                mf.dgvThreats.Columns["Vulnerabilities"].Visible = false;
 
             }
         }

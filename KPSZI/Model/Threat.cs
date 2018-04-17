@@ -53,19 +53,24 @@ namespace KPSZI.Model
         /// Последняя дата изменения угрозы
         /// </summary>
         public DateTime DateOfChange { get; set; }
-
         /// <summary>
         /// Коллекция всех источников угроз, которые характерны для данной угрозы
         /// </summary>
         public virtual ICollection<ThreatSource> ThreatSources { get; set; }
+        public virtual ICollection<ImplementWay> ImplementWays { get; set; }
+        public virtual ICollection<IntruderType> IntruderTypes { get; set; }
+        public virtual ICollection<Vulnerability> Vulnerabilities { get; set; }
 
         public Threat()
         {
             ThreatSources = new List<ThreatSource>();
+            ImplementWays = new List<ImplementWay>();
+            IntruderTypes = new List<IntruderType>();
+            Vulnerabilities = new List<Vulnerability>();
         }
 
         /// <summary>
-        /// Метод выстаскивает текстовое описание угроз, парсит, привеодит к типу Threat и возвращает массив объектов Threat.
+        /// Метод выстаскивает текстовое описание угроз, парсит, приводит к типу Threat и возвращает массив объектов Threat.
         /// </summary>
         /// <param name="file"></param>
         /// <returns></returns>

@@ -19,7 +19,7 @@ namespace KPSZI
         // Обращаемся к элементу массива (коллекции) по названию (string)
         // 
         internal Dictionary<string, Stage> stages = new Dictionary<string, Stage>();
-
+        TreeNode previousSelectedNode;
         InformationSystem IS = new InformationSystem();
 
         public MainForm()
@@ -35,6 +35,10 @@ namespace KPSZI
             stages.Add("tnIntruder", new StageIntruder(returnTabPage("tpIntruder"), returnTreeNode("tnIntruder"), this, IS));
             stages.Add("tnActualThreats", new StageActualThreats(returnTabPage("tpActualThreats"), returnTreeNode("tnActualThreats"), this, IS));
             stages.Add("tnHardware", new StageHardware(returnTabPage("tpHardware"), returnTreeNode("tnHardware"), this, IS));
+
+            
+            //returnTreeNode("tnActualThreats").ForeColor = Color.Gray;
+            //returnTreeNode("tnActualThreats").BackColor = Color.White;
 
             // закрываем все вкладки в TabControl
             tabControl.TabPages.Clear();
@@ -79,6 +83,12 @@ namespace KPSZI
         // Событие: После переключения вкладки
         private void treeView_AfterSelect(object sender, TreeViewEventArgs e)
         {
+            if (treeView.SelectedNode.ForeColor == Color.Gray)
+            {
+                treeView.SelectedNode = previousSelectedNode;
+                return;
+            }
+
             tabControl.TabPages.Clear();
             
             // Получаем имя Node в дереве
@@ -98,6 +108,7 @@ namespace KPSZI
         // Событие: До переключения вкладки
         private void treeView_BeforeSelect(object sender, TreeViewCancelEventArgs e)
         {
+            previousSelectedNode = treeView.SelectedNode;
             if (treeView.SelectedNode != null && treeView.SelectedNode.Nodes.Count == 0)
                 stages[treeView.SelectedNode.Name].saveChanges();
         }
@@ -140,7 +151,7 @@ namespace KPSZI
                 {
                     try
                     {
-                        db.Database.ExecuteSqlCommand("SET SCHEMA '" + KPSZIContext.schema_name + "'; TRUNCATE \"GISMeasures\", \"ISPDNMeasures\", \"InfoTypes\", \"IntruderTypes\", \"MeasureGroups\", \"SFHTypes\", \"SFHs\", \"SZIGISMeasures\", \"SZIISPDNMeasures\", \"SZITypes\", \"SZIs\", \"TCUIThreats\", \"TCUITypes\", \"TCUIs\", \"TechnogenicMeasures\", \"TechnogenicThreats\", \"ThreatSourceThreats\", \"ThreatSourceThreats\", \"Threats\" CASCADE");
+                        db.Database.ExecuteSqlCommand("SET SCHEMA '" + KPSZIContext.schema_name + "'; TRUNCATE \"GISMeasures\", \"ISPDNMeasures\", \"InfoTypes\", \"IntruderTypes\", \"IntruderTypeThreats\", \"MeasureGroups\", \"SFHTypes\", \"SFHs\", \"SZIGISMeasures\", \"SZIISPDNMeasures\", \"SZITypes\", \"SZIs\", \"TCUIThreats\", \"TCUITypes\", \"TCUIs\", \"TechnogenicMeasures\", \"TechnogenicThreats\", \"ThreatSources\", \"ThreatSourceThreats\", \"Threats\", \"ImplementWays\", \"ThreatImplementWays\", \"Vulnerabilities\", \"VulnerabilityThreats\" CASCADE");
                     }
                     catch (Exception ex)
                     {
@@ -261,7 +272,7 @@ namespace KPSZI
                 {
                     try
                     {
-                        KPSZIContext.Seed(db);
+                        db.Seed();
                     }
                     catch (Exception ex)
                     {
