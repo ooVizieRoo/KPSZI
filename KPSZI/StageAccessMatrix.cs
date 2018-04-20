@@ -32,6 +32,8 @@ namespace KPSZI
 
         public override void initTabPage()
         {
+            stageTab.AutoScroll = true;
+
             accessMatrixRules = new DataGridView { Name = "Rules" };
             addObject = new Button();
             addSubject = new Button();
@@ -43,6 +45,26 @@ namespace KPSZI
             labAddResource = new Label();
             addResource = new Button();
 
+            labAddSubject.Location = new Point { X = 15, Y = 15 };
+            labAddSubject.Text = "Добавить субъект доступа";
+            labAddSubject.Width = 150;
+
+            tbNameOfSubject.Location = new System.Drawing.Point { X = 15, Y = 30 };
+            tbNameOfSubject.Size = new System.Drawing.Size { Width = 115 };
+            tbNameOfSubject.KeyPress += new KeyPressEventHandler(enterPressed);
+            tbNameOfSubject.Name = "Subject";
+            tbNameOfSubject.TabIndex = 100;
+
+            addSubject.Location = new System.Drawing.Point { X = 135, Y = 29 };
+            addSubject.Click += new System.EventHandler(addSubject_click);
+            addSubject.Text = "Добавить субъект доступа";
+            addSubject.TabIndex = 101;
+
+            labDeleteInfo = new Label { Text = "Внимание! \nДля удаления объекта доступа / ресурса дважды кликните по строке в первой колонке соответствующей таблицы. \nДля удаления субъекта доступа дважды кликните по заголовку колонки любой из таблиц. Для заполнения прав доступа субъекта к ресурсу кликните на соответствующей ячейке в нижней таблице." };
+            labDeleteInfo.Location = new Point { X = 15, Y = 40 };
+            labDeleteInfo.TextAlign = ContentAlignment.MiddleLeft;
+            labDeleteInfo.Size = new Size { Height = 100, Width = 400 };
+
             #region Ресурсы
 
             accessMatrixResources = new DataGridView { Name = "Resources" };
@@ -50,16 +72,15 @@ namespace KPSZI
             accessMatrixRules.Scroll += new ScrollEventHandler(scrollMatrix);
 
             labAddResource.Text = "Добавить объект доступа (информационный ресурс)";
-            labAddResource.Location = new Point { X = 565, Y = 45 };
-            labAddResource.Width = 150;
+            labAddResource.Location = new Point { X = 425, Y = 540 };
             labAddResource.Size = new Size { Height = 50, Width = 150 };
 
-            addResource.Location = new System.Drawing.Point { X = 685, Y = 74 };
+            addResource.Location = new System.Drawing.Point { X = 545, Y = 569 };
             addResource.Click += new System.EventHandler(addResource_click);
             addResource.Text = "Добавить объект доступа";
             addResource.TabIndex = 106;
 
-            tbNameOfResource.Location = new System.Drawing.Point { X = 565, Y = 75 };
+            tbNameOfResource.Location = new System.Drawing.Point { X = 425, Y = 570 };
             tbNameOfResource.Size = new System.Drawing.Size { Width = 115 };
             tbNameOfResource.KeyPress += new KeyPressEventHandler(enterPressed);
             tbNameOfResource.Name = "Resource";
@@ -84,9 +105,9 @@ namespace KPSZI
             accessMatrixResources.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             accessMatrixResources.ScrollBars = ScrollBars.Both;
             accessMatrixResources.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-            accessMatrixResources.Width = 500;
-            accessMatrixResources.Height = 500;
-            accessMatrixResources.Location = new System.Drawing.Point { X = 565, Y = 130 };
+            accessMatrixResources.Width = 400;
+            accessMatrixResources.Height = 400;
+            accessMatrixResources.Location = new System.Drawing.Point { X = 15, Y = 540 };
             accessMatrixResources.MultiSelect = false;
             accessMatrixResources.SelectionMode = DataGridViewSelectionMode.CellSelect;
             accessMatrixResources.RowHeadersVisible = false;
@@ -98,42 +119,22 @@ namespace KPSZI
             #endregion
 
             #region Права и привилегии
-            labDeleteInfo = new Label { Text = "Внимание! \nДля удаления объекта доступа / ресурса кликните по строке в первой колонке соответствующей таблицы. \nДля удаления субъекта доступа кликните по заголовку колонки любой из таблиц." };
-            labDeleteInfo.Location = new Point { X = 250, Y = 55 };
-            labDeleteInfo.TextAlign = ContentAlignment.TopCenter;
-            labDeleteInfo.Size = new Size { Height = 100, Width = 300 };
-
             labAddObject.Text = "Добавить объект доступа (право или привилегию)";
-            labAddObject.Location = new Point { X = 15, Y = 45 };
+            labAddObject.Location = new Point { X = 420, Y = 130 };
             labAddObject.Size = new Size { Height = 50, Width = 130 };
             labAddObject.Width = 150;
 
-            addObject.Location = new System.Drawing.Point { X = 135, Y = 74 };
+            addObject.Location = new System.Drawing.Point { X = 540, Y = 158 };
             addObject.Click += new System.EventHandler(addObject_click);
             addObject.Text = "Добавить объект доступа";
             addObject.TabIndex = 103;
 
-            tbNameOfObject.Location = new System.Drawing.Point { X = 15, Y = 75 };
+            tbNameOfObject.Location = new System.Drawing.Point { X = 420, Y = 160 };
             tbNameOfObject.Size = new System.Drawing.Size { Width = 115 };
             tbNameOfObject.KeyPress += new KeyPressEventHandler(enterPressed);
             tbNameOfObject.Name = "Object";
             tbNameOfObject.TabIndex = 102;
-
-            labAddSubject.Location = new Point { X = 325, Y = 15 };
-            labAddSubject.Text = "Добавить субъект доступа";
-            labAddSubject.Width = 150;
-
-            tbNameOfSubject.Location = new System.Drawing.Point { X = 325, Y = 30 };
-            tbNameOfSubject.Size = new System.Drawing.Size { Width = 115 };
-            tbNameOfSubject.KeyPress += new KeyPressEventHandler(enterPressed);
-            tbNameOfSubject.Name = "Subject";
-            tbNameOfSubject.TabIndex = 100;
-
-            addSubject.Location = new System.Drawing.Point { X = 445, Y = 29 };
-            addSubject.Click += new System.EventHandler(addSubject_click);
-            addSubject.Text = "Добавить субъект доступа";
-            addSubject.TabIndex = 101;
-
+            
             DataGridViewTextBoxColumn dgc1 = new DataGridViewTextBoxColumn();
             dgc1.HeaderText = "Привилегии и права субъектов к объектам доступа";
             dgc1.Width = 120;
@@ -141,8 +142,6 @@ namespace KPSZI
             dgc1.Frozen = true;
             dgc1.ReadOnly = true;
             accessMatrixRules.CellDoubleClick += new DataGridViewCellEventHandler(deleteObject_click);
-
-
             accessMatrixRules.Columns.Add(dgc1);
 
             accessMatrixRules.DefaultCellStyle.SelectionBackColor = Color.White;
@@ -153,8 +152,8 @@ namespace KPSZI
             accessMatrixRules.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             accessMatrixRules.ScrollBars = ScrollBars.Both;
             accessMatrixRules.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-            accessMatrixRules.Width = 500;
-            accessMatrixRules.Height = 500;
+            accessMatrixRules.Width = 400;
+            accessMatrixRules.Height = 400;
             accessMatrixRules.Location = new System.Drawing.Point { X = 15, Y = 130 };
             accessMatrixRules.MultiSelect = false;
             accessMatrixRules.SelectionMode = DataGridViewSelectionMode.CellSelect;
@@ -182,6 +181,7 @@ namespace KPSZI
             dialogForm.Size = new Size { Height = 100, Width = 150 };
             dialogForm.FormBorderStyle = FormBorderStyle.Fixed3D;
             dialogForm.Size = new Size { Height = 235, Width = 550 };
+            dialogForm.Icon = new Icon("res/icons/mf.ico");
 
             checkBoxRead = new System.Windows.Forms.CheckBox();
             checkBoxWrite = new System.Windows.Forms.CheckBox();

@@ -25,7 +25,8 @@ namespace KPSZI
         public MainForm()
         {
             InitializeComponent();
-
+            Icon = new Icon("res/icons/mf.ico");
+            
             // Заполняем коллекцию этапами (название, ссылка на вкладку, ссылка на пункт в дереве) 
             stages.Add("tnOptions", new StageOptions(returnTabPage("tpOptions"), returnTreeNode("tnOptions"), this, IS));
             stages.Add("tnClassification", new StageClassification(returnTabPage("tpClassification"), 
@@ -35,8 +36,7 @@ namespace KPSZI
             stages.Add("tnIntruder", new StageIntruder(returnTabPage("tpIntruder"), returnTreeNode("tnIntruder"), this, IS));
             stages.Add("tnActualThreats", new StageActualThreats(returnTabPage("tpActualThreats"), returnTreeNode("tnActualThreats"), this, IS));
             stages.Add("tnHardware", new StageHardware(returnTabPage("tpHardware"), returnTreeNode("tnHardware"), this, IS));
-
-            
+            stages.Add("tnTCUI", new StageTCUI(returnTabPage("tpTCUI"), returnTreeNode("tnTCUI"), this, IS));
             //returnTreeNode("tnActualThreats").ForeColor = Color.Gray;
             //returnTreeNode("tnActualThreats").BackColor = Color.White;
 

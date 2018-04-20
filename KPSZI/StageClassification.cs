@@ -14,7 +14,7 @@ namespace KPSZI
         public StageClassification(TabPage stageTab, TreeNode stageNode, MainForm mainForm, InformationSystem IS)
             :base(stageTab, stageNode, mainForm, IS)
         {
-            //base.initTabPage();
+            initTabPage();
         }
 
         public List<TabPage> tabPagesInfoTypes = new List<TabPage>();
@@ -25,9 +25,6 @@ namespace KPSZI
             {
                 foreach (InfoType it in db.InfoTypes)
                 {
-                    if (it.TypeName == "Персональные данные")
-                        continue;
-
                     TabPage tp = new TabPage { Name = it.TypeName, Text = it.TypeName };
 
                     Label labelConf = new Label { Text = "Конфиденциальность" };
@@ -84,7 +81,7 @@ namespace KPSZI
         public override void enterTabPage()
         {
             mf.tabControlInfoTypes.TabPages.Clear();
-            if (IS.listOfInfoTypes.Count == 0 || ((IS.listOfInfoTypes.FindLast(t => t.TypeName == "Персональные данные") != null) && IS.listOfInfoTypes.Count == 1))
+            if (IS.listOfInfoTypes.Count == 0)
             {
                 TabPage startTabPage = new TabPage { Name = "startTabPage", Text = "Выберите виды информации" };
                 startTabPage.Controls.Add(new Label { Text = "Выберите виды информации в параметрах информационной системы для определения степеней ущерба.", Location = new Point { X = 70, Y = 30 }, AutoSize = false, Size = new Size(new Point { X = 160, Y = 100 }) });
@@ -99,7 +96,6 @@ namespace KPSZI
                 {
                     mf.panelPDN.Enabled = true;
                     mf.panelPDN.Visible = true;
-                    continue;
                 }
                 mf.tabControlInfoTypes.TabPages.Add(((StageClassification)mf.stages["tnClassification"]).tabPagesInfoTypes.FindLast(t => t.Name == it.TypeName));
             }

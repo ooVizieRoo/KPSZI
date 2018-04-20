@@ -20,6 +20,11 @@ namespace KPSZI.Model
         /// Наименование ТКУИ
         /// </summary>
         public string Name { get; set; }
+
+        /// <summary>
+        /// Навигационное поле для хранения типа
+        /// </summary>
+        public virtual TCUIType TCUIType { get; set;}
         
         /// <summary>
         /// Навигационное поле для хранения угроз утечки по ТК

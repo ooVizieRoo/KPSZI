@@ -29,24 +29,26 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("1.1. Параметры ИС");
-            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("1.2. Классификация ИС");
-            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("1.3.1. Матрица доступа");
-            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("1.3.2. Топология сети");
-            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("1.3.3. ЖЕЛЕЗО");
-            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("1.3. Технологическая инф.", new System.Windows.Forms.TreeNode[] {
-            treeNode23,
-            treeNode24,
-            treeNode25});
-            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("1. Обследование ИС", new System.Windows.Forms.TreeNode[] {
-            treeNode21,
-            treeNode22,
-            treeNode26});
-            System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("2.1. Модель нарушителя");
-            System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("2.2. Актуальные УБИ");
-            System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("2. Модель угроз", new System.Windows.Forms.TreeNode[] {
-            treeNode28,
-            treeNode29});
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("1.1. Параметры ИС");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("1.2. Классификация ИС");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("1.3.1. Матрица доступа");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("1.3.2. Топология сети");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("1.3.3. ЖЕЛЕЗО");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("1.3. Технологическая инф.", new System.Windows.Forms.TreeNode[] {
+            treeNode3,
+            treeNode4,
+            treeNode5});
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("1. Обследование ИС", new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2,
+            treeNode6});
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("2.1. Модель нарушителя");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("2.2. Актуальные УБИ");
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("2.3. Актуальные угрозы утечки по ТКУИ");
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("2. Модель угроз", new System.Windows.Forms.TreeNode[] {
+            treeNode8,
+            treeNode9,
+            treeNode10});
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.projectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -96,7 +98,27 @@
             this.tpActualThreats = new System.Windows.Forms.TabPage();
             this.dgvThreats = new System.Windows.Forms.DataGridView();
             this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.tpTCUI = new System.Windows.Forms.TabPage();
+            this.tabControlTCUI = new System.Windows.Forms.TabControl();
+            this.tabPageTCUIExist = new System.Windows.Forms.TabPage();
+            this.cbInducPereh = new System.Windows.Forms.CheckBox();
+            this.cbElPereh = new System.Windows.Forms.CheckBox();
+            this.cbEMIPereh = new System.Windows.Forms.CheckBox();
+            this.cbParamPEMIN = new System.Windows.Forms.CheckBox();
+            this.cbElPEMIN = new System.Windows.Forms.CheckBox();
+            this.cbEMPEMIN = new System.Windows.Forms.CheckBox();
+            this.cbParamVoice = new System.Windows.Forms.CheckBox();
+            this.cbOptElVoice = new System.Windows.Forms.CheckBox();
+            this.cbAqElVoice = new System.Windows.Forms.CheckBox();
+            this.cbVibroVoice = new System.Windows.Forms.CheckBox();
+            this.cbAirVoice = new System.Windows.Forms.CheckBox();
+            this.cbVidovie = new System.Windows.Forms.CheckBox();
+            this.labelSVYAZTCUIType = new System.Windows.Forms.Label();
+            this.labelPEMINTCUIType = new System.Windows.Forms.Label();
+            this.labelAqoostTCUIType = new System.Windows.Forms.Label();
+            this.labelViewTCUIType = new System.Windows.Forms.Label();
+            this.tabPageIntrAbil = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage9 = new System.Windows.Forms.TabPage();
             this.tabPage10 = new System.Windows.Forms.TabPage();
             this.tabPage11 = new System.Windows.Forms.TabPage();
@@ -123,6 +145,9 @@
             this.tpIntruder.SuspendLayout();
             this.tpActualThreats.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvThreats)).BeginInit();
+            this.tpTCUI.SuspendLayout();
+            this.tabControlTCUI.SuspendLayout();
+            this.tabPageTCUIExist.SuspendLayout();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -235,29 +260,31 @@
             this.treeView.HideSelection = false;
             this.treeView.Location = new System.Drawing.Point(0, 24);
             this.treeView.Name = "treeView";
-            treeNode21.Name = "tnOptions";
-            treeNode21.Text = "1.1. Параметры ИС";
-            treeNode22.Name = "tnClassification";
-            treeNode22.Text = "1.2. Классификация ИС";
-            treeNode23.Name = "tnAccessMatrix";
-            treeNode23.Text = "1.3.1. Матрица доступа";
-            treeNode24.Name = "tnTopology";
-            treeNode24.Text = "1.3.2. Топология сети";
-            treeNode25.Name = "tnHardware";
-            treeNode25.Text = "1.3.3. ЖЕЛЕЗО";
-            treeNode26.Name = "tnTechno";
-            treeNode26.Text = "1.3. Технологическая инф.";
-            treeNode27.Name = "Node0";
-            treeNode27.Text = "1. Обследование ИС";
-            treeNode28.Name = "tnIntruder";
-            treeNode28.Text = "2.1. Модель нарушителя";
-            treeNode29.Name = "tnActualThreats";
-            treeNode29.Text = "2.2. Актуальные УБИ";
-            treeNode30.Name = "Node1";
-            treeNode30.Text = "2. Модель угроз";
+            treeNode1.Name = "tnOptions";
+            treeNode1.Text = "1.1. Параметры ИС";
+            treeNode2.Name = "tnClassification";
+            treeNode2.Text = "1.2. Классификация ИС";
+            treeNode3.Name = "tnAccessMatrix";
+            treeNode3.Text = "1.3.1. Матрица доступа";
+            treeNode4.Name = "tnTopology";
+            treeNode4.Text = "1.3.2. Топология сети";
+            treeNode5.Name = "tnHardware";
+            treeNode5.Text = "1.3.3. ЖЕЛЕЗО";
+            treeNode6.Name = "tnTechno";
+            treeNode6.Text = "1.3. Технологическая инф.";
+            treeNode7.Name = "Node0";
+            treeNode7.Text = "1. Обследование ИС";
+            treeNode8.Name = "tnIntruder";
+            treeNode8.Text = "2.1. Модель нарушителя";
+            treeNode9.Name = "tnActualThreats";
+            treeNode9.Text = "2.2. Актуальные УБИ";
+            treeNode10.Name = "tnTCUI";
+            treeNode10.Text = "2.3. Актуальные угрозы утечки по ТКУИ";
+            treeNode11.Name = "Node1";
+            treeNode11.Text = "2. Модель угроз";
             this.treeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode27,
-            treeNode30});
+            treeNode7,
+            treeNode11});
             this.treeView.Size = new System.Drawing.Size(256, 516);
             this.treeView.TabIndex = 3;
             this.treeView.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.treeView_BeforeSelect);
@@ -354,7 +381,7 @@
             this.tabControl.Controls.Add(this.tpIntruder);
             this.tabControl.Controls.Add(this.tpActualThreats);
             this.tabControl.Controls.Add(this.tabPage7);
-            this.tabControl.Controls.Add(this.tabPage8);
+            this.tabControl.Controls.Add(this.tpTCUI);
             this.tabControl.Controls.Add(this.tabPage9);
             this.tabControl.Controls.Add(this.tabPage10);
             this.tabControl.Controls.Add(this.tabPage11);
@@ -651,15 +678,229 @@
             this.tabPage7.Text = "tabPage7";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
-            // tabPage8
+            // tpTCUI
             // 
-            this.tabPage8.Location = new System.Drawing.Point(4, 22);
-            this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage8.Size = new System.Drawing.Size(976, 490);
-            this.tabPage8.TabIndex = 7;
-            this.tabPage8.Text = "tabPage8";
-            this.tabPage8.UseVisualStyleBackColor = true;
+            this.tpTCUI.Controls.Add(this.tabControlTCUI);
+            this.tpTCUI.Location = new System.Drawing.Point(4, 22);
+            this.tpTCUI.Name = "tpTCUI";
+            this.tpTCUI.Padding = new System.Windows.Forms.Padding(3);
+            this.tpTCUI.Size = new System.Drawing.Size(976, 490);
+            this.tpTCUI.TabIndex = 7;
+            this.tpTCUI.Text = "tpTCUI";
+            this.tpTCUI.UseVisualStyleBackColor = true;
+            // 
+            // tabControlTCUI
+            // 
+            this.tabControlTCUI.Controls.Add(this.tabPageTCUIExist);
+            this.tabControlTCUI.Controls.Add(this.tabPageIntrAbil);
+            this.tabControlTCUI.Controls.Add(this.tabPage3);
+            this.tabControlTCUI.Location = new System.Drawing.Point(6, 6);
+            this.tabControlTCUI.Name = "tabControlTCUI";
+            this.tabControlTCUI.SelectedIndex = 0;
+            this.tabControlTCUI.Size = new System.Drawing.Size(962, 478);
+            this.tabControlTCUI.TabIndex = 0;
+            // 
+            // tabPageTCUIExist
+            // 
+            this.tabPageTCUIExist.Controls.Add(this.cbInducPereh);
+            this.tabPageTCUIExist.Controls.Add(this.cbElPereh);
+            this.tabPageTCUIExist.Controls.Add(this.cbEMIPereh);
+            this.tabPageTCUIExist.Controls.Add(this.cbParamPEMIN);
+            this.tabPageTCUIExist.Controls.Add(this.cbElPEMIN);
+            this.tabPageTCUIExist.Controls.Add(this.cbEMPEMIN);
+            this.tabPageTCUIExist.Controls.Add(this.cbParamVoice);
+            this.tabPageTCUIExist.Controls.Add(this.cbOptElVoice);
+            this.tabPageTCUIExist.Controls.Add(this.cbAqElVoice);
+            this.tabPageTCUIExist.Controls.Add(this.cbVibroVoice);
+            this.tabPageTCUIExist.Controls.Add(this.cbAirVoice);
+            this.tabPageTCUIExist.Controls.Add(this.cbVidovie);
+            this.tabPageTCUIExist.Controls.Add(this.labelSVYAZTCUIType);
+            this.tabPageTCUIExist.Controls.Add(this.labelPEMINTCUIType);
+            this.tabPageTCUIExist.Controls.Add(this.labelAqoostTCUIType);
+            this.tabPageTCUIExist.Controls.Add(this.labelViewTCUIType);
+            this.tabPageTCUIExist.Location = new System.Drawing.Point(4, 22);
+            this.tabPageTCUIExist.Name = "tabPageTCUIExist";
+            this.tabPageTCUIExist.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageTCUIExist.Size = new System.Drawing.Size(954, 452);
+            this.tabPageTCUIExist.TabIndex = 0;
+            this.tabPageTCUIExist.Text = "Наличие ТКУИ";
+            this.tabPageTCUIExist.UseVisualStyleBackColor = true;
+            // 
+            // cbInducPereh
+            // 
+            this.cbInducPereh.AutoSize = true;
+            this.cbInducPereh.Location = new System.Drawing.Point(407, 267);
+            this.cbInducPereh.Name = "cbInducPereh";
+            this.cbInducPereh.Size = new System.Drawing.Size(101, 17);
+            this.cbInducPereh.TabIndex = 15;
+            this.cbInducPereh.Text = "Индукционные";
+            this.cbInducPereh.UseVisualStyleBackColor = true;
+            // 
+            // cbElPereh
+            // 
+            this.cbElPereh.AutoSize = true;
+            this.cbElPereh.Location = new System.Drawing.Point(407, 243);
+            this.cbElPereh.Name = "cbElPereh";
+            this.cbElPereh.Size = new System.Drawing.Size(103, 17);
+            this.cbElPereh.TabIndex = 14;
+            this.cbElPereh.Text = "Электрические";
+            this.cbElPereh.UseVisualStyleBackColor = true;
+            // 
+            // cbEMIPereh
+            // 
+            this.cbEMIPereh.AutoSize = true;
+            this.cbEMIPereh.Location = new System.Drawing.Point(407, 220);
+            this.cbEMIPereh.Name = "cbEMIPereh";
+            this.cbEMIPereh.Size = new System.Drawing.Size(124, 17);
+            this.cbEMIPereh.TabIndex = 13;
+            this.cbEMIPereh.Text = "Электромагнитные";
+            this.cbEMIPereh.UseVisualStyleBackColor = true;
+            // 
+            // cbParamPEMIN
+            // 
+            this.cbParamPEMIN.AutoSize = true;
+            this.cbParamPEMIN.Location = new System.Drawing.Point(407, 115);
+            this.cbParamPEMIN.Name = "cbParamPEMIN";
+            this.cbParamPEMIN.Size = new System.Drawing.Size(118, 17);
+            this.cbParamPEMIN.TabIndex = 12;
+            this.cbParamPEMIN.Text = "Параметрические";
+            this.cbParamPEMIN.UseVisualStyleBackColor = true;
+            // 
+            // cbElPEMIN
+            // 
+            this.cbElPEMIN.AutoSize = true;
+            this.cbElPEMIN.Location = new System.Drawing.Point(407, 92);
+            this.cbElPEMIN.Name = "cbElPEMIN";
+            this.cbElPEMIN.Size = new System.Drawing.Size(103, 17);
+            this.cbElPEMIN.TabIndex = 11;
+            this.cbElPEMIN.Text = "Электрические";
+            this.cbElPEMIN.UseVisualStyleBackColor = true;
+            // 
+            // cbEMPEMIN
+            // 
+            this.cbEMPEMIN.AutoSize = true;
+            this.cbEMPEMIN.Location = new System.Drawing.Point(407, 69);
+            this.cbEMPEMIN.Name = "cbEMPEMIN";
+            this.cbEMPEMIN.Size = new System.Drawing.Size(124, 17);
+            this.cbEMPEMIN.TabIndex = 10;
+            this.cbEMPEMIN.Text = "Электромагнитные";
+            this.cbEMPEMIN.UseVisualStyleBackColor = true;
+            // 
+            // cbParamVoice
+            // 
+            this.cbParamVoice.AutoSize = true;
+            this.cbParamVoice.Location = new System.Drawing.Point(25, 267);
+            this.cbParamVoice.Name = "cbParamVoice";
+            this.cbParamVoice.Size = new System.Drawing.Size(118, 17);
+            this.cbParamVoice.TabIndex = 9;
+            this.cbParamVoice.Text = "Параметрические";
+            this.cbParamVoice.UseVisualStyleBackColor = true;
+            // 
+            // cbOptElVoice
+            // 
+            this.cbOptElVoice.AutoSize = true;
+            this.cbOptElVoice.Location = new System.Drawing.Point(25, 243);
+            this.cbOptElVoice.Name = "cbOptElVoice";
+            this.cbOptElVoice.Size = new System.Drawing.Size(133, 17);
+            this.cbOptElVoice.TabIndex = 8;
+            this.cbOptElVoice.Text = "Оптико-электронные";
+            this.cbOptElVoice.UseVisualStyleBackColor = true;
+            // 
+            // cbAqElVoice
+            // 
+            this.cbAqElVoice.AutoSize = true;
+            this.cbAqElVoice.Location = new System.Drawing.Point(25, 220);
+            this.cbAqElVoice.Name = "cbAqElVoice";
+            this.cbAqElVoice.Size = new System.Drawing.Size(140, 17);
+            this.cbAqElVoice.TabIndex = 7;
+            this.cbAqElVoice.Text = "Акусто-электрические";
+            this.cbAqElVoice.UseVisualStyleBackColor = true;
+            // 
+            // cbVibroVoice
+            // 
+            this.cbVibroVoice.AutoSize = true;
+            this.cbVibroVoice.Location = new System.Drawing.Point(25, 196);
+            this.cbVibroVoice.Name = "cbVibroVoice";
+            this.cbVibroVoice.Size = new System.Drawing.Size(101, 17);
+            this.cbVibroVoice.TabIndex = 6;
+            this.cbVibroVoice.Text = "Вибрационные";
+            this.cbVibroVoice.UseVisualStyleBackColor = true;
+            // 
+            // cbAirVoice
+            // 
+            this.cbAirVoice.AutoSize = true;
+            this.cbAirVoice.Location = new System.Drawing.Point(25, 172);
+            this.cbAirVoice.Name = "cbAirVoice";
+            this.cbAirVoice.Size = new System.Drawing.Size(84, 17);
+            this.cbAirVoice.TabIndex = 5;
+            this.cbAirVoice.Text = "Воздушные";
+            this.cbAirVoice.UseVisualStyleBackColor = true;
+            // 
+            // cbVidovie
+            // 
+            this.cbVidovie.AutoSize = true;
+            this.cbVidovie.Location = new System.Drawing.Point(25, 49);
+            this.cbVidovie.Name = "cbVidovie";
+            this.cbVidovie.Size = new System.Drawing.Size(71, 17);
+            this.cbVidovie.TabIndex = 4;
+            this.cbVidovie.Text = "Видовые";
+            this.cbVidovie.UseVisualStyleBackColor = true;
+            // 
+            // labelSVYAZTCUIType
+            // 
+            this.labelSVYAZTCUIType.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelSVYAZTCUIType.Location = new System.Drawing.Point(404, 163);
+            this.labelSVYAZTCUIType.Name = "labelSVYAZTCUIType";
+            this.labelSVYAZTCUIType.Size = new System.Drawing.Size(277, 54);
+            this.labelSVYAZTCUIType.TabIndex = 3;
+            this.labelSVYAZTCUIType.Text = "Каналы перехвата информации при ее передаче по каналам связи";
+            // 
+            // labelPEMINTCUIType
+            // 
+            this.labelPEMINTCUIType.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelPEMINTCUIType.Location = new System.Drawing.Point(404, 24);
+            this.labelPEMINTCUIType.Name = "labelPEMINTCUIType";
+            this.labelPEMINTCUIType.Size = new System.Drawing.Size(277, 42);
+            this.labelPEMINTCUIType.TabIndex = 2;
+            this.labelPEMINTCUIType.Text = "Каналы побочных электромагнитных излучений и наводок (ПЭМИН)";
+            // 
+            // labelAqoostTCUIType
+            // 
+            this.labelAqoostTCUIType.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelAqoostTCUIType.Location = new System.Drawing.Point(22, 115);
+            this.labelAqoostTCUIType.Name = "labelAqoostTCUIType";
+            this.labelAqoostTCUIType.Size = new System.Drawing.Size(254, 54);
+            this.labelAqoostTCUIType.TabIndex = 1;
+            this.labelAqoostTCUIType.Text = "Каналы утечки акустической (речевой) информации";
+            // 
+            // labelViewTCUIType
+            // 
+            this.labelViewTCUIType.AutoSize = true;
+            this.labelViewTCUIType.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelViewTCUIType.Location = new System.Drawing.Point(22, 24);
+            this.labelViewTCUIType.Name = "labelViewTCUIType";
+            this.labelViewTCUIType.Size = new System.Drawing.Size(254, 17);
+            this.labelViewTCUIType.TabIndex = 0;
+            this.labelViewTCUIType.Text = "Каналы утечки видовой информации";
+            // 
+            // tabPageIntrAbil
+            // 
+            this.tabPageIntrAbil.Location = new System.Drawing.Point(4, 22);
+            this.tabPageIntrAbil.Name = "tabPageIntrAbil";
+            this.tabPageIntrAbil.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageIntrAbil.Size = new System.Drawing.Size(954, 452);
+            this.tabPageIntrAbil.TabIndex = 1;
+            this.tabPageIntrAbil.Text = "Определение возможностей нарушителя";
+            this.tabPageIntrAbil.UseVisualStyleBackColor = true;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(954, 452);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Итоговый список УБИ ТКУИ";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // tabPage9
             // 
@@ -872,6 +1113,10 @@
             this.tpIntruder.PerformLayout();
             this.tpActualThreats.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvThreats)).EndInit();
+            this.tpTCUI.ResumeLayout(false);
+            this.tabControlTCUI.ResumeLayout(false);
+            this.tabPageTCUIExist.ResumeLayout(false);
+            this.tabPageTCUIExist.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -897,7 +1142,7 @@
         private System.Windows.Forms.TabPage tpIntruder;
         private System.Windows.Forms.TabPage tpActualThreats;
         private System.Windows.Forms.TabPage tabPage7;
-        private System.Windows.Forms.TabPage tabPage8;
+        private System.Windows.Forms.TabPage tpTCUI;
         private System.Windows.Forms.TabPage tabPage9;
         private System.Windows.Forms.TabPage tabPage10;
         private System.Windows.Forms.TabPage tabPage11;
@@ -948,5 +1193,25 @@
         internal System.Windows.Forms.CheckedListBox clbIntruderType;
         internal System.Windows.Forms.Label lblImplementWays;
         internal System.Windows.Forms.DataGridView dgvThreats;
+        internal System.Windows.Forms.TabControl tabControlTCUI;
+        private System.Windows.Forms.TabPage tabPageTCUIExist;
+        private System.Windows.Forms.TabPage tabPageIntrAbil;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.CheckBox cbInducPereh;
+        private System.Windows.Forms.CheckBox cbElPereh;
+        private System.Windows.Forms.CheckBox cbEMIPereh;
+        private System.Windows.Forms.CheckBox cbParamPEMIN;
+        private System.Windows.Forms.CheckBox cbElPEMIN;
+        private System.Windows.Forms.CheckBox cbEMPEMIN;
+        private System.Windows.Forms.CheckBox cbParamVoice;
+        private System.Windows.Forms.CheckBox cbOptElVoice;
+        private System.Windows.Forms.CheckBox cbAqElVoice;
+        private System.Windows.Forms.CheckBox cbVibroVoice;
+        private System.Windows.Forms.CheckBox cbAirVoice;
+        private System.Windows.Forms.CheckBox cbVidovie;
+        private System.Windows.Forms.Label labelSVYAZTCUIType;
+        private System.Windows.Forms.Label labelPEMINTCUIType;
+        private System.Windows.Forms.Label labelAqoostTCUIType;
+        private System.Windows.Forms.Label labelViewTCUIType;
     }
 }

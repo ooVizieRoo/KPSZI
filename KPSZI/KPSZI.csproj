@@ -70,6 +70,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IntruderAbilityControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="IntruderAbilityControl.Designer.cs">
+      <DependentUpon>IntruderAbilityControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\201804170507218_123.cs" />
     <Compile Include="Migrations\201804170507218_123.Designer.cs">
       <DependentUpon>201804170507218_123.cs</DependentUpon>
@@ -126,8 +132,12 @@
     <Compile Include="StageIntruder.cs" />
     <Compile Include="StageOptions.cs" />
     <Compile Include="StageHardware.cs" />
+    <Compile Include="StageTCUI.cs" />
     <Compile Include="StageTechno.cs" />
     <Compile Include="StageTopology.cs" />
+    <EmbeddedResource Include="IntruderAbilityControl.resx">
+      <DependentUpon>IntruderAbilityControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -184,6 +194,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="res\icons\left-arrow-icon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\icons\mf.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="res\icons\right-arrow-icon.png">
