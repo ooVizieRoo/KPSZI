@@ -29,24 +29,24 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("1.1. Параметры ИС");
-            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("1.2. Классификация ИС");
-            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("1.3.1. Матрица доступа");
-            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("1.3.2. Топология сети");
-            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("1.3.3. ЖЕЛЕЗО");
-            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("1.3. Технологическая инф.", new System.Windows.Forms.TreeNode[] {
-            treeNode23,
-            treeNode24,
-            treeNode25});
-            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("1. Обследование ИС", new System.Windows.Forms.TreeNode[] {
-            treeNode21,
-            treeNode22,
-            treeNode26});
-            System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("2.1. Модель нарушителя");
-            System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("2.2. Актуальные УБИ");
-            System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("2. Модель угроз", new System.Windows.Forms.TreeNode[] {
-            treeNode28,
-            treeNode29});
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("1.1. Параметры ИС");
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("1.2. Классификация ИС");
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("1.3.1. Матрица доступа");
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("1.3.2. Топология сети");
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("1.3.3. ЖЕЛЕЗО");
+            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("1.3. Технологическая инф.", new System.Windows.Forms.TreeNode[] {
+            treeNode13,
+            treeNode14,
+            treeNode15});
+            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("1. Обследование ИС", new System.Windows.Forms.TreeNode[] {
+            treeNode11,
+            treeNode12,
+            treeNode16});
+            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("2.1. Модель нарушителя");
+            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("2.2. Актуальные УБИ");
+            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("2. Модель угроз", new System.Windows.Forms.TreeNode[] {
+            treeNode18,
+            treeNode19});
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.projectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -88,6 +88,33 @@
             this.tpAccessMatrix = new System.Windows.Forms.TabPage();
             this.tpTopology = new System.Windows.Forms.TabPage();
             this.tpHardware = new System.Windows.Forms.TabPage();
+            this.dgvHardware = new System.Windows.Forms.DataGridView();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.lblAC = new System.Windows.Forms.Label();
+            this.tbAC = new System.Windows.Forms.TextBox();
+            this.lblODD = new System.Windows.Forms.Label();
+            this.tbODD = new System.Windows.Forms.TextBox();
+            this.lblHDD = new System.Windows.Forms.Label();
+            this.tbHDD = new System.Windows.Forms.TextBox();
+            this.lblVC = new System.Windows.Forms.Label();
+            this.tbVC = new System.Windows.Forms.TextBox();
+            this.lblMB = new System.Windows.Forms.Label();
+            this.tbMB = new System.Windows.Forms.TextBox();
+            this.lblRAM = new System.Windows.Forms.Label();
+            this.tbRAM = new System.Windows.Forms.TextBox();
+            this.lblCPU = new System.Windows.Forms.Label();
+            this.tbCPU = new System.Windows.Forms.TextBox();
+            this.lblOS = new System.Windows.Forms.Label();
+            this.tbOS = new System.Windows.Forms.TextBox();
+            this.lblPCNumber = new System.Windows.Forms.Label();
+            this.tbPCNumber = new System.Windows.Forms.TextBox();
+            this.lblPCName = new System.Windows.Forms.Label();
+            this.tbPCName = new System.Windows.Forms.TextBox();
+            this.gbHW1 = new System.Windows.Forms.GroupBox();
+            this.rbIsServerPC = new System.Windows.Forms.RadioButton();
+            this.rbIsSecAdminPC = new System.Windows.Forms.RadioButton();
+            this.rbIsSysAdminPC = new System.Windows.Forms.RadioButton();
+            this.rbIsUserPC = new System.Windows.Forms.RadioButton();
             this.tpIntruder = new System.Windows.Forms.TabPage();
             this.lblImplementWays = new System.Windows.Forms.Label();
             this.clbImplementWays = new System.Windows.Forms.CheckedListBox();
@@ -120,6 +147,9 @@
             this.tabControl.SuspendLayout();
             this.tpClassification.SuspendLayout();
             this.panelPDN.SuspendLayout();
+            this.tpHardware.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHardware)).BeginInit();
+            this.gbHW1.SuspendLayout();
             this.tpIntruder.SuspendLayout();
             this.tpActualThreats.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvThreats)).BeginInit();
@@ -235,29 +265,29 @@
             this.treeView.HideSelection = false;
             this.treeView.Location = new System.Drawing.Point(0, 24);
             this.treeView.Name = "treeView";
-            treeNode21.Name = "tnOptions";
-            treeNode21.Text = "1.1. Параметры ИС";
-            treeNode22.Name = "tnClassification";
-            treeNode22.Text = "1.2. Классификация ИС";
-            treeNode23.Name = "tnAccessMatrix";
-            treeNode23.Text = "1.3.1. Матрица доступа";
-            treeNode24.Name = "tnTopology";
-            treeNode24.Text = "1.3.2. Топология сети";
-            treeNode25.Name = "tnHardware";
-            treeNode25.Text = "1.3.3. ЖЕЛЕЗО";
-            treeNode26.Name = "tnTechno";
-            treeNode26.Text = "1.3. Технологическая инф.";
-            treeNode27.Name = "Node0";
-            treeNode27.Text = "1. Обследование ИС";
-            treeNode28.Name = "tnIntruder";
-            treeNode28.Text = "2.1. Модель нарушителя";
-            treeNode29.Name = "tnActualThreats";
-            treeNode29.Text = "2.2. Актуальные УБИ";
-            treeNode30.Name = "Node1";
-            treeNode30.Text = "2. Модель угроз";
+            treeNode11.Name = "tnOptions";
+            treeNode11.Text = "1.1. Параметры ИС";
+            treeNode12.Name = "tnClassification";
+            treeNode12.Text = "1.2. Классификация ИС";
+            treeNode13.Name = "tnAccessMatrix";
+            treeNode13.Text = "1.3.1. Матрица доступа";
+            treeNode14.Name = "tnTopology";
+            treeNode14.Text = "1.3.2. Топология сети";
+            treeNode15.Name = "tnHardware";
+            treeNode15.Text = "1.3.3. ЖЕЛЕЗО";
+            treeNode16.Name = "tnTechno";
+            treeNode16.Text = "1.3. Технологическая инф.";
+            treeNode17.Name = "Node0";
+            treeNode17.Text = "1. Обследование ИС";
+            treeNode18.Name = "tnIntruder";
+            treeNode18.Text = "2.1. Модель нарушителя";
+            treeNode19.Name = "tnActualThreats";
+            treeNode19.Text = "2.2. Актуальные УБИ";
+            treeNode20.Name = "Node1";
+            treeNode20.Text = "2. Модель угроз";
             this.treeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode27,
-            treeNode30});
+            treeNode17,
+            treeNode20});
             this.treeView.Size = new System.Drawing.Size(256, 516);
             this.treeView.TabIndex = 3;
             this.treeView.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.treeView_BeforeSelect);
@@ -566,6 +596,29 @@
             // 
             // tpHardware
             // 
+            this.tpHardware.Controls.Add(this.dgvHardware);
+            this.tpHardware.Controls.Add(this.comboBox1);
+            this.tpHardware.Controls.Add(this.lblAC);
+            this.tpHardware.Controls.Add(this.tbAC);
+            this.tpHardware.Controls.Add(this.lblODD);
+            this.tpHardware.Controls.Add(this.tbODD);
+            this.tpHardware.Controls.Add(this.lblHDD);
+            this.tpHardware.Controls.Add(this.tbHDD);
+            this.tpHardware.Controls.Add(this.lblVC);
+            this.tpHardware.Controls.Add(this.tbVC);
+            this.tpHardware.Controls.Add(this.lblMB);
+            this.tpHardware.Controls.Add(this.tbMB);
+            this.tpHardware.Controls.Add(this.lblRAM);
+            this.tpHardware.Controls.Add(this.tbRAM);
+            this.tpHardware.Controls.Add(this.lblCPU);
+            this.tpHardware.Controls.Add(this.tbCPU);
+            this.tpHardware.Controls.Add(this.lblOS);
+            this.tpHardware.Controls.Add(this.tbOS);
+            this.tpHardware.Controls.Add(this.lblPCNumber);
+            this.tpHardware.Controls.Add(this.tbPCNumber);
+            this.tpHardware.Controls.Add(this.lblPCName);
+            this.tpHardware.Controls.Add(this.tbPCName);
+            this.tpHardware.Controls.Add(this.gbHW1);
             this.tpHardware.Location = new System.Drawing.Point(4, 22);
             this.tpHardware.Name = "tpHardware";
             this.tpHardware.Padding = new System.Windows.Forms.Padding(3);
@@ -573,6 +626,286 @@
             this.tpHardware.TabIndex = 5;
             this.tpHardware.Text = "tpHardware";
             this.tpHardware.UseVisualStyleBackColor = true;
+            // 
+            // dgvHardware
+            // 
+            this.dgvHardware.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvHardware.Location = new System.Drawing.Point(55, 284);
+            this.dgvHardware.Name = "dgvHardware";
+            this.dgvHardware.Size = new System.Drawing.Size(614, 150);
+            this.dgvHardware.TabIndex = 22;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Windows 10 x64",
+            "Windows 10",
+            "Windows 8.1 x64",
+            "Windows 8.1",
+            "Windows 8 x64",
+            "Windows 8",
+            "Windows 7 x64",
+            "Windows 7",
+            "Windows Vista x64",
+            "Windows Vista",
+            "Windows XP Professional x64",
+            "Windows XP Professional",
+            "Windows XP Home Edition",
+            "Windows Server 2016",
+            "Windows Server 2012",
+            "Windows Server 2008 R2 x64",
+            "Windows Server 2008 R2",
+            "Windows Server 2008 x64",
+            "Windows Server 2008",
+            "Windows Server 2003 x64",
+            "Windows Server 2003",
+            "Astra Linux Special Edition",
+            "CentOS 64-bit",
+            "CentOS",
+            "Debian 8.x 64-bit",
+            "Debian 8.x",
+            "Debian 7.x 64-bit",
+            "Debian 7.x",
+            "Debian 6.x 64-bit",
+            "Debian 6.x",
+            "Debian 5.x 64-bit",
+            "Debian 5.x",
+            "Red Hat Enterprise Linux 7 64-bit",
+            "Red Hat Enterprise Linux 7",
+            "Red Hat Enterprise Linux 6 64-bit",
+            "Red Hat Enterprise Linux 6",
+            "Red Hat Enterprise Linux 5 64-bit",
+            "Red Hat Enterprise Linux 5",
+            "Red Hat Enterprise Linux 4 64-bit",
+            "Red Hat Enterprise Linux 4",
+            "Red Hat Enterprise Linux 3 64-bit",
+            "Red Hat Enterprise Linux 3",
+            "Red Hat Enterprise Linux 2",
+            "Ubuntu 64-bit",
+            "Ubuntu"});
+            this.comboBox1.Location = new System.Drawing.Point(154, 64);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(213, 21);
+            this.comboBox1.TabIndex = 21;
+            // 
+            // lblAC
+            // 
+            this.lblAC.AutoSize = true;
+            this.lblAC.Location = new System.Drawing.Point(31, 250);
+            this.lblAC.Name = "lblAC";
+            this.lblAC.Size = new System.Drawing.Size(117, 13);
+            this.lblAC.TabIndex = 20;
+            this.lblAC.Text = "Звуковые устройства";
+            // 
+            // tbAC
+            // 
+            this.tbAC.Location = new System.Drawing.Point(154, 247);
+            this.tbAC.Name = "tbAC";
+            this.tbAC.Size = new System.Drawing.Size(213, 20);
+            this.tbAC.TabIndex = 19;
+            // 
+            // lblODD
+            // 
+            this.lblODD.AutoSize = true;
+            this.lblODD.Location = new System.Drawing.Point(19, 224);
+            this.lblODD.Name = "lblODD";
+            this.lblODD.Size = new System.Drawing.Size(129, 13);
+            this.lblODD.TabIndex = 18;
+            this.lblODD.Text = "Оптические накопители";
+            // 
+            // tbODD
+            // 
+            this.tbODD.Location = new System.Drawing.Point(154, 221);
+            this.tbODD.Name = "tbODD";
+            this.tbODD.Size = new System.Drawing.Size(213, 20);
+            this.tbODD.TabIndex = 17;
+            // 
+            // lblHDD
+            // 
+            this.lblHDD.AutoSize = true;
+            this.lblHDD.Location = new System.Drawing.Point(52, 198);
+            this.lblHDD.Name = "lblHDD";
+            this.lblHDD.Size = new System.Drawing.Size(96, 13);
+            this.lblHDD.TabIndex = 16;
+            this.lblHDD.Text = "Хранение данных";
+            // 
+            // tbHDD
+            // 
+            this.tbHDD.Location = new System.Drawing.Point(154, 195);
+            this.tbHDD.Name = "tbHDD";
+            this.tbHDD.Size = new System.Drawing.Size(213, 20);
+            this.tbHDD.TabIndex = 15;
+            // 
+            // lblVC
+            // 
+            this.lblVC.AutoSize = true;
+            this.lblVC.Location = new System.Drawing.Point(81, 172);
+            this.lblVC.Name = "lblVC";
+            this.lblVC.Size = new System.Drawing.Size(67, 13);
+            this.lblVC.TabIndex = 14;
+            this.lblVC.Text = "Видеокарта";
+            // 
+            // tbVC
+            // 
+            this.tbVC.Location = new System.Drawing.Point(154, 169);
+            this.tbVC.Name = "tbVC";
+            this.tbVC.Size = new System.Drawing.Size(213, 20);
+            this.tbVC.TabIndex = 13;
+            // 
+            // lblMB
+            // 
+            this.lblMB.AutoSize = true;
+            this.lblMB.Location = new System.Drawing.Point(41, 146);
+            this.lblMB.Name = "lblMB";
+            this.lblMB.Size = new System.Drawing.Size(107, 13);
+            this.lblMB.TabIndex = 12;
+            this.lblMB.Text = "Материнская плата";
+            // 
+            // tbMB
+            // 
+            this.tbMB.Location = new System.Drawing.Point(154, 143);
+            this.tbMB.Name = "tbMB";
+            this.tbMB.Size = new System.Drawing.Size(213, 20);
+            this.tbMB.TabIndex = 11;
+            // 
+            // lblRAM
+            // 
+            this.lblRAM.AutoSize = true;
+            this.lblRAM.Location = new System.Drawing.Point(34, 120);
+            this.lblRAM.Name = "lblRAM";
+            this.lblRAM.Size = new System.Drawing.Size(114, 13);
+            this.lblRAM.TabIndex = 10;
+            this.lblRAM.Text = "Оперативаня память";
+            // 
+            // tbRAM
+            // 
+            this.tbRAM.Location = new System.Drawing.Point(154, 117);
+            this.tbRAM.Name = "tbRAM";
+            this.tbRAM.Size = new System.Drawing.Size(213, 20);
+            this.tbRAM.TabIndex = 9;
+            // 
+            // lblCPU
+            // 
+            this.lblCPU.AutoSize = true;
+            this.lblCPU.Location = new System.Drawing.Point(15, 94);
+            this.lblCPU.Name = "lblCPU";
+            this.lblCPU.Size = new System.Drawing.Size(133, 13);
+            this.lblCPU.TabIndex = 8;
+            this.lblCPU.Text = "Центральный процессор";
+            // 
+            // tbCPU
+            // 
+            this.tbCPU.Location = new System.Drawing.Point(154, 91);
+            this.tbCPU.Name = "tbCPU";
+            this.tbCPU.Size = new System.Drawing.Size(213, 20);
+            this.tbCPU.TabIndex = 7;
+            // 
+            // lblOS
+            // 
+            this.lblOS.AutoSize = true;
+            this.lblOS.Location = new System.Drawing.Point(21, 68);
+            this.lblOS.Name = "lblOS";
+            this.lblOS.Size = new System.Drawing.Size(127, 13);
+            this.lblOS.TabIndex = 6;
+            this.lblOS.Text = "Операционная система";
+            // 
+            // tbOS
+            // 
+            this.tbOS.Location = new System.Drawing.Point(481, 194);
+            this.tbOS.Name = "tbOS";
+            this.tbOS.Size = new System.Drawing.Size(213, 20);
+            this.tbOS.TabIndex = 5;
+            // 
+            // lblPCNumber
+            // 
+            this.lblPCNumber.AutoSize = true;
+            this.lblPCNumber.Location = new System.Drawing.Point(130, 15);
+            this.lblPCNumber.Name = "lblPCNumber";
+            this.lblPCNumber.Size = new System.Drawing.Size(18, 13);
+            this.lblPCNumber.TabIndex = 2;
+            this.lblPCNumber.Text = "№";
+            // 
+            // tbPCNumber
+            // 
+            this.tbPCNumber.Location = new System.Drawing.Point(154, 13);
+            this.tbPCNumber.Name = "tbPCNumber";
+            this.tbPCNumber.Size = new System.Drawing.Size(213, 20);
+            this.tbPCNumber.TabIndex = 1;
+            // 
+            // lblPCName
+            // 
+            this.lblPCName.AutoSize = true;
+            this.lblPCName.Location = new System.Drawing.Point(65, 42);
+            this.lblPCName.Name = "lblPCName";
+            this.lblPCName.Size = new System.Drawing.Size(88, 13);
+            this.lblPCName.TabIndex = 4;
+            this.lblPCName.Text = "Учетная запись";
+            // 
+            // tbPCName
+            // 
+            this.tbPCName.Location = new System.Drawing.Point(154, 39);
+            this.tbPCName.Name = "tbPCName";
+            this.tbPCName.Size = new System.Drawing.Size(213, 20);
+            this.tbPCName.TabIndex = 3;
+            // 
+            // gbHW1
+            // 
+            this.gbHW1.Controls.Add(this.rbIsServerPC);
+            this.gbHW1.Controls.Add(this.rbIsSecAdminPC);
+            this.gbHW1.Controls.Add(this.rbIsSysAdminPC);
+            this.gbHW1.Controls.Add(this.rbIsUserPC);
+            this.gbHW1.Location = new System.Drawing.Point(489, 6);
+            this.gbHW1.Name = "gbHW1";
+            this.gbHW1.Size = new System.Drawing.Size(220, 117);
+            this.gbHW1.TabIndex = 0;
+            this.gbHW1.TabStop = false;
+            this.gbHW1.Text = "Группа АРМ";
+            // 
+            // rbIsServerPC
+            // 
+            this.rbIsServerPC.AutoSize = true;
+            this.rbIsServerPC.Location = new System.Drawing.Point(7, 91);
+            this.rbIsServerPC.Name = "rbIsServerPC";
+            this.rbIsServerPC.Size = new System.Drawing.Size(62, 17);
+            this.rbIsServerPC.TabIndex = 3;
+            this.rbIsServerPC.TabStop = true;
+            this.rbIsServerPC.Text = "Сервер";
+            this.rbIsServerPC.UseVisualStyleBackColor = true;
+            // 
+            // rbIsSecAdminPC
+            // 
+            this.rbIsSecAdminPC.AutoSize = true;
+            this.rbIsSecAdminPC.Location = new System.Drawing.Point(7, 67);
+            this.rbIsSecAdminPC.Name = "rbIsSecAdminPC";
+            this.rbIsSecAdminPC.Size = new System.Drawing.Size(209, 17);
+            this.rbIsSecAdminPC.TabIndex = 2;
+            this.rbIsSecAdminPC.TabStop = true;
+            this.rbIsSecAdminPC.Text = "АРМ администратора безопасности";
+            this.rbIsSecAdminPC.UseVisualStyleBackColor = true;
+            // 
+            // rbIsSysAdminPC
+            // 
+            this.rbIsSysAdminPC.AutoSize = true;
+            this.rbIsSysAdminPC.Location = new System.Drawing.Point(7, 43);
+            this.rbIsSysAdminPC.Name = "rbIsSysAdminPC";
+            this.rbIsSysAdminPC.Size = new System.Drawing.Size(198, 17);
+            this.rbIsSysAdminPC.TabIndex = 1;
+            this.rbIsSysAdminPC.TabStop = true;
+            this.rbIsSysAdminPC.Text = "АРМ системного администратора";
+            this.rbIsSysAdminPC.UseVisualStyleBackColor = true;
+            // 
+            // rbIsUserPC
+            // 
+            this.rbIsUserPC.AutoSize = true;
+            this.rbIsUserPC.Location = new System.Drawing.Point(7, 20);
+            this.rbIsUserPC.Name = "rbIsUserPC";
+            this.rbIsUserPC.Size = new System.Drawing.Size(122, 17);
+            this.rbIsUserPC.TabIndex = 0;
+            this.rbIsUserPC.TabStop = true;
+            this.rbIsUserPC.Text = "АРМ пользователя";
+            this.rbIsUserPC.UseVisualStyleBackColor = true;
             // 
             // tpIntruder
             // 
@@ -868,6 +1201,11 @@
             this.tpClassification.ResumeLayout(false);
             this.panelPDN.ResumeLayout(false);
             this.panelPDN.PerformLayout();
+            this.tpHardware.ResumeLayout(false);
+            this.tpHardware.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHardware)).EndInit();
+            this.gbHW1.ResumeLayout(false);
+            this.gbHW1.PerformLayout();
             this.tpIntruder.ResumeLayout(false);
             this.tpIntruder.PerformLayout();
             this.tpActualThreats.ResumeLayout(false);
@@ -948,5 +1286,32 @@
         internal System.Windows.Forms.CheckedListBox clbIntruderType;
         internal System.Windows.Forms.Label lblImplementWays;
         internal System.Windows.Forms.DataGridView dgvThreats;
+        private System.Windows.Forms.GroupBox gbHW1;
+        private System.Windows.Forms.Label lblPCName;
+        private System.Windows.Forms.TextBox tbPCName;
+        private System.Windows.Forms.RadioButton rbIsServerPC;
+        private System.Windows.Forms.RadioButton rbIsSecAdminPC;
+        private System.Windows.Forms.RadioButton rbIsSysAdminPC;
+        private System.Windows.Forms.RadioButton rbIsUserPC;
+        private System.Windows.Forms.Label lblAC;
+        private System.Windows.Forms.TextBox tbAC;
+        private System.Windows.Forms.Label lblODD;
+        private System.Windows.Forms.TextBox tbODD;
+        private System.Windows.Forms.Label lblHDD;
+        private System.Windows.Forms.TextBox tbHDD;
+        private System.Windows.Forms.Label lblVC;
+        private System.Windows.Forms.TextBox tbVC;
+        private System.Windows.Forms.Label lblMB;
+        private System.Windows.Forms.TextBox tbMB;
+        private System.Windows.Forms.Label lblRAM;
+        private System.Windows.Forms.TextBox tbRAM;
+        private System.Windows.Forms.Label lblCPU;
+        private System.Windows.Forms.TextBox tbCPU;
+        private System.Windows.Forms.Label lblOS;
+        private System.Windows.Forms.TextBox tbOS;
+        private System.Windows.Forms.Label lblPCNumber;
+        private System.Windows.Forms.TextBox tbPCNumber;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.DataGridView dgvHardware;
     }
 }

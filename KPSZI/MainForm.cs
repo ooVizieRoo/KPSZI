@@ -133,7 +133,7 @@ namespace KPSZI
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.Message, "Ахтунг!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("В rewriteThreatsDBToolStripMenuItem_Click Exception!\n" + ex.Message, "Ахтунг!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
 
@@ -155,7 +155,7 @@ namespace KPSZI
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.Message, "Ахтунг!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("В clearDBToolStripMenuItem_Click Exception!\n" + ex.Message, "Ахтунг!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                 }
@@ -176,8 +176,16 @@ namespace KPSZI
                         List<Threat> listThreatsFromFile = Threat.GetThreatsFromXlsx(fi, db);
                         List<Threat> listThreatsFromDB = db.Threats.OrderBy(t => t.ThreatNumber).ToList();
 
-                        // Получение даты последнего обновления угроз из БД
-                        DateTime lastUpdateOfLocalDB = listThreatsFromDB.Select(t => t.DateOfChange).Max();
+                        DateTime lastUpdateOfLocalDB;
+                        if (listThreatsFromDB != null)
+                        {
+                            // Получение даты последнего обновления угроз из БД
+                            lastUpdateOfLocalDB = listThreatsFromDB.Select(t => t.DateOfChange).Max();
+                        }
+                        else
+                        {
+                            lastUpdateOfLocalDB = DateTime.MinValue;
+                        }
 
                         // Получение даты последнего обновления угроз из актуального файла с угрозами
                         DateTime lastUpdateOfFile = listThreatsFromFile.Select(t => t.DateOfChange).Max();
@@ -189,7 +197,7 @@ namespace KPSZI
                             return;
                         }
 
-                        // Отбор угроз, претерпевшихизменения
+                        // Отбор угроз, претерпевших изменения
                         List<Threat> listChangedOrAddedThreats = listThreatsFromFile.Where(t => t.DateOfChange > lastUpdateOfLocalDB).ToList();
 
                         // Внесение изменений
@@ -221,7 +229,7 @@ namespace KPSZI
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.Message, "Ахтунг!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("В refreshThreatDBToolStripMenuItem_Click Exception!\n" + ex.Message, "Ахтунг!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                 }
