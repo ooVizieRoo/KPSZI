@@ -29,26 +29,31 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("1.1. Параметры ИС");
-            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("1.2. Классификация ИС");
-            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("1.3.1. Матрица доступа");
-            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("1.3.2. Топология сети");
-            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("1.3.3. ЖЕЛЕЗО");
-            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("1.3. Технологическая инф.", new System.Windows.Forms.TreeNode[] {
-            treeNode23,
-            treeNode24,
-            treeNode25});
-            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("1. Обследование ИС", new System.Windows.Forms.TreeNode[] {
-            treeNode21,
-            treeNode22,
-            treeNode26});
-            System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("2.1. Модель нарушителя");
-            System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("2.2. Актуальные УБИ");
-            System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("2. Модель угроз", new System.Windows.Forms.TreeNode[] {
-            treeNode28,
-            treeNode29});
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("1.1. Параметры ИС");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("1.2. Классификация ИС");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("1.3.1. Матрица доступа");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("1.3.2. Топология сети");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("1.3.3. ЖЕЛЕЗО");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("1.3. Технологическая инф.", new System.Windows.Forms.TreeNode[] {
+            treeNode3,
+            treeNode4,
+            treeNode5});
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("1. Обследование ИС", new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2,
+            treeNode6});
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("2.1. Модель нарушителя");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("2.2. Уязвимости ИС");
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("2.3. Актуальные УБИ");
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("2. Модель угроз", new System.Windows.Forms.TreeNode[] {
+            treeNode8,
+            treeNode9,
+            treeNode10});
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.projectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -93,9 +98,13 @@
             this.clbImplementWays = new System.Windows.Forms.CheckedListBox();
             this.lblIntruderType = new System.Windows.Forms.Label();
             this.clbIntruderType = new System.Windows.Forms.CheckedListBox();
+            this.tpVulnerabilities = new System.Windows.Forms.TabPage();
+            this.dgvVulnerabilities = new System.Windows.Forms.DataGridView();
+            this.CheckVulnerability = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tpActualThreats = new System.Windows.Forms.TabPage();
+            this.tbThreatDescription = new System.Windows.Forms.TextBox();
+            this.clbThreatFilter = new System.Windows.Forms.CheckedListBox();
             this.dgvThreats = new System.Windows.Forms.DataGridView();
-            this.tabPage7 = new System.Windows.Forms.TabPage();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.tabPage9 = new System.Windows.Forms.TabPage();
             this.tabPage10 = new System.Windows.Forms.TabPage();
@@ -115,12 +124,14 @@
             this.iconList = new System.Windows.Forms.ImageList(this.components);
             this.btPrevStage = new System.Windows.Forms.Button();
             this.btNextStage = new System.Windows.Forms.Button();
-            this.menuStrip1.SuspendLayout();
+            this.menuStrip.SuspendLayout();
             this.tpOptions.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tpClassification.SuspendLayout();
             this.panelPDN.SuspendLayout();
             this.tpIntruder.SuspendLayout();
+            this.tpVulnerabilities.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvVulnerabilities)).BeginInit();
             this.tpActualThreats.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvThreats)).BeginInit();
             this.SuspendLayout();
@@ -133,17 +144,17 @@
             this.statusStrip1.TabIndex = 0;
             this.statusStrip1.Text = "statusStrip1";
             // 
-            // menuStrip1
+            // menuStrip
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.projectToolStripMenuItem,
             this.settingsToolStripMenuItem,
             this.testPanelToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1240, 24);
-            this.menuStrip1.TabIndex = 1;
-            this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip.Name = "menuStrip";
+            this.menuStrip.Size = new System.Drawing.Size(1240, 24);
+            this.menuStrip.TabIndex = 1;
+            this.menuStrip.Text = "menuStrip";
             // 
             // projectToolStripMenuItem
             // 
@@ -235,29 +246,31 @@
             this.treeView.HideSelection = false;
             this.treeView.Location = new System.Drawing.Point(0, 24);
             this.treeView.Name = "treeView";
-            treeNode21.Name = "tnOptions";
-            treeNode21.Text = "1.1. Параметры ИС";
-            treeNode22.Name = "tnClassification";
-            treeNode22.Text = "1.2. Классификация ИС";
-            treeNode23.Name = "tnAccessMatrix";
-            treeNode23.Text = "1.3.1. Матрица доступа";
-            treeNode24.Name = "tnTopology";
-            treeNode24.Text = "1.3.2. Топология сети";
-            treeNode25.Name = "tnHardware";
-            treeNode25.Text = "1.3.3. ЖЕЛЕЗО";
-            treeNode26.Name = "tnTechno";
-            treeNode26.Text = "1.3. Технологическая инф.";
-            treeNode27.Name = "Node0";
-            treeNode27.Text = "1. Обследование ИС";
-            treeNode28.Name = "tnIntruder";
-            treeNode28.Text = "2.1. Модель нарушителя";
-            treeNode29.Name = "tnActualThreats";
-            treeNode29.Text = "2.2. Актуальные УБИ";
-            treeNode30.Name = "Node1";
-            treeNode30.Text = "2. Модель угроз";
+            treeNode1.Name = "tnOptions";
+            treeNode1.Text = "1.1. Параметры ИС";
+            treeNode2.Name = "tnClassification";
+            treeNode2.Text = "1.2. Классификация ИС";
+            treeNode3.Name = "tnAccessMatrix";
+            treeNode3.Text = "1.3.1. Матрица доступа";
+            treeNode4.Name = "tnTopology";
+            treeNode4.Text = "1.3.2. Топология сети";
+            treeNode5.Name = "tnHardware";
+            treeNode5.Text = "1.3.3. ЖЕЛЕЗО";
+            treeNode6.Name = "tnTechno";
+            treeNode6.Text = "1.3. Технологическая инф.";
+            treeNode7.Name = "Node0";
+            treeNode7.Text = "1. Обследование ИС";
+            treeNode8.Name = "tnIntruder";
+            treeNode8.Text = "2.1. Модель нарушителя";
+            treeNode9.Name = "tnVulnerabilities";
+            treeNode9.Text = "2.2. Уязвимости ИС";
+            treeNode10.Name = "tnActualThreats";
+            treeNode10.Text = "2.3. Актуальные УБИ";
+            treeNode11.Name = "Node1";
+            treeNode11.Text = "2. Модель угроз";
             this.treeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode27,
-            treeNode30});
+            treeNode7,
+            treeNode11});
             this.treeView.Size = new System.Drawing.Size(256, 516);
             this.treeView.TabIndex = 3;
             this.treeView.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.treeView_BeforeSelect);
@@ -273,6 +286,7 @@
             this.tpOptions.Controls.Add(this.lbIsName);
             this.tpOptions.Controls.Add(this.lbInfoTypes);
             this.tpOptions.Location = new System.Drawing.Point(4, 22);
+            this.tpOptions.Margin = new System.Windows.Forms.Padding(0);
             this.tpOptions.Name = "tpOptions";
             this.tpOptions.Padding = new System.Windows.Forms.Padding(3);
             this.tpOptions.Size = new System.Drawing.Size(976, 490);
@@ -352,8 +366,8 @@
             this.tabControl.Controls.Add(this.tpTopology);
             this.tabControl.Controls.Add(this.tpHardware);
             this.tabControl.Controls.Add(this.tpIntruder);
+            this.tabControl.Controls.Add(this.tpVulnerabilities);
             this.tabControl.Controls.Add(this.tpActualThreats);
-            this.tabControl.Controls.Add(this.tabPage7);
             this.tabControl.Controls.Add(this.tabPage8);
             this.tabControl.Controls.Add(this.tabPage9);
             this.tabControl.Controls.Add(this.tabPage10);
@@ -365,6 +379,7 @@
             this.tabControl.Controls.Add(this.tabPage16);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl.Location = new System.Drawing.Point(256, 24);
+            this.tabControl.Margin = new System.Windows.Forms.Padding(0);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
             this.tabControl.ShowToolTips = true;
@@ -622,8 +637,59 @@
             this.clbIntruderType.Size = new System.Drawing.Size(399, 169);
             this.clbIntruderType.TabIndex = 0;
             // 
+            // tpVulnerabilities
+            // 
+            this.tpVulnerabilities.Controls.Add(this.dgvVulnerabilities);
+            this.tpVulnerabilities.Location = new System.Drawing.Point(4, 22);
+            this.tpVulnerabilities.Name = "tpVulnerabilities";
+            this.tpVulnerabilities.Padding = new System.Windows.Forms.Padding(3);
+            this.tpVulnerabilities.Size = new System.Drawing.Size(976, 490);
+            this.tpVulnerabilities.TabIndex = 6;
+            this.tpVulnerabilities.Text = "tpVulnerabilities";
+            this.tpVulnerabilities.UseVisualStyleBackColor = true;
+            // 
+            // dgvVulnerabilities
+            // 
+            this.dgvVulnerabilities.AllowUserToAddRows = false;
+            this.dgvVulnerabilities.AllowUserToDeleteRows = false;
+            this.dgvVulnerabilities.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvVulnerabilities.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.dgvVulnerabilities.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dgvVulnerabilities.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvVulnerabilities.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvVulnerabilities.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CheckVulnerability});
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvVulnerabilities.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvVulnerabilities.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvVulnerabilities.Location = new System.Drawing.Point(3, 3);
+            this.dgvVulnerabilities.MinimumSize = new System.Drawing.Size(500, 0);
+            this.dgvVulnerabilities.Name = "dgvVulnerabilities";
+            this.dgvVulnerabilities.RowHeadersVisible = false;
+            this.dgvVulnerabilities.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dgvVulnerabilities.ShowCellToolTips = false;
+            this.dgvVulnerabilities.ShowEditingIcon = false;
+            this.dgvVulnerabilities.Size = new System.Drawing.Size(970, 484);
+            this.dgvVulnerabilities.TabIndex = 0;
+            // 
+            // CheckVulnerability
+            // 
+            this.CheckVulnerability.HeaderText = "";
+            this.CheckVulnerability.Name = "CheckVulnerability";
+            this.CheckVulnerability.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.CheckVulnerability.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
             // tpActualThreats
             // 
+            this.tpActualThreats.Controls.Add(this.tbThreatDescription);
+            this.tpActualThreats.Controls.Add(this.clbThreatFilter);
             this.tpActualThreats.Controls.Add(this.dgvThreats);
             this.tpActualThreats.Location = new System.Drawing.Point(4, 22);
             this.tpActualThreats.Name = "tpActualThreats";
@@ -633,23 +699,63 @@
             this.tpActualThreats.Text = "tpActualThreats";
             this.tpActualThreats.UseVisualStyleBackColor = true;
             // 
+            // tbThreatDescription
+            // 
+            this.tbThreatDescription.Location = new System.Drawing.Point(261, 4);
+            this.tbThreatDescription.Multiline = true;
+            this.tbThreatDescription.Name = "tbThreatDescription";
+            this.tbThreatDescription.Size = new System.Drawing.Size(703, 64);
+            this.tbThreatDescription.TabIndex = 2;
+            this.tbThreatDescription.Text = "Выберите угрозу для просмотра описания...";
+            // 
+            // clbThreatFilter
+            // 
+            this.clbThreatFilter.CheckOnClick = true;
+            this.clbThreatFilter.FormattingEnabled = true;
+            this.clbThreatFilter.Items.AddRange(new object[] {
+            "Источник угрозы",
+            "Способ реализации УБИ",
+            "Уязвимости ИС",
+            "СФХ"});
+            this.clbThreatFilter.Location = new System.Drawing.Point(4, 4);
+            this.clbThreatFilter.Name = "clbThreatFilter";
+            this.clbThreatFilter.Size = new System.Drawing.Size(251, 64);
+            this.clbThreatFilter.TabIndex = 1;
+            // 
             // dgvThreats
             // 
+            this.dgvThreats.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvThreats.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.dgvThreats.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dgvThreats.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvThreats.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvThreats.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvThreats.Location = new System.Drawing.Point(18, 22);
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvThreats.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvThreats.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgvThreats.EnableHeadersVisualStyles = false;
+            this.dgvThreats.Location = new System.Drawing.Point(3, 77);
+            this.dgvThreats.MultiSelect = false;
             this.dgvThreats.Name = "dgvThreats";
-            this.dgvThreats.Size = new System.Drawing.Size(934, 422);
+            this.dgvThreats.ReadOnly = true;
+            this.dgvThreats.RowHeadersVisible = false;
+            this.dgvThreats.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvThreats.Size = new System.Drawing.Size(970, 410);
             this.dgvThreats.TabIndex = 0;
-            // 
-            // tabPage7
-            // 
-            this.tabPage7.Location = new System.Drawing.Point(4, 22);
-            this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(976, 490);
-            this.tabPage7.TabIndex = 6;
-            this.tabPage7.Text = "tabPage7";
-            this.tabPage7.UseVisualStyleBackColor = true;
             // 
             // tabPage8
             // 
@@ -811,6 +917,7 @@
             // splitter1
             // 
             this.splitter1.Location = new System.Drawing.Point(256, 24);
+            this.splitter1.Margin = new System.Windows.Forms.Padding(0);
             this.splitter1.Name = "splitter1";
             this.splitter1.Size = new System.Drawing.Size(3, 516);
             this.splitter1.TabIndex = 5;
@@ -855,13 +962,13 @@
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.treeView);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
+            this.Controls.Add(this.menuStrip);
+            this.MainMenuStrip = this.menuStrip;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Комплекс ПСЗИ";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.menuStrip.ResumeLayout(false);
+            this.menuStrip.PerformLayout();
             this.tpOptions.ResumeLayout(false);
             this.tpOptions.PerformLayout();
             this.tabControl.ResumeLayout(false);
@@ -870,7 +977,10 @@
             this.panelPDN.PerformLayout();
             this.tpIntruder.ResumeLayout(false);
             this.tpIntruder.PerformLayout();
+            this.tpVulnerabilities.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvVulnerabilities)).EndInit();
             this.tpActualThreats.ResumeLayout(false);
+            this.tpActualThreats.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvThreats)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -880,7 +990,7 @@
         #endregion
 
         private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem projectToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem createProjectToolStripMenuItem;
         public System.Windows.Forms.TreeView treeView;
@@ -895,8 +1005,7 @@
         private System.Windows.Forms.TabPage tpTopology;
         private System.Windows.Forms.TabPage tpHardware;
         private System.Windows.Forms.TabPage tpIntruder;
-        private System.Windows.Forms.TabPage tpActualThreats;
-        private System.Windows.Forms.TabPage tabPage7;
+        private System.Windows.Forms.TabPage tpVulnerabilities;
         private System.Windows.Forms.TabPage tabPage8;
         private System.Windows.Forms.TabPage tabPage9;
         private System.Windows.Forms.TabPage tabPage10;
@@ -948,5 +1057,10 @@
         internal System.Windows.Forms.CheckedListBox clbIntruderType;
         internal System.Windows.Forms.Label lblImplementWays;
         internal System.Windows.Forms.DataGridView dgvThreats;
+        internal System.Windows.Forms.DataGridView dgvVulnerabilities;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn CheckVulnerability;
+        internal System.Windows.Forms.TextBox tbThreatDescription;
+        internal System.Windows.Forms.TabPage tpActualThreats;
+        internal System.Windows.Forms.CheckedListBox clbThreatFilter;
     }
 }

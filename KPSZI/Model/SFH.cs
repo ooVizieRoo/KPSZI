@@ -18,6 +18,11 @@ namespace KPSZI.Model
         /// Первичный ключ - Id СФХ
         /// </summary>
         public int SFHId { get; set; }
+
+        /// <summary>
+        /// Номер СФХ
+        /// </summary>
+        public int SFHNumber { get; set; }
         
         /// <summary>
         /// Навигационное поле - внешний ключ на тип СФХ
@@ -33,5 +38,12 @@ namespace KPSZI.Model
         /// Уровень проектной защищенности: 2 - высокий, 1 - средний, 0 - низкий.
         /// </summary>
         public int ProjectSecurity { get; set; }
+
+        public virtual ICollection<Threat> Threats { get; set; }
+
+        public SFH()
+        {
+            Threats = new List<Threat>();
+        }
     }
 }

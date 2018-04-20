@@ -57,16 +57,16 @@ namespace KPSZI.Model
         /// Коллекция всех источников угроз, которые характерны для данной угрозы
         /// </summary>
         public virtual ICollection<ThreatSource> ThreatSources { get; set; }
-        public virtual ICollection<ImplementWay> ImplementWays { get; set; }
-        public virtual ICollection<IntruderType> IntruderTypes { get; set; }
+        public virtual ICollection<ImplementWay> ImplementWays { get; set; }        
         public virtual ICollection<Vulnerability> Vulnerabilities { get; set; }
+        public virtual ICollection<SFH> SFHs { get; set; }
 
         public Threat()
         {
             ThreatSources = new List<ThreatSource>();
-            ImplementWays = new List<ImplementWay>();
-            IntruderTypes = new List<IntruderType>();
+            ImplementWays = new List<ImplementWay>();            
             Vulnerabilities = new List<Vulnerability>();
+            SFHs = new List<SFH>();
         }
 
         /// <summary>
@@ -92,8 +92,7 @@ namespace KPSZI.Model
                 thr.IntegrityViolation = (listOfXlslxRows[6][i] == "1") ? true : false;
                 thr.AvailabilityViolation = (listOfXlslxRows[7][i] == "1") ? true : false;
                 thr.DateOfAdd = DateTime.Parse(listOfXlslxRows[8][i]);
-                thr.DateOfChange = DateTime.Parse(listOfXlslxRows[9][i]);
-
+                thr.DateOfChange = DateTime.Parse(listOfXlslxRows[9][i]);                
                 listOfAllThreatsFromFile.Add(thr);
             }
 

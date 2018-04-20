@@ -10,6 +10,10 @@ namespace KPSZI.Model
     {
         public int ImplementWayId { get; set; }
         /// <summary>
+        /// Номер способа реализации
+        /// </summary>
+        public int WayNumber { get; set; }
+        /// <summary>
         /// Способ реализации УБИ
         /// </summary>
         public string WayName { get; set; }
@@ -17,5 +21,10 @@ namespace KPSZI.Model
         /// Коллекция всех угроз, для которых характерен данный способ реализации УБИ
         /// </summary>
         public virtual ICollection<Threat> Threats { get; set; }
+
+        public ImplementWay()
+        {
+            Threats = new List<Threat>();
+        }
     }
 }
