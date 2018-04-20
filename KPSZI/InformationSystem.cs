@@ -27,12 +27,17 @@ namespace KPSZI
 
         public List<string> listOfCategoriesPDN;
 
+        // Список выбранных уязвимостей
+        public List<Vulnerability> listOfVulnerabilities;
+
         public InformationSystem ()
         {
             ISName = "";
             listOfInfoTypes = new List<InfoType>();
             listOfSFHs = new List<SFH>();
             listOfCategoriesPDN = new List<string>();
+            listOfVulnerabilities = new List<Vulnerability>();
+
         }
     }
 }

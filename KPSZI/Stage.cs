@@ -31,6 +31,8 @@ namespace KPSZI
 
             stageNode.ImageIndex = 1;
             stageNode.SelectedImageIndex = 1;
+
+            initTabPage();
         }
 
         // сохранение содержимого вкладки

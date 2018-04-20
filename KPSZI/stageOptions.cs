@@ -24,7 +24,7 @@ namespace KPSZI
         public StageOptions (TabPage stageTab, TreeNode stageNode, MainForm mainForm, InformationSystem IS)
             :base(stageTab, stageNode, mainForm, IS)
         {
-            initTabPage();
+            
         }
          public override void initTabPage()
         {

@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("2.1. Модель нарушителя");
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("1.1. Параметры ИС");
             System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("1.2. Классификация ИС");
             System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("1.3.1. Матрица доступа");
@@ -43,14 +47,16 @@
             treeNode2,
             treeNode6});
             System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("2.1. Модель нарушителя");
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("2.2. Актуальные УБИ");
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("2.3. Актуальные угрозы утечки по ТКУИ");
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("2. Модель угроз", new System.Windows.Forms.TreeNode[] {
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("2.2. Уязвимости ИС");
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("2.3. Актуальные УБИ");
+
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("2.4. Актуальные угрозы утечки по ТКУИ");
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("2. Модель угроз", new System.Windows.Forms.TreeNode[] {
             treeNode8,
             treeNode9,
-            treeNode10});
+            treeNode10, treeNode11});
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.projectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -90,12 +96,44 @@
             this.tpAccessMatrix = new System.Windows.Forms.TabPage();
             this.tpTopology = new System.Windows.Forms.TabPage();
             this.tpHardware = new System.Windows.Forms.TabPage();
+            this.dgvHardware = new System.Windows.Forms.DataGridView();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.lblAC = new System.Windows.Forms.Label();
+            this.tbAC = new System.Windows.Forms.TextBox();
+            this.lblODD = new System.Windows.Forms.Label();
+            this.tbODD = new System.Windows.Forms.TextBox();
+            this.lblHDD = new System.Windows.Forms.Label();
+            this.tbHDD = new System.Windows.Forms.TextBox();
+            this.lblVC = new System.Windows.Forms.Label();
+            this.tbVC = new System.Windows.Forms.TextBox();
+            this.lblMB = new System.Windows.Forms.Label();
+            this.tbMB = new System.Windows.Forms.TextBox();
+            this.lblRAM = new System.Windows.Forms.Label();
+            this.tbRAM = new System.Windows.Forms.TextBox();
+            this.lblCPU = new System.Windows.Forms.Label();
+            this.tbCPU = new System.Windows.Forms.TextBox();
+            this.lblOS = new System.Windows.Forms.Label();
+            this.tbOS = new System.Windows.Forms.TextBox();
+            this.lblPCNumber = new System.Windows.Forms.Label();
+            this.tbPCNumber = new System.Windows.Forms.TextBox();
+            this.lblPCName = new System.Windows.Forms.Label();
+            this.tbPCName = new System.Windows.Forms.TextBox();
+            this.gbHW1 = new System.Windows.Forms.GroupBox();
+            this.rbIsServerPC = new System.Windows.Forms.RadioButton();
+            this.rbIsSecAdminPC = new System.Windows.Forms.RadioButton();
+            this.rbIsSysAdminPC = new System.Windows.Forms.RadioButton();
+            this.rbIsUserPC = new System.Windows.Forms.RadioButton();
             this.tpIntruder = new System.Windows.Forms.TabPage();
             this.lblImplementWays = new System.Windows.Forms.Label();
             this.clbImplementWays = new System.Windows.Forms.CheckedListBox();
             this.lblIntruderType = new System.Windows.Forms.Label();
             this.clbIntruderType = new System.Windows.Forms.CheckedListBox();
+            this.tpVulnerabilities = new System.Windows.Forms.TabPage();
+            this.dgvVulnerabilities = new System.Windows.Forms.DataGridView();
+            this.CheckVulnerability = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tpActualThreats = new System.Windows.Forms.TabPage();
+            this.tbThreatDescription = new System.Windows.Forms.TextBox();
+            this.clbThreatFilter = new System.Windows.Forms.CheckedListBox();
             this.dgvThreats = new System.Windows.Forms.DataGridView();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.tpTCUI = new System.Windows.Forms.TabPage();
@@ -119,6 +157,7 @@
             this.labelViewTCUIType = new System.Windows.Forms.Label();
             this.tabPageIntrAbil = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tabPage8 = new System.Windows.Forms.TabPage();
             this.tabPage9 = new System.Windows.Forms.TabPage();
             this.tabPage10 = new System.Windows.Forms.TabPage();
             this.tabPage11 = new System.Windows.Forms.TabPage();
@@ -137,12 +176,17 @@
             this.iconList = new System.Windows.Forms.ImageList(this.components);
             this.btPrevStage = new System.Windows.Forms.Button();
             this.btNextStage = new System.Windows.Forms.Button();
-            this.menuStrip1.SuspendLayout();
+            this.menuStrip.SuspendLayout();
             this.tpOptions.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tpClassification.SuspendLayout();
             this.panelPDN.SuspendLayout();
+            this.tpHardware.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHardware)).BeginInit();
+            this.gbHW1.SuspendLayout();
             this.tpIntruder.SuspendLayout();
+            this.tpVulnerabilities.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvVulnerabilities)).BeginInit();
             this.tpActualThreats.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvThreats)).BeginInit();
             this.tpTCUI.SuspendLayout();
@@ -158,17 +202,17 @@
             this.statusStrip1.TabIndex = 0;
             this.statusStrip1.Text = "statusStrip1";
             // 
-            // menuStrip1
+            // menuStrip
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.projectToolStripMenuItem,
             this.settingsToolStripMenuItem,
             this.testPanelToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1240, 24);
-            this.menuStrip1.TabIndex = 1;
-            this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip.Name = "menuStrip";
+            this.menuStrip.Size = new System.Drawing.Size(1240, 24);
+            this.menuStrip.TabIndex = 1;
+            this.menuStrip.Text = "menuStrip";
             // 
             // projectToolStripMenuItem
             // 
@@ -276,12 +320,16 @@
             treeNode7.Text = "1. Обследование ИС";
             treeNode8.Name = "tnIntruder";
             treeNode8.Text = "2.1. Модель нарушителя";
-            treeNode9.Name = "tnActualThreats";
-            treeNode9.Text = "2.2. Актуальные УБИ";
-            treeNode10.Name = "tnTCUI";
-            treeNode10.Text = "2.3. Актуальные угрозы утечки по ТКУИ";
-            treeNode11.Name = "Node1";
-            treeNode11.Text = "2. Модель угроз";
+            treeNode9.Name = "tnVulnerabilities";
+            treeNode9.Text = "2.2. Уязвимости ИС";
+            treeNode10.Name = "tnActualThreats";
+            treeNode10.Text = "2.3. Актуальные УБИ";
+            treeNode10.Name = "tnActualThreats";
+            treeNode10.Text = "2.3. Актуальные УБИ";
+            treeNode11.Name = "tnTCUI"
+            treeNode11.Text = "Актуальные угрозы утечки по ТКУИ";
+            treeNode12.Name = "Node1";
+            treeNode12.Text = "2. Модель угроз";
             this.treeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode7,
             treeNode11});
@@ -300,6 +348,7 @@
             this.tpOptions.Controls.Add(this.lbIsName);
             this.tpOptions.Controls.Add(this.lbInfoTypes);
             this.tpOptions.Location = new System.Drawing.Point(4, 22);
+            this.tpOptions.Margin = new System.Windows.Forms.Padding(0);
             this.tpOptions.Name = "tpOptions";
             this.tpOptions.Padding = new System.Windows.Forms.Padding(3);
             this.tpOptions.Size = new System.Drawing.Size(976, 490);
@@ -379,8 +428,8 @@
             this.tabControl.Controls.Add(this.tpTopology);
             this.tabControl.Controls.Add(this.tpHardware);
             this.tabControl.Controls.Add(this.tpIntruder);
+            this.tabControl.Controls.Add(this.tpVulnerabilities);
             this.tabControl.Controls.Add(this.tpActualThreats);
-            this.tabControl.Controls.Add(this.tabPage7);
             this.tabControl.Controls.Add(this.tpTCUI);
             this.tabControl.Controls.Add(this.tabPage9);
             this.tabControl.Controls.Add(this.tabPage10);
@@ -392,6 +441,7 @@
             this.tabControl.Controls.Add(this.tabPage16);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl.Location = new System.Drawing.Point(256, 24);
+            this.tabControl.Margin = new System.Windows.Forms.Padding(0);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
             this.tabControl.ShowToolTips = true;
@@ -593,6 +643,29 @@
             // 
             // tpHardware
             // 
+            this.tpHardware.Controls.Add(this.dgvHardware);
+            this.tpHardware.Controls.Add(this.comboBox1);
+            this.tpHardware.Controls.Add(this.lblAC);
+            this.tpHardware.Controls.Add(this.tbAC);
+            this.tpHardware.Controls.Add(this.lblODD);
+            this.tpHardware.Controls.Add(this.tbODD);
+            this.tpHardware.Controls.Add(this.lblHDD);
+            this.tpHardware.Controls.Add(this.tbHDD);
+            this.tpHardware.Controls.Add(this.lblVC);
+            this.tpHardware.Controls.Add(this.tbVC);
+            this.tpHardware.Controls.Add(this.lblMB);
+            this.tpHardware.Controls.Add(this.tbMB);
+            this.tpHardware.Controls.Add(this.lblRAM);
+            this.tpHardware.Controls.Add(this.tbRAM);
+            this.tpHardware.Controls.Add(this.lblCPU);
+            this.tpHardware.Controls.Add(this.tbCPU);
+            this.tpHardware.Controls.Add(this.lblOS);
+            this.tpHardware.Controls.Add(this.tbOS);
+            this.tpHardware.Controls.Add(this.lblPCNumber);
+            this.tpHardware.Controls.Add(this.tbPCNumber);
+            this.tpHardware.Controls.Add(this.lblPCName);
+            this.tpHardware.Controls.Add(this.tbPCName);
+            this.tpHardware.Controls.Add(this.gbHW1);
             this.tpHardware.Location = new System.Drawing.Point(4, 22);
             this.tpHardware.Name = "tpHardware";
             this.tpHardware.Padding = new System.Windows.Forms.Padding(3);
@@ -600,6 +673,286 @@
             this.tpHardware.TabIndex = 5;
             this.tpHardware.Text = "tpHardware";
             this.tpHardware.UseVisualStyleBackColor = true;
+            // 
+            // dgvHardware
+            // 
+            this.dgvHardware.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvHardware.Location = new System.Drawing.Point(55, 284);
+            this.dgvHardware.Name = "dgvHardware";
+            this.dgvHardware.Size = new System.Drawing.Size(614, 150);
+            this.dgvHardware.TabIndex = 22;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Windows 10 x64",
+            "Windows 10",
+            "Windows 8.1 x64",
+            "Windows 8.1",
+            "Windows 8 x64",
+            "Windows 8",
+            "Windows 7 x64",
+            "Windows 7",
+            "Windows Vista x64",
+            "Windows Vista",
+            "Windows XP Professional x64",
+            "Windows XP Professional",
+            "Windows XP Home Edition",
+            "Windows Server 2016",
+            "Windows Server 2012",
+            "Windows Server 2008 R2 x64",
+            "Windows Server 2008 R2",
+            "Windows Server 2008 x64",
+            "Windows Server 2008",
+            "Windows Server 2003 x64",
+            "Windows Server 2003",
+            "Astra Linux Special Edition",
+            "CentOS 64-bit",
+            "CentOS",
+            "Debian 8.x 64-bit",
+            "Debian 8.x",
+            "Debian 7.x 64-bit",
+            "Debian 7.x",
+            "Debian 6.x 64-bit",
+            "Debian 6.x",
+            "Debian 5.x 64-bit",
+            "Debian 5.x",
+            "Red Hat Enterprise Linux 7 64-bit",
+            "Red Hat Enterprise Linux 7",
+            "Red Hat Enterprise Linux 6 64-bit",
+            "Red Hat Enterprise Linux 6",
+            "Red Hat Enterprise Linux 5 64-bit",
+            "Red Hat Enterprise Linux 5",
+            "Red Hat Enterprise Linux 4 64-bit",
+            "Red Hat Enterprise Linux 4",
+            "Red Hat Enterprise Linux 3 64-bit",
+            "Red Hat Enterprise Linux 3",
+            "Red Hat Enterprise Linux 2",
+            "Ubuntu 64-bit",
+            "Ubuntu"});
+            this.comboBox1.Location = new System.Drawing.Point(154, 64);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(213, 21);
+            this.comboBox1.TabIndex = 21;
+            // 
+            // lblAC
+            // 
+            this.lblAC.AutoSize = true;
+            this.lblAC.Location = new System.Drawing.Point(31, 250);
+            this.lblAC.Name = "lblAC";
+            this.lblAC.Size = new System.Drawing.Size(117, 13);
+            this.lblAC.TabIndex = 20;
+            this.lblAC.Text = "Звуковые устройства";
+            // 
+            // tbAC
+            // 
+            this.tbAC.Location = new System.Drawing.Point(154, 247);
+            this.tbAC.Name = "tbAC";
+            this.tbAC.Size = new System.Drawing.Size(213, 20);
+            this.tbAC.TabIndex = 19;
+            // 
+            // lblODD
+            // 
+            this.lblODD.AutoSize = true;
+            this.lblODD.Location = new System.Drawing.Point(19, 224);
+            this.lblODD.Name = "lblODD";
+            this.lblODD.Size = new System.Drawing.Size(129, 13);
+            this.lblODD.TabIndex = 18;
+            this.lblODD.Text = "Оптические накопители";
+            // 
+            // tbODD
+            // 
+            this.tbODD.Location = new System.Drawing.Point(154, 221);
+            this.tbODD.Name = "tbODD";
+            this.tbODD.Size = new System.Drawing.Size(213, 20);
+            this.tbODD.TabIndex = 17;
+            // 
+            // lblHDD
+            // 
+            this.lblHDD.AutoSize = true;
+            this.lblHDD.Location = new System.Drawing.Point(52, 198);
+            this.lblHDD.Name = "lblHDD";
+            this.lblHDD.Size = new System.Drawing.Size(96, 13);
+            this.lblHDD.TabIndex = 16;
+            this.lblHDD.Text = "Хранение данных";
+            // 
+            // tbHDD
+            // 
+            this.tbHDD.Location = new System.Drawing.Point(154, 195);
+            this.tbHDD.Name = "tbHDD";
+            this.tbHDD.Size = new System.Drawing.Size(213, 20);
+            this.tbHDD.TabIndex = 15;
+            // 
+            // lblVC
+            // 
+            this.lblVC.AutoSize = true;
+            this.lblVC.Location = new System.Drawing.Point(81, 172);
+            this.lblVC.Name = "lblVC";
+            this.lblVC.Size = new System.Drawing.Size(67, 13);
+            this.lblVC.TabIndex = 14;
+            this.lblVC.Text = "Видеокарта";
+            // 
+            // tbVC
+            // 
+            this.tbVC.Location = new System.Drawing.Point(154, 169);
+            this.tbVC.Name = "tbVC";
+            this.tbVC.Size = new System.Drawing.Size(213, 20);
+            this.tbVC.TabIndex = 13;
+            // 
+            // lblMB
+            // 
+            this.lblMB.AutoSize = true;
+            this.lblMB.Location = new System.Drawing.Point(41, 146);
+            this.lblMB.Name = "lblMB";
+            this.lblMB.Size = new System.Drawing.Size(107, 13);
+            this.lblMB.TabIndex = 12;
+            this.lblMB.Text = "Материнская плата";
+            // 
+            // tbMB
+            // 
+            this.tbMB.Location = new System.Drawing.Point(154, 143);
+            this.tbMB.Name = "tbMB";
+            this.tbMB.Size = new System.Drawing.Size(213, 20);
+            this.tbMB.TabIndex = 11;
+            // 
+            // lblRAM
+            // 
+            this.lblRAM.AutoSize = true;
+            this.lblRAM.Location = new System.Drawing.Point(34, 120);
+            this.lblRAM.Name = "lblRAM";
+            this.lblRAM.Size = new System.Drawing.Size(114, 13);
+            this.lblRAM.TabIndex = 10;
+            this.lblRAM.Text = "Оперативаня память";
+            // 
+            // tbRAM
+            // 
+            this.tbRAM.Location = new System.Drawing.Point(154, 117);
+            this.tbRAM.Name = "tbRAM";
+            this.tbRAM.Size = new System.Drawing.Size(213, 20);
+            this.tbRAM.TabIndex = 9;
+            // 
+            // lblCPU
+            // 
+            this.lblCPU.AutoSize = true;
+            this.lblCPU.Location = new System.Drawing.Point(15, 94);
+            this.lblCPU.Name = "lblCPU";
+            this.lblCPU.Size = new System.Drawing.Size(133, 13);
+            this.lblCPU.TabIndex = 8;
+            this.lblCPU.Text = "Центральный процессор";
+            // 
+            // tbCPU
+            // 
+            this.tbCPU.Location = new System.Drawing.Point(154, 91);
+            this.tbCPU.Name = "tbCPU";
+            this.tbCPU.Size = new System.Drawing.Size(213, 20);
+            this.tbCPU.TabIndex = 7;
+            // 
+            // lblOS
+            // 
+            this.lblOS.AutoSize = true;
+            this.lblOS.Location = new System.Drawing.Point(21, 68);
+            this.lblOS.Name = "lblOS";
+            this.lblOS.Size = new System.Drawing.Size(127, 13);
+            this.lblOS.TabIndex = 6;
+            this.lblOS.Text = "Операционная система";
+            // 
+            // tbOS
+            // 
+            this.tbOS.Location = new System.Drawing.Point(481, 194);
+            this.tbOS.Name = "tbOS";
+            this.tbOS.Size = new System.Drawing.Size(213, 20);
+            this.tbOS.TabIndex = 5;
+            // 
+            // lblPCNumber
+            // 
+            this.lblPCNumber.AutoSize = true;
+            this.lblPCNumber.Location = new System.Drawing.Point(130, 15);
+            this.lblPCNumber.Name = "lblPCNumber";
+            this.lblPCNumber.Size = new System.Drawing.Size(18, 13);
+            this.lblPCNumber.TabIndex = 2;
+            this.lblPCNumber.Text = "№";
+            // 
+            // tbPCNumber
+            // 
+            this.tbPCNumber.Location = new System.Drawing.Point(154, 13);
+            this.tbPCNumber.Name = "tbPCNumber";
+            this.tbPCNumber.Size = new System.Drawing.Size(213, 20);
+            this.tbPCNumber.TabIndex = 1;
+            // 
+            // lblPCName
+            // 
+            this.lblPCName.AutoSize = true;
+            this.lblPCName.Location = new System.Drawing.Point(65, 42);
+            this.lblPCName.Name = "lblPCName";
+            this.lblPCName.Size = new System.Drawing.Size(88, 13);
+            this.lblPCName.TabIndex = 4;
+            this.lblPCName.Text = "Учетная запись";
+            // 
+            // tbPCName
+            // 
+            this.tbPCName.Location = new System.Drawing.Point(154, 39);
+            this.tbPCName.Name = "tbPCName";
+            this.tbPCName.Size = new System.Drawing.Size(213, 20);
+            this.tbPCName.TabIndex = 3;
+            // 
+            // gbHW1
+            // 
+            this.gbHW1.Controls.Add(this.rbIsServerPC);
+            this.gbHW1.Controls.Add(this.rbIsSecAdminPC);
+            this.gbHW1.Controls.Add(this.rbIsSysAdminPC);
+            this.gbHW1.Controls.Add(this.rbIsUserPC);
+            this.gbHW1.Location = new System.Drawing.Point(489, 6);
+            this.gbHW1.Name = "gbHW1";
+            this.gbHW1.Size = new System.Drawing.Size(220, 117);
+            this.gbHW1.TabIndex = 0;
+            this.gbHW1.TabStop = false;
+            this.gbHW1.Text = "Группа АРМ";
+            // 
+            // rbIsServerPC
+            // 
+            this.rbIsServerPC.AutoSize = true;
+            this.rbIsServerPC.Location = new System.Drawing.Point(7, 91);
+            this.rbIsServerPC.Name = "rbIsServerPC";
+            this.rbIsServerPC.Size = new System.Drawing.Size(62, 17);
+            this.rbIsServerPC.TabIndex = 3;
+            this.rbIsServerPC.TabStop = true;
+            this.rbIsServerPC.Text = "Сервер";
+            this.rbIsServerPC.UseVisualStyleBackColor = true;
+            // 
+            // rbIsSecAdminPC
+            // 
+            this.rbIsSecAdminPC.AutoSize = true;
+            this.rbIsSecAdminPC.Location = new System.Drawing.Point(7, 67);
+            this.rbIsSecAdminPC.Name = "rbIsSecAdminPC";
+            this.rbIsSecAdminPC.Size = new System.Drawing.Size(209, 17);
+            this.rbIsSecAdminPC.TabIndex = 2;
+            this.rbIsSecAdminPC.TabStop = true;
+            this.rbIsSecAdminPC.Text = "АРМ администратора безопасности";
+            this.rbIsSecAdminPC.UseVisualStyleBackColor = true;
+            // 
+            // rbIsSysAdminPC
+            // 
+            this.rbIsSysAdminPC.AutoSize = true;
+            this.rbIsSysAdminPC.Location = new System.Drawing.Point(7, 43);
+            this.rbIsSysAdminPC.Name = "rbIsSysAdminPC";
+            this.rbIsSysAdminPC.Size = new System.Drawing.Size(198, 17);
+            this.rbIsSysAdminPC.TabIndex = 1;
+            this.rbIsSysAdminPC.TabStop = true;
+            this.rbIsSysAdminPC.Text = "АРМ системного администратора";
+            this.rbIsSysAdminPC.UseVisualStyleBackColor = true;
+            // 
+            // rbIsUserPC
+            // 
+            this.rbIsUserPC.AutoSize = true;
+            this.rbIsUserPC.Location = new System.Drawing.Point(7, 20);
+            this.rbIsUserPC.Name = "rbIsUserPC";
+            this.rbIsUserPC.Size = new System.Drawing.Size(122, 17);
+            this.rbIsUserPC.TabIndex = 0;
+            this.rbIsUserPC.TabStop = true;
+            this.rbIsUserPC.Text = "АРМ пользователя";
+            this.rbIsUserPC.UseVisualStyleBackColor = true;
             // 
             // tpIntruder
             // 
@@ -649,8 +1002,59 @@
             this.clbIntruderType.Size = new System.Drawing.Size(399, 169);
             this.clbIntruderType.TabIndex = 0;
             // 
+            // tpVulnerabilities
+            // 
+            this.tpVulnerabilities.Controls.Add(this.dgvVulnerabilities);
+            this.tpVulnerabilities.Location = new System.Drawing.Point(4, 22);
+            this.tpVulnerabilities.Name = "tpVulnerabilities";
+            this.tpVulnerabilities.Padding = new System.Windows.Forms.Padding(3);
+            this.tpVulnerabilities.Size = new System.Drawing.Size(976, 490);
+            this.tpVulnerabilities.TabIndex = 6;
+            this.tpVulnerabilities.Text = "tpVulnerabilities";
+            this.tpVulnerabilities.UseVisualStyleBackColor = true;
+            // 
+            // dgvVulnerabilities
+            // 
+            this.dgvVulnerabilities.AllowUserToAddRows = false;
+            this.dgvVulnerabilities.AllowUserToDeleteRows = false;
+            this.dgvVulnerabilities.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvVulnerabilities.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.dgvVulnerabilities.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dgvVulnerabilities.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvVulnerabilities.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvVulnerabilities.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CheckVulnerability});
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvVulnerabilities.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvVulnerabilities.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvVulnerabilities.Location = new System.Drawing.Point(3, 3);
+            this.dgvVulnerabilities.MinimumSize = new System.Drawing.Size(500, 0);
+            this.dgvVulnerabilities.Name = "dgvVulnerabilities";
+            this.dgvVulnerabilities.RowHeadersVisible = false;
+            this.dgvVulnerabilities.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dgvVulnerabilities.ShowCellToolTips = false;
+            this.dgvVulnerabilities.ShowEditingIcon = false;
+            this.dgvVulnerabilities.Size = new System.Drawing.Size(970, 484);
+            this.dgvVulnerabilities.TabIndex = 0;
+            // 
+            // CheckVulnerability
+            // 
+            this.CheckVulnerability.HeaderText = "";
+            this.CheckVulnerability.Name = "CheckVulnerability";
+            this.CheckVulnerability.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.CheckVulnerability.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
             // tpActualThreats
             // 
+            this.tpActualThreats.Controls.Add(this.tbThreatDescription);
+            this.tpActualThreats.Controls.Add(this.clbThreatFilter);
             this.tpActualThreats.Controls.Add(this.dgvThreats);
             this.tpActualThreats.Location = new System.Drawing.Point(4, 22);
             this.tpActualThreats.Name = "tpActualThreats";
@@ -660,23 +1064,64 @@
             this.tpActualThreats.Text = "tpActualThreats";
             this.tpActualThreats.UseVisualStyleBackColor = true;
             // 
+            // tbThreatDescription
+            // 
+            this.tbThreatDescription.Location = new System.Drawing.Point(261, 4);
+            this.tbThreatDescription.Multiline = true;
+            this.tbThreatDescription.Name = "tbThreatDescription";
+            this.tbThreatDescription.Size = new System.Drawing.Size(703, 64);
+            this.tbThreatDescription.TabIndex = 2;
+            this.tbThreatDescription.Text = "Выберите угрозу для просмотра описания...";
+            // 
+            // clbThreatFilter
+            // 
+            this.clbThreatFilter.CheckOnClick = true;
+            this.clbThreatFilter.FormattingEnabled = true;
+            this.clbThreatFilter.Items.AddRange(new object[] {
+            "Источник угрозы",
+            "Способ реализации УБИ",
+            "Уязвимости ИС",
+            "СФХ"});
+            this.clbThreatFilter.Location = new System.Drawing.Point(4, 4);
+            this.clbThreatFilter.Name = "clbThreatFilter";
+            this.clbThreatFilter.Size = new System.Drawing.Size(251, 64);
+            this.clbThreatFilter.TabIndex = 1;
+            // 
             // dgvThreats
             // 
+            this.dgvThreats.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvThreats.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.dgvThreats.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dgvThreats.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvThreats.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvThreats.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvThreats.Location = new System.Drawing.Point(18, 22);
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvThreats.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvThreats.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgvThreats.EnableHeadersVisualStyles = false;
+            this.dgvThreats.Location = new System.Drawing.Point(3, 77);
+            this.dgvThreats.MultiSelect = false;
             this.dgvThreats.Name = "dgvThreats";
-            this.dgvThreats.Size = new System.Drawing.Size(934, 422);
+            this.dgvThreats.ReadOnly = true;
+            this.dgvThreats.RowHeadersVisible = false;
+            this.dgvThreats.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvThreats.Size = new System.Drawing.Size(970, 410);
             this.dgvThreats.TabIndex = 0;
             // 
-            // tabPage7
-            // 
-            this.tabPage7.Location = new System.Drawing.Point(4, 22);
-            this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(976, 490);
-            this.tabPage7.TabIndex = 6;
-            this.tabPage7.Text = "tabPage7";
-            this.tabPage7.UseVisualStyleBackColor = true;
             // 
             // tpTCUI
             // 
@@ -1052,6 +1497,7 @@
             // splitter1
             // 
             this.splitter1.Location = new System.Drawing.Point(256, 24);
+            this.splitter1.Margin = new System.Windows.Forms.Padding(0);
             this.splitter1.Name = "splitter1";
             this.splitter1.Size = new System.Drawing.Size(3, 516);
             this.splitter1.TabIndex = 5;
@@ -1096,22 +1542,30 @@
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.treeView);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
+            this.Controls.Add(this.menuStrip);
+            this.MainMenuStrip = this.menuStrip;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Комплекс ПСЗИ";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.menuStrip.ResumeLayout(false);
+            this.menuStrip.PerformLayout();
             this.tpOptions.ResumeLayout(false);
             this.tpOptions.PerformLayout();
             this.tabControl.ResumeLayout(false);
             this.tpClassification.ResumeLayout(false);
             this.panelPDN.ResumeLayout(false);
             this.panelPDN.PerformLayout();
+            this.tpHardware.ResumeLayout(false);
+            this.tpHardware.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHardware)).EndInit();
+            this.gbHW1.ResumeLayout(false);
+            this.gbHW1.PerformLayout();
             this.tpIntruder.ResumeLayout(false);
             this.tpIntruder.PerformLayout();
+            this.tpVulnerabilities.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvVulnerabilities)).EndInit();
             this.tpActualThreats.ResumeLayout(false);
+            this.tpActualThreats.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvThreats)).EndInit();
             this.tpTCUI.ResumeLayout(false);
             this.tabControlTCUI.ResumeLayout(false);
@@ -1125,7 +1579,7 @@
         #endregion
 
         private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem projectToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem createProjectToolStripMenuItem;
         public System.Windows.Forms.TreeView treeView;
@@ -1141,8 +1595,8 @@
         private System.Windows.Forms.TabPage tpHardware;
         private System.Windows.Forms.TabPage tpIntruder;
         private System.Windows.Forms.TabPage tpActualThreats;
-        private System.Windows.Forms.TabPage tabPage7;
         private System.Windows.Forms.TabPage tpTCUI;
+        private System.Windows.Forms.TabPage tpVulnerabilities;
         private System.Windows.Forms.TabPage tabPage9;
         private System.Windows.Forms.TabPage tabPage10;
         private System.Windows.Forms.TabPage tabPage11;
@@ -1193,6 +1647,38 @@
         internal System.Windows.Forms.CheckedListBox clbIntruderType;
         internal System.Windows.Forms.Label lblImplementWays;
         internal System.Windows.Forms.DataGridView dgvThreats;
+        private System.Windows.Forms.GroupBox gbHW1;
+        private System.Windows.Forms.Label lblPCName;
+        private System.Windows.Forms.TextBox tbPCName;
+        private System.Windows.Forms.RadioButton rbIsServerPC;
+        private System.Windows.Forms.RadioButton rbIsSecAdminPC;
+        private System.Windows.Forms.RadioButton rbIsSysAdminPC;
+        private System.Windows.Forms.RadioButton rbIsUserPC;
+        private System.Windows.Forms.Label lblAC;
+        private System.Windows.Forms.TextBox tbAC;
+        private System.Windows.Forms.Label lblODD;
+        private System.Windows.Forms.TextBox tbODD;
+        private System.Windows.Forms.Label lblHDD;
+        private System.Windows.Forms.TextBox tbHDD;
+        private System.Windows.Forms.Label lblVC;
+        private System.Windows.Forms.TextBox tbVC;
+        private System.Windows.Forms.Label lblMB;
+        private System.Windows.Forms.TextBox tbMB;
+        private System.Windows.Forms.Label lblRAM;
+        private System.Windows.Forms.TextBox tbRAM;
+        private System.Windows.Forms.Label lblCPU;
+        private System.Windows.Forms.TextBox tbCPU;
+        private System.Windows.Forms.Label lblOS;
+        private System.Windows.Forms.TextBox tbOS;
+        private System.Windows.Forms.Label lblPCNumber;
+        private System.Windows.Forms.TextBox tbPCNumber;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.DataGridView dgvHardware;
+        internal System.Windows.Forms.DataGridView dgvVulnerabilities;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn CheckVulnerability;
+        internal System.Windows.Forms.TextBox tbThreatDescription;
+        internal System.Windows.Forms.TabPage tpActualThreats;
+        internal System.Windows.Forms.CheckedListBox clbThreatFilter;
         internal System.Windows.Forms.TabControl tabControlTCUI;
         private System.Windows.Forms.TabPage tabPageTCUIExist;
         private System.Windows.Forms.TabPage tabPageIntrAbil;
