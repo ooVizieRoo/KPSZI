@@ -14,7 +14,7 @@ namespace KPSZI
         public StageClassification(TabPage stageTab, TreeNode stageNode, MainForm mainForm, InformationSystem IS)
             :base(stageTab, stageNode, mainForm, IS)
         {
-            initTabPage();
+            
         }
 
         public List<TabPage> tabPagesInfoTypes = new List<TabPage>();

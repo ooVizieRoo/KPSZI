@@ -74,6 +74,22 @@
     <Compile Include="Migrations\201804170507218_123.Designer.cs">
       <DependentUpon>201804170507218_123.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804200538481_sfhaddedtothreats.cs" />
+    <Compile Include="Migrations\201804200538481_sfhaddedtothreats.Designer.cs">
+      <DependentUpon>201804200538481_sfhaddedtothreats.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804200716025_some.cs" />
+    <Compile Include="Migrations\201804200716025_some.Designer.cs">
+      <DependentUpon>201804200716025_some.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804200723071_some2.cs" />
+    <Compile Include="Migrations\201804200723071_some2.Designer.cs">
+      <DependentUpon>201804200723071_some2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804200913385_ThreatsDone.cs" />
+    <Compile Include="Migrations\201804200913385_ThreatsDone.Designer.cs">
+      <DependentUpon>201804200913385_ThreatsDone.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\ImplementWays.cs" />
     <Compile Include="Model\Vulnerability.cs" />
     <Compile Include="StageActualThreats.cs" />
@@ -128,6 +144,7 @@
     <Compile Include="StageHardware.cs" />
     <Compile Include="StageTechno.cs" />
     <Compile Include="StageTopology.cs" />
+    <Compile Include="StageVulnerabilities.cs" />
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -143,6 +160,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804170507218_123.resx">
       <DependentUpon>201804170507218_123.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804200538481_sfhaddedtothreats.resx">
+      <DependentUpon>201804200538481_sfhaddedtothreats.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804200716025_some.resx">
+      <DependentUpon>201804200716025_some.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804200723071_some2.resx">
+      <DependentUpon>201804200723071_some2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804200913385_ThreatsDone.resx">
+      <DependentUpon>201804200913385_ThreatsDone.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

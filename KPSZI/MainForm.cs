@@ -35,8 +35,8 @@ namespace KPSZI
             stages.Add("tnIntruder", new StageIntruder(returnTabPage("tpIntruder"), returnTreeNode("tnIntruder"), this, IS));
             stages.Add("tnActualThreats", new StageActualThreats(returnTabPage("tpActualThreats"), returnTreeNode("tnActualThreats"), this, IS));
             stages.Add("tnHardware", new StageHardware(returnTabPage("tpHardware"), returnTreeNode("tnHardware"), this, IS));
+            stages.Add("tnVulnerabilities", new StageVulnerabilities(returnTabPage("tpVulnerabilities"), returnTreeNode("tnVulnerabilities"), this, IS));
 
-            
             //returnTreeNode("tnActualThreats").ForeColor = Color.Gray;
             //returnTreeNode("tnActualThreats").BackColor = Color.White;
 
@@ -53,6 +53,8 @@ namespace KPSZI
             // развернуть дерево
             treeView.ExpandAll();
 
+            
+
             btPrevStage.ImageList = iconList;
             btPrevStage.ImageIndex = 2;
             btPrevStage.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -61,9 +63,11 @@ namespace KPSZI
             btNextStage.TextImageRelation = TextImageRelation.TextBeforeImage;
             
             foreach(TabPage tab in tabControl.TabPages)
-            {
                 tab.AutoScroll = true;
-            }
+
+            menuStrip.BackColor = Color.FromArgb(234,240,255);
+            //this.BackColor = Color.FromArgb(234, 240, 255);
+
 
             tabControlInfoTypes.TabPages.AddRange(((StageClassification)stages["tnClassification"]).tabPagesInfoTypes.ToArray());
 
@@ -122,13 +126,15 @@ namespace KPSZI
                 {
                     FileInfo fi = new FileInfo("thrlist.xlsx");
 
-                    //db.Threats.RemoveRange(db.Threats.ToList());
+                    db.Threats.RemoveRange(db.Threats.ToList());
                     try
                     {
                         // Каскадное удаление данных вместе с внешними ключами
-                        db.Database.ExecuteSqlCommand("SET SCHEMA '" + KPSZIContext.schema_name + "'; TRUNCATE \"Threats\" CASCADE;");
+                        db.Database.ExecuteSqlCommand("SET SCHEMA '" + KPSZIContext.schema_name + "'; TRUNCATE \"Threats\", \"ThreatSourceThreats\", \"VulnerabilityThreats\", \"ThreatImplementWays\", \"SFHThreats\" CASCADE;");
 
                         db.Threats.AddRange(Threat.GetThreatsFromXlsx(fi, db));
+                        db.SaveChanges();
+                        db.SeedForThreat();
                         db.SaveChanges();
                     }
                     catch (Exception ex)
@@ -151,7 +157,7 @@ namespace KPSZI
                 {
                     try
                     {
-                        db.Database.ExecuteSqlCommand("SET SCHEMA '" + KPSZIContext.schema_name + "'; TRUNCATE \"GISMeasures\", \"ISPDNMeasures\", \"InfoTypes\", \"IntruderTypes\", \"IntruderTypeThreats\", \"MeasureGroups\", \"SFHTypes\", \"SFHs\", \"SZIGISMeasures\", \"SZIISPDNMeasures\", \"SZITypes\", \"SZIs\", \"TCUIThreats\", \"TCUITypes\", \"TCUIs\", \"TechnogenicMeasures\", \"TechnogenicThreats\", \"ThreatSources\", \"ThreatSourceThreats\", \"Threats\", \"ImplementWays\", \"ThreatImplementWays\", \"Vulnerabilities\", \"VulnerabilityThreats\" CASCADE");
+                        db.Database.ExecuteSqlCommand("SET SCHEMA '" + KPSZIContext.schema_name + "'; TRUNCATE \"GISMeasures\", \"ISPDNMeasures\", \"InfoTypes\", \"IntruderTypes\", \"SFHThreats\", \"MeasureGroups\", \"SFHTypes\", \"SFHs\", \"SZIGISMeasures\", \"SZIISPDNMeasures\", \"SZITypes\", \"SZIs\", \"TCUIThreats\", \"TCUITypes\", \"TCUIs\", \"TechnogenicMeasures\", \"TechnogenicThreats\", \"ThreatSources\", \"ThreatSourceThreats\", \"Threats\", \"ImplementWays\", \"ThreatImplementWays\", \"Vulnerabilities\", \"VulnerabilityThreats\" CASCADE");
                     }
                     catch (Exception ex)
                     {
@@ -170,8 +176,8 @@ namespace KPSZI
             {
                 using (KPSZIContext db = new KPSZIContext())
                 {
-                    try
-                    {
+                    //try
+                    //{
                         FileInfo fi = new FileInfo("thrlist.xlsx");
                         List<Threat> listThreatsFromFile = Threat.GetThreatsFromXlsx(fi, db);
                         List<Threat> listThreatsFromDB = db.Threats.OrderBy(t => t.ThreatNumber).ToList();
@@ -295,10 +301,10 @@ namespace KPSZI
         public void PressTheKey(KeyPressEventArgs e)
         {
             OnKeyPress(e);
-        } 
+        }
 
         protected override void OnKeyPress(KeyPressEventArgs e)
-        { 
+        {
             base.OnKeyPress(e);
         }
     }
