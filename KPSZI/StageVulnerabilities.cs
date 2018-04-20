@@ -48,7 +48,7 @@ namespace KPSZI
             {
                 DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)row.Cells[0];
                 if (chk.Value == chk.TrueValue)
-                    IS.listOfVulnerabilities.Add(listVuls.Where(v => v.VulnerabilityId == (int) row.Cells[1].Value).First());
+                    IS.listOfVulnerabilities.Add(listVuls.Where(v => v.VulnerabilityNumber == (int) row.Cells[2].Value).First());
                     
             }
             

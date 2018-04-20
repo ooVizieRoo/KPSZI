@@ -98,7 +98,7 @@ namespace KPSZI
                 {
                     listThreatsFiltered.Clear();
                     foreach (Vulnerability v in IS.listOfVulnerabilities)
-                        listThreatsFiltered = unionLists(listThreatsFiltered, db.Vulnerabilities.Where(w => w.VulnerabilityId == v.VulnerabilityId).First().Threats.ToList());
+                        listThreatsFiltered = unionLists(listThreatsFiltered, db.Vulnerabilities.Where(w => w.VulnerabilityNumber == v.VulnerabilityNumber).First().Threats.ToList());
                     
                     mf.dgvThreats.DataSource = listThreatsFiltered;
                 }

@@ -176,8 +176,8 @@ namespace KPSZI
             {
                 using (KPSZIContext db = new KPSZIContext())
                 {
-                    //try
-                    //{
+                    try
+                    {
                         FileInfo fi = new FileInfo("thrlist.xlsx");
                         List<Threat> listThreatsFromFile = Threat.GetThreatsFromXlsx(fi, db);
                         List<Threat> listThreatsFromDB = db.Threats.OrderBy(t => t.ThreatNumber).ToList();
