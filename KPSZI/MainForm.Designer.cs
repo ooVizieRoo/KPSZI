@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("1.1. Параметры ИС");
             System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("1.2. Классификация ИС");
             System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("1.3.1. Матрица доступа");
@@ -52,7 +49,14 @@
             System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("2. Модель угроз", new System.Windows.Forms.TreeNode[] {
             treeNode8,
             treeNode9,
-            treeNode10, treeNode11});
+            treeNode10,
+            treeNode11});
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.projectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -153,7 +157,8 @@
             this.labelAqoostTCUIType = new System.Windows.Forms.Label();
             this.labelViewTCUIType = new System.Windows.Forms.Label();
             this.tabPageIntrAbil = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tabPageListOfTCUIThreats = new System.Windows.Forms.TabPage();
+            this.dgvActualTCUIThreats = new System.Windows.Forms.DataGridView();
             this.tabPage9 = new System.Windows.Forms.TabPage();
             this.tabPage10 = new System.Windows.Forms.TabPage();
             this.tabPage11 = new System.Windows.Forms.TabPage();
@@ -188,6 +193,8 @@
             this.tpTCUI.SuspendLayout();
             this.tabControlTCUI.SuspendLayout();
             this.tabPageTCUIExist.SuspendLayout();
+            this.tabPageListOfTCUIThreats.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvActualTCUIThreats)).BeginInit();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -320,10 +327,8 @@
             treeNode9.Text = "2.2. Уязвимости ИС";
             treeNode10.Name = "tnActualThreats";
             treeNode10.Text = "2.3. Актуальные УБИ";
-            treeNode10.Name = "tnActualThreats";
-            treeNode10.Text = "2.3. Актуальные УБИ";
             treeNode11.Name = "tnTCUI";
-            treeNode11.Text = "Актуальные угрозы утечки по ТКУИ";
+            treeNode11.Text = "2.4. Актуальные угрозы утечки по ТКУИ";
             treeNode12.Name = "Node1";
             treeNode12.Text = "2. Модель угроз";
             this.treeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
@@ -1118,7 +1123,6 @@
             this.dgvThreats.Size = new System.Drawing.Size(970, 410);
             this.dgvThreats.TabIndex = 0;
             // 
-            // 
             // tpTCUI
             // 
             this.tpTCUI.Controls.Add(this.tabControlTCUI);
@@ -1134,7 +1138,7 @@
             // 
             this.tabControlTCUI.Controls.Add(this.tabPageTCUIExist);
             this.tabControlTCUI.Controls.Add(this.tabPageIntrAbil);
-            this.tabControlTCUI.Controls.Add(this.tabPage3);
+            this.tabControlTCUI.Controls.Add(this.tabPageListOfTCUIThreats);
             this.tabControlTCUI.Location = new System.Drawing.Point(6, 6);
             this.tabControlTCUI.Name = "tabControlTCUI";
             this.tabControlTCUI.SelectedIndex = 0;
@@ -1334,14 +1338,57 @@
             this.tabPageIntrAbil.Text = "Определение возможностей нарушителя";
             this.tabPageIntrAbil.UseVisualStyleBackColor = true;
             // 
-            // tabPage3
+            // tabPageListOfTCUIThreats
             // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(954, 452);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Итоговый список УБИ ТКУИ";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.tabPageListOfTCUIThreats.Controls.Add(this.dgvActualTCUIThreats);
+            this.tabPageListOfTCUIThreats.Location = new System.Drawing.Point(4, 22);
+            this.tabPageListOfTCUIThreats.Name = "tabPageListOfTCUIThreats";
+            this.tabPageListOfTCUIThreats.Size = new System.Drawing.Size(954, 452);
+            this.tabPageListOfTCUIThreats.TabIndex = 2;
+            this.tabPageListOfTCUIThreats.Text = "Итоговый список УБИ ТКУИ";
+            this.tabPageListOfTCUIThreats.UseVisualStyleBackColor = true;
+            // 
+            // dgvActualTCUIThreats
+            // 
+            this.dgvActualTCUIThreats.AllowUserToAddRows = false;
+            this.dgvActualTCUIThreats.AllowUserToDeleteRows = false;
+            this.dgvActualTCUIThreats.AllowUserToResizeColumns = false;
+            this.dgvActualTCUIThreats.AllowUserToResizeRows = false;
+            this.dgvActualTCUIThreats.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.dgvActualTCUIThreats.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dgvActualTCUIThreats.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvActualTCUIThreats.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvActualTCUIThreats.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvActualTCUIThreats.Location = new System.Drawing.Point(15, 15);
+            this.dgvActualTCUIThreats.MultiSelect = false;
+            this.dgvActualTCUIThreats.Name = "dgvActualTCUIThreats";
+            this.dgvActualTCUIThreats.ReadOnly = true;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvActualTCUIThreats.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvActualTCUIThreats.RowHeadersVisible = false;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            this.dgvActualTCUIThreats.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvActualTCUIThreats.RowTemplate.Height = 50;
+            this.dgvActualTCUIThreats.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgvActualTCUIThreats.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvActualTCUIThreats.Size = new System.Drawing.Size(600, 450);
+            this.dgvActualTCUIThreats.TabIndex = 0;
             // 
             // tabPage9
             // 
@@ -1567,6 +1614,8 @@
             this.tabControlTCUI.ResumeLayout(false);
             this.tabPageTCUIExist.ResumeLayout(false);
             this.tabPageTCUIExist.PerformLayout();
+            this.tabPageListOfTCUIThreats.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvActualTCUIThreats)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1677,7 +1726,7 @@
         internal System.Windows.Forms.TabControl tabControlTCUI;
         private System.Windows.Forms.TabPage tabPageTCUIExist;
         private System.Windows.Forms.TabPage tabPageIntrAbil;
-        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage tabPageListOfTCUIThreats;
         private System.Windows.Forms.CheckBox cbInducPereh;
         private System.Windows.Forms.CheckBox cbElPereh;
         private System.Windows.Forms.CheckBox cbEMIPereh;
@@ -1694,5 +1743,6 @@
         private System.Windows.Forms.Label labelPEMINTCUIType;
         private System.Windows.Forms.Label labelAqoostTCUIType;
         private System.Windows.Forms.Label labelViewTCUIType;
+        internal System.Windows.Forms.DataGridView dgvActualTCUIThreats;
     }
 }

@@ -3,6 +3,7 @@ using KPSZI.Model;
 using System.Collections.Generic;
 using System;
 using System.Linq;
+using System.Data;
 
 namespace KPSZI
 {
@@ -10,11 +11,12 @@ namespace KPSZI
     {
         public List<TCUI> listOfTCUIs;
         public List<IntruderAbilityControl> controlsIAC;
-        
+        public List<TCUIThreat> listOfTCUIThreats;
+
         public StageTCUI(TabPage stageTab, TreeNode stageNode, MainForm mainForm, InformationSystem IS)
             : base(stageTab, stageNode, mainForm, IS)
         {
-            initTabPage();
+
         }
 
         public override void enterTabPage()
@@ -31,13 +33,15 @@ namespace KPSZI
         {
             listOfTCUIs = new List<TCUI>();
             controlsIAC = new List<IntruderAbilityControl>();
-            
+            listOfTCUIThreats = new List<TCUIThreat>();
+
             foreach (Control cb in mf.tabControlTCUI.TabPages["tabPageTCUIExist"].Controls)
             {
                 if(cb as CheckBox != null)
-                    ((CheckBox)cb).CheckedChanged += new EventHandler(cbClick);
+                    ((CheckBox)cb).Click += new EventHandler(cbClick);
             }
             mf.tabControlTCUI.TabPages["tabPageIntrAbil"].Enter += new System.EventHandler(enterAtPageAbilsOfIntruder);
+            mf.tabControlTCUI.TabPages["tabPageListOfTCUIThreats"].Enter += new System.EventHandler(enterTabPageThreatsList);
             mf.tabControlTCUI.TabPages["tabPageIntrAbil"].AutoScroll = true;
         }
 
@@ -79,8 +83,9 @@ namespace KPSZI
                 foreach (TCUIThreat tct in cui.TCUIThreats)
                 {
                     IntruderAbilityControl iac = new IntruderAbilityControl(tct.Name,cui.Name,cui.TCUIType.Name);
-                    if (controlsIAC.Find(t => t.thr == tct.Name) == null)
+                    if (controlsIAC.Find(t => t.threatName == tct.Name) == null)
                     {
+                        listOfTCUIThreats.Add(tct);
                         controlsIAC.Add(iac);
                     }
                 }
@@ -88,8 +93,9 @@ namespace KPSZI
             {
                 foreach (TCUIThreat tct in cui.TCUIThreats)
                 {
-                    int index = controlsIAC.FindIndex(t => t.thr == tct.Name && t.TCUI == cui.Name);
+                    int index = controlsIAC.FindIndex(t => t.threatName == tct.Name && t.TCUI == cui.Name);
                     controlsIAC.RemoveAt(index);
+                    listOfTCUIThreats.RemoveAt(index);
                 }
             }
         }
@@ -103,6 +109,30 @@ namespace KPSZI
             if(TCUI.Contains("PEMIN"))
                 return "Каналы побочных электромагнитных излучений и наводок (ПЭМИН)";
             return "Каналы утечки видовой информации";
+        }
+
+        public void enterTabPageThreatsList (object sender, EventArgs e)
+        {
+            var source = new BindingSource();
+            List<TCUIThreat> actualTCUIThreats = new List<TCUIThreat>();
+            foreach(IntruderAbilityControl iac in controlsIAC)
+            {
+                if(iac.threatValue >= 10 && iac.Checked)
+                {
+                    actualTCUIThreats.Add(listOfTCUIThreats.Find(t => t.Name == iac.threatName));
+                }
+            }
+            source.DataSource = actualTCUIThreats;
+            mf.dgvActualTCUIThreats.DataSource = source;
+            mf.dgvActualTCUIThreats.Columns[0].Visible = false;
+            mf.dgvActualTCUIThreats.Columns[1].Visible = false;
+            mf.dgvActualTCUIThreats.Columns[2].HeaderText = "Идентификатор угрозы";
+            mf.dgvActualTCUIThreats.Columns[2].Width = 100;
+            mf.dgvActualTCUIThreats.Columns[3].HeaderText = "Название угрозы";
+            mf.dgvActualTCUIThreats.Columns[3].Width = 200;
+            mf.dgvActualTCUIThreats.Columns[4].HeaderText = "Описание угрозы";
+            mf.dgvActualTCUIThreats.Columns[4].Width = 300;
+            mf.dgvActualTCUIThreats.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
         }
     }
 }
