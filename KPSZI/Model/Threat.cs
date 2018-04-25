@@ -4,7 +4,9 @@ using System.Data;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Threading.Tasks;
+
 
 namespace KPSZI.Model
 {
@@ -60,6 +62,8 @@ namespace KPSZI.Model
         public virtual ICollection<ImplementWay> ImplementWays { get; set; }        
         public virtual ICollection<Vulnerability> Vulnerabilities { get; set; }
         public virtual ICollection<SFH> SFHs { get; set; }
+        [NotMapped]
+        public string stringVuls;
 
         public Threat()
         {
@@ -68,6 +72,46 @@ namespace KPSZI.Model
             Vulnerabilities = new List<Vulnerability>();
             SFHs = new List<SFH>();
         }
+
+        public void setStringImplementWays()
+        {
+            string s = "";
+            foreach (ImplementWay iw in ImplementWays)
+                s += iw.WayName + ";\n";
+            stringVuls = s;
+        }
+
+        //public string getStringSources()
+        //{
+
+        //}
+
+        public string getStringVulnerabilities()
+        {
+            string s = "";
+            foreach (Vulnerability vul in Vulnerabilities)
+                s += vul.VulnerabilityName + ";\n";
+            return s;
+        }
+
+        public string getStringSFHs()
+        {
+            string s = "";
+            foreach (SFH sfh in SFHs)
+                s += sfh.Name + ";\n";
+            return s;
+        }
+
+        //public override bool Equals(object obj)
+        //{
+        //    if (obj == null)
+        //        return false;
+        //    Threat t = obj as Threat; // возвращает null если объект нельзя привести к типу Money
+        //    if (t as Threat == null)
+        //        return false;
+
+        //    return t.ThreatNumber == this.ThreatNumber;
+        //}
 
         /// <summary>
         /// Метод выстаскивает текстовое описание угроз, парсит, приводит к типу Threat и возвращает массив объектов Threat.

@@ -125,16 +125,15 @@ namespace KPSZI
                 {
                     FileInfo fi = new FileInfo("thrlist.xlsx");
 
-                    //db.Threats.RemoveRange(db.Threats.ToList());
                     try
                     {
                         // Каскадное удаление данных вместе с внешними ключами
-                        db.Database.ExecuteSqlCommand("SET SCHEMA '" + KPSZIContext.schema_name + "'; TRUNCATE \"Threats\", \"ThreatSourceThreats\", \"VulnerabilityThreats\", \"ThreatImplementWays\", \"SFHThreats\" CASCADE;");
+                        db.Database.ExecuteSqlCommand("SET SCHEMA '" + KPSZIContext.schema_name + "'; TRUNCATE \"Threats\" CASCADE;");
 
                         db.Threats.AddRange(Threat.GetThreatsFromXlsx(fi, db));
                         db.SaveChanges();
-                        db.SeedForThreat();
-                        db.SaveChanges();
+                        //db.SeedForThreat();
+                        //db.SaveChanges();
                     }
                     catch (Exception ex)
                     {
