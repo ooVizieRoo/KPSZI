@@ -25,7 +25,7 @@ namespace KPSZI
         
         public void startSplash()
         {
-            if (File.Exists("res/icons/Shield.png"));
+            if (File.Exists("res/icons/Shield.png"))
             {
                 Application.Run(new splashForm());
             }

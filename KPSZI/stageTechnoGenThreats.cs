@@ -35,7 +35,7 @@ namespace KPSZI
             mf.tcTGThreats.TabPages["tpTGThreatsMeasures"].SetAutoScrollMargin(3, 15);
         }
 
-        public override void initTabPage()
+        protected override void initTabPage()
         {
             using (KPSZIContext db = new KPSZIContext())
             {
