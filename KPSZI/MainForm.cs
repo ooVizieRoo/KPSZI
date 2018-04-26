@@ -10,6 +10,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace KPSZI
 {
@@ -21,10 +22,21 @@ namespace KPSZI
         internal Dictionary<string, Stage> stages = new Dictionary<string, Stage>();
         TreeNode previousSelectedNode;
         InformationSystem IS = new InformationSystem();
+        
+        public void startSplash()
+        {
+            if (File.Exists("res/icons/Shield.png"));
+            {
+                Application.Run(new splashForm());
+            }
+        }
 
         public MainForm()
         {
+            Thread t = new Thread(startSplash);
+            t.Start();
             InitializeComponent();
+            
             Icon = new Icon("res/icons/mf.ico");
             
             // Заполняем коллекцию этапами (название, ссылка на вкладку, ссылка на пункт в дереве) 
@@ -38,6 +50,8 @@ namespace KPSZI
             stages.Add("tnHardware", new StageHardware(returnTabPage("tpHardware"), returnTreeNode("tnHardware"), this, IS));
             stages.Add("tnVulnerabilities", new StageVulnerabilities(returnTabPage("tpVulnerabilities"), returnTreeNode("tnVulnerabilities"), this, IS));
             stages.Add("tnTCUI", new StageTCUI(returnTabPage("tpTCUI"), returnTreeNode("tnTCUI"), this, IS));
+            stages.Add("tnTechnoGenThreats", new stageTechnoGenThreats(returnTabPage("tpTechnoGenThreats"), returnTreeNode("tnTechnoGenThreats"), this, IS));
+
             //returnTreeNode("tnActualThreats").ForeColor = Color.Gray;
             //returnTreeNode("tnActualThreats").BackColor = Color.White;
 
@@ -69,7 +83,7 @@ namespace KPSZI
 
 
             tabControlInfoTypes.TabPages.AddRange(((StageClassification)stages["tnClassification"]).tabPagesInfoTypes.ToArray());
-
+            t.Abort();
         }
 
         // возвращает ссылку на TabPage по имени вкладки

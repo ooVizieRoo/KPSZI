@@ -66,8 +66,6 @@ namespace KPSZI
 
             mf.comboBoxScale.SelectedIndexChanged += new System.EventHandler(GISClassCalculate);
             mf.checkedListBoxCategoryPDN.SelectedIndexChanged += new System.EventHandler(checkedListBoxCategoryPDN_SelectedIndexChanged);
-
-            mf.checkedListBoxCategoryPDN.SelectedIndexChanged += new System.EventHandler(checkedListBoxCategoryPDN_SelectedIndexChanged);
             mf.checkBoxSubjectsStaff.CheckedChanged += new System.EventHandler(checkBoxSubjectsStaff_CheckedChanged);
             mf.comboBoxHundred.SelectedIndexChanged += new System.EventHandler(ISPDNLevelCalculate);
             mf.comboBoxActualThreatsType.SelectedIndexChanged += new System.EventHandler(ISPDNLevelCalculate);
