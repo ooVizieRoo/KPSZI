@@ -494,7 +494,6 @@ namespace KPSZI
                 openPermissionsDialog(e.RowIndex, e.ColumnIndex);
             }
             accessMatrixResources.Refresh();
-
         }
 
         //Удаляем субъект дабл-кликом в обеих таблицах

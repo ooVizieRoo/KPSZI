@@ -6,8 +6,12 @@ namespace KPSZI
 {
     public partial class IntruderAbilityControl : UserControl
     {
+        public MainForm mf;
+        public string damage;
         public string threatName;
         public string TCUI;
+        public string abilityOfRealization;
+        public intruderPotencial intrud;
         public int threatValue;
         public bool Checked;
 
@@ -16,21 +20,27 @@ namespace KPSZI
         bool projectChecked;
         bool competChecked;
         bool osnastChecked;
+        bool damageChecked;
         int timeValue;
         int accessValue;
         int competValue;
         int projectValue;
         int osnastValue;
 
-        public IntruderAbilityControl(string nameOfThreat, string TCUI, string TCUIType)
+        public IntruderAbilityControl(string nameOfThreat, string TCUI, string TCUIType, MainForm form)
         {
             InitializeComponent();
+            mf = form;
+            damage = "";
+            abilityOfRealization = "";
 
-            timeChecked= false;
-            accessChecked= false;
-            projectChecked= false;
-            competChecked= false;
-            osnastChecked= false;
+            timeChecked = false;
+            accessChecked = false;
+            projectChecked = false;
+            competChecked = false;
+            osnastChecked = false;
+            damageChecked = false;
+
 
             threatName = nameOfThreat;
             lbNameOfThreat.Text = threatName;
@@ -44,6 +54,12 @@ namespace KPSZI
             #region Большоо-о-о-ой свич
             switch (cb.Name)
             {
+                case "cbDamage":
+                    {
+                        damage = cb.SelectedItem.ToString();
+                        damageChecked = true;
+                        break;
+                    }
                 case "cbTime":
                     {
                         switch (cb.SelectedIndex)
@@ -176,8 +192,63 @@ namespace KPSZI
                     }
             }
             #endregion
-            Checked = osnastChecked && timeChecked && accessChecked && projectChecked && competChecked;
+            Checked = osnastChecked && timeChecked && accessChecked && projectChecked && competChecked && damageChecked;
             threatValue = accessValue + competValue + projectValue + timeValue + osnastValue;
+            if (osnastChecked && timeChecked && accessChecked && projectChecked && competChecked)
+            {
+                if (threatValue < 10)
+                    intrud = intruderPotencial.Невозможен;
+                if (10 < threatValue && threatValue <= 17)
+                    intrud = intruderPotencial.Низкий;
+                if (18 <= threatValue && threatValue <= 24)
+                    intrud = intruderPotencial.Средний;
+                if (threatValue > 24)
+                    intrud = intruderPotencial.Высокий;
+
+                lbIntrPot.Text = "Потенциал нарушителя, необходимый для реализации угрозы: "+ intrud.ToString();
+            }
+            updateIac();
+        }
+        public void updateIac()
+        {
+            string projectDefense = "";
+            foreach (Control contr in mf.gbProjectDefence.Controls)
+                if (((RadioButton)contr).Checked)
+                    projectDefense = contr.Text;
+
+            if (projectDefense != "")
+            {
+                if (projectDefense == "Низкий")
+                    abilityOfRealization = "Высокая";
+
+                if (projectDefense == "Средний")
+                    if (intrud == intruderPotencial.Низкий)
+                        abilityOfRealization = "Средняя";
+                    else
+                        abilityOfRealization = "Высокая";
+
+                if (projectDefense == "Высокий")
+                {
+                    switch (intrud)
+                    {
+                        case intruderPotencial.Низкий:
+                            {
+                                abilityOfRealization = "Низкая";
+                                break;
+                            }
+                        case intruderPotencial.Средний:
+                            {
+                                abilityOfRealization = "Средняя";
+                                break;
+                            }
+                        case intruderPotencial.Высокий:
+                            {
+                                abilityOfRealization = "Высокая";
+                                break;
+                            }
+                    }
+                }
+            }
         }
     }
 }

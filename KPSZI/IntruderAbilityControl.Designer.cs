@@ -40,6 +40,9 @@
             this.cbOsnast = new System.Windows.Forms.ComboBox();
             this.lbNameOfThreat = new System.Windows.Forms.Label();
             this.lbTCUInTCUIType = new System.Windows.Forms.Label();
+            this.cbDamage = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lbIntrPot = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -183,12 +186,47 @@
             this.lbTCUInTCUIType.TabIndex = 11;
             this.lbTCUInTCUIType.Text = "label6";
             // 
+            // cbDamage
+            // 
+            this.cbDamage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbDamage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.cbDamage.FormattingEnabled = true;
+            this.cbDamage.Items.AddRange(new object[] {
+            "Высокая",
+            "Средняя",
+            "Низкая"});
+            this.cbDamage.Location = new System.Drawing.Point(671, 234);
+            this.cbDamage.Name = "cbDamage";
+            this.cbDamage.Size = new System.Drawing.Size(139, 23);
+            this.cbDamage.TabIndex = 12;
+            this.cbDamage.SelectedIndexChanged += new System.EventHandler(this.selectedIndexChanged);
+            // 
+            // label6
+            // 
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label6.Location = new System.Drawing.Point(460, 234);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(205, 35);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Выберите степень возможного ущерба от реализации угрозы";
+            // 
+            // lbIntrPot
+            // 
+            this.lbIntrPot.AutoSize = true;
+            this.lbIntrPot.Location = new System.Drawing.Point(6, 244);
+            this.lbIntrPot.Name = "lbIntrPot";
+            this.lbIntrPot.Size = new System.Drawing.Size(0, 13);
+            this.lbIntrPot.TabIndex = 14;
+            // 
             // IntruderAbilityControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Menu;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this.lbIntrPot);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.cbDamage);
             this.Controls.Add(this.lbTCUInTCUIType);
             this.Controls.Add(this.lbNameOfThreat);
             this.Controls.Add(this.cbOsnast);
@@ -202,7 +240,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "IntruderAbilityControl";
-            this.Size = new System.Drawing.Size(825, 213);
+            this.Size = new System.Drawing.Size(825, 277);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -222,5 +260,8 @@
         private System.Windows.Forms.ComboBox cbOsnast;
         private System.Windows.Forms.Label lbNameOfThreat;
         private System.Windows.Forms.Label lbTCUInTCUIType;
+        private System.Windows.Forms.ComboBox cbDamage;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lbIntrPot;
     }
 }
