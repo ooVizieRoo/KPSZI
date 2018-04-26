@@ -30,7 +30,7 @@ namespace KPSZI
             
         }
 
-        public override void initTabPage()
+        protected override void initTabPage()
         {
             stageTab.AutoScroll = true;
 

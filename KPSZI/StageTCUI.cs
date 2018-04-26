@@ -27,7 +27,7 @@ namespace KPSZI
 
         }
 
-        public override void initTabPage()
+        protected override void initTabPage()
         {
             listOfTCUIs = new List<TCUI>();
             controlsIAC = new List<IntruderAbilityControl>();

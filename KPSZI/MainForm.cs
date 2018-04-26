@@ -260,7 +260,7 @@ namespace KPSZI
             MessageBox.Show("Файл успешно загружен", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        // Перключение по вкладкам Вперед и Назад
+        // Переключение по вкладкам Вперед и Назад
         // Работает в пределах одного родительского элемента
         private void PrevStage_Click(object sender, EventArgs e)
         {

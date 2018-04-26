@@ -42,7 +42,7 @@ namespace KPSZI
             
         }
 
-        public override void initTabPage()
+        protected override void initTabPage()
         {
 
         }

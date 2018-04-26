@@ -19,7 +19,7 @@ namespace KPSZI
 
         public List<TabPage> tabPagesInfoTypes = new List<TabPage>();
 
-        public override void initTabPage()
+        protected override void initTabPage()
         {
             using (Model.KPSZIContext db = new KPSZIContext())
             {
