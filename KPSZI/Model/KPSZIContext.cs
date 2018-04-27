@@ -251,9 +251,9 @@ namespace KPSZI.Model
             sfh3.SFHs.Add(new SFH { SFHNumber = 12, Name = "Файл-серверные системы", ProjectSecurity = 0 });
             sfh3.SFHs.Add(new SFH { SFHNumber = 13, Name = "Центры обработки данных", ProjectSecurity = 0 });
             sfh3.SFHs.Add(new SFH { SFHNumber = 14, Name = "Системы с удаленным доступом пользователей", ProjectSecurity = 0 });
-            sfh3.SFHs.Add(new SFH { SFHNumber = 15, Name = "Использование разных типов операционных систем (гетерогенность среды)", ProjectSecurity = 1});
-            sfh3.SFHs.Add(new SFH { SFHNumber = 16, Name = "Использование прикладных программ, независимых от операционных систем", ProjectSecurity = 1});
-            sfh3.SFHs.Add(new SFH { SFHNumber = 17, Name = "Использование выделенных каналов связи", ProjectSecurity = 1});
+            sfh3.SFHs.Add(new SFH { SFHNumber = 15, Name = "Использование разных типов операционных систем (гетерогенность среды)", ProjectSecurity = 1 });
+            sfh3.SFHs.Add(new SFH { SFHNumber = 16, Name = "Использование прикладных программ, независимых от операционных систем", ProjectSecurity = 1 });
+            sfh3.SFHs.Add(new SFH { SFHNumber = 17, Name = "Использование выделенных каналов связи", ProjectSecurity = 1 });
 
             SFHType sfh4 = new SFHType();
             sfh4.Name = "По наличию (отсутствию) взаимосвязей с иными информационными системами";
@@ -298,7 +298,7 @@ namespace KPSZI.Model
             SFHType sfh10 = new SFHType();
             sfh10.Name = "По подходам к сегментированию";
             sfh9.MultipleChoice = false;
-            sfh10.SFHs.Add(new SFH { SFHNumber = 34, Name = "Без сегментирования", ProjectSecurity = 0});
+            sfh10.SFHs.Add(new SFH { SFHNumber = 34, Name = "Без сегментирования", ProjectSecurity = 0 });
             sfh10.SFHs.Add(new SFH { SFHNumber = 35, Name = "С сегментированием", ProjectSecurity = 1 });
 
             SFHTypes.AddRange(new List<SFHType> { sfh1, sfh2, sfh3, sfh4, sfh5, sfh6, sfh7, sfh8, sfh9, sfh10 });
@@ -322,9 +322,9 @@ namespace KPSZI.Model
             #endregion
 
             #region ТКУИ (типы, каналы, угрозы)
-            
+
             //ПЭМИН
-            TCUIType pemin = new TCUIType{ Name = "Каналы побочных электромагнитных излучений и наводок (ПЭМИН)"};
+            TCUIType pemin = new TCUIType { Name = "Каналы побочных электромагнитных излучений и наводок (ПЭМИН)" };
 
             TCUI emi = new TCUI { Name = "Электромагнитные" };
             emi.TCUIThreats.Add(new TCUIThreat { Name = "Угроза утечки информации за счет побочных электромагнитных излучений (ПЭМИ) ТСПИ, возникающих при прохождении тока по их токоведущим элементам ТСПИ", Identificator = "ТП.001", Description = "Угроза заключается в возможности перехвата нарушителем собственных ПЭМИ ТСПИ, носителем информации в которых является электрический ток, параметры которого изменяются по закону изменения информативного сигнала. При прохождении электрического тока по токопроводящим элементам ТСПИ вокруг них возникает электрическое и магнитное поле; в силу чего элементы ТСПИ рассматриваются как излучатели электромагнитного поля, несущего информацию; реализация данной угрозы возможна в случае наличия у нарушителя технических средств, осуществляющих обнаружение, приём и обработку информативных сигналов, а также  сведений о конфигурации ИС и ТСПИ" });
@@ -467,7 +467,7 @@ namespace KPSZI.Model
                 VulnerabilityDescription = "Внедрение команд ОС заключается в возможности выполнения пользователем команд операционной системы (например, просмотра структуры каталогов, копирование, удаление файлов и другие команды)" });
             vul.Add(new Vulnerability() { VulnerabilityNumber = 11, VulnerabilityName = "Недостатки, связанные с межсайтовым скриптингом (выполнением сценариев)",
                 VulnerabilityDescription = "Межсайтовый скриптинг обычно распространен в веб-приложениях и позволяет внедрять код в веб-страницы, которые могут просматривать нелегитимные пользователи. Примерами такого кода являются скрипты, выполняющиеся на стороне пользователя" });
-            vul.Add(new Vulnerability() { VulnerabilityNumber = 12, VulnerabilityName = "Недостатки связаны с внедрением интерпретируемых операторов языков программирования (например, операции выбора, добавления, удаления и другие) или разметки в исходный код веб-приложения",
+            vul.Add(new Vulnerability() { VulnerabilityNumber = 12, VulnerabilityName = "Недостатки, связанные с внедрением интерпретируемых операторов языков программирования",
                 VulnerabilityDescription = "Недостатки связаны с внедрением интерпретируемых операторов языков программирования (например, операции выбора, добавления, удаления и другие) или разметки в исходный код веб-приложения" });
             vul.Add(new Vulnerability() { VulnerabilityNumber = 13, VulnerabilityName = "Недостатки, связанные с внедрением произвольного кода",
                 VulnerabilityDescription = "Недостатки связаны с внедрением произвольного кода и части кода, которые могут привести к нарушению процесса выполнения операций" });
@@ -509,9 +509,9 @@ namespace KPSZI.Model
                 VulnerabilityDescription = "К уязвимостям в средствах защиты информации относятся уязвимости в средствах управления доступом, средствах идентификации и аутентификации, средствах контроля целостности, средствах доверенной загрузки, средствах антивирусной защиты, системах обнаружения вторжений, средствах межсетевого экранирования, средствах управления потоками информации, средствах ограничения программной среды, средствах стирания информации и контроля удаления информации, средствах защиты каналов передачи информации, уязвимости в иных средствах защиты информации (ошибки программирования, недостатки, связанные возможностью обхода, отключения, преодоления функций безопасности, другие уязвимости)" });
             vul.Add(new Vulnerability() { VulnerabilityNumber = 32, VulnerabilityName = "Иные типы недостатков",
                 VulnerabilityDescription = "По результатам выявления уязвимостей информационных систем перечень типов недостатков может дополняться" });
-            
+
             Vulnerabilities.AddRange(vul);
-            
+
             #endregion
 
             #region Виды нарушителей
@@ -530,7 +530,28 @@ namespace KPSZI.Model
             
 
             IntruderTypes.AddRange(itype);
-            #endregion            
+            #endregion
+
+            #region Техногенные угрозы
+            TechnogenicThreat tgt1 = new TechnogenicThreat { Identificator = "ТУ.001", Description = "Угроза отказа и неисправности технических средств, обрабатывающих информацию" };
+            TechnogenicThreat tgt2 = new TechnogenicThreat { Identificator = "ТУ.002", Description = "Угроза отказа и неисправности технических средств, обеспечивающих работоспособность средств обработки информации (вспомогательных техни-ческих средств)" };
+            TechnogenicThreat tgt3 = new TechnogenicThreat { Identificator = "ТУ.003", Description = "Угроза отказа и неисправности технических средств, обеспечивающих охрану и контроль доступа" };
+            TechnogenicThreat tgt4 = new TechnogenicThreat { Identificator = "ТУ.004", Description = "Угроза, связанная со старением и размагничиванием технических средств обработки информации и носителей информации" };
+            TechnogenicThreat tgt5 = new TechnogenicThreat { Identificator = "ТУ.005", Description = "Угроза сбоя общесистемного программного обеспечения" };
+            TechnogenicThreat tgt6 = new TechnogenicThreat { Identificator = "ТУ.006", Description = "Угроза сбоя прикладного программного обеспечения (сервисных про-грамм, антивирусного программного обеспечения и т.д) или систем управ-ления базами данных" };
+            TechnogenicThreats.AddRange(new List<TechnogenicThreat> { tgt1, tgt2, tgt3, tgt4, tgt5, tgt6, });
+            #endregion
+
+            #region Техногенные меры
+            TechnogenicMeasure tgm1 = new TechnogenicMeasure { Description = "Применение технических средств обработки информации и средств обеспечения функционирования ИС с высокой степенью отказоустойчивости" };
+            TechnogenicMeasure tgm2 = new TechnogenicMeasure { Description = "Применение лицензионного программного обеспечения" };
+            TechnogenicMeasure tgm3 = new TechnogenicMeasure { Description = "Применение систем климат-контроля, предотвращающих выход технических средств из строя за счет нарушения температурного и влажностного режима в помещении" };
+            TechnogenicMeasure tgm4 = new TechnogenicMeasure { Description = "Применение систем резервного питания обеспечивающих работу при краткосрочном пропадании электроэнергии (ИБП) и обеспечение возможности корректного завершения работы при долговременном пропадании электроэнергии (электрогенераторы, дублирование линий питания)" };
+            TechnogenicMeasure tgm5 = new TechnogenicMeasure { Description = "Применение сетевых фильтров электропитания, предотвращающих сбои и отказы технических средств от скачка электропитания" };
+            TechnogenicMeasure tgm6 = new TechnogenicMeasure { Description = "Резервирование технических средств, программного обеспечения и средств обеспечения функционирования ИС" };
+            TechnogenicMeasure tgm7 = new TechnogenicMeasure { Description = "Применение сертифицированных технических средств" };
+            TechnogenicMeasures.AddRange(new List<TechnogenicMeasure> { tgm1, tgm2, tgm3, tgm4, tgm5, tgm6, tgm7 });
+            #endregion
 
             SaveChanges();
         }
@@ -1261,7 +1282,82 @@ namespace KPSZI.Model
             Threats.Where(t => t.ThreatNumber == 182).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 4).First());
             Threats.Where(t => t.ThreatNumber == 183).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 4).First());
             Threats.Where(t => t.ThreatNumber == 183).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 5).First());
-
+            Threats.Where(t => t.ThreatNumber == 184).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 25).First());
+            Threats.Where(t => t.ThreatNumber == 184).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 28).First());
+            Threats.Where(t => t.ThreatNumber == 184).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 29).First());
+            Threats.Where(t => t.ThreatNumber == 184).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 13).First());
+            Threats.Where(t => t.ThreatNumber == 185).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 4).First());
+            Threats.Where(t => t.ThreatNumber == 185).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 31).First());
+            Threats.Where(t => t.ThreatNumber == 185).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 19).First());
+            Threats.Where(t => t.ThreatNumber == 186).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 9).First());
+            Threats.Where(t => t.ThreatNumber == 186).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 11).First());
+            Threats.Where(t => t.ThreatNumber == 186).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 4).First());
+            Threats.Where(t => t.ThreatNumber == 186).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 13).First());
+            Threats.Where(t => t.ThreatNumber == 187).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 4).First());
+            Threats.Where(t => t.ThreatNumber == 187).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 31).First());
+            Threats.Where(t => t.ThreatNumber == 187).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 20).First());
+            Threats.Where(t => t.ThreatNumber == 187).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 19).First());
+            Threats.Where(t => t.ThreatNumber == 188).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 4).First());
+            Threats.Where(t => t.ThreatNumber == 188).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 19).First());
+            Threats.Where(t => t.ThreatNumber == 188).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 25).First());
+            Threats.Where(t => t.ThreatNumber == 188).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 26).First());
+            Threats.Where(t => t.ThreatNumber == 188).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 27).First());
+            Threats.Where(t => t.ThreatNumber == 188).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 31).First());
+            Threats.Where(t => t.ThreatNumber == 188).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 30).First());
+            Threats.Where(t => t.ThreatNumber == 189).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 31).First());
+            Threats.Where(t => t.ThreatNumber == 189).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 4).First());
+            Threats.Where(t => t.ThreatNumber == 190).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 13).First());
+            Threats.Where(t => t.ThreatNumber == 190).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 4).First());
+            Threats.Where(t => t.ThreatNumber == 190).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 9).First());
+            Threats.Where(t => t.ThreatNumber == 190).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 11).First());
+            Threats.Where(t => t.ThreatNumber == 190).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 31).First());
+            Threats.Where(t => t.ThreatNumber == 190).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 27).First());
+            Threats.Where(t => t.ThreatNumber == 191).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 31).First());
+            Threats.Where(t => t.ThreatNumber == 191).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 19).First());
+            Threats.Where(t => t.ThreatNumber == 192).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 26).First());
+            Threats.Where(t => t.ThreatNumber == 192).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 27).First());
+            Threats.Where(t => t.ThreatNumber == 192).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 31).First());
+            Threats.Where(t => t.ThreatNumber == 193).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 17).First());
+            Threats.Where(t => t.ThreatNumber == 193).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 21).First());
+            Threats.Where(t => t.ThreatNumber == 193).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 31).First());
+            Threats.Where(t => t.ThreatNumber == 194).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 4).First());
+            Threats.Where(t => t.ThreatNumber == 194).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 29).First());
+            Threats.Where(t => t.ThreatNumber == 194).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 25).First());
+            Threats.Where(t => t.ThreatNumber == 195).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 10).First());
+            Threats.Where(t => t.ThreatNumber == 195).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 13).First());
+            Threats.Where(t => t.ThreatNumber == 195).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 24).First());
+            Threats.Where(t => t.ThreatNumber == 195).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 25).First());
+            Threats.Where(t => t.ThreatNumber == 196).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 4).First());
+            Threats.Where(t => t.ThreatNumber == 196).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 31).First());
+            Threats.Where(t => t.ThreatNumber == 196).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 29).First());
+            Threats.Where(t => t.ThreatNumber == 197).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 4).First());
+            Threats.Where(t => t.ThreatNumber == 197).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 31).First());
+            Threats.Where(t => t.ThreatNumber == 198).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 4).First());
+            Threats.Where(t => t.ThreatNumber == 198).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 31).First());
+            Threats.Where(t => t.ThreatNumber == 198).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 18).First());
+            Threats.Where(t => t.ThreatNumber == 199).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 4).First());
+            Threats.Where(t => t.ThreatNumber == 199).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 26).First());
+            Threats.Where(t => t.ThreatNumber == 199).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 29).First());
+            Threats.Where(t => t.ThreatNumber == 200).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 4).First());
+            Threats.Where(t => t.ThreatNumber == 200).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 26).First());
+            Threats.Where(t => t.ThreatNumber == 200).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 29).First());
+            Threats.Where(t => t.ThreatNumber == 201).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 4).First());
+            Threats.Where(t => t.ThreatNumber == 201).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 20).First());
+            Threats.Where(t => t.ThreatNumber == 201).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 26).First());
+            Threats.Where(t => t.ThreatNumber == 201).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 27).First());
+            Threats.Where(t => t.ThreatNumber == 202).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 4).First());
+            Threats.Where(t => t.ThreatNumber == 202).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 26).First());
+            Threats.Where(t => t.ThreatNumber == 202).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 29).First());
+            Threats.Where(t => t.ThreatNumber == 202).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 19).First());
+            Threats.Where(t => t.ThreatNumber == 203).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 28).First());
+            Threats.Where(t => t.ThreatNumber == 203).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 30).First());
+            Threats.Where(t => t.ThreatNumber == 203).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 4).First());
+            Threats.Where(t => t.ThreatNumber == 203).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 17).First());
+            Threats.Where(t => t.ThreatNumber == 205).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 31).First());
+            Threats.Where(t => t.ThreatNumber == 203).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 4).First());
+            Threats.Where(t => t.ThreatNumber == 203).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 13).First());
+            Threats.Where(t => t.ThreatNumber == 203).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 24).First());
+            Threats.Where(t => t.ThreatNumber == 203).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 31).First());
             #endregion
 
             #region Добавление к угрозам способы реализации
@@ -1629,6 +1725,48 @@ namespace KPSZI.Model
             Threats.Where(t => t.ThreatNumber == 181).First().ImplementWays.Add(ImplementWays.Where(w => w.WayNumber == 2).First());
             Threats.Where(t => t.ThreatNumber == 181).First().ImplementWays.Add(ImplementWays.Where(w => w.WayNumber == 4).First());
             Threats.Where(t => t.ThreatNumber == 182).First().ImplementWays.Add(ImplementWays.Where(w => w.WayNumber == 1).First());
+            Threats.Where(t => t.ThreatNumber == 184).First().ImplementWays.Add(ImplementWays.Where(w => w.WayNumber == 2).First());
+            Threats.Where(t => t.ThreatNumber == 184).First().ImplementWays.Add(ImplementWays.Where(w => w.WayNumber == 3).First());
+            Threats.Where(t => t.ThreatNumber == 185).First().ImplementWays.Add(ImplementWays.Where(w => w.WayNumber == 3).First());
+            Threats.Where(t => t.ThreatNumber == 186).First().ImplementWays.Add(ImplementWays.Where(w => w.WayNumber == 3).First());
+            Threats.Where(t => t.ThreatNumber == 186).First().ImplementWays.Add(ImplementWays.Where(w => w.WayNumber == 4).First());
+            Threats.Where(t => t.ThreatNumber == 186).First().ImplementWays.Add(ImplementWays.Where(w => w.WayNumber == 6).First());
+            Threats.Where(t => t.ThreatNumber == 187).First().ImplementWays.Add(ImplementWays.Where(w => w.WayNumber == 2).First());
+            Threats.Where(t => t.ThreatNumber == 187).First().ImplementWays.Add(ImplementWays.Where(w => w.WayNumber == 3).First());
+            Threats.Where(t => t.ThreatNumber == 188).First().ImplementWays.Add(ImplementWays.Where(w => w.WayNumber == 2).First());
+            Threats.Where(t => t.ThreatNumber == 188).First().ImplementWays.Add(ImplementWays.Where(w => w.WayNumber == 3).First());
+            Threats.Where(t => t.ThreatNumber == 188).First().ImplementWays.Add(ImplementWays.Where(w => w.WayNumber == 4).First());
+            Threats.Where(t => t.ThreatNumber == 188).First().ImplementWays.Add(ImplementWays.Where(w => w.WayNumber == 6).First());
+            Threats.Where(t => t.ThreatNumber == 189).First().ImplementWays.Add(ImplementWays.Where(w => w.WayNumber == 2).First());
+            Threats.Where(t => t.ThreatNumber == 189).First().ImplementWays.Add(ImplementWays.Where(w => w.WayNumber == 4).First());
+            Threats.Where(t => t.ThreatNumber == 190).First().ImplementWays.Add(ImplementWays.Where(w => w.WayNumber == 4).First());
+            Threats.Where(t => t.ThreatNumber == 190).First().ImplementWays.Add(ImplementWays.Where(w => w.WayNumber == 6).First());
+            Threats.Where(t => t.ThreatNumber == 191).First().ImplementWays.Add(ImplementWays.Where(w => w.WayNumber == 2).First());
+            Threats.Where(t => t.ThreatNumber == 191).First().ImplementWays.Add(ImplementWays.Where(w => w.WayNumber == 3).First());
+            Threats.Where(t => t.ThreatNumber == 191).First().ImplementWays.Add(ImplementWays.Where(w => w.WayNumber == 4).First());
+            Threats.Where(t => t.ThreatNumber == 192).First().ImplementWays.Add(ImplementWays.Where(w => w.WayNumber == 2).First());
+            Threats.Where(t => t.ThreatNumber == 192).First().ImplementWays.Add(ImplementWays.Where(w => w.WayNumber == 3).First());
+            Threats.Where(t => t.ThreatNumber == 192).First().ImplementWays.Add(ImplementWays.Where(w => w.WayNumber == 4).First());
+            Threats.Where(t => t.ThreatNumber == 193).First().ImplementWays.Add(ImplementWays.Where(w => w.WayNumber == 3).First());
+            Threats.Where(t => t.ThreatNumber == 193).First().ImplementWays.Add(ImplementWays.Where(w => w.WayNumber == 4).First());
+            Threats.Where(t => t.ThreatNumber == 194).First().ImplementWays.Add(ImplementWays.Where(w => w.WayNumber == 2).First());
+            Threats.Where(t => t.ThreatNumber == 194).First().ImplementWays.Add(ImplementWays.Where(w => w.WayNumber == 5).First());
+            Threats.Where(t => t.ThreatNumber == 195).First().ImplementWays.Add(ImplementWays.Where(w => w.WayNumber == 1).First());
+            Threats.Where(t => t.ThreatNumber == 195).First().ImplementWays.Add(ImplementWays.Where(w => w.WayNumber == 2).First());
+            Threats.Where(t => t.ThreatNumber == 196).First().ImplementWays.Add(ImplementWays.Where(w => w.WayNumber == 3).First());
+            Threats.Where(t => t.ThreatNumber == 197).First().ImplementWays.Add(ImplementWays.Where(w => w.WayNumber == 4).First());
+            Threats.Where(t => t.ThreatNumber == 198).First().ImplementWays.Add(ImplementWays.Where(w => w.WayNumber == 3).First());
+            Threats.Where(t => t.ThreatNumber == 198).First().ImplementWays.Add(ImplementWays.Where(w => w.WayNumber == 4).First());            
+            Threats.Where(t => t.ThreatNumber == 199).First().ImplementWays.Add(ImplementWays.Where(w => w.WayNumber == 5).First());
+            Threats.Where(t => t.ThreatNumber == 200).First().ImplementWays.Add(ImplementWays.Where(w => w.WayNumber == 5).First());
+            Threats.Where(t => t.ThreatNumber == 201).First().ImplementWays.Add(ImplementWays.Where(w => w.WayNumber == 3).First());
+            Threats.Where(t => t.ThreatNumber == 201).First().ImplementWays.Add(ImplementWays.Where(w => w.WayNumber == 4).First());
+            Threats.Where(t => t.ThreatNumber == 202).First().ImplementWays.Add(ImplementWays.Where(w => w.WayNumber == 3).First());
+            Threats.Where(t => t.ThreatNumber == 203).First().ImplementWays.Add(ImplementWays.Where(w => w.WayNumber == 4).First());
+            Threats.Where(t => t.ThreatNumber == 203).First().ImplementWays.Add(ImplementWays.Where(w => w.WayNumber == 5).First());
+            Threats.Where(t => t.ThreatNumber == 205).First().ImplementWays.Add(ImplementWays.Where(w => w.WayNumber == 3).First());
+            Threats.Where(t => t.ThreatNumber == 208).First().ImplementWays.Add(ImplementWays.Where(w => w.WayNumber == 2).First());
+            Threats.Where(t => t.ThreatNumber == 208).First().ImplementWays.Add(ImplementWays.Where(w => w.WayNumber == 3).First());
             #endregion
 
             #region Добавление к угрозам СФХ
@@ -2565,7 +2703,35 @@ namespace KPSZI.Model
             Threats.Where(t => t.ThreatNumber == 182).First().SFHs.Add(SFHs.Where(s => s.SFHNumber == 2).First());
             Threats.Where(t => t.ThreatNumber == 182).First().SFHs.Add(SFHs.Where(s => s.SFHNumber == 3).First());
             Threats.Where(t => t.ThreatNumber == 182).First().SFHs.Add(SFHs.Where(s => s.SFHNumber == 12).First());
-
+            Threats.Where(t => t.ThreatNumber == 184).First().SFHs.Add(SFHs.Where(s => s.SFHNumber == 6).First());
+            for(int i = 1; i <= 35; i++)
+                Threats.Where(t => t.ThreatNumber == 182).First().SFHs.Add(SFHs.Where(s => s.SFHNumber == i).First());
+            Threats.Where(t => t.ThreatNumber == 186).First().SFHs.Add(SFHs.Where(s => s.SFHNumber == 20).First());
+            Threats.Where(t => t.ThreatNumber == 187).First().SFHs.Add(SFHs.Where(s => s.SFHNumber == 20).First());
+            Threats.Where(t => t.ThreatNumber == 188).First().SFHs.Add(SFHs.Where(s => s.SFHNumber == 20).First());
+            for (int i = 1; i <= 35; i++)
+                Threats.Where(t => t.ThreatNumber == 189).First().SFHs.Add(SFHs.Where(s => s.SFHNumber == i).First());
+            Threats.Where(t => t.ThreatNumber == 190).First().SFHs.Add(SFHs.Where(s => s.SFHNumber == 20).First());
+            for (int i = 1; i <= 35; i++)
+                Threats.Where(t => t.ThreatNumber == 191).First().SFHs.Add(SFHs.Where(s => s.SFHNumber == i).First());
+            for (int i = 1; i <= 35; i++)
+                Threats.Where(t => t.ThreatNumber == 192).First().SFHs.Add(SFHs.Where(s => s.SFHNumber == i).First());
+            Threats.Where(t => t.ThreatNumber == 193).First().SFHs.Add(SFHs.Where(s => s.SFHNumber == 20).First());
+            Threats.Where(t => t.ThreatNumber == 194).First().SFHs.Add(SFHs.Where(s => s.SFHNumber == 6).First());
+            for (int i = 1; i <= 35; i++)
+                Threats.Where(t => t.ThreatNumber == 195).First().SFHs.Add(SFHs.Where(s => s.SFHNumber == i).First());
+            Threats.Where(t => t.ThreatNumber == 196).First().SFHs.Add(SFHs.Where(s => s.SFHNumber == 6).First());
+            Threats.Where(t => t.ThreatNumber == 197).First().SFHs.Add(SFHs.Where(s => s.SFHNumber == 20).First());
+            Threats.Where(t => t.ThreatNumber == 198).First().SFHs.Add(SFHs.Where(s => s.SFHNumber == 20).First());
+            Threats.Where(t => t.ThreatNumber == 199).First().SFHs.Add(SFHs.Where(s => s.SFHNumber == 6).First());
+            Threats.Where(t => t.ThreatNumber == 200).First().SFHs.Add(SFHs.Where(s => s.SFHNumber == 6).First());
+            Threats.Where(t => t.ThreatNumber == 201).First().SFHs.Add(SFHs.Where(s => s.SFHNumber == 20).First());
+            Threats.Where(t => t.ThreatNumber == 202).First().SFHs.Add(SFHs.Where(s => s.SFHNumber == 6).First());
+            Threats.Where(t => t.ThreatNumber == 202).First().SFHs.Add(SFHs.Where(s => s.SFHNumber == 4).First());
+            for (int i = 1; i <= 35; i++)
+                Threats.Where(t => t.ThreatNumber == 205).First().SFHs.Add(SFHs.Where(s => s.SFHNumber == i).First());
+            for (int i = 1; i <= 35; i++)
+                Threats.Where(t => t.ThreatNumber == 208).First().SFHs.Add(SFHs.Where(s => s.SFHNumber == i).First());
             #endregion
 
             SaveChanges();

@@ -30,7 +30,7 @@ namespace KPSZI
             
         }
 
-        public override void initTabPage()
+        protected override void initTabPage()
         {
             stageTab.AutoScroll = true;
 
@@ -494,7 +494,6 @@ namespace KPSZI
                 openPermissionsDialog(e.RowIndex, e.ColumnIndex);
             }
             accessMatrixResources.Refresh();
-
         }
 
         //Удаляем субъект дабл-кликом в обеих таблицах

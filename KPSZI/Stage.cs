@@ -10,14 +10,14 @@ namespace KPSZI
     // экземпляр класса Stage - конкретный этап, реализованный в отдельной вкладке интерфейса
     abstract class Stage
     {
-        public TabPage stageTab; // ссылка на вкладку 
-        public TreeNode stageNode; // ссылка на пункт в дереве
-        public string stageName; // название этапа, отображается в дереве
-        public int treeImageIcon; // иконка этапа в дереве
-        public bool isDone; // завершен ли этап
-        public bool stageAvailable;
-        public MainForm mf; // ссылка на главную форму интерфейса
-        public InformationSystem IS;
+        internal TabPage stageTab; // ссылка на вкладку 
+        protected TreeNode stageNode; // ссылка на пункт в дереве
+        protected string stageName; // название этапа, отображается в дереве
+        protected int treeImageIcon; // иконка этапа в дереве
+        protected bool isDone; // завершен ли этап
+        protected bool stageAvailable;
+        protected MainForm mf; // ссылка на главную форму интерфейса
+        protected InformationSystem IS;
 
 
         public Stage(TabPage stageTab, TreeNode stageNode, MainForm mainForm, InformationSystem IS)
@@ -40,6 +40,6 @@ namespace KPSZI
 
         public abstract void enterTabPage();
 
-        public abstract void initTabPage();
+        protected abstract void initTabPage();
     }
 }

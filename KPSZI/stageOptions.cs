@@ -26,7 +26,8 @@ namespace KPSZI
         {
             
         }
-         public override void initTabPage()
+
+        protected override void initTabPage()
         {
             using (KPSZIContext db = new KPSZIContext())
             {
