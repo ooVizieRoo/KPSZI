@@ -177,7 +177,7 @@ namespace KPSZI
                 {
                     dgvtgm += dgvr.Height;
                 }
-                mf.dgvActualTGThreats.Height = dgvtgm + mf.dgvTGMeasures.ColumnHeadersHeight;
+                mf.dgvActualTGThreats.Height = dgvtgm + mf.dgvActualTGThreats.ColumnHeadersHeight;
             }
         }
     }

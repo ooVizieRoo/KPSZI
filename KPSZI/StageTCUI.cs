@@ -123,39 +123,30 @@ namespace KPSZI
 
             var source = new BindingSource();
             List<TCUIThreat> actualTCUIThreats = new List<TCUIThreat>();
-            bool fullList = false;
             foreach(IntruderAbilityControl iac in controlsIAC)
             {
                 iac.updateIac();
                 int intrPot = (int)iac.intrud;
-                if (iac.threatValue > 10 && iac.Checked)
+                if ((iac.threatValue > 10 && iac.Checked) && iac.abilityOfRealization != "" && iac.damage != "")
                 {
-                    if (iac.abilityOfRealization != "" && iac.damage != "")
-                    {
-                        if (iac.damage == "Высокая" && intrPot <= ts.Potencial)
-                            actualTCUIThreats.Add(listOfTCUIThreats.Find(t => t.Name == iac.threatName));
+                    if (iac.damage == "Высокая" && intrPot <= ts.Potencial)
+                        actualTCUIThreats.Add(listOfTCUIThreats.Find(t => t.Name == iac.threatName));
 
-                        if (iac.damage == "Средняя" && (iac.abilityOfRealization == "Средняя" || iac.abilityOfRealization == "Высокая") && intrPot <= ts.Potencial)
-                            actualTCUIThreats.Add(listOfTCUIThreats.Find(t => t.Name == iac.threatName));
+                    if (iac.damage == "Средняя" && (iac.abilityOfRealization == "Средняя" || iac.abilityOfRealization == "Высокая") && intrPot <= ts.Potencial)
+                        actualTCUIThreats.Add(listOfTCUIThreats.Find(t => t.Name == iac.threatName));
 
-                        if (iac.damage == "Низкая" && iac.abilityOfRealization == "Высокая" && intrPot <= ts.Potencial)
-                            actualTCUIThreats.Add(listOfTCUIThreats.Find(t => t.Name == iac.threatName));
-
-                        fullList = true;
-                    }
-                    else
-                    {
-                        fullList = false;
-                    }
-                }
-                else
-                {
-                    fullList = false;
+                    if (iac.damage == "Низкая" && iac.abilityOfRealization == "Высокая" && intrPot <= ts.Potencial)
+                        actualTCUIThreats.Add(listOfTCUIThreats.Find(t => t.Name == iac.threatName));
                 }
             }
             source.DataSource = actualTCUIThreats;
             mf.dgvActualTCUIThreats.DataSource = source;
-
+            bool fullList = true;
+            foreach(IntruderAbilityControl iac in controlsIAC)
+            {
+                if (!iac.Checked)
+                    fullList = false;
+            }
             if (fullList)
                 if (mf.dgvActualTCUIThreats.Rows.Count == 0)
                     mf.lbTCUIInfo.Text = "Угрозы утечки информации по техническим каналам не актуальны для информационной системы.";
@@ -174,6 +165,17 @@ namespace KPSZI
             mf.dgvActualTCUIThreats.Columns[4].HeaderText = "Описание угрозы";
             mf.dgvActualTCUIThreats.Columns[4].Width = 300;
             mf.dgvActualTCUIThreats.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            mf.tabControlTCUI.TabPages[2].AutoScroll = true;
+            mf.tabControlTCUI.TabPages[2].AutoScrollMargin = new System.Drawing.Size(3, 15);
+            if (mf.dgvActualTCUIThreats.Rows.Count != 0)
+            {
+                int dgvtcui = 0;
+                foreach (DataGridViewRow dgvr in mf.dgvActualTCUIThreats.Rows)
+                {
+                    dgvtcui += dgvr.Height;
+                }
+                mf.dgvActualTCUIThreats.Height = dgvtcui + mf.dgvActualTCUIThreats.ColumnHeadersHeight;
+            }
         }
     }
 }
