@@ -29,8 +29,7 @@ namespace KPSZI
             
             // Заполняем коллекцию этапами (название, ссылка на вкладку, ссылка на пункт в дереве) 
             stages.Add("tnOptions", new StageOptions(returnTabPage("tpOptions"), returnTreeNode("tnOptions"), this, IS));
-            stages.Add("tnClassification", new StageClassification(returnTabPage("tpClassification"), 
-                returnTreeNode("tnClassification"), this, IS));
+            stages.Add("tnClassification", new StageClassification(returnTabPage("tpClassification"), returnTreeNode("tnClassification"), this, IS));
             stages.Add("tnAccessMatrix", new StageAccessMatrix(returnTabPage("tpAccessMatrix"), returnTreeNode("tnAccessMatrix"), this, IS));
             stages.Add("tnTopology", new StageTopology(returnTabPage("tpTopology"), returnTreeNode("tnTopology"), this, IS));
             stages.Add("tnIntruder", new StageIntruder(returnTabPage("tpIntruder"), returnTreeNode("tnIntruder"), this, IS));

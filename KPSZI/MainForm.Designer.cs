@@ -51,9 +51,9 @@
             treeNode21,
             treeNode22,
             treeNode23});
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.projectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -126,11 +126,12 @@
             this.lblImplementWays = new System.Windows.Forms.Label();
             this.clbImplementWays = new System.Windows.Forms.CheckedListBox();
             this.lblIntruderType = new System.Windows.Forms.Label();
-            this.clbIntruderType = new System.Windows.Forms.CheckedListBox();
+            this.clbIntruderTypes = new System.Windows.Forms.CheckedListBox();
             this.tpVulnerabilities = new System.Windows.Forms.TabPage();
             this.dgvVulnerabilities = new System.Windows.Forms.DataGridView();
             this.CheckVulnerability = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tpActualThreats = new System.Windows.Forms.TabPage();
+            this.lblThreatsCount = new System.Windows.Forms.Label();
             this.tbThreatDescription = new System.Windows.Forms.TextBox();
             this.clbThreatFilter = new System.Windows.Forms.CheckedListBox();
             this.dgvThreats = new System.Windows.Forms.DataGridView();
@@ -173,7 +174,7 @@
             this.iconList = new System.Windows.Forms.ImageList(this.components);
             this.btPrevStage = new System.Windows.Forms.Button();
             this.btNextStage = new System.Windows.Forms.Button();
-            this.lblThreatsCount = new System.Windows.Forms.Label();
+            this.lblPotencial = new System.Windows.Forms.Label();
             this.menuStrip.SuspendLayout();
             this.tpOptions.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -952,10 +953,11 @@
             // 
             // tpIntruder
             // 
+            this.tpIntruder.Controls.Add(this.lblPotencial);
             this.tpIntruder.Controls.Add(this.lblImplementWays);
             this.tpIntruder.Controls.Add(this.clbImplementWays);
             this.tpIntruder.Controls.Add(this.lblIntruderType);
-            this.tpIntruder.Controls.Add(this.clbIntruderType);
+            this.tpIntruder.Controls.Add(this.clbIntruderTypes);
             this.tpIntruder.Location = new System.Drawing.Point(4, 22);
             this.tpIntruder.Name = "tpIntruder";
             this.tpIntruder.Padding = new System.Windows.Forms.Padding(3);
@@ -967,7 +969,7 @@
             // lblImplementWays
             // 
             this.lblImplementWays.AutoSize = true;
-            this.lblImplementWays.Location = new System.Drawing.Point(6, 209);
+            this.lblImplementWays.Location = new System.Drawing.Point(421, 13);
             this.lblImplementWays.Name = "lblImplementWays";
             this.lblImplementWays.Size = new System.Drawing.Size(141, 13);
             this.lblImplementWays.TabIndex = 3;
@@ -976,7 +978,7 @@
             // clbImplementWays
             // 
             this.clbImplementWays.FormattingEnabled = true;
-            this.clbImplementWays.Location = new System.Drawing.Point(6, 225);
+            this.clbImplementWays.Location = new System.Drawing.Point(421, 29);
             this.clbImplementWays.Name = "clbImplementWays";
             this.clbImplementWays.Size = new System.Drawing.Size(399, 244);
             this.clbImplementWays.TabIndex = 2;
@@ -990,13 +992,13 @@
             this.lblIntruderType.TabIndex = 1;
             this.lblIntruderType.Text = "Виды нарушителя";
             // 
-            // clbIntruderType
+            // clbIntruderTypes
             // 
-            this.clbIntruderType.FormattingEnabled = true;
-            this.clbIntruderType.Location = new System.Drawing.Point(6, 29);
-            this.clbIntruderType.Name = "clbIntruderType";
-            this.clbIntruderType.Size = new System.Drawing.Size(399, 169);
-            this.clbIntruderType.TabIndex = 0;
+            this.clbIntruderTypes.FormattingEnabled = true;
+            this.clbIntruderTypes.Location = new System.Drawing.Point(6, 29);
+            this.clbIntruderTypes.Name = "clbIntruderTypes";
+            this.clbIntruderTypes.Size = new System.Drawing.Size(399, 169);
+            this.clbIntruderTypes.TabIndex = 0;
             // 
             // tpVulnerabilities
             // 
@@ -1020,15 +1022,15 @@
             this.dgvVulnerabilities.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvVulnerabilities.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CheckVulnerability});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvVulnerabilities.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvVulnerabilities.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvVulnerabilities.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvVulnerabilities.Location = new System.Drawing.Point(3, 3);
             this.dgvVulnerabilities.MinimumSize = new System.Drawing.Size(500, 0);
@@ -1061,6 +1063,14 @@
             this.tpActualThreats.Text = "tpActualThreats";
             this.tpActualThreats.UseVisualStyleBackColor = true;
             // 
+            // lblThreatsCount
+            // 
+            this.lblThreatsCount.AutoSize = true;
+            this.lblThreatsCount.Location = new System.Drawing.Point(4, 75);
+            this.lblThreatsCount.Name = "lblThreatsCount";
+            this.lblThreatsCount.Size = new System.Drawing.Size(0, 13);
+            this.lblThreatsCount.TabIndex = 3;
+            // 
             // tbThreatDescription
             // 
             this.tbThreatDescription.Location = new System.Drawing.Point(261, 4);
@@ -1090,24 +1100,24 @@
             this.dgvThreats.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dgvThreats.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvThreats.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvThreats.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvThreats.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvThreats.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvThreats.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvThreats.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvThreats.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvThreats.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvThreats.EnableHeadersVisualStyles = false;
             this.dgvThreats.Location = new System.Drawing.Point(3, 90);
@@ -1527,13 +1537,13 @@
             this.btNextStage.UseVisualStyleBackColor = true;
             this.btNextStage.Click += new System.EventHandler(this.NextStage_Click);
             // 
-            // lblThreatsCount
+            // lblPotencial
             // 
-            this.lblThreatsCount.AutoSize = true;
-            this.lblThreatsCount.Location = new System.Drawing.Point(4, 75);
-            this.lblThreatsCount.Name = "lblThreatsCount";
-            this.lblThreatsCount.Size = new System.Drawing.Size(0, 13);
-            this.lblThreatsCount.TabIndex = 3;
+            this.lblPotencial.AutoSize = true;
+            this.lblPotencial.Location = new System.Drawing.Point(6, 317);
+            this.lblPotencial.Name = "lblPotencial";
+            this.lblPotencial.Size = new System.Drawing.Size(0, 13);
+            this.lblPotencial.TabIndex = 4;
             // 
             // MainForm
             // 
@@ -1647,7 +1657,7 @@
         internal System.Windows.Forms.Label lblProjectSecutiryLvl;
         internal System.Windows.Forms.CheckedListBox clbImplementWays;
         private System.Windows.Forms.Label lblIntruderType;
-        internal System.Windows.Forms.CheckedListBox clbIntruderType;
+        internal System.Windows.Forms.CheckedListBox clbIntruderTypes;
         internal System.Windows.Forms.Label lblImplementWays;
         internal System.Windows.Forms.DataGridView dgvThreats;
         private System.Windows.Forms.GroupBox gbHW1;
@@ -1703,5 +1713,6 @@
         private System.Windows.Forms.Label labelAqoostTCUIType;
         private System.Windows.Forms.Label labelViewTCUIType;
         internal System.Windows.Forms.Label lblThreatsCount;
+        internal System.Windows.Forms.Label lblPotencial;
     }
 }

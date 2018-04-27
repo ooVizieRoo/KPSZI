@@ -24,11 +24,20 @@ namespace KPSZI
         /// Список СФХ, характерных для данной ИС
         /// </summary>
         public List<SFH> listOfSFHs;
-
-        public List<string> listOfCategoriesPDN;
-
-        // Список выбранных уязвимостей
+        /// <summary>
+        ///  Список уязвимостей, характерных для данной ИС
+        /// </summary>
         public List<Vulnerability> listOfVulnerabilities;
+        /// <summary>
+        ///  Список способов реализации УБИ, характерных для данной ИС
+        /// </summary>
+        public List<ImplementWay> listOfImplementWays;
+        /// <summary>
+        ///  Список источников угроз, характерных для данной ИС
+        /// </summary>
+        public List<ThreatSource> listOfSources;
+        
+        public List<string> listOfCategoriesPDN;        
 
         public InformationSystem ()
         {
@@ -37,7 +46,8 @@ namespace KPSZI
             listOfSFHs = new List<SFH>();
             listOfCategoriesPDN = new List<string>();
             listOfVulnerabilities = new List<Vulnerability>();
-
+            listOfImplementWays = new List<ImplementWay>();
+            listOfSources = new List<ThreatSource>();
         }
     }
 }

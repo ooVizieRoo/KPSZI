@@ -13,6 +13,8 @@ namespace KPSZI
         List<Threat> listThreats;
         List<Vulnerability> listVulnerabilities;
         List<SFH> listSFHs;
+        List<ImplementWay> listImplementWays;
+        List<ThreatSource> listSources;
 
         public StageActualThreats(TabPage stageTab, TreeNode stageNode, MainForm mainForm, InformationSystem IS)
             : base(stageTab, stageNode, mainForm, IS)
@@ -28,15 +30,27 @@ namespace KPSZI
                 foreach (Threat threat in listThreats)
                 {
                     threat.Vulnerabilities = db.Threats.Where(t1 => t1.ThreatNumber == threat.ThreatNumber).First().Vulnerabilities;
-                    threat.getStringVulnerabilities();
+                    threat.SFHs = db.Threats.Where(t2 => t2.ThreatNumber == threat.ThreatNumber).First().SFHs;
+                    threat.ImplementWays = db.Threats.Where(t3 => t3.ThreatNumber == threat.ThreatNumber).First().ImplementWays;
+                    threat.ThreatSources = db.Threats.Where(t4 => t4.ThreatNumber == threat.ThreatNumber).First().ThreatSources;
+                    threat.setStringVulnerabilities();
+                    threat.setStringSFHs();
+                    threat.setStringImplementWays();
+                    threat.setStringSources();
                 }
                     
                 listVulnerabilities = db.Vulnerabilities.OrderBy(v => v.VulnerabilityNumber).ToList();
                 listSFHs = db.SFHs.OrderBy(s => s.SFHNumber).ToList();
-                foreach(Vulnerability vul in listVulnerabilities)
+                listImplementWays = db.ImplementWays.OrderBy(w => w.WayNumber).ToList();
+                listSources = db.ThreatSources.OrderBy(so => so.ThreatSourceId).ToList();
+                foreach (Vulnerability vul in listVulnerabilities)
                     vul.Threats = db.Vulnerabilities.Where(v1 => v1.VulnerabilityNumber == vul.VulnerabilityNumber).First().Threats;
                 foreach (SFH sfh in listSFHs)
                     sfh.Threats = db.SFHs.Where(s1 => s1.SFHNumber == sfh.SFHNumber).First().Threats;
+                foreach (ImplementWay iw in listImplementWays)
+                    iw.Threats = db.ImplementWays.Where(w1 => w1.WayNumber == iw.WayNumber).First().Threats;
+                foreach (ThreatSource ts in listSources)
+                    ts.Threats = db.ThreatSources.Where(so1 => so1.ThreatSourceId == ts.ThreatSourceId).First().Threats;
 
             }
 
@@ -71,11 +85,14 @@ namespace KPSZI
             mf.dgvThreats.Columns["AvailabilityViolation"].Width = 30;
             mf.dgvThreats.Columns["AvailabilityViolation"].HeaderText = "Д";
             mf.dgvThreats.Columns["AvailabilityViolation"].DisplayIndex = 5;
-
-            
-            mf.dgvThreats.Columns.Add("ThreatVuls", "Уязвимости");
-            mf.dgvThreats.Columns["ThreatVuls"].DisplayIndex = 6;
-            //mf.dgvThreats.Columns["ThreatVuls"].
+            mf.dgvThreats.Columns["stringVuls"].HeaderText = "Уязвимости";
+            mf.dgvThreats.Columns["stringVuls"].DisplayIndex = 6;
+            mf.dgvThreats.Columns["stringWays"].HeaderText = "Способы реализации УБИ";
+            mf.dgvThreats.Columns["stringWays"].DisplayIndex = 7;
+            mf.dgvThreats.Columns["stringSFHS"].HeaderText = "СФХ";
+            mf.dgvThreats.Columns["stringSFHS"].DisplayIndex = 8;
+            mf.dgvThreats.Columns["stringSources"].HeaderText = "Источник угрозы";
+            mf.dgvThreats.Columns["stringSources"].DisplayIndex = 9;
 
             mf.dgvThreats.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
@@ -121,6 +138,30 @@ namespace KPSZI
         {
             List<Threat> listThreatsByVul = new List<Threat>();
             List<Threat> listThreatsBySFH = new List<Threat>();
+            List<Threat> listThreatsByWay = new List<Threat>();
+            List<Threat> listThreatsBySource = new List<Threat>();
+
+            // фильтрация УБИ по источнику угрозы
+            if (mf.clbThreatFilter.GetItemCheckState(0) == CheckState.Checked)
+            {
+                listThreatsBySource = new List<Threat>();
+
+                foreach (ThreatSource ts in IS.listOfSources)
+                    listThreatsBySource = unionLists(listThreatsBySource, listSources.Where(lts => lts.ThreatSourceId == ts.ThreatSourceId).First().Threats.ToList());
+            }
+            else
+                listThreatsBySource.AddRange(listThreats);
+
+            // фильтрация УБИ по способам реализации
+            if (mf.clbThreatFilter.GetItemCheckState(1) == CheckState.Checked)
+            {
+                listThreatsByWay = new List<Threat>();
+
+                foreach (ImplementWay iw in IS.listOfImplementWays)
+                    listThreatsByWay = unionLists(listThreatsByWay, listImplementWays.Where(way => way.WayNumber == iw.WayNumber).First().Threats.ToList());
+            }
+            else
+                listThreatsByWay.AddRange(listThreats);
 
             // фильтрация УБИ по уязвимостям
             if (mf.clbThreatFilter.GetItemCheckState(2) == CheckState.Checked)
@@ -144,9 +185,10 @@ namespace KPSZI
             else
                 listThreatsBySFH.AddRange(listThreats);
 
-            mf.dgvThreats.DataSource = intersectThreatLists(listThreatsByVul, listThreatsBySFH);
+            mf.dgvThreats.DataSource = intersectThreatLists(listThreatsBySource, intersectThreatLists(listThreatsByWay, intersectThreatLists(listThreatsByVul, listThreatsBySFH)));
             mf.lblThreatsCount.Text = "Кол-во УБИ: " + mf.dgvThreats.RowCount;
         }
+
         private List<Threat> unionLists(List<Threat> first, List<Threat> second)
         {
             List<Threat> result = new List<Threat>();

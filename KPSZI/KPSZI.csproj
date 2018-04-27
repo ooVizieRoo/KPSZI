@@ -96,6 +96,10 @@
     <Compile Include="Migrations\201804200913385_ThreatsDone.Designer.cs">
       <DependentUpon>201804200913385_ThreatsDone.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804270341358_intruderChanged.cs" />
+    <Compile Include="Migrations\201804270341358_intruderChanged.Designer.cs">
+      <DependentUpon>201804270341358_intruderChanged.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\ImplementWays.cs" />
     <Compile Include="Model\Vulnerability.cs" />
     <Compile Include="StageActualThreats.cs" />
@@ -182,6 +186,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804200913385_ThreatsDone.resx">
       <DependentUpon>201804200913385_ThreatsDone.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804270341358_intruderChanged.resx">
+      <DependentUpon>201804270341358_intruderChanged.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
