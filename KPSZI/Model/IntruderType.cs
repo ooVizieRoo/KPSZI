@@ -17,6 +17,5 @@ namespace KPSZI.Model
         /// <summary>
         /// Коллекция всех угроз, для которых характерен данный вид нарушителя
         /// </summary>
-        public virtual ICollection<Threat> Threats { get; set; }
     }
 }

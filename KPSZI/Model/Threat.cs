@@ -4,7 +4,9 @@ using System.Data;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Threading.Tasks;
+
 
 namespace KPSZI.Model
 {
@@ -60,6 +62,14 @@ namespace KPSZI.Model
         public virtual ICollection<ImplementWay> ImplementWays { get; set; }        
         public virtual ICollection<Vulnerability> Vulnerabilities { get; set; }
         public virtual ICollection<SFH> SFHs { get; set; }
+        [NotMapped]
+        public string stringVuls { get; set; }
+        [NotMapped]
+        public string stringWays { get; set; }
+        [NotMapped]
+        public string stringSFHs { get; set; }
+        [NotMapped]
+        public string stringSources { get; set; }
 
         public Threat()
         {
@@ -69,6 +79,50 @@ namespace KPSZI.Model
             SFHs = new List<SFH>();
         }
 
+        public void setStringImplementWays()
+        {
+            string s = "";
+            foreach (ImplementWay iw in ImplementWays)
+                s += iw.WayName + ";\n";
+            if (s != "")
+                s = s.Remove(s.Length - 1);
+            stringWays = s;
+        }
+
+        public void setStringSources()
+        {
+            string s = "";
+            foreach (ThreatSource ts in ThreatSources)
+            {
+                if (ts.Potencial == 3) continue;
+                s += (ts.InternalIntruder ? "Внутренний" : "Внешний") + " нарушитель " + 
+                    (ts.Potencial == 0 ? "с низким" : (ts.Potencial == 1 ? "со средним" : "с высоким")) + " потенциалом;\n";
+            }
+            if (s != "")
+                s = s.Remove(s.Length - 1);
+            stringSources = s;
+        }
+
+        public void setStringVulnerabilities()
+        {
+            string s = "";
+            foreach (Vulnerability vul in Vulnerabilities)
+                s += vul.VulnerabilityName + ";\n";
+            if (s != "")
+                s = s.Remove(s.Length - 1);
+            stringVuls = s;
+        }
+
+        public void setStringSFHs()
+        {
+            string s = "";
+            foreach (SFH sfh in SFHs)
+                s += sfh.Name + ";\n";
+            if (s != "")
+                s = s.Remove(s.Length - 1);
+            stringSFHs = s;
+        }
+        
         /// <summary>
         /// Метод выстаскивает текстовое описание угроз, парсит, приводит к типу Threat и возвращает массив объектов Threat.
         /// </summary>

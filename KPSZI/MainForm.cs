@@ -25,7 +25,7 @@ namespace KPSZI
         
         public void startSplash()
         {
-            if (File.Exists("res/icons/Shield.png"));
+            if (File.Exists("res/icons/Shield.png"))
             {
                 Application.Run(new splashForm());
             }
@@ -41,8 +41,7 @@ namespace KPSZI
             
             // Заполняем коллекцию этапами (название, ссылка на вкладку, ссылка на пункт в дереве) 
             stages.Add("tnOptions", new StageOptions(returnTabPage("tpOptions"), returnTreeNode("tnOptions"), this, IS));
-            stages.Add("tnClassification", new StageClassification(returnTabPage("tpClassification"), 
-                returnTreeNode("tnClassification"), this, IS));
+            stages.Add("tnClassification", new StageClassification(returnTabPage("tpClassification"), returnTreeNode("tnClassification"), this, IS));
             stages.Add("tnAccessMatrix", new StageAccessMatrix(returnTabPage("tpAccessMatrix"), returnTreeNode("tnAccessMatrix"), this, IS));
             stages.Add("tnTopology", new StageTopology(returnTabPage("tpTopology"), returnTreeNode("tnTopology"), this, IS));
             stages.Add("tnIntruder", new StageIntruder(returnTabPage("tpIntruder"), returnTreeNode("tnIntruder"), this, IS));
@@ -139,16 +138,15 @@ namespace KPSZI
                 {
                     FileInfo fi = new FileInfo("thrlist.xlsx");
 
-                    //db.Threats.RemoveRange(db.Threats.ToList());
                     try
                     {
                         // Каскадное удаление данных вместе с внешними ключами
-                        db.Database.ExecuteSqlCommand("SET SCHEMA '" + KPSZIContext.schema_name + "'; TRUNCATE \"Threats\", \"ThreatSourceThreats\", \"VulnerabilityThreats\", \"ThreatImplementWays\", \"SFHThreats\" CASCADE;");
+                        db.Database.ExecuteSqlCommand("SET SCHEMA '" + KPSZIContext.schema_name + "'; TRUNCATE \"Threats\" CASCADE;");
 
                         db.Threats.AddRange(Threat.GetThreatsFromXlsx(fi, db));
                         db.SaveChanges();
-                        db.SeedForThreat();
-                        db.SaveChanges();
+                        //db.SeedForThreat();
+                        //db.SaveChanges();
                     }
                     catch (Exception ex)
                     {
@@ -274,7 +272,7 @@ namespace KPSZI
             MessageBox.Show("Файл успешно загружен", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        // Перключение по вкладкам Вперед и Назад
+        // Переключение по вкладкам Вперед и Назад
         // Работает в пределах одного родительского элемента
         private void PrevStage_Click(object sender, EventArgs e)
         {

@@ -23,19 +23,21 @@ namespace KPSZI
         {
             // Если вкладка открывается впервые, и еще нет данных об уязвимостях в IS, выходим из метода
             if (IS.listOfVulnerabilities.Count == 0) return;
-            
-            //mf.dgvVulnerabilities.ClearSelection();
+
+            int columnVulsNumber = mf.dgvVulnerabilities.Columns["VulnerabilityNumber"].Index;
 
             // Заполняем чекбоксы уязвимостей сохраненной инфой из IS
             foreach (DataGridViewRow row in mf.dgvVulnerabilities.Rows)
             {
-                DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)row.Cells[0];
-                Vulnerability v = listVuls.Where(v1 => v1.VulnerabilityId == (int) row.Cells[1].Value).First();
+                // checkbox
+                DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell) row.Cells[0];
+                // объект уязвимости соответствующий строке row
+                Vulnerability v = listVuls.Where(v1 => v1.VulnerabilityNumber == (int) row.Cells[columnVulsNumber].Value).First();
+                // если уязвимость есть в IS, ставим галочку в checkbox
                 if (IS.listOfVulnerabilities.Contains(v))
                     chk.Value = chk.TrueValue;
                 else
-                    chk.Value = null;
-
+                    chk.Value = chk.FalseValue;
             }
         }
 
@@ -43,18 +45,20 @@ namespace KPSZI
         {
             // очищаем список уязвимовстей в IS
             IS.listOfVulnerabilities.Clear();
+            int columnVulsNumber = mf.dgvVulnerabilities.Columns["VulnerabilityNumber"].Index;
             // добавляем выбранные уязвимости в IS
             foreach (DataGridViewRow row in mf.dgvVulnerabilities.Rows)
             {
-                DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)row.Cells[0];
+                // checkbox
+                DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell) row.Cells[0];
+                // если уязвимость выбрана в форме, добавляем ее в IS
                 if (chk.Value == chk.TrueValue)
-                    IS.listOfVulnerabilities.Add(listVuls.Where(v => v.VulnerabilityNumber == (int) row.Cells[2].Value).First());
-                    
+                    IS.listOfVulnerabilities.Add(listVuls.Where(v => v.VulnerabilityNumber == (int)row.Cells[columnVulsNumber].Value).First());
             }
             
         }
 
-        public override void initTabPage()
+        protected override void initTabPage()
         {
             using (KPSZIContext db = new KPSZIContext())
             {
@@ -64,7 +68,8 @@ namespace KPSZI
                 mf.dgvVulnerabilities.DataSource = listVuls;
 
                 mf.dgvVulnerabilities.Columns["Threats"].Visible = false;
-                mf.dgvVulnerabilities.Columns["VulnerabilityId"].Visible = false;                
+                mf.dgvVulnerabilities.Columns["VulnerabilityId"].Visible = false;
+                mf.dgvVulnerabilities.Columns["VulnerabilityNumber"].Visible = false;
                 mf.dgvVulnerabilities.Columns["CheckVulnerability"].Width = 30;
                 mf.dgvVulnerabilities.Columns["CheckVulnerability"].MinimumWidth = 30;
                 mf.dgvVulnerabilities.Columns["VulnerabilityName"].Width = 300;

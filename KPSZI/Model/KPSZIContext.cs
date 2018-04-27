@@ -519,14 +519,15 @@ namespace KPSZI.Model
             itype.Add(new IntruderType() { TypeName = "Специальные службы иностранных государств (блоков государств)" });
             itype.Add(new IntruderType() { TypeName = "Террористические, экстремистские группировки" });
             itype.Add(new IntruderType() { TypeName = "Преступные группы (криминальные структуры)" });
-            itype.Add(new IntruderType() { TypeName = "Внешние субъекты (физические лица)" });
             itype.Add(new IntruderType() { TypeName = "Конкурирующие организации" });
             itype.Add(new IntruderType() { TypeName = "Разработчики, производители, поставщики программных, технических и программно-технических средств" });
-            itype.Add(new IntruderType() { TypeName = "Бывшие работники(пользователи)" });
-            itype.Add(new IntruderType() { TypeName = "Специальные службы иностранных государств (блоков государств)" });
+            itype.Add(new IntruderType() { TypeName = "Администраторы информационной системы и администраторы безопасности" });
+            itype.Add(new IntruderType() { TypeName = "Внешние субъекты (физические лица)" });
+            itype.Add(new IntruderType() { TypeName = "Бывшие работники (пользователи)" });
             itype.Add(new IntruderType() { TypeName = "Пользователи информационной системы" });
             itype.Add(new IntruderType() { TypeName = "Лица, привлекаемые для установки, наладки, монтажа, пусконаладочных и иных видов работ" });
-            itype.Add(new IntruderType() { TypeName = "Администраторы информационной системы и администраторы безопасности" });
+            itype.Add(new IntruderType() { TypeName = "Лица, обеспечивающие функционирование информационных систем или обслуживающие инфраструктуру оператора (администрация, охрана, уборщики и т.д.)" });
+            
 
             IntruderTypes.AddRange(itype);
             #endregion
