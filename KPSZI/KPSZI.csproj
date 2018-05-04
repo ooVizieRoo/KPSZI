@@ -100,6 +100,10 @@
     <Compile Include="Migrations\201804270341358_intruderChanged.Designer.cs">
       <DependentUpon>201804270341358_intruderChanged.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805040358010_addCollectionsToMeasuresAndThreats.cs" />
+    <Compile Include="Migrations\201805040358010_addCollectionsToMeasuresAndThreats.Designer.cs">
+      <DependentUpon>201805040358010_addCollectionsToMeasuresAndThreats.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\ImplementWays.cs" />
     <Compile Include="Model\Vulnerability.cs" />
     <Compile Include="splashForm.cs">
@@ -205,6 +209,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804270341358_intruderChanged.resx">
       <DependentUpon>201804270341358_intruderChanged.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805040358010_addCollectionsToMeasuresAndThreats.resx">
+      <DependentUpon>201805040358010_addCollectionsToMeasuresAndThreats.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

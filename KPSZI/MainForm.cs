@@ -143,8 +143,8 @@ namespace KPSZI
 
                         db.Threats.AddRange(Threat.GetThreatsFromXlsx(fi, db));
                         db.SaveChanges();
-                        //db.SeedForThreat();
-                        //db.SaveChanges();
+                        db.SeedForThreat();
+                        db.SaveChanges();
                     }
                     catch (Exception ex)
                     {
