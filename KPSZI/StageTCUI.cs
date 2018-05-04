@@ -14,6 +14,8 @@ namespace KPSZI
         public List<TCUI> listOfTCUIs;
         public List<IntruderAbilityControl> controlsIAC;
         public List<TCUIThreat> listOfTCUIThreats;
+        protected override ImageList imageListForTabPage { get; set; }
+
 
         public StageTCUI(TabPage stageTab, TreeNode stageNode, MainForm mainForm, InformationSystem IS)
             : base(stageTab, stageNode, mainForm, IS)

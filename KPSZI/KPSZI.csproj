@@ -239,8 +239,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="folder-icon.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <Content Include="res\icons\add.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\icons\del.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="res\icons\document-settings-icon.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -252,6 +255,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="res\icons\mf.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\icons\refresh.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="res\icons\right-arrow-icon.png">

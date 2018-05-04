@@ -25,10 +25,7 @@ namespace KPSZI
         
         public void startSplash()
         {
-            if (File.Exists("res/icons/Shield.png"))
-            {
                 Application.Run(new splashForm());
-            }
         }
 
         public MainForm()
@@ -62,6 +59,7 @@ namespace KPSZI
             iconList.Images.Add(Image.FromFile(@"res\icons\document-settings-icon.png"));
             iconList.Images.Add(Image.FromFile(@"res\icons\left-arrow-icon.png"));
             iconList.Images.Add(Image.FromFile(@"res\icons\right-arrow-icon.png"));
+            
             treeView.ImageList = iconList;
 
             // развернуть дерево

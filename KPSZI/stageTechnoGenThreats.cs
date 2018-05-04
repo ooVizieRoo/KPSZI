@@ -11,6 +11,8 @@ namespace KPSZI
     class stageTechnoGenThreats : Stage
     {
         List<TechnogenicThreat> tgThreats;
+        protected override ImageList imageListForTabPage { get; set; }
+
         public stageTechnoGenThreats(TabPage stageTab, TreeNode stageNode, MainForm mainForm, InformationSystem IS) : base(stageTab, stageNode, mainForm, IS)
         {
 

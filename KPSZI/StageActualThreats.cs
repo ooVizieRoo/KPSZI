@@ -15,6 +15,7 @@ namespace KPSZI
         List<SFH> listSFHs;
         List<ImplementWay> listImplementWays;
         List<ThreatSource> listSources;
+        protected override ImageList imageListForTabPage { get; set; }
 
         public StageActualThreats(TabPage stageTab, TreeNode stageNode, MainForm mainForm, InformationSystem IS)
             : base(stageTab, stageNode, mainForm, IS)
@@ -25,32 +26,32 @@ namespace KPSZI
         {
             using (KPSZIContext db = new KPSZIContext())
             {
-                // Инициализация списка угроз
+                //Инициализация списка угроз
                 listThreats = db.Threats.OrderBy(t => t.ThreatNumber).ToList();
-                foreach (Threat threat in listThreats)
-                {
-                    threat.Vulnerabilities = db.Threats.Where(t1 => t1.ThreatNumber == threat.ThreatNumber).First().Vulnerabilities;
-                    threat.SFHs = db.Threats.Where(t2 => t2.ThreatNumber == threat.ThreatNumber).First().SFHs;
-                    threat.ImplementWays = db.Threats.Where(t3 => t3.ThreatNumber == threat.ThreatNumber).First().ImplementWays;
-                    threat.ThreatSources = db.Threats.Where(t4 => t4.ThreatNumber == threat.ThreatNumber).First().ThreatSources;
-                    threat.setStringVulnerabilities();
-                    threat.setStringSFHs();
-                    threat.setStringImplementWays();
-                    threat.setStringSources();
-                }
-                    
-                listVulnerabilities = db.Vulnerabilities.OrderBy(v => v.VulnerabilityNumber).ToList();
-                listSFHs = db.SFHs.OrderBy(s => s.SFHNumber).ToList();
-                listImplementWays = db.ImplementWays.OrderBy(w => w.WayNumber).ToList();
-                listSources = db.ThreatSources.OrderBy(so => so.ThreatSourceId).ToList();
-                foreach (Vulnerability vul in listVulnerabilities)
-                    vul.Threats = db.Vulnerabilities.Where(v1 => v1.VulnerabilityNumber == vul.VulnerabilityNumber).First().Threats;
-                foreach (SFH sfh in listSFHs)
-                    sfh.Threats = db.SFHs.Where(s1 => s1.SFHNumber == sfh.SFHNumber).First().Threats;
-                foreach (ImplementWay iw in listImplementWays)
-                    iw.Threats = db.ImplementWays.Where(w1 => w1.WayNumber == iw.WayNumber).First().Threats;
-                foreach (ThreatSource ts in listSources)
-                    ts.Threats = db.ThreatSources.Where(so1 => so1.ThreatSourceId == ts.ThreatSourceId).First().Threats;
+                //    foreach (Threat threat in listThreats)
+                //    {
+                //        threat.Vulnerabilities = db.Threats.Where(t1 => t1.ThreatNumber == threat.ThreatNumber).First().Vulnerabilities;
+                //        threat.SFHs = db.Threats.Where(t2 => t2.ThreatNumber == threat.ThreatNumber).First().SFHs;
+                //        threat.ImplementWays = db.Threats.Where(t3 => t3.ThreatNumber == threat.ThreatNumber).First().ImplementWays;
+                //        threat.ThreatSources = db.Threats.Where(t4 => t4.ThreatNumber == threat.ThreatNumber).First().ThreatSources;
+                //        threat.setStringVulnerabilities();
+                //        threat.setStringSFHs();
+                //        threat.setStringImplementWays();
+                //        threat.setStringSources();
+                //    }
+
+                //    listVulnerabilities = db.Vulnerabilities.OrderBy(v => v.VulnerabilityNumber).ToList();
+                //    listSFHs = db.SFHs.OrderBy(s => s.SFHNumber).ToList();
+                //    listImplementWays = db.ImplementWays.OrderBy(w => w.WayNumber).ToList();
+                //    listSources = db.ThreatSources.OrderBy(so => so.ThreatSourceId).ToList();
+                //    foreach (Vulnerability vul in listVulnerabilities)
+                //        vul.Threats = db.Vulnerabilities.Where(v1 => v1.VulnerabilityNumber == vul.VulnerabilityNumber).First().Threats;
+                //    foreach (SFH sfh in listSFHs)
+                //        sfh.Threats = db.SFHs.Where(s1 => s1.SFHNumber == sfh.SFHNumber).First().Threats;
+                //    foreach (ImplementWay iw in listImplementWays)
+                //        iw.Threats = db.ImplementWays.Where(w1 => w1.WayNumber == iw.WayNumber).First().Threats;
+                //    foreach (ThreatSource ts in listSources)
+                //        ts.Threats = db.ThreatSources.Where(so1 => so1.ThreatSourceId == ts.ThreatSourceId).First().Threats;
 
             }
 
