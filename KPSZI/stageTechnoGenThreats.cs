@@ -41,6 +41,8 @@ namespace KPSZI
                 }
             }
             mf.tcTGThreats.TabPages[1].Enter += enterPageActualThreats;
+            mf.dgvTGThreats.EditMode = DataGridViewEditMode.EditOnEnter;
+            mf.dgvActualTGThreats.ReadOnly = true;
         }
 
         public override void saveChanges()
