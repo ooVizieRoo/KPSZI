@@ -62,6 +62,7 @@ namespace KPSZI.Model
         /// </summary>
         public GISMeasure()
         {
+            Threats = new List<Threat>();
             this.isOnlyISPDn = false;
             this.SZIs = new List<SZI>();
         }

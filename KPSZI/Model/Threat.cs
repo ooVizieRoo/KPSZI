@@ -77,6 +77,7 @@ namespace KPSZI.Model
 
         public Threat()
         {
+            GISMeasures = new List<GISMeasure>();
             ThreatSources = new List<ThreatSource>();
             ImplementWays = new List<ImplementWay>();            
             Vulnerabilities = new List<Vulnerability>();
