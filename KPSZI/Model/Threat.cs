@@ -56,7 +56,11 @@ namespace KPSZI.Model
         /// </summary>
         public DateTime DateOfChange { get; set; }
         /// <summary>
-        /// Коллекция всех источников угроз, которые характерны для данной угрозы
+        /// Коллекция мер, нейтрализующих данную угрозу
+        /// </summary>
+        public virtual ICollection<GISMeasure> GISMeasures { get; set; }
+        /// <summary>
+        /// Коллекция всех источников угроз, которые характерны для данной угрозы [навигационное поле]
         /// </summary>
         public virtual ICollection<ThreatSource> ThreatSources { get; set; }
         public virtual ICollection<ImplementWay> ImplementWays { get; set; }        

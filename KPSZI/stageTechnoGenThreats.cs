@@ -18,20 +18,9 @@ namespace KPSZI
 
         public override void enterTabPage()
         {
-            int dgvtgm = 0;
-            foreach (DataGridViewRow dgvr in mf.dgvTGMeasures.Rows)
-            {
-                dgvtgm += dgvr.Height;
-            }
-            mf.dgvTGMeasures.Height = dgvtgm + mf.dgvTGMeasures.ColumnHeadersHeight;
-
-            int dgvtgt = 0;
-            foreach (DataGridViewRow dgvr in mf.dgvTGThreats.Rows)
-            {
-                dgvtgt += dgvr.Height;
-            }
+            mf.dgvTGMeasures.Height = mf.dgvTGMeasures.Rows.GetRowsHeight(DataGridViewElementStates.Visible) + mf.dgvTGMeasures.ColumnHeadersHeight;
             mf.dgvTGThreats.Location = new Point { X = mf.dgvTGMeasures.Location.X, Y = 30 + mf.dgvTGMeasures.Height };
-            mf.dgvTGThreats.Height = dgvtgt + mf.dgvTGThreats.ColumnHeadersHeight;
+            mf.dgvTGThreats.Height = mf.dgvTGThreats.Rows.GetRowsHeight(DataGridViewElementStates.Visible) + mf.dgvTGThreats.ColumnHeadersHeight;
             mf.tcTGThreats.TabPages["tpTGThreatsMeasures"].SetAutoScrollMargin(3, 15);
         }
 
@@ -170,15 +159,7 @@ namespace KPSZI
             mf.lbTGInfo2.Visible = damages;
             mf.lbTGInfo.Visible = !damages;
 
-            if (mf.dgvActualTGThreats.Rows.Count != 0)
-            {
-                int dgvtgm = 0;
-                foreach (DataGridViewRow dgvr in mf.dgvActualTGThreats.Rows)
-                {
-                    dgvtgm += dgvr.Height;
-                }
-                mf.dgvActualTGThreats.Height = dgvtgm + mf.dgvActualTGThreats.ColumnHeadersHeight;
-            }
+            mf.dgvActualTGThreats.Height = mf.dgvActualTGThreats.Rows.GetRowsHeight(DataGridViewElementStates.Visible) + mf.dgvActualTGThreats.ColumnHeadersHeight;
         }
     }
 }
