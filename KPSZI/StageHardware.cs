@@ -40,18 +40,19 @@ namespace KPSZI
             mf.btnHWDel.Enabled = false;
 
 
-            imageListForTabPage.Images.Add(Image.FromFile(@"res\icons\add.png"));
-            imageListForTabPage.Images.Add(Image.FromFile(@"res\icons\refresh.png"));
-            imageListForTabPage.Images.Add(Image.FromFile(@"res\icons\del.png"));
-            mf.btnHWAdd.BackgroundImage = imageListForTabPage.Images[0];
+            //imageListForTabPage.Images.Add(Image.FromFile(@"res\icons\add.png"));
+            //imageListForTabPage.Images.Add(Image.FromFile(@"res\icons\refresh.png"));
+            //imageListForTabPage.Images.Add(Image.FromFile(@"res\icons\del.png"));
+            mf.btnHWAdd.BackgroundImage = Properties.Resources.add.ToBitmap();
+            //mf.btnHWAdd.BackgroundImage = imageListForTabPage.Images[0];
             mf.btnHWAdd.BackgroundImageLayout = ImageLayout.Zoom;
             mf.btnHWAdd.Text = "";
 
-            mf.btnHWEdit.BackgroundImage = imageListForTabPage.Images[1];
+            mf.btnHWEdit.BackgroundImage = Properties.Resources.edit.ToBitmap();
             mf.btnHWEdit.BackgroundImageLayout = ImageLayout.Zoom;
             mf.btnHWEdit.Text = "";
 
-            mf.btnHWDel.BackgroundImage = imageListForTabPage.Images[2];
+            mf.btnHWDel.BackgroundImage = Properties.Resources.del.ToBitmap();
             mf.btnHWDel.BackgroundImageLayout = ImageLayout.Zoom;
             mf.btnHWDel.Text = "";
 
