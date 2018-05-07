@@ -91,6 +91,12 @@
     <Compile Include="DamageDegreeControl.Designer.cs">
       <DependentUpon>DamageDegreeControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="DrawingArea.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DrawingArea.Designer.cs">
+      <DependentUpon>DrawingArea.cs</DependentUpon>
+    </Compile>
     <Compile Include="IntruderAbilityControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
