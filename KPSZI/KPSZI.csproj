@@ -97,34 +97,11 @@
     <Compile Include="IntruderAbilityControl.Designer.cs">
       <DependentUpon>IntruderAbilityControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201804170507218_123.cs" />
-    <Compile Include="Migrations\201804170507218_123.Designer.cs">
-      <DependentUpon>201804170507218_123.cs</DependentUpon>
+    <Compile Include="Migrations\201805070557453_new.cs" />
+    <Compile Include="Migrations\201805070557453_new.Designer.cs">
+      <DependentUpon>201805070557453_new.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201804200538481_sfhaddedtothreats.cs" />
-    <Compile Include="Migrations\201804200538481_sfhaddedtothreats.Designer.cs">
-      <DependentUpon>201804200538481_sfhaddedtothreats.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201804200716025_some.cs" />
-    <Compile Include="Migrations\201804200716025_some.Designer.cs">
-      <DependentUpon>201804200716025_some.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201804200723071_some2.cs" />
-    <Compile Include="Migrations\201804200723071_some2.Designer.cs">
-      <DependentUpon>201804200723071_some2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201804200913385_ThreatsDone.cs" />
-    <Compile Include="Migrations\201804200913385_ThreatsDone.Designer.cs">
-      <DependentUpon>201804200913385_ThreatsDone.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201804270341358_intruderChanged.cs" />
-    <Compile Include="Migrations\201804270341358_intruderChanged.Designer.cs">
-      <DependentUpon>201804270341358_intruderChanged.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805040358010_addCollectionsToMeasuresAndThreats.cs" />
-    <Compile Include="Migrations\201805040358010_addCollectionsToMeasuresAndThreats.Designer.cs">
-      <DependentUpon>201805040358010_addCollectionsToMeasuresAndThreats.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\ImplementWays.cs" />
     <Compile Include="Model\Vulnerability.cs" />
     <Compile Include="splashForm.cs">
@@ -144,15 +121,6 @@
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Migrations\201804060829317_dbInit.cs" />
-    <Compile Include="Migrations\201804060829317_dbInit.Designer.cs">
-      <DependentUpon>201804060829317_dbInit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201804090354542_add-to-SFHType-korolev.cs" />
-    <Compile Include="Migrations\201804090354542_add-to-SFHType-korolev.Designer.cs">
-      <DependentUpon>201804090354542_add-to-SFHType-korolev.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\GISClassification.cs" />
     <Compile Include="Model\GISMeasure.cs" />
     <Compile Include="MainForm.Designer.cs">
@@ -204,39 +172,8 @@
       <DependentUpon>Form1.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804060829317_dbInit.resx">
-      <DependentUpon>201804060829317_dbInit.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804090354542_add-to-SFHType-korolev.resx">
-      <DependentUpon>201804090354542_add-to-SFHType-korolev.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804170507218_123.resx">
-      <DependentUpon>201804170507218_123.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804200538481_sfhaddedtothreats.resx">
-      <DependentUpon>201804200538481_sfhaddedtothreats.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804200716025_some.resx">
-      <DependentUpon>201804200716025_some.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804200723071_some2.resx">
-      <DependentUpon>201804200723071_some2.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804200913385_ThreatsDone.resx">
-      <DependentUpon>201804200913385_ThreatsDone.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804270341358_intruderChanged.resx">
-      <DependentUpon>201804270341358_intruderChanged.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805040358010_addCollectionsToMeasuresAndThreats.resx">
-      <DependentUpon>201805040358010_addCollectionsToMeasuresAndThreats.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201805070557453_new.resx">
+      <DependentUpon>201805070557453_new.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

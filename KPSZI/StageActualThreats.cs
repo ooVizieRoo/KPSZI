@@ -36,18 +36,18 @@ namespace KPSZI
             {
                 //Инициализация списка угроз
                 listThreats = db.Threats.OrderBy(t => t.ThreatNumber).ToList();
-                //foreach (Threat threat in listThreats)
-                //{
-                //    threat.Vulnerabilities = db.Threats.Where(t1 => t1.ThreatNumber == threat.ThreatNumber).First().Vulnerabilities;
-                //    threat.SFHs = db.Threats.Where(t2 => t2.ThreatNumber == threat.ThreatNumber).First().SFHs;
-                //    threat.ImplementWays = db.Threats.Where(t3 => t3.ThreatNumber == threat.ThreatNumber).First().ImplementWays;
-                //    threat.ThreatSources = db.Threats.Where(t4 => t4.ThreatNumber == threat.ThreatNumber).First().ThreatSources;
-                //    threat.setStringVulnerabilities();
-                //    threat.setStringSFHs();
-                //    threat.setStringImplementWays();
-                //    threat.setStringSources();
-                //}
-                    
+                foreach (Threat threat in listThreats)
+                {
+                    threat.Vulnerabilities = db.Threats.Where(t1 => t1.ThreatNumber == threat.ThreatNumber).First().Vulnerabilities;
+                    threat.SFHs = db.Threats.Where(t2 => t2.ThreatNumber == threat.ThreatNumber).First().SFHs;
+                    threat.ImplementWays = db.Threats.Where(t3 => t3.ThreatNumber == threat.ThreatNumber).First().ImplementWays;
+                    threat.ThreatSources = db.Threats.Where(t4 => t4.ThreatNumber == threat.ThreatNumber).First().ThreatSources;
+                    threat.setStringVulnerabilities();
+                    threat.setStringSFHs();
+                    threat.setStringImplementWays();
+                    threat.setStringSources();
+                }
+
                 listVulnerabilities = db.Vulnerabilities.OrderBy(v => v.VulnerabilityNumber).ToList();
                 listSFHs = db.SFHs.OrderBy(s => s.SFHNumber).ToList();
                 listImplementWays = db.ImplementWays.OrderBy(w => w.WayNumber).ToList();
@@ -64,7 +64,7 @@ namespace KPSZI
             }
 
             mf.tcThreatsNSD.TabPages.Remove(mf.tpThreatsNSD2);
-            
+
             mf.dgvThreats.DataSource = listThreats;
             mf.dgvThreats.Columns["ThreatID"].Visible = false;
             mf.dgvThreats.Columns["ThreatSources"].Visible = false;
@@ -75,6 +75,7 @@ namespace KPSZI
             mf.dgvThreats.Columns["Vulnerabilities"].Visible = false;
             mf.dgvThreats.Columns["Description"].Visible = false;
             mf.dgvThreats.Columns["ObjectOfInfluence"].Visible = false;
+            mf.dgvThreats.Columns["GISMeasures"].Visible = false;
 
             mf.dgvThreats.Columns["ThreatNumber"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             mf.dgvThreats.Columns["ConfidenceViolation"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
@@ -114,7 +115,7 @@ namespace KPSZI
             mf.btnGotoDamage.Click += new System.EventHandler(btnGotoDamage_Click);
             mf.dgvActualThreats.SelectionChanged += new System.EventHandler(dgvActualThreats_SelectionChanged);
 
-            
+
         }
 
         public void initTabPageThreatsNSD2()
@@ -142,6 +143,7 @@ namespace KPSZI
             mf.dgvActualThreats.Columns["stringWays"].Visible = false;
             mf.dgvActualThreats.Columns["stringSFHS"].Visible = false;
             mf.dgvActualThreats.Columns["stringSources"].Visible = false;
+            mf.dgvActualThreats.Columns["GISMeasures"].Visible = false;
 
             mf.dgvActualThreats.Columns["ThreatNumber"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             mf.dgvActualThreats.Columns["ThreatNumber"].Width = 60;
