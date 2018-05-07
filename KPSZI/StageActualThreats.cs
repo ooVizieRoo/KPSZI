@@ -1,6 +1,7 @@
 ﻿using KPSZI.Model;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,10 +16,17 @@ namespace KPSZI
         List<SFH> listSFHs;
         List<ImplementWay> listImplementWays;
         List<ThreatSource> listSources;
+        List<Threat> listFilteredThreats;
+        Color[] headerColors = new Color[4] { Color.LemonChiffon, Color.PowderBlue, Color.LightGreen, Color.Plum };
+        Dictionary<int, int[,,]> damageDegreeInput;
+        DamageDegreeControl DDControl;
+        bool firstEnter = true;
 
         public StageActualThreats(TabPage stageTab, TreeNode stageNode, MainForm mainForm, InformationSystem IS)
             : base(stageTab, stageNode, mainForm, IS)
-        {            
+        {
+            
+            
         }
         
         protected override void initTabPage()
@@ -51,9 +59,11 @@ namespace KPSZI
                     iw.Threats = db.ImplementWays.Where(w1 => w1.WayNumber == iw.WayNumber).First().Threats;
                 foreach (ThreatSource ts in listSources)
                     ts.Threats = db.ThreatSources.Where(so1 => so1.ThreatSourceId == ts.ThreatSourceId).First().Threats;
-
+                listFilteredThreats = new List<Threat>();
             }
 
+            mf.tcThreatsNSD.TabPages.Remove(mf.tpThreatsNSD2);
+            
             mf.dgvThreats.DataSource = listThreats;
             mf.dgvThreats.Columns["ThreatID"].Visible = false;
             mf.dgvThreats.Columns["ThreatSources"].Visible = false;
@@ -99,39 +109,75 @@ namespace KPSZI
             mf.dgvThreats.SelectionChanged += new System.EventHandler(dgvThreats_SelectionChanged);
             mf.tpActualThreats.Resize += new System.EventHandler(tpActualThreats_Resize);
             mf.clbThreatFilter.SelectedIndexChanged += new System.EventHandler(clbThreatFilter_SelectedIndexChanged);
+            mf.tcThreatsNSD.SelectedIndexChanged += new System.EventHandler(tcThreatsNSD_SelectedIndexChanged);
+            mf.btnGotoDamage.Click += new System.EventHandler(btnGotoDamage_Click);
+            mf.dgvActualThreats.SelectionChanged += new System.EventHandler(dgvActualThreats_SelectionChanged);
+
             
         }
 
+        public void initTabPageThreatsNSD2()
+        {
+            // дизайн DataGridView для определения актуальных УБИ
+            mf.dgvActualThreats.DataSource = null;
+            mf.dgvActualThreats.Columns.Clear();
+            mf.dgvActualThreats.Rows.Clear();
+
+            mf.dgvActualThreats.DataSource = listFilteredThreats;
+
+            mf.dgvActualThreats.Columns["ThreatID"].Visible = false;
+            mf.dgvActualThreats.Columns["ThreatSources"].Visible = false;
+            mf.dgvActualThreats.Columns["DateOfChange"].Visible = false;
+            mf.dgvActualThreats.Columns["DateOfAdd"].Visible = false;
+            mf.dgvActualThreats.Columns["ImplementWays"].Visible = false;
+            mf.dgvActualThreats.Columns["SFHs"].Visible = false;
+            mf.dgvActualThreats.Columns["Vulnerabilities"].Visible = false;
+            mf.dgvActualThreats.Columns["Description"].Visible = false;
+            mf.dgvActualThreats.Columns["ObjectOfInfluence"].Visible = false;
+            mf.dgvActualThreats.Columns["ConfidenceViolation"].Visible = false;
+            mf.dgvActualThreats.Columns["IntegrityViolation"].Visible = false;
+            mf.dgvActualThreats.Columns["AvailabilityViolation"].Visible = false;
+            mf.dgvActualThreats.Columns["stringVuls"].Visible = false;
+            mf.dgvActualThreats.Columns["stringWays"].Visible = false;
+            mf.dgvActualThreats.Columns["stringSFHS"].Visible = false;
+            mf.dgvActualThreats.Columns["stringSources"].Visible = false;
+
+            mf.dgvActualThreats.Columns["ThreatNumber"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            mf.dgvActualThreats.Columns["ThreatNumber"].Width = 60;
+            mf.dgvActualThreats.Columns["ThreatNumber"].DisplayIndex = 1;
+            mf.dgvActualThreats.Columns["ThreatNumber"].HeaderText = "№ УБИ";
+            mf.dgvActualThreats.Columns["Name"].HeaderText = "Название УБИ";
+            mf.dgvActualThreats.Columns["Name"].DisplayIndex = 2;
+
+            mf.dgvActualThreats.Columns.Add("DamageDegree", "Степень ущерба");
+
+            damageDegreeInput = new Dictionary<int, int[,,]>();
+            foreach (DataGridViewRow dgvRow in mf.dgvActualThreats.Rows)
+                damageDegreeInput.Add((int)dgvRow.Cells[mf.dgvActualThreats.Columns["ThreatNumber"].Index].Value, 
+                    new int[IS.listOfInfoTypes.Count, 3, 7]);
+
+            DDControl = new DamageDegreeControl(IS.listOfInfoTypes);
+            DDControl.Location = new Point(mf.dgvActualThreats.Width + 20, 0);
+            mf.tpThreatsNSD2.Controls.Add(DDControl);
+        }
 
         public override void enterTabPage()
         {
-            mf.dgvThreats.ClearSelection();
             mf.lblThreatsCount.Text = "Кол-во УБИ: " + mf.dgvThreats.RowCount;
+            if (firstEnter)
+            {
+                mf.clbThreatFilter.SetItemChecked(0, true);
+                mf.clbThreatFilter.SetItemChecked(1, true);
+                mf.clbThreatFilter.SetItemChecked(2, true);
+                mf.clbThreatFilter.SetItemChecked(3, true);
+                firstEnter = false;
+            }
             filterThreatList();
+            mf.dgvThreats.ClearSelection();
         }
 
         public override void saveChanges()
         {
-        }
-
-        private void dgvThreats_SelectionChanged(object sender, EventArgs e)
-        {
-            if (mf.dgvThreats.SelectedRows.Count > 0)
-                mf.tbThreatDescription.Text =
-                    listThreats.Where(t => t.ThreatNumber == (int)mf.dgvThreats.SelectedCells[mf.dgvThreats.Columns["ThreatNumber"].Index].Value).FirstOrDefault().Description;
-            else
-                mf.tbThreatDescription.Text = "Выберите угрозу для просмотра описания...";
-
-        }
-
-        private void tpActualThreats_Resize(object sender, EventArgs e)
-        {
-            mf.dgvThreats.Height = mf.tpActualThreats.Height - 100;
-        }
-
-        private void clbThreatFilter_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            filterThreatList();    
         }
 
         private void filterThreatList()
@@ -185,7 +231,8 @@ namespace KPSZI
             else
                 listThreatsBySFH.AddRange(listThreats);
 
-            mf.dgvThreats.DataSource = intersectThreatLists(listThreatsBySource, intersectThreatLists(listThreatsByWay, intersectThreatLists(listThreatsByVul, listThreatsBySFH)));
+            listFilteredThreats = intersectThreatLists(listThreatsBySource, intersectThreatLists(listThreatsByWay, intersectThreatLists(listThreatsByVul, listThreatsBySFH)));
+            mf.dgvThreats.DataSource = listFilteredThreats;
             mf.lblThreatsCount.Text = "Кол-во УБИ: " + mf.dgvThreats.RowCount;
         }
 
@@ -208,6 +255,97 @@ namespace KPSZI
                 if (second.Exists(r => r.ThreatNumber == item.ThreatNumber))
                     result.Add(item);
             return result.OrderBy(o => o.ThreatNumber).ToList();
+        }
+
+        private void dgvThreats_SelectionChanged(object sender, EventArgs e)
+        {
+            if (mf.dgvThreats.SelectedRows.Count > 0)
+                mf.tbThreatDescription.Text =
+                    listThreats.Where(t => t.ThreatNumber == (int)mf.dgvThreats.SelectedCells[mf.dgvThreats.Columns["ThreatNumber"].Index].Value).FirstOrDefault().Description;
+            else
+                mf.tbThreatDescription.Text = "Выберите угрозу для просмотра описания...";
+
+        }
+
+        private void tpActualThreats_Resize(object sender, EventArgs e)
+        {
+            mf.dgvThreats.Height = mf.tpThreatsNSD1.Height - 125;
+        }
+
+        private void clbThreatFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            filterThreatList();
+
+            foreach (Threat threat in listFilteredThreats)
+            {
+                int maxPotencial = 0;
+                int implementPossibility = 2;
+                List<ThreatSource> tsList = threat.ThreatSources.ToList();
+                foreach (ThreatSource ts in tsList)
+                    if (ts.Potencial > maxPotencial) maxPotencial = ts.Potencial;
+
+                if (IS.ProjectSecutiryLvl == 2 && maxPotencial == 0)
+                    implementPossibility = 0;
+                if ((IS.ProjectSecutiryLvl == 1 && maxPotencial == 0) || (IS.ProjectSecutiryLvl == 2 && maxPotencial == 1))
+                    implementPossibility = 1;
+                Console.WriteLine("#" + threat.ThreatNumber + ": потенциал нарушителя - " + maxPotencial + ". Возможность реализации: " + implementPossibility);
+            }
+        }
+
+        private void tcThreatsNSD_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (mf.tcThreatsNSD.SelectedTab == mf.tpThreatsNSD2)
+            {
+                
+            }
+        }
+
+        private void btnGotoDamage_Click(object sender, EventArgs e)
+        {
+            // выбрать все критерии фильтра УБИ
+            for (int i = 0; i < mf.clbThreatFilter.Items.Count; i++)
+                mf.clbThreatFilter.SetItemChecked(i, true);
+
+            if (mf.dgvThreats.Rows.Count == 0)
+            {
+                MessageBox.Show("Введите исходные данные для получения списка УБИ", "Список УБИ пуст", MessageBoxButtons.OK);
+                return;
+            }                
+
+            if (IS.listOfInfoTypes.Count == 0)
+            {
+                if (MessageBox.Show("Для определения степеней ущерба, необходимо выбрать виды информации. Перейти к выбору?", "Недостаточно исходных данных", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    mf.treeView.SelectedNode = mf.returnTreeNode("tnOptions");
+                }
+                return;
+            }
+
+            if (!mf.tcThreatsNSD.TabPages.Contains(mf.tpThreatsNSD2))
+            {
+                mf.tcThreatsNSD.TabPages.Add(mf.tpThreatsNSD2);
+                initTabPageThreatsNSD2();
+                mf.tcThreatsNSD.SelectedTab = mf.tpThreatsNSD2;
+            }
+            else
+                if (MessageBox.Show("Запустить инициализацию формы определения степеней ущерба заново?", "Требуется подтверждение!", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    initTabPageThreatsNSD2();
+                    mf.tcThreatsNSD.SelectedTab = mf.tpThreatsNSD2;
+                }
+
+        }
+
+        private void dgvActualThreats_SelectionChanged(object sender, EventArgs e)
+        {
+            // сохраняем данные по Уби
+            //foreach()
+
+            if (mf.dgvActualThreats.SelectedRows.Count == 0)
+                return;
+            int threatN = (int)mf.dgvActualThreats.SelectedRows[0].Cells[mf.dgvActualThreats.Columns["ThreatNumber"].Index].Value;
+            DDControl.currentThreatNumber = threatN;
+            // выгружаем данные по Уби
         }
     }
 }

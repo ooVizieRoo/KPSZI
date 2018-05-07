@@ -36,7 +36,6 @@ namespace KPSZI
         /// АРМы в данной ИС
         /// </summary>
         public List<PC> listOfPCs;
-
         /// <summary>
         ///  Список способов реализации УБИ, характерных для данной ИС
         /// </summary>
@@ -45,7 +44,11 @@ namespace KPSZI
         ///  Список источников угроз, характерных для данной ИС
         /// </summary>
         public List<ThreatSource> listOfSources;
-        
+        /// <summary>
+        /// Уровень проектной защищенности
+        /// 0 - низкий, 1 - средний, 2 - высокий
+        /// </summary>
+        public int ProjectSecutiryLvl;
 
         public InformationSystem ()
         {

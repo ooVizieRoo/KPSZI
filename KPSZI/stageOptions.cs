@@ -95,6 +95,7 @@ namespace KPSZI
             }
 
             mf.lbInfoTypes.SelectedIndexChanged += new System.EventHandler(lbInfoTypes_SelectedIndexChanged);
+
         }
         
         public override void saveChanges()
@@ -133,12 +134,21 @@ namespace KPSZI
             Console.WriteLine(projectSecurityChecked[1] / projectSecuritySumm[1] + "");
             // Вычисление уровня проектной защищенности
             if (projectSecurityChecked[2] / projectSecuritySumm[2] >= 0.8 && projectSecurityChecked[0] == 0)
+            {
                 mf.lblProjectSecutiryLvl.Text = "Уровень проектной защищенности: " + "Высокий";
+                IS.ProjectSecutiryLvl = 2;
+            }
             else
                 if (projectSecurityChecked[2] / projectSecuritySumm[2] + projectSecurityChecked[1] / projectSecuritySumm[1] >= 0.9)
-                mf.lblProjectSecutiryLvl.Text = "Уровень проектной защищенности: " + "Средний";
-            else
-                mf.lblProjectSecutiryLvl.Text = "Уровень проектной защищенности: " + "Низкий";
+                {
+                    mf.lblProjectSecutiryLvl.Text = "Уровень проектной защищенности: " + "Средний";
+                    IS.ProjectSecutiryLvl = 1;
+                }
+                else
+                    {
+                        mf.lblProjectSecutiryLvl.Text = "Уровень проектной защищенности: " + "Низкий";
+                        IS.ProjectSecutiryLvl = 0;
+                    }
         }
 
         public override void enterTabPage()
@@ -164,6 +174,8 @@ namespace KPSZI
         private void rbSFH_CheckedChanged(object sender, EventArgs e)
         {
             saveChanges();
+
+
         }
         
         private void lbInfoTypes_SelectedIndexChanged(object sender, EventArgs e)
@@ -178,6 +190,8 @@ namespace KPSZI
             {
                 IS.listOfInfoTypes.Add((InfoType)buf.GetValue(i));
             }
+
+
         }
         #endregion
 
