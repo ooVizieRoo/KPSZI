@@ -60,6 +60,7 @@ namespace KPSZI
             listOfPCs = new List<PC>();
             listOfImplementWays = new List<ImplementWay>();
             listOfSources = new List<ThreatSource>();
+
         }
     }
 
@@ -75,11 +76,11 @@ namespace KPSZI
         /// <summary>
         /// Учетный номер
         /// </summary>
-        public string number { get; set; }
+        public string accountNumber { get; set; }
         /// <summary>
         /// Имя пользователя АРМ
         /// </summary>
-        public string userName { get; set; }
+        public string compName { get; set; }
         /// <summary>
         /// Наименование установленной ОС
         /// </summary>
@@ -116,7 +117,7 @@ namespace KPSZI
         /// Группа, к которой относится данный АРМ 
         /// (0 - АРМ пользователя, 1 - АРМ сисадмина, 2 - АРМ, 3 - администратора БИ, 4 - Сервер)
         /// </summary>
-        public int PCGroup { get; set; }
+        public string sPCGroup { get; set; }
 
         public PC()
         {

@@ -12,6 +12,21 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -106,6 +121,10 @@
     <Compile Include="Migrations\201804270341358_intruderChanged.Designer.cs">
       <DependentUpon>201804270341358_intruderChanged.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805040358010_addCollectionsToMeasuresAndThreats.cs" />
+    <Compile Include="Migrations\201805040358010_addCollectionsToMeasuresAndThreats.Designer.cs">
+      <DependentUpon>201805040358010_addCollectionsToMeasuresAndThreats.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\ImplementWays.cs" />
     <Compile Include="Model\Vulnerability.cs" />
     <Compile Include="splashForm.cs">
@@ -164,6 +183,7 @@
     <Compile Include="StageIntruder.cs" />
     <Compile Include="StageOptions.cs" />
     <Compile Include="StageHardware.cs" />
+    <Compile Include="StageSKZI.cs" />
     <Compile Include="StageTCUI.cs" />
     <Compile Include="StageTechno.cs" />
     <Compile Include="stageTechnoGenThreats.cs" />
@@ -215,6 +235,9 @@
     <EmbeddedResource Include="Migrations\201804270341358_intruderChanged.resx">
       <DependentUpon>201804270341358_intruderChanged.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805040358010_addCollectionsToMeasuresAndThreats.resx">
+      <DependentUpon>201805040358010_addCollectionsToMeasuresAndThreats.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -223,6 +246,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="splashForm.resx">
       <DependentUpon>splashForm.cs</DependentUpon>
@@ -248,9 +272,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="folder-icon.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <None Include="Resources\add.ico" />
+    <None Include="Resources\del.ico" />
+    <None Include="Resources\edit.ico" />
     <Content Include="res\icons\document-settings-icon.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -270,7 +294,18 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

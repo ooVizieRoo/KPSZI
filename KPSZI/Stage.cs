@@ -18,6 +18,7 @@ namespace KPSZI
         protected bool stageAvailable;
         protected MainForm mf; // ссылка на главную форму интерфейса
         protected InformationSystem IS;
+        protected abstract ImageList imageListForTabPage { get; set; }
 
 
         public Stage(TabPage stageTab, TreeNode stageNode, MainForm mainForm, InformationSystem IS)
@@ -31,6 +32,8 @@ namespace KPSZI
 
             stageNode.ImageIndex = 1;
             stageNode.SelectedImageIndex = 1;
+            imageListForTabPage = new ImageList();
+            imageListForTabPage.ImageSize = new System.Drawing.Size(256, 256);
 
             initTabPage();
         }

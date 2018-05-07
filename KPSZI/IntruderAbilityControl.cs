@@ -198,7 +198,7 @@ namespace KPSZI
             {
                 if (threatValue < 10)
                     intrud = intruderPotencial.Невозможен;
-                if (10 < threatValue && threatValue <= 17)
+                if (10 <= threatValue && threatValue <= 17)
                     intrud = intruderPotencial.Низкий;
                 if (18 <= threatValue && threatValue <= 24)
                     intrud = intruderPotencial.Средний;

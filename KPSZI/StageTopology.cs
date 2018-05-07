@@ -9,6 +9,8 @@ namespace KPSZI
 {
     class StageTopology : Stage
     {
+        protected override ImageList imageListForTabPage { get; set; }
+
         public StageTopology(TabPage stageTab, TreeNode stageNode, MainForm mainForm, InformationSystem IS)
             : base(stageTab, stageNode, mainForm, IS)
         {

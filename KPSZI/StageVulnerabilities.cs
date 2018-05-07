@@ -12,6 +12,7 @@ namespace KPSZI
     class StageVulnerabilities : Stage
     {
         List<Vulnerability> listVuls;
+        protected override ImageList imageListForTabPage { get; set; }
 
         public StageVulnerabilities(TabPage stageTab, TreeNode stageNode, MainForm mainForm, InformationSystem IS)
             : base(stageTab, stageNode, mainForm, IS)

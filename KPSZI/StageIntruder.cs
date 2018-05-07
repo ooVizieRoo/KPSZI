@@ -14,7 +14,8 @@ namespace KPSZI
         List<ImplementWay> ListImplementWays;
         List<IntruderType> ListIntruderTypes;
         List<ThreatSource> ListSources;
-        
+
+        protected override ImageList imageListForTabPage { get; set; }
 
         public StageIntruder(TabPage stageTab, TreeNode stageNode, MainForm mainForm, InformationSystem IS)
             : base(stageTab, stageNode, mainForm, IS)

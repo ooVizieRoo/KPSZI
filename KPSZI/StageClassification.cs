@@ -11,6 +11,8 @@ namespace KPSZI
 {
     class StageClassification : Stage
     {
+        protected override ImageList imageListForTabPage { get; set; }
+
         public StageClassification(TabPage stageTab, TreeNode stageNode, MainForm mainForm, InformationSystem IS)
             :base(stageTab, stageNode, mainForm, IS)
         {

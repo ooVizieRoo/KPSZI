@@ -21,6 +21,7 @@ namespace KPSZI
         Dictionary<int, int[,,]> damageDegreeInput;
         DamageDegreeControl DDControl;
         bool firstEnter = true;
+        protected override ImageList imageListForTabPage { get; set; }
 
         public StageActualThreats(TabPage stageTab, TreeNode stageNode, MainForm mainForm, InformationSystem IS)
             : base(stageTab, stageNode, mainForm, IS)
@@ -33,19 +34,19 @@ namespace KPSZI
         {
             using (KPSZIContext db = new KPSZIContext())
             {
-                // Инициализация списка угроз
+                //Инициализация списка угроз
                 listThreats = db.Threats.OrderBy(t => t.ThreatNumber).ToList();
-                foreach (Threat threat in listThreats)
-                {
-                    threat.Vulnerabilities = db.Threats.Where(t1 => t1.ThreatNumber == threat.ThreatNumber).First().Vulnerabilities;
-                    threat.SFHs = db.Threats.Where(t2 => t2.ThreatNumber == threat.ThreatNumber).First().SFHs;
-                    threat.ImplementWays = db.Threats.Where(t3 => t3.ThreatNumber == threat.ThreatNumber).First().ImplementWays;
-                    threat.ThreatSources = db.Threats.Where(t4 => t4.ThreatNumber == threat.ThreatNumber).First().ThreatSources;
-                    threat.setStringVulnerabilities();
-                    threat.setStringSFHs();
-                    threat.setStringImplementWays();
-                    threat.setStringSources();
-                }
+                //foreach (Threat threat in listThreats)
+                //{
+                //    threat.Vulnerabilities = db.Threats.Where(t1 => t1.ThreatNumber == threat.ThreatNumber).First().Vulnerabilities;
+                //    threat.SFHs = db.Threats.Where(t2 => t2.ThreatNumber == threat.ThreatNumber).First().SFHs;
+                //    threat.ImplementWays = db.Threats.Where(t3 => t3.ThreatNumber == threat.ThreatNumber).First().ImplementWays;
+                //    threat.ThreatSources = db.Threats.Where(t4 => t4.ThreatNumber == threat.ThreatNumber).First().ThreatSources;
+                //    threat.setStringVulnerabilities();
+                //    threat.setStringSFHs();
+                //    threat.setStringImplementWays();
+                //    threat.setStringSources();
+                //}
                     
                 listVulnerabilities = db.Vulnerabilities.OrderBy(v => v.VulnerabilityNumber).ToList();
                 listSFHs = db.SFHs.OrderBy(s => s.SFHNumber).ToList();

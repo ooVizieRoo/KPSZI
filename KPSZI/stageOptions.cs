@@ -21,6 +21,8 @@ namespace KPSZI
         double[] projectSecuritySumm;
         double[] projectSecurityChecked;
 
+        protected override ImageList imageListForTabPage { get; set; }
+
         public StageOptions (TabPage stageTab, TreeNode stageNode, MainForm mainForm, InformationSystem IS)
             :base(stageTab, stageNode, mainForm, IS)
         {

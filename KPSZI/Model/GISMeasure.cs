@@ -39,15 +39,31 @@ namespace KPSZI.Model
         public int MinimalRequirementDefenceClass { get; set; }
 
         /// <summary>
+        /// Флаг, если ==true, то мера указана только в 21 приказе и только для ИСПДн.
+        /// Если ==false, то мера либо только для ГИС, либо для ГИС+ИСПДн.
+        /// Между приказами 21 и 17 нет ситуаций, при которых аналогичные меры 
+        /// не использовались бы в ГИС, являясь актуальными для ИСПДн.
+        /// 
+        /// </summary>
+        public bool isOnlyISPDn { get; set; }
+        
+        /// <summary>
         /// Навигационное поле - коллекция СЗИ, реализующих меры
         /// </summary>
         public virtual ICollection<SZI> SZIs { get; set; }
+
+        /// <summary>
+        /// Коллекция угроз, которые нейтрализует данная мера [навигационное поле]
+        /// </summary>
+        public virtual ICollection<Threat> Threats { get; set; }
 
         /// <summary>
         /// Конструктор для инициализации коллекции навигационного поля
         /// </summary>
         public GISMeasure()
         {
+            Threats = new List<Threat>();
+            this.isOnlyISPDn = false;
             this.SZIs = new List<SZI>();
         }
     }

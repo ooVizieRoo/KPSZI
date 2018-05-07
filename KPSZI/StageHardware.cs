@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,7 @@ namespace KPSZI
     {
         List<RadioButton> listOfRB;
         Exception rbException = new Exception("");
+        protected override ImageList imageListForTabPage { get; set; }
 
         public StageHardware(TabPage stageTab, TreeNode stageNode, MainForm mainForm, InformationSystem IS)
             : base(stageTab, stageNode, mainForm, IS)
@@ -36,6 +38,23 @@ namespace KPSZI
             mf.btnHWDel.Click += new EventHandler(btnHWDel_Click);
             mf.btnHWEdit.Enabled = false;
             mf.btnHWDel.Enabled = false;
+
+
+            //imageListForTabPage.Images.Add(Image.FromFile(@"res\icons\add.png"));
+            //imageListForTabPage.Images.Add(Image.FromFile(@"res\icons\refresh.png"));
+            //imageListForTabPage.Images.Add(Image.FromFile(@"res\icons\del.png"));
+            mf.btnHWAdd.BackgroundImage = Properties.Resources.add.ToBitmap();
+            //mf.btnHWAdd.BackgroundImage = imageListForTabPage.Images[0];
+            mf.btnHWAdd.BackgroundImageLayout = ImageLayout.Zoom;
+            mf.btnHWAdd.Text = "";
+
+            mf.btnHWEdit.BackgroundImage = Properties.Resources.edit.ToBitmap();
+            mf.btnHWEdit.BackgroundImageLayout = ImageLayout.Zoom;
+            mf.btnHWEdit.Text = "";
+
+            mf.btnHWDel.BackgroundImage = Properties.Resources.del.ToBitmap();
+            mf.btnHWDel.BackgroundImageLayout = ImageLayout.Zoom;
+            mf.btnHWDel.Text = "";
 
             // подпись обработчиков на ComboBox
             mf.cbRAM.SelectedIndexChanged += new EventHandler(cbRAM_SelectedIndexChanged);
@@ -101,6 +120,33 @@ namespace KPSZI
             }
         }
 
+        private void setDGVColumnDesign()
+        {
+            mf.dgvHardware.Columns["UID"].Visible = false;
+            mf.dgvHardware.Columns["accountNumber"].DisplayIndex = 0;
+            mf.dgvHardware.Columns["accountNumber"].HeaderText = "Учетный номер";
+            mf.dgvHardware.Columns["compName"].DisplayIndex = 1;
+            mf.dgvHardware.Columns["compName"].HeaderText = "Имя компьютера";
+            mf.dgvHardware.Columns["OSName"].DisplayIndex = 2;
+            mf.dgvHardware.Columns["OSName"].HeaderText = "ОС";
+            mf.dgvHardware.Columns["CPU"].DisplayIndex = 3;
+            mf.dgvHardware.Columns["CPU"].HeaderText = "Процессор";
+            mf.dgvHardware.Columns["RAM"].DisplayIndex = 4;
+            mf.dgvHardware.Columns["RAM"].HeaderText = "Оперативная память";
+            mf.dgvHardware.Columns["motherBoard"].DisplayIndex = 5;
+            mf.dgvHardware.Columns["motherBoard"].HeaderText = "Мат. плата";
+            mf.dgvHardware.Columns["videoCard"].DisplayIndex = 6;
+            mf.dgvHardware.Columns["videoCard"].HeaderText = "Видеокарта";
+            mf.dgvHardware.Columns["HDD"].DisplayIndex = 7;
+            mf.dgvHardware.Columns["HDD"].HeaderText = "Хранение данных";
+            mf.dgvHardware.Columns["ODD"].DisplayIndex = 8;
+            mf.dgvHardware.Columns["ODD"].HeaderText = "Опт. накопители";
+            mf.dgvHardware.Columns["audioCard"].DisplayIndex = 9;
+            mf.dgvHardware.Columns["audioCard"].HeaderText = "Звуковая карта";
+            mf.dgvHardware.Columns["sPCGroup"].DisplayIndex = 10;
+            mf.dgvHardware.Columns["sPCGroup"].HeaderText = "Группа АРМ";
+        }
+
         #region Обработчики
         /// <summary>
         /// Перехват ввода символов в поле оперативной памяти
@@ -122,8 +168,8 @@ namespace KPSZI
 
             try
             {
-                pc.number = mf.tbPCNumber.Text;
-                pc.userName = mf.tbPCName.Text;
+                pc.accountNumber = mf.tbPCNumber.Text;
+                pc.compName = mf.tbPCName.Text;
                 pc.OSName = mf.cbOS.SelectedItem.ToString();
                 pc.CPU = mf.tbCPU.Text;
                 pc.RAM = mf.cbRAM.SelectedItem.ToString();
@@ -142,15 +188,9 @@ namespace KPSZI
                 pc.ODD = mf.tbODD.Text;
                 pc.audioCard = mf.tbAC.Text;
                 var rb = listOfRB.Where(rbtn => rbtn.Checked).FirstOrDefault();
-
-                switch (rb.Text)
-                {
-                    case "АРМ пользователя": { pc.PCGroup = 0; break; }
-                    case "АРМ системного администратора": { pc.PCGroup = 1; break; }
-                    case "АРМ администратора безопасности": { pc.PCGroup = 2; break; }
-                    case "Сервер": { pc.PCGroup = 3; break; }
-                    default: { throw new Exception("Эксепшон при парсинге gbHW1"); }
-                }
+                if (rb == null)
+                    throw new Exception("Эксепшон при парсинге gbHW1 при добавлении записи!");
+                pc.sPCGroup = rb.Text;
             }
             catch
             {
@@ -170,6 +210,7 @@ namespace KPSZI
 
             mf.dgvHardware.DataSource = null;
             mf.dgvHardware.DataSource = IS.listOfPCs;
+            setDGVColumnDesign();
 
             clearFields();
             mf.dgvHardware.ClearSelection();
@@ -193,8 +234,8 @@ namespace KPSZI
 
             try
             {
-                pc.number = mf.tbPCNumber.Text;
-                pc.userName = mf.tbPCName.Text;
+                pc.accountNumber = mf.tbPCNumber.Text;
+                pc.compName = mf.tbPCName.Text;
                 pc.OSName = mf.cbOS.SelectedItem.ToString();
                 pc.CPU = mf.tbCPU.Text;
                 pc.RAM = mf.cbRAM.SelectedItem.ToString();
@@ -222,14 +263,10 @@ namespace KPSZI
             try
             {
                 var rb = listOfRB.Where(rbtn => rbtn.Checked).FirstOrDefault();
-                switch (rb.Text)
-                {
-                    case "АРМ пользователя": { pc.PCGroup = 0; break; }
-                    case "АРМ системного администратора": { pc.PCGroup = 1; break; }
-                    case "АРМ администратора безопасности": { pc.PCGroup = 2; break; }
-                    case "Сервер": { pc.PCGroup = 3; break; }
-                    default: { throw new Exception("Эксепшон при парсинге gbHW1 при редактировании записи!"); }
-                }
+                if (rb == null)
+                    throw new Exception("Эксепшон при парсинге gbHW1 при редактировании записи!");
+
+                pc.sPCGroup = rb.Text;
             }
             catch (Exception ex)
             {
@@ -239,6 +276,7 @@ namespace KPSZI
 
             mf.dgvHardware.DataSource = null;
             mf.dgvHardware.DataSource = IS.listOfPCs;
+            setDGVColumnDesign();
 
             clearFields();
             mf.dgvHardware.ClearSelection();
@@ -253,7 +291,6 @@ namespace KPSZI
 
             try
             {
-                //pcToDelete = IS.listOfPCs.Where(pc => pc.UID == mf.tbUIDHidden.Text).First();
                 selectedRow = mf.dgvHardware.SelectedRows[0];
                 pcToDelete = IS.listOfPCs.Where(pc => pc.UID == (string)selectedRow.Cells["UID"].Value).First();
             }
@@ -275,6 +312,7 @@ namespace KPSZI
 
             mf.dgvHardware.DataSource = null;
             mf.dgvHardware.DataSource = IS.listOfPCs;
+            setDGVColumnDesign();
 
             clearFields();
             mf.dgvHardware.ClearSelection();
@@ -329,8 +367,8 @@ namespace KPSZI
                 return;
             }
 
-            mf.tbPCNumber.Text = selectedPC.number;
-            mf.tbPCName.Text = selectedPC.userName;
+            mf.tbPCNumber.Text = selectedPC.accountNumber;
+            mf.tbPCName.Text = selectedPC.compName;
             mf.tbCPU.Text = selectedPC.CPU;
             mf.tbMB.Text = selectedPC.motherBoard;
             mf.tbVC.Text = selectedPC.videoCard;
@@ -360,14 +398,8 @@ namespace KPSZI
 
             try
             {
-                switch (selectedPC.PCGroup)
-                {
-                    case 0: { mf.rbIsUserPC.Checked = true; break; }
-                    case 1: { mf.rbIsSysAdminPC.Checked = true; break; }
-                    case 2: { mf.rbIsSecAdminPC.Checked = true; break; }
-                    case 3: { mf.rbIsServerPC.Checked = true; break; }
-                    default: { throw new Exception(); }
-                }
+                var rb = listOfRB.Where(r => r.Text == selectedPC.sPCGroup).First();
+                rb.Checked = true;
             }
             catch
             {
@@ -402,6 +434,5 @@ namespace KPSZI
             mf.btnHWDel.Enabled = false;
         }
         #endregion
-
     }
 }

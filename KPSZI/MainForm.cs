@@ -25,10 +25,7 @@ namespace KPSZI
         
         public void startSplash()
         {
-            if (File.Exists("res/icons/Shield.png"))
-            {
                 Application.Run(new splashForm());
-            }
         }
 
         public MainForm()
@@ -50,6 +47,7 @@ namespace KPSZI
             stages.Add("tnVulnerabilities", new StageVulnerabilities(returnTabPage("tpVulnerabilities"), returnTreeNode("tnVulnerabilities"), this, IS));
             stages.Add("tnTCUI", new StageTCUI(returnTabPage("tpTCUI"), returnTreeNode("tnTCUI"), this, IS));
             stages.Add("tnTechnoGenThreats", new stageTechnoGenThreats(returnTabPage("tpTechnoGenThreats"), returnTreeNode("tnTechnoGenThreats"), this, IS));
+            stages.Add("tnSKZI", new StageSKZI(returnTabPage("tpSKZI"), returnTreeNode("tnSKZI"), this, IS));
 
             //returnTreeNode("tnActualThreats").ForeColor = Color.Gray;
             //returnTreeNode("tnActualThreats").BackColor = Color.White;
@@ -62,6 +60,7 @@ namespace KPSZI
             iconList.Images.Add(Image.FromFile(@"res\icons\document-settings-icon.png"));
             iconList.Images.Add(Image.FromFile(@"res\icons\left-arrow-icon.png"));
             iconList.Images.Add(Image.FromFile(@"res\icons\right-arrow-icon.png"));
+            
             treeView.ImageList = iconList;
 
             // развернуть дерево

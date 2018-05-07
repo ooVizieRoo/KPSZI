@@ -23,6 +23,7 @@ namespace KPSZI
         Label labAddResource;
         Button addResource;
         Form dialogForm;
+        protected override ImageList imageListForTabPage { get; set; }
 
         public StageAccessMatrix(TabPage stageTab, TreeNode stageNode, MainForm mainForm, InformationSystem IS)
             : base(stageTab, stageNode, mainForm, IS)
