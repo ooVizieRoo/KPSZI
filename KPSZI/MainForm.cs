@@ -47,6 +47,7 @@ namespace KPSZI
             stages.Add("tnVulnerabilities", new StageVulnerabilities(returnTabPage("tpVulnerabilities"), returnTreeNode("tnVulnerabilities"), this, IS));
             stages.Add("tnTCUI", new StageTCUI(returnTabPage("tpTCUI"), returnTreeNode("tnTCUI"), this, IS));
             stages.Add("tnTechnoGenThreats", new stageTechnoGenThreats(returnTabPage("tpTechnoGenThreats"), returnTreeNode("tnTechnoGenThreats"), this, IS));
+            stages.Add("tnSKZI", new StageSKZI(returnTabPage("tpSKZI"), returnTreeNode("tnSKZI"), this, IS));
 
             //returnTreeNode("tnActualThreats").ForeColor = Color.Gray;
             //returnTreeNode("tnActualThreats").BackColor = Color.White;
@@ -315,6 +316,12 @@ namespace KPSZI
         protected override void OnKeyPress(KeyPressEventArgs e)
         {
             base.OnKeyPress(e);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int h = dgvSKZIAttackAbils.Rows.GetRowsHeight(DataGridViewElementStates.Visible);
+            dgvSKZIAttackAbils.Height = h + dgvSKZIAttackAbils.ColumnHeadersHeight;
         }
     }
 }

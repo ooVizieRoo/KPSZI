@@ -162,7 +162,17 @@ namespace KPSZI
                     damages = false;
             mf.lbTGInfo2.Visible = damages;
             mf.lbTGInfo.Visible = !damages;
+            SetHeightOfDGV();
+        }
 
+        public void SetHeightOfDGV()
+        {
+            foreach (DataGridViewRow dgvr in mf.dgvActualTGThreats.Rows)
+            {
+                int index = dgvr.Index;
+                int d = mf.dgvActualTGThreats.Rows[index].GetPreferredHeight(index, DataGridViewAutoSizeRowMode.AllCells, true);
+                dgvr.Height = d;
+            }
             mf.dgvActualTGThreats.Height = mf.dgvActualTGThreats.Rows.GetRowsHeight(DataGridViewElementStates.Visible) + mf.dgvActualTGThreats.ColumnHeadersHeight;
         }
     }
