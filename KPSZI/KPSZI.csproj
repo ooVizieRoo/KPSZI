@@ -237,6 +237,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="splashForm.resx">
       <DependentUpon>splashForm.cs</DependentUpon>
@@ -262,12 +263,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="res\icons\add.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="res\icons\del.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <None Include="Resources\add.ico" />
+    <None Include="Resources\del.ico" />
+    <None Include="Resources\edit.ico" />
     <Content Include="res\icons\document-settings-icon.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -278,9 +276,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="res\icons\mf.ico">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="res\icons\refresh.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="res\icons\right-arrow-icon.png">
