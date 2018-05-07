@@ -5,13 +5,28 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{878B353E-0106-448F-8AA0-ECDFE7F1F498}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>KPSZI</RootNamespace>
     <AssemblyName>KPSZI</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -70,40 +85,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DamageDegreeControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DamageDegreeControl.Designer.cs">
+      <DependentUpon>DamageDegreeControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DrawingArea.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DrawingArea.Designer.cs">
+      <DependentUpon>DrawingArea.cs</DependentUpon>
+    </Compile>
     <Compile Include="IntruderAbilityControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="IntruderAbilityControl.Designer.cs">
       <DependentUpon>IntruderAbilityControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201804170507218_123.cs" />
-    <Compile Include="Migrations\201804170507218_123.Designer.cs">
-      <DependentUpon>201804170507218_123.cs</DependentUpon>
+    <Compile Include="Migrations\201805070557453_new.cs" />
+    <Compile Include="Migrations\201805070557453_new.Designer.cs">
+      <DependentUpon>201805070557453_new.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201804200538481_sfhaddedtothreats.cs" />
-    <Compile Include="Migrations\201804200538481_sfhaddedtothreats.Designer.cs">
-      <DependentUpon>201804200538481_sfhaddedtothreats.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201804200716025_some.cs" />
-    <Compile Include="Migrations\201804200716025_some.Designer.cs">
-      <DependentUpon>201804200716025_some.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201804200723071_some2.cs" />
-    <Compile Include="Migrations\201804200723071_some2.Designer.cs">
-      <DependentUpon>201804200723071_some2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201804200913385_ThreatsDone.cs" />
-    <Compile Include="Migrations\201804200913385_ThreatsDone.Designer.cs">
-      <DependentUpon>201804200913385_ThreatsDone.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201804270341358_intruderChanged.cs" />
-    <Compile Include="Migrations\201804270341358_intruderChanged.Designer.cs">
-      <DependentUpon>201804270341358_intruderChanged.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805040358010_addCollectionsToMeasuresAndThreats.cs" />
-    <Compile Include="Migrations\201805040358010_addCollectionsToMeasuresAndThreats.Designer.cs">
-      <DependentUpon>201805040358010_addCollectionsToMeasuresAndThreats.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\ImplementWays.cs" />
     <Compile Include="Model\Vulnerability.cs" />
     <Compile Include="splashForm.cs">
@@ -123,15 +127,6 @@
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Migrations\201804060829317_dbInit.cs" />
-    <Compile Include="Migrations\201804060829317_dbInit.Designer.cs">
-      <DependentUpon>201804060829317_dbInit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201804090354542_add-to-SFHType-korolev.cs" />
-    <Compile Include="Migrations\201804090354542_add-to-SFHType-korolev.Designer.cs">
-      <DependentUpon>201804090354542_add-to-SFHType-korolev.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\GISClassification.cs" />
     <Compile Include="Model\GISMeasure.cs" />
     <Compile Include="MainForm.Designer.cs">
@@ -162,11 +157,15 @@
     <Compile Include="StageIntruder.cs" />
     <Compile Include="StageOptions.cs" />
     <Compile Include="StageHardware.cs" />
+    <Compile Include="StageSKZI.cs" />
     <Compile Include="StageTCUI.cs" />
     <Compile Include="StageTechno.cs" />
     <Compile Include="stageTechnoGenThreats.cs" />
     <Compile Include="StageTopology.cs" />
     <Compile Include="StageVulnerabilities.cs" />
+    <EmbeddedResource Include="DamageDegreeControl.resx">
+      <DependentUpon>DamageDegreeControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="IntruderAbilityControl.resx">
       <DependentUpon>IntruderAbilityControl.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -179,39 +178,8 @@
       <DependentUpon>Form1.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804060829317_dbInit.resx">
-      <DependentUpon>201804060829317_dbInit.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804090354542_add-to-SFHType-korolev.resx">
-      <DependentUpon>201804090354542_add-to-SFHType-korolev.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804170507218_123.resx">
-      <DependentUpon>201804170507218_123.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804200538481_sfhaddedtothreats.resx">
-      <DependentUpon>201804200538481_sfhaddedtothreats.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804200716025_some.resx">
-      <DependentUpon>201804200716025_some.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804200723071_some2.resx">
-      <DependentUpon>201804200723071_some2.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804200913385_ThreatsDone.resx">
-      <DependentUpon>201804200913385_ThreatsDone.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804270341358_intruderChanged.resx">
-      <DependentUpon>201804270341358_intruderChanged.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805040358010_addCollectionsToMeasuresAndThreats.resx">
-      <DependentUpon>201805040358010_addCollectionsToMeasuresAndThreats.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201805070557453_new.resx">
+      <DependentUpon>201805070557453_new.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -269,7 +237,18 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

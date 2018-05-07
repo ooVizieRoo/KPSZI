@@ -47,6 +47,7 @@ namespace KPSZI
             stages.Add("tnVulnerabilities", new StageVulnerabilities(returnTabPage("tpVulnerabilities"), returnTreeNode("tnVulnerabilities"), this, IS));
             stages.Add("tnTCUI", new StageTCUI(returnTabPage("tpTCUI"), returnTreeNode("tnTCUI"), this, IS));
             stages.Add("tnTechnoGenThreats", new stageTechnoGenThreats(returnTabPage("tpTechnoGenThreats"), returnTreeNode("tnTechnoGenThreats"), this, IS));
+            stages.Add("tnSKZI", new StageSKZI(returnTabPage("tpSKZI"), returnTreeNode("tnSKZI"), this, IS));
 
             //returnTreeNode("tnActualThreats").ForeColor = Color.Gray;
             //returnTreeNode("tnActualThreats").BackColor = Color.White;
@@ -65,13 +66,6 @@ namespace KPSZI
             // развернуть дерево
             treeView.ExpandAll();
 
-            btPrevStage.ImageList = iconList;
-            btPrevStage.ImageIndex = 2;
-            btPrevStage.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btNextStage.ImageList = iconList;
-            btNextStage.ImageIndex = 3;
-            btNextStage.TextImageRelation = TextImageRelation.TextBeforeImage;
-            
             foreach(TabPage tab in tabControl.TabPages)
                 tab.AutoScroll = true;
 
@@ -84,12 +78,12 @@ namespace KPSZI
         }
 
         // возвращает ссылку на TabPage по имени вкладки
-        private TabPage returnTabPage(string tpName)
+        public TabPage returnTabPage(string tpName)
         {
             return tabControl.TabPages[tabControl.TabPages.IndexOfKey(tpName)];
         }
         // возвращает ссылку на TreeNode по имени пункта дерева
-        private TreeNode returnTreeNode(string tnName)
+        public TreeNode returnTreeNode(string tnName)
         {
             return treeView.Nodes.Find(tnName, true)[0];
         }
@@ -316,5 +310,6 @@ namespace KPSZI
         {
             base.OnKeyPress(e);
         }
+
     }
 }

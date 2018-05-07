@@ -123,9 +123,16 @@ namespace KPSZI
         public void enterTabPageThreatsList(object sender, EventArgs e)
         {
             mf.dgvActualTCUIThreats.Rows.Clear();
+            
+            ThreatSource ts =new ThreatSource { Potencial = getMaxIntrPot(IS.listOfSources) };
 
-            //вместо ts нужен определенный потенциал нарушителя
-            ThreatSource ts = new ThreatSource { Potencial = 0 };
+            if(ts.Potencial==-1)
+            {
+                MessageBox.Show("Перед определением актуальных угроз утечки информации по техническим каналам выберите нарушителя в соответствующей вкладке.");
+                mf.tabControl.TabPages.Clear();
+                mf.tabControl.TabPages.Add(mf.tpIntruder);
+                return;
+            }
 
             List<TCUIThreat> actualTCUIThreats = new List<TCUIThreat>();
             foreach (IntruderAbilityControl iac in controlsIAC)
@@ -176,6 +183,22 @@ namespace KPSZI
                 dgvr.Height = d;
             }
             mf.dgvActualTCUIThreats.Height = mf.dgvActualTCUIThreats.Rows.GetRowsHeight(DataGridViewElementStates.Visible) + mf.dgvActualTCUIThreats.ColumnHeadersHeight;
+        }
+
+        public int getMaxIntrPot(List<ThreatSource> list)
+        {
+            int max = -1;
+            if (list.Count != 0)
+            {
+                foreach (ThreatSource ts in list)
+                {
+                    if (ts.Potencial > max && ts.Potencial != 3)
+                        max = ts.Potencial;
+                }
+                return max;
+            }
+            else
+                return -1;
         }
     }
 }
