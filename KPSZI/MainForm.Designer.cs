@@ -55,16 +55,19 @@
             treeNode25,
             treeNode26,
             treeNode27});
-            System.Windows.Forms.DataGridViewCellStyle dgvCellStyleVuls = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dgvCellStyleThreats = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dgvCellStyleThreats2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dgvCellStyleTCUIThreats1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dgvCellStyleTGThreats1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dgvCellStyleTCUIThreats2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dgvCellStyleTGMeasures = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dgvCellStyleTGThreats2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataGridViewCellStyle dgvCellStyleSKZIAttackAbils = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.projectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -161,26 +164,42 @@
             this.tpTCUI = new System.Windows.Forms.TabPage();
             this.tabControlTCUI = new System.Windows.Forms.TabControl();
             this.tabPageTCUIExist = new System.Windows.Forms.TabPage();
+            this.cbATS = new System.Windows.Forms.CheckBox();
+            this.cbNablyud = new System.Windows.Forms.CheckBox();
+            this.cbOtherBuilding = new System.Windows.Forms.CheckBox();
+            this.cbApparZakladSyom = new System.Windows.Forms.CheckBox();
+            this.cbProsachZazem = new System.Windows.Forms.CheckBox();
+            this.cbProsachSignVOTSS = new System.Windows.Forms.CheckBox();
+            this.cbEMINavod = new System.Windows.Forms.CheckBox();
+            this.cbEMILowFreq = new System.Windows.Forms.CheckBox();
+            this.cbEMIHighFreq = new System.Windows.Forms.CheckBox();
+            this.cbPEMINorm = new System.Windows.Forms.CheckBox();
+            this.cbVoiceDefense = new System.Windows.Forms.CheckBox();
+            this.cbTransformer = new System.Windows.Forms.CheckBox();
+            this.cbCommunOnePlace = new System.Windows.Forms.CheckBox();
+            this.cbZazem = new System.Windows.Forms.CheckBox();
+            this.cbLumenSvet = new System.Windows.Forms.CheckBox();
+            this.cbMicroPotolok = new System.Windows.Forms.CheckBox();
+            this.cbVTSS = new System.Windows.Forms.CheckBox();
+            this.cbTSPI = new System.Windows.Forms.CheckBox();
+            this.lbTCUIInfo2 = new System.Windows.Forms.Label();
             this.gbProjectDefence = new System.Windows.Forms.GroupBox();
             this.rbHighLevelPD = new System.Windows.Forms.RadioButton();
             this.rbMiddleLevelPD = new System.Windows.Forms.RadioButton();
             this.rbLowLevelPD = new System.Windows.Forms.RadioButton();
-            this.cbInducPereh = new System.Windows.Forms.CheckBox();
-            this.cbElPereh = new System.Windows.Forms.CheckBox();
-            this.cbEMIPereh = new System.Windows.Forms.CheckBox();
-            this.cbParamPEMIN = new System.Windows.Forms.CheckBox();
-            this.cbElPEMIN = new System.Windows.Forms.CheckBox();
-            this.cbEMPEMIN = new System.Windows.Forms.CheckBox();
-            this.cbParamVoice = new System.Windows.Forms.CheckBox();
-            this.cbOptElVoice = new System.Windows.Forms.CheckBox();
-            this.cbAqElVoice = new System.Windows.Forms.CheckBox();
-            this.cbVibroVoice = new System.Windows.Forms.CheckBox();
-            this.cbAirVoice = new System.Windows.Forms.CheckBox();
-            this.cbVidovie = new System.Windows.Forms.CheckBox();
-            this.labelSVYAZTCUIType = new System.Windows.Forms.Label();
-            this.labelPEMINTCUIType = new System.Windows.Forms.Label();
-            this.labelAqoostTCUIType = new System.Windows.Forms.Label();
-            this.labelViewTCUIType = new System.Windows.Forms.Label();
+            this.cbLinesSvyaz = new System.Windows.Forms.CheckBox();
+            this.cbPhoneOutside = new System.Windows.Forms.CheckBox();
+            this.cbVoiceSvyaz = new System.Windows.Forms.CheckBox();
+            this.cbClock = new System.Windows.Forms.CheckBox();
+            this.cbKabeliKZ = new System.Windows.Forms.CheckBox();
+            this.cbRadioZakladki = new System.Windows.Forms.CheckBox();
+            this.cbWindows = new System.Windows.Forms.CheckBox();
+            this.cbScheli = new System.Windows.Forms.CheckBox();
+            this.cbBytTech = new System.Windows.Forms.CheckBox();
+            this.cbOhrPozh = new System.Windows.Forms.CheckBox();
+            this.cbRadio = new System.Windows.Forms.CheckBox();
+            this.cbTruby = new System.Windows.Forms.CheckBox();
+            this.lbOpros = new System.Windows.Forms.Label();
             this.tabPageIntrAbil = new System.Windows.Forms.TabPage();
             this.lbAvilitiesInfo = new System.Windows.Forms.Label();
             this.tabPageListOfTCUIThreats = new System.Windows.Forms.TabPage();
@@ -212,8 +231,12 @@
             this.lbSKZIPered = new System.Windows.Forms.Label();
             this.tpSKZI2 = new System.Windows.Forms.TabPage();
             this.dgvSKZIAttackAbils = new System.Windows.Forms.DataGridView();
+            this.numberSKZIcolumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnAbils = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnYesNoAbils = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.PotencialColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tpSKZI3 = new System.Windows.Forms.TabPage();
+            this.dgvSKZIUtochnAbils = new System.Windows.Forms.DataGridView();
             this.tabPage11 = new System.Windows.Forms.TabPage();
             this.tabPage12 = new System.Windows.Forms.TabPage();
             this.tabPage13 = new System.Windows.Forms.TabPage();
@@ -228,6 +251,11 @@
             this.labelAvailability = new System.Windows.Forms.Label();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.iconList = new System.Windows.Forms.ImageList(this.components);
+            this.numberSKZIcolumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.utochnAbilsSKKZIcolumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.actualitySKZIColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.otsutstObosnSKZIcolumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lbCountSKZIThreats = new System.Windows.Forms.Label();
             this.menuStrip.SuspendLayout();
             this.tpOptions.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -264,6 +292,8 @@
             this.tpSKZI1.SuspendLayout();
             this.tpSKZI2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSKZIAttackAbils)).BeginInit();
+            this.tpSKZI3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSKZIUtochnAbils)).BeginInit();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -322,7 +352,7 @@
             this.rewriteThreatsDBToolStripMenuItem,
             this.refreshThreatDBToolStripMenuItem});
             this.threatToolStripMenuItem.Name = "threatToolStripMenuItem";
-            this.threatToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.threatToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.threatToolStripMenuItem.Text = "Угрозы";
             // 
             // downloadThreatListthrlistxlsxToolStripMenuItem
@@ -352,7 +382,7 @@
             this.initDBToolStripMenuItem,
             this.clearAllTablesToolStripMenuItem});
             this.dataBaseToolStripMenuItem.Name = "dataBaseToolStripMenuItem";
-            this.dataBaseToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.dataBaseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.dataBaseToolStripMenuItem.Text = "База данных";
             // 
             // initDBToolStripMenuItem
@@ -425,7 +455,7 @@
             this.tpOptions.Margin = new System.Windows.Forms.Padding(0);
             this.tpOptions.Name = "tpOptions";
             this.tpOptions.Padding = new System.Windows.Forms.Padding(3);
-            this.tpOptions.Size = new System.Drawing.Size(962, 490);
+            this.tpOptions.Size = new System.Drawing.Size(976, 490);
             this.tpOptions.TabIndex = 0;
             this.tpOptions.Text = "tpOptions";
             this.tpOptions.UseVisualStyleBackColor = true;
@@ -514,12 +544,12 @@
             this.tabControl.Controls.Add(this.tabPage15);
             this.tabControl.Controls.Add(this.tabPage16);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl.Location = new System.Drawing.Point(270, 24);
+            this.tabControl.Location = new System.Drawing.Point(256, 24);
             this.tabControl.Margin = new System.Windows.Forms.Padding(0);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
             this.tabControl.ShowToolTips = true;
-            this.tabControl.Size = new System.Drawing.Size(970, 516);
+            this.tabControl.Size = new System.Drawing.Size(984, 516);
             this.tabControl.TabIndex = 4;
             // 
             // tpClassification
@@ -533,7 +563,7 @@
             this.tpClassification.Location = new System.Drawing.Point(4, 22);
             this.tpClassification.Name = "tpClassification";
             this.tpClassification.Padding = new System.Windows.Forms.Padding(3);
-            this.tpClassification.Size = new System.Drawing.Size(962, 490);
+            this.tpClassification.Size = new System.Drawing.Size(976, 490);
             this.tpClassification.TabIndex = 1;
             this.tpClassification.Text = "tpClassification";
             this.tpClassification.UseVisualStyleBackColor = true;
@@ -700,7 +730,7 @@
             this.tpAccessMatrix.Location = new System.Drawing.Point(4, 22);
             this.tpAccessMatrix.Name = "tpAccessMatrix";
             this.tpAccessMatrix.Padding = new System.Windows.Forms.Padding(3);
-            this.tpAccessMatrix.Size = new System.Drawing.Size(962, 490);
+            this.tpAccessMatrix.Size = new System.Drawing.Size(976, 490);
             this.tpAccessMatrix.TabIndex = 2;
             this.tpAccessMatrix.Text = "tpAccessMatrix";
             this.tpAccessMatrix.UseVisualStyleBackColor = true;
@@ -710,7 +740,7 @@
             this.tpTopology.Location = new System.Drawing.Point(4, 22);
             this.tpTopology.Name = "tpTopology";
             this.tpTopology.Padding = new System.Windows.Forms.Padding(3);
-            this.tpTopology.Size = new System.Drawing.Size(962, 490);
+            this.tpTopology.Size = new System.Drawing.Size(976, 490);
             this.tpTopology.TabIndex = 3;
             this.tpTopology.Text = "tpTopology";
             this.tpTopology.UseVisualStyleBackColor = true;
@@ -749,7 +779,7 @@
             this.tpHardware.Location = new System.Drawing.Point(4, 22);
             this.tpHardware.Name = "tpHardware";
             this.tpHardware.Padding = new System.Windows.Forms.Padding(3);
-            this.tpHardware.Size = new System.Drawing.Size(962, 490);
+            this.tpHardware.Size = new System.Drawing.Size(976, 490);
             this.tpHardware.TabIndex = 5;
             this.tpHardware.Text = "tpHardware";
             this.tpHardware.UseVisualStyleBackColor = true;
@@ -1110,7 +1140,7 @@
             this.tpIntruder.Location = new System.Drawing.Point(4, 22);
             this.tpIntruder.Name = "tpIntruder";
             this.tpIntruder.Padding = new System.Windows.Forms.Padding(3);
-            this.tpIntruder.Size = new System.Drawing.Size(962, 490);
+            this.tpIntruder.Size = new System.Drawing.Size(976, 490);
             this.tpIntruder.TabIndex = 4;
             this.tpIntruder.Text = "tpIntruder";
             this.tpIntruder.UseVisualStyleBackColor = true;
@@ -1163,7 +1193,7 @@
             this.tpVulnerabilities.Location = new System.Drawing.Point(4, 22);
             this.tpVulnerabilities.Name = "tpVulnerabilities";
             this.tpVulnerabilities.Padding = new System.Windows.Forms.Padding(3);
-            this.tpVulnerabilities.Size = new System.Drawing.Size(962, 490);
+            this.tpVulnerabilities.Size = new System.Drawing.Size(976, 490);
             this.tpVulnerabilities.TabIndex = 6;
             this.tpVulnerabilities.Text = "tpVulnerabilities";
             this.tpVulnerabilities.UseVisualStyleBackColor = true;
@@ -1179,15 +1209,15 @@
             this.dgvVulnerabilities.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvVulnerabilities.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CheckVulnerability});
-            dgvCellStyleVuls.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dgvCellStyleVuls.BackColor = System.Drawing.SystemColors.Window;
-            dgvCellStyleVuls.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dgvCellStyleVuls.ForeColor = System.Drawing.SystemColors.ControlText;
-            dgvCellStyleVuls.Padding = new System.Windows.Forms.Padding(5);
-            dgvCellStyleVuls.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dgvCellStyleVuls.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dgvCellStyleVuls.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvVulnerabilities.DefaultCellStyle = dgvCellStyleVuls;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle15.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvVulnerabilities.DefaultCellStyle = dataGridViewCellStyle15;
             this.dgvVulnerabilities.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvVulnerabilities.Location = new System.Drawing.Point(3, 3);
             this.dgvVulnerabilities.MinimumSize = new System.Drawing.Size(500, 0);
@@ -1196,7 +1226,7 @@
             this.dgvVulnerabilities.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dgvVulnerabilities.ShowCellToolTips = false;
             this.dgvVulnerabilities.ShowEditingIcon = false;
-            this.dgvVulnerabilities.Size = new System.Drawing.Size(956, 484);
+            this.dgvVulnerabilities.Size = new System.Drawing.Size(970, 484);
             this.dgvVulnerabilities.TabIndex = 0;
             // 
             // CheckVulnerability
@@ -1212,7 +1242,7 @@
             this.tpActualThreats.Location = new System.Drawing.Point(4, 22);
             this.tpActualThreats.Name = "tpActualThreats";
             this.tpActualThreats.Padding = new System.Windows.Forms.Padding(3);
-            this.tpActualThreats.Size = new System.Drawing.Size(962, 490);
+            this.tpActualThreats.Size = new System.Drawing.Size(976, 490);
             this.tpActualThreats.TabIndex = 5;
             this.tpActualThreats.Text = "tpActualThreats";
             this.tpActualThreats.UseVisualStyleBackColor = true;
@@ -1225,7 +1255,7 @@
             this.tcThreatsNSD.Location = new System.Drawing.Point(3, 3);
             this.tcThreatsNSD.Name = "tcThreatsNSD";
             this.tcThreatsNSD.SelectedIndex = 0;
-            this.tcThreatsNSD.Size = new System.Drawing.Size(956, 484);
+            this.tcThreatsNSD.Size = new System.Drawing.Size(970, 484);
             this.tcThreatsNSD.TabIndex = 4;
             // 
             // tpThreatsNSD1
@@ -1239,7 +1269,7 @@
             this.tpThreatsNSD1.Location = new System.Drawing.Point(4, 22);
             this.tpThreatsNSD1.Name = "tpThreatsNSD1";
             this.tpThreatsNSD1.Padding = new System.Windows.Forms.Padding(3);
-            this.tpThreatsNSD1.Size = new System.Drawing.Size(948, 458);
+            this.tpThreatsNSD1.Size = new System.Drawing.Size(962, 458);
             this.tpThreatsNSD1.TabIndex = 0;
             this.tpThreatsNSD1.Text = "Итоговый перечень УБИ";
             this.tpThreatsNSD1.UseVisualStyleBackColor = true;
@@ -1293,7 +1323,7 @@
             this.tbThreatDescription.Multiline = true;
             this.tbThreatDescription.Name = "tbThreatDescription";
             this.tbThreatDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tbThreatDescription.Size = new System.Drawing.Size(668, 80);
+            this.tbThreatDescription.Size = new System.Drawing.Size(682, 80);
             this.tbThreatDescription.TabIndex = 2;
             this.tbThreatDescription.Text = "Выберите угрозу для просмотра описания...";
             // 
@@ -1303,24 +1333,24 @@
             this.dgvThreats.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dgvThreats.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvThreats.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dgvCellStyleThreats.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dgvCellStyleThreats.BackColor = System.Drawing.SystemColors.Control;
-            dgvCellStyleThreats.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dgvCellStyleThreats.ForeColor = System.Drawing.SystemColors.WindowText;
-            dgvCellStyleThreats.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dgvCellStyleThreats.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dgvCellStyleThreats.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvThreats.ColumnHeadersDefaultCellStyle = dgvCellStyleThreats;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvThreats.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
             this.dgvThreats.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvCellStyleThreats2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dgvCellStyleThreats2.BackColor = System.Drawing.SystemColors.Window;
-            dgvCellStyleThreats2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dgvCellStyleThreats2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dgvCellStyleThreats2.Padding = new System.Windows.Forms.Padding(5);
-            dgvCellStyleThreats2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dgvCellStyleThreats2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dgvCellStyleThreats2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvThreats.DefaultCellStyle = dgvCellStyleThreats2;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle17.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvThreats.DefaultCellStyle = dataGridViewCellStyle17;
             this.dgvThreats.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvThreats.EnableHeadersVisualStyles = false;
             this.dgvThreats.Location = new System.Drawing.Point(3, 122);
@@ -1329,7 +1359,7 @@
             this.dgvThreats.ReadOnly = true;
             this.dgvThreats.RowHeadersVisible = false;
             this.dgvThreats.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvThreats.Size = new System.Drawing.Size(942, 333);
+            this.dgvThreats.Size = new System.Drawing.Size(956, 333);
             this.dgvThreats.TabIndex = 0;
             // 
             // tpThreatsNSD2
@@ -1339,7 +1369,7 @@
             this.tpThreatsNSD2.Location = new System.Drawing.Point(4, 22);
             this.tpThreatsNSD2.Name = "tpThreatsNSD2";
             this.tpThreatsNSD2.Padding = new System.Windows.Forms.Padding(3);
-            this.tpThreatsNSD2.Size = new System.Drawing.Size(948, 458);
+            this.tpThreatsNSD2.Size = new System.Drawing.Size(962, 458);
             this.tpThreatsNSD2.TabIndex = 1;
             this.tpThreatsNSD2.Text = "Определение актуальных УБИ";
             this.tpThreatsNSD2.UseVisualStyleBackColor = true;
@@ -1369,7 +1399,7 @@
             this.tpTCUI.Location = new System.Drawing.Point(4, 22);
             this.tpTCUI.Name = "tpTCUI";
             this.tpTCUI.Padding = new System.Windows.Forms.Padding(3);
-            this.tpTCUI.Size = new System.Drawing.Size(962, 490);
+            this.tpTCUI.Size = new System.Drawing.Size(976, 490);
             this.tpTCUI.TabIndex = 7;
             this.tpTCUI.Text = "tpTCUI";
             this.tpTCUI.UseVisualStyleBackColor = true;
@@ -1387,23 +1417,40 @@
             // 
             // tabPageTCUIExist
             // 
+            this.tabPageTCUIExist.AutoScroll = true;
+            this.tabPageTCUIExist.Controls.Add(this.cbATS);
+            this.tabPageTCUIExist.Controls.Add(this.cbNablyud);
+            this.tabPageTCUIExist.Controls.Add(this.cbOtherBuilding);
+            this.tabPageTCUIExist.Controls.Add(this.cbApparZakladSyom);
+            this.tabPageTCUIExist.Controls.Add(this.cbProsachZazem);
+            this.tabPageTCUIExist.Controls.Add(this.cbProsachSignVOTSS);
+            this.tabPageTCUIExist.Controls.Add(this.cbEMINavod);
+            this.tabPageTCUIExist.Controls.Add(this.cbEMILowFreq);
+            this.tabPageTCUIExist.Controls.Add(this.cbEMIHighFreq);
+            this.tabPageTCUIExist.Controls.Add(this.cbPEMINorm);
+            this.tabPageTCUIExist.Controls.Add(this.cbVoiceDefense);
+            this.tabPageTCUIExist.Controls.Add(this.cbTransformer);
+            this.tabPageTCUIExist.Controls.Add(this.cbCommunOnePlace);
+            this.tabPageTCUIExist.Controls.Add(this.cbZazem);
+            this.tabPageTCUIExist.Controls.Add(this.cbLumenSvet);
+            this.tabPageTCUIExist.Controls.Add(this.cbMicroPotolok);
+            this.tabPageTCUIExist.Controls.Add(this.cbVTSS);
+            this.tabPageTCUIExist.Controls.Add(this.cbTSPI);
+            this.tabPageTCUIExist.Controls.Add(this.lbTCUIInfo2);
             this.tabPageTCUIExist.Controls.Add(this.gbProjectDefence);
-            this.tabPageTCUIExist.Controls.Add(this.cbInducPereh);
-            this.tabPageTCUIExist.Controls.Add(this.cbElPereh);
-            this.tabPageTCUIExist.Controls.Add(this.cbEMIPereh);
-            this.tabPageTCUIExist.Controls.Add(this.cbParamPEMIN);
-            this.tabPageTCUIExist.Controls.Add(this.cbElPEMIN);
-            this.tabPageTCUIExist.Controls.Add(this.cbEMPEMIN);
-            this.tabPageTCUIExist.Controls.Add(this.cbParamVoice);
-            this.tabPageTCUIExist.Controls.Add(this.cbOptElVoice);
-            this.tabPageTCUIExist.Controls.Add(this.cbAqElVoice);
-            this.tabPageTCUIExist.Controls.Add(this.cbVibroVoice);
-            this.tabPageTCUIExist.Controls.Add(this.cbAirVoice);
-            this.tabPageTCUIExist.Controls.Add(this.cbVidovie);
-            this.tabPageTCUIExist.Controls.Add(this.labelSVYAZTCUIType);
-            this.tabPageTCUIExist.Controls.Add(this.labelPEMINTCUIType);
-            this.tabPageTCUIExist.Controls.Add(this.labelAqoostTCUIType);
-            this.tabPageTCUIExist.Controls.Add(this.labelViewTCUIType);
+            this.tabPageTCUIExist.Controls.Add(this.cbLinesSvyaz);
+            this.tabPageTCUIExist.Controls.Add(this.cbPhoneOutside);
+            this.tabPageTCUIExist.Controls.Add(this.cbVoiceSvyaz);
+            this.tabPageTCUIExist.Controls.Add(this.cbClock);
+            this.tabPageTCUIExist.Controls.Add(this.cbKabeliKZ);
+            this.tabPageTCUIExist.Controls.Add(this.cbRadioZakladki);
+            this.tabPageTCUIExist.Controls.Add(this.cbWindows);
+            this.tabPageTCUIExist.Controls.Add(this.cbScheli);
+            this.tabPageTCUIExist.Controls.Add(this.cbBytTech);
+            this.tabPageTCUIExist.Controls.Add(this.cbOhrPozh);
+            this.tabPageTCUIExist.Controls.Add(this.cbRadio);
+            this.tabPageTCUIExist.Controls.Add(this.cbTruby);
+            this.tabPageTCUIExist.Controls.Add(this.lbOpros);
             this.tabPageTCUIExist.Location = new System.Drawing.Point(4, 22);
             this.tabPageTCUIExist.Name = "tabPageTCUIExist";
             this.tabPageTCUIExist.Padding = new System.Windows.Forms.Padding(3);
@@ -1411,6 +1458,190 @@
             this.tabPageTCUIExist.TabIndex = 0;
             this.tabPageTCUIExist.Text = "Наличие ТКУИ / Уровень проектной защищенности";
             this.tabPageTCUIExist.UseVisualStyleBackColor = true;
+            this.tabPageTCUIExist.Click += new System.EventHandler(this.tabPageTCUIExist_Click);
+            // 
+            // cbATS
+            // 
+            this.cbATS.Location = new System.Drawing.Point(650, 661);
+            this.cbATS.Name = "cbATS";
+            this.cbATS.Size = new System.Drawing.Size(268, 33);
+            this.cbATS.TabIndex = 35;
+            this.cbATS.Text = "Имеется ли на объекте выход на внешние АТС?";
+            this.cbATS.UseVisualStyleBackColor = true;
+            // 
+            // cbNablyud
+            // 
+            this.cbNablyud.Location = new System.Drawing.Point(650, 600);
+            this.cbNablyud.Name = "cbNablyud";
+            this.cbNablyud.Size = new System.Drawing.Size(268, 55);
+            this.cbNablyud.TabIndex = 34;
+            this.cbNablyud.Text = "Есть ли напротив окон здания объекта другие здания, откуда возможно наблюдение за" +
+    " защищаемыми объектами?";
+            this.cbNablyud.UseVisualStyleBackColor = true;
+            // 
+            // cbOtherBuilding
+            // 
+            this.cbOtherBuilding.Location = new System.Drawing.Point(325, 661);
+            this.cbOtherBuilding.Name = "cbOtherBuilding";
+            this.cbOtherBuilding.Size = new System.Drawing.Size(263, 55);
+            this.cbOtherBuilding.TabIndex = 33;
+            this.cbOtherBuilding.Text = "Есть ли напротив окон здания объекта другие здания, откуда возможно ведется перех" +
+    "ват информации?";
+            this.cbOtherBuilding.UseVisualStyleBackColor = true;
+            // 
+            // cbApparZakladSyom
+            // 
+            this.cbApparZakladSyom.Location = new System.Drawing.Point(19, 623);
+            this.cbApparZakladSyom.Name = "cbApparZakladSyom";
+            this.cbApparZakladSyom.Size = new System.Drawing.Size(290, 49);
+            this.cbApparZakladSyom.TabIndex = 32;
+            this.cbApparZakladSyom.Text = "Существует ли угроза утечки информации за счёт съёма информации с использованием " +
+    "аппаратных закладок?";
+            this.cbApparZakladSyom.UseVisualStyleBackColor = true;
+            // 
+            // cbProsachZazem
+            // 
+            this.cbProsachZazem.Location = new System.Drawing.Point(19, 573);
+            this.cbProsachZazem.Name = "cbProsachZazem";
+            this.cbProsachZazem.Size = new System.Drawing.Size(290, 44);
+            this.cbProsachZazem.TabIndex = 31;
+            this.cbProsachZazem.Text = "Превышают ли допустимый уровень просачиваемые  информационные сигналы в цепях заз" +
+    "емления?";
+            this.cbProsachZazem.UseVisualStyleBackColor = true;
+            // 
+            // cbProsachSignVOTSS
+            // 
+            this.cbProsachSignVOTSS.Location = new System.Drawing.Point(650, 550);
+            this.cbProsachSignVOTSS.Name = "cbProsachSignVOTSS";
+            this.cbProsachSignVOTSS.Size = new System.Drawing.Size(268, 44);
+            this.cbProsachSignVOTSS.TabIndex = 30;
+            this.cbProsachSignVOTSS.Text = "Превышают ли допустимый уровень просачиваемые  информационные сигналы в цепях эле" +
+    "ктропитания ОТСС и ВТСС?";
+            this.cbProsachSignVOTSS.UseVisualStyleBackColor = true;
+            // 
+            // cbEMINavod
+            // 
+            this.cbEMINavod.Location = new System.Drawing.Point(650, 465);
+            this.cbEMINavod.Name = "cbEMINavod";
+            this.cbEMINavod.Size = new System.Drawing.Size(268, 76);
+            this.cbEMINavod.TabIndex = 29;
+            this.cbEMINavod.Text = "Превышают ли допустимый уровень наводки электромагнитных излучений ОТСС на соедин" +
+    "ительных линиях ВТСС и посторонних проводниках, выходящих за пределы контролируе" +
+    "мой территории?";
+            this.cbEMINavod.UseVisualStyleBackColor = true;
+            // 
+            // cbEMILowFreq
+            // 
+            this.cbEMILowFreq.Location = new System.Drawing.Point(650, 386);
+            this.cbEMILowFreq.Name = "cbEMILowFreq";
+            this.cbEMILowFreq.Size = new System.Drawing.Size(268, 73);
+            this.cbEMILowFreq.TabIndex = 28;
+            this.cbEMILowFreq.Text = "Превышает ли уровень электромагнитных излучений на частотах самовозбуждения усили" +
+    "телей низкой частоты технических средств на границе охраняемой территории допуст" +
+    "имые значения?";
+            this.cbEMILowFreq.UseVisualStyleBackColor = true;
+            // 
+            // cbEMIHighFreq
+            // 
+            this.cbEMIHighFreq.Location = new System.Drawing.Point(650, 303);
+            this.cbEMIHighFreq.Name = "cbEMIHighFreq";
+            this.cbEMIHighFreq.Size = new System.Drawing.Size(268, 71);
+            this.cbEMIHighFreq.TabIndex = 27;
+            this.cbEMIHighFreq.Text = "Превышает ли уровень электромагнитных излучений на частотах работы высокочастотны" +
+    "х генераторов ОТСС и ВТСС на границе охраняемой территории допустимые значения?";
+            this.cbEMIHighFreq.UseVisualStyleBackColor = true;
+            // 
+            // cbPEMINorm
+            // 
+            this.cbPEMINorm.Location = new System.Drawing.Point(650, 232);
+            this.cbPEMINorm.Name = "cbPEMINorm";
+            this.cbPEMINorm.Size = new System.Drawing.Size(268, 69);
+            this.cbPEMINorm.TabIndex = 26;
+            this.cbPEMINorm.Text = "Превышает ли уровень собственных ПЭМИ элементов ОТСС и ВТСС при прохождении по ни" +
+    "м тока допустимые нормы на границе охраняемой территории?";
+            this.cbPEMINorm.UseVisualStyleBackColor = true;
+            // 
+            // cbVoiceDefense
+            // 
+            this.cbVoiceDefense.Location = new System.Drawing.Point(325, 623);
+            this.cbVoiceDefense.Name = "cbVoiceDefense";
+            this.cbVoiceDefense.Size = new System.Drawing.Size(263, 32);
+            this.cbVoiceDefense.TabIndex = 25;
+            this.cbVoiceDefense.Text = "Необходимо ли защищать на объекте речевую информацию?";
+            this.cbVoiceDefense.UseVisualStyleBackColor = true;
+            // 
+            // cbTransformer
+            // 
+            this.cbTransformer.Location = new System.Drawing.Point(19, 673);
+            this.cbTransformer.Name = "cbTransformer";
+            this.cbTransformer.Size = new System.Drawing.Size(290, 43);
+            this.cbTransformer.TabIndex = 24;
+            this.cbTransformer.Text = "Имеется ли в пределах контролируемой территории трансформаторная подстанция?";
+            this.cbTransformer.UseVisualStyleBackColor = true;
+            // 
+            // cbCommunOnePlace
+            // 
+            this.cbCommunOnePlace.Location = new System.Drawing.Point(19, 472);
+            this.cbCommunOnePlace.Name = "cbCommunOnePlace";
+            this.cbCommunOnePlace.Size = new System.Drawing.Size(290, 49);
+            this.cbCommunOnePlace.TabIndex = 23;
+            this.cbCommunOnePlace.Text = "Подведены ли коммуникации (водоснабжение, отопление, канализация, телефония, элек" +
+    "тропитание и т.д.) к зданию в разных местах?";
+            this.cbCommunOnePlace.UseVisualStyleBackColor = true;
+            // 
+            // cbZazem
+            // 
+            this.cbZazem.Location = new System.Drawing.Point(325, 573);
+            this.cbZazem.Name = "cbZazem";
+            this.cbZazem.Size = new System.Drawing.Size(263, 44);
+            this.cbZazem.TabIndex = 22;
+            this.cbZazem.Text = "Выходят ли кабели питания компьютерной техники и цепи заземления за пределы ЗП?";
+            this.cbZazem.UseVisualStyleBackColor = true;
+            // 
+            // cbLumenSvet
+            // 
+            this.cbLumenSvet.Location = new System.Drawing.Point(325, 528);
+            this.cbLumenSvet.Name = "cbLumenSvet";
+            this.cbLumenSvet.Size = new System.Drawing.Size(279, 39);
+            this.cbLumenSvet.TabIndex = 21;
+            this.cbLumenSvet.Text = "Применяются ли в ЗП для освещения  люминесцентные светильники?";
+            this.cbLumenSvet.UseVisualStyleBackColor = true;
+            // 
+            // cbMicroPotolok
+            // 
+            this.cbMicroPotolok.Location = new System.Drawing.Point(325, 477);
+            this.cbMicroPotolok.Name = "cbMicroPotolok";
+            this.cbMicroPotolok.Size = new System.Drawing.Size(263, 44);
+            this.cbMicroPotolok.TabIndex = 20;
+            this.cbMicroPotolok.Text = "Возможно ли внедрение с верхних этажей под подвесной потолок кабельных микрофонов" +
+    "?";
+            this.cbMicroPotolok.UseVisualStyleBackColor = true;
+            // 
+            // cbVTSS
+            // 
+            this.cbVTSS.Location = new System.Drawing.Point(325, 419);
+            this.cbVTSS.Name = "cbVTSS";
+            this.cbVTSS.Size = new System.Drawing.Size(263, 52);
+            this.cbVTSS.TabIndex = 19;
+            this.cbVTSS.Text = "Имеются ли в ЗП работающие вспомогательные технические средства и системы?";
+            this.cbVTSS.UseVisualStyleBackColor = true;
+            // 
+            // cbTSPI
+            // 
+            this.cbTSPI.Location = new System.Drawing.Point(325, 376);
+            this.cbTSPI.Name = "cbTSPI";
+            this.cbTSPI.Size = new System.Drawing.Size(295, 36);
+            this.cbTSPI.TabIndex = 18;
+            this.cbTSPI.Text = "Имеются ли в ЗП работающие технические средства обработки и передачи информации?";
+            this.cbTSPI.UseVisualStyleBackColor = true;
+            // 
+            // lbTCUIInfo2
+            // 
+            this.lbTCUIInfo2.Location = new System.Drawing.Point(254, 27);
+            this.lbTCUIInfo2.Name = "lbTCUIInfo2";
+            this.lbTCUIInfo2.Size = new System.Drawing.Size(444, 121);
+            this.lbTCUIInfo2.TabIndex = 17;
+            this.lbTCUIInfo2.Text = resources.GetString("lbTCUIInfo2.Text");
             // 
             // gbProjectDefence
             // 
@@ -1461,162 +1692,128 @@
             this.rbLowLevelPD.Text = "Низкий";
             this.rbLowLevelPD.UseVisualStyleBackColor = true;
             // 
-            // cbInducPereh
+            // cbLinesSvyaz
             // 
-            this.cbInducPereh.AutoSize = true;
-            this.cbInducPereh.Location = new System.Drawing.Point(401, 404);
-            this.cbInducPereh.Name = "cbInducPereh";
-            this.cbInducPereh.Size = new System.Drawing.Size(101, 17);
-            this.cbInducPereh.TabIndex = 15;
-            this.cbInducPereh.Text = "Индукционные";
-            this.cbInducPereh.UseVisualStyleBackColor = true;
+            this.cbLinesSvyaz.Location = new System.Drawing.Point(325, 353);
+            this.cbLinesSvyaz.Name = "cbLinesSvyaz";
+            this.cbLinesSvyaz.Size = new System.Drawing.Size(211, 17);
+            this.cbLinesSvyaz.TabIndex = 15;
+            this.cbLinesSvyaz.Text = "Проходят ли через ЗП линии связи?";
+            this.cbLinesSvyaz.UseVisualStyleBackColor = true;
             // 
-            // cbElPereh
+            // cbPhoneOutside
             // 
-            this.cbElPereh.AutoSize = true;
-            this.cbElPereh.Location = new System.Drawing.Point(401, 380);
-            this.cbElPereh.Name = "cbElPereh";
-            this.cbElPereh.Size = new System.Drawing.Size(103, 17);
-            this.cbElPereh.TabIndex = 14;
-            this.cbElPereh.Text = "Электрические";
-            this.cbElPereh.UseVisualStyleBackColor = true;
+            this.cbPhoneOutside.Location = new System.Drawing.Point(325, 330);
+            this.cbPhoneOutside.Name = "cbPhoneOutside";
+            this.cbPhoneOutside.Size = new System.Drawing.Size(263, 17);
+            this.cbPhoneOutside.TabIndex = 14;
+            this.cbPhoneOutside.Text = "Имеется ли в ЗП внешняя телефонная связь?";
+            this.cbPhoneOutside.UseVisualStyleBackColor = true;
             // 
-            // cbEMIPereh
+            // cbVoiceSvyaz
             // 
-            this.cbEMIPereh.AutoSize = true;
-            this.cbEMIPereh.Location = new System.Drawing.Point(401, 357);
-            this.cbEMIPereh.Name = "cbEMIPereh";
-            this.cbEMIPereh.Size = new System.Drawing.Size(124, 17);
-            this.cbEMIPereh.TabIndex = 13;
-            this.cbEMIPereh.Text = "Электромагнитные";
-            this.cbEMIPereh.UseVisualStyleBackColor = true;
+            this.cbVoiceSvyaz.Location = new System.Drawing.Point(325, 285);
+            this.cbVoiceSvyaz.Name = "cbVoiceSvyaz";
+            this.cbVoiceSvyaz.Size = new System.Drawing.Size(295, 39);
+            this.cbVoiceSvyaz.TabIndex = 13;
+            this.cbVoiceSvyaz.Text = "Имеются ли в ЗП трансляционная сеть и громкоговорящая связь?";
+            this.cbVoiceSvyaz.UseVisualStyleBackColor = true;
             // 
-            // cbParamPEMIN
+            // cbClock
             // 
-            this.cbParamPEMIN.AutoSize = true;
-            this.cbParamPEMIN.Location = new System.Drawing.Point(401, 267);
-            this.cbParamPEMIN.Name = "cbParamPEMIN";
-            this.cbParamPEMIN.Size = new System.Drawing.Size(118, 17);
-            this.cbParamPEMIN.TabIndex = 12;
-            this.cbParamPEMIN.Text = "Параметрические";
-            this.cbParamPEMIN.UseVisualStyleBackColor = true;
+            this.cbClock.Location = new System.Drawing.Point(325, 258);
+            this.cbClock.Name = "cbClock";
+            this.cbClock.Size = new System.Drawing.Size(295, 21);
+            this.cbClock.TabIndex = 12;
+            this.cbClock.Text = "Имеется ли в ЗП сеть электрочасов?";
+            this.cbClock.UseVisualStyleBackColor = true;
             // 
-            // cbElPEMIN
+            // cbKabeliKZ
             // 
-            this.cbElPEMIN.AutoSize = true;
-            this.cbElPEMIN.Location = new System.Drawing.Point(401, 244);
-            this.cbElPEMIN.Name = "cbElPEMIN";
-            this.cbElPEMIN.Size = new System.Drawing.Size(103, 17);
-            this.cbElPEMIN.TabIndex = 11;
-            this.cbElPEMIN.Text = "Электрические";
-            this.cbElPEMIN.UseVisualStyleBackColor = true;
+            this.cbKabeliKZ.Location = new System.Drawing.Point(326, 232);
+            this.cbKabeliKZ.Name = "cbKabeliKZ";
+            this.cbKabeliKZ.Size = new System.Drawing.Size(294, 17);
+            this.cbKabeliKZ.TabIndex = 11;
+            this.cbKabeliKZ.Text = "Выходят ли за пределы ЗП кабели электропитания?";
+            this.cbKabeliKZ.UseVisualStyleBackColor = true;
             // 
-            // cbEMPEMIN
+            // cbRadioZakladki
             // 
-            this.cbEMPEMIN.AutoSize = true;
-            this.cbEMPEMIN.Location = new System.Drawing.Point(401, 221);
-            this.cbEMPEMIN.Name = "cbEMPEMIN";
-            this.cbEMPEMIN.Size = new System.Drawing.Size(124, 17);
-            this.cbEMPEMIN.TabIndex = 10;
-            this.cbEMPEMIN.Text = "Электромагнитные";
-            this.cbEMPEMIN.UseVisualStyleBackColor = true;
+            this.cbRadioZakladki.Location = new System.Drawing.Point(19, 535);
+            this.cbRadioZakladki.Name = "cbRadioZakladki";
+            this.cbRadioZakladki.Size = new System.Drawing.Size(290, 32);
+            this.cbRadioZakladki.TabIndex = 10;
+            this.cbRadioZakladki.Text = "Возможно ли нахождение радиозакладок в мебели, стенах ЗП?";
+            this.cbRadioZakladki.UseVisualStyleBackColor = true;
             // 
-            // cbParamVoice
+            // cbWindows
             // 
-            this.cbParamVoice.AutoSize = true;
-            this.cbParamVoice.Location = new System.Drawing.Point(19, 404);
-            this.cbParamVoice.Name = "cbParamVoice";
-            this.cbParamVoice.Size = new System.Drawing.Size(118, 17);
-            this.cbParamVoice.TabIndex = 9;
-            this.cbParamVoice.Text = "Параметрические";
-            this.cbParamVoice.UseVisualStyleBackColor = true;
+            this.cbWindows.AutoSize = true;
+            this.cbWindows.Location = new System.Drawing.Point(19, 442);
+            this.cbWindows.Name = "cbWindows";
+            this.cbWindows.Size = new System.Drawing.Size(202, 17);
+            this.cbWindows.TabIndex = 9;
+            this.cbWindows.Text = "Имеются ли в ЗП окна, форточки?";
+            this.cbWindows.UseVisualStyleBackColor = true;
             // 
-            // cbOptElVoice
+            // cbScheli
             // 
-            this.cbOptElVoice.AutoSize = true;
-            this.cbOptElVoice.Location = new System.Drawing.Point(19, 380);
-            this.cbOptElVoice.Name = "cbOptElVoice";
-            this.cbOptElVoice.Size = new System.Drawing.Size(133, 17);
-            this.cbOptElVoice.TabIndex = 8;
-            this.cbOptElVoice.Text = "Оптико-электронные";
-            this.cbOptElVoice.UseVisualStyleBackColor = true;
+            this.cbScheli.Location = new System.Drawing.Point(19, 396);
+            this.cbScheli.Name = "cbScheli";
+            this.cbScheli.Size = new System.Drawing.Size(290, 40);
+            this.cbScheli.TabIndex = 8;
+            this.cbScheli.Text = "Имеются ли щели у стояков системы отопления, водо- и газоснабжения, вентиляции?";
+            this.cbScheli.UseVisualStyleBackColor = true;
             // 
-            // cbAqElVoice
+            // cbBytTech
             // 
-            this.cbAqElVoice.AutoSize = true;
-            this.cbAqElVoice.Location = new System.Drawing.Point(19, 357);
-            this.cbAqElVoice.Name = "cbAqElVoice";
-            this.cbAqElVoice.Size = new System.Drawing.Size(140, 17);
-            this.cbAqElVoice.TabIndex = 7;
-            this.cbAqElVoice.Text = "Акусто-электрические";
-            this.cbAqElVoice.UseVisualStyleBackColor = true;
+            this.cbBytTech.AutoSize = true;
+            this.cbBytTech.Location = new System.Drawing.Point(19, 373);
+            this.cbBytTech.Name = "cbBytTech";
+            this.cbBytTech.Size = new System.Drawing.Size(208, 17);
+            this.cbBytTech.TabIndex = 7;
+            this.cbBytTech.Text = "Имеется ли в ЗП бытовая техника?";
+            this.cbBytTech.UseVisualStyleBackColor = true;
             // 
-            // cbVibroVoice
+            // cbOhrPozh
             // 
-            this.cbVibroVoice.AutoSize = true;
-            this.cbVibroVoice.Location = new System.Drawing.Point(19, 333);
-            this.cbVibroVoice.Name = "cbVibroVoice";
-            this.cbVibroVoice.Size = new System.Drawing.Size(101, 17);
-            this.cbVibroVoice.TabIndex = 6;
-            this.cbVibroVoice.Text = "Вибрационные";
-            this.cbVibroVoice.UseVisualStyleBackColor = true;
+            this.cbOhrPozh.AutoSize = true;
+            this.cbOhrPozh.Location = new System.Drawing.Point(19, 339);
+            this.cbOhrPozh.Name = "cbOhrPozh";
+            this.cbOhrPozh.Size = new System.Drawing.Size(290, 17);
+            this.cbOhrPozh.TabIndex = 6;
+            this.cbOhrPozh.Text = "Имеется ли в ЗП охранно-пожарная сигнализация?";
+            this.cbOhrPozh.UseVisualStyleBackColor = true;
             // 
-            // cbAirVoice
+            // cbRadio
             // 
-            this.cbAirVoice.AutoSize = true;
-            this.cbAirVoice.Location = new System.Drawing.Point(19, 309);
-            this.cbAirVoice.Name = "cbAirVoice";
-            this.cbAirVoice.Size = new System.Drawing.Size(84, 17);
-            this.cbAirVoice.TabIndex = 5;
-            this.cbAirVoice.Text = "Воздушные";
-            this.cbAirVoice.UseVisualStyleBackColor = true;
+            this.cbRadio.AutoSize = true;
+            this.cbRadio.Location = new System.Drawing.Point(19, 307);
+            this.cbRadio.Name = "cbRadio";
+            this.cbRadio.Size = new System.Drawing.Size(175, 17);
+            this.cbRadio.TabIndex = 5;
+            this.cbRadio.Text = "Имеется ли в ЗП радиосеть?";
+            this.cbRadio.UseVisualStyleBackColor = true;
             // 
-            // cbVidovie
+            // cbTruby
             // 
-            this.cbVidovie.AutoSize = true;
-            this.cbVidovie.Location = new System.Drawing.Point(19, 201);
-            this.cbVidovie.Name = "cbVidovie";
-            this.cbVidovie.Size = new System.Drawing.Size(71, 17);
-            this.cbVidovie.TabIndex = 4;
-            this.cbVidovie.Text = "Видовые";
-            this.cbVidovie.UseVisualStyleBackColor = true;
+            this.cbTruby.Location = new System.Drawing.Point(19, 232);
+            this.cbTruby.Name = "cbTruby";
+            this.cbTruby.Size = new System.Drawing.Size(290, 69);
+            this.cbTruby.TabIndex = 4;
+            this.cbTruby.Text = "Имеются ли в защищаемом помещении (ЗП) трубы отопления, водоснабжения, газоснабже" +
+    "ния, кабели электропитания?";
+            this.cbTruby.UseVisualStyleBackColor = true;
             // 
-            // labelSVYAZTCUIType
+            // lbOpros
             // 
-            this.labelSVYAZTCUIType.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelSVYAZTCUIType.Location = new System.Drawing.Point(398, 313);
-            this.labelSVYAZTCUIType.Name = "labelSVYAZTCUIType";
-            this.labelSVYAZTCUIType.Size = new System.Drawing.Size(277, 37);
-            this.labelSVYAZTCUIType.TabIndex = 3;
-            this.labelSVYAZTCUIType.Text = "Каналы перехвата информации при ее передаче по каналам связи";
-            // 
-            // labelPEMINTCUIType
-            // 
-            this.labelPEMINTCUIType.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelPEMINTCUIType.Location = new System.Drawing.Point(398, 176);
-            this.labelPEMINTCUIType.Name = "labelPEMINTCUIType";
-            this.labelPEMINTCUIType.Size = new System.Drawing.Size(277, 42);
-            this.labelPEMINTCUIType.TabIndex = 2;
-            this.labelPEMINTCUIType.Text = "Каналы побочных электромагнитных излучений и наводок (ПЭМИН)";
-            // 
-            // labelAqoostTCUIType
-            // 
-            this.labelAqoostTCUIType.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelAqoostTCUIType.Location = new System.Drawing.Point(16, 265);
-            this.labelAqoostTCUIType.Name = "labelAqoostTCUIType";
-            this.labelAqoostTCUIType.Size = new System.Drawing.Size(254, 41);
-            this.labelAqoostTCUIType.TabIndex = 1;
-            this.labelAqoostTCUIType.Text = "Каналы утечки акустической (речевой) информации";
-            // 
-            // labelViewTCUIType
-            // 
-            this.labelViewTCUIType.AutoSize = true;
-            this.labelViewTCUIType.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelViewTCUIType.Location = new System.Drawing.Point(16, 176);
-            this.labelViewTCUIType.Name = "labelViewTCUIType";
-            this.labelViewTCUIType.Size = new System.Drawing.Size(254, 17);
-            this.labelViewTCUIType.TabIndex = 0;
-            this.labelViewTCUIType.Text = "Каналы утечки видовой информации";
+            this.lbOpros.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbOpros.Location = new System.Drawing.Point(16, 188);
+            this.lbOpros.Name = "lbOpros";
+            this.lbOpros.Size = new System.Drawing.Size(788, 21);
+            this.lbOpros.TabIndex = 1;
+            this.lbOpros.Text = "Опросный лист для установления факта наличия технических каналов утечки в информа" +
+    "ционной системе";
             // 
             // tabPageIntrAbil
             // 
@@ -1631,14 +1828,13 @@
             // 
             // lbAvilitiesInfo
             // 
-            this.lbAvilitiesInfo.AutoSize = true;
-            this.lbAvilitiesInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbAvilitiesInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbAvilitiesInfo.Location = new System.Drawing.Point(21, 23);
             this.lbAvilitiesInfo.Name = "lbAvilitiesInfo";
-            this.lbAvilitiesInfo.Size = new System.Drawing.Size(649, 15);
+            this.lbAvilitiesInfo.Size = new System.Drawing.Size(553, 45);
             this.lbAvilitiesInfo.TabIndex = 0;
-            this.lbAvilitiesInfo.Text = "Для определения возможностей нарушителя выберите возможные технические каналы уте" +
-    "чки информации.";
+            this.lbAvilitiesInfo.Text = "Для определения возможностей нарушителя пройдите опросник на предыдущей вкладке д" +
+    "ля определения возможных технических каналов утечки информации.";
             // 
             // tabPageListOfTCUIThreats
             // 
@@ -1663,26 +1859,27 @@
             this.dgvActualTCUIThreats.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.actualTCUIName,
             this.actualTCUIDescr});
-            dgvCellStyleTCUIThreats1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dgvCellStyleTCUIThreats1.BackColor = System.Drawing.SystemColors.Window;
-            dgvCellStyleTCUIThreats1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dgvCellStyleTCUIThreats1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dgvCellStyleTCUIThreats1.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
-            dgvCellStyleTCUIThreats1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dgvCellStyleTCUIThreats1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvActualTCUIThreats.DefaultCellStyle = dgvCellStyleTCUIThreats1;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvActualTCUIThreats.DefaultCellStyle = dataGridViewCellStyle18;
             this.dgvActualTCUIThreats.Location = new System.Drawing.Point(15, 15);
             this.dgvActualTCUIThreats.MultiSelect = false;
             this.dgvActualTCUIThreats.Name = "dgvActualTCUIThreats";
             this.dgvActualTCUIThreats.ReadOnly = true;
-            dgvCellStyleTCUIThreats2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dgvCellStyleTCUIThreats2.BackColor = System.Drawing.SystemColors.Control;
-            dgvCellStyleTCUIThreats2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dgvCellStyleTCUIThreats2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dgvCellStyleTCUIThreats2.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dgvCellStyleTCUIThreats2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dgvCellStyleTCUIThreats2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvActualTCUIThreats.RowHeadersDefaultCellStyle = dgvCellStyleTCUIThreats2;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle19.Padding = new System.Windows.Forms.Padding(3);
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvActualTCUIThreats.RowHeadersDefaultCellStyle = dataGridViewCellStyle19;
             this.dgvActualTCUIThreats.RowHeadersVisible = false;
             this.dgvActualTCUIThreats.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvActualTCUIThreats.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
@@ -1722,7 +1919,7 @@
             this.tpTechnoGenThreats.Location = new System.Drawing.Point(4, 22);
             this.tpTechnoGenThreats.Name = "tpTechnoGenThreats";
             this.tpTechnoGenThreats.Padding = new System.Windows.Forms.Padding(3);
-            this.tpTechnoGenThreats.Size = new System.Drawing.Size(962, 490);
+            this.tpTechnoGenThreats.Size = new System.Drawing.Size(976, 490);
             this.tpTechnoGenThreats.TabIndex = 8;
             this.tpTechnoGenThreats.Text = "tpTechnoGenThreats";
             this.tpTechnoGenThreats.UseVisualStyleBackColor = true;
@@ -1743,9 +1940,7 @@
             this.tpTGThreatsMeasures.Controls.Add(this.dgvTGThreats);
             this.tpTGThreatsMeasures.Controls.Add(this.dgvTGMeasures);
             this.tpTGThreatsMeasures.Location = new System.Drawing.Point(4, 22);
-            this.tpTGThreatsMeasures.Margin = new System.Windows.Forms.Padding(3, 3, 3, 15);
             this.tpTGThreatsMeasures.Name = "tpTGThreatsMeasures";
-            this.tpTGThreatsMeasures.Padding = new System.Windows.Forms.Padding(3, 3, 3, 15);
             this.tpTGThreatsMeasures.Size = new System.Drawing.Size(966, 461);
             this.tpTGThreatsMeasures.TabIndex = 0;
             this.tpTGThreatsMeasures.Text = "Определение техногенных угроз и реализованных мер";
@@ -1764,20 +1959,20 @@
             this.dgvTGThreats.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.descrColumn,
             this.damageGradeColumn});
-            dgvCellStyleTGThreats1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dgvCellStyleTGThreats1.BackColor = System.Drawing.SystemColors.Window;
-            dgvCellStyleTGThreats1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dgvCellStyleTGThreats1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dgvCellStyleTGThreats1.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
-            dgvCellStyleTGThreats1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dgvCellStyleTGThreats1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTGThreats.DefaultCellStyle = dgvCellStyleTGThreats1;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTGThreats.DefaultCellStyle = dataGridViewCellStyle21;
             this.dgvTGThreats.Location = new System.Drawing.Point(6, 203);
             this.dgvTGThreats.MultiSelect = false;
             this.dgvTGThreats.Name = "dgvTGThreats";
             this.dgvTGThreats.RowHeadersVisible = false;
             this.dgvTGThreats.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.dgvTGThreats.Size = new System.Drawing.Size(500, 170);
+            this.dgvTGThreats.Size = new System.Drawing.Size(745, 170);
             this.dgvTGThreats.TabIndex = 2;
             // 
             // descrColumn
@@ -1787,15 +1982,19 @@
             this.descrColumn.ReadOnly = true;
             this.descrColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.descrColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.descrColumn.Width = 350;
+            this.descrColumn.Width = 500;
             // 
             // damageGradeColumn
             // 
-            dgvCellStyleTCUIThreats2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dgvCellStyleTCUIThreats2.Padding = new System.Windows.Forms.Padding(3);
-            dgvCellStyleTCUIThreats2.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
-            dgvCellStyleTCUIThreats2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            this.damageGradeColumn.DefaultCellStyle = dgvCellStyleTCUIThreats2;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle20.Padding = new System.Windows.Forms.Padding(3);
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.damageGradeColumn.DefaultCellStyle = dataGridViewCellStyle20;
             this.damageGradeColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
             this.damageGradeColumn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.damageGradeColumn.HeaderText = "Степень ущерба от реализации угрозы";
@@ -1805,7 +2004,7 @@
             "Высокая"});
             this.damageGradeColumn.Name = "damageGradeColumn";
             this.damageGradeColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.damageGradeColumn.Width = 150;
+            this.damageGradeColumn.Width = 245;
             // 
             // dgvTGMeasures
             // 
@@ -1820,21 +2019,21 @@
             this.dgvTGMeasures.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.measure,
             this.Description});
-            dgvCellStyleTGMeasures.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dgvCellStyleTGMeasures.BackColor = System.Drawing.SystemColors.Window;
-            dgvCellStyleTGMeasures.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dgvCellStyleTGMeasures.ForeColor = System.Drawing.SystemColors.ControlText;
-            dgvCellStyleTGMeasures.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
-            dgvCellStyleTGMeasures.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dgvCellStyleTGMeasures.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTGMeasures.DefaultCellStyle = dgvCellStyleTGMeasures;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTGMeasures.DefaultCellStyle = dataGridViewCellStyle22;
             this.dgvTGMeasures.Location = new System.Drawing.Point(6, 15);
             this.dgvTGMeasures.MultiSelect = false;
             this.dgvTGMeasures.Name = "dgvTGMeasures";
             this.dgvTGMeasures.RowHeadersVisible = false;
             this.dgvTGMeasures.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvTGMeasures.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.dgvTGMeasures.Size = new System.Drawing.Size(500, 170);
+            this.dgvTGMeasures.Size = new System.Drawing.Size(745, 170);
             this.dgvTGMeasures.TabIndex = 1;
             // 
             // measure
@@ -1844,7 +2043,7 @@
             this.measure.Name = "measure";
             this.measure.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.measure.TrueValue = true;
-            this.measure.Width = 130;
+            this.measure.Width = 200;
             // 
             // Description
             // 
@@ -1853,7 +2052,7 @@
             this.Description.ReadOnly = true;
             this.Description.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.Description.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Description.Width = 370;
+            this.Description.Width = 545;
             // 
             // tpActualTGThreats
             // 
@@ -1899,16 +2098,15 @@
             this.dgvActualTGThreats.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvActualTGThreats.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.actualTGTcolumn});
-            dgvCellStyleTGThreats2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dgvCellStyleTGThreats2.BackColor = System.Drawing.SystemColors.Window;
-            dgvCellStyleTGThreats2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dgvCellStyleTGThreats2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dgvCellStyleTGThreats2.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
-            dgvCellStyleTGThreats2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dgvCellStyleTGThreats2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvActualTGThreats.DefaultCellStyle = dgvCellStyleTGThreats2;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvActualTGThreats.DefaultCellStyle = dataGridViewCellStyle23;
             this.dgvActualTGThreats.Location = new System.Drawing.Point(15, 22);
-            this.dgvActualTGThreats.Margin = new System.Windows.Forms.Padding(3, 3, 3, 15);
             this.dgvActualTGThreats.MultiSelect = false;
             this.dgvActualTGThreats.Name = "dgvActualTGThreats";
             this.dgvActualTGThreats.ReadOnly = true;
@@ -1940,6 +2138,7 @@
             // 
             this.tcSKZI.Controls.Add(this.tpSKZI1);
             this.tcSKZI.Controls.Add(this.tpSKZI2);
+            this.tcSKZI.Controls.Add(this.tpSKZI3);
             this.tcSKZI.Location = new System.Drawing.Point(2, 3);
             this.tcSKZI.Name = "tcSKZI";
             this.tcSKZI.SelectedIndex = 0;
@@ -2029,16 +2228,18 @@
             this.dgvSKZIAttackAbils.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvSKZIAttackAbils.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvSKZIAttackAbils.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.numberSKZIcolumn,
             this.columnAbils,
-            this.columnYesNoAbils});
-            dgvCellStyleSKZIAttackAbils.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dgvCellStyleSKZIAttackAbils.BackColor = System.Drawing.SystemColors.Window;
-            dgvCellStyleSKZIAttackAbils.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dgvCellStyleSKZIAttackAbils.ForeColor = System.Drawing.SystemColors.ControlText;
-            dgvCellStyleSKZIAttackAbils.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
-            dgvCellStyleSKZIAttackAbils.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dgvCellStyleSKZIAttackAbils.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSKZIAttackAbils.DefaultCellStyle = dgvCellStyleSKZIAttackAbils;
+            this.columnYesNoAbils,
+            this.PotencialColumn});
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSKZIAttackAbils.DefaultCellStyle = dataGridViewCellStyle24;
             this.dgvSKZIAttackAbils.Location = new System.Drawing.Point(16, 26);
             this.dgvSKZIAttackAbils.MultiSelect = false;
             this.dgvSKZIAttackAbils.Name = "dgvSKZIAttackAbils";
@@ -2047,28 +2248,94 @@
             this.dgvSKZIAttackAbils.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvSKZIAttackAbils.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvSKZIAttackAbils.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.dgvSKZIAttackAbils.Size = new System.Drawing.Size(330, 92);
+            this.dgvSKZIAttackAbils.Size = new System.Drawing.Size(455, 92);
             this.dgvSKZIAttackAbils.TabIndex = 0;
+            // 
+            // numberSKZIcolumn
+            // 
+            this.numberSKZIcolumn.HeaderText = "№";
+            this.numberSKZIcolumn.Name = "numberSKZIcolumn";
+            this.numberSKZIcolumn.ReadOnly = true;
+            this.numberSKZIcolumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.numberSKZIcolumn.Width = 25;
             // 
             // columnAbils
             // 
             this.columnAbils.HeaderText = "Обобщенные возможности источников атак";
             this.columnAbils.Name = "columnAbils";
+            this.columnAbils.ReadOnly = true;
             this.columnAbils.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.columnAbils.Width = 250;
             // 
             // columnYesNoAbils
             // 
+            this.columnYesNoAbils.FalseValue = false;
             this.columnYesNoAbils.HeaderText = "Да / Нет";
+            this.columnYesNoAbils.IndeterminateValue = false;
             this.columnYesNoAbils.Name = "columnYesNoAbils";
+            this.columnYesNoAbils.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.columnYesNoAbils.TrueValue = true;
             this.columnYesNoAbils.Width = 80;
+            // 
+            // PotencialColumn
+            // 
+            this.PotencialColumn.HeaderText = "Потенциал нарушителя, необходимый для реализации угрозы";
+            this.PotencialColumn.Name = "PotencialColumn";
+            this.PotencialColumn.ReadOnly = true;
+            this.PotencialColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.PotencialColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // tpSKZI3
+            // 
+            this.tpSKZI3.AutoScroll = true;
+            this.tpSKZI3.Controls.Add(this.lbCountSKZIThreats);
+            this.tpSKZI3.Controls.Add(this.dgvSKZIUtochnAbils);
+            this.tpSKZI3.Location = new System.Drawing.Point(4, 22);
+            this.tpSKZI3.Name = "tpSKZI3";
+            this.tpSKZI3.Padding = new System.Windows.Forms.Padding(0, 0, 0, 15);
+            this.tpSKZI3.Size = new System.Drawing.Size(966, 464);
+            this.tpSKZI3.TabIndex = 2;
+            this.tpSKZI3.Text = "Уточненные возможности источников атак";
+            this.tpSKZI3.UseVisualStyleBackColor = true;
+            // 
+            // dgvSKZIUtochnAbils
+            // 
+            this.dgvSKZIUtochnAbils.AllowUserToAddRows = false;
+            this.dgvSKZIUtochnAbils.AllowUserToDeleteRows = false;
+            this.dgvSKZIUtochnAbils.AllowUserToResizeColumns = false;
+            this.dgvSKZIUtochnAbils.AllowUserToResizeRows = false;
+            this.dgvSKZIUtochnAbils.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgvSKZIUtochnAbils.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSKZIUtochnAbils.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.numberSKZIcolumn2,
+            this.utochnAbilsSKKZIcolumn,
+            this.actualitySKZIColumn,
+            this.otsutstObosnSKZIcolumn});
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSKZIUtochnAbils.DefaultCellStyle = dataGridViewCellStyle14;
+            this.dgvSKZIUtochnAbils.Location = new System.Drawing.Point(22, 81);
+            this.dgvSKZIUtochnAbils.MultiSelect = false;
+            this.dgvSKZIUtochnAbils.Name = "dgvSKZIUtochnAbils";
+            this.dgvSKZIUtochnAbils.RowHeadersVisible = false;
+            this.dgvSKZIUtochnAbils.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgvSKZIUtochnAbils.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSKZIUtochnAbils.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSKZIUtochnAbils.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.dgvSKZIUtochnAbils.Size = new System.Drawing.Size(807, 433);
+            this.dgvSKZIUtochnAbils.TabIndex = 0;
             // 
             // tabPage11
             // 
             this.tabPage11.Location = new System.Drawing.Point(4, 22);
             this.tabPage11.Name = "tabPage11";
             this.tabPage11.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage11.Size = new System.Drawing.Size(962, 490);
+            this.tabPage11.Size = new System.Drawing.Size(976, 490);
             this.tabPage11.TabIndex = 10;
             this.tabPage11.Text = "tabPage11";
             this.tabPage11.UseVisualStyleBackColor = true;
@@ -2078,7 +2345,7 @@
             this.tabPage12.Location = new System.Drawing.Point(4, 22);
             this.tabPage12.Name = "tabPage12";
             this.tabPage12.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage12.Size = new System.Drawing.Size(962, 490);
+            this.tabPage12.Size = new System.Drawing.Size(976, 490);
             this.tabPage12.TabIndex = 11;
             this.tabPage12.Text = "tabPage12";
             this.tabPage12.UseVisualStyleBackColor = true;
@@ -2088,7 +2355,7 @@
             this.tabPage13.Location = new System.Drawing.Point(4, 22);
             this.tabPage13.Name = "tabPage13";
             this.tabPage13.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage13.Size = new System.Drawing.Size(962, 490);
+            this.tabPage13.Size = new System.Drawing.Size(976, 490);
             this.tabPage13.TabIndex = 12;
             this.tabPage13.Text = "tabPage13";
             this.tabPage13.UseVisualStyleBackColor = true;
@@ -2098,7 +2365,7 @@
             this.tabPage14.Location = new System.Drawing.Point(4, 22);
             this.tabPage14.Name = "tabPage14";
             this.tabPage14.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage14.Size = new System.Drawing.Size(962, 490);
+            this.tabPage14.Size = new System.Drawing.Size(976, 490);
             this.tabPage14.TabIndex = 13;
             this.tabPage14.Text = "tabPage14";
             this.tabPage14.UseVisualStyleBackColor = true;
@@ -2108,7 +2375,7 @@
             this.tabPage15.Location = new System.Drawing.Point(4, 22);
             this.tabPage15.Name = "tabPage15";
             this.tabPage15.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage15.Size = new System.Drawing.Size(962, 490);
+            this.tabPage15.Size = new System.Drawing.Size(976, 490);
             this.tabPage15.TabIndex = 14;
             this.tabPage15.Text = "tabPage15";
             this.tabPage15.UseVisualStyleBackColor = true;
@@ -2118,7 +2385,7 @@
             this.tabPage16.Location = new System.Drawing.Point(4, 22);
             this.tabPage16.Name = "tabPage16";
             this.tabPage16.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage16.Size = new System.Drawing.Size(962, 490);
+            this.tabPage16.Size = new System.Drawing.Size(976, 490);
             this.tabPage16.TabIndex = 15;
             this.tabPage16.Text = "tabPage16";
             this.tabPage16.UseVisualStyleBackColor = true;
@@ -2192,7 +2459,7 @@
             // 
             // splitter1
             // 
-            this.splitter1.Location = new System.Drawing.Point(270, 24);
+            this.splitter1.Location = new System.Drawing.Point(256, 24);
             this.splitter1.Margin = new System.Windows.Forms.Padding(0);
             this.splitter1.Name = "splitter1";
             this.splitter1.Size = new System.Drawing.Size(3, 516);
@@ -2204,6 +2471,58 @@
             this.iconList.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
             this.iconList.ImageSize = new System.Drawing.Size(16, 16);
             this.iconList.TransparentColor = System.Drawing.Color.Transparent;
+            // 
+            // numberSKZIcolumn2
+            // 
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.numberSKZIcolumn2.DefaultCellStyle = dataGridViewCellStyle13;
+            this.numberSKZIcolumn2.FillWeight = 6F;
+            this.numberSKZIcolumn2.HeaderText = "№";
+            this.numberSKZIcolumn2.Name = "numberSKZIcolumn2";
+            this.numberSKZIcolumn2.ReadOnly = true;
+            this.numberSKZIcolumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.numberSKZIcolumn2.Width = 48;
+            // 
+            // utochnAbilsSKKZIcolumn
+            // 
+            this.utochnAbilsSKKZIcolumn.FillWeight = 37F;
+            this.utochnAbilsSKKZIcolumn.HeaderText = "Уточненные возможности нарушителей и направления атак (соответствующие актуальные" +
+    " угрозы)";
+            this.utochnAbilsSKKZIcolumn.Name = "utochnAbilsSKKZIcolumn";
+            this.utochnAbilsSKKZIcolumn.ReadOnly = true;
+            this.utochnAbilsSKKZIcolumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.utochnAbilsSKKZIcolumn.Width = 294;
+            // 
+            // actualitySKZIColumn
+            // 
+            this.actualitySKZIColumn.FillWeight = 20F;
+            this.actualitySKZIColumn.HeaderText = "Актуальность использования (применения) для построения и реализации атак";
+            this.actualitySKZIColumn.Items.AddRange(new object[] {
+            "Актуально",
+            "Не актуально"});
+            this.actualitySKZIColumn.Name = "actualitySKZIColumn";
+            this.actualitySKZIColumn.Width = 160;
+            // 
+            // otsutstObosnSKZIcolumn
+            // 
+            this.otsutstObosnSKZIcolumn.FillWeight = 38F;
+            this.otsutstObosnSKZIcolumn.HeaderText = "Обоснование отсутствия";
+            this.otsutstObosnSKZIcolumn.Name = "otsutstObosnSKZIcolumn";
+            this.otsutstObosnSKZIcolumn.ReadOnly = true;
+            this.otsutstObosnSKZIcolumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.otsutstObosnSKZIcolumn.Width = 302;
+            // 
+            // lbCountSKZIThreats
+            // 
+            this.lbCountSKZIThreats.BackColor = System.Drawing.Color.Transparent;
+            this.lbCountSKZIThreats.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lbCountSKZIThreats.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbCountSKZIThreats.ForeColor = System.Drawing.Color.Red;
+            this.lbCountSKZIThreats.Location = new System.Drawing.Point(22, 11);
+            this.lbCountSKZIThreats.Name = "lbCountSKZIThreats";
+            this.lbCountSKZIThreats.Size = new System.Drawing.Size(374, 55);
+            this.lbCountSKZIThreats.TabIndex = 1;
+            this.lbCountSKZIThreats.Text = "label2";
             // 
             // MainForm
             // 
@@ -2250,7 +2569,6 @@
             this.gbProjectDefence.ResumeLayout(false);
             this.gbProjectDefence.PerformLayout();
             this.tabPageIntrAbil.ResumeLayout(false);
-            this.tabPageIntrAbil.PerformLayout();
             this.tabPageListOfTCUIThreats.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvActualTCUIThreats)).EndInit();
             this.tpTechnoGenThreats.ResumeLayout(false);
@@ -2266,6 +2584,8 @@
             this.tpSKZI1.PerformLayout();
             this.tpSKZI2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSKZIAttackAbils)).EndInit();
+            this.tpSKZI3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSKZIUtochnAbils)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2355,22 +2675,7 @@
         private System.Windows.Forms.TabPage tabPageTCUIExist;
         private System.Windows.Forms.TabPage tabPageIntrAbil;
         private System.Windows.Forms.TabPage tabPageListOfTCUIThreats;
-        private System.Windows.Forms.CheckBox cbInducPereh;
-        private System.Windows.Forms.CheckBox cbElPereh;
-        private System.Windows.Forms.CheckBox cbEMIPereh;
-        private System.Windows.Forms.CheckBox cbParamPEMIN;
-        private System.Windows.Forms.CheckBox cbElPEMIN;
-        private System.Windows.Forms.CheckBox cbEMPEMIN;
-        private System.Windows.Forms.CheckBox cbParamVoice;
-        private System.Windows.Forms.CheckBox cbOptElVoice;
-        private System.Windows.Forms.CheckBox cbAqElVoice;
-        private System.Windows.Forms.CheckBox cbVibroVoice;
-        private System.Windows.Forms.CheckBox cbAirVoice;
-        private System.Windows.Forms.CheckBox cbVidovie;
-        private System.Windows.Forms.Label labelSVYAZTCUIType;
-        private System.Windows.Forms.Label labelPEMINTCUIType;
-        private System.Windows.Forms.Label labelAqoostTCUIType;
-        private System.Windows.Forms.Label labelViewTCUIType;
+        private System.Windows.Forms.Label lbOpros;
         internal System.Windows.Forms.DataGridView dgvTGMeasures;
         private System.Windows.Forms.TabPage tpTGThreatsMeasures;
         private System.Windows.Forms.TabPage tpActualTGThreats;
@@ -2382,10 +2687,6 @@
         internal System.Windows.Forms.Label lbAvilitiesInfo;
         internal System.Windows.Forms.DataGridView dgvTGThreats;
         internal System.Windows.Forms.TabControl tcTGThreats;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descrColumn;
-        private System.Windows.Forms.DataGridViewComboBoxColumn damageGradeColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn measure;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Description;
         internal System.Windows.Forms.DataGridView dgvActualTGThreats;
         internal System.Windows.Forms.Label lbTGInfo2;
         internal System.Windows.Forms.Label lbTGInfo;
@@ -2420,15 +2721,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn actualTCUIDescr;
         private System.Windows.Forms.TabPage tpSKZI1;
         private System.Windows.Forms.TabPage tpSKZI2;
-        private System.Windows.Forms.CheckBox cbSKZIHran;
-        private System.Windows.Forms.CheckBox cbSKZIPered;
         private System.Windows.Forms.Label lbSKZIQuestion;
         private System.Windows.Forms.Label lbSKZIHran;
         private System.Windows.Forms.Label lbSKZIPered;
         internal System.Windows.Forms.DataGridView dgvSKZIAttackAbils;
         internal System.Windows.Forms.TabControl tcSKZI;
-        private System.Windows.Forms.DataGridViewTextBoxColumn columnAbils;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn columnYesNoAbils;
         internal System.Windows.Forms.TabPage tpIntruder;
         private System.Windows.Forms.Label label1;
         internal System.Windows.Forms.DataGridView dgvActualThreats;
@@ -2436,5 +2733,53 @@
         internal System.Windows.Forms.TabPage tpThreatsNSD2;
         internal System.Windows.Forms.TabControl tcThreatsNSD;
         internal System.Windows.Forms.Button btnGotoDamage;
+        private System.Windows.Forms.Label lbTCUIInfo2;
+        internal System.Windows.Forms.CheckBox cbNablyud;
+        internal System.Windows.Forms.CheckBox cbOtherBuilding;
+        internal System.Windows.Forms.CheckBox cbApparZakladSyom;
+        internal System.Windows.Forms.CheckBox cbProsachZazem;
+        internal System.Windows.Forms.CheckBox cbProsachSignVOTSS;
+        internal System.Windows.Forms.CheckBox cbEMINavod;
+        internal System.Windows.Forms.CheckBox cbEMILowFreq;
+        internal System.Windows.Forms.CheckBox cbEMIHighFreq;
+        internal System.Windows.Forms.CheckBox cbPEMINorm;
+        internal System.Windows.Forms.CheckBox cbVoiceDefense;
+        internal System.Windows.Forms.CheckBox cbTransformer;
+        internal System.Windows.Forms.CheckBox cbCommunOnePlace;
+        internal System.Windows.Forms.CheckBox cbZazem;
+        internal System.Windows.Forms.CheckBox cbLumenSvet;
+        internal System.Windows.Forms.CheckBox cbMicroPotolok;
+        internal System.Windows.Forms.CheckBox cbVTSS;
+        internal System.Windows.Forms.CheckBox cbTSPI;
+        internal System.Windows.Forms.CheckBox cbATS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descrColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn damageGradeColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn measure;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Description;
+        internal System.Windows.Forms.CheckBox cbLinesSvyaz;
+        internal System.Windows.Forms.CheckBox cbPhoneOutside;
+        internal System.Windows.Forms.CheckBox cbVoiceSvyaz;
+        internal System.Windows.Forms.CheckBox cbClock;
+        internal System.Windows.Forms.CheckBox cbKabeliKZ;
+        internal System.Windows.Forms.CheckBox cbRadioZakladki;
+        internal System.Windows.Forms.CheckBox cbWindows;
+        internal System.Windows.Forms.CheckBox cbScheli;
+        internal System.Windows.Forms.CheckBox cbBytTech;
+        internal System.Windows.Forms.CheckBox cbOhrPozh;
+        internal System.Windows.Forms.CheckBox cbRadio;
+        internal System.Windows.Forms.CheckBox cbTruby;
+        private System.Windows.Forms.TabPage tpSKZI3;
+        internal System.Windows.Forms.CheckBox cbSKZIHran;
+        internal System.Windows.Forms.CheckBox cbSKZIPered;
+        private System.Windows.Forms.DataGridViewTextBoxColumn numberSKZIcolumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columnAbils;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn columnYesNoAbils;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PotencialColumn;
+        internal System.Windows.Forms.DataGridView dgvSKZIUtochnAbils;
+        private System.Windows.Forms.DataGridViewTextBoxColumn numberSKZIcolumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn utochnAbilsSKKZIcolumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn actualitySKZIColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn otsutstObosnSKZIcolumn;
+        internal System.Windows.Forms.Label lbCountSKZIThreats;
     }
 }
