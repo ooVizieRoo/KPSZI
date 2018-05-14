@@ -4,6 +4,11 @@ using System.Windows.Forms;
 
 namespace KPSZI
 {
+    public enum SKZIClass
+    {
+        Неопределен = 0, КС1=1, КС2=2, КС3=3, КВ=4, КА=5
+    }
+
     public class SKZIMeasure
     {
         public int number;
@@ -61,6 +66,8 @@ namespace KPSZI
     class StageSKZI : Stage
     {
         private Form dialogFormSKZI;
+
+        private int currentMaxCheckedAbility;
 
         public StageSKZI(TabPage stageTab, TreeNode stageNode, MainForm mainForm, InformationSystem IS) : base(stageTab, stageNode, mainForm, IS)
         {
@@ -120,12 +127,13 @@ namespace KPSZI
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(663, 75);
             label1.TabIndex = 18;
+            label1.Font = new System.Drawing.Font(label1.Font.FontFamily, 9);
             label1.Text = "";
             //
             // button1
             //
             button1.Click += new System.EventHandler(acceptButtonClick);
-            button1.Location = new System.Drawing.Point(752, 432);
+            button1.Location = new System.Drawing.Point(752, 470);
             button1.Name = "button1";
             button1.Size = new System.Drawing.Size(75, 23);
             button1.TabIndex = 17;
@@ -288,7 +296,7 @@ namespace KPSZI
             // dialogFormSKZI
             // 
             dialogFormSKZI.AutoScroll = true;
-            dialogFormSKZI.ClientSize = new System.Drawing.Size(856, 530);
+            dialogFormSKZI.ClientSize = new System.Drawing.Size(856, 550);
             dialogFormSKZI.Controls.Add(checkBox17);
             dialogFormSKZI.Controls.Add(checkBox16);
             dialogFormSKZI.Controls.Add(checkBox15);
@@ -349,6 +357,7 @@ namespace KPSZI
             dgr23.CreateCells(mf.dgvSKZIAttackAbils);
             dgr23.Cells[0].Value = "3";
             dgr23.Cells[1].Value = "Возможность самостоятельно осуществлять создание способов атак, подготовку и проведение атак в пределах контролируемой зоны с физическим доступом к АС, на которых реализованы СКЗИ и среда их функционирования";
+            dgr23.Cells[2].Value = true;
             dgr23.Cells[3].Value = "Нарушитель с базовым (низким) потенциалом и нарушители с базовым повышенным (средним) потенциалом";
 
             DataGridViewRow dgr24 = new DataGridViewRow();
@@ -369,6 +378,7 @@ namespace KPSZI
             dgr26.Cells[1].Value = "Возможность привлекать специалистов, имеющих опыт разработки и анализа СКЗИ (включая специалистов в области использования для реализации атак недокументированных возможностей аппаратного и программного компонентов среды функционирования СКЗИ)";
             dgr26.Cells[3].Value = "Нарушитель с высоким потенциалом";
             #endregion
+
             
             mf.dgvSKZIAttackAbils.Rows.AddRange(new DataGridViewRow[] { dgr21, dgr22, dgr23, dgr24, dgr25, dgr26 });
 
@@ -378,78 +388,91 @@ namespace KPSZI
             dgr1.Cells[0].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgr1.Cells[0].Value = "1.1";
             dgr1.Cells[1].Value = "проведение атаки при нахождении в пределах контролируемой зоны";
+            dgr1.Cells[3].Value = "";
             ((DataGridViewComboBoxCell)(dgr1.Cells[2])).Value = "Не актуально";
 
             DataGridViewRow dgr2 = new DataGridViewRow();
             dgr2.CreateCells(mf.dgvSKZIUtochnAbils);
             dgr2.Cells[0].Value = "1.2";
             dgr2.Cells[1].Value = "проведение атак на этапе эксплуатации СКЗИ на следующие объекты: \n\tдокументацию на СКЗИ и компоненты СФ;\n\t-помещения, в которых находится совокупность программных и технических элементов систем обработки данных, способных функционировать самостоятельно или в составе других систем(далее - СВТ), на которых реализованы СКЗИ и СФ;";
+            dgr2.Cells[3].Value = "";
             ((DataGridViewComboBoxCell)(dgr2.Cells[2])).Value = "Не актуально";
 
             DataGridViewRow dgr3 = new DataGridViewRow();
             dgr3.CreateCells(mf.dgvSKZIUtochnAbils);
             dgr3.Cells[0].Value = "1.3";
             dgr3.Cells[1].Value = "получение в рамках предоставленных полномочий, а также в результате наблюдений следующей информации: \n\t- сведений о физических мерах защиты объектов, в которых размещены ресурсы информационной системы; \n\t- сведений о мерах по обеспечению контролируемой зоны объектов, в которых размещены ресурсы информационной системы; \n\t- сведений о мерах по разграничению доступа в помещения,в которых находятся СВТ, накоторых реализованы СКЗИ и СФ;";
+            dgr3.Cells[3].Value = "";
             ((DataGridViewComboBoxCell)(dgr3.Cells[2])).Value = "Не актуально";
 
             DataGridViewRow dgr4 = new DataGridViewRow();
             dgr4.CreateCells(mf.dgvSKZIUtochnAbils);
             dgr4.Cells[0].Value = "1.4";
             dgr4.Cells[1].Value = "использование штатных средств ИСПДн, ограниченное мерами, реализованными в информационной системе, в которой используется СКЗИ, и направленными на предотвращение и  пресечение несанкционированных действий.";
+            dgr4.Cells[3].Value = "";
             ((DataGridViewComboBoxCell)(dgr4.Cells[2])).Value = "Не актуально";
 
             DataGridViewRow dgr5 = new DataGridViewRow();
             dgr5.CreateCells(mf.dgvSKZIUtochnAbils);
             dgr5.Cells[0].Value = "2.1";
             dgr5.Cells[1].Value = "физический доступ к СВТ, на которых реализованы СКЗИ и СФ; ";
+            dgr5.Cells[3].Value = "";
             ((DataGridViewComboBoxCell)(dgr5.Cells[2])).Value = "Не актуально";
 
             DataGridViewRow dgr6 = new DataGridViewRow();
             dgr6.CreateCells(mf.dgvSKZIUtochnAbils);
             dgr6.Cells[0].Value = "2.2";
             dgr6.Cells[1].Value = "возможность воздействовать на аппаратные компоненты СКЗИ и СФ, ограниченная мерами, реализованными в информационной системе, в которой используется СКЗИ, и направленными на предотвращение и пресечение несанкционированных действий;";
+            dgr6.Cells[3].Value = "";
             ((DataGridViewComboBoxCell)(dgr6.Cells[2])).Value = "Не актуально";
 
             DataGridViewRow dgr7 = new DataGridViewRow();
             dgr7.CreateCells(mf.dgvSKZIUtochnAbils);
             dgr7.Cells[0].Value = "2.2";
             dgr7.Cells[1].Value = "возможность воздействовать на аппаратные компоненты СКЗИ и СФ,ограниченная мерами, реализованными в информационной системе, в которой используется СКЗИ, и направленными на предотвращение и пресечение несанкционированных действий";
+            dgr7.Cells[3].Value = "";
             ((DataGridViewComboBoxCell)(dgr7.Cells[2])).Value = "Не актуально";
 
             DataGridViewRow dgr8 = new DataGridViewRow();
             dgr8.CreateCells(mf.dgvSKZIUtochnAbils);
             dgr8.Cells[0].Value = "3.1";
             dgr8.Cells[1].Value = "создание способов, подготовка и проведение атак с привлечением специалистов в области анализа сигналов, сопровождающих функционирование СКЗИ и СФ, и в области спользования для реализации атак недокументированных (недекларированных) возможностей прикладного ПО;";
+            dgr8.Cells[3].Value = "";
             ((DataGridViewComboBoxCell)(dgr8.Cells[2])).Value = "Не актуально";
 
             DataGridViewRow dgr9 = new DataGridViewRow();
             dgr9.CreateCells(mf.dgvSKZIUtochnAbils);
             dgr9.Cells[0].Value = "3.2";
             dgr9.Cells[1].Value = "проведение лабораторных исследований СКЗИ, используемых вне контролируемой зоны, ограниченное мерами, реализованными в информационной системе, в которой используется СКЗИ, и направленными на предотвращение и пресечение несанкционированных действий;";
+            dgr9.Cells[3].Value = "";
             ((DataGridViewComboBoxCell)(dgr9.Cells[2])).Value = "Не актуально";
 
             DataGridViewRow dgr10 = new DataGridViewRow();
             dgr10.CreateCells(mf.dgvSKZIUtochnAbils);
             dgr10.Cells[0].Value = "3.3";
             dgr10.Cells[1].Value = "проведение работ по созданию способов и средств атак в научноисследовательских центрах, специализирующихся в области разработки и анализа СКЗИ и СФ, в том числе с использованием исходных текстов входящего в СФ прикладного ПО, непосредственно использующего вызовы программных функций СКЗИ;";
+            dgr10.Cells[3].Value = "";
             ((DataGridViewComboBoxCell)(dgr10.Cells[2])).Value = "Не актуально";
 
             DataGridViewRow dgr11 = new DataGridViewRow();
             dgr11.CreateCells(mf.dgvSKZIUtochnAbils);
             dgr11.Cells[0].Value = "4.1";
             dgr11.Cells[1].Value = "создание способов, подготовка и проведение атак с привлечением специалистов в области использования для реализации атак недокументированных (недекларированных) возможностей системного ПО;";
+            dgr11.Cells[3].Value = "";
             ((DataGridViewComboBoxCell)(dgr11.Cells[2])).Value = "Не актуально";
 
             DataGridViewRow dgr12 = new DataGridViewRow();
             dgr12.CreateCells(mf.dgvSKZIUtochnAbils);
             dgr12.Cells[0].Value = "4.2";
             dgr12.Cells[1].Value = "возможность располагать сведениями, содержащимися в конструкторской документации на аппаратные и программные компоненты СФ;";
+            dgr12.Cells[3].Value = "";
             ((DataGridViewComboBoxCell)(dgr12.Cells[2])).Value = "Не актуально";
 
             DataGridViewRow dgr13 = new DataGridViewRow();
             dgr13.CreateCells(mf.dgvSKZIUtochnAbils);
             dgr13.Cells[0].Value = "4.3";
             dgr13.Cells[1].Value = "возможность воздействовать на любые компоненты СКЗИ и СФ";
+            dgr13.Cells[3].Value = "";
             ((DataGridViewComboBoxCell)(dgr13.Cells[2])).Value = "Не актуально";
             #endregion
             mf.dgvSKZIUtochnAbils.Rows.AddRange(new DataGridViewRow[] { dgr1, dgr2, dgr3, dgr4, dgr5, dgr6, dgr7, dgr8, dgr9, dgr10, dgr11, dgr12, dgr13 });
@@ -458,6 +481,9 @@ namespace KPSZI
             mf.tcSKZI.TabPages[2].Enter += new EventHandler(enterTab3);
 
             mf.dgvSKZIUtochnAbils.CellClick += new DataGridViewCellEventHandler(dgvUtochAbilsCellClick);
+
+            mf.dgvSKZIAttackAbils.CellValueChanged += new DataGridViewCellEventHandler(changedMaxCheckedAbility);
+            changedMaxCheckedAbility(null, new DataGridViewCellEventArgs(2, 3));
             SetHeightOfDGV(mf.dgvSKZIUtochnAbils);
         }
         
@@ -492,7 +518,7 @@ namespace KPSZI
 
         public void dgvUtochAbilsCellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 3 && mf.dgvSKZIUtochnAbils.Rows[e.RowIndex].Cells[3].Value != null)
+            if (e.ColumnIndex == 3 && mf.dgvSKZIUtochnAbils.Rows[e.RowIndex].Cells[3].Value.ToString() != "")
             {
                 openSKZIDialogForm(e.RowIndex, e.ColumnIndex);
                 SetHeightOfDGV(mf.dgvSKZIUtochnAbils);
@@ -504,6 +530,7 @@ namespace KPSZI
         
         public void calculateThreats()
         {
+            List<string> actualThreatNumbers = new List<string>();
             int maxPossibleActualThreatRow = 0;
             int countActualThreats = 1;
             switch (getHighestCheckedAbility())
@@ -535,6 +562,7 @@ namespace KPSZI
                 {
                     if (row.Cells[2].Value.ToString() == "Актуально")
                     {
+                        actualThreatNumbers.Add(row.Cells[0].Value.ToString());
                         actualThreatsInGrid++;
                     }
                 }
@@ -545,14 +573,186 @@ namespace KPSZI
                 }
             }
 
-            mf.lbCountSKZIThreats.Text = "Необходимое количество актуальных угроз: " + countActualThreats.ToString() +
+            mf.lbCountSKZIThreats.Text = "Минимальное количество актуальных угроз: " + countActualThreats.ToString() +
                 "\r\nОтмечено актуальных угроз: " + actualThreatsInGrid.ToString();
             if (countNoReasonedThreats > 0)
                 mf.lbCountSKZIThreats.Text += "\r\nОбоснуйте неактуальность следующего количества угроз " + countNoReasonedThreats;
-            if (countNoReasonedThreats == 0 && actualThreatsInGrid == countActualThreats)
+            if (countNoReasonedThreats == 0 && actualThreatsInGrid >= countActualThreats)
                 mf.lbCountSKZIThreats.ForeColor = System.Drawing.Color.Green;
             else
                 mf.lbCountSKZIThreats.ForeColor = System.Drawing.Color.Red;
+
+            List<SKZIClass> SKZIClasses = new List<SKZIClass>();
+
+            if ((IS.typeOfActualThreats >= 1 && IS.typeOfActualThreats <= 3) && (IS.levelOfPDN >= 1 && IS.levelOfPDN <= 4))
+                foreach (string actualThreat in actualThreatNumbers)
+                {
+                    SKZIClasses.Add(calculateSKZIClass(actualThreat));
+                }
+            else
+            {
+                MessageBox.Show("Определите уровень защищенности персональных данных.");
+                mf.treeView.SelectedNode = mf.returnTreeNode("tnClassification");
+                return;
+            }
+
+            mf.lbSKZIClass.Text = "Класс СКЗИ: " + getMax(SKZIClasses);
+        }
+
+        public SKZIClass getMax(List<SKZIClass> list)
+        {
+            SKZIClass max = SKZIClass.Неопределен;
+            foreach(SKZIClass item in list)
+            {
+                if (item > max)
+                    max = item;
+            }
+            return max;
+        }
+
+        public SKZIClass calculateSKZIClass(string actualThreat)
+        {
+            #region Большой свитч по возврату класса СКЗИ
+            switch(actualThreat)
+            {
+                case "1.1":
+                    {
+                        if (IS.levelOfPDN == 4 || ((IS.levelOfPDN == 3 || IS.levelOfPDN == 2) && IS.typeOfActualThreats == 3))
+                            return SKZIClass.КС2;
+                        else
+                        {
+                            if ((IS.levelOfPDN == 3 || IS.levelOfPDN == 2 || IS.levelOfPDN == 1) && IS.typeOfActualThreats == 2)
+                                return SKZIClass.КВ;
+                            else
+                            {
+                                if (IS.typeOfActualThreats == 1 && (IS.levelOfPDN == 2 || IS.levelOfPDN == 1))
+                                    return SKZIClass.КА;
+                                else
+                                    return SKZIClass.Неопределен;
+                            }
+                        }
+                    }
+                case "1.2":
+                    {
+                        if (IS.levelOfPDN == 4 || ((IS.levelOfPDN == 3 || IS.levelOfPDN == 2) && IS.typeOfActualThreats == 3))
+                            return SKZIClass.КС2;
+                        else
+                        {
+                            if ((IS.levelOfPDN == 3 || IS.levelOfPDN == 2 || IS.levelOfPDN == 1) && IS.typeOfActualThreats == 2)
+                                return SKZIClass.КВ;
+                            else
+                            {
+                                if (IS.typeOfActualThreats == 1 && (IS.levelOfPDN == 2 || IS.levelOfPDN == 1))
+                                    return SKZIClass.КА;
+                                else
+                                    return SKZIClass.Неопределен;
+                            }
+                        }
+                    }
+                case "1.3":
+                    {
+                        if (IS.levelOfPDN == 4 || ((IS.levelOfPDN == 3 || IS.levelOfPDN == 2) && IS.typeOfActualThreats == 3))
+                            return SKZIClass.КС2;
+                        else
+                        {
+                            if ((IS.levelOfPDN == 3 || IS.levelOfPDN == 2 || IS.levelOfPDN == 1) && IS.typeOfActualThreats == 2)
+                                return SKZIClass.КВ;
+                            else
+                            {
+                                if (IS.typeOfActualThreats == 1 && (IS.levelOfPDN == 2 || IS.levelOfPDN == 1))
+                                    return SKZIClass.КА;
+                                else
+                                    return SKZIClass.Неопределен;
+                            }
+                        }
+                    }
+                case "1.4":
+                    {
+                        if (IS.levelOfPDN == 4 || ((IS.levelOfPDN == 3 || IS.levelOfPDN == 2) && IS.typeOfActualThreats == 3))
+                            return SKZIClass.КС2;
+                        else
+                        {
+                            if ((IS.levelOfPDN == 3 || IS.levelOfPDN == 2 || IS.levelOfPDN == 1) && IS.typeOfActualThreats == 2)
+                                return SKZIClass.КВ;
+                            else
+                            {
+                                if (IS.typeOfActualThreats == 1 && (IS.levelOfPDN == 2 || IS.levelOfPDN == 1))
+                                    return SKZIClass.КА;
+                                else
+                                    return SKZIClass.Неопределен;
+                            }
+                        }
+                    }
+                case "2.1":
+                    {
+                        if (IS.levelOfPDN == 4 || ((IS.levelOfPDN == 3 || IS.levelOfPDN == 2) && IS.typeOfActualThreats == 3))
+                            return SKZIClass.КС3;
+                        else
+                        {
+                            if ((IS.levelOfPDN == 3 || IS.levelOfPDN == 2 || IS.levelOfPDN == 1) && IS.typeOfActualThreats == 2)
+                                return SKZIClass.КВ;
+                            else
+                            {
+                                if (IS.typeOfActualThreats == 1 && (IS.levelOfPDN == 2 || IS.levelOfPDN == 1))
+                                    return SKZIClass.КА;
+                                else
+                                    return SKZIClass.Неопределен;
+                            }
+                        }
+                    }
+                case "2.2":
+                    {
+                        if (IS.levelOfPDN == 4 || ((IS.levelOfPDN == 3 || IS.levelOfPDN == 2) && IS.typeOfActualThreats == 3))
+                            return SKZIClass.КС3;
+                        else
+                        {
+                            if ((IS.levelOfPDN == 3 || IS.levelOfPDN == 2 || IS.levelOfPDN == 1) && IS.typeOfActualThreats == 2)
+                                return SKZIClass.КВ;
+                            else
+                            {
+                                if (IS.typeOfActualThreats == 1 && (IS.levelOfPDN == 2 || IS.levelOfPDN == 1))
+                                    return SKZIClass.КА;
+                                else
+                                    return SKZIClass.Неопределен;
+                            }
+                        }
+                    }
+                case "3.1":
+                    {
+                        if (IS.levelOfPDN <= 2 && IS.typeOfActualThreats == 1)
+                            return SKZIClass.КА;
+                        else
+                            return SKZIClass.КВ;
+                    }
+                case "3.2":
+                    {
+                        if (IS.levelOfPDN <= 2 && IS.typeOfActualThreats == 1)
+                            return SKZIClass.КА;
+                        else
+                            return SKZIClass.КВ;
+                    }
+                case "3.3":
+                    {
+                        if (IS.levelOfPDN <= 2 && IS.typeOfActualThreats == 1)
+                            return SKZIClass.КА;
+                        else
+                            return SKZIClass.КВ;
+                    }
+                case "4.1":
+                    {
+                        return SKZIClass.КА;
+                    }
+                case "4.2":
+                    {
+                        return SKZIClass.КА;
+                    }
+                case "4.3":
+                    {
+                        return SKZIClass.КА;
+                    }
+            }
+            #endregion
+            return SKZIClass.Неопределен;
         }
 
         public void openSKZIDialogForm(int rowIndex, int columnIndex)
@@ -586,7 +786,7 @@ namespace KPSZI
         public void enterTab2(object sender, EventArgs e)
         {
             int intruderPotential = getMaxIntrPot(IS.listOfSources);
-            if ((mf.cbSKZIHran.Checked || mf.cbSKZIPered.Checked) == false)
+            if (IS.listOfInfoTypes.FindIndex(t=> t.TypeName=="Персональные данные")==-1 || (mf.cbSKZIHran.Checked || mf.cbSKZIPered.Checked) == false)
             {
                 MessageBox.Show("Для информационной системы не актуально использование средств криптографической защиты");
                 mf.tcSKZI.SelectedTab = mf.tcSKZI.TabPages[0];
@@ -606,75 +806,87 @@ namespace KPSZI
                 if (row.Index != 2)
                     row.Cells[2].ReadOnly = intruderPotential >= 2 ? false : true;
                 else
-                    row.Cells[2].Value = ((intruderPotential >= 0) || (intruderPotential >= 1)) ? true : false;
+                    row.Cells[2].Value = true;
             }
 
             SetHeightOfDGV(mf.dgvSKZIAttackAbils);
             mf.tcSKZI.TabPages[1].AutoScrollOffset = new System.Drawing.Point(0, 0);
         }
-
+        
         public void enterTab3(object sender, EventArgs e)
         {
-            if ((mf.cbSKZIHran.Checked || mf.cbSKZIPered.Checked) == false)
+            int intruderPotential = getMaxIntrPot(IS.listOfSources);
+            if (IS.listOfInfoTypes.FindIndex(t => t.TypeName == "Персональные данные") == -1 || (mf.cbSKZIHran.Checked || mf.cbSKZIPered.Checked) == false)
             {
                 MessageBox.Show("Для информационной системы не актуально использование средств криптографической защиты");
                 mf.tcSKZI.SelectedTab = mf.tcSKZI.TabPages[0];
                 return;
             }
 
-            int maxCheckedAbility = getHighestCheckedAbility();
-
-            switch (maxCheckedAbility)
+            if (currentMaxCheckedAbility != getHighestCheckedAbility())
             {
-                case 3:
-                    {
-                        foreach (DataGridViewRow row in mf.dgvSKZIUtochnAbils.Rows)
-                        {
-                            if (row.Index >= 6)
-                            {
-                                row.Cells[3].Value = "Обоснуйте неактуальность уточненной возможности";
-                                row.Cells[2].ReadOnly = true;
-                            }
-                            else
-                            {
-                                row.Cells[2].ReadOnly = false;
-                            }
-                            row.Cells[2].Value = "Не актуально";
-                        }
-                        break;
-                    }
-                case 4:
-                case 5:
-                    {
-                        foreach (DataGridViewRow row in mf.dgvSKZIUtochnAbils.Rows)
-                        {
-                            if (row.Index >= 10)
-                            {
-                                row.Cells[3].Value = "Обоснуйте неактуальность уточненной возможности";
-                                row.Cells[2].ReadOnly = true;
-                            }
-                            else
-                            {
-                                row.Cells[3].Value = "";
-                                row.Cells[2].ReadOnly = false;
-                            }
-                            row.Cells[2].Value = "Не актуально";
-                        }
-                        break;
-                    }
-                case 6:
-                    {
-                        foreach (DataGridViewRow row in mf.dgvSKZIUtochnAbils.Rows)
-                        {
-                            row.Cells[2].Value = "Актуально";
-                            row.Cells[2].ReadOnly = true;
-                            row.Cells[3].Value = "";
-                        }
-                        break;
-                    }
+                
             }
+
+            currentMaxCheckedAbility = getHighestCheckedAbility();
             SetHeightOfDGV(mf.dgvSKZIUtochnAbils);
             calculateThreats();
+        }
+        
+        public void changedMaxCheckedAbility(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 2)
+            {
+                switch (getHighestCheckedAbility())
+                {
+                    case 3:
+                        {
+                            foreach (DataGridViewRow row in mf.dgvSKZIUtochnAbils.Rows)
+                            {
+                                if (row.Index >= 6)
+                                {
+                                    row.Cells[3].Value = "Обоснуйте неактуальность уточненной возможности";
+                                    row.Cells[2].ReadOnly = true;
+                                }
+                                else
+                                {
+                                    row.Cells[2].ReadOnly = false;
+                                }
+                                row.Cells[2].Value = "Не актуально";
+                            }
+                            break;
+                        }
+                    case 4:
+                    case 5:
+                        {
+                            foreach (DataGridViewRow row in mf.dgvSKZIUtochnAbils.Rows)
+                            {
+                                if (row.Index >= 10)
+                                {
+                                    row.Cells[3].Value = "Обоснуйте неактуальность уточненной возможности";
+                                    row.Cells[2].ReadOnly = true;
+                                }
+                                else
+                                {
+                                    row.Cells[3].Value = "";
+                                    row.Cells[2].ReadOnly = false;
+                                }
+                                row.Cells[2].Value = "Не актуально";
+                            }
+                            break;
+                        }
+                    case 6:
+                        {
+                            foreach (DataGridViewRow row in mf.dgvSKZIUtochnAbils.Rows)
+                            {
+                                row.Cells[2].Value = "Актуально";
+                                row.Cells[2].ReadOnly = true;
+                                row.Cells[3].Value = "";
+                            }
+                            break;
+                        }
+                }
+            }
         }
 
         public int getHighestCheckedAbility()

@@ -17,6 +17,12 @@ namespace KPSZI
         /// </summary>
         public string ISName;
         /// <summary>
+        /// Уровень защищенности персональных данных:
+        /// 1, 2, 3, 4 - соответственно.
+        /// </summary>
+        public int levelOfPDN;
+        public int typeOfActualThreats;
+        /// <summary>
         /// Список видов информации, обрабатываемых в данной ИС
         /// </summary>
         public List<InfoType> listOfInfoTypes;
