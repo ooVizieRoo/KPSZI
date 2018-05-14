@@ -198,6 +198,9 @@ namespace KPSZI
             }
 
             string ActualThreats = mf.comboBoxActualThreatsType.SelectedItem.ToString();
+            int type;
+            int.TryParse(ActualThreats.Substring(0, 1),out type);
+            IS.typeOfActualThreats = type;
             bool isStaffSubjects = mf.checkBoxSubjectsStaff.Checked;
             string SubjectsPDN = mf.comboBoxHundred.SelectedItem.ToString();
 
@@ -262,7 +265,8 @@ namespace KPSZI
                         break;
                     }
             }
-            mf.labelISPDNLevel.Text = "Уровень защищенности - " + levels.Min();
+            IS.levelOfPDN = levels.Min();
+            mf.labelISPDNLevel.Text = "Уровень защищенности - " + IS.levelOfPDN;
         }
         
         #region Обработчики

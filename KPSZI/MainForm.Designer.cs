@@ -29,45 +29,45 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode43 = new System.Windows.Forms.TreeNode("1.1. Параметры ИС");
-            System.Windows.Forms.TreeNode treeNode44 = new System.Windows.Forms.TreeNode("1.2. Классификация ИС");
-            System.Windows.Forms.TreeNode treeNode45 = new System.Windows.Forms.TreeNode("1.3.1. Матрица доступа");
-            System.Windows.Forms.TreeNode treeNode46 = new System.Windows.Forms.TreeNode("1.3.2. Топология сети");
-            System.Windows.Forms.TreeNode treeNode47 = new System.Windows.Forms.TreeNode("1.3.3. Аппаратная конфигурация");
-            System.Windows.Forms.TreeNode treeNode48 = new System.Windows.Forms.TreeNode("1.3. Технологическая информация", new System.Windows.Forms.TreeNode[] {
-            treeNode45,
-            treeNode46,
-            treeNode47});
-            System.Windows.Forms.TreeNode treeNode49 = new System.Windows.Forms.TreeNode("1. Обследование ИС", new System.Windows.Forms.TreeNode[] {
-            treeNode43,
-            treeNode44,
-            treeNode48});
-            System.Windows.Forms.TreeNode treeNode50 = new System.Windows.Forms.TreeNode("2.1. Модель нарушителя");
-            System.Windows.Forms.TreeNode treeNode51 = new System.Windows.Forms.TreeNode("2.2. Потенциальные уязвимости ИС");
-            System.Windows.Forms.TreeNode treeNode52 = new System.Windows.Forms.TreeNode("2.3. Актуальные угрозы (НСД)");
-            System.Windows.Forms.TreeNode treeNode53 = new System.Windows.Forms.TreeNode("2.4. Актуальные угрозы (ТКУИ)");
-            System.Windows.Forms.TreeNode treeNode54 = new System.Windows.Forms.TreeNode("2.5. Актуальные угрозы (Техногенные)");
-            System.Windows.Forms.TreeNode treeNode55 = new System.Windows.Forms.TreeNode("2.6. Актуальность использования СКЗИ");
-            System.Windows.Forms.TreeNode treeNode56 = new System.Windows.Forms.TreeNode("2. Модель угроз", new System.Windows.Forms.TreeNode[] {
-            treeNode50,
-            treeNode51,
-            treeNode52,
-            treeNode53,
-            treeNode54,
-            treeNode55});
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("1.1. Параметры ИС");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("1.2. Классификация ИС");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("1.3.1. Матрица доступа");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("1.3.2. Топология сети");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("1.3.3. Аппаратная конфигурация");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("1.3. Технологическая информация", new System.Windows.Forms.TreeNode[] {
+            treeNode3,
+            treeNode4,
+            treeNode5});
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("1. Обследование ИС", new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2,
+            treeNode6});
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("2.1. Модель нарушителя");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("2.2. Потенциальные уязвимости ИС");
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("2.3. Актуальные угрозы (НСД)");
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("2.4. Актуальные угрозы (ТКУИ)");
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("2.5. Актуальные угрозы (Техногенные)");
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("2.6. Актуальность использования СКЗИ");
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("2. Модель угроз", new System.Windows.Forms.TreeNode[] {
+            treeNode8,
+            treeNode9,
+            treeNode10,
+            treeNode11,
+            treeNode12,
+            treeNode13});
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.projectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -241,6 +241,7 @@
             this.columnYesNoAbils = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.PotencialColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tpSKZI3 = new System.Windows.Forms.TabPage();
+            this.lbSKZIClass = new System.Windows.Forms.Label();
             this.lbCountSKZIThreats = new System.Windows.Forms.Label();
             this.dgvSKZIUtochnAbils = new System.Windows.Forms.DataGridView();
             this.numberSKZIcolumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -415,37 +416,37 @@
             this.treeView.HideSelection = false;
             this.treeView.Location = new System.Drawing.Point(0, 24);
             this.treeView.Name = "treeView";
-            treeNode43.Name = "tnOptions";
-            treeNode43.Text = "1.1. Параметры ИС";
-            treeNode44.Name = "tnClassification";
-            treeNode44.Text = "1.2. Классификация ИС";
-            treeNode45.Name = "tnAccessMatrix";
-            treeNode45.Text = "1.3.1. Матрица доступа";
-            treeNode46.Name = "tnTopology";
-            treeNode46.Text = "1.3.2. Топология сети";
-            treeNode47.Name = "tnHardware";
-            treeNode47.Text = "1.3.3. Аппаратная конфигурация";
-            treeNode48.Name = "tnTechno";
-            treeNode48.Text = "1.3. Технологическая информация";
-            treeNode49.Name = "Node0";
-            treeNode49.Text = "1. Обследование ИС";
-            treeNode50.Name = "tnIntruder";
-            treeNode50.Text = "2.1. Модель нарушителя";
-            treeNode51.Name = "tnVulnerabilities";
-            treeNode51.Text = "2.2. Потенциальные уязвимости ИС";
-            treeNode52.Name = "tnActualThreats";
-            treeNode52.Text = "2.3. Актуальные угрозы (НСД)";
-            treeNode53.Name = "tnTCUI";
-            treeNode53.Text = "2.4. Актуальные угрозы (ТКУИ)";
-            treeNode54.Name = "tnTechnoGenThreats";
-            treeNode54.Text = "2.5. Актуальные угрозы (Техногенные)";
-            treeNode55.Name = "tnSKZI";
-            treeNode55.Text = "2.6. Актуальность использования СКЗИ";
-            treeNode56.Name = "Node1";
-            treeNode56.Text = "2. Модель угроз";
+            treeNode1.Name = "tnOptions";
+            treeNode1.Text = "1.1. Параметры ИС";
+            treeNode2.Name = "tnClassification";
+            treeNode2.Text = "1.2. Классификация ИС";
+            treeNode3.Name = "tnAccessMatrix";
+            treeNode3.Text = "1.3.1. Матрица доступа";
+            treeNode4.Name = "tnTopology";
+            treeNode4.Text = "1.3.2. Топология сети";
+            treeNode5.Name = "tnHardware";
+            treeNode5.Text = "1.3.3. Аппаратная конфигурация";
+            treeNode6.Name = "tnTechno";
+            treeNode6.Text = "1.3. Технологическая информация";
+            treeNode7.Name = "Node0";
+            treeNode7.Text = "1. Обследование ИС";
+            treeNode8.Name = "tnIntruder";
+            treeNode8.Text = "2.1. Модель нарушителя";
+            treeNode9.Name = "tnVulnerabilities";
+            treeNode9.Text = "2.2. Потенциальные уязвимости ИС";
+            treeNode10.Name = "tnActualThreats";
+            treeNode10.Text = "2.3. Актуальные угрозы (НСД)";
+            treeNode11.Name = "tnTCUI";
+            treeNode11.Text = "2.4. Актуальные угрозы (ТКУИ)";
+            treeNode12.Name = "tnTechnoGenThreats";
+            treeNode12.Text = "2.5. Актуальные угрозы (Техногенные)";
+            treeNode13.Name = "tnSKZI";
+            treeNode13.Text = "2.6. Актуальность использования СКЗИ";
+            treeNode14.Name = "Node1";
+            treeNode14.Text = "2. Модель угроз";
             this.treeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode49,
-            treeNode56});
+            treeNode7,
+            treeNode14});
             this.treeView.Size = new System.Drawing.Size(287, 516);
             this.treeView.TabIndex = 3;
             this.treeView.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.treeView_BeforeSelect);
@@ -2232,10 +2233,11 @@
             this.tcSKZI.Controls.Add(this.tpSKZI1);
             this.tcSKZI.Controls.Add(this.tpSKZI2);
             this.tcSKZI.Controls.Add(this.tpSKZI3);
-            this.tcSKZI.Location = new System.Drawing.Point(2, 3);
+            this.tcSKZI.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tcSKZI.Location = new System.Drawing.Point(3, 3);
             this.tcSKZI.Name = "tcSKZI";
             this.tcSKZI.SelectedIndex = 0;
-            this.tcSKZI.Size = new System.Drawing.Size(974, 490);
+            this.tcSKZI.Size = new System.Drawing.Size(939, 484);
             this.tcSKZI.TabIndex = 0;
             // 
             // tpSKZI1
@@ -2248,7 +2250,7 @@
             this.tpSKZI1.Location = new System.Drawing.Point(4, 22);
             this.tpSKZI1.Name = "tpSKZI1";
             this.tpSKZI1.Padding = new System.Windows.Forms.Padding(3);
-            this.tpSKZI1.Size = new System.Drawing.Size(966, 464);
+            this.tpSKZI1.Size = new System.Drawing.Size(931, 458);
             this.tpSKZI1.TabIndex = 0;
             this.tpSKZI1.Text = "Актуальность использования СКЗИ";
             this.tpSKZI1.UseVisualStyleBackColor = true;
@@ -2381,6 +2383,7 @@
             // tpSKZI3
             // 
             this.tpSKZI3.AutoScroll = true;
+            this.tpSKZI3.Controls.Add(this.lbSKZIClass);
             this.tpSKZI3.Controls.Add(this.lbCountSKZIThreats);
             this.tpSKZI3.Controls.Add(this.dgvSKZIUtochnAbils);
             this.tpSKZI3.Location = new System.Drawing.Point(4, 22);
@@ -2390,6 +2393,19 @@
             this.tpSKZI3.TabIndex = 2;
             this.tpSKZI3.Text = "Уточненные возможности источников атак";
             this.tpSKZI3.UseVisualStyleBackColor = true;
+            // 
+            // lbSKZIClass
+            // 
+            this.lbSKZIClass.BackColor = System.Drawing.Color.Transparent;
+            this.lbSKZIClass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lbSKZIClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbSKZIClass.ForeColor = System.Drawing.Color.Black;
+            this.lbSKZIClass.Location = new System.Drawing.Point(449, 11);
+            this.lbSKZIClass.Name = "lbSKZIClass";
+            this.lbSKZIClass.Size = new System.Drawing.Size(380, 55);
+            this.lbSKZIClass.TabIndex = 2;
+            this.lbSKZIClass.Text = "Класс СКЗИ";
+            this.lbSKZIClass.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lbCountSKZIThreats
             // 
@@ -2889,5 +2905,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn IntruderPotencialColumn;
         public System.Windows.Forms.TreeView treeView;
         private System.Windows.Forms.ToolStripMenuItem FillThreatsToolStripMenuItem;
+        internal System.Windows.Forms.Label lbSKZIClass;
     }
 }
