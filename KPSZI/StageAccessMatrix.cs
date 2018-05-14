@@ -179,10 +179,11 @@ namespace KPSZI
             System.Windows.Forms.Button buttonAcceptPermissions;
 
             dialogForm = new Form();
-            dialogForm.Size = new Size { Height = 100, Width = 150 };
-            dialogForm.FormBorderStyle = FormBorderStyle.Fixed3D;
             dialogForm.Size = new Size { Height = 235, Width = 550 };
             dialogForm.Icon = new Icon("res/icons/mf.ico");
+            dialogForm.FormBorderStyle = FormBorderStyle.FixedDialog;
+            dialogForm.MaximizeBox = false;
+            dialogForm.MinimizeBox = false;
 
             checkBoxRead = new System.Windows.Forms.CheckBox();
             checkBoxWrite = new System.Windows.Forms.CheckBox();

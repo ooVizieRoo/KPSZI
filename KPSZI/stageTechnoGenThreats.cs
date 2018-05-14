@@ -20,10 +20,10 @@ namespace KPSZI
 
         public override void enterTabPage()
         {
-            mf.dgvTGMeasures.Height = mf.dgvTGMeasures.Rows.GetRowsHeight(DataGridViewElementStates.Visible) + mf.dgvTGMeasures.ColumnHeadersHeight;
+            SetHeightOfDGV(mf.dgvTGMeasures);
             mf.dgvTGThreats.Location = new Point { X = mf.dgvTGMeasures.Location.X, Y = 30 + mf.dgvTGMeasures.Height };
-            mf.dgvTGThreats.Height = mf.dgvTGThreats.Rows.GetRowsHeight(DataGridViewElementStates.Visible) + mf.dgvTGThreats.ColumnHeadersHeight;
-            mf.tcTGThreats.TabPages["tpTGThreatsMeasures"].SetAutoScrollMargin(3, 15);
+            SetHeightOfDGV(mf.dgvTGThreats);
+            setComboBoxColumnPadding();
         }
 
         protected override void initTabPage()
@@ -162,18 +162,27 @@ namespace KPSZI
                     damages = false;
             mf.lbTGInfo2.Visible = damages;
             mf.lbTGInfo.Visible = !damages;
-            SetHeightOfDGV();
+            SetHeightOfDGV(mf.dgvActualTGThreats);
+            setComboBoxColumnPadding();
         }
 
-        public void SetHeightOfDGV()
+        public void SetHeightOfDGV(DataGridView dgv)
         {
-            foreach (DataGridViewRow dgvr in mf.dgvActualTGThreats.Rows)
+            foreach (DataGridViewRow dgvr in dgv.Rows)
             {
                 int index = dgvr.Index;
-                int d = mf.dgvActualTGThreats.Rows[index].GetPreferredHeight(index, DataGridViewAutoSizeRowMode.AllCells, true);
+                int d = dgv.Rows[index].GetPreferredHeight(index, DataGridViewAutoSizeRowMode.AllCells, true);
                 dgvr.Height = d;
             }
-            mf.dgvActualTGThreats.Height = mf.dgvActualTGThreats.Rows.GetRowsHeight(DataGridViewElementStates.Visible) + mf.dgvActualTGThreats.ColumnHeadersHeight;
+            dgv.Height = dgv.Rows.GetRowsHeight(DataGridViewElementStates.Visible) + mf.dgvActualTGThreats.ColumnHeadersHeight;
+        }
+
+        public void setComboBoxColumnPadding()
+        {
+            foreach (DataGridViewRow row in mf.dgvTGThreats.Rows)
+            {
+                row.Cells[1].Style.Padding = new Padding(5, (row.Height / 2) - 10, 5, (row.Height / 2) - 10);
+            }
         }
     }
 }

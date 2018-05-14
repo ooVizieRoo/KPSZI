@@ -311,5 +311,9 @@ namespace KPSZI
             base.OnKeyPress(e);
         }
 
+        private void tabPageTCUIExist_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
