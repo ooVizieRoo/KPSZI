@@ -91,6 +91,12 @@
     <Compile Include="DamageDegreeControl.Designer.cs">
       <DependentUpon>DamageDegreeControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="FillThreatsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FillThreatsForm.Designer.cs">
+      <DependentUpon>FillThreatsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="IntruderAbilityControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -159,6 +165,9 @@
     <Compile Include="StageVulnerabilities.cs" />
     <EmbeddedResource Include="DamageDegreeControl.resx">
       <DependentUpon>DamageDegreeControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FillThreatsForm.resx">
+      <DependentUpon>FillThreatsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IntruderAbilityControl.resx">
       <DependentUpon>IntruderAbilityControl.cs</DependentUpon>

@@ -315,5 +315,11 @@ namespace KPSZI
         {
 
         }
+
+        private void FillThreatsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FillThreatsForm form = new FillThreatsForm();
+            form.Show();
+        }
     }
 }
