@@ -22,7 +22,7 @@ namespace KPSZI
         internal Dictionary<string, Stage> stages = new Dictionary<string, Stage>();
         TreeNode previousSelectedNode;
         InformationSystem IS = new InformationSystem();
-        
+
         public void startSplash()
         {
                 Application.Run(new splashForm());

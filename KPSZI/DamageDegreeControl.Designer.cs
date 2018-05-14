@@ -34,9 +34,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.Name = "DamageDegreeControl";
-            this.Size = new System.Drawing.Size(373, 338);
+            this.Size = new System.Drawing.Size(375, 340);
             this.ResumeLayout(false);
 
         }
