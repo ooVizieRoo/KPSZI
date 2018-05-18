@@ -56,6 +56,10 @@ namespace KPSZI.Model
         /// Коллекция угроз, которые нейтрализует данная мера [навигационное поле]
         /// </summary>
         public virtual ICollection<Threat> Threats { get; set; }
+        /// <summary>
+        /// Навигационное поле соответствия СФХ мерам для адаптации набора мер
+        /// </summary>
+        public virtual ICollection<SFH> SFHs { get; set; }
 
         /// <summary>
         /// Конструктор для инициализации коллекции навигационного поля
@@ -65,6 +69,7 @@ namespace KPSZI.Model
             Threats = new List<Threat>();
             this.isOnlyISPDn = false;
             this.SZIs = new List<SZI>();
+            SFHs = new List<SFH>();
         }
     }
 }

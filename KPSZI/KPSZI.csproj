@@ -97,9 +97,9 @@
     <Compile Include="IntruderAbilityControl.Designer.cs">
       <DependentUpon>IntruderAbilityControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201805070557453_new.cs" />
-    <Compile Include="Migrations\201805070557453_new.Designer.cs">
-      <DependentUpon>201805070557453_new.cs</DependentUpon>
+    <Compile Include="Migrations\201805180415017_upd_after_add_SFH-Measures_dependencies.cs" />
+    <Compile Include="Migrations\201805180415017_upd_after_add_SFH-Measures_dependencies.Designer.cs">
+      <DependentUpon>201805180415017_upd_after_add_SFH-Measures_dependencies.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\ImplementWays.cs" />
@@ -172,8 +172,8 @@
       <DependentUpon>Form1.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805070557453_new.resx">
-      <DependentUpon>201805070557453_new.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201805180415017_upd_after_add_SFH-Measures_dependencies.resx">
+      <DependentUpon>201805180415017_upd_after_add_SFH-Measures_dependencies.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

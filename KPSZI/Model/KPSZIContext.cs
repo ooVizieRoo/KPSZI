@@ -3417,6 +3417,68 @@ namespace KPSZI.Model
             Threats.Where(t => t.ThreatNumber == 181).First().GISMeasures.Add(GisMeasures.Where(g => g.Number == 11 && g.MeasureGroup.ShortName == "ЗИС").First());
             Threats.Where(t => t.ThreatNumber == 182).First().GISMeasures.Add(GisMeasures.Where(g => g.Number == 1 && g.MeasureGroup.ShortName == "ОДТ").First());
             Threats.Where(t => t.ThreatNumber == 182).First().GISMeasures.Add(GisMeasures.Where(g => g.Number == 2 && g.MeasureGroup.ShortName == "ОДТ").First());
+            Threats.Where(t => t.ThreatNumber == 183).First().GISMeasures.Add(GisMeasures.Where(g => g.Number == 1 && g.MeasureGroup.ShortName == "ОПС").First());
+            Threats.Where(t => t.ThreatNumber == 183).First().GISMeasures.Add(GisMeasures.Where(g => g.Number == 7 && g.MeasureGroup.ShortName == "ЗНИ").First());
+            Threats.Where(t => t.ThreatNumber == 183).First().GISMeasures.Add(GisMeasures.Where(g => g.Number == 1 && g.MeasureGroup.ShortName == "АВЗ").First());
+            Threats.Where(t => t.ThreatNumber == 183).First().GISMeasures.Add(GisMeasures.Where(g => g.Number == 2 && g.MeasureGroup.ShortName == "АВЗ").First());
+            Threats.Where(t => t.ThreatNumber == 183).First().GISMeasures.Add(GisMeasures.Where(g => g.Number == 1 && g.MeasureGroup.ShortName == "СОВ").First());
+            Threats.Where(t => t.ThreatNumber == 183).First().GISMeasures.Add(GisMeasures.Where(g => g.Number == 2 && g.MeasureGroup.ShortName == "СОВ").First());
+            Threats.Where(t => t.ThreatNumber == 183).First().GISMeasures.Add(GisMeasures.Where(g => g.Number == 1 && g.MeasureGroup.ShortName == "АНЗ").First());
+            Threats.Where(t => t.ThreatNumber == 183).First().GISMeasures.Add(GisMeasures.Where(g => g.Number == 2 && g.MeasureGroup.ShortName == "АНЗ").First());
+            Threats.Where(t => t.ThreatNumber == 183).First().GISMeasures.Add(GisMeasures.Where(g => g.Number == 16 && g.MeasureGroup.ShortName == "ЗИС").First());
+            Threats.Where(t => t.ThreatNumber == 183).First().GISMeasures.Add(GisMeasures.Where(g => g.Number == 20 && g.MeasureGroup.ShortName == "ЗИС").First());
+            Threats.Where(t => t.ThreatNumber == 183).First().GISMeasures.Add(GisMeasures.Where(g => g.Number == 23 && g.MeasureGroup.ShortName == "ЗИС").First());
+            Threats.Where(t => t.ThreatNumber == 184).First().GISMeasures.Add(GisMeasures.Where(g => g.Number == 15 && g.MeasureGroup.ShortName == "УПД").First());
+            Threats.Where(t => t.ThreatNumber == 184).First().GISMeasures.Add(GisMeasures.Where(g => g.Number == 30 && g.MeasureGroup.ShortName == "ЗИС").First());
+            Threats.Where(t => t.ThreatNumber == 185).First().GISMeasures.Add(GisMeasures.Where(g => g.Number == 5 && g.MeasureGroup.ShortName == "УПД").First());
+            Threats.Where(t => t.ThreatNumber == 185).First().GISMeasures.Add(GisMeasures.Where(g => g.Number == 10 && g.MeasureGroup.ShortName == "УПД").First());
+            Threats.Where(t => t.ThreatNumber == 185).First().GISMeasures.Add(GisMeasures.Where(g => g.Number == 3 && g.MeasureGroup.ShortName == "АНЗ").First());
+            Threats.Where(t => t.ThreatNumber == 185).First().GISMeasures.Add(GisMeasures.Where(g => g.Number == 1 && g.MeasureGroup.ShortName == "ОЦЛ").First());
+            Threats.Where(t => t.ThreatNumber == 185).First().GISMeasures.Add(GisMeasures.Where(g => g.Number == 2 && g.MeasureGroup.ShortName == "ЗТС").First());
+            Threats.Where(t => t.ThreatNumber == 185).First().GISMeasures.Add(GisMeasures.Where(g => g.Number == 3 && g.MeasureGroup.ShortName == "ЗТС").First());
+            Threats.Where(t => t.ThreatNumber == 185).First().GISMeasures.Add(GisMeasures.Where(g => g.Number == 4 && g.MeasureGroup.ShortName == "ЗИС").First());
+            Threats.Where(t => t.ThreatNumber == 185).First().GISMeasures.Add(GisMeasures.Where(g => g.Number == 15 && g.MeasureGroup.ShortName == "ЗИС").First());
+            Threats.Where(t => t.ThreatNumber == 186).First().GISMeasures.Add(GisMeasures.Where(g => g.Number == 3 && g.MeasureGroup.ShortName == "ОПС").First());
+            Threats.Where(t => t.ThreatNumber == 186).First().GISMeasures.Add(GisMeasures.Where(g => g.Number == 1 && g.MeasureGroup.ShortName == "АВЗ").First());
+            Threats.Where(t => t.ThreatNumber == 186).First().GISMeasures.Add(GisMeasures.Where(g => g.Number == 2 && g.MeasureGroup.ShortName == "АВЗ").First());
+            Threats.Where(t => t.ThreatNumber == 186).First().GISMeasures.Add(GisMeasures.Where(g => g.Number == 7 && g.MeasureGroup.ShortName == "ЗИС").First());
+            Threats.Where(t => t.ThreatNumber == 186).First().GISMeasures.Add(GisMeasures.Where(g => g.Number == 23 && g.MeasureGroup.ShortName == "ЗИС").First());
+            Threats.Where(t => t.ThreatNumber == 187).First().GISMeasures.Add(GisMeasures.Where(g => g.Number == 5 && g.MeasureGroup.ShortName == "УПД").First());
+            Threats.Where(t => t.ThreatNumber == 187).First().GISMeasures.Add(GisMeasures.Where(g => g.Number == 10 && g.MeasureGroup.ShortName == "УПД").First());
+            Threats.Where(t => t.ThreatNumber == 187).First().GISMeasures.Add(GisMeasures.Where(g => g.Number == 2 && g.MeasureGroup.ShortName == "ЗТС").First());
+            Threats.Where(t => t.ThreatNumber == 187).First().GISMeasures.Add(GisMeasures.Where(g => g.Number == 3 && g.MeasureGroup.ShortName == "ЗТС").First());
+            Threats.Where(t => t.ThreatNumber == 187).First().GISMeasures.Add(GisMeasures.Where(g => g.Number == 4 && g.MeasureGroup.ShortName == "ЗИС").First());
+            Threats.Where(t => t.ThreatNumber == 187).First().GISMeasures.Add(GisMeasures.Where(g => g.Number == 15 && g.MeasureGroup.ShortName == "ЗИС").First());            
+            Threats.Where(t => t.ThreatNumber == 188).First().GISMeasures.Add(GisMeasures.Where(g => g.Number == 1 && g.MeasureGroup.ShortName == "ОПС").First());
+            Threats.Where(t => t.ThreatNumber == 188).First().GISMeasures.Add(GisMeasures.Where(g => g.Number == 2 && g.MeasureGroup.ShortName == "ОПС").First());
+            Threats.Where(t => t.ThreatNumber == 188).First().GISMeasures.Add(GisMeasures.Where(g => g.Number == 3 && g.MeasureGroup.ShortName == "ОПС").First());
+            Threats.Where(t => t.ThreatNumber == 189).First().GISMeasures.Add(GisMeasures.Where(g => g.Number == 4 && g.MeasureGroup.ShortName == "РСБ").First());
+            Threats.Where(t => t.ThreatNumber == 189).First().GISMeasures.Add(GisMeasures.Where(g => g.Number == 5 && g.MeasureGroup.ShortName == "РСБ").First());
+            Threats.Where(t => t.ThreatNumber == 189).First().GISMeasures.Add(GisMeasures.Where(g => g.Number == 1 && g.MeasureGroup.ShortName == "АВЗ").First());
+            Threats.Where(t => t.ThreatNumber == 189).First().GISMeasures.Add(GisMeasures.Where(g => g.Number == 2 && g.MeasureGroup.ShortName == "АВЗ").First());
+            Threats.Where(t => t.ThreatNumber == 189).First().GISMeasures.Add(GisMeasures.Where(g => g.Number == 2 && g.MeasureGroup.ShortName == "АНЗ").First());
+            Threats.Where(t => t.ThreatNumber == 189).First().GISMeasures.Add(GisMeasures.Where(g => g.Number == 4 && g.MeasureGroup.ShortName == "ОЦЛ").First());
+            Threats.Where(t => t.ThreatNumber == 190).First().GISMeasures.Add(GisMeasures.Where(g => g.Number == 5 && g.MeasureGroup.ShortName == "УПД").First());
+            Threats.Where(t => t.ThreatNumber == 190).First().GISMeasures.Add(GisMeasures.Where(g => g.Number == 1 && g.MeasureGroup.ShortName == "АВЗ").First());
+            Threats.Where(t => t.ThreatNumber == 190).First().GISMeasures.Add(GisMeasures.Where(g => g.Number == 2 && g.MeasureGroup.ShortName == "АВЗ").First());
+            Threats.Where(t => t.ThreatNumber == 190).First().GISMeasures.Add(GisMeasures.Where(g => g.Number == 7 && g.MeasureGroup.ShortName == "ЗИС").First());
+            Threats.Where(t => t.ThreatNumber == 190).First().GISMeasures.Add(GisMeasures.Where(g => g.Number == 23 && g.MeasureGroup.ShortName == "ЗИС").First());
+            Threats.Where(t => t.ThreatNumber == 191).First().GISMeasures.Add(GisMeasures.Where(g => g.Number == 1 && g.MeasureGroup.ShortName == "ОПС").First());
+            Threats.Where(t => t.ThreatNumber == 191).First().GISMeasures.Add(GisMeasures.Where(g => g.Number == 2 && g.MeasureGroup.ShortName == "ОПС").First());
+            Threats.Where(t => t.ThreatNumber == 191).First().GISMeasures.Add(GisMeasures.Where(g => g.Number == 3 && g.MeasureGroup.ShortName == "ОПС").First());
+            Threats.Where(t => t.ThreatNumber == 191).First().GISMeasures.Add(GisMeasures.Where(g => g.Number == 1 && g.MeasureGroup.ShortName == "АВЗ").First());
+            Threats.Where(t => t.ThreatNumber == 191).First().GISMeasures.Add(GisMeasures.Where(g => g.Number == 2 && g.MeasureGroup.ShortName == "АВЗ").First());
+            Threats.Where(t => t.ThreatNumber == 191).First().GISMeasures.Add(GisMeasures.Where(g => g.Number == 1 && g.MeasureGroup.ShortName == "ОЦЛ").First());
+            Threats.Where(t => t.ThreatNumber == 192).First().GISMeasures.Add(GisMeasures.Where(g => g.Number == 3 && g.MeasureGroup.ShortName == "ОПС").First());
+            Threats.Where(t => t.ThreatNumber == 192).First().GISMeasures.Add(GisMeasures.Where(g => g.Number == 1 && g.MeasureGroup.ShortName == "АНЗ").First());
+            Threats.Where(t => t.ThreatNumber == 192).First().GISMeasures.Add(GisMeasures.Where(g => g.Number == 2 && g.MeasureGroup.ShortName == "АНЗ").First());
+            Threats.Where(t => t.ThreatNumber == 193).First().GISMeasures.Add(GisMeasures.Where(g => g.Number == 16 && g.MeasureGroup.ShortName == "ЗИС").First());
+            Threats.Where(t => t.ThreatNumber == 193).First().GISMeasures.Add(GisMeasures.Where(g => g.Number == 23 && g.MeasureGroup.ShortName == "ЗИС").First());
+            Threats.Where(t => t.ThreatNumber == 194).First().GISMeasures.Add(GisMeasures.Where(g => g.Number == 15 && g.MeasureGroup.ShortName == "УПД").First());
+            Threats.Where(t => t.ThreatNumber == 194).First().GISMeasures.Add(GisMeasures.Where(g => g.Number == 30 && g.MeasureGroup.ShortName == "ЗИС").First());
+
+
+
             #endregion
 
             SaveChanges();
