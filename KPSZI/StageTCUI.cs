@@ -4,10 +4,12 @@ using System.Collections.Generic;
 using System;
 using System.Linq;
 using System.Data;
+using System.Drawing;
 
 namespace KPSZI
 {
     public enum intruderPotencial { Низкий = 0, Средний = 1, Высокий = 2, Невозможен = 3 };
+    
 
     public class checkedTCUI
     {
@@ -27,6 +29,8 @@ namespace KPSZI
         public List<TCUIThreat> listOfTCUIThreats;
         protected override ImageList imageListForTabPage { get; set; }
         internal List<checkedTCUI> checkedTCUI;
+        Dictionary<string, int[,,]> damageDegreeInput;
+        DamageDegreeControl DDControl;
 
         public StageTCUI(TabPage stageTab, TreeNode stageNode, MainForm mainForm, InformationSystem IS)
             : base(stageTab, stageNode, mainForm, IS)
@@ -70,6 +74,16 @@ namespace KPSZI
             mf.tabControlTCUI.TabPages["tabPageIntrAbil"].Enter += new System.EventHandler(enterAtPageAbilsOfIntruder);
             mf.tabControlTCUI.TabPages["tabPageListOfTCUIThreats"].Enter += new System.EventHandler(enterTabPageThreatsList);
             mf.tabControlTCUI.TabPages["tabPageIntrAbil"].AutoScroll = true;
+
+            // Добавление контрола определения степени ущерба
+            //damageDegreeInput = new Dictionary<string, int[,,]>();
+            //foreach (IntruderAbilityControl iac in controlsIAC)
+            //    damageDegreeInput.Add(iac.threatName.Substring(0, 6), new int[IS.listOfInfoTypes.Count, 3, 7]);
+
+            //DDControl = new DamageDegreeControl(IS.listOfInfoTypes, listFilteredThreats, damageDegreeInput, mf);
+            //DDControl.Location = new Point(mf.tpThreatsNSD2.Width - DDControl.Width, 0);
+            //DDControl.Anchor = (AnchorStyles.Top | AnchorStyles.Right);
+            //mf.tpThreatsNSD2.Controls.Add(DDControl);
         }
 
         public void cbClick(object sender, EventArgs e)
