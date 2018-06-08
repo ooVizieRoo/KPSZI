@@ -161,7 +161,7 @@ namespace KPSZI
                 }
                 else
                     {
-                        mf.dgvProjectSecurityResult.Rows[3].Cells[1].Value = "Никзкий";
+                        mf.dgvProjectSecurityResult.Rows[3].Cells[1].Value = "Низкий";
                         IS.ProjectSecutiryLvl = 0;
                     }
         }
