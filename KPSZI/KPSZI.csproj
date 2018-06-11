@@ -155,6 +155,7 @@
     <Compile Include="StageAccessMatrix.cs" />
     <Compile Include="StageClassification.cs" />
     <Compile Include="StageIntruder.cs" />
+    <Compile Include="StageMeasures.cs" />
     <Compile Include="StageOptions.cs" />
     <Compile Include="StageHardware.cs" />
     <Compile Include="StageSKZI.cs" />
