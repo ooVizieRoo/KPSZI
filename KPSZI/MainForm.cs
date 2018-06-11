@@ -48,6 +48,8 @@ namespace KPSZI
             stages.Add("tnTCUI", new StageTCUI(returnTabPage("tpTCUI"), returnTreeNode("tnTCUI"), this, IS));
             stages.Add("tnTechnoGenThreats", new stageTechnoGenThreats(returnTabPage("tpTechnoGenThreats"), returnTreeNode("tnTechnoGenThreats"), this, IS));
             stages.Add("tnSKZI", new StageSKZI(returnTabPage("tpSKZI"), returnTreeNode("tnSKZI"), this, IS));
+            stages.Add("tnMeasures", new StageMeasures(returnTabPage("tpMeasures"), returnTreeNode("tnMeasures"), this, IS));
+
 
             //returnTreeNode("tnActualThreats").ForeColor = Color.Gray;
             //returnTreeNode("tnActualThreats").BackColor = Color.White;
