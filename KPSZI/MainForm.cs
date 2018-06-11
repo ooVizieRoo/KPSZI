@@ -162,7 +162,7 @@ namespace KPSZI
                 {
                     try
                     {
-                        db.Database.ExecuteSqlCommand("SET SCHEMA '" + KPSZIContext.schema_name + "'; TRUNCATE \"GISMeasures\", \"ISPDNMeasures\", \"InfoTypes\", \"IntruderTypes\", \"SFHThreats\", \"MeasureGroups\", \"SFHTypes\", \"SFHs\", \"SZIGISMeasures\", \"SZIISPDNMeasures\", \"SZITypes\", \"SZIs\", \"TCUIThreats\", \"TCUITypes\", \"TCUIs\", \"TechnogenicMeasures\", \"TechnogenicThreats\", \"ThreatSources\", \"ThreatSourceThreats\", \"Threats\", \"ImplementWays\", \"ThreatImplementWays\", \"Vulnerabilities\", \"VulnerabilityThreats\" CASCADE");
+                        db.Database.ExecuteSqlCommand("SET SCHEMA '" + KPSZIContext.schema_name + "'; TRUNCATE \"GISMeasures\", \"ISPDNMeasures\", \"ImplementWayThreats\", \"SFHGISMeasures\", \"ThreatGISMeasures\", \"InfoTypes\", \"IntruderTypes\", \"ThreatSFHs\", \"MeasureGroups\", \"SFHTypes\", \"SFHs\", \"SZIGISMeasures\", \"SZIISPDNMeasures\", \"SZITypes\", \"SZIs\", \"TCUIThreats\", \"TCUITypes\", \"TCUIs\", \"TechnogenicMeasures\", \"TechnogenicThreats\", \"ThreatSources\", \"ThreatSourceThreats\", \"Threats\", \"ImplementWays\",\"Vulnerabilities\", \"VulnerabilityThreats\" CASCADE");
                     }
                     catch (Exception ex)
                     {
