@@ -51,7 +51,7 @@ namespace KPSZI.Model
             iaf.GISMeasures.Add(new GISMeasure { Number = 1, Description = "Идентификация и аутентификация пользователей, являющихся работниками оператора", MinimalRequirementDefenceClass = 3 });
             iaf.GISMeasures.Add(new GISMeasure { Number = 2, Description = "Идентификация и аутентификация устройств, в том числе стационарных, мобильных и портативных", MinimalRequirementDefenceClass = 2 });
             iaf.GISMeasures.Add(new GISMeasure { Number = 3, Description = "Управление идентификаторами, в том числе создание, присвоение, уничтожение идентификаторов", MinimalRequirementDefenceClass = 3 });
-            iaf.GISMeasures.Add(new GISMeasure { Number = 4, Description = "Управление средствами аутентификации, в том числе хранение, выдача, инициализация, блокирование средств аутентификации и принятие мер в случае утраты и(или) компрометации средств аутентификации", MinimalRequirementDefenceClass = 3 });
+            iaf.GISMeasures.Add(new GISMeasure { Number = 4, Description = "Управление средствами аутентификации, в том числе хранение, выдача, инициализация, блокирование средств аутентификации и принятие мер в случае утраты и (или) компрометации средств аутентификации", MinimalRequirementDefenceClass = 3 });
             iaf.GISMeasures.Add(new GISMeasure { Number = 5, Description = "Защита обратной связи при вводе аутентификационной информации", MinimalRequirementDefenceClass = 3 });
             iaf.GISMeasures.Add(new GISMeasure { Number = 6, Description = "Идентификация и аутентификация пользователей, не являющихся работниками оператора (внешних пользователей)", MinimalRequirementDefenceClass = 3 });
             iaf.GISMeasures.Add(new GISMeasure { Number = 7, Description = "Идентификация и аутентификация объектов файловой системы, запускаемых и исполняемых модулей, объектов систем управления базами данных, объектов, создаваемых прикладным и специальным программным обеспечением, иных объектов доступа", MinimalRequirementDefenceClass = 0 });
@@ -84,7 +84,7 @@ namespace KPSZI.Model
             ops.Description = "";
             ops.GISMeasures.Add(new GISMeasure { Number = 1, Description = "Управление запуском (обращениями) компонентов программного обеспечения, в том числе определение запускаемых компонентов, настройка параметров запуска компонентов, контроль за запуском компонентов программного обеспечения", MinimalRequirementDefenceClass = 1 });
             ops.GISMeasures.Add(new GISMeasure { Number = 2, Description = "Управление установкой (инсталляцией) компонентов программного обеспечения, в том числе определение компонентов, подлежащих установке, настройка параметров установки компонентов, контроль за установкой компонентов программного обеспечения", MinimalRequirementDefenceClass = 2 });
-            ops.GISMeasures.Add(new GISMeasure { Number = 3, Description = "Установка (инсталляция) только разрешенного к использованию программного обеспечения и(или) его компонентов", MinimalRequirementDefenceClass = 3 });
+            ops.GISMeasures.Add(new GISMeasure { Number = 3, Description = "Установка (инсталляция) только разрешенного к использованию программного обеспечения и (или) его компонентов", MinimalRequirementDefenceClass = 3 });
             ops.GISMeasures.Add(new GISMeasure { Number = 4, Description = "Управление временными файлами, в том числе запрет, разрешение, перенаправление записи, удаление временных файлов", MinimalRequirementDefenceClass = 0 });
 
             MeasureGroup zni = new MeasureGroup();
@@ -94,7 +94,7 @@ namespace KPSZI.Model
             zni.GISMeasures.Add(new GISMeasure { Number = 1, Description = "Учет машинных носителей информации (персональных данных)", MinimalRequirementDefenceClass = 3 });
             zni.GISMeasures.Add(new GISMeasure { Number = 2, Description = "Управление доступом к машинным носителям информации (персональных данных)", MinimalRequirementDefenceClass = 3 });
             zni.GISMeasures.Add(new GISMeasure { Number = 3, Description = "Контроль перемещения машинных носителей (персональных данных) информации за пределы контролируемой зоны", MinimalRequirementDefenceClass = 0 });
-            zni.GISMeasures.Add(new GISMeasure { Number = 4, Description = "Исключение возможности несанкционированного ознакомления с содержанием информации (персональных данных), хранящейся на машинных носителях, и(или) использования носителей информации (персональных данных) в иных информационных системах", MinimalRequirementDefenceClass = 0 });
+            zni.GISMeasures.Add(new GISMeasure { Number = 4, Description = "Исключение возможности несанкционированного ознакомления с содержанием информации (персональных данных), хранящейся на машинных носителях, и (или) использования носителей информации (персональных данных) в иных информационных системах", MinimalRequirementDefenceClass = 0 });
             zni.GISMeasures.Add(new GISMeasure { Number = 5, Description = "Контроль использования интерфейсов ввода (вывода) информации на машинные носители информации (персональных данных)", MinimalRequirementDefenceClass = 2 });
             zni.GISMeasures.Add(new GISMeasure { Number = 6, Description = "Контроль ввода (вывода) информации на машинные носители информации (персональных данных)", MinimalRequirementDefenceClass = 0 });
             zni.GISMeasures.Add(new GISMeasure { Number = 7, Description = "Контроль подключения машинных носителей информации (персональных данных)", MinimalRequirementDefenceClass = 0 });
@@ -144,11 +144,11 @@ namespace KPSZI.Model
             ocl.GISMeasures.Add(new GISMeasure { Number = 1, Description = "Контроль целостности программного обеспечения, включая программное обеспечение средств защиты информации", MinimalRequirementDefenceClass = 2 });
             ocl.GISMeasures.Add(new GISMeasure { Number = 2, Description = "Контроль целостности информации (персональных данных), содержащейся в базах данных информационной системы", MinimalRequirementDefenceClass = 0 });
             ocl.GISMeasures.Add(new GISMeasure { Number = 3, Description = "Обеспечение возможности восстановления программного обеспечения, включая программное обеспечение средств защиты информации, при возникновении нештатных ситуаций", MinimalRequirementDefenceClass = 3 });
-            ocl.GISMeasures.Add(new GISMeasure { Number = 4, Description = "Обнаружение и реагирование на поступление в информационную систему незапрашиваемых электронных сообщений(писем, документов) и иной информации, не относящихся к функционированию информационной системы(защита от спама)", MinimalRequirementDefenceClass = 2 });
+            ocl.GISMeasures.Add(new GISMeasure { Number = 4, Description = "Обнаружение и реагирование на поступление в информационную систему незапрашиваемых электронных сообщений(писем, документов) и иной информации, не относящихся к функционированию информационной системы (защита от спама)", MinimalRequirementDefenceClass = 2 });
             ocl.GISMeasures.Add(new GISMeasure { Number = 5, Description = "Контроль содержания информации, передаваемой из информационной системы (контейнерный, основанный на свойствах объекта доступа, и контентный, основанный на поиске запрещенной к передаче информации с использованием сигнатур, масок и иных методов), и исключение неправомерной передачи информации из информационной системы", MinimalRequirementDefenceClass = 0 });
             ocl.GISMeasures.Add(new GISMeasure { Number = 6, Description = "Ограничение прав пользователей по вводу информации в информационную систему", MinimalRequirementDefenceClass = 1 });
             ocl.GISMeasures.Add(new GISMeasure { Number = 7, Description = "Контроль точности, полноты и правильности данных, вводимых в информационную систему", MinimalRequirementDefenceClass = 0 });
-            ocl.GISMeasures.Add(new GISMeasure { Number = 8, Description = "Контроль ошибочных действий пользователей по вводу и(или) передаче информации и предупреждение пользователей об ошибочных действиях", MinimalRequirementDefenceClass = 0 });
+            ocl.GISMeasures.Add(new GISMeasure { Number = 8, Description = "Контроль ошибочных действий пользователей по вводу и (или) передаче информации и предупреждение пользователей об ошибочных действиях", MinimalRequirementDefenceClass = 0 });
 
             MeasureGroup odt = new MeasureGroup();
             odt.Name = "Обеспечение доступности информации";
@@ -158,7 +158,7 @@ namespace KPSZI.Model
             odt.GISMeasures.Add(new GISMeasure { Number = 2, Description = "Резервирование технических средств, программного обеспечения, каналов передачи информации, средств обеспечения функционирования информационной системы", MinimalRequirementDefenceClass = 1 });
             odt.GISMeasures.Add(new GISMeasure { Number = 3, Description = "Контроль безотказного функционирования технических средств, обнаружение и локализация отказов функционирования, принятие мер по восстановлению отказавших средств и их тестирование", MinimalRequirementDefenceClass = 2 });
             odt.GISMeasures.Add(new GISMeasure { Number = 4, Description = "Периодическое резервное копирование информации (персональных данных) на резервные машинные носители информации (персональных данных)", MinimalRequirementDefenceClass = 2 });
-            odt.GISMeasures.Add(new GISMeasure { Number = 5, Description = "Обеспечение возможности восстановления информации (персональных данных) с резервных машинных носителей информации(резервных копий) (персональных данных) в течение установленного временного интервала", MinimalRequirementDefenceClass = 2 });
+            odt.GISMeasures.Add(new GISMeasure { Number = 5, Description = "Обеспечение возможности восстановления информации (персональных данных) с резервных машинных носителей информации (резервных копий) (персональных данных) в течение установленного временного интервала", MinimalRequirementDefenceClass = 2 });
             odt.GISMeasures.Add(new GISMeasure { Number = 6, Description = "Кластеризация информационной системы и (или) ее сегментов", MinimalRequirementDefenceClass = 0 });
             odt.GISMeasures.Add(new GISMeasure { Number = 7, Description = "Контроль состояния и качества предоставления уполномоченным лицом вычислительных ресурсов (мощностей), в том числе по передаче информации", MinimalRequirementDefenceClass = 2 });
 
@@ -170,12 +170,12 @@ namespace KPSZI.Model
             zsv.GISMeasures.Add(new GISMeasure { Number = 2, Description = "Управление доступом субъектов доступа к объектам доступа в виртуальной инфраструктуре, в том числе внутри виртуальных машин", MinimalRequirementDefenceClass = 3 });
             zsv.GISMeasures.Add(new GISMeasure { Number = 3, Description = "Регистрация событий безопасности в виртуальной инфраструктуре", MinimalRequirementDefenceClass = 3 });
             zsv.GISMeasures.Add(new GISMeasure { Number = 4, Description = "Управление (фильтрация, маршрутизация, контроль соединения, однонаправленная передача) потоками информации между компонентами виртуальной инфраструктуры, а также по периметру виртуальной инфраструктуры", MinimalRequirementDefenceClass = 2 });
-            zsv.GISMeasures.Add(new GISMeasure { Number = 5, Description = "Доверенная загрузка серверов виртуализации, виртуальной машины(контейнера), серверов управления виртуализацией", MinimalRequirementDefenceClass = 0 });
+            zsv.GISMeasures.Add(new GISMeasure { Number = 5, Description = "Доверенная загрузка серверов виртуализации, виртуальной машины (контейнера), серверов управления виртуализацией", MinimalRequirementDefenceClass = 0 });
             zsv.GISMeasures.Add(new GISMeasure { Number = 6, Description = "Управление перемещением виртуальных машин (контейнеров) и обрабатываемых на них данных", MinimalRequirementDefenceClass = 2 });
             zsv.GISMeasures.Add(new GISMeasure { Number = 7, Description = "Контроль целостности виртуальной инфраструктуры и ее конфигураций", MinimalRequirementDefenceClass = 2 });
             zsv.GISMeasures.Add(new GISMeasure { Number = 8, Description = "Резервное копирование данных, резервирование технических средств, программного обеспечения виртуальной инфраструктуры, а также каналов связивнутри виртуальной инфраструктуры", MinimalRequirementDefenceClass = 2 });
             zsv.GISMeasures.Add(new GISMeasure { Number = 9, Description = "Реализация и управление антивирусной защитой в виртуальной инфраструктуре", MinimalRequirementDefenceClass = 3 });
-            zsv.GISMeasures.Add(new GISMeasure { Number = 10, Description = "Разбиение виртуальной инфраструктуры на сегменты(сегментирование виртуальной инфраструктуры) для обработки информации (персональных данных) отдельным пользователем и(или) группой пользователей", MinimalRequirementDefenceClass = 3 });
+            zsv.GISMeasures.Add(new GISMeasure { Number = 10, Description = "Разбиение виртуальной инфраструктуры на сегменты (сегментирование виртуальной инфраструктуры) для обработки информации (персональных данных) отдельным пользователем и (или) группой пользователей", MinimalRequirementDefenceClass = 3 });
 
             MeasureGroup zts = new MeasureGroup();
             zts.Name = "Защита технических средств";
@@ -193,8 +193,8 @@ namespace KPSZI.Model
             zis.Description = "";
             zis.GISMeasures.Add(new GISMeasure { Number = 1, Description = "Разделение в информационной системе функций по управлению(администрированию) информационной системой, управлению(администрированию) системой защиты информации (персональных данных), функций по обработке информации (персональных данных) и иных функций информационной системы", MinimalRequirementDefenceClass = 2 });
             zis.GISMeasures.Add(new GISMeasure { Number = 2, Description = "Предотвращение задержки или прерывания выполнения процессов с высоким приоритетом со стороны процессов с низким приоритетом", MinimalRequirementDefenceClass = 0 });
-            zis.GISMeasures.Add(new GISMeasure { Number = 3, Description = "Обеспечение защиты информации (персональных данных) от раскрытия, модификации и навязывания(ввода ложной информации) при ее передаче(подготовке к передаче) по каналам связи, имеющим выход за пределы контролируемой зоны, в том числе беспроводным каналам связи", MinimalRequirementDefenceClass = 3 });
-            zis.GISMeasures.Add(new GISMeasure { Number = 4, Description = "Обеспечение доверенных канала, маршрута между администратором, пользователем и средствами защиты информации(функциями безопасности средств защиты информации)", MinimalRequirementDefenceClass = 0 });
+            zis.GISMeasures.Add(new GISMeasure { Number = 3, Description = "Обеспечение защиты информации (персональных данных) от раскрытия, модификации и навязывания(ввода ложной информации) при ее передаче (подготовке к передаче) по каналам связи, имеющим выход за пределы контролируемой зоны, в том числе беспроводным каналам связи", MinimalRequirementDefenceClass = 3 });
+            zis.GISMeasures.Add(new GISMeasure { Number = 4, Description = "Обеспечение доверенных канала, маршрута между администратором, пользователем и средствами защиты информации (функциями безопасности средств защиты информации)", MinimalRequirementDefenceClass = 0 });
             zis.GISMeasures.Add(new GISMeasure { Number = 5, Description = "Запрет несанкционированной удаленной активации видеокамер, микрофонов и иных периферийных устройств, которые могут активироваться удаленно, и оповещение пользователей об активации таких устройств", MinimalRequirementDefenceClass = 3 });
             zis.GISMeasures.Add(new GISMeasure { Number = 6, Description = "Передача и контроль целостности атрибутов безопасности (меток безопасности), связанных с информацией (персональными данными), при обмене информацией с иными информационными системами", MinimalRequirementDefenceClass = 0 });
             zis.GISMeasures.Add(new GISMeasure { Number = 7, Description = "Контроль санкционированного и исключение несанкционированного использования технологий мобильного кода, в том числе регистрация событий, связанных с использованием технологий мобильного кода, их анализ и реагирование на нарушения, связанные с использованием технологий мобильного кода", MinimalRequirementDefenceClass = 2 });
@@ -218,7 +218,7 @@ namespace KPSZI.Model
             zis.GISMeasures.Add(new GISMeasure { Number = 25, Description = "Использование в информационной системе или ее сегментах различных типов общесистемного, прикладного и специального программного обеспечения(создание гетерогенной среды)", MinimalRequirementDefenceClass = 0 });
             zis.GISMeasures.Add(new GISMeasure { Number = 26, Description = "Использование прикладного и специального программного обеспечения, имеющих возможность функционирования в средах различных операционных систем", MinimalRequirementDefenceClass = 0 });
             zis.GISMeasures.Add(new GISMeasure { Number = 27, Description = "Создание (эмуляция) ложных информационных систем или их компонентов, предназначенных для обнаружения, регистрации и анализа действий нарушителей в процессе реализации угроз безопасности информации", MinimalRequirementDefenceClass = 0 });
-            zis.GISMeasures.Add(new GISMeasure { Number = 28, Description = "Воспроизведение ложных и (или) скрытие истинных отдельных информационных технологий и(или) структурно - функциональных характеристик информационной системы или ее сегментов, обеспечивающее навязывание нарушителю ложного представления об истинных информационных технологиях и(или) структурно - функциональных характеристиках информационной системы", MinimalRequirementDefenceClass = 0 });
+            zis.GISMeasures.Add(new GISMeasure { Number = 28, Description = "Воспроизведение ложных и (или) скрытие истинных отдельных информационных технологий и (или) структурно - функциональных характеристик информационной системы или ее сегментов, обеспечивающее навязывание нарушителю ложного представления об истинных информационных технологиях и (или) структурно - функциональных характеристиках информационной системы", MinimalRequirementDefenceClass = 0 });
             zis.GISMeasures.Add(new GISMeasure { Number = 29, Description = "Перевод информационной системы или ее устройств (компонентов) в заранее определенную конфигурацию, обеспечивающую защиту информации, в случае возникновении отказов(сбоев)", MinimalRequirementDefenceClass = 0 });
             zis.GISMeasures.Add(new GISMeasure { Number = 30, Description = "Защита мобильных технических средств, применяемых в информационной системе", MinimalRequirementDefenceClass = 3 });
 
@@ -265,7 +265,7 @@ namespace KPSZI.Model
             sfh2.Name = "По используемым информационным технологиям";
             sfh2.MultipleChoice = true;
             sfh2.SFHs.Add(new SFH { SFHNumber = 4, Name = "Системы на основе виртуализации", ProjectSecurity = 0 });
-            sfh2.SFHs.Add(new SFH { SFHNumber = 5, Name = "Системы, реализущие \"облачные вычисления\"", ProjectSecurity = 0 });
+            sfh2.SFHs.Add(new SFH { SFHNumber = 5, Name = "Системы, реализующие \"облачные вычисления\"", ProjectSecurity = 0 });
             sfh2.SFHs.Add(new SFH { SFHNumber = 6, Name = "Системы с мобильными устройствами", ProjectSecurity = 0 });
             sfh2.SFHs.Add(new SFH { SFHNumber = 7, Name = "Системы с технологиями беспроводного доступа", ProjectSecurity = 0 });
             sfh2.SFHs.Add(new SFH { SFHNumber = 8, Name = "Грид-системы", ProjectSecurity = 0 });
@@ -461,10 +461,10 @@ namespace KPSZI.Model
             #region Способы реализации УБИ
             List<ImplementWay> iway = new List<ImplementWay>();
 
-            iway.Add(new ImplementWay() { WayNumber = 1, WayName = "НСД и(или) воздействия на объекты на аппаратном уровне(программы(микропрограммы), «прошитые» в аппаратных компонентах(чипсетах))" });
-            iway.Add(new ImplementWay() { WayNumber = 2, WayName = "НСД и(или) воздействия на объекты на общесистемном уровне(базовые системы ввода - вывода, гипервизоры, операционные системы)" });
-            iway.Add(new ImplementWay() { WayNumber = 3, WayName = "НСД и(или) воздействия на объекты на прикладном уровне(системы управления базами данных, браузеры, web - приложения, иные прикладные программы общего и специального назначения)" });
-            iway.Add(new ImplementWay() { WayNumber = 4, WayName = "НСД и(или) воздействия на объекты на сетевом уровне(сетевое оборудование, сетевые приложения, сервисы)" });
+            iway.Add(new ImplementWay() { WayNumber = 1, WayName = "НСД и(или) воздействия на объекты на аппаратном уровне (программы(микропрограммы), «прошитые» в аппаратных компонентах(чипсетах))" });
+            iway.Add(new ImplementWay() { WayNumber = 2, WayName = "НСД и(или) воздействия на объекты на общесистемном уровне (базовые системы ввода - вывода, гипервизоры, операционные системы)" });
+            iway.Add(new ImplementWay() { WayNumber = 3, WayName = "НСД и(или) воздействия на объекты на прикладном уровне (системы управления базами данных, браузеры, web - приложения, иные прикладные программы общего и специального назначения)" });
+            iway.Add(new ImplementWay() { WayNumber = 4, WayName = "НСД и(или) воздействия на объекты на сетевом уровне (сетевое оборудование, сетевые приложения, сервисы)" });
             iway.Add(new ImplementWay() { WayNumber = 5, WayName = "Несанкционированного физического доступа и(или) воздействия на линии, (каналы)связи, технические средства, машинные носители информации" });
             iway.Add(new ImplementWay() { WayNumber = 6, WayName = "Воздействия на пользователей, администраторов безопасности, администраторов информационной системы или обслуживающий персонал(социальная инженерия)" });
 
