@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Office.Interop.Word;
 using System.IO;
+using System.Threading;
 
 namespace KPSZI
 {
@@ -18,40 +19,248 @@ namespace KPSZI
         Button btnExportInterop = new Button();
         Button btnExprotSFHInterop = new Button();
         Button btnExportSFHConsole = new Button();
+        Button btnGetBasicMeasuresList = new Button();
+        Button btnGetAdaptiveMeasuresList = new Button();
+        Button btnGetConreteMeasuresList = new Button();
+        Button btnConsoleClear = new Button();
+
+
+        List<GISMeasure> ListOfBasicMeasures = new List<GISMeasure>();
+        List<GISMeasure> ListOfAdaptiveMeasures = new List<GISMeasure>();
+        List<GISMeasure> ListOfConcreteMeasures = new List<GISMeasure>();
+
 
         public StageMeasures(TabPage stageTab, TreeNode stageNode, MainForm mainForm, InformationSystem IS)
             : base(stageTab, stageNode, mainForm, IS)
         {
             
+
+            using (KPSZIContext db = new KPSZIContext())
+            {
+                var Threats = db.Threats.Include("GISMeasures").ToList();
+                IS.listOfActualNSDThreats = Threats.Where(t =>
+                    t.ThreatNumber == 4 ||
+                    t.ThreatNumber == 7 ||
+                    t.ThreatNumber == 16 ||
+                    t.ThreatNumber == 18 ||
+                    t.ThreatNumber == 23 ||
+                    t.ThreatNumber == 30 ||
+                    t.ThreatNumber == 31 ||
+                    t.ThreatNumber == 32 ||
+                    t.ThreatNumber == 39 ||
+                    t.ThreatNumber == 42 ||
+                    t.ThreatNumber == 45 ||
+                    t.ThreatNumber == 18 ||
+                    t.ThreatNumber == 53 ||
+                    t.ThreatNumber == 67 ||
+                    t.ThreatNumber == 72 ||
+                    t.ThreatNumber == 88 ||
+                    t.ThreatNumber == 91 ||
+                    t.ThreatNumber == 94 ||
+                    t.ThreatNumber == 95 ||
+                    t.ThreatNumber == 111 ||
+                    t.ThreatNumber == 113 ||
+                    t.ThreatNumber == 117 ||
+                    t.ThreatNumber == 122 ||
+                    t.ThreatNumber == 127 ||
+                    t.ThreatNumber == 131 ||
+                    t.ThreatNumber == 132 ||
+                    t.ThreatNumber == 139 ||
+                    t.ThreatNumber == 156 ||
+                    t.ThreatNumber == 157 ||
+                    t.ThreatNumber == 160 ||
+                    t.ThreatNumber == 179 ||
+                    t.ThreatNumber == 180 ||
+                    t.ThreatNumber == 182 ||
+                    t.ThreatNumber == 185 ||
+                    t.ThreatNumber == 186 ||
+                    t.ThreatNumber == 190 ||
+                    t.ThreatNumber == 191 ||
+                    t.ThreatNumber == 201
+                ).ToList();
+            }
         }
 
         protected override void initTabPage()
         {
-            btnExportConsole.Location = new System.Drawing.Point(100, 100);
+            mf.dgvBasicMeas.Columns.Add("Count", "№");
+            mf.dgvBasicMeas.Columns.Add("Name", "Наименование меры");
+            mf.dgvBasicMeas.Columns[0].Width = 30;//.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            mf.dgvBasicMeas.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+            mf.dgvAdaptiveMeas.Columns.Add("Count", "№");
+            mf.dgvAdaptiveMeas.Columns.Add("Name", "Наименование меры");
+            mf.dgvAdaptiveMeas.Columns[0].Width = 30;//.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            mf.dgvAdaptiveMeas.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+            mf.dgvThrMeas.Columns.Add("Count", "№");
+            mf.dgvThrMeas.Columns.Add("ThreatName", "Угроза");
+            mf.dgvThrMeas.Columns.Add("Measures", "Меры по нейтрализации УБИ");
+            mf.dgvThrMeas.Columns[0].Width = 30;//.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            mf.dgvThrMeas.Columns[1].Width = 150;//.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            mf.dgvThrMeas.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+            mf.dgvConcreteMeas.Columns.Add("Count", "№");
+            mf.dgvConcreteMeas.Columns.Add("Name", "Наименование меры");
+            mf.dgvConcreteMeas.Columns[0].Width = 30;//.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            mf.dgvConcreteMeas.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+            btnExportConsole.Location = new System.Drawing.Point(100, 400);
             btnExportConsole.Text = "В консоль";
             btnExportConsole.Click += btnExportConsole_Click;
             mf.tabControl.TabPages[stageTab.Name].Controls.Add(btnExportConsole);
 
-            btnExportOpenXML.Location = new System.Drawing.Point(300, 100);
+            btnExportOpenXML.Location = new System.Drawing.Point(300, 400);
             btnExportOpenXML.Text = "OpenXML";
             btnExportOpenXML.Click += BtnExport_Click;
             mf.tabControl.TabPages[stageTab.Name].Controls.Add(btnExportOpenXML);
 
-            btnExportInterop.Location = new System.Drawing.Point(500, 100);
+            btnExportInterop.Location = new System.Drawing.Point(500, 400);
             btnExportInterop.Text = "Interop";
             btnExportInterop.Click += BtnExportInterop_Click;
             mf.tabControl.TabPages[stageTab.Name].Controls.Add(btnExportInterop);
 
-            btnExportSFHConsole.Location = new System.Drawing.Point(100, 200);
+            btnExportSFHConsole.Location = new System.Drawing.Point(100, 500);
             btnExportSFHConsole.Text = "В консоль";
             btnExportSFHConsole.Click += BtnExportSFHConsole_Click;
             mf.tabControl.TabPages[stageTab.Name].Controls.Add(btnExportSFHConsole);
 
-            btnExprotSFHInterop.Location = new System.Drawing.Point(500, 200);
+            btnExprotSFHInterop.Location = new System.Drawing.Point(500, 500);
             btnExprotSFHInterop.Text = "Interop";
             btnExprotSFHInterop.Click += BtnExprotSFHInterop_Click;
             mf.tabControl.TabPages[stageTab.Name].Controls.Add(btnExprotSFHInterop);
+
+            btnGetBasicMeasuresList.Location = new System.Drawing.Point(100, 600);
+            btnGetBasicMeasuresList.Text = "Базовый";
+            btnGetBasicMeasuresList.Click += BtnGetBasicMeasuresList_Click;
+            mf.tabControl.TabPages[stageTab.Name].Controls.Add(btnGetBasicMeasuresList);
+
+            btnGetAdaptiveMeasuresList.Location = new System.Drawing.Point(200, 600);
+            btnGetAdaptiveMeasuresList.Text = "Адаптированный";
+            btnGetAdaptiveMeasuresList.Click += BtnGetAdaptiveMeasuresList_Click;
+            mf.tabControl.TabPages[stageTab.Name].Controls.Add(btnGetAdaptiveMeasuresList);
+
+            btnGetConreteMeasuresList.Location = new System.Drawing.Point(300, 600);
+            btnGetConreteMeasuresList.Text = "Уточненный";
+            btnGetConreteMeasuresList.Click += BtnGetConreteMeasuresList_Click;
+            mf.tabControl.TabPages[stageTab.Name].Controls.Add(btnGetConreteMeasuresList);
+
+            btnConsoleClear.Location = new System.Drawing.Point(100, 700);
+            btnConsoleClear.Text = "Clear";
+            btnConsoleClear.Click += BtnConsoleClear_Click;
+            mf.tabControl.TabPages[stageTab.Name].Controls.Add(btnConsoleClear);
         }
+
+        private void BtnConsoleClear_Click(object sender, EventArgs e)
+        {
+            Console.Clear();
+        }
+
+        private void BtnGetBasicMeasuresList_Click(object sender, EventArgs e)
+        {
+            mf.wsm.Visible = true;
+            mf.wsm.Update();
+
+            //Очищаем DGV от старых мер
+            mf.dgvBasicMeas.Rows.Clear();
+
+            using (KPSZIContext db = new KPSZIContext())
+            {
+                int i = 0;
+                ListOfBasicMeasures = db.GisMeasures.Where(gm => gm.MinimalRequirementDefenceClass >= 2).OrderBy(gm => gm.GISMeasureId).ToList();
+
+                foreach(GISMeasure gm in ListOfBasicMeasures)
+                {
+                    Console.WriteLine(gm.ToString());
+                    mf.dgvBasicMeas.Rows.Add(++i, gm.ToString());
+                }
+            }
+
+
+            mf.wsm.Visible = false;
+        }
+
+        private void BtnGetAdaptiveMeasuresList_Click(object sender, EventArgs e)
+        {
+            mf.wsm.Visible = true;
+            mf.wsm.Update();
+
+            List<GISMeasure> listOfGMForSFHs = new List<GISMeasure>();
+            using (KPSZIContext db = new KPSZIContext())
+            {
+                foreach (SFH sfh in IS.listOfSFHs)
+                {
+                    var aaa = db.SFHs.Where(s => s.SFHNumber == sfh.SFHNumber).FirstOrDefault();
+
+                    listOfGMForSFHs.AddRange(aaa.GISMeasures);
+                }
+
+                listOfGMForSFHs = listOfGMForSFHs.Distinct().ToList();
+                listOfGMForSFHs = listOfGMForSFHs.OrderBy(gm => gm.GISMeasureId).ToList();
+
+                int i = 0;
+                //очистить DGV от старых мер
+                mf.dgvAdaptiveMeas.Rows.Clear();
+                ListOfAdaptiveMeasures = ListOfBasicMeasures.Intersect(listOfGMForSFHs).ToList();
+                foreach (GISMeasure gm in ListOfAdaptiveMeasures)
+                {
+                    Console.WriteLine(gm.ToString());
+                    mf.dgvAdaptiveMeas.Rows.Add(++i, gm.ToString());
+                }
+
+                Console.WriteLine("Базовый: {0}\nАдаптированный: {1}\nПересечение: {2}", ListOfBasicMeasures.Count, listOfGMForSFHs.Count, ListOfAdaptiveMeasures.Count);
+            }
+
+            mf.wsm.Visible = false;
+        }
+
+        private void BtnGetConreteMeasuresList_Click(object sender, EventArgs e)
+        {
+            mf.wsm.Visible = true;
+            mf.wsm.Update();
+            using (KPSZIContext db = new KPSZIContext())
+            {
+                var listOfThreatsDB = db.Threats.ToList();
+
+                var LisfOfThreats = listOfThreatsDB.Intersect(IS.listOfActualNSDThreats).ToList();
+
+                List<GISMeasure> listOfMeasuresTemporary = new List<GISMeasure>();
+
+                int i = 0; 
+                mf.dgvThrMeas.Rows.Clear();
+                mf.dgvConcreteMeas.Rows.Clear();
+
+                foreach (Threat thr in LisfOfThreats)
+                {
+                    listOfMeasuresTemporary.AddRange(thr.GISMeasures);
+
+                    string _setOfMeasures = "";
+                    foreach (GISMeasure gm in thr.GISMeasures)
+                    {
+                        _setOfMeasures += gm.ToString()+";\n";
+                    }
+                    mf.dgvThrMeas.Rows.Add(++i, thr.ToString(), _setOfMeasures);
+                }
+
+                listOfMeasuresTemporary = listOfMeasuresTemporary.Distinct().ToList();
+                listOfMeasuresTemporary = listOfMeasuresTemporary.OrderBy(m => m.GISMeasureId).ToList();
+
+                ListOfConcreteMeasures = listOfMeasuresTemporary;
+                ListOfConcreteMeasures.AddRange(ListOfAdaptiveMeasures);
+                ListOfConcreteMeasures = ListOfConcreteMeasures.Distinct().OrderBy(m=>m.GISMeasureId).ToList();
+
+                i = 0;
+                foreach (GISMeasure gm in ListOfConcreteMeasures)
+                {
+                    Console.WriteLine("{0}.{1}. {2}", gm.MeasureGroup.ShortName, gm.Number, gm.Description);
+                    mf.dgvConcreteMeas.Rows.Add(++i, gm.ToString());
+                }
+                Console.WriteLine("Базовый: {0}\nАдаптированный: {1}\nУточненный: {2}", ListOfBasicMeasures.Count, ListOfAdaptiveMeasures.Count, ListOfConcreteMeasures.Count);
+            }
+
+            mf.wsm.Visible = false;
+        }
+
 
         private void BtnExportSFHConsole_Click(object sender, EventArgs e)
         {
@@ -214,6 +423,9 @@ namespace KPSZI
 
         private void btnExportConsole_Click(object sender, EventArgs e)
         {
+            mf.wsm.Visible = true;
+            mf.wsm.Update();
+
             using (KPSZIContext db = new KPSZIContext())
             {
                 var threats = db.Threats.OrderBy(t => t.ThreatNumber).ToList();
@@ -227,6 +439,7 @@ namespace KPSZI
                     }
                 }
             }
+            mf.wsm.Visible = false;
         }
 
         public override void saveChanges()
@@ -238,8 +451,5 @@ namespace KPSZI
         {
 
         }
-
-
-
     }
 }

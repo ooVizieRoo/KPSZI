@@ -22,6 +22,7 @@ namespace KPSZI
         internal Dictionary<string, Stage> stages = new Dictionary<string, Stage>();
         TreeNode previousSelectedNode;
         InformationSystem IS = new InformationSystem();
+        internal WaitingSplashMessage wsm;
 
         public void startSplash()
         {
@@ -77,6 +78,13 @@ namespace KPSZI
 
             tabControlInfoTypes.TabPages.AddRange(((StageClassification)stages["tnClassification"]).tabPagesInfoTypes.ToArray());
             t.Abort();
+
+            //Создание окна "подождика пока я работаю.."
+            wsm = new WaitingSplashMessage();
+            this.Controls.Add(wsm);
+            wsm.Location = new Point(this.Width / 2 - wsm.Width/2, this.Height / 2 - wsm.Height/2);
+            wsm.BringToFront();
+            wsm.Visible = false;
         }
 
         // возвращает ссылку на TabPage по имени вкладки

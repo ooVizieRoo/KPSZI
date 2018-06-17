@@ -71,5 +71,32 @@ namespace KPSZI.Model
             this.SZIs = new List<SZI>();
             SFHs = new List<SFH>();
         }
+
+        public override bool Equals(object obj)
+        {
+            GISMeasure gm;
+            try
+            {
+                gm = (GISMeasure)obj;
+            }
+            catch
+            {
+                return false;
+            }
+
+            if (this.Description == gm.Description)
+                return true;
+
+            return false;
+        }
+        public override int GetHashCode()
+        {
+            return GISMeasureId + Description.Count();
+        }
+
+        public override string ToString()
+        {
+            return MeasureGroup.ShortName + "." + Number + ". " + Description;
+        }
     }
 }

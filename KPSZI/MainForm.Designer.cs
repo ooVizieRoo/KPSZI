@@ -71,6 +71,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.projectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -266,6 +270,15 @@
             this.labelAvailability = new System.Windows.Forms.Label();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.iconList = new System.Windows.Forms.ImageList(this.components);
+            this.tabControlMeasures = new System.Windows.Forms.TabControl();
+            this.tpBasicMeas = new System.Windows.Forms.TabPage();
+            this.tpAdaptiveMeas = new System.Windows.Forms.TabPage();
+            this.tpConcreteMeas = new System.Windows.Forms.TabPage();
+            this.dgvBasicMeas = new System.Windows.Forms.DataGridView();
+            this.dgvAdaptiveMeas = new System.Windows.Forms.DataGridView();
+            this.tpThrMeas = new System.Windows.Forms.TabPage();
+            this.dgvThrMeas = new System.Windows.Forms.DataGridView();
+            this.dgvConcreteMeas = new System.Windows.Forms.DataGridView();
             this.menuStrip.SuspendLayout();
             this.tpOptions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProjectSecurityResult)).BeginInit();
@@ -306,6 +319,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvSKZIAttackAbils)).BeginInit();
             this.tpSKZI3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSKZIUtochnAbils)).BeginInit();
+            this.tpMeasures.SuspendLayout();
+            this.tabControlMeasures.SuspendLayout();
+            this.tpBasicMeas.SuspendLayout();
+            this.tpAdaptiveMeas.SuspendLayout();
+            this.tpConcreteMeas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBasicMeas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAdaptiveMeas)).BeginInit();
+            this.tpThrMeas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvThrMeas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvConcreteMeas)).BeginInit();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -2508,6 +2531,7 @@
             // 
             // tpMeasures
             // 
+            this.tpMeasures.Controls.Add(this.tabControlMeasures);
             this.tpMeasures.Location = new System.Drawing.Point(4, 22);
             this.tpMeasures.Name = "tpMeasures";
             this.tpMeasures.Padding = new System.Windows.Forms.Padding(3);
@@ -2648,6 +2672,157 @@
             this.iconList.ImageSize = new System.Drawing.Size(16, 16);
             this.iconList.TransparentColor = System.Drawing.Color.Transparent;
             // 
+            // tabControlMeasures
+            // 
+            this.tabControlMeasures.Controls.Add(this.tpBasicMeas);
+            this.tabControlMeasures.Controls.Add(this.tpAdaptiveMeas);
+            this.tabControlMeasures.Controls.Add(this.tpThrMeas);
+            this.tabControlMeasures.Controls.Add(this.tpConcreteMeas);
+            this.tabControlMeasures.Location = new System.Drawing.Point(6, 6);
+            this.tabControlMeasures.Name = "tabControlMeasures";
+            this.tabControlMeasures.SelectedIndex = 0;
+            this.tabControlMeasures.Size = new System.Drawing.Size(931, 291);
+            this.tabControlMeasures.TabIndex = 0;
+            // 
+            // tpBasicMeas
+            // 
+            this.tpBasicMeas.Controls.Add(this.dgvBasicMeas);
+            this.tpBasicMeas.Location = new System.Drawing.Point(4, 22);
+            this.tpBasicMeas.Name = "tpBasicMeas";
+            this.tpBasicMeas.Padding = new System.Windows.Forms.Padding(3);
+            this.tpBasicMeas.Size = new System.Drawing.Size(923, 265);
+            this.tpBasicMeas.TabIndex = 0;
+            this.tpBasicMeas.Text = "Базовый набор мер";
+            this.tpBasicMeas.UseVisualStyleBackColor = true;
+            // 
+            // tpAdaptiveMeas
+            // 
+            this.tpAdaptiveMeas.Controls.Add(this.dgvAdaptiveMeas);
+            this.tpAdaptiveMeas.Location = new System.Drawing.Point(4, 22);
+            this.tpAdaptiveMeas.Name = "tpAdaptiveMeas";
+            this.tpAdaptiveMeas.Padding = new System.Windows.Forms.Padding(3);
+            this.tpAdaptiveMeas.Size = new System.Drawing.Size(923, 265);
+            this.tpAdaptiveMeas.TabIndex = 1;
+            this.tpAdaptiveMeas.Text = "Адаптированный набор мер";
+            this.tpAdaptiveMeas.UseVisualStyleBackColor = true;
+            // 
+            // tpConcreteMeas
+            // 
+            this.tpConcreteMeas.Controls.Add(this.dgvConcreteMeas);
+            this.tpConcreteMeas.Location = new System.Drawing.Point(4, 22);
+            this.tpConcreteMeas.Name = "tpConcreteMeas";
+            this.tpConcreteMeas.Padding = new System.Windows.Forms.Padding(3);
+            this.tpConcreteMeas.Size = new System.Drawing.Size(923, 265);
+            this.tpConcreteMeas.TabIndex = 2;
+            this.tpConcreteMeas.Text = "Уточненный набор мер";
+            this.tpConcreteMeas.UseVisualStyleBackColor = true;
+            // 
+            // dgvBasicMeas
+            // 
+            this.dgvBasicMeas.AllowUserToAddRows = false;
+            this.dgvBasicMeas.AllowUserToDeleteRows = false;
+            this.dgvBasicMeas.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvBasicMeas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBasicMeas.DefaultCellStyle = dataGridViewCellStyle13;
+            this.dgvBasicMeas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvBasicMeas.Location = new System.Drawing.Point(3, 3);
+            this.dgvBasicMeas.MultiSelect = false;
+            this.dgvBasicMeas.Name = "dgvBasicMeas";
+            this.dgvBasicMeas.ReadOnly = true;
+            this.dgvBasicMeas.RowHeadersVisible = false;
+            this.dgvBasicMeas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvBasicMeas.Size = new System.Drawing.Size(917, 259);
+            this.dgvBasicMeas.TabIndex = 0;
+            // 
+            // dgvAdaptiveMeas
+            // 
+            this.dgvAdaptiveMeas.AllowUserToAddRows = false;
+            this.dgvAdaptiveMeas.AllowUserToDeleteRows = false;
+            this.dgvAdaptiveMeas.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvAdaptiveMeas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAdaptiveMeas.DefaultCellStyle = dataGridViewCellStyle14;
+            this.dgvAdaptiveMeas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvAdaptiveMeas.Location = new System.Drawing.Point(3, 3);
+            this.dgvAdaptiveMeas.MultiSelect = false;
+            this.dgvAdaptiveMeas.Name = "dgvAdaptiveMeas";
+            this.dgvAdaptiveMeas.ReadOnly = true;
+            this.dgvAdaptiveMeas.RowHeadersVisible = false;
+            this.dgvAdaptiveMeas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvAdaptiveMeas.Size = new System.Drawing.Size(917, 259);
+            this.dgvAdaptiveMeas.TabIndex = 1;
+            // 
+            // tpThrMeas
+            // 
+            this.tpThrMeas.Controls.Add(this.dgvThrMeas);
+            this.tpThrMeas.Location = new System.Drawing.Point(4, 22);
+            this.tpThrMeas.Name = "tpThrMeas";
+            this.tpThrMeas.Size = new System.Drawing.Size(923, 265);
+            this.tpThrMeas.TabIndex = 3;
+            this.tpThrMeas.Text = "Угроза-меры";
+            this.tpThrMeas.UseVisualStyleBackColor = true;
+            // 
+            // dgvThrMeas
+            // 
+            this.dgvThrMeas.AllowUserToAddRows = false;
+            this.dgvThrMeas.AllowUserToDeleteRows = false;
+            this.dgvThrMeas.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvThrMeas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvThrMeas.DefaultCellStyle = dataGridViewCellStyle15;
+            this.dgvThrMeas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvThrMeas.Location = new System.Drawing.Point(0, 0);
+            this.dgvThrMeas.MultiSelect = false;
+            this.dgvThrMeas.Name = "dgvThrMeas";
+            this.dgvThrMeas.ReadOnly = true;
+            this.dgvThrMeas.RowHeadersVisible = false;
+            this.dgvThrMeas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvThrMeas.Size = new System.Drawing.Size(923, 265);
+            this.dgvThrMeas.TabIndex = 4;
+            // 
+            // dgvConcreteMeas
+            // 
+            this.dgvConcreteMeas.AllowUserToAddRows = false;
+            this.dgvConcreteMeas.AllowUserToDeleteRows = false;
+            this.dgvConcreteMeas.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvConcreteMeas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvConcreteMeas.DefaultCellStyle = dataGridViewCellStyle16;
+            this.dgvConcreteMeas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvConcreteMeas.Location = new System.Drawing.Point(3, 3);
+            this.dgvConcreteMeas.MultiSelect = false;
+            this.dgvConcreteMeas.Name = "dgvConcreteMeas";
+            this.dgvConcreteMeas.ReadOnly = true;
+            this.dgvConcreteMeas.RowHeadersVisible = false;
+            this.dgvConcreteMeas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvConcreteMeas.Size = new System.Drawing.Size(917, 259);
+            this.dgvConcreteMeas.TabIndex = 2;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2712,6 +2887,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvSKZIAttackAbils)).EndInit();
             this.tpSKZI3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSKZIUtochnAbils)).EndInit();
+            this.tpMeasures.ResumeLayout(false);
+            this.tabControlMeasures.ResumeLayout(false);
+            this.tpBasicMeas.ResumeLayout(false);
+            this.tpAdaptiveMeas.ResumeLayout(false);
+            this.tpConcreteMeas.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBasicMeas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAdaptiveMeas)).EndInit();
+            this.tpThrMeas.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvThrMeas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvConcreteMeas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2913,5 +3098,14 @@
         public System.Windows.Forms.TreeView treeView;
         private System.Windows.Forms.ToolStripMenuItem FillThreatsToolStripMenuItem;
         internal System.Windows.Forms.Label lbSKZIClass;
+        private System.Windows.Forms.TabControl tabControlMeasures;
+        private System.Windows.Forms.TabPage tpBasicMeas;
+        private System.Windows.Forms.TabPage tpAdaptiveMeas;
+        private System.Windows.Forms.TabPage tpConcreteMeas;
+        internal System.Windows.Forms.DataGridView dgvBasicMeas;
+        internal System.Windows.Forms.DataGridView dgvAdaptiveMeas;
+        private System.Windows.Forms.TabPage tpThrMeas;
+        internal System.Windows.Forms.DataGridView dgvThrMeas;
+        internal System.Windows.Forms.DataGridView dgvConcreteMeas;
     }
 }
