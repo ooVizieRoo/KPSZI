@@ -285,18 +285,18 @@ namespace KPSZI
 
         public override void enterTabPage()
         {
-            mf.tpMeasuresTechno.TabPages[stageTab.Name].Controls.Add(accessMatrixRules);
-            mf.tpMeasuresTechno.TabPages[stageTab.Name].Controls.Add(accessMatrixResources);
-            mf.tpMeasuresTechno.TabPages[stageTab.Name].Controls.Add(addSubject);
-            mf.tpMeasuresTechno.TabPages[stageTab.Name].Controls.Add(tbNameOfSubject);
-            mf.tpMeasuresTechno.TabPages[stageTab.Name].Controls.Add(addObject);
-            mf.tpMeasuresTechno.TabPages[stageTab.Name].Controls.Add(tbNameOfObject);
-            mf.tpMeasuresTechno.TabPages[stageTab.Name].Controls.Add(labAddObject);
-            mf.tpMeasuresTechno.TabPages[stageTab.Name].Controls.Add(labAddSubject);
-            mf.tpMeasuresTechno.TabPages[stageTab.Name].Controls.Add(labDeleteInfo);
-            mf.tpMeasuresTechno.TabPages[stageTab.Name].Controls.Add(addResource);
-            mf.tpMeasuresTechno.TabPages[stageTab.Name].Controls.Add(tbNameOfResource);
-            mf.tpMeasuresTechno.TabPages[stageTab.Name].Controls.Add(labAddResource);
+            mf.TabControl.TabPages[stageTab.Name].Controls.Add(accessMatrixRules);
+            mf.TabControl.TabPages[stageTab.Name].Controls.Add(accessMatrixResources);
+            mf.TabControl.TabPages[stageTab.Name].Controls.Add(addSubject);
+            mf.TabControl.TabPages[stageTab.Name].Controls.Add(tbNameOfSubject);
+            mf.TabControl.TabPages[stageTab.Name].Controls.Add(addObject);
+            mf.TabControl.TabPages[stageTab.Name].Controls.Add(tbNameOfObject);
+            mf.TabControl.TabPages[stageTab.Name].Controls.Add(labAddObject);
+            mf.TabControl.TabPages[stageTab.Name].Controls.Add(labAddSubject);
+            mf.TabControl.TabPages[stageTab.Name].Controls.Add(labDeleteInfo);
+            mf.TabControl.TabPages[stageTab.Name].Controls.Add(addResource);
+            mf.TabControl.TabPages[stageTab.Name].Controls.Add(tbNameOfResource);
+            mf.TabControl.TabPages[stageTab.Name].Controls.Add(labAddResource);
         }
 
         public override void saveChanges()

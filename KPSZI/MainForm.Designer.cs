@@ -107,7 +107,7 @@
             this.tbISName = new System.Windows.Forms.TextBox();
             this.lbIsName = new System.Windows.Forms.Label();
             this.lbInfoTypes = new System.Windows.Forms.CheckedListBox();
-            this.tpMeasuresTechno = new System.Windows.Forms.TabControl();
+            this.TabControl = new System.Windows.Forms.TabControl();
             this.tpClassification = new System.Windows.Forms.TabPage();
             this.labelGISClass = new System.Windows.Forms.Label();
             this.panelPDN = new System.Windows.Forms.Panel();
@@ -266,7 +266,7 @@
             this.otsutstObosnSKZIcolumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tpMeasures = new System.Windows.Forms.TabPage();
             this.tpMeasuresTCUI = new System.Windows.Forms.TabPage();
-            this.tabPage13 = new System.Windows.Forms.TabPage();
+            this.tpMeasuresTechno = new System.Windows.Forms.TabPage();
             this.tpSZI = new System.Windows.Forms.TabPage();
             this.tpTPExport = new System.Windows.Forms.TabPage();
             this.tabPage16 = new System.Windows.Forms.TabPage();
@@ -297,7 +297,7 @@
             this.menuStrip.SuspendLayout();
             this.tpOptions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProjectSecurityResult)).BeginInit();
-            this.tpMeasuresTechno.SuspendLayout();
+            this.TabControl.SuspendLayout();
             this.tpClassification.SuspendLayout();
             this.panelPDN.SuspendLayout();
             this.tpHardware.SuspendLayout();
@@ -501,7 +501,7 @@
             treeNode17.Text = "4.3. Перечень мер (Техногенные)";
             treeNode18.Name = "tnSZI";
             treeNode18.Text = "4.4. Перечень СЗИ";
-            treeNode19.Name = "tnTPExprort";
+            treeNode19.Name = "tnTPExport";
             treeNode19.Text = "4.5. Экспорт";
             treeNode20.Name = "Node0";
             treeNode20.Text = "4. Тех. проект";
@@ -620,33 +620,33 @@
             this.lbInfoTypes.Size = new System.Drawing.Size(440, 64);
             this.lbInfoTypes.TabIndex = 0;
             // 
-            // tpMeasuresTechno
+            // TabControl
             // 
-            this.tpMeasuresTechno.Controls.Add(this.tpOptions);
-            this.tpMeasuresTechno.Controls.Add(this.tpClassification);
-            this.tpMeasuresTechno.Controls.Add(this.tpAccessMatrix);
-            this.tpMeasuresTechno.Controls.Add(this.tpTopology);
-            this.tpMeasuresTechno.Controls.Add(this.tpHardware);
-            this.tpMeasuresTechno.Controls.Add(this.tpIntruder);
-            this.tpMeasuresTechno.Controls.Add(this.tpVulnerabilities);
-            this.tpMeasuresTechno.Controls.Add(this.tpActualThreats);
-            this.tpMeasuresTechno.Controls.Add(this.tpTCUI);
-            this.tpMeasuresTechno.Controls.Add(this.tpTechnoGenThreats);
-            this.tpMeasuresTechno.Controls.Add(this.tpSKZI);
-            this.tpMeasuresTechno.Controls.Add(this.tpMeasures);
-            this.tpMeasuresTechno.Controls.Add(this.tpMeasuresTCUI);
-            this.tpMeasuresTechno.Controls.Add(this.tabPage13);
-            this.tpMeasuresTechno.Controls.Add(this.tpSZI);
-            this.tpMeasuresTechno.Controls.Add(this.tpTPExport);
-            this.tpMeasuresTechno.Controls.Add(this.tabPage16);
-            this.tpMeasuresTechno.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tpMeasuresTechno.Location = new System.Drawing.Point(287, 24);
-            this.tpMeasuresTechno.Margin = new System.Windows.Forms.Padding(0);
-            this.tpMeasuresTechno.Name = "tpMeasuresTechno";
-            this.tpMeasuresTechno.SelectedIndex = 0;
-            this.tpMeasuresTechno.ShowToolTips = true;
-            this.tpMeasuresTechno.Size = new System.Drawing.Size(977, 516);
-            this.tpMeasuresTechno.TabIndex = 4;
+            this.TabControl.Controls.Add(this.tpOptions);
+            this.TabControl.Controls.Add(this.tpClassification);
+            this.TabControl.Controls.Add(this.tpAccessMatrix);
+            this.TabControl.Controls.Add(this.tpTopology);
+            this.TabControl.Controls.Add(this.tpHardware);
+            this.TabControl.Controls.Add(this.tpIntruder);
+            this.TabControl.Controls.Add(this.tpVulnerabilities);
+            this.TabControl.Controls.Add(this.tpActualThreats);
+            this.TabControl.Controls.Add(this.tpTCUI);
+            this.TabControl.Controls.Add(this.tpTechnoGenThreats);
+            this.TabControl.Controls.Add(this.tpSKZI);
+            this.TabControl.Controls.Add(this.tpMeasures);
+            this.TabControl.Controls.Add(this.tpMeasuresTCUI);
+            this.TabControl.Controls.Add(this.tpMeasuresTechno);
+            this.TabControl.Controls.Add(this.tpSZI);
+            this.TabControl.Controls.Add(this.tpTPExport);
+            this.TabControl.Controls.Add(this.tabPage16);
+            this.TabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TabControl.Location = new System.Drawing.Point(287, 24);
+            this.TabControl.Margin = new System.Windows.Forms.Padding(0);
+            this.TabControl.Name = "TabControl";
+            this.TabControl.SelectedIndex = 0;
+            this.TabControl.ShowToolTips = true;
+            this.TabControl.Size = new System.Drawing.Size(977, 516);
+            this.TabControl.TabIndex = 4;
             // 
             // tpClassification
             // 
@@ -2579,15 +2579,15 @@
             this.tpMeasuresTCUI.Text = "tpMeasuresTCUI";
             this.tpMeasuresTCUI.UseVisualStyleBackColor = true;
             // 
-            // tabPage13
+            // tpMeasuresTechno
             // 
-            this.tabPage13.Location = new System.Drawing.Point(4, 22);
-            this.tabPage13.Name = "tabPage13";
-            this.tabPage13.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage13.Size = new System.Drawing.Size(969, 490);
-            this.tabPage13.TabIndex = 12;
-            this.tabPage13.Text = "tpMeasuresTechno";
-            this.tabPage13.UseVisualStyleBackColor = true;
+            this.tpMeasuresTechno.Location = new System.Drawing.Point(4, 22);
+            this.tpMeasuresTechno.Name = "tpMeasuresTechno";
+            this.tpMeasuresTechno.Padding = new System.Windows.Forms.Padding(3);
+            this.tpMeasuresTechno.Size = new System.Drawing.Size(969, 490);
+            this.tpMeasuresTechno.TabIndex = 12;
+            this.tpMeasuresTechno.Text = "tpMeasuresTechno";
+            this.tpMeasuresTechno.UseVisualStyleBackColor = true;
             // 
             // tpSZI
             // 
@@ -2941,7 +2941,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 562);
             this.Controls.Add(this.splitter1);
-            this.Controls.Add(this.tpMeasuresTechno);
+            this.Controls.Add(this.TabControl);
             this.Controls.Add(this.treeView);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip);
@@ -2956,7 +2956,7 @@
             this.tpOptions.ResumeLayout(false);
             this.tpOptions.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProjectSecurityResult)).EndInit();
-            this.tpMeasuresTechno.ResumeLayout(false);
+            this.TabControl.ResumeLayout(false);
             this.tpClassification.ResumeLayout(false);
             this.panelPDN.ResumeLayout(false);
             this.panelPDN.PerformLayout();
@@ -3027,7 +3027,7 @@
         public System.Windows.Forms.TabPage tpOptions;
         internal System.Windows.Forms.TextBox tbISName;
         private System.Windows.Forms.Label lbIsName;
-        public System.Windows.Forms.TabControl tpMeasuresTechno;
+        public System.Windows.Forms.TabControl TabControl;
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.TabPage tpClassification;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
@@ -3039,7 +3039,7 @@
         private System.Windows.Forms.TabPage tpSKZI;
         private System.Windows.Forms.TabPage tpMeasures;
         private System.Windows.Forms.TabPage tpMeasuresTCUI;
-        private System.Windows.Forms.TabPage tabPage13;
+        private System.Windows.Forms.TabPage tpMeasuresTechno;
         private System.Windows.Forms.TabPage tpSZI;
         private System.Windows.Forms.TabPage tpTPExport;
         private System.Windows.Forms.TabPage tabPage16;

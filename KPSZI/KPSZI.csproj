@@ -164,13 +164,17 @@
     <Compile Include="StageClassification.cs" />
     <Compile Include="StageIntruder.cs" />
     <Compile Include="StageMeasures.cs" />
+    <Compile Include="StageMeasuresTCUI.cs" />
+    <Compile Include="StageMeasuresTechno.cs" />
     <Compile Include="StageOptions.cs" />
     <Compile Include="StageHardware.cs" />
     <Compile Include="StageSKZI.cs" />
+    <Compile Include="StageSZI.cs" />
     <Compile Include="StageTCUI.cs" />
     <Compile Include="StageTechno.cs" />
     <Compile Include="stageTechnoGenThreats.cs" />
     <Compile Include="StageTopology.cs" />
+    <Compile Include="StageTPExport.cs" />
     <Compile Include="StageVulnerabilities.cs" />
     <Compile Include="WaitingSplashMessage.cs">
       <SubType>UserControl</SubType>
