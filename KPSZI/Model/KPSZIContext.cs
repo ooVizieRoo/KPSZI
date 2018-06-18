@@ -213,7 +213,7 @@ namespace KPSZI.Model
             zis.GISMeasures.Add(new GISMeasure { Number = 20, Description = "Защита беспроводных соединений, применяемых в информационной системе", MinimalRequirementDefenceClass = 3 });
             zis.GISMeasures.Add(new GISMeasure { Number = 21, Description = "Исключение доступа пользователя к информации, возникшей в результате действий предыдущего пользователя через реестры, оперативную память, внешние запоминающие устройства и иные общие для пользователей ресурсы информационной системы", MinimalRequirementDefenceClass = 1 });
             zis.GISMeasures.Add(new GISMeasure { Number = 22, Description = "Защита информационной системы от угроз безопасности информации, направленных на отказ в обслуживании информационной системы", MinimalRequirementDefenceClass = 2 });
-            zis.GISMeasures.Add(new GISMeasure { Number = 23, Description = "Защита периметра (физических и (или) логических границ) информационной системы при ее взаимодействии с иными информационными системами и информационнотелекоммуникационными сетями", MinimalRequirementDefenceClass = 2 });
+            zis.GISMeasures.Add(new GISMeasure { Number = 23, Description = "Защита периметра (физических и (или) логических границ) информационной системы при ее взаимодействии с иными информационными системами и информационно-телекоммуникационными сетями", MinimalRequirementDefenceClass = 2 });
             zis.GISMeasures.Add(new GISMeasure { Number = 24, Description = "Прекращение сетевых соединений по их завершении или по истечении заданного оператором временного интервала неактивности сетевого соединения", MinimalRequirementDefenceClass = 2 });
             zis.GISMeasures.Add(new GISMeasure { Number = 25, Description = "Использование в информационной системе или ее сегментах различных типов общесистемного, прикладного и специального программного обеспечения(создание гетерогенной среды)", MinimalRequirementDefenceClass = 0 });
             zis.GISMeasures.Add(new GISMeasure { Number = 26, Description = "Использование прикладного и специального программного обеспечения, имеющих возможность функционирования в средах различных операционных систем", MinimalRequirementDefenceClass = 0 });
@@ -246,7 +246,7 @@ namespace KPSZI.Model
             org.Name = "Организационные меры";
             org.Description = "";
             org.ShortName = "ОРГ";
-            org.GISMeasures.Add(new GISMeasure { Number = 1, isOnlyISPDn = false, MinimalRequirementDefenceClass = 0, Description = "Запрет использования голосовых помошников" });
+            org.GISMeasures.Add(new GISMeasure { Number = 1, isOnlyISPDn = false, MinimalRequirementDefenceClass = 0, Description = "Запрет использования голосовых помощников" });
             org.GISMeasures.Add(new GISMeasure { Number = 2, isOnlyISPDn = false, MinimalRequirementDefenceClass = 0, Description = "Отключение функций автоматического заполнения аутентификационной информации в браузере" });
 
 
