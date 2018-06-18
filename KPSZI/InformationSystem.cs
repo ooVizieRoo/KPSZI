@@ -17,6 +17,12 @@ namespace KPSZI
         /// </summary>
         public string ISName;
         /// <summary>
+        /// Уровень защищенности персональных данных:
+        /// 1, 2, 3, 4 - соответственно.
+        /// </summary>
+        public int levelOfPDN;
+        public int typeOfActualThreats;
+        /// <summary>
         /// Список видов информации, обрабатываемых в данной ИС
         /// </summary>
         public List<InfoType> listOfInfoTypes;
@@ -49,6 +55,10 @@ namespace KPSZI
         /// 0 - низкий, 1 - средний, 2 - высокий
         /// </summary>
         public int ProjectSecutiryLvl;
+        /// <summary>
+        /// Список актуальных НСД угроз
+        /// </summary>
+        public List<Threat> listOfActualNSDThreats;
 
         public InformationSystem ()
         {
@@ -60,7 +70,7 @@ namespace KPSZI
             listOfPCs = new List<PC>();
             listOfImplementWays = new List<ImplementWay>();
             listOfSources = new List<ThreatSource>();
-
+            listOfActualNSDThreats = new List<Threat>();
         }
     }
 

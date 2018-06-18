@@ -30,14 +30,14 @@ namespace KPSZI
                     TabPage tp = new TabPage { Name = it.TypeName, Text = it.TypeName };
 
                     Label labelConf = new Label { Text = "Конфиденциальность" };
-                    labelConf.Location = new Point { X = 10, Y = 10 };
+                    labelConf.Location = new Point { X = 10, Y = 15 };
                     labelConf.Width = 200;
 
                     Label labelInteg = new Label { Text = "Целостность" };
-                    labelInteg.Location = new Point { X = 10, Y = 40 };
+                    labelInteg.Location = new Point { X = 10, Y = 45 };
 
                     Label labelAvail = new Label { Text = "Доступность" };
-                    labelAvail.Location = new Point { X = 10, Y = 70 };
+                    labelAvail.Location = new Point { X = 10, Y = 75 };
 
 
                     ComboBox cbConf = new ComboBox { Name = "cbConf", DropDownStyle = ComboBoxStyle.DropDownList };
@@ -83,8 +83,9 @@ namespace KPSZI
             mf.tabControlInfoTypes.TabPages.Clear();
             if (IS.listOfInfoTypes.Count == 0)
             {
-                TabPage startTabPage = new TabPage { Name = "startTabPage", Text = "Выберите виды информации" };
-                startTabPage.Controls.Add(new Label { Text = "Выберите виды информации в параметрах информационной системы для определения степеней ущерба.", Location = new Point { X = 70, Y = 30 }, AutoSize = false, Size = new Size(new Point { X = 160, Y = 100 }) });
+                TabPage startTabPage = new TabPage { Name = "startTabPage", Text = "Виды информации" };
+                startTabPage.Controls.Add(new Label { Text = "Выберите виды информации в разделе \"Параметры ИС\" для определения степеней ущерба",
+                    Location = new Point { X = 10, Y = 10 }, AutoSize = false, Size = new Size(new Point { X = startTabPage.Width - 30, Y = 100 }) });
                 mf.tabControlInfoTypes.TabPages.Add(startTabPage);
             }
             //
@@ -197,6 +198,9 @@ namespace KPSZI
             }
 
             string ActualThreats = mf.comboBoxActualThreatsType.SelectedItem.ToString();
+            int type;
+            int.TryParse(ActualThreats.Substring(0, 1),out type);
+            IS.typeOfActualThreats = type;
             bool isStaffSubjects = mf.checkBoxSubjectsStaff.Checked;
             string SubjectsPDN = mf.comboBoxHundred.SelectedItem.ToString();
 
@@ -261,7 +265,8 @@ namespace KPSZI
                         break;
                     }
             }
-            mf.labelISPDNLevel.Text = "Уровень защищенности - " + levels.Min();
+            IS.levelOfPDN = levels.Min();
+            mf.labelISPDNLevel.Text = "Уровень защищенности - " + IS.levelOfPDN;
         }
         
         #region Обработчики

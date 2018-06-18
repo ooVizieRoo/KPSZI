@@ -4,18 +4,33 @@ using System.Collections.Generic;
 using System;
 using System.Linq;
 using System.Data;
+using System.Drawing;
 
 namespace KPSZI
 {
     public enum intruderPotencial { Низкий = 0, Средний = 1, Высокий = 2, Невозможен = 3 };
+    
+
+    public class checkedTCUI
+    {
+        public TCUI tc;
+        public int counter;
+        
+        public checkedTCUI(TCUI TC)
+        {
+            tc = TC;
+            counter = 0;
+        }
+    }
 
     class StageTCUI : Stage
     {
-        public List<TCUI> listOfTCUIs;
         public List<IntruderAbilityControl> controlsIAC;
         public List<TCUIThreat> listOfTCUIThreats;
         protected override ImageList imageListForTabPage { get; set; }
-
+        internal List<checkedTCUI> checkedTCUI;
+        Dictionary<string, int[,,]> damageDegreeInput;
+        DamageDegreeControl DDControl;
 
         public StageTCUI(TabPage stageTab, TreeNode stageNode, MainForm mainForm, InformationSystem IS)
             : base(stageTab, stageNode, mainForm, IS)
@@ -25,7 +40,8 @@ namespace KPSZI
 
         public override void enterTabPage()
         {
-
+            if (mf.tabControlTCUI.SelectedIndex == 2)
+                enterTabPageThreatsList(mf.tabControlTCUI.TabPages[2], null);
         }
 
         public override void saveChanges()
@@ -36,11 +52,19 @@ namespace KPSZI
         protected override void initTabPage()
         {
             mf.tabControlTCUI.TabPages[2].AutoScroll = true;
-            mf.tabControlTCUI.TabPages[2].AutoScrollMargin = new System.Drawing.Size(3, 15);
             mf.dgvActualTCUIThreats.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-            listOfTCUIs = new List<TCUI>();
             controlsIAC = new List<IntruderAbilityControl>();
             listOfTCUIThreats = new List<TCUIThreat>();
+            checkedTCUI = new List<KPSZI.checkedTCUI>();
+
+            using (KPSZIContext db = new KPSZIContext())
+            {
+                foreach (TCUI TC in db.TCUIs.ToList())
+                {
+                    checkedTCUI ctc = new KPSZI.checkedTCUI(new TCUI { Name = TC.Name, TCUIType = TC.TCUIType, TCUIThreats = TC.TCUIThreats.ToList()});
+                    checkedTCUI.Add(ctc);
+                }
+            } 
 
             foreach (Control cb in mf.tabControlTCUI.TabPages["tabPageTCUIExist"].Controls)
             {
@@ -50,28 +74,484 @@ namespace KPSZI
             mf.tabControlTCUI.TabPages["tabPageIntrAbil"].Enter += new System.EventHandler(enterAtPageAbilsOfIntruder);
             mf.tabControlTCUI.TabPages["tabPageListOfTCUIThreats"].Enter += new System.EventHandler(enterTabPageThreatsList);
             mf.tabControlTCUI.TabPages["tabPageIntrAbil"].AutoScroll = true;
+
+            // Добавление контрола определения степени ущерба
+            //damageDegreeInput = new Dictionary<string, int[,,]>();
+            //foreach (IntruderAbilityControl iac in controlsIAC)
+            //    damageDegreeInput.Add(iac.threatName.Substring(0, 6), new int[IS.listOfInfoTypes.Count, 3, 7]);
+
+            //DDControl = new DamageDegreeControl(IS.listOfInfoTypes, listFilteredThreats, damageDegreeInput, mf);
+            //DDControl.Location = new Point(mf.tpThreatsNSD2.Width - DDControl.Width, 0);
+            //DDControl.Anchor = (AnchorStyles.Top | AnchorStyles.Right);
+            //mf.tpThreatsNSD2.Controls.Add(DDControl);
         }
 
         public void cbClick(object sender, EventArgs e)
         {
-            string nameOfChannel = ((CheckBox)sender).Text;
-            if (((CheckBox)sender).CheckState == CheckState.Checked)
+            CheckBox cb = (CheckBox)sender;
+            #region ОГРОМНЫЙ switch для добавления/удаления каналов утечки по клику соотв. чекбокса
+            switch (cb.Name)
             {
-                using (KPSZIContext db = new KPSZIContext())
-                {
-                    string tcuitype = getTypeOfTCUI(((CheckBox)sender).Name);
-                    TCUI tc = db.TCUIs.ToList().First(t => t.Name == nameOfChannel && t.TCUIType.Name == tcuitype);
-                    tc.TCUIThreats = new List<TCUIThreat>(tc.TCUIThreats);
-                    listOfTCUIs.Add(tc);
-                    updateListOfControls(true, tc);
-                }
+                case "cbApparZakladSyom":
+                    {
+                        if (cb.Checked)
+                        {
+                            checkedTCUI.Find(t => t.tc.Name == "Электромагнитные" && t.tc.TCUIType.Name == "Каналы побочных электромагнитных излучений и наводок (ПЭМИН)").counter++;
+                        }
+                        else
+                        {
+                            checkedTCUI.Find(t => t.tc.Name == "Электромагнитные" && t.tc.TCUIType.Name == "Каналы побочных электромагнитных излучений и наводок (ПЭМИН)").counter--;
+                        }
+                        break;
+                    }
+                case "cbATS":
+                    {
+                        if (cb.Checked)
+                        {
+                            checkedTCUI.Find(t => t.tc.Name == "Электромагнитные" && t.tc.TCUIType.Name == "Каналы перехвата информации при ее передаче по каналам связи").counter++;
+                        }
+                        else
+                        {
+                            checkedTCUI.Find(t => t.tc.Name == "Электромагнитные" && t.tc.TCUIType.Name == "Каналы перехвата информации при ее передаче по каналам связи").counter--;
+                        }
+                        break;
+                    }
+                case "cbBytTech":
+                    {
+                        if (cb.Checked)
+                        {
+                            checkedTCUI.Find(t => t.tc.Name == "Электрические" && t.tc.TCUIType.Name == "Каналы побочных электромагнитных излучений и наводок (ПЭМИН)").counter++;
+                            checkedTCUI.Find(t => t.tc.Name == "Акусто-электрические" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter++;
+                            checkedTCUI.Find(t => t.tc.Name == "Электромагнитные" && t.tc.TCUIType.Name == "Каналы побочных электромагнитных излучений и наводок (ПЭМИН)").counter++;
+                            checkedTCUI.Find(t => t.tc.Name == "Воздушные" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter++;
+                            checkedTCUI.Find(t => t.tc.Name == "Параметрические" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter++;
+                        }
+                        else
+                        {
+                            checkedTCUI.Find(t => t.tc.Name == "Электрические" && t.tc.TCUIType.Name == "Каналы побочных электромагнитных излучений и наводок (ПЭМИН)").counter--;
+                            checkedTCUI.Find(t => t.tc.Name == "Акусто-электрические" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter--;
+                            checkedTCUI.Find(t => t.tc.Name == "Электромагнитные" && t.tc.TCUIType.Name == "Каналы побочных электромагнитных излучений и наводок (ПЭМИН)").counter--;
+                            checkedTCUI.Find(t => t.tc.Name == "Воздушные" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter--;
+                            checkedTCUI.Find(t => t.tc.Name == "Параметрические" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter--;
+                        }
+                        break;
+                    }
+                case "cbClock":
+                    {
+                        if (cb.Checked)
+                        {
+                            checkedTCUI.Find(t => t.tc.Name == "Электрические" && t.tc.TCUIType.Name == "Каналы побочных электромагнитных излучений и наводок (ПЭМИН)").counter++;
+                            checkedTCUI.Find(t => t.tc.Name == "Воздушные" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter++;
+                            checkedTCUI.Find(t => t.tc.Name == "Акусто-электрические" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter++;
+                        }
+                        else
+                        {
+                            checkedTCUI.Find(t => t.tc.Name == "Электрические" && t.tc.TCUIType.Name == "Каналы побочных электромагнитных излучений и наводок (ПЭМИН)").counter--;
+                            checkedTCUI.Find(t => t.tc.Name == "Воздушные" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter--;
+                            checkedTCUI.Find(t => t.tc.Name == "Акусто-электрические" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter--;
+                        }
+                        break;
+                    }
+                case "cbCommunOnePlace":
+                    {
+                        if (cb.Checked)
+                        {
+                            checkedTCUI.Find(t => t.tc.Name == "Электрические" && t.tc.TCUIType.Name == "Каналы побочных электромагнитных излучений и наводок (ПЭМИН)").counter++;
+                            checkedTCUI.Find(t => t.tc.Name == "Воздушные" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter++;
+                            checkedTCUI.Find(t => t.tc.Name == "Вибрационные" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter++;
+                            checkedTCUI.Find(t => t.tc.Name == "Акусто-электрические" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter++;
+                            checkedTCUI.Find(t => t.tc.Name == "Электрические" && t.tc.TCUIType.Name == "Каналы перехвата информации при ее передаче по каналам связи").counter++;
+                            checkedTCUI.Find(t => t.tc.Name == "Индукционные" && t.tc.TCUIType.Name == "Каналы перехвата информации при ее передаче по каналам связи").counter++;
+                        }
+                        else
+                        {
+                            checkedTCUI.Find(t => t.tc.Name == "Электрические" && t.tc.TCUIType.Name == "Каналы побочных электромагнитных излучений и наводок (ПЭМИН)").counter--;
+                            checkedTCUI.Find(t => t.tc.Name == "Воздушные" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter--;
+                            checkedTCUI.Find(t => t.tc.Name == "Вибрационные" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter--;
+                            checkedTCUI.Find(t => t.tc.Name == "Акусто-электрические" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter--;
+                            checkedTCUI.Find(t => t.tc.Name == "Электрические" && t.tc.TCUIType.Name == "Каналы перехвата информации при ее передаче по каналам связи").counter--;
+                            checkedTCUI.Find(t => t.tc.Name == "Индукционные" && t.tc.TCUIType.Name == "Каналы перехвата информации при ее передаче по каналам связи").counter--;
+                        }
+                        break;
+                    }
+                case "cbEMIHighFreq":
+                    {
+                        if (cb.Checked)
+                        {
+                            checkedTCUI.Find(t => t.tc.Name == "Электромагнитные" && t.tc.TCUIType.Name == "Каналы побочных электромагнитных излучений и наводок (ПЭМИН)").counter++;
+                        }
+                        else
+                        {
+                            checkedTCUI.Find(t => t.tc.Name == "Электромагнитные" && t.tc.TCUIType.Name == "Каналы побочных электромагнитных излучений и наводок (ПЭМИН)").counter--;
+                        }
+                        break;
+                    }
+                case "cbEMILowFreq":
+                    {
+                        if (cb.Checked)
+                        {
+                            checkedTCUI.Find(t => t.tc.Name == "Электромагнитные" && t.tc.TCUIType.Name == "Каналы побочных электромагнитных излучений и наводок (ПЭМИН)").counter++;
+                        }
+                        else
+                        {
+                            checkedTCUI.Find(t => t.tc.Name == "Электромагнитные" && t.tc.TCUIType.Name == "Каналы побочных электромагнитных излучений и наводок (ПЭМИН)").counter--;
+                        }
+                        break;
+                    }
+                case "cbEMINavod":
+                    {
+                        if (cb.Checked)
+                        {
+                            checkedTCUI.Find(t => t.tc.Name == "Электромагнитные" && t.tc.TCUIType.Name == "Каналы побочных электромагнитных излучений и наводок (ПЭМИН)").counter++;
+                        }
+                        else
+                        {
+                            checkedTCUI.Find(t => t.tc.Name == "Электромагнитные" && t.tc.TCUIType.Name == "Каналы побочных электромагнитных излучений и наводок (ПЭМИН)").counter--;
+                        }
+                        break;
+                    }
+                case "cbKabeliKZ":
+                    {
+                        if (cb.Checked)
+                        {
+                            checkedTCUI.Find(t => t.tc.Name == "Электрические" && t.tc.TCUIType.Name == "Каналы побочных электромагнитных излучений и наводок (ПЭМИН)").counter++;
+                            checkedTCUI.Find(t => t.tc.Name == "Воздушные" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter++;
+                            checkedTCUI.Find(t => t.tc.Name == "Акусто-электрические" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter++;
+                        }
+                        else
+                        {
+                            checkedTCUI.Find(t => t.tc.Name == "Электрические" && t.tc.TCUIType.Name == "Каналы побочных электромагнитных излучений и наводок (ПЭМИН)").counter--;
+                            checkedTCUI.Find(t => t.tc.Name == "Воздушные" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter--;
+                            checkedTCUI.Find(t => t.tc.Name == "Акусто-электрические" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter--;
+                        }
+                        break;
+                    }
+                case "cbLinesSvyaz":
+                    {
+                        if (cb.Checked)
+                        {
+                            checkedTCUI.Find(t => t.tc.Name == "Электрические" && t.tc.TCUIType.Name == "Каналы побочных электромагнитных излучений и наводок (ПЭМИН)").counter++;
+                            checkedTCUI.Find(t => t.tc.Name == "Воздушные" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter++;
+                            checkedTCUI.Find(t => t.tc.Name == "Вибрационные" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter++;
+                        }
+                        else
+                        {
+                            checkedTCUI.Find(t => t.tc.Name == "Электрические" && t.tc.TCUIType.Name == "Каналы побочных электромагнитных излучений и наводок (ПЭМИН)").counter--;
+                            checkedTCUI.Find(t => t.tc.Name == "Воздушные" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter--;
+                            checkedTCUI.Find(t => t.tc.Name == "Вибрационные" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter--;
+                        }
+                        break;
+                    }
+                case "cbLumenSvet":
+                    {
+                        if (cb.Checked)
+                        {
+                            checkedTCUI.Find(t => t.tc.Name == "Акусто-электрические" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter++;
+                        }
+                        else
+                        {
+                            checkedTCUI.Find(t => t.tc.Name == "Акусто-электрические" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter--;
+                        }
+                        break;
+                    }
+                case "cbMicroPotolok":
+                    {
+                        if (cb.Checked)
+                        {
+                            checkedTCUI.Find(t => t.tc.Name == "Воздушные" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter++;
+                        }
+                        else
+                        {
+                            checkedTCUI.Find(t => t.tc.Name == "Воздушные" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter--;
+                        }
+                        break;
+                    }
+                case "cbNablyud":
+                    {
+                        if (cb.Checked)
+                        {
+                            checkedTCUI.Find(t => t.tc.Name == "Видовые" && t.tc.TCUIType.Name == "Каналы утечки видовой информации").counter++;
+                        }
+                        else
+                        {
+                            checkedTCUI.Find(t => t.tc.Name == "Видовые" && t.tc.TCUIType.Name == "Каналы утечки видовой информации").counter--;
+                        }
+                        break;
+                    }
+                case "cbOhrPozh":
+                    {
+                        if (cb.Checked)
+                        {
+                            checkedTCUI.Find(t => t.tc.Name == "Электрические" && t.tc.TCUIType.Name == "Каналы побочных электромагнитных излучений и наводок (ПЭМИН)").counter++;
+                            checkedTCUI.Find(t => t.tc.Name == "Акусто-электрические" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter++;
+                        }
+                        else
+                        {
+                            checkedTCUI.Find(t => t.tc.Name == "Электрические" && t.tc.TCUIType.Name == "Каналы побочных электромагнитных излучений и наводок (ПЭМИН)").counter--;
+                            checkedTCUI.Find(t => t.tc.Name == "Акусто-электрические" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter--;
+                        }
+                        break;
+                    }
+                case "cbOtherBuilding":
+                    {
+                        if (cb.Checked)
+                        {
+                            checkedTCUI.Find(t => t.tc.Name == "Оптико-электронные" && t.tc.TCUIType.Name == "Каналы побочных электромагнитных излучений и наводок (ПЭМИН)").counter++;
+                        }
+                        else
+                        {
+                            checkedTCUI.Find(t => t.tc.Name == "Оптико-электронные" && t.tc.TCUIType.Name == "Каналы побочных электромагнитных излучений и наводок (ПЭМИН)").counter--;
+                        }
+                        break;
+                    }
+                case "cbPEMINorm":
+                    {
+                        if (cb.Checked)
+                        {
+                            checkedTCUI.Find(t => t.tc.Name == "Электромагнитные" && t.tc.TCUIType.Name == "Каналы побочных электромагнитных излучений и наводок (ПЭМИН)").counter++;
+                        }
+                        else
+                        {
+                            checkedTCUI.Find(t => t.tc.Name == "Электромагнитные" && t.tc.TCUIType.Name == "Каналы побочных электромагнитных излучений и наводок (ПЭМИН)").counter--;
+                        }
+                        break;
+                    }
+                case "cbPhoneOutside":
+                    {
+                        if (cb.Checked)
+                        {
+                            checkedTCUI.Find(t => t.tc.Name == "Электромагнитные" && t.tc.TCUIType.Name == "Каналы побочных электромагнитных излучений и наводок (ПЭМИН)").counter++;
+                            checkedTCUI.Find(t => t.tc.Name == "Электрические" && t.tc.TCUIType.Name == "Каналы побочных электромагнитных излучений и наводок (ПЭМИН)").counter++;
+                            checkedTCUI.Find(t => t.tc.Name == "Воздушные" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter++;
+                            checkedTCUI.Find(t => t.tc.Name == "Параметрические" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter++;
+                            checkedTCUI.Find(t => t.tc.Name == "Акусто-электрические" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter++;
+                        }
+                        else
+                        {
+                            checkedTCUI.Find(t => t.tc.Name == "Электромагнитные" && t.tc.TCUIType.Name == "Каналы побочных электромагнитных излучений и наводок (ПЭМИН)").counter--;
+                            checkedTCUI.Find(t => t.tc.Name == "Электрические" && t.tc.TCUIType.Name == "Каналы побочных электромагнитных излучений и наводок (ПЭМИН)").counter--;
+                            checkedTCUI.Find(t => t.tc.Name == "Воздушные" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter--;
+                            checkedTCUI.Find(t => t.tc.Name == "Параметрические" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter--;
+                            checkedTCUI.Find(t => t.tc.Name == "Акусто-электрические" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter--;
+                        }
+                        break;
+                    }
+                case "cbProsachSignVOTSS":
+                    {
+                        if (cb.Checked)
+                        {
+                            checkedTCUI.Find(t => t.tc.Name == "Электромагнитные" && t.tc.TCUIType.Name == "Каналы побочных электромагнитных излучений и наводок (ПЭМИН)").counter++;
+                        }
+                        else
+                        {
+                            checkedTCUI.Find(t => t.tc.Name == "Электромагнитные" && t.tc.TCUIType.Name == "Каналы побочных электромагнитных излучений и наводок (ПЭМИН)").counter--;
+                        }
+                        break;
+                    }
+                case "cbProsachZazem":
+                    {
+                        if (cb.Checked)
+                        {
+                            checkedTCUI.Find(t => t.tc.Name == "Электромагнитные" && t.tc.TCUIType.Name == "Каналы побочных электромагнитных излучений и наводок (ПЭМИН)").counter++;
+                        }
+                        else
+                        {
+                            checkedTCUI.Find(t => t.tc.Name == "Электромагнитные" && t.tc.TCUIType.Name == "Каналы побочных электромагнитных излучений и наводок (ПЭМИН)").counter--;
+                        }
+                        break;
+                    }
+                case "cbRadio":
+                    {
+                        if (cb.Checked)
+                        {
+                            checkedTCUI.Find(t => t.tc.Name == "Электрические" && t.tc.TCUIType.Name == "Каналы побочных электромагнитных излучений и наводок (ПЭМИН)").counter++;
+                            checkedTCUI.Find(t => t.tc.Name == "Воздушные" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter++;
+                            checkedTCUI.Find(t => t.tc.Name == "Акусто-электрические" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter++;
+                        }
+                        else
+                        {
+                            checkedTCUI.Find(t => t.tc.Name == "Электрические" && t.tc.TCUIType.Name == "Каналы побочных электромагнитных излучений и наводок (ПЭМИН)").counter--;
+                            checkedTCUI.Find(t => t.tc.Name == "Воздушные" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter--;
+                            checkedTCUI.Find(t => t.tc.Name == "Акусто-электрические" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter--;
+                        }
+                        break;
+                    }
+                case "cbRadioZakladki":
+                    {
+                        if (cb.Checked)
+                        {
+                            checkedTCUI.Find(t => t.tc.Name == "Электрические" && t.tc.TCUIType.Name == "Каналы побочных электромагнитных излучений и наводок (ПЭМИН)").counter++;
+                            checkedTCUI.Find(t => t.tc.Name == "Воздушные" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter++;
+                            checkedTCUI.Find(t => t.tc.Name == "Вибрационные" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter++;
+                            checkedTCUI.Find(t => t.tc.Name == "Параметрические" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter++;
+                        }
+                        else
+                        {
+                            checkedTCUI.Find(t => t.tc.Name == "Электрические" && t.tc.TCUIType.Name == "Каналы побочных электромагнитных излучений и наводок (ПЭМИН)").counter--;
+                            checkedTCUI.Find(t => t.tc.Name == "Воздушные" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter--;
+                            checkedTCUI.Find(t => t.tc.Name == "Вибрационные" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter--;
+                            checkedTCUI.Find(t => t.tc.Name == "Параметрические" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter--;
+                        }
+                        break;
+                    }
+                case "cbScheli":
+                    {
+                        if (cb.Checked)
+                        {
+                            checkedTCUI.Find(t => t.tc.Name == "Воздушные" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter++;
+                        }
+                        else
+                        {
+                            checkedTCUI.Find(t => t.tc.Name == "Воздушные" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter--;
+                        }
+                        break;
+                    }
+                case "cbTransformer":
+                    {
+                        if (cb.Checked)
+                        {
+                            checkedTCUI.Find(t => t.tc.Name == "Электрические" && t.tc.TCUIType.Name == "Каналы побочных электромагнитных излучений и наводок (ПЭМИН)").counter++;
+                            checkedTCUI.Find(t => t.tc.Name == "Воздушные" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter++;
+                            checkedTCUI.Find(t => t.tc.Name == "Электрические" && t.tc.TCUIType.Name == "Каналы перехвата информации при ее передаче по каналам связи").counter++;
+                        }
+                        else
+                        {
+                            checkedTCUI.Find(t => t.tc.Name == "Электрические" && t.tc.TCUIType.Name == "Каналы побочных электромагнитных излучений и наводок (ПЭМИН)").counter--;
+                            checkedTCUI.Find(t => t.tc.Name == "Воздушные" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter--;
+                            checkedTCUI.Find(t => t.tc.Name == "Электрические" && t.tc.TCUIType.Name == "Каналы перехвата информации при ее передаче по каналам связи").counter--;
+                        }
+                        break;
+                    }
+                case "cbTruby":
+                    {
+                        if (cb.Checked)
+                        {
+                            checkedTCUI.Find(t => t.tc.Name == "Электрические" && t.tc.TCUIType.Name == "Каналы побочных электромагнитных излучений и наводок (ПЭМИН)").counter++;
+                            checkedTCUI.Find(t => t.tc.Name == "Воздушные" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter++;
+                            checkedTCUI.Find(t => t.tc.Name == "Вибрационные" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter++;
+                            checkedTCUI.Find(t => t.tc.Name == "Акусто-электрические" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter++;
+                        }
+                        else
+                        {
+                            checkedTCUI.Find(t => t.tc.Name == "Электрические" && t.tc.TCUIType.Name == "Каналы побочных электромагнитных излучений и наводок (ПЭМИН)").counter--;
+                            checkedTCUI.Find(t => t.tc.Name == "Воздушные" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter--;
+                            checkedTCUI.Find(t => t.tc.Name == "Вибрационные" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter--;
+                            checkedTCUI.Find(t => t.tc.Name == "Акусто-электрические" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter--;
+                        }
+                        break;
+                    }
+                case "cbTSPI":
+                    {
+                        if (cb.Checked)
+                        {
+                            checkedTCUI.Find(t => t.tc.Name == "Электромагнитные" && t.tc.TCUIType.Name == "Каналы побочных электромагнитных излучений и наводок (ПЭМИН)").counter++;
+                            checkedTCUI.Find(t => t.tc.Name == "Параметрические" && t.tc.TCUIType.Name == "Каналы побочных электромагнитных излучений и наводок (ПЭМИН)").counter++;
+                            checkedTCUI.Find(t => t.tc.Name == "Электрические" && t.tc.TCUIType.Name == "Каналы побочных электромагнитных излучений и наводок (ПЭМИН)").counter++;
+                            checkedTCUI.Find(t => t.tc.Name == "Воздушные" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter++;
+                            checkedTCUI.Find(t => t.tc.Name == "Параметрические" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter++;
+                        }
+                        else
+                        {
+                            checkedTCUI.Find(t => t.tc.Name == "Электромагнитные" && t.tc.TCUIType.Name == "Каналы побочных электромагнитных излучений и наводок (ПЭМИН)").counter--;
+                            checkedTCUI.Find(t => t.tc.Name == "Параметрические" && t.tc.TCUIType.Name == "Каналы побочных электромагнитных излучений и наводок (ПЭМИН)").counter--;
+                            checkedTCUI.Find(t => t.tc.Name == "Электрические" && t.tc.TCUIType.Name == "Каналы побочных электромагнитных излучений и наводок (ПЭМИН)").counter--;
+                            checkedTCUI.Find(t => t.tc.Name == "Воздушные" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter--;
+                            checkedTCUI.Find(t => t.tc.Name == "Параметрические" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter--;
+                        }
+                        break;
+                    }
+                case "cbVoiceDefense":
+                    {
+                        if (cb.Checked)
+                        {
+                            checkedTCUI.Find(t => t.tc.Name == "Воздушные" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter++;
+                            checkedTCUI.Find(t => t.tc.Name == "Вибрационные" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter++;
+                            checkedTCUI.Find(t => t.tc.Name == "Акусто-электрические" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter++;
+                            checkedTCUI.Find(t => t.tc.Name == "Параметрические" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter++;
+                            checkedTCUI.Find(t => t.tc.Name == "Электрические" && t.tc.TCUIType.Name == "Каналы перехвата информации при ее передаче по каналам связи").counter++;
+                            checkedTCUI.Find(t => t.tc.Name == "Индукционные" && t.tc.TCUIType.Name == "Каналы перехвата информации при ее передаче по каналам связи").counter++;
+                        }
+                        else
+                        {
+                            checkedTCUI.Find(t => t.tc.Name == "Воздушные" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter--;
+                            checkedTCUI.Find(t => t.tc.Name == "Вибрационные" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter--;
+                            checkedTCUI.Find(t => t.tc.Name == "Акусто-электрические" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter--;
+                            checkedTCUI.Find(t => t.tc.Name == "Параметрические" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter--;
+                            checkedTCUI.Find(t => t.tc.Name == "Электрические" && t.tc.TCUIType.Name == "Каналы перехвата информации при ее передаче по каналам связи").counter--;
+                            checkedTCUI.Find(t => t.tc.Name == "Индукционные" && t.tc.TCUIType.Name == "Каналы перехвата информации при ее передаче по каналам связи").counter--;
+                        }
+                        break;
+                    }
+                case "cbVoiceSvyaz":
+                    {
+                        if (cb.Checked)
+                        {
+                            checkedTCUI.Find(t => t.tc.Name == "Электромагнитные" && t.tc.TCUIType.Name == "Каналы побочных электромагнитных излучений и наводок (ПЭМИН)").counter++;
+                            checkedTCUI.Find(t => t.tc.Name == "Электрические" && t.tc.TCUIType.Name == "Каналы побочных электромагнитных излучений и наводок (ПЭМИН)").counter++;
+                            checkedTCUI.Find(t => t.tc.Name == "Воздушные" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter++;
+                            checkedTCUI.Find(t => t.tc.Name == "Акусто-электрические" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter++;
+                        }
+                        else
+                        {
+                            checkedTCUI.Find(t => t.tc.Name == "Электромагнитные" && t.tc.TCUIType.Name == "Каналы побочных электромагнитных излучений и наводок (ПЭМИН)").counter--;
+                            checkedTCUI.Find(t => t.tc.Name == "Электрические" && t.tc.TCUIType.Name == "Каналы побочных электромагнитных излучений и наводок (ПЭМИН)").counter--;
+                            checkedTCUI.Find(t => t.tc.Name == "Воздушные" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter--;
+                            checkedTCUI.Find(t => t.tc.Name == "Акусто-электрические" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter--;
+                        }
+                        break;
+                    }
+                case "cbVTSS":
+                    {
+                        if (cb.Checked)
+                        {
+                            checkedTCUI.Find(t => t.tc.Name == "Электромагнитные" && t.tc.TCUIType.Name == "Каналы побочных электромагнитных излучений и наводок (ПЭМИН)").counter++;
+                            checkedTCUI.Find(t => t.tc.Name == "Параметрические" && t.tc.TCUIType.Name == "Каналы побочных электромагнитных излучений и наводок (ПЭМИН)").counter++;
+                            checkedTCUI.Find(t => t.tc.Name == "Воздушные" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter++;
+                            checkedTCUI.Find(t => t.tc.Name == "Параметрические" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter++;
+                            checkedTCUI.Find(t => t.tc.Name == "Акусто-электрические" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter++;
+                        }
+                        else
+                        {
+                            checkedTCUI.Find(t => t.tc.Name == "Электромагнитные" && t.tc.TCUIType.Name == "Каналы побочных электромагнитных излучений и наводок (ПЭМИН)").counter--;
+                            checkedTCUI.Find(t => t.tc.Name == "Параметрические" && t.tc.TCUIType.Name == "Каналы побочных электромагнитных излучений и наводок (ПЭМИН)").counter--;
+                            checkedTCUI.Find(t => t.tc.Name == "Воздушные" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter--;
+                            checkedTCUI.Find(t => t.tc.Name == "Параметрические" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter--;
+                            checkedTCUI.Find(t => t.tc.Name == "Акусто-электрические" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter--;
+                        }
+                        break;
+                    }
+                case "cbWindows":
+                    {
+                        if(cb.Checked)
+                        {
+                            checkedTCUI.Find(t => t.tc.Name == "Воздушные" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter++;
+                            checkedTCUI.Find(t => t.tc.Name == "Вибрационные" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter++;
+                            checkedTCUI.Find(t => t.tc.Name == "Оптико-электронные" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter++;
+                        }
+                        else
+                        {
+                            checkedTCUI.Find(t => t.tc.Name == "Воздушные" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter--;
+                            checkedTCUI.Find(t => t.tc.Name == "Вибрационные" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter--;
+                            checkedTCUI.Find(t => t.tc.Name == "Оптико-электронные" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter--;
+                        }
+                        break;
+                    }
+                case "cbZazem":
+                    {
+                        if (cb.Checked)
+                        {
+                            checkedTCUI.Find(t => t.tc.Name == "Воздушные" && t.tc.TCUIType.Name == "Каналы утечки акустической (речевой) информации").counter--;
+                            checkedTCUI.Find(t => t.tc.Name == "Электрические" && t.tc.TCUIType.Name == "Каналы побочных электромагнитных излучений и наводок (ПЭМИН)").counter--;
+                        }
+                        else
+                        {
+
+                        }
+                        break;
+                    }
             }
-            if (((CheckBox)sender).CheckState == CheckState.Unchecked)
-            {
-                int index = listOfTCUIs.FindLastIndex(t => t.Name == nameOfChannel);
-                updateListOfControls(false, listOfTCUIs[index]);
-                listOfTCUIs.RemoveAt(index);
-            }
+            #endregion
+            updateListOfControls();
         }
 
         public void enterAtPageAbilsOfIntruder(object sender, EventArgs e)
@@ -86,25 +566,33 @@ namespace KPSZI
             }
         }
 
-        public void updateListOfControls(bool adding, TCUI cui)
+        public void updateListOfControls()
         {
-            if (adding)
-                foreach (TCUIThreat tct in cui.TCUIThreats)
+            foreach (checkedTCUI ctc in checkedTCUI)
+            {
+                if (ctc.counter > 0)
                 {
-                    IntruderAbilityControl iac = new IntruderAbilityControl(tct.Name, cui.Name, cui.TCUIType.Name, mf);
-                    if (controlsIAC.Find(t => t.threatName == tct.Name) == null)
+                    foreach (TCUIThreat tcthreat in ctc.tc.TCUIThreats)
                     {
-                        listOfTCUIThreats.Add(tct);
-                        controlsIAC.Add(iac);
+                        IntruderAbilityControl iac = new IntruderAbilityControl(tcthreat.Name, ctc.tc.Name, ctc.tc.TCUIType.Name, mf);
+                        if (controlsIAC.Find(t => t.threatName == tcthreat.Name) == null)
+                        {
+                            listOfTCUIThreats.Add(tcthreat);
+                            controlsIAC.Add(iac);
+                        }
                     }
                 }
-            else
-            {
-                foreach (TCUIThreat tct in cui.TCUIThreats)
+                else
                 {
-                    int index = controlsIAC.FindIndex(t => t.threatName == tct.Name && t.TCUI == cui.Name);
-                    controlsIAC.RemoveAt(index);
-                    listOfTCUIThreats.RemoveAt(index);
+                    foreach (TCUIThreat tct in ctc.tc.TCUIThreats)
+                    {
+                        int index = controlsIAC.FindIndex(t => t.threatName == tct.Name && t.TCUI == ctc.tc.Name);
+                        if (index != -1)
+                        {
+                            controlsIAC.RemoveAt(index);
+                            listOfTCUIThreats.RemoveAt(index);
+                        }
+                    }
                 }
             }
         }
@@ -129,8 +617,8 @@ namespace KPSZI
             if(ts.Potencial==-1)
             {
                 MessageBox.Show("Перед определением актуальных угроз утечки информации по техническим каналам выберите нарушителя в соответствующей вкладке.");
-                mf.tabControl.TabPages.Clear();
-                mf.tabControl.TabPages.Add(mf.tpIntruder);
+                mf.tabControlTCUI.SelectedTab = mf.tabControlTCUI.TabPages[0];
+                mf.treeView.SelectedNode = mf.returnTreeNode("tnIntruder");
                 return;
             }
 

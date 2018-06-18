@@ -56,6 +56,10 @@ namespace KPSZI.Model
         /// Коллекция угроз, которые нейтрализует данная мера [навигационное поле]
         /// </summary>
         public virtual ICollection<Threat> Threats { get; set; }
+        /// <summary>
+        /// Навигационное поле соответствия СФХ мерам для адаптации набора мер
+        /// </summary>
+        public virtual ICollection<SFH> SFHs { get; set; }
 
         /// <summary>
         /// Конструктор для инициализации коллекции навигационного поля
@@ -65,6 +69,34 @@ namespace KPSZI.Model
             Threats = new List<Threat>();
             this.isOnlyISPDn = false;
             this.SZIs = new List<SZI>();
+            SFHs = new List<SFH>();
+        }
+
+        public override bool Equals(object obj)
+        {
+            GISMeasure gm;
+            try
+            {
+                gm = (GISMeasure)obj;
+            }
+            catch
+            {
+                return false;
+            }
+
+            if (this.Description == gm.Description)
+                return true;
+
+            return false;
+        }
+        public override int GetHashCode()
+        {
+            return GISMeasureId + Description.Count();
+        }
+
+        public override string ToString()
+        {
+            return MeasureGroup.ShortName + "." + Number + ". " + Description;
         }
     }
 }

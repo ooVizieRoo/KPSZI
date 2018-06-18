@@ -41,7 +41,7 @@ namespace KPSZI
                 ((ListBox)mf.lbInfoTypes).DisplayMember = "TypeName";
                 ((ListBox)mf.lbInfoTypes).ValueMember = "InfoTypeId";
 
-                mf.lbInfoTypes.Size = new Size(400, 35 + 15 * mf.lbInfoTypes.Items.Count);
+                mf.lbInfoTypes.Size = new Size(400, 16 * mf.lbInfoTypes.Items.Count);
                 
                 //Инициализация СФХ групбоксов
                 listSFHTypes = db.SFHTypes.ToList();
@@ -97,7 +97,16 @@ namespace KPSZI
             }
 
             mf.lbInfoTypes.SelectedIndexChanged += new System.EventHandler(lbInfoTypes_SelectedIndexChanged);
+            mf.dgvProjectSecurityResult.SelectionChanged += new System.EventHandler(dgvProjectSecurityResult_SelectionChanged);
 
+            mf.dgvProjectSecurityResult.Rows.Add(4);
+            mf.dgvProjectSecurityResult.Rows[0].Cells[0].Value = "Процент характеристик, соответствующих уровню «высокий»";
+            mf.dgvProjectSecurityResult.Rows[1].Cells[0].Value = "Процент характеристик, соответствующих уровню «средний»";
+            mf.dgvProjectSecurityResult.Rows[2].Cells[0].Value = "Процент характеристик, соответствующих уровню «низкий»";
+            mf.dgvProjectSecurityResult.Rows[3].Cells[0].Value = "Уровень проектной защищенности";
+            mf.dgvProjectSecurityResult.Rows[3].DefaultCellStyle.BackColor = Color.FromArgb(234, 240, 255);
+            mf.dgvProjectSecurityResult.Rows[3].DefaultCellStyle.ForeColor = Color.FromArgb(28, 32, 57);
+            mf.dgvProjectSecurityResult.Columns[0].Width = mf.dgvProjectSecurityResult.Width - 70;
         }
         
         public override void saveChanges()
@@ -132,23 +141,27 @@ namespace KPSZI
                 if (cb.Checked) projectSecurityChecked[sfh.ProjectSecurity]++;
                 projectSecuritySumm[sfh.ProjectSecurity]++;
             }
-            Console.WriteLine(projectSecurityChecked[2] / projectSecuritySumm[2] + "");
-            Console.WriteLine(projectSecurityChecked[1] / projectSecuritySumm[1] + "");
+
+            // вывод процент характеристик, соответствующих уровню высокий, средний, низкий
+            mf.dgvProjectSecurityResult.Rows[0].Cells[1].Value = string.Format("{0:0.##}", projectSecurityChecked[2] / projectSecuritySumm[2] * 100) + "%";
+            mf.dgvProjectSecurityResult.Rows[1].Cells[1].Value = string.Format("{0:0.##}", projectSecurityChecked[1] / projectSecuritySumm[1] * 100) + "%";
+            mf.dgvProjectSecurityResult.Rows[2].Cells[1].Value = string.Format("{0:0.##}", projectSecurityChecked[0] / projectSecuritySumm[0] * 100) + "%";
+            
             // Вычисление уровня проектной защищенности
             if (projectSecurityChecked[2] / projectSecuritySumm[2] >= 0.8 && projectSecurityChecked[0] == 0)
             {
-                mf.lblProjectSecutiryLvl.Text = "Уровень проектной защищенности: " + "Высокий";
+                mf.dgvProjectSecurityResult.Rows[3].Cells[1].Value = "Высокий";
                 IS.ProjectSecutiryLvl = 2;
             }
             else
                 if (projectSecurityChecked[2] / projectSecuritySumm[2] + projectSecurityChecked[1] / projectSecuritySumm[1] >= 0.9)
                 {
-                    mf.lblProjectSecutiryLvl.Text = "Уровень проектной защищенности: " + "Средний";
+                    mf.dgvProjectSecurityResult.Rows[3].Cells[1].Value = "Средний";
                     IS.ProjectSecutiryLvl = 1;
                 }
                 else
                     {
-                        mf.lblProjectSecutiryLvl.Text = "Уровень проектной защищенности: " + "Низкий";
+                        mf.dgvProjectSecurityResult.Rows[3].Cells[1].Value = "Низкий";
                         IS.ProjectSecutiryLvl = 0;
                     }
         }
@@ -172,12 +185,9 @@ namespace KPSZI
             return null;
         }
         
-        #region Обработчики
         private void rbSFH_CheckedChanged(object sender, EventArgs e)
         {
             saveChanges();
-
-
         }
         
         private void lbInfoTypes_SelectedIndexChanged(object sender, EventArgs e)
@@ -189,13 +199,14 @@ namespace KPSZI
             IS.listOfInfoTypes.Clear();
             mf.lbInfoTypes.CheckedItems.CopyTo(buf, 0);
             for (int i = 0; i < buf.Length; i++)
-            {
                 IS.listOfInfoTypes.Add((InfoType)buf.GetValue(i));
-            }
-
-
         }
-        #endregion
+
+        private void dgvProjectSecurityResult_SelectionChanged(object sender, EventArgs e)
+        {
+            if (mf.dgvProjectSecurityResult.SelectedCells.Count > 0)
+                mf.dgvProjectSecurityResult.SelectedCells[0].Selected = false;
+        }
 
     }
 }

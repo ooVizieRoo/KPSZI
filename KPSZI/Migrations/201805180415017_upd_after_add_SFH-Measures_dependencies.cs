@@ -3,7 +3,7 @@ namespace KPSZI.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class _new : DbMigration
+    public partial class upd_after_add_SFHMeasures_dependencies : DbMigration
     {
         public override void Up()
         {
@@ -73,6 +73,30 @@ namespace KPSZI.Migrations
                 .PrimaryKey(t => t.SZITypeId);
             
             CreateTable(
+                "soooqa.SFHs",
+                c => new
+                    {
+                        SFHId = c.Int(nullable: false, identity: true),
+                        SFHNumber = c.Int(nullable: false),
+                        Name = c.String(),
+                        ProjectSecurity = c.Int(nullable: false),
+                        SFHType_SFHTypeId = c.Int(),
+                    })
+                .PrimaryKey(t => t.SFHId)
+                .ForeignKey("soooqa.SFHTypes", t => t.SFHType_SFHTypeId)
+                .Index(t => t.SFHType_SFHTypeId);
+            
+            CreateTable(
+                "soooqa.SFHTypes",
+                c => new
+                    {
+                        SFHTypeId = c.Int(nullable: false, identity: true),
+                        Name = c.String(),
+                        MultipleChoice = c.Boolean(nullable: false),
+                    })
+                .PrimaryKey(t => t.SFHTypeId);
+            
+            CreateTable(
                 "soooqa.Threats",
                 c => new
                     {
@@ -98,30 +122,6 @@ namespace KPSZI.Migrations
                         WayName = c.String(),
                     })
                 .PrimaryKey(t => t.ImplementWayId);
-            
-            CreateTable(
-                "soooqa.SFHs",
-                c => new
-                    {
-                        SFHId = c.Int(nullable: false, identity: true),
-                        SFHNumber = c.Int(nullable: false),
-                        Name = c.String(),
-                        ProjectSecurity = c.Int(nullable: false),
-                        SFHType_SFHTypeId = c.Int(),
-                    })
-                .PrimaryKey(t => t.SFHId)
-                .ForeignKey("soooqa.SFHTypes", t => t.SFHType_SFHTypeId)
-                .Index(t => t.SFHType_SFHTypeId);
-            
-            CreateTable(
-                "soooqa.SFHTypes",
-                c => new
-                    {
-                        SFHTypeId = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
-                        MultipleChoice = c.Boolean(nullable: false),
-                    })
-                .PrimaryKey(t => t.SFHTypeId);
             
             CreateTable(
                 "soooqa.ThreatSources",
@@ -243,6 +243,19 @@ namespace KPSZI.Migrations
                 .Index(t => t.ISPDNMeasure_ISPDNMeasureId);
             
             CreateTable(
+                "soooqa.SFHGISMeasures",
+                c => new
+                    {
+                        SFH_SFHId = c.Int(nullable: false),
+                        GISMeasure_GISMeasureId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => new { t.SFH_SFHId, t.GISMeasure_GISMeasureId })
+                .ForeignKey("soooqa.SFHs", t => t.SFH_SFHId, cascadeDelete: true)
+                .ForeignKey("soooqa.GISMeasures", t => t.GISMeasure_GISMeasureId, cascadeDelete: true)
+                .Index(t => t.SFH_SFHId)
+                .Index(t => t.GISMeasure_GISMeasureId);
+            
+            CreateTable(
                 "soooqa.ThreatGISMeasures",
                 c => new
                     {
@@ -269,17 +282,17 @@ namespace KPSZI.Migrations
                 .Index(t => t.Threat_ThreatId);
             
             CreateTable(
-                "soooqa.SFHThreats",
+                "soooqa.ThreatSFHs",
                 c => new
                     {
-                        SFH_SFHId = c.Int(nullable: false),
                         Threat_ThreatId = c.Int(nullable: false),
+                        SFH_SFHId = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => new { t.SFH_SFHId, t.Threat_ThreatId })
-                .ForeignKey("soooqa.SFHs", t => t.SFH_SFHId, cascadeDelete: true)
+                .PrimaryKey(t => new { t.Threat_ThreatId, t.SFH_SFHId })
                 .ForeignKey("soooqa.Threats", t => t.Threat_ThreatId, cascadeDelete: true)
-                .Index(t => t.SFH_SFHId)
-                .Index(t => t.Threat_ThreatId);
+                .ForeignKey("soooqa.SFHs", t => t.SFH_SFHId, cascadeDelete: true)
+                .Index(t => t.Threat_ThreatId)
+                .Index(t => t.SFH_SFHId);
             
             CreateTable(
                 "soooqa.ThreatSourceThreats",
@@ -317,13 +330,15 @@ namespace KPSZI.Migrations
             DropForeignKey("soooqa.VulnerabilityThreats", "Vulnerability_VulnerabilityId", "soooqa.Vulnerabilities");
             DropForeignKey("soooqa.ThreatSourceThreats", "Threat_ThreatId", "soooqa.Threats");
             DropForeignKey("soooqa.ThreatSourceThreats", "ThreatSource_ThreatSourceId", "soooqa.ThreatSources");
-            DropForeignKey("soooqa.SFHThreats", "Threat_ThreatId", "soooqa.Threats");
-            DropForeignKey("soooqa.SFHThreats", "SFH_SFHId", "soooqa.SFHs");
-            DropForeignKey("soooqa.SFHs", "SFHType_SFHTypeId", "soooqa.SFHTypes");
+            DropForeignKey("soooqa.ThreatSFHs", "SFH_SFHId", "soooqa.SFHs");
+            DropForeignKey("soooqa.ThreatSFHs", "Threat_ThreatId", "soooqa.Threats");
             DropForeignKey("soooqa.ImplementWayThreats", "Threat_ThreatId", "soooqa.Threats");
             DropForeignKey("soooqa.ImplementWayThreats", "ImplementWay_ImplementWayId", "soooqa.ImplementWays");
             DropForeignKey("soooqa.ThreatGISMeasures", "GISMeasure_GISMeasureId", "soooqa.GISMeasures");
             DropForeignKey("soooqa.ThreatGISMeasures", "Threat_ThreatId", "soooqa.Threats");
+            DropForeignKey("soooqa.SFHs", "SFHType_SFHTypeId", "soooqa.SFHTypes");
+            DropForeignKey("soooqa.SFHGISMeasures", "GISMeasure_GISMeasureId", "soooqa.GISMeasures");
+            DropForeignKey("soooqa.SFHGISMeasures", "SFH_SFHId", "soooqa.SFHs");
             DropForeignKey("soooqa.SZIs", "SZIType_SZITypeId", "soooqa.SZITypes");
             DropForeignKey("soooqa.SZIISPDNMeasures", "ISPDNMeasure_ISPDNMeasureId", "soooqa.ISPDNMeasures");
             DropForeignKey("soooqa.SZIISPDNMeasures", "SZI_SZIId", "soooqa.SZIs");
@@ -335,12 +350,14 @@ namespace KPSZI.Migrations
             DropIndex("soooqa.VulnerabilityThreats", new[] { "Vulnerability_VulnerabilityId" });
             DropIndex("soooqa.ThreatSourceThreats", new[] { "Threat_ThreatId" });
             DropIndex("soooqa.ThreatSourceThreats", new[] { "ThreatSource_ThreatSourceId" });
-            DropIndex("soooqa.SFHThreats", new[] { "Threat_ThreatId" });
-            DropIndex("soooqa.SFHThreats", new[] { "SFH_SFHId" });
+            DropIndex("soooqa.ThreatSFHs", new[] { "SFH_SFHId" });
+            DropIndex("soooqa.ThreatSFHs", new[] { "Threat_ThreatId" });
             DropIndex("soooqa.ImplementWayThreats", new[] { "Threat_ThreatId" });
             DropIndex("soooqa.ImplementWayThreats", new[] { "ImplementWay_ImplementWayId" });
             DropIndex("soooqa.ThreatGISMeasures", new[] { "GISMeasure_GISMeasureId" });
             DropIndex("soooqa.ThreatGISMeasures", new[] { "Threat_ThreatId" });
+            DropIndex("soooqa.SFHGISMeasures", new[] { "GISMeasure_GISMeasureId" });
+            DropIndex("soooqa.SFHGISMeasures", new[] { "SFH_SFHId" });
             DropIndex("soooqa.SZIISPDNMeasures", new[] { "ISPDNMeasure_ISPDNMeasureId" });
             DropIndex("soooqa.SZIISPDNMeasures", new[] { "SZI_SZIId" });
             DropIndex("soooqa.SZIGISMeasures", new[] { "GISMeasure_GISMeasureId" });
@@ -353,9 +370,10 @@ namespace KPSZI.Migrations
             DropIndex("soooqa.GISMeasures", new[] { "MeasureGroup_MeasureGroupId" });
             DropTable("soooqa.VulnerabilityThreats");
             DropTable("soooqa.ThreatSourceThreats");
-            DropTable("soooqa.SFHThreats");
+            DropTable("soooqa.ThreatSFHs");
             DropTable("soooqa.ImplementWayThreats");
             DropTable("soooqa.ThreatGISMeasures");
+            DropTable("soooqa.SFHGISMeasures");
             DropTable("soooqa.SZIISPDNMeasures");
             DropTable("soooqa.SZIGISMeasures");
             DropTable("soooqa.TechnogenicThreats");
@@ -367,10 +385,10 @@ namespace KPSZI.Migrations
             DropTable("soooqa.InfoTypes");
             DropTable("soooqa.Vulnerabilities");
             DropTable("soooqa.ThreatSources");
-            DropTable("soooqa.SFHTypes");
-            DropTable("soooqa.SFHs");
             DropTable("soooqa.ImplementWays");
             DropTable("soooqa.Threats");
+            DropTable("soooqa.SFHTypes");
+            DropTable("soooqa.SFHs");
             DropTable("soooqa.SZITypes");
             DropTable("soooqa.SZIs");
             DropTable("soooqa.ISPDNMeasures");

@@ -1,6 +1,6 @@
 ﻿namespace KPSZI
 {
-    partial class DamageDegreeControl
+    partial class WaitingSplashMessage
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,19 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // DamageDegreeControl
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(40, 44);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(139, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Пожалуйста, подождите...";
+            // 
+            // WaitingSplashMessage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Window;
-            this.Name = "DamageDegreeControl";
-            this.Size = new System.Drawing.Size(375, 340);
+            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this.label1);
+            this.Name = "WaitingSplashMessage";
+            this.Size = new System.Drawing.Size(223, 102);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Label label1;
     }
 }

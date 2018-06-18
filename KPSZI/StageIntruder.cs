@@ -31,6 +31,12 @@ namespace KPSZI
 
         protected override void initTabPage()
         {
+            mf.dgvIntruder.Rows.Add(2);
+            mf.dgvIntruder.Rows[0].Cells[0].Value = "Внутренний";
+            mf.dgvIntruder.Rows[1].Cells[0].Value = "Внешний";
+
+            mf.dgvIntruder.SelectionChanged += dgvIntruder_SelectionChanged;
+
             using (KPSZIContext db = new KPSZIContext())
             {
                 ListImplementWays = db.ImplementWays.OrderBy(i => i.WayNumber).ToList();
@@ -39,15 +45,15 @@ namespace KPSZI
             }
 
             int k = 0;
-            int yLoc = 0;
+            int yLoc = 5;
             foreach (ImplementWay iw in ListImplementWays)
             {
                 CheckBox cb = new CheckBox();
                 cb.Text = iw.WayName;
                 cb.AutoSize = false;
-                int y = 13 * ((TextRenderer.MeasureText(iw.WayName, mf.clbImplementWays.Font).Width + 50) / (mf.clbImplementWays.Width - 25) + 1) + 4;
+                int y = 13 * ((TextRenderer.MeasureText(iw.WayName, mf.clbImplementWays.Font).Width + 50) / (mf.clbImplementWays.Width - 25) + 1) + 10;
                 cb.Size = new Size(mf.clbImplementWays.Width - 25, y);
-                cb.Location = new Point(4, yLoc);
+                cb.Location = new Point(8, yLoc);
                 cb.CheckedChanged += new System.EventHandler(cbWay_CheckedChanged);
                 yLoc += y;
                 k++;
@@ -57,15 +63,15 @@ namespace KPSZI
             mf.clbImplementWays.Height = yLoc;
 
             k = 0;
-            yLoc = 0;
+            yLoc = 3;
             foreach (IntruderType it in ListIntruderTypes)
             {
                 CheckBox cb = new CheckBox();
                 cb.Text = it.TypeName;
                 cb.AutoSize = false;
-                int y = 13 * ((TextRenderer.MeasureText(it.TypeName, mf.clbIntruderTypes.Font).Width + 50) / (mf.clbIntruderTypes.Width - 25) + 1) + 4;
+                int y = 13 * ((TextRenderer.MeasureText(it.TypeName, mf.clbIntruderTypes.Font).Width + 50) / (mf.clbIntruderTypes.Width - 25) + 1) + 8;
                 cb.Size = new Size(mf.clbIntruderTypes.Width - 25, y);
-                cb.Location = new Point(4, yLoc);
+                cb.Location = new Point(8, yLoc);
                 cb.CheckedChanged += new System.EventHandler(cbIntruder_CheckedChanged);
                 yLoc += y;
                 k++;
@@ -128,18 +134,32 @@ namespace KPSZI
                     }
                 }
             }
-            Console.WriteLine("Internal: " + potencial[0] + ", external: " + potencial[1]);
-            IS.listOfSources.Clear();            
+
+            IS.listOfSources.Clear();
+            if (potencial[0] == -1 && potencial[1] == -1)
+                mf.lblPotencial.Text = "Выберите виды нарушителя для расчета его потенциала";
+            else
+                mf.lblPotencial.Text = "";
+
             if (potencial[0] != -1)
+            {
                 for (int i = 0; i <= potencial[0]; i++)
                     IS.listOfSources.Add(ListSources.Where(s2 => s2.Potencial == i && s2.InternalIntruder == true).FirstOrDefault());
+                mf.dgvIntruder.Rows[0].Cells[1].Value = (potencial[0] == 0 ? "Низкий" : (potencial[0] == 1 ? "Средний" : "Высокий"));
+            }
+            else
+                mf.dgvIntruder.Rows[0].Cells[1].Value = "";
+
             if (potencial[1] != -1)
+            {
                 for (int i = 0; i <= potencial[1]; i++)
                     IS.listOfSources.Add(ListSources.Where(s3 => s3.Potencial == i && s3.InternalIntruder == false).FirstOrDefault());
+                mf.dgvIntruder.Rows[1].Cells[1].Value = (potencial[1] == 0 ? "Низкий" : (potencial[1] == 1 ? "Средний" : "Высокий"));
+            }
+            else
+                mf.dgvIntruder.Rows[1].Cells[1].Value = "";
+
             IS.listOfSources.Add(ListSources.Where(s1 => s1.Potencial == 3).FirstOrDefault());
-            foreach (ThreatSource ts in IS.listOfSources)
-                Console.WriteLine(ts.ThreatSourceId);
-            Console.WriteLine();
         }
 
         private void cbWay_CheckedChanged(object sender, EventArgs e)
@@ -155,14 +175,12 @@ namespace KPSZI
         private void cbIntruder_CheckedChanged(object sender, EventArgs e)
         {
             calculatePotencial();
-            string s = "";
-            foreach (ThreatSource ts in IS.listOfSources)
-            {
-                if (ts.Potencial == 3) continue;
-                s += (ts.InternalIntruder ? "Внутренний" : "Внешний") + " нарушитель " +
-                    (ts.Potencial == 0 ? "с низким" : (ts.Potencial == 1 ? "со средним" : "с высоким")) + " потенциалом; \n";
-            }
-            mf.lblPotencial.Text = s;
+        }
+
+        private void dgvIntruder_SelectionChanged(object sender, EventArgs e)
+        {
+            if (mf.dgvIntruder.SelectedCells.Count > 0)
+                mf.dgvIntruder.SelectedCells[0].Selected = false;
         }
     }
 }
