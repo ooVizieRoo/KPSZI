@@ -56,7 +56,7 @@ namespace KPSZI
             //returnTreeNode("tnActualThreats").BackColor = Color.White;
 
             // закрываем все вкладки в TabControl
-            tabControl.TabPages.Clear();
+            tpMeasuresTechno.TabPages.Clear();
 
             // связываем дерево с набором иконок
             iconList.Images.Add(Image.FromFile(@"res\icons\folder-icon.png"));
@@ -69,7 +69,7 @@ namespace KPSZI
             // развернуть дерево
             treeView.ExpandAll();
 
-            foreach(TabPage tab in tabControl.TabPages)
+            foreach(TabPage tab in tpMeasuresTechno.TabPages)
                 tab.AutoScroll = true;
 
             menuStrip.BackColor = Color.FromArgb(234,240,255);
@@ -90,7 +90,7 @@ namespace KPSZI
         // возвращает ссылку на TabPage по имени вкладки
         public TabPage returnTabPage(string tpName)
         {
-            return tabControl.TabPages[tabControl.TabPages.IndexOfKey(tpName)];
+            return tpMeasuresTechno.TabPages[tpMeasuresTechno.TabPages.IndexOfKey(tpName)];
         }
         // возвращает ссылку на TreeNode по имени пункта дерева
         public TreeNode returnTreeNode(string tnName)
@@ -107,7 +107,7 @@ namespace KPSZI
                 return;
             }
 
-            tabControl.TabPages.Clear();
+            tpMeasuresTechno.TabPages.Clear();
             
             // Получаем имя Node в дереве
             string nodeName = treeView.SelectedNode.Name;
@@ -115,8 +115,8 @@ namespace KPSZI
             if (treeView.SelectedNode.Nodes.Count == 0)
             {
                 // ... Открываем вкладку этапа и выполняем enterTabPage
-                tabControl.TabPages.Add(stages[nodeName].stageTab);
-                tabControl.SelectedTab.Text = treeView.SelectedNode.Text;
+                tpMeasuresTechno.TabPages.Add(stages[nodeName].stageTab);
+                tpMeasuresTechno.SelectedTab.Text = treeView.SelectedNode.Text;
                 stages[nodeName].enterTabPage();
             }
 

@@ -19,9 +19,9 @@ namespace KPSZI
         Button btnExportInterop = new Button();
         Button btnExprotSFHInterop = new Button();
         Button btnExportSFHConsole = new Button();
-        Button btnGetBasicMeasuresList = new Button();
-        Button btnGetAdaptiveMeasuresList = new Button();
-        Button btnGetConreteMeasuresList = new Button();
+        Button btnGetBasicMeasuresList;
+        Button btnGetAdaptiveMeasuresList;
+        Button btnGetConreteMeasuresList;
         Button btnConsoleClear = new Button();
 
 
@@ -83,6 +83,12 @@ namespace KPSZI
 
         protected override void initTabPage()
         {
+
+            mf.tabControlMeasures.TabPages.Clear();
+            btnGetBasicMeasuresList = mf.btnGetBasicMeasuresList;
+            btnGetAdaptiveMeasuresList = mf.btnGetAdaptiveMeasuresList;
+            btnGetConreteMeasuresList = mf.btnGetConreteMeasuresList;
+
             mf.dgvBasicMeas.Columns.Add("Count", "№");
             mf.dgvBasicMeas.Columns.Add("Name", "Наименование меры");
             mf.dgvBasicMeas.Columns[0].Width = 30;//.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
@@ -105,50 +111,47 @@ namespace KPSZI
             mf.dgvConcreteMeas.Columns[0].Width = 30;//.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
             mf.dgvConcreteMeas.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
-            btnExportConsole.Location = new System.Drawing.Point(100, 400);
+            btnExportConsole.Location = new System.Drawing.Point(100, 800);
             btnExportConsole.Text = "В консоль";
             btnExportConsole.Click += btnExportConsole_Click;
-            mf.tabControl.TabPages[stageTab.Name].Controls.Add(btnExportConsole);
+            //mf.tabControl.TabPages[stageTab.Name].Controls.Add(btnExportConsole);
 
-            btnExportOpenXML.Location = new System.Drawing.Point(300, 400);
+            btnExportOpenXML.Location = new System.Drawing.Point(300, 800);
             btnExportOpenXML.Text = "OpenXML";
             btnExportOpenXML.Click += BtnExport_Click;
-            mf.tabControl.TabPages[stageTab.Name].Controls.Add(btnExportOpenXML);
+            //mf.tabControl.TabPages[stageTab.Name].Controls.Add(btnExportOpenXML);
 
-            btnExportInterop.Location = new System.Drawing.Point(500, 400);
+            btnExportInterop.Location = new System.Drawing.Point(500, 800);
             btnExportInterop.Text = "Interop";
             btnExportInterop.Click += BtnExportInterop_Click;
-            mf.tabControl.TabPages[stageTab.Name].Controls.Add(btnExportInterop);
+            //mf.tabControl.TabPages[stageTab.Name].Controls.Add(btnExportInterop);
 
-            btnExportSFHConsole.Location = new System.Drawing.Point(100, 500);
+            btnExportSFHConsole.Location = new System.Drawing.Point(100, 900);
             btnExportSFHConsole.Text = "В консоль";
             btnExportSFHConsole.Click += BtnExportSFHConsole_Click;
-            mf.tabControl.TabPages[stageTab.Name].Controls.Add(btnExportSFHConsole);
+            //mf.tabControl.TabPages[stageTab.Name].Controls.Add(btnExportSFHConsole);
 
-            btnExprotSFHInterop.Location = new System.Drawing.Point(500, 500);
+            btnExprotSFHInterop.Location = new System.Drawing.Point(500, 900);
             btnExprotSFHInterop.Text = "Interop";
             btnExprotSFHInterop.Click += BtnExprotSFHInterop_Click;
-            mf.tabControl.TabPages[stageTab.Name].Controls.Add(btnExprotSFHInterop);
+           // mf.tabControl.TabPages[stageTab.Name].Controls.Add(btnExprotSFHInterop);
 
-            btnGetBasicMeasuresList.Location = new System.Drawing.Point(100, 600);
             btnGetBasicMeasuresList.Text = "Базовый";
             btnGetBasicMeasuresList.Click += BtnGetBasicMeasuresList_Click;
-            mf.tabControl.TabPages[stageTab.Name].Controls.Add(btnGetBasicMeasuresList);
+            mf.tpMeasuresTechno.TabPages[stageTab.Name].Controls.Add(btnGetBasicMeasuresList);
 
-            btnGetAdaptiveMeasuresList.Location = new System.Drawing.Point(200, 600);
             btnGetAdaptiveMeasuresList.Text = "Адаптированный";
             btnGetAdaptiveMeasuresList.Click += BtnGetAdaptiveMeasuresList_Click;
-            mf.tabControl.TabPages[stageTab.Name].Controls.Add(btnGetAdaptiveMeasuresList);
+            mf.tpMeasuresTechno.TabPages[stageTab.Name].Controls.Add(btnGetAdaptiveMeasuresList);
 
-            btnGetConreteMeasuresList.Location = new System.Drawing.Point(300, 600);
             btnGetConreteMeasuresList.Text = "Уточненный";
             btnGetConreteMeasuresList.Click += BtnGetConreteMeasuresList_Click;
-            mf.tabControl.TabPages[stageTab.Name].Controls.Add(btnGetConreteMeasuresList);
+            mf.tpMeasuresTechno.TabPages[stageTab.Name].Controls.Add(btnGetConreteMeasuresList);
 
-            btnConsoleClear.Location = new System.Drawing.Point(100, 700);
+            btnConsoleClear.Location = new System.Drawing.Point(300, 900);
             btnConsoleClear.Text = "Clear";
             btnConsoleClear.Click += BtnConsoleClear_Click;
-            mf.tabControl.TabPages[stageTab.Name].Controls.Add(btnConsoleClear);
+            //mf.tabControl.TabPages[stageTab.Name].Controls.Add(btnConsoleClear);
         }
 
         private void BtnConsoleClear_Click(object sender, EventArgs e)
@@ -160,6 +163,16 @@ namespace KPSZI
         {
             mf.wsm.Visible = true;
             mf.wsm.Update();
+
+
+            mf.tabControlMeasures.TabPages.Clear();
+
+            mf.tabControlMeasures.TabPages.Add(mf.tpBasicMeas);
+            mf.btnGetAdaptiveMeasuresList.Enabled = true;
+            mf.btnGetConreteMeasuresList.Enabled = false;
+            
+            mf.tbtpMeasDescription.Text = "Базовый набор мер, сформированный в соответствии с установленным классом защищенности информационной системы.";
+
 
             //Очищаем DGV от старых мер
             mf.dgvBasicMeas.Rows.Clear();
@@ -184,6 +197,14 @@ namespace KPSZI
         {
             mf.wsm.Visible = true;
             mf.wsm.Update();
+
+
+            mf.tabControlMeasures.TabPages.Clear();
+
+            mf.tabControlMeasures.TabPages.Add(mf.tpAdaptiveMeas);
+            mf.btnGetConreteMeasuresList.Enabled = true;
+
+            mf.tbtpMeasDescription.Text = "Адаптированный набор мер, сформированный в соответствии с особенностями функционирования ИС, структурно-функциональным характеристикам и информационным технологиями, характерными для данной ИС.";
 
             List<GISMeasure> listOfGMForSFHs = new List<GISMeasure>();
             using (KPSZIContext db = new KPSZIContext())
@@ -218,6 +239,13 @@ namespace KPSZI
         {
             mf.wsm.Visible = true;
             mf.wsm.Update();
+
+            mf.tabControlMeasures.TabPages.Clear();
+
+            mf.tabControlMeasures.TabPages.Add(mf.tpConcreteMeas);
+
+            mf.tbtpMeasDescription.Text = "Уточненный набор мер, сформированный с учетом не выбранных ранее мер защиты информации, обеспечивает нейтрализацию всех угроз безопасности информации, включенных в Модель угроз безопасности информации. \nВ первой таблице представлены меры защиты информации, нейтрализующие все угрозы из Модели.\n Во второй таблице - итоговый перечень мер";
+
             using (KPSZIContext db = new KPSZIContext())
             {
                 var listOfThreatsDB = db.Threats.ToList();
