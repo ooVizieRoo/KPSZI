@@ -23,7 +23,6 @@ namespace KPSZI
         Button btnGetAdaptiveMeasuresList;
         Button btnGetConreteMeasuresList;
         Button btnConsoleClear = new Button();
-        Button btnTemp;
 
         List<GISMeasure> ListOfBasicMeasures = new List<GISMeasure>();
         List<GISMeasure> ListOfAdaptiveMeasures = new List<GISMeasure>();
@@ -89,9 +88,6 @@ namespace KPSZI
             btnGetAdaptiveMeasuresList = mf.btnGetAdaptiveMeasuresList;
             btnGetConreteMeasuresList = mf.btnGetConreteMeasuresList;
 
-            btnTemp = mf.btnTemp;
-            btnTemp.Click += BtnTemp_Click;
-
             mf.dgvBasicMeas.Columns.Add("Count", "№");
             mf.dgvBasicMeas.Columns.Add("Name", "Наименование меры");
             mf.dgvBasicMeas.Columns[0].Width = 30;//.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
@@ -155,66 +151,6 @@ namespace KPSZI
             btnConsoleClear.Text = "Clear";
             btnConsoleClear.Click += BtnConsoleClear_Click;
             //mf.tabControl.TabPages[stageTab.Name].Controls.Add(btnConsoleClear);
-        }
-
-        private void BtnTemp_Click(object sender, EventArgs e)
-        {
-            Microsoft.Office.Interop.Word.Application wordApp = new Microsoft.Office.Interop.Word.Application();
-            Microsoft.Office.Interop.Word.Document wordDoc;
-            Microsoft.Office.Interop.Word.Paragraph wordParag;
-            Microsoft.Office.Interop.Word.Table wordTable;
-
-            //создаём новый документ Word и задаём параметры листа
-            wordDoc = wordApp.Documents.Add(Type.Missing, Type.Missing, Type.Missing, Type.Missing); //создаём документ Word
-
-            // первый параграф
-            wordParag = wordDoc.Paragraphs.Add(Type.Missing);
-            //wordParag.Range.Font.Name = "Times New Roman";
-            //wordParag.Range.Font.Size = 16;
-            //wordParag.Range.Font.Bold = 1;
-            //wordParag.Range.Text = "Заголовок";
-            //wordParag.Range.Paragraphs.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphCenter;
-
-
-            // второй параграф, таблица из n строк и 2 колонок
-            //wordDoc.Paragraphs.Add(Type.Missing);
-            wordParag.Range.Tables.Add(wordParag.Range, 130, 3, Type.Missing, Type.Missing);
-            wordTable = wordDoc.Tables[1];
-            wordTable.Range.Font.Bold = 0;
-            wordParag.Range.Font.Name = "Times New Roman";
-            wordTable.Range.Font.Size = 14;
-
-            //задаём ширину колонок и высоту строк
-            wordTable.Columns.PreferredWidthType = Microsoft.Office.Interop.Word.WdPreferredWidthType.wdPreferredWidthPoints;
-            wordTable.Columns[1].SetWidth(200f, Microsoft.Office.Interop.Word.WdRulerStyle.wdAdjustNone);
-            wordTable.Rows.SetHeight(20f, Microsoft.Office.Interop.Word.WdRowHeightRule.wdRowHeightAuto);
-            wordTable.Rows.Alignment = Microsoft.Office.Interop.Word.WdRowAlignment.wdAlignRowCenter;
-            wordTable.Range.Cells.VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
-            wordTable.Range.Select();
-
-            //заполнение шапки таблицы
-            wordTable.Cell(1, 1).Range.Text = "№ п\"п";
-            wordTable.Cell(1, 2).Range.Text = "Наименование меры";
-            wordTable.Cell(1, 3).Range.Text = "СЗИ";
-
-            //заполняем таблицу 
-
-            int row = 2; int i = 0;
-            using (KPSZIContext db = new KPSZIContext())
-            {
-                var measures = db.GisMeasures.OrderBy(gm => gm.GISMeasureId).ToList();
-
-                foreach (GISMeasure gm in measures)
-                {
-                    wordTable.Cell(row, 1).Range.Text = (++i).ToString();
-                    wordTable.Cell(row++, 2).Range.Text = gm.ToString();
-                }
-            }
-
-            //сохраняем документ, закрываем документ, выходим из Word
-            wordDoc.SaveAs(Directory.GetCurrentDirectory() + @"\все меры.docx");
-            wordApp.ActiveDocument.Close();
-            wordApp.Quit();
         }
 
         private void BtnConsoleClear_Click(object sender, EventArgs e)
@@ -307,7 +243,7 @@ namespace KPSZI
 
             mf.tabControlMeasures.TabPages.Add(mf.tpConcreteMeas);
 
-            mf.tbtpMeasDescription.Text = "Уточненный набор мер, сформированный с учетом не выбранных ранее мер защиты информации, обеспечивает нейтрализацию всех угроз безопасности информации, включенных в Модель угроз безопасности информации. \nВ первой таблице представлены меры защиты информации, нейтрализующие все угрозы из Модели.\n Во второй таблице - итоговый перечень мер";
+            mf.tbtpMeasDescription.Text = "Уточненный набор мер, сформированный с учетом не выбранных ранее мер защиты информации, обеспечивает нейтрализацию актуальных угроз безопасности информации, включенных в Модель угроз безопасности информации. \nВ первой таблице представлены меры защиты информации, нейтрализующие все угрозы из Модели.\n Во второй таблице - итоговый перечень мер";
 
             using (KPSZIContext db = new KPSZIContext())
             {

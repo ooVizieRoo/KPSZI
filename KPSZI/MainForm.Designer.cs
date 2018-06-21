@@ -294,7 +294,6 @@
             this.labelAvailability = new System.Windows.Forms.Label();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.iconList = new System.Windows.Forms.ImageList(this.components);
-            this.btnTemp = new System.Windows.Forms.Button();
             this.menuStrip.SuspendLayout();
             this.tpOptions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProjectSecurityResult)).BeginInit();
@@ -1519,7 +1518,7 @@
             this.tpThreatsNSD2.Location = new System.Drawing.Point(4, 22);
             this.tpThreatsNSD2.Name = "tpThreatsNSD2";
             this.tpThreatsNSD2.Padding = new System.Windows.Forms.Padding(3);
-            this.tpThreatsNSD2.Size = new System.Drawing.Size(931, 458);
+            this.tpThreatsNSD2.Size = new System.Drawing.Size(955, 458);
             this.tpThreatsNSD2.TabIndex = 1;
             this.tpThreatsNSD2.Text = "Определение актуальности УБИ";
             this.tpThreatsNSD2.UseVisualStyleBackColor = true;
@@ -1545,7 +1544,7 @@
             this.dgvActualThreatsNSD.RowHeadersVisible = false;
             this.dgvActualThreatsNSD.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(3);
             this.dgvActualThreatsNSD.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvActualThreatsNSD.Size = new System.Drawing.Size(518, 452);
+            this.dgvActualThreatsNSD.Size = new System.Drawing.Size(542, 452);
             this.dgvActualThreatsNSD.TabIndex = 0;
             // 
             // tpTCUI
@@ -1977,7 +1976,7 @@
             this.tabPageIntrAbil.Location = new System.Drawing.Point(4, 22);
             this.tabPageIntrAbil.Name = "tabPageIntrAbil";
             this.tabPageIntrAbil.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageIntrAbil.Size = new System.Drawing.Size(931, 458);
+            this.tabPageIntrAbil.Size = new System.Drawing.Size(955, 458);
             this.tabPageIntrAbil.TabIndex = 1;
             this.tabPageIntrAbil.Text = "Определение возможностей нарушителя";
             this.tabPageIntrAbil.UseVisualStyleBackColor = true;
@@ -1999,7 +1998,7 @@
             this.tabPageListOfTCUIThreats.Controls.Add(this.lbTCUIInfo);
             this.tabPageListOfTCUIThreats.Location = new System.Drawing.Point(4, 22);
             this.tabPageListOfTCUIThreats.Name = "tabPageListOfTCUIThreats";
-            this.tabPageListOfTCUIThreats.Size = new System.Drawing.Size(931, 458);
+            this.tabPageListOfTCUIThreats.Size = new System.Drawing.Size(955, 458);
             this.tabPageListOfTCUIThreats.TabIndex = 2;
             this.tabPageListOfTCUIThreats.Text = "Итоговый список УБИ ТКУИ";
             this.tabPageListOfTCUIThreats.UseVisualStyleBackColor = true;
@@ -2372,7 +2371,7 @@
             this.tpSKZI2.Location = new System.Drawing.Point(4, 22);
             this.tpSKZI2.Name = "tpSKZI2";
             this.tpSKZI2.Padding = new System.Windows.Forms.Padding(3);
-            this.tpSKZI2.Size = new System.Drawing.Size(931, 458);
+            this.tpSKZI2.Size = new System.Drawing.Size(955, 458);
             this.tpSKZI2.TabIndex = 1;
             this.tpSKZI2.Text = "Обобщенные возможности источников атак";
             this.tpSKZI2.UseVisualStyleBackColor = true;
@@ -2452,7 +2451,7 @@
             this.tpSKZI3.Location = new System.Drawing.Point(4, 22);
             this.tpSKZI3.Name = "tpSKZI3";
             this.tpSKZI3.Padding = new System.Windows.Forms.Padding(0, 0, 0, 15);
-            this.tpSKZI3.Size = new System.Drawing.Size(931, 458);
+            this.tpSKZI3.Size = new System.Drawing.Size(955, 458);
             this.tpSKZI3.TabIndex = 2;
             this.tpSKZI3.Text = "Уточненные возможности источников атак";
             this.tpSKZI3.UseVisualStyleBackColor = true;
@@ -2557,7 +2556,6 @@
             // tpMeasures
             // 
             this.tpMeasures.AutoScroll = true;
-            this.tpMeasures.Controls.Add(this.btnTemp);
             this.tpMeasures.Controls.Add(this.btnGetConreteMeasuresList);
             this.tpMeasures.Controls.Add(this.btnGetAdaptiveMeasuresList);
             this.tpMeasures.Controls.Add(this.btnGetBasicMeasuresList);
@@ -2937,15 +2935,6 @@
             this.iconList.ImageSize = new System.Drawing.Size(16, 16);
             this.iconList.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // btnTemp
-            // 
-            this.btnTemp.Location = new System.Drawing.Point(716, 83);
-            this.btnTemp.Name = "btnTemp";
-            this.btnTemp.Size = new System.Drawing.Size(75, 23);
-            this.btnTemp.TabIndex = 7;
-            this.btnTemp.Text = "button1";
-            this.btnTemp.UseVisualStyleBackColor = true;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3242,6 +3231,5 @@
         internal System.Windows.Forms.DataGridView dgvThrMeas;
         internal System.Windows.Forms.TextBox textBox1;
         internal System.Windows.Forms.TextBox tbConreteTable1;
-        internal System.Windows.Forms.Button btnTemp;
     }
 }
