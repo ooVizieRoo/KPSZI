@@ -285,18 +285,18 @@ namespace KPSZI
 
         public override void enterTabPage()
         {
-            mf.TabControl.TabPages[stageTab.Name].Controls.Add(accessMatrixRules);
-            mf.TabControl.TabPages[stageTab.Name].Controls.Add(accessMatrixResources);
-            mf.TabControl.TabPages[stageTab.Name].Controls.Add(addSubject);
-            mf.TabControl.TabPages[stageTab.Name].Controls.Add(tbNameOfSubject);
-            mf.TabControl.TabPages[stageTab.Name].Controls.Add(addObject);
-            mf.TabControl.TabPages[stageTab.Name].Controls.Add(tbNameOfObject);
-            mf.TabControl.TabPages[stageTab.Name].Controls.Add(labAddObject);
-            mf.TabControl.TabPages[stageTab.Name].Controls.Add(labAddSubject);
-            mf.TabControl.TabPages[stageTab.Name].Controls.Add(labDeleteInfo);
-            mf.TabControl.TabPages[stageTab.Name].Controls.Add(addResource);
-            mf.TabControl.TabPages[stageTab.Name].Controls.Add(tbNameOfResource);
-            mf.TabControl.TabPages[stageTab.Name].Controls.Add(labAddResource);
+            mf.tbtpSZI.TabPages[stageTab.Name].Controls.Add(accessMatrixRules);
+            mf.tbtpSZI.TabPages[stageTab.Name].Controls.Add(accessMatrixResources);
+            mf.tbtpSZI.TabPages[stageTab.Name].Controls.Add(addSubject);
+            mf.tbtpSZI.TabPages[stageTab.Name].Controls.Add(tbNameOfSubject);
+            mf.tbtpSZI.TabPages[stageTab.Name].Controls.Add(addObject);
+            mf.tbtpSZI.TabPages[stageTab.Name].Controls.Add(tbNameOfObject);
+            mf.tbtpSZI.TabPages[stageTab.Name].Controls.Add(labAddObject);
+            mf.tbtpSZI.TabPages[stageTab.Name].Controls.Add(labAddSubject);
+            mf.tbtpSZI.TabPages[stageTab.Name].Controls.Add(labDeleteInfo);
+            mf.tbtpSZI.TabPages[stageTab.Name].Controls.Add(addResource);
+            mf.tbtpSZI.TabPages[stageTab.Name].Controls.Add(tbNameOfResource);
+            mf.tbtpSZI.TabPages[stageTab.Name].Controls.Add(labAddResource);
         }
 
         public override void saveChanges()

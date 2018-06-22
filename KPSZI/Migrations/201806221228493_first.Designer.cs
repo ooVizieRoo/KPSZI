@@ -7,13 +7,13 @@ namespace KPSZI.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class upd_after_add_SFHMeasures_dependencies : IMigrationMetadata
+    public sealed partial class first : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(upd_after_add_SFHMeasures_dependencies));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(first));
         
         string IMigrationMetadata.Id
         {
-            get { return "201805180415017_upd_after_add_SFH-Measures_dependencies"; }
+            get { return "201806221228493_first"; }
         }
         
         string IMigrationMetadata.Source
