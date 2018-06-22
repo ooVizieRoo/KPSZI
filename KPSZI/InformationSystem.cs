@@ -59,6 +59,10 @@ namespace KPSZI
         /// Список актуальных НСД угроз
         /// </summary>
         public List<Threat> listOfActualNSDThreats;
+        /// <summary>
+        /// Сформированный перечень мер после уточнения адаптированного базового набора мер
+        /// </summary>
+        public List<GISMeasure> listOfAllNSDMeasures;
 
         public InformationSystem ()
         {
@@ -71,6 +75,7 @@ namespace KPSZI
             listOfImplementWays = new List<ImplementWay>();
             listOfSources = new List<ThreatSource>();
             listOfActualNSDThreats = new List<Threat>();
+            listOfAllNSDMeasures = new List<GISMeasure>();
         }
     }
 

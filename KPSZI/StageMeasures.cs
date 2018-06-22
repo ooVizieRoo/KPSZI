@@ -24,7 +24,6 @@ namespace KPSZI
         Button btnGetConreteMeasuresList;
         Button btnConsoleClear = new Button();
 
-
         List<GISMeasure> ListOfBasicMeasures = new List<GISMeasure>();
         List<GISMeasure> ListOfAdaptiveMeasures = new List<GISMeasure>();
         List<GISMeasure> ListOfConcreteMeasures = new List<GISMeasure>();
@@ -244,7 +243,7 @@ namespace KPSZI
 
             mf.tabControlMeasures.TabPages.Add(mf.tpConcreteMeas);
 
-            mf.tbtpMeasDescription.Text = "Уточненный набор мер, сформированный с учетом не выбранных ранее мер защиты информации, обеспечивает нейтрализацию всех угроз безопасности информации, включенных в Модель угроз безопасности информации. \nВ первой таблице представлены меры защиты информации, нейтрализующие все угрозы из Модели.\n Во второй таблице - итоговый перечень мер";
+            mf.tbtpMeasDescription.Text = "Уточненный набор мер, сформированный с учетом не выбранных ранее мер защиты информации, обеспечивает нейтрализацию актуальных угроз безопасности информации, включенных в Модель угроз безопасности информации. \nВ первой таблице представлены меры защиты информации, нейтрализующие все угрозы из Модели.\n Во второй таблице - итоговый перечень мер";
 
             using (KPSZIContext db = new KPSZIContext())
             {
@@ -284,6 +283,7 @@ namespace KPSZI
                     mf.dgvConcreteMeas.Rows.Add(++i, gm.ToString());
                 }
                 Console.WriteLine("Базовый: {0}\nАдаптированный: {1}\nУточненный: {2}", ListOfBasicMeasures.Count, ListOfAdaptiveMeasures.Count, ListOfConcreteMeasures.Count);
+                IS.listOfAllNSDMeasures = ListOfConcreteMeasures;
             }
 
             mf.wsm.Visible = false;
