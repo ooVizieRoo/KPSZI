@@ -115,6 +115,10 @@
     <Compile Include="Migrations\201805180415017_upd_after_add_SFH-Measures_dependencies.Designer.cs">
       <DependentUpon>201805180415017_upd_after_add_SFH-Measures_dependencies.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806221014595_added-SZI.cs" />
+    <Compile Include="Migrations\201806221014595_added-SZI.Designer.cs">
+      <DependentUpon>201806221014595_added-SZI.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\ImplementWays.cs" />
     <Compile Include="Model\Vulnerability.cs" />
@@ -149,7 +153,7 @@
     <Compile Include="Model\SFH.cs" />
     <Compile Include="Model\SFHType.cs" />
     <Compile Include="Model\SZI.cs" />
-    <Compile Include="Model\SZIType.cs" />
+    <Compile Include="Model\SZISort.cs" />
     <Compile Include="Model\TCUI.cs" />
     <Compile Include="Model\TCUIThreat.cs" />
     <Compile Include="Model\TCUIType.cs" />
@@ -202,6 +206,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805180415017_upd_after_add_SFH-Measures_dependencies.resx">
       <DependentUpon>201805180415017_upd_after_add_SFH-Measures_dependencies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806221014595_added-SZI.resx">
+      <DependentUpon>201806221014595_added-SZI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

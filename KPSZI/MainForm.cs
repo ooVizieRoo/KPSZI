@@ -50,8 +50,8 @@ namespace KPSZI
             stages.Add("tnTechnoGenThreats", new stageTechnoGenThreats(returnTabPage("tpTechnoGenThreats"), returnTreeNode("tnTechnoGenThreats"), this, IS));
             stages.Add("tnSKZI", new StageSKZI(returnTabPage("tpSKZI"), returnTreeNode("tnSKZI"), this, IS));
             stages.Add("tnMeasures", new StageMeasures(returnTabPage("tpMeasures"), returnTreeNode("tnMeasures"), this, IS));
-            stages.Add("tnMeasuresTCUI", new StageMeasuresTCUI(returnTabPage("tpMeasuresTCUI"), returnTreeNode("tnMeasuresTCUI"), this, IS));
-            stages.Add("tnMeasuresTechno", new StageMeasuresTechno(returnTabPage("tpMeasuresTechno"), returnTreeNode("tnMeasuresTechno"), this, IS));
+            //stages.Add("tnMeasuresTCUI", new StageMeasuresTCUI(returnTabPage("tpMeasuresTCUI"), returnTreeNode("tnMeasuresTCUI"), this, IS));
+            //stages.Add("tnMeasuresTechno", new StageMeasuresTechno(returnTabPage("tpMeasuresTechno"), returnTreeNode("tnMeasuresTechno"), this, IS));
             stages.Add("tnSZI", new StageSZI(returnTabPage("tpSZI"), returnTreeNode("tnSZI"), this, IS));
             stages.Add("tnTPExport", new StageTPExport(returnTabPage("tpTPExport"), returnTreeNode("tnTPExport"), this, IS));
 
@@ -173,7 +173,7 @@ namespace KPSZI
                 {
                     try
                     {
-                        db.Database.ExecuteSqlCommand("SET SCHEMA '" + KPSZIContext.schema_name + "'; TRUNCATE \"GISMeasures\", \"ISPDNMeasures\", \"ImplementWayThreats\", \"SFHGISMeasures\", \"ThreatGISMeasures\", \"InfoTypes\", \"IntruderTypes\", \"ThreatSFHs\", \"MeasureGroups\", \"SFHTypes\", \"SFHs\", \"SZIGISMeasures\", \"SZIISPDNMeasures\", \"SZITypes\", \"SZIs\", \"TCUIThreats\", \"TCUITypes\", \"TCUIs\", \"TechnogenicMeasures\", \"TechnogenicThreats\", \"ThreatSources\", \"ThreatSourceThreats\", \"Threats\", \"ImplementWays\",\"Vulnerabilities\", \"VulnerabilityThreats\" CASCADE");
+                        db.Database.ExecuteSqlCommand("SET SCHEMA '" + KPSZIContext.schema_name + "'; TRUNCATE \"GISMeasures\", \"ISPDNMeasures\", \"ImplementWayThreats\", \"SFHGISMeasures\", \"ThreatGISMeasures\", \"InfoTypes\", \"IntruderTypes\", \"ThreatSFHs\", \"MeasureGroups\", \"SFHTypes\", \"SFHs\", \"SZIGISMeasures\",  \"SZISorts\", \"SZISortSZIs\", \"SZIs\", \"TCUIThreats\", \"TCUITypes\", \"TCUIs\", \"TechnogenicMeasures\", \"TechnogenicThreats\", \"ThreatSources\", \"ThreatSourceThreats\", \"Threats\", \"ImplementWays\",\"Vulnerabilities\", \"VulnerabilityThreats\" CASCADE");
                     }
                     catch (Exception ex)
                     {

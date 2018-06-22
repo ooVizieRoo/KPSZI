@@ -26,7 +26,7 @@ namespace KPSZI.Model
         public DbSet<ISPDNMeasure> ISPDNMeasures { get; set; }
         public DbSet<MeasureGroup> MeasureGroups { get; set; }
         public DbSet<SZI> SZIs{ get; set; }
-        public DbSet<SZIType> SZITypes { get; set; }
+        public DbSet<SZISort> SZISorts { get; set; }
         public DbSet<TCUI> TCUIs { get; set; }
         public DbSet<TCUIThreat> TCUIThreats { get; set; }
         public DbSet<TCUIType> TCUITypes { get; set; }
@@ -579,6 +579,61 @@ namespace KPSZI.Model
             TechnogenicMeasure tgm6 = new TechnogenicMeasure { Description = "Резервирование технических средств, программного обеспечения и средств обеспечения функционирования ИС" };
             TechnogenicMeasure tgm7 = new TechnogenicMeasure { Description = "Применение сертифицированных технических средств" };
             TechnogenicMeasures.AddRange(new List<TechnogenicMeasure> { tgm1, tgm2, tgm3, tgm4, tgm5, tgm6, tgm7 });
+            #endregion
+
+            #region Виды средств защиты информации
+            SZISort NSD = new SZISort();
+            NSD.Name = "Средства защиты информации от НСД";
+            NSD.ShortName = "СЗИ от НСД";
+            NSD.Number = 1;
+
+            SZISort SOV = new SZISort();
+            SOV.Name = "Средства обнаружения вторжений";
+            SOV.ShortName = "СОВ";
+            SOV.Number = 2;
+
+            SZISort FW = new SZISort();
+            FW.Name = "Межсетевые экраны";
+            FW.ShortName = "МСЭ";
+            FW.Number = 3;
+
+            SZISort SDZ = new SZISort();
+            SDZ.Name = "Средства доверенной загрузки";
+            SDZ.ShortName = "СДЗ";
+            SDZ.Number = 4;
+
+            SZISort AVZ = new SZISort();
+            AVZ.Name = "Средства антивирусной защиты";
+            AVZ.ShortName = "САВЗ";
+            AVZ.Number = 5;
+
+            SZISort SKN = new SZISort();
+            SKN.Name = "Средства контроля съемных машинных носителей информации";
+            SKN.ShortName = "СКН";
+            SKN.Number = 6;
+
+            SZISort ANZ = new SZISort();
+            ANZ.Name = "Средства анализа защищенности";
+            ANZ.ShortName = "САНЗ";
+            ANZ.Number = 7;
+
+            SZISort SRSB = new SZISort();
+            SRSB.Name = "Средства регистрации событий безопасности";
+            SRSB.ShortName = "СРСБ";
+            SRSB.Number = 8;
+
+            SZISort SZSV = new SZISort();
+            SZSV.Name = "Средства защиты среды виртуализации";
+            SZSV.ShortName = "СЗСВ";
+            SZSV.Number = 9;
+
+            SZISort SODT = new SZISort();
+            SODT.Name = "Средства резервного копирования";
+            SODT.ShortName = "СРК";
+            SODT.Number = 10;
+
+            SZISorts.AddRange(new List<SZISort> { NSD, SOV, FW, SDZ, AVZ, SKN, ANZ, SRSB, SZSV, SODT });
+
             #endregion
 
             SaveChanges();
@@ -5686,6 +5741,167 @@ namespace KPSZI.Model
             GisMeasures.Where(gm => gm.Number == 5 && gm.MeasureGroup.ShortName == "ЗТС").First().SFHs.Add(SFHs.Where(sfh => sfh.SFHNumber == 33).First());
             GisMeasures.Where(gm => gm.Number == 5 && gm.MeasureGroup.ShortName == "ЗТС").First().SFHs.Add(SFHs.Where(sfh => sfh.SFHNumber == 34).First());
             GisMeasures.Where(gm => gm.Number == 5 && gm.MeasureGroup.ShortName == "ЗТС").First().SFHs.Add(SFHs.Where(sfh => sfh.SFHNumber == 35).First());
+
+            #endregion
+            
+            #region Добавление СЗИ к видам
+            SZI SNS = new SZI();
+            SNS.Name = "Secret Net Studio";
+            SNS.Certificate = "3745";
+            SNS.DateOfEnd = DateTime.Parse("16.05.2020");
+            SNS.SVTClass = "5";
+            SNS.NDVControlLevel = 4;
+            SNS.SZISorts.Add(SZISorts.Where(sort => sort.Number == 1).First());
+            SZIs.Add(SNS);
+
+            SZI DL = new SZI();
+            DL.Name = "Dallas Lock 8.0-K";
+            DL.Certificate = "2720";
+            DL.DateOfEnd = DateTime.Parse("16.05.2020");
+            DL.SVTClass = "5";
+            DL.NDVControlLevel = 4;
+            DL.SZISorts.Add(SZISorts.Where(sort => sort.Number == 1).First());
+            SZIs.Add(DL);
+
+            SZI SOBOL = new SZI();
+            SOBOL.Name = "ПАК Соболь 3.0";
+            SOBOL.Certificate = "1967";
+            SOBOL.DateOfEnd = DateTime.Parse("07.12.2018");
+            SOBOL.SVTClass = "";
+            SOBOL.NDVControlLevel = 2;
+            SOBOL.SZISorts.Add(SZISorts.Where(sort => sort.Number == 4).First());
+            SZIs.Add(SOBOL);
+
+            SZI SDZDL = new SZI();
+            SDZDL.Name = "СДЗ Dallas Lock";
+            SDZDL.Certificate = "2720";
+            SDZDL.DateOfEnd = DateTime.Parse("25.09.2018");
+            SDZDL.SVTClass = "5";
+            SDZDL.NDVControlLevel = 4;
+            SDZDL.SZISorts.Add(SZISorts.Where(sort => sort.Number == 4).First());
+            SZIs.Add(SDZDL);
+
+            SZI AKKORD = new SZI();
+            SDZDL.Name = "Аккорд-АМДЗ";
+            SDZDL.Certificate = "246/7";
+            SDZDL.DateOfEnd = DateTime.Parse("13.08.2019");
+            SDZDL.SVTClass = "3";
+            SDZDL.NDVControlLevel = 2;
+            SDZDL.SZISorts.Add(SZISorts.Where(sort => sort.Number == 4).First());
+            SZIs.Add(SDZDL);
+
+            SZI KONTINENT = new SZI();
+            KONTINENT.Name = "Континент 3.7 (исполнение 4, 5)";
+            KONTINENT.Certificate = "3008";
+            KONTINENT.DateOfEnd = DateTime.Parse("01.11.2019");
+            KONTINENT.SVTClass = "";
+            KONTINENT.NDVControlLevel = 3;
+            KONTINENT.SZISorts.Add(SZISorts.Where(sort => sort.Number == 2).First());
+            KONTINENT.SZISorts.Add(SZISorts.Where(sort => sort.Number == 3).First());
+            SZIs.Add(KONTINENT);
+
+            SZI RUBIKON = new SZI();
+            RUBIKON.Name = "Рубикон";
+            RUBIKON.Certificate = "2574";
+            RUBIKON.DateOfEnd = DateTime.Parse("17.02.2021");
+            RUBIKON.SVTClass = "";
+            RUBIKON.NDVControlLevel = 2;
+            RUBIKON.SZISorts.Add(SZISorts.Where(sort => sort.Number == 2).First());
+            RUBIKON.SZISorts.Add(SZISorts.Where(sort => sort.Number == 3).First());
+
+            SZIs.Add(RUBIKON);
+
+            SZI KES = new SZI();
+            KES.Name = "Kaspersky Endpoint Security 10";
+            KES.Certificate = "3025";
+            KES.DateOfEnd = DateTime.Parse("25.11.2019");
+            KES.SVTClass = "";
+            KES.NDVControlLevel = 2;
+            KES.SZISorts.Add(SZISorts.Where(sort => sort.Number == 5).First());
+            SZIs.Add(KES);
+
+            SZI KSC = new SZI();
+            KSC.Name = "Kaspersky Security Center 10";
+            KSC.Certificate = "3155";
+            KSC.DateOfEnd = DateTime.Parse("06.05.2020");
+            KSC.SVTClass = "";
+            KSC.NDVControlLevel = 2;
+            KSC.SZISorts.Add(SZISorts.Where(sort => sort.Number == 5).First());
+            SZIs.Add(KSC);
+
+            SZI SVS = new SZI();
+            SVS.Name = "Сканер-ВС";
+            SVS.Certificate = "2204";
+            SVS.DateOfEnd = DateTime.Parse("13.11.2019");
+            SVS.TU = "+";
+            SVS.NDVControlLevel = 4;
+            SVS.SZISorts.Add(SZISorts.Where(sort => sort.Number == 7).First());
+            SZIs.Add(SVS);
+
+            SZI PTXS = new SZI();
+            PTXS.Name = "Positive Technologies XSpider 7.8.25";
+            PTXS.Certificate = "3247";
+            PTXS.DateOfEnd = DateTime.Parse("24.10.2020");
+            PTXS.TU = "+";
+            PTXS.NDVControlLevel = 4;
+            PTXS.SZISorts.Add(SZISorts.Where(sort => sort.Number == 7).First());
+            SZIs.Add(PTXS);
+
+            SZI RC = new SZI();
+            SVS.Name = "RedCheck";
+            SVS.Certificate = "3172";
+            SVS.DateOfEnd = DateTime.Parse("23.06.2020");
+            SVS.TU = "+";
+            SVS.NDVControlLevel = 4;
+            SVS.SZISorts.Add(SZISorts.Where(sort => sort.Number == 7).First());
+            SZIs.Add(SVS);
+
+            SZI KOMRAD = new SZI();
+            KOMRAD.Name = "KOMRAD Enterprise SIEM";
+            KOMRAD.Certificate = "3498";
+            KOMRAD.DateOfEnd = DateTime.Parse("13.01.2019");
+            KOMRAD.TU = "+";
+            KOMRAD.NDVControlLevel = 4;
+            KOMRAD.SZISorts.Add(SZISorts.Where(sort => sort.Number == 8).First());
+            SZIs.Add(KOMRAD);
+
+            SZI MP = new SZI();
+            MP.Name = "MaxPatrol SIEM";
+            MP.Certificate = "3734";
+            MP.DateOfEnd = DateTime.Parse("12.04.2020");
+            MP.TU = "+";
+            MP.NDVControlLevel = 4;
+            MP.SZISorts.Add(SZISorts.Where(sort => sort.Number == 8).First());
+            SZIs.Add(MP);
+
+            SZI VGATE = new SZI();
+            VGATE.Name = "vGate R2";
+            VGATE.Certificate = "2308";
+            VGATE.DateOfEnd = DateTime.Parse("28.03.2020");
+            VGATE.SVTClass = "5";
+            VGATE.TU = "";
+            VGATE.NDVControlLevel = 4;
+            VGATE.SZISorts.Add(SZISorts.Where(sort => sort.Number == 9).First());
+            SZIs.Add(VGATE);
+
+            SZI SZVDL = new SZI();
+            SZVDL.Name = "СЗВИ \"Dallas Lock\"";
+            SZVDL.Certificate = "3837";
+            SZVDL.DateOfEnd = DateTime.Parse("18.12.2020");
+            SZVDL.SVTClass = "";
+            SZVDL.TU = "";
+            SZVDL.NDVControlLevel = 4;
+            SZVDL.SZISorts.Add(SZISorts.Where(sort => sort.Number == 9).First());
+            SZIs.Add(SZVDL);
+
+            SZI ABRAW = new SZI();
+            ABRAW.Name = "Backup & Recovery 11 Advanced Workstation";
+            ABRAW.Certificate = "2678";
+            ABRAW.DateOfEnd = DateTime.Parse("16.07.2018");
+            ABRAW.TU = "+";
+            ABRAW.NDVControlLevel = 4;
+            ABRAW.SZISorts.Add(SZISorts.Where(sort => sort.Number == 10).First());
+            SZIs.Add(ABRAW);
 
             #endregion
 

@@ -33,9 +33,9 @@ namespace KPSZI
         
         protected override void initTabPage()
         {
-            using (KPSZIContext db = new KPSZIContext())
-            {
-                //Инициализация списка угроз
+            //using (KPSZIContext db = new KPSZIContext())
+            //{
+            //    //Инициализация списка угроз
             //    listThreats = db.Threats.OrderBy(t => t.ThreatNumber).ToList();
             //    foreach (Threat threat in listThreats)
             //    {
@@ -63,7 +63,7 @@ namespace KPSZI
             //    foreach (ThreatSource ts in listSources)
             //        ts.Threats = db.ThreatSources.Where(so1 => so1.ThreatSourceId == ts.ThreatSourceId).First().Threats;
             //    listFilteredThreats = new List<Threat>();
-            }
+            //}
 
             //mf.tcThreatsNSD.TabPages.Remove(mf.tpThreatsNSD2);
 
