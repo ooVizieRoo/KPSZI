@@ -636,1329 +636,9 @@ namespace KPSZI.Model
             SZISorts.AddRange(new List<SZISort> { NSD, SOV, FW, SDZ, AVZ, SKN, ANZ, SRSB, SZSV, SODT });
 
             #endregion
+
             SaveChanges();
 
-            #region Меры + параметры настройки
-
-            #region ИАФ
-            ConfigOption iaf1_1 = new ConfigOption();
-            iaf1_1.Name = "Определение внутренних пользователей";
-            iaf1_1.Description = "К внутренним пользователям относятся должностные лица оператора (пользователи, администраторы), выполняющие свои должностные обязанности (функции) с использованием информации, информационных технологий и технических средств информационной системы в соответствии с должностными регламентами (инструкциями) утвержденными оператором и которым в информационной системе присвоены учетные записи.";
-            iaf1_1.DefenceClass = "0";
-
-            ConfigOption iaf1_2 = new ConfigOption();
-            iaf1_2.Name = "Присвоение учетных записей внутренним пользователям ИС";
-            iaf1_2.DefenceClass = "0";
-
-            ConfigOption iaf1_3 = new ConfigOption();
-            iaf1_3.Name = "Определение видов доступа";
-            iaf1_3.DefenceClass = "0"; ;
-
-            ConfigOption iaf1_4 = new ConfigOption();
-            iaf1_4.Name = "Составление перечня действий, разрешенных до идентификации и аутентификации пользователей";
-            iaf1_4.DefenceClass = "0";
-
-            ConfigOption iaf1_yc1a = new ConfigOption();
-            iaf1_yc1a.Name = "Обеспечение многофакторной (двухфакторной) аутентификации для удаленного доступа с правами привилегированных учетных записей (администраторов)";
-            iaf1_yc1a.Description = "Усиление 1а";
-            iaf1_yc1a.DefenceClass = "2,1";
-
-            ConfigOption iaf1_yc2a = new ConfigOption();
-            iaf1_yc2a.Name = "Обеспечение многофакторной (двухфакторной) аутентификации для удаленного доступа с правами непривилегированных учетных записей (пользователей)";
-            iaf1_yc2a.Description = "Усиление 2а";
-            iaf1_yc2a.DefenceClass = "2,1";
-
-            ConfigOption iaf1_yc3 = new ConfigOption();
-            iaf1_yc3.Name = "Обеспечение многофакторной (двухфакторной) аутентификации для локального доступа с правами привилегированных учетных записей (администраторов)";
-            iaf1_yc3.Description = "Усиление 3";
-            iaf1_yc3.DefenceClass = "1";
-
-            ConfigOption iaf1_yc4 = new ConfigOption();
-            iaf1_yc4.Name = "Обеспечение многофакторной (двухфакторной) аутентификации для локального доступа с правами непривилегированных учетных записей (пользователей)";
-            iaf1_yc4.Description = "Усиление 4";
-            iaf1_yc4.DefenceClass = "1";
-
-            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "ИАФ").First().ConfigOptions.Add(iaf1_1);
-            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "ИАФ").First().ConfigOptions.Add(iaf1_2);
-            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "ИАФ").First().ConfigOptions.Add(iaf1_3);
-            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "ИАФ").First().ConfigOptions.Add(iaf1_4);
-            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "ИАФ").First().ConfigOptions.Add(iaf1_yc1a);
-            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "ИАФ").First().ConfigOptions.Add(iaf1_yc2a);
-            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "ИАФ").First().ConfigOptions.Add(iaf1_yc3);
-            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "ИАФ").First().ConfigOptions.Add(iaf1_yc4);
-
-
-            ConfigOption iaf2_1 = new ConfigOption();
-            iaf2_1.Name = "Определение устройств, подлежащих идентификации и аутентификации до начала информационного взаимодействия";
-            iaf2_1.DefenceClass = "2,1";
-
-            ConfigOption iaf2_2 = new ConfigOption();
-            iaf2_2.Name = "Определение способа идентификации устройства в ИС";
-            iaf2_2.DefenceClass = "2,1";
-            iaf2_2.Description = "Идентификация устройств в информационной системе обеспечивается по логическим именам (имя устройства и (или) ID), логическим адресам (например, IP-адресам) и (или) по физическим адресам (например, МАС-адресам) устройства или по комбинации имени, логического и (или) физического адресов устройства.";
-
-            GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "ИАФ").First().ConfigOptions.Add(iaf2_1);
-            GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "ИАФ").First().ConfigOptions.Add(iaf2_2);
-
-
-            ConfigOption iaf3_1 = new ConfigOption();
-            iaf3_1.Name = "Формирование и присвоение идентификаторов пользователям и (или) устройствам ИС";
-            iaf3_1.DefenceClass = "0";
-
-            ConfigOption iaf3_2 = new ConfigOption();
-            iaf3_2.Name = "Блокирование идентификатора после установленного оператором времени неиспользования";
-            iaf3_2.DefenceClass = "0";
-
-            ConfigOption iaf3_yc1a = new ConfigOption();
-            iaf3_yc1a.Name = "Усиление 1а";
-            iaf3_yc1a.Description = "Исключение повторного использования идентификатора пользователя в течение не менее одного года";
-            iaf3_yc1a.DefenceClass = "3,2";
-
-            ConfigOption iaf3_yc1b = new ConfigOption();
-            iaf3_yc1b.Name = "Усиление 1б";
-            iaf3_yc1b.Description = "Исключение повторного использования идентификатора пользователя в течение не менее трех лет";
-            iaf3_yc1b.DefenceClass = "1";
-
-            ConfigOption iaf3_yc2a = new ConfigOption();
-            iaf3_yc2a.Name = "Усиление 2а";
-            iaf3_yc2a.Description = "Блокирование идентификатора пользователя по истечении времени неиспользования не более 90 дней";
-            iaf3_yc2a.DefenceClass = "3,2";
-
-            ConfigOption iaf3_yc2b = new ConfigOption();
-            iaf3_yc2b.Name = "Усиление 2б";
-            iaf3_yc2b.Description = "Блокирование идентификатора пользователя по истечении времени неиспользования не более 45 дней";
-            iaf3_yc2b.DefenceClass = "1";
-
-            GisMeasures.Where(gm => gm.Number == 3 && gm.MeasureGroup.ShortName == "ИАФ").First().ConfigOptions.Add(iaf3_1);
-            GisMeasures.Where(gm => gm.Number == 3 && gm.MeasureGroup.ShortName == "ИАФ").First().ConfigOptions.Add(iaf3_2);
-            GisMeasures.Where(gm => gm.Number == 3 && gm.MeasureGroup.ShortName == "ИАФ").First().ConfigOptions.Add(iaf3_yc1a);
-            GisMeasures.Where(gm => gm.Number == 3 && gm.MeasureGroup.ShortName == "ИАФ").First().ConfigOptions.Add(iaf3_yc1b);
-            GisMeasures.Where(gm => gm.Number == 3 && gm.MeasureGroup.ShortName == "ИАФ").First().ConfigOptions.Add(iaf3_yc2a);
-            GisMeasures.Where(gm => gm.Number == 3 && gm.MeasureGroup.ShortName == "ИАФ").First().ConfigOptions.Add(iaf3_yc2b);
-
-            ConfigOption iaf4 = new ConfigOption();
-            iaf4.Name = "Управление аутентификацией";
-            iaf4.Description = "Изменение стандартных паролей программных и/или технических средств; генерация и выдача средств аутентификации (паролей) пользователям; установление сложности паролей с требованием к регистру, количеству символов; блокирование и замена средств аутентификации; защита аутентификационной информации";
-            iaf4.DefenceClass = "0";
-
-            ConfigOption iaf4_yc1b = new ConfigOption();
-            iaf4_yc1b.Name = "Усиление 1б";
-            iaf4_yc1b.DefenceClass = "3";
-            iaf4_yc1b.Description = "Длина пароля - от 6 символов; алфавит пароля - от 60 символов; количество попыток ввода до блокировки - от 3 до 10; время блокировки учетной записи или программно-технического средства - от 5 до 30 минут; срок замены пароля - до 120 дней";
-
-            ConfigOption iaf4_yc1c = new ConfigOption();
-            iaf4_yc1c.Name = "Усиление 1в";
-            iaf4_yc1c.DefenceClass = "2";
-            iaf4_yc1c.Description = "Длина пароля - от 6 символов; алфавит пароля - от 70 символов; количество попыток ввода до блокировки - от 3 до 8; время блокировки учетной записи или программно-технического средства - от 10 до 30 минут; срок замены пароля - до 90 дней";
-
-            ConfigOption iaf4_yc1d = new ConfigOption();
-            iaf4_yc1d.Name = "Усиление 1в";
-            iaf4_yc1d.DefenceClass = "1";
-            iaf4_yc1d.Description = "Длина пароля - от 8 символов; алфавит пароля - от 70 символов; количество попыток ввода до блокировки - от 3 до 4; время блокировки учетной записи или программно-технического средства - от 15 до 30 минут; срок замены пароля - до 60 дней";
-
-            GisMeasures.Where(gm => gm.Number == 4 && gm.MeasureGroup.ShortName == "ИАФ").First().ConfigOptions.Add(iaf4);
-            GisMeasures.Where(gm => gm.Number == 4 && gm.MeasureGroup.ShortName == "ИАФ").First().ConfigOptions.Add(iaf4_yc1b);
-            GisMeasures.Where(gm => gm.Number == 4 && gm.MeasureGroup.ShortName == "ИАФ").First().ConfigOptions.Add(iaf4_yc1c);
-            GisMeasures.Where(gm => gm.Number == 4 && gm.MeasureGroup.ShortName == "ИАФ").First().ConfigOptions.Add(iaf4_yc1d);
-
-
-            ConfigOption iaf5 = new ConfigOption();
-            iaf5.Name = "Защита аутентификационной информации";
-            iaf5.DefenceClass = "0";
-            iaf5.Description = "В средствах защиты информации необходимо включить функцию защиты обратной связи – вводимые символы пароля могут отображаться знаками «*», «®» или иными.";
-
-            GisMeasures.Where(gm => gm.Number == 5 && gm.MeasureGroup.ShortName == "ИАФ").First().ConfigOptions.Add(iaf5);
-
-
-            ConfigOption iaf6_1 = new ConfigOption();
-            iaf6_1.Name = "Определение внешних пользователей";
-            iaf6_1.Description = "Внешние пользователи - все, кроме внутренних";
-            iaf6_1.DefenceClass = "0";
-
-            ConfigOption iaf6_2 = new ConfigOption();
-            iaf6_2.Name = "Формирование и присвоение идентификаторов для внешних пользователей";
-            iaf6_2.DefenceClass = "0";
-
-            ConfigOption iaf6_3 = new ConfigOption();
-            iaf6_3.Name = "Установление видов доступа для внешних пользователей";
-            iaf6_3.DefenceClass = "0";
-
-            GisMeasures.Where(gm => gm.Number == 6 && gm.MeasureGroup.ShortName == "ИАФ").First().ConfigOptions.Add(iaf6_1);
-            GisMeasures.Where(gm => gm.Number == 6 && gm.MeasureGroup.ShortName == "ИАФ").First().ConfigOptions.Add(iaf6_2);
-            GisMeasures.Where(gm => gm.Number == 6 && gm.MeasureGroup.ShortName == "ИАФ").First().ConfigOptions.Add(iaf6_3);
-            #endregion
-
-            #region УПД
-
-            ConfigOption upd1_1 = new ConfigOption();
-            upd1_1.Name = "Определение типов учетных записей, объединение их в группы при необходимости";
-            upd1_1.DefenceClass = "0";
-
-            ConfigOption upd1_2 = new ConfigOption();
-            upd1_2.Name = "Реализация верификации пользователя при заведении учетной записи";
-            upd1_2.DefenceClass = "0";
-
-            ConfigOption upd1_3 = new ConfigOption();
-            upd1_3.Name = "Реализация функций управления учетными записями";
-            upd1_3.DefenceClass = "0";
-
-            ConfigOption upd1_4 = new ConfigOption();
-            upd1_4.Name = "Предоставление пользователям прав доступа к объектам доступа ИС";
-            upd1_4.DefenceClass = "0";
-
-            ConfigOption upd1_yc2 = new ConfigOption();
-            upd1_yc2.Name = "Осуществление автоматического блокирования временных учетных записей пользователей по окончании установленного периода времени для их использования";
-            upd1_yc2.DefenceClass = "0";
-
-            ConfigOption upd1_yc3a = new ConfigOption();
-            upd1_yc3a.Name = "Осуществление автоматического блокирования неактивных учетных записей пользователей по окончании установленного периода времени для их использования - более 90 дней";
-            upd1_yc3a.DefenceClass = "2";
-
-            ConfigOption upd1_yc3b = new ConfigOption();
-            upd1_yc2.Name = "Осуществление автоматического блокирования неактивных учетных записей пользователей по окончании установленного периода времени для их использования - более 45 дней";
-            upd1_yc2.DefenceClass = "1";
-
-            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd1_1);
-            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd1_2);
-            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd1_3);
-            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd1_4);
-            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd1_yc2);
-            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd1_yc3a);
-            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd1_yc3b);
-
-
-            ConfigOption upd2_1 = new ConfigOption();
-            upd2_1.Name = "Установление метода управления доступом (дискретный, ролевой, мандатный или их комбинация";
-            upd2_1.DefenceClass = "0";
-
-            ConfigOption upd2_2 = new ConfigOption();
-            upd2_2.Name = "Определение типов доступа субъектов к объектам доступа - заполнение матрицы (списков) доступа";
-            upd2_2.DefenceClass = "0";
-
-            ConfigOption upd2_yc1 = new ConfigOption();
-            upd2_yc1.Name = "Управление доступом при входе в ИС";
-            upd2_yc1.DefenceClass = "0";
-
-            ConfigOption upd2_yc2 = new ConfigOption();
-            upd2_yc2.Name = "Управление доступом субъектов к техническим средствам, устройствам и внешним устройствам";
-            upd2_yc2.DefenceClass = "0";
-
-            ConfigOption upd2_yc3 = new ConfigOption();
-            upd2_yc3.Name = "Управление доступом субъектов к объектам, создаваемым общесистемным ПО";
-            upd2_yc3.DefenceClass = "0";
-
-            ConfigOption upd2_yc4 = new ConfigOption();
-            upd2_yc4.Name = "Управление доступом субъектов к объектам, создаваемым специальным и прикладным ПО";
-            upd2_yc4.DefenceClass = "1";
-
-            GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd2_1);
-            GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd2_2);
-            GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd2_yc1);
-            GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd2_yc2);
-            GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd2_yc3);
-            GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd2_yc4);
-
-
-            ConfigOption upd3_1 = new ConfigOption();
-            upd3_1.Name = "Фильтрация информационных потоков в соответствии с установленными правилами";
-            upd3_1.DefenceClass = "2,1";
-
-            ConfigOption upd3_2 = new ConfigOption();
-            upd3_2.Name = "Разрешение передачи информации в ИС только по установленному маршруту";
-            upd3_2.DefenceClass = "2,1";
-
-            ConfigOption upd3_3 = new ConfigOption();
-            upd3_3.Name = "Запись во временное хранилище информации для анализа";
-            upd3_3.DefenceClass = "2,1";
-
-            GisMeasures.Where(gm => gm.Number == 3 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd3_1);
-            GisMeasures.Where(gm => gm.Number == 3 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd3_2);
-            GisMeasures.Where(gm => gm.Number == 3 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd3_3);
-
-
-            ConfigOption upd4 = new ConfigOption();
-            upd4.Name = "Разделение полномочий (ролей) пользователей, администраторов и обеспечивающих функционирование ИС лиц";
-            upd4.Description = "Разделение полномочий пользователей в соответствии с параметрами меры УПД.2";
-            upd4.DefenceClass = "0";
-
-            ConfigOption upd4_yc1 = new ConfigOption();
-            upd4_yc1.Name = "Выполнение каждой роли по обработке информации, администрированию ИС, ее системы защиты, контролю за обеспечением уровня защищенности информации, обеспечению функционирования ИС";
-            upd4_yc1.DefenceClass = "1";
-
-            GisMeasures.Where(gm => gm.Number == 4 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd4);
-            GisMeasures.Where(gm => gm.Number == 4 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd4_yc1);
-
-
-            ConfigOption upd5 = new ConfigOption();
-            upd5.Name = "Назначение минимально необходимых прав и привилегий пользователям для выполнения ими своих должностных обязанностей";
-            upd5.DefenceClass = "0";
-
-            ConfigOption upd5_yc1 = new ConfigOption();
-            upd5_yc1.Name = "Предоставление прав и привилегий по доступу к функциям безопасности (параметрам настройки) СЗИ исключительно администратору безопасности";
-            upd5_yc1.DefenceClass = "1";
-
-            GisMeasures.Where(gm => gm.Number == 5 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd5);
-            GisMeasures.Where(gm => gm.Number == 5 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd5_yc1);
-
-
-            ConfigOption upd6 = new ConfigOption();
-            upd6.Name = "Ограничение количества неуспешных попыток входа в ИС (доступа к ИС) в соответствии с параметрами меры ИАФ.4";
-            upd6.DefenceClass = "0";
-
-            ConfigOption upd6_yc1 = new ConfigOption();
-            upd6_yc1.Name = "Блокировка учетной записи по истечении количества попыток неудачного входа с возможностью разблокирования только администратором безопасности";
-            upd6_yc1.DefenceClass = "1";
-
-            GisMeasures.Where(gm => gm.Number == 6 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd6);
-            GisMeasures.Where(gm => gm.Number == 6 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd6_yc1);
-
-            ConfigOption upd9 = new ConfigOption();
-            upd9.Name = "Определение числа допустимых параллельных сеансов (для ИС/группы/сегмента/пользователя)";
-            upd9.DefenceClass = "1";
-
-            ConfigOption upd9_yc1a = new ConfigOption();
-            upd9_yc1a.Name = "Максимальное количество параллельных сеансов для привилегированных учетных записей (администраторов) с разных устройств (СВТ) не более 2";
-            upd9_yc1a.DefenceClass = "1";
-
-            ConfigOption upd9_yc3 = new ConfigOption();
-            upd9_yc3.Name = "Возможность контроля и отображения для администратора числа активных параллельных сеансов для каждой учетной записи";
-            upd9_yc3.DefenceClass = "1";
-
-            GisMeasures.Where(gm => gm.Number == 9 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd9);
-            GisMeasures.Where(gm => gm.Number == 9 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd9_yc1a);
-            GisMeasures.Where(gm => gm.Number == 9 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd9_yc3);
-
-
-            ConfigOption upd10 = new ConfigOption();
-            upd10.Name = "Блокирование сеанса доступа пользователя в информационную систему должно сохраняться до прохождения им повторной идентификации и аутентификации в соответствии с параметрами меры ИАФ.1";
-            upd10.DefenceClass = "0";
-
-            ConfigOption upd10_yc1a = new ConfigOption();
-            upd10_yc1a.Name = "Блокирование сеанса доступа после времени неактивности пользователя до 15 минут";
-            upd10_yc1a.DefenceClass = "2";
-
-            ConfigOption upd10_yc1b = new ConfigOption();
-            upd10_yc1b.Name = "Блокирование сеанса доступа после времени неактивности пользователя до 5 минут";
-            upd10_yc1b.DefenceClass = "1";
-
-            ConfigOption upd10_yc2 = new ConfigOption();
-            upd10_yc2.Name = "Завершение сеанса доступа после превышения установленного времени неактивности пользователя";
-            upd10_yc2.DefenceClass = "2,1";
-
-            GisMeasures.Where(gm => gm.Number == 10 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd9);
-            GisMeasures.Where(gm => gm.Number == 10 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd10_yc1a);
-            GisMeasures.Where(gm => gm.Number == 10 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd10_yc1b);
-            GisMeasures.Where(gm => gm.Number == 10 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd10_yc2);
-
-
-            ConfigOption upd11 = new ConfigOption();
-            upd11.Name = "Определение перечня действия пользователя, разрешенных до прохождения идентификации и аутентификации";
-            upd11.DefenceClass = "0";
-
-            GisMeasures.Where(gm => gm.Number == 11 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd11);
-
-
-            ConfigOption upd13 = new ConfigOption();
-            upd13.Name = "Установление видов доступа, разрешённых для удалённого доступа к объектам доступа ИС (в соответствии с параметрами меры УПД.2)";
-            upd13.DefenceClass = "0";
-
-            ConfigOption upd13_yc1 = new ConfigOption();
-            upd13_yc1.Name = "Применение автоматизированных средств для мониторинга и контроля удаленного доступа";
-            upd13_yc1.DefenceClass = "1";
-
-            ConfigOption upd13_yc2 = new ConfigOption();
-            upd13_yc2.Name = "Применение минимально необходимого количества точек подключения к ИС при организации удаленного доступа";
-            upd13_yc2.DefenceClass = "0";
-
-            ConfigOption upd13_yc3 = new ConfigOption();
-            upd13_yc3.Name = "Исключение администрирования ИС и системы защиты посредством удаленного доступа";
-            upd13_yc3.DefenceClass = "0";
-
-            ConfigOption upd13_yc5 = new ConfigOption();
-            upd13_yc5.Name = "Обеспечение мониторинга и контроля удаленного доступа на предмет выявления установления несанкционированного соединения технических средств с ИС";
-            upd13_yc5.DefenceClass = "2,1";
-
-            GisMeasures.Where(gm => gm.Number == 13 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd13);
-            GisMeasures.Where(gm => gm.Number == 13 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd13_yc1);
-            GisMeasures.Where(gm => gm.Number == 13 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd13_yc2);
-            GisMeasures.Where(gm => gm.Number == 13 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd13_yc3);
-            GisMeasures.Where(gm => gm.Number == 13 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd13_yc5);
-
-
-            ConfigOption upd14_1 = new ConfigOption();
-            upd14_1.Name = "Ограничение использования технологий беспроводного доступа в соответствии с задачами ИС";
-            upd14_1.DefenceClass = "0";
-
-            ConfigOption upd14_2 = new ConfigOption();
-            upd14_2.Name = "Обеспечение мониторинга применения технологий беспроводного доступа";
-            upd14_2.DefenceClass = "0";
-
-            ConfigOption upd14_3 = new ConfigOption();
-            upd14_3.Name = "Настройка беспроводного доступа пользователей к объектам доступа ИС";
-            upd14_3.DefenceClass = "0";
-
-            ConfigOption upd14_yc1 = new ConfigOption();
-            upd14_yc1.Name = "Обеспечение аутентификации подключаемых с использованием технологий беспроводного доступа устройств в соответствии с параметрами меры ИАФ.2";
-            upd14_yc1.DefenceClass = "0";
-
-            ConfigOption upd14_yc3 = new ConfigOption();
-            upd14_yc3.Name = "Исключается возможность изменения пользователем точек беспроводного доступа";
-            upd14_yc3.DefenceClass = "2,1";
-
-            ConfigOption upd14_yc4 = new ConfigOption();
-            upd14_yc4.Name = "Запрет беспроводного доступа к ИС из-за пределов контролируемой зоны";
-            upd14_yc4.DefenceClass = "1";
-
-            ConfigOption upd14_yc5 = new ConfigOption();
-            upd14_yc5.Name = "Запрет беспроводного доступа от имени администраторов для администрирования ИС и системы защиты";
-            upd14_yc5.DefenceClass = "1";
-
-            GisMeasures.Where(gm => gm.Number == 14 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd14_1);
-            GisMeasures.Where(gm => gm.Number == 14 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd14_2);
-            GisMeasures.Where(gm => gm.Number == 14 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd14_3);
-            GisMeasures.Where(gm => gm.Number == 14 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd14_yc1);
-            GisMeasures.Where(gm => gm.Number == 14 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd14_yc3);
-            GisMeasures.Where(gm => gm.Number == 14 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd14_yc4);
-            GisMeasures.Where(gm => gm.Number == 14 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd14_yc5);
-
-
-            ConfigOption upd15_1 = new ConfigOption();
-            upd15_1.Name = "Определение видов доступа, для которых разрешено использование мобильных технических средств";
-            upd15_1.DefenceClass = "0";
-
-            ConfigOption upd15_2 = new ConfigOption();
-            upd15_2.Name = "Использование в составе ИС мобильных технических средств, в которых реализованы меры защиты информации в соответствии с ЗИС.30";
-            upd15_2.DefenceClass = "0";
-
-            ConfigOption upd15_3 = new ConfigOption();
-            upd15_3.Name = "Ограничение использования мобильных технических средств в соответствии с задачами ИС";
-            upd15_3.DefenceClass = "0";
-
-            ConfigOption upd15_4 = new ConfigOption();
-            upd15_4.Name = "Мониторинг и контроль применения мобильных технических средств на предмет выявления несанкционированного использования для доступа к объектам ИС";
-            upd15_4.DefenceClass = "0";
-
-            ConfigOption upd15_5 = new ConfigOption();
-            upd15_5.Name = "Запрет возможности запуска без команды пользователя в ИС ПО, используемого для взаимодействия с мобильным техническим средством";
-            upd15_5.DefenceClass = "0";
-
-            ConfigOption upd15_yc1 = new ConfigOption();
-            upd15_yc1.Name = "Запрет использования в ИС не входящих в ее состав съемных машинных носителей информации";
-            upd15_yc1.DefenceClass = "2,1";
-
-            ConfigOption upd15_yc2 = new ConfigOption();
-            upd15_yc2.Name = "Запрет использования съемных машинных носителей информации, для которых не определен владелец (пользователь, организация, ответственные за принятие мер защиты информации)";
-            upd15_yc2.DefenceClass = "2,1";
-
-            GisMeasures.Where(gm => gm.Number == 15 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd15_1);
-            GisMeasures.Where(gm => gm.Number == 15 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd15_2);
-            GisMeasures.Where(gm => gm.Number == 15 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd15_3);
-            GisMeasures.Where(gm => gm.Number == 15 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd15_4);
-            GisMeasures.Where(gm => gm.Number == 15 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd15_5);
-            GisMeasures.Where(gm => gm.Number == 15 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd15_yc1);
-            GisMeasures.Where(gm => gm.Number == 15 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd15_yc2);
-
-
-            ConfigOption upd16_1 = new ConfigOption();
-            upd16_1.Name = "Определение системных учетных записей, используемых в рамках взаимодействия";
-            upd16_1.DefenceClass = "0";
-
-            ConfigOption upd16_2 = new ConfigOption();
-            upd16_2.DefenceClass = "0";
-            upd16_2.Name = "Определение ПО, к которому разрешен доступ из внешних ИС";
-
-            ConfigOption upd16_3 = new ConfigOption();
-            upd16_3.Name = "Предоставление доступа к ИС толкьо авторизованным пользователям в соответствии с параметрами меры УПД.2";
-            upd16_3.DefenceClass = "0";
-
-            ConfigOption upd16_yc1a = new ConfigOption();
-            upd16_yc1a.DefenceClass = "0";
-            upd16_yc1a.Description = "Усиление 1а";
-            upd16_yc1a.Name = "Предоставление доступа к ИС пользователям внешних ИС только при наличии договора об информационном взаимодействии";
-
-            ConfigOption upd16_yc1b = new ConfigOption();
-            upd16_yc1b.DefenceClass = "0";
-            upd16_yc1b.Description = "Усиление 1б";
-            upd16_yc1b.Name = "Предоставление доступа к ИС пользователям внешних ИС только при наличии подтверждения выполнения во внешней ИС предъявленных к ней требований о защите информации";
-
-            GisMeasures.Where(gm => gm.Number == 16 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd16_1);
-            GisMeasures.Where(gm => gm.Number == 16 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd16_2);
-            GisMeasures.Where(gm => gm.Number == 16 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd16_3);
-            GisMeasures.Where(gm => gm.Number == 16 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd16_yc1a);
-
-
-            ConfigOption upd17_1 = new ConfigOption();
-            upd17_1.Name = "Обеспечение средством доверенной загрузки блокирования попыток несанкционированной загрузки нештатной ОС или недоступность ресурсов для чтения или омдификации в случае загрузки нештатной ОС";
-            upd17_1.DefenceClass = "2,1";
-
-            ConfigOption upd17_2 = new ConfigOption();
-            upd17_2.Name = "Обеспечение средством доверенной загрузки контроля доступа пользователей к процессу загрузки ОС";
-            upd17_2.DefenceClass = "2,1";
-
-            ConfigOption upd17_3 = new ConfigOption();
-            upd17_3.Name = "Обеспечение средством доверенной загрузки контроля целостности ПО и аппаратных компонентов СВТ";
-            upd17_3.DefenceClass = "2,1";
-
-            ConfigOption upd17_yc1 = new ConfigOption();
-            upd17_yc1.Name = "В ИС должна осуществляться доверенная загрузка уровня базовой системы ввода-вывод или уровня платы расширения";
-            upd17_yc1.DefenceClass = "2";
-            upd17_yc1.Description = "Усиление 1";
-
-            ConfigOption upd17_yc2 = new ConfigOption();
-            upd17_yc2.Name = "В ИС должна осуществляться доверенная загрузка уровня базовой системы ввода-вывод или уровня платы расширения, реализованные на основе программно-аппаратного модуля";
-            upd17_yc2.DefenceClass = "1";
-            upd17_yc2.Description = "Усиление 2";
-
-            GisMeasures.Where(gm => gm.Number == 17 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd17_1);
-            GisMeasures.Where(gm => gm.Number == 17 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd17_2);
-            GisMeasures.Where(gm => gm.Number == 17 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd17_3);
-            GisMeasures.Where(gm => gm.Number == 17 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd17_yc1);
-            GisMeasures.Where(gm => gm.Number == 17 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd17_yc2);
-            #endregion
-
-            #region ОПС
-
-            ConfigOption ops1_1 = new ConfigOption();
-            ops1_1.Name = "Составление перечня компонентов ПО, запускаемых автоматически при загрузке ОС и разрешение их запуска";
-            ops1_1.DefenceClass = "1";
-
-            ConfigOption ops1_2 = new ConfigOption();
-            ops1_2.Name = "Настройка параметров запуска компонентов программного обеспечения от имени учетной записи администратора безопасности таким образом, чтобы текущий пользователь СВТ не мог получить через данные компоненты доступ к объектам, на доступ к которым у него нет прав в соответствии с параметрами меры УПД.2";
-            ops1_2.DefenceClass = "1";
-
-            ConfigOption ops1_3 = new ConfigOption();
-            ops1_3.Name = "Контроль запуска компонентов ПО, обеспечивающий выявление компонентов ПО, не включенных в перечень запускаемых автоматически при загрузке ОС";
-            ops1_3.DefenceClass = "1";
-
-            ConfigOption ops1_yc1 = new ConfigOption();
-            ops1_yc1.DefenceClass = "1";
-            ops1_yc1.Name = "Обеспечение в ИС разрешения запуска только тех компонентов ПО, которые явно разрешены администратором безопасности";
-            ops1_yc1.Description = "Усиление 1";
-
-            ConfigOption ops1_yc2 = new ConfigOption();
-            ops1_yc2.DefenceClass = "1";
-            ops1_yc2.Name = "Обеспечение в ИС использования средств автоматизированного контроля перечня компонентов ПО, запускаемого автоматически при загрузке ОС СВТ";
-            ops1_yc2.Description = "Усиление 2";
-
-            ConfigOption ops1_yc3 = new ConfigOption();
-            ops1_yc3.DefenceClass = "1";
-            ops1_yc3.Name = "Обеспечение в ИС использование автоматизированных механизмов управления запуском компонентов ПО";
-            ops1_yc3.Description = "Усиление 3";
-
-            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "ОПС").First().ConfigOptions.Add(ops1_1);
-            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "ОПС").First().ConfigOptions.Add(ops1_2);
-            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "ОПС").First().ConfigOptions.Add(ops1_3);
-            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "ОПС").First().ConfigOptions.Add(ops1_yc1);
-            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "ОПС").First().ConfigOptions.Add(ops1_yc2);
-            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "ОПС").First().ConfigOptions.Add(ops1_yc3);
-
-
-            ConfigOption ops3_1 = new ConfigOption();
-            ops3_1.Name = "Установка компонентов ПО только разрешенного к установке в ИС (см. \"белый список\" в ОРД) ";
-            ops3_1.DefenceClass = "0";
-
-            ConfigOption ops3_2 = new ConfigOption();
-            ops3_2.Name = "Контроль перечня установленного ПО на соответствие \"белому списку\"";
-            ops3_2.DefenceClass = "0";
-
-            GisMeasures.Where(gm => gm.Number == 3 && gm.MeasureGroup.ShortName == "ОПС").First().ConfigOptions.Add(ops3_1);
-            GisMeasures.Where(gm => gm.Number == 3 && gm.MeasureGroup.ShortName == "ОПС").First().ConfigOptions.Add(ops3_2);
-
-
-            ConfigOption ops4 = new ConfigOption();
-            ops4.Name = "Обеспечение в ИС перехвата записи временной информации в файлы на системном разделе МНИ СВТ и ее перенаправление в память ОЗУ и (или) в другой раздел МНИ с последующей очисткой (стиранием)";
-
-            GisMeasures.Where(gm => gm.Number == 4 && gm.MeasureGroup.ShortName == "ОПС").First().ConfigOptions.Add(ops4);
-            #endregion
-
-            #region ЗНИ
-
-            ConfigOption zni5_1 = new ConfigOption();
-            zni5_1.Name = "Установить разрешенные для ввода-вывода информации интерфейсы";
-
-            ConfigOption zni5_2 = new ConfigOption();
-            zni5_2.Name = "Определение пользователей, уполномоченных на доступ к интерфейсам ввода-вывода (в соответствии с параметрами меры УПД.2)";
-
-            ConfigOption zni5_yc1 = new ConfigOption();
-            zni5_yc1.Name = "Регистрация использования интерфейса ввода-вывода (в соответствии с параметрами меры РСБ.3";
-            zni5_yc1.DefenceClass = "1";
-            zni5_yc1.Description = "Усиление 1";
-
-            GisMeasures.Where(gm => gm.Number == 5 && gm.MeasureGroup.ShortName == "ЗНИ").First().ConfigOptions.Add(zni5_1);
-            GisMeasures.Where(gm => gm.Number == 5 && gm.MeasureGroup.ShortName == "ЗНИ").First().ConfigOptions.Add(zni5_2);
-            GisMeasures.Where(gm => gm.Number == 5 && gm.MeasureGroup.ShortName == "ЗНИ").First().ConfigOptions.Add(zni5_yc1);
-
-
-            ConfigOption zni6_1 = new ConfigOption();
-            zni6_1.Name = "Определение типов носителей информации, ввод-вывод информации на которые подлежит контролю";
-
-            ConfigOption zni6_2 = new ConfigOption();
-            zni6_2.Name = "Определение категорий пользователей, которым предоставлены полномочия по вводу-выводу информации на машинные носители (в соответствии с параметрами меры УПД.2)";
-
-            ConfigOption zni6_3 = new ConfigOption();
-            zni6_3.Name = "Запрет действия по вводу-выводу информации для пользователей, не имеющих полномочий на ввод-вывод информации на носители информации, и на носители, на которые запрещен ввод-вывод";
-
-            GisMeasures.Where(gm => gm.Number == 6 && gm.MeasureGroup.ShortName == "ЗНИ").First().ConfigOptions.Add(zni6_1);
-            GisMeasures.Where(gm => gm.Number == 6 && gm.MeasureGroup.ShortName == "ЗНИ").First().ConfigOptions.Add(zni6_2);
-            GisMeasures.Where(gm => gm.Number == 6 && gm.MeasureGroup.ShortName == "ЗНИ").First().ConfigOptions.Add(zni6_3);
-
-
-            ConfigOption zni7 = new ConfigOption();
-            zni7.Name = "Запрет подключения носителей информации, подключение которых к ИС не разрешено";
-
-            GisMeasures.Where(gm => gm.Number == 7 && gm.MeasureGroup.ShortName == "ЗНИ").First().ConfigOptions.Add(zni7);
-
-
-            ConfigOption zni8_1 = new ConfigOption();
-            zni8_1.Name = "Определение процедур уничтожения (затирания) информации на машинных носителях согласно ОРД";
-
-            ConfigOption zni8_2 = new ConfigOption();
-            zni8_2.Name = "Определение процедур контроля уничтожения (затирания) информации на машинных носителях согласно ОРД";
-
-            ConfigOption zni8_yc1 = new ConfigOption();
-            zni8_yc1.Name = "Обеспечение регистрации и контроля действий по удалению защищаемой информации";
-            zni8_yc1.DefenceClass = "0";
-            zni8_yc1.Description = "Усиление 1";
-
-            ConfigOption zni8_yc2 = new ConfigOption();
-            zni8_yc2.Name = "Периодическая проверка и тестирование средств стирания информации и контроля удаления информации";
-            zni8_yc2.DefenceClass = "1";
-            zni8_yc2.Description = "Усиление 2";
-
-            ConfigOption zni8_yc3 = new ConfigOption();
-            zni8_yc3.Name = "Обеспечение уничтожения стирания информации при первичном подключении к ИС и после приобретения, при использовании в иных ИС, при передаче для постоянного пользования между пользователями, после и перед ремонтом, и в других случаях";
-            zni8_yc3.DefenceClass = "1";
-            zni8_yc3.Description = "Усиление 3";
-
-            ConfigOption zni8_yc5b = new ConfigOption();
-            zni8_yc5b.Name = "Перезапись стираемых файлов случайной битовой последовательностью (БП), удаление записи о файлах, обнуление журнала файловой системы или полная перезапись всего МНИ случайной БП с последующим форматированием";
-            zni8_yc5b.DefenceClass = "3";
-            zni8_yc5b.Description = "Усиление 5б";
-
-            ConfigOption zni8_yc5c = new ConfigOption();
-            zni8_yc5c.Name = "Очистка всего физического пространства МНИ, включая сбойные и резервные элементы памяти спец. программами или утилитами производителя";
-            zni8_yc5c.DefenceClass = "2";
-            zni8_yc5c.Description = "Усиление 5в";
-
-            ConfigOption zni8_yc5d = new ConfigOption();
-            zni8_yc5d.Name = "Полная многократная перезапись МНИ спец. битовыми последовательностями, зависящими от типа накопителя и используемого метода кодирования информации, затем очистка всего физического пространства накопителя, включая сбойные и резервные элементы памяти специализированными программами или утилитами производителя";
-            zni8_yc5d.DefenceClass = "1";
-            zni8_yc5d.Description = "Усиление 5г";
-
-            GisMeasures.Where(gm => gm.Number == 8 && gm.MeasureGroup.ShortName == "ЗНИ").First().ConfigOptions.Add(zni8_1);
-            GisMeasures.Where(gm => gm.Number == 8 && gm.MeasureGroup.ShortName == "ЗНИ").First().ConfigOptions.Add(zni8_2);
-            GisMeasures.Where(gm => gm.Number == 8 && gm.MeasureGroup.ShortName == "ЗНИ").First().ConfigOptions.Add(zni8_yc1);
-            GisMeasures.Where(gm => gm.Number == 8 && gm.MeasureGroup.ShortName == "ЗНИ").First().ConfigOptions.Add(zni8_yc2);
-            GisMeasures.Where(gm => gm.Number == 8 && gm.MeasureGroup.ShortName == "ЗНИ").First().ConfigOptions.Add(zni8_yc3);
-            GisMeasures.Where(gm => gm.Number == 8 && gm.MeasureGroup.ShortName == "ЗНИ").First().ConfigOptions.Add(zni8_yc5b);
-            GisMeasures.Where(gm => gm.Number == 8 && gm.MeasureGroup.ShortName == "ЗНИ").First().ConfigOptions.Add(zni8_yc5c);
-            GisMeasures.Where(gm => gm.Number == 8 && gm.MeasureGroup.ShortName == "ЗНИ").First().ConfigOptions.Add(zni8_yc5d);
-            #endregion
-
-            #region РСБ
-
-            ConfigOption rsb1 = new ConfigOption();
-            rsb1.Name = "Определение перечня и срока хранения событий безопасности в соответствии с ОРД";
-
-            ConfigOption rsb1_yc4a = new ConfigOption();
-            rsb1_yc4a.Name = "Обеспечение срока хранения информации о выявленных СБ не менее 3х месяцев";
-            rsb1_yc4a.DefenceClass = "2";
-            rsb1_yc4a.Description = "Усиление 4а";
-
-            ConfigOption rsb1_yc4b = new ConfigOption();
-            rsb1_yc4b.Name = "Обеспечение срока хранения информации о выявленных СБ и записей системных журналов, которые послужили основанием для регистрации СБ, не менее 3х месяцев";
-            rsb1_yc4b.DefenceClass = "1";
-            rsb1_yc4b.Description = "Усиление 4б";
-
-            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "РСБ").First().ConfigOptions.Add(rsb1);
-            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "РСБ").First().ConfigOptions.Add(rsb1_yc4a);
-            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "РСБ").First().ConfigOptions.Add(rsb1_yc4b);
-
-
-            ConfigOption rsb2_1 = new ConfigOption();
-            rsb2_1.Name = "Определение состава и содержание информации о событиях безопасности в соотвтетствии с ОРД";
-
-            ConfigOption rsb2_2 = new ConfigOption();
-            rsb2_2.Name = "Как минимум информация о событии безопасности содержит: тип СБ, дата и время СБ, идентификационную информацию источника СБ, результат СБ, субъект доступа, связанный с СБ";
-
-            ConfigOption rsb2_yc1a = new ConfigOption();
-            rsb2_yc1a.Name = "Обеспечение записи полнотекстовой записи привилегированных команд (команд, управляющих системными функциями)";
-            rsb2_yc1a.Description = "Усиление 1а";
-            rsb2_yc1a.DefenceClass = "2,1";
-
-            GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "РСБ").First().ConfigOptions.Add(rsb2_1);
-            GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "РСБ").First().ConfigOptions.Add(rsb2_2);
-            GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "РСБ").First().ConfigOptions.Add(rsb2_yc1a);
-
-
-            ConfigOption rsb3 = new ConfigOption();
-            rsb3.Name = "Установить объем памяти, необходимый для хранения информации о СБ в соответствии с ОРД";
-
-            ConfigOption rsb3_yc1 = new ConfigOption();
-            rsb3_yc1.Name = "Обеспечение централизованного автоматизированного управления сбором, записью и хранением информации о СБ";
-            rsb3_yc1.DefenceClass = "2,1";
-            rsb3_yc1.Description = "Усиление 1";
-
-            GisMeasures.Where(gm => gm.Number == 3 && gm.MeasureGroup.ShortName == "РСБ").First().ConfigOptions.Add(rsb3);
-            GisMeasures.Where(gm => gm.Number == 3 && gm.MeasureGroup.ShortName == "РСБ").First().ConfigOptions.Add(rsb3_yc1);
-
-
-            ConfigOption rsb4_1 = new ConfigOption();
-            rsb4_1.Name = "Реагирование на сбои должно обеспечивать предупреждение администраторов о сбоях (аппаратных и программных, переполнении объема памяти, сбоях в механизмах сбора информации) при РСБ";
-
-            ConfigOption rsb4_2 = new ConfigOption();
-            rsb4_2.Name = "Реагирование на сбои должно обеспечивать реагирование на сбои при РСБ путем изменения администраторами параметров сбора, записи и хранения информации о СБ, в т.ч. отключение записи информации о СБ от части компонентов ИС, запись поверх устаревших записей СБ";
-
-            ConfigOption rsb4_yc1a = new ConfigOption();
-            rsb4_yc1a.Name = "Обеспечение выдачи предупреждения администратору при заполнении установленной в ОРД части (% или фактическое значение) объема памяти для хранения информации о СБ";
-            rsb4_yc1a.Description = "Усиление 1а";
-            rsb4_yc1a.DefenceClass = "1";
-
-            ConfigOption rsb4_yc2 = new ConfigOption();
-            rsb4_yc2.Name = "Обеспечение выдачи предупреждения администратору в масштабе времени, близком к реальному, при наступлении критичных сбоев в механизмах сбора информации, определенных оператором";
-            rsb4_yc2.Description = "Усиление 2";
-            rsb4_yc2.DefenceClass = "1";
-
-            GisMeasures.Where(gm => gm.Number == 4 && gm.MeasureGroup.ShortName == "РСБ").First().ConfigOptions.Add(rsb4_1);
-            GisMeasures.Where(gm => gm.Number == 4 && gm.MeasureGroup.ShortName == "РСБ").First().ConfigOptions.Add(rsb4_2);
-            GisMeasures.Where(gm => gm.Number == 4 && gm.MeasureGroup.ShortName == "РСБ").First().ConfigOptions.Add(rsb4_yc1a);
-            GisMeasures.Where(gm => gm.Number == 4 && gm.MeasureGroup.ShortName == "РСБ").First().ConfigOptions.Add(rsb4_yc2);
-
-
-            ConfigOption rsb6 = new ConfigOption();
-            rsb6.Name = "Включить генерацию временных меток (синхронизацию системного времени) для ИС";
-
-            ConfigOption rsb6_yc1 = new ConfigOption();
-            rsb6_yc1.Name = "Выполнение синхронизации системного времени с заданной периодичностью";
-            rsb6_yc1.DefenceClass = "1";
-            rsb6_yc1.Description = "Усиление 1";
-
-            GisMeasures.Where(gm => gm.Number == 6 && gm.MeasureGroup.ShortName == "РСБ").First().ConfigOptions.Add(rsb6);
-            GisMeasures.Where(gm => gm.Number == 6 && gm.MeasureGroup.ShortName == "РСБ").First().ConfigOptions.Add(rsb6_yc1);
-
-
-            ConfigOption rsb7 = new ConfigOption();
-            rsb7.Name = "Установить пользователей ИС, уполномоченных на доступ к записям РСБ и функциям управления РСБ в соответствии с ОРД и параметрами меры УПД.2";
-
-            ConfigOption rsb7_yc1 = new ConfigOption();
-            rsb7_yc1.Name = "Обеспечение обязательного копирования записей РСБ";
-            rsb7_yc1.DefenceClass = "2.1";
-            rsb7_yc1.Description = "Усиление 1";
-
-            GisMeasures.Where(gm => gm.Number == 7 && gm.MeasureGroup.ShortName == "РСБ").First().ConfigOptions.Add(rsb7);
-            GisMeasures.Where(gm => gm.Number == 7 && gm.MeasureGroup.ShortName == "РСБ").First().ConfigOptions.Add(rsb7_yc1);
-            #endregion
-
-            #region АВЗ
-
-            ConfigOption avz1_1 = new ConfigOption();
-            avz1_1.Name = "Предоставить доступ средствам АВЗ к объектам защиты";
-
-            ConfigOption avz1_2 = new ConfigOption();
-            avz1_2.Name = "Обеспечение оповещения администраторов при обнаружении вредоносного ПО";
-
-            ConfigOption avz1_3 = new ConfigOption();
-            avz1_3.Name = "Определение и выполнение действий по реагированю на обнаружение в ИС объектов, зараженных вредоносным ПО";
-
-            ConfigOption avz1_yc1 = new ConfigOption();
-            avz1_yc1.Name = "Обеспечение в ИС предоставления прав по управлению СЗИ администратору безопасности";
-            avz1_yc1.DefenceClass = "0";
-            avz1_yc1.Description = "Усиление 1";
-
-            ConfigOption avz1_yc2 = new ConfigOption();
-            avz1_yc2.Name = "Обеспечение в ИС централизованного управления (контроль актуальности версий ПО и обновлений баз и сигнатур) средствами АВЗ, установленными на компоненты ИС";
-            avz1_yc2.DefenceClass = "2,1";
-            avz1_yc2.Description = "Усиление 2";
-
-            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "АВЗ").First().ConfigOptions.Add(avz1_1);
-            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "АВЗ").First().ConfigOptions.Add(avz1_2);
-            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "АВЗ").First().ConfigOptions.Add(avz1_3);
-            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "АВЗ").First().ConfigOptions.Add(avz1_yc1);
-            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "АВЗ").First().ConfigOptions.Add(avz1_yc2);
-
-
-            ConfigOption avz2_1 = new ConfigOption();
-            avz2_1.Name = "Обеспечение получения уведомлений о необходимости обновлений и непосредственном обновлении признаков вредоносоного ПО";
-
-            ConfigOption avz2_2 = new ConfigOption();
-            avz2_2.Name = "Обеспечение полученния из доверенных источников и установку обновлений базы данных признаков вредоносного ПО";
-
-            ConfigOption avz2_3 = new ConfigOption();
-            avz2_3.Name = "Обеспечение контроля целостности обновлений БД признаков вредоносного ПО";
-
-            ConfigOption avz2_yc1 = new ConfigOption();
-            avz2_yc1.Name = "Централизованное управление обновлением БД признаков вредоносного ПО";
-            avz2_yc1.Description = "Усиление 1";
-            avz2_yc1.DefenceClass = "2,1";
-
-            GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "АВЗ").First().ConfigOptions.Add(avz2_1);
-            GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "АВЗ").First().ConfigOptions.Add(avz2_2);
-            GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "АВЗ").First().ConfigOptions.Add(avz2_3);
-            GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "АВЗ").First().ConfigOptions.Add(avz2_yc1);
-            #endregion
-
-            #region СОВ
-            ConfigOption sov1_1 = new ConfigOption();
-            sov1_1.Name = "Определить перечень учетных записей, способных администрировать СОВ (в соответствии с параметрами меры УПД.2)";
-
-            ConfigOption sov1_yc2 = new ConfigOption();
-            sov1_yc2.Name = "Обеспечение в ИС централизованного управления компонентами СОВ, установленными в различных сегментах ИС";
-            sov1_yc2.Description = "Усиление 2";
-            sov1_yc2.DefenceClass = "2,2";
-
-            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "СОВ").First().ConfigOptions.Add(sov1_1);
-            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "СОВ").First().ConfigOptions.Add(sov1_yc2);
-
-
-            ConfigOption sov2_1 = new ConfigOption();
-            sov2_1.Name = "Обеспечение получения уведомлений о необходимости и непосредственном обновлении базы решающих правил";
-
-            ConfigOption sov2_2 = new ConfigOption();
-            sov2_2.Name = "Обеспечение получения из доверенных источников и установки обновлений базы решающих правил";
-
-            ConfigOption sov2_3 = new ConfigOption();
-            sov2_3.Name = "Обеспечение контроля целостности обновлений базы решающих правил";
-
-            ConfigOption sov2_yc1 = new ConfigOption();
-            sov2_yc1.Name = "Обеспечение централизованного управления обновлением базы решающих правил СОВ";
-            sov2_yc1.DefenceClass = "1";
-            sov2_yc1.Description = "Усиление 1";
-
-            ConfigOption sov2_yc2 = new ConfigOption();
-            sov2_yc2.Name = "Обеспечение возможности редактирования базы решающих правил администраторами для предотвращения компьютерных атак и (или) сокращения нагрузки на ИС, также минимизации ложных срабатываний СОВ";
-            sov2_yc2.DefenceClass = "1";
-            sov2_yc2.Description = "Усиление 2";
-
-            ConfigOption sov2_yc3 = new ConfigOption();
-            sov2_yc3.Name = "Запись о редактировании базы решающих правил СОВ в соответствующем РСБ";
-            sov2_yc3.DefenceClass = "1";
-            sov2_yc3.Description = "Усиление 3";
-
-            GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "СОВ").First().ConfigOptions.Add(sov2_1);
-            GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "СОВ").First().ConfigOptions.Add(sov2_2);
-            GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "СОВ").First().ConfigOptions.Add(sov2_3);
-            GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "СОВ").First().ConfigOptions.Add(sov2_yc1);
-            GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "СОВ").First().ConfigOptions.Add(sov2_yc2);
-            GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "СОВ").First().ConfigOptions.Add(sov2_yc3);
-            #endregion
-
-            #region АНЗ
-
-            ConfigOption anz1_1 = new ConfigOption();
-            anz1_1.Name = "Обеспечение обновлений БД признаков уязвимостей из доверенных источников";
-
-            ConfigOption anz1_2 = new ConfigOption();
-            anz1_2.Name = "Обеспечение поиска уязвимостей, связанных с ошибками кода в ПО, ПО СЗИ, с правильностью установки и настройки СЗИ, тех. средств и ПО, корректностью работы СЗИ при взаимодействии с тех. средствами и ПО";
-
-            ConfigOption anz1_yc4 = new ConfigOption();
-            anz1_yc4.Name = "Обеспечение доступа к функциям анализа уязвимостей только администраторам безопасности";
-            anz1_yc4.DefenceClass = "0";
-            anz1_yc4.Description = "Усиление 4";
-
-            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "АНЗ").First().ConfigOptions.Add(anz1_1);
-            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "АНЗ").First().ConfigOptions.Add(anz1_2);
-            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "АНЗ").First().ConfigOptions.Add(anz1_yc4);
-
-
-            ConfigOption anz2_1 = new ConfigOption();
-            anz2_1.Name = "Получение обновлений из доверенных источников и установка обновления ПО, ПО СЗИ, BIOS";
-
-            GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "АНЗ").First().ConfigOptions.Add(anz2_1);
-
-
-            ConfigOption anz3_yc1 = new ConfigOption();
-            anz3_yc1.Name = "Обеспечение регистрации событий и оповещение администратора о нарушении работоспособности и параметров настройки ПО и ПО СЗИ";
-            anz3_yc1.DefenceClass = "2,1";
-            anz3_yc1.Description = "Усиление 1";
-
-            GisMeasures.Where(gm => gm.Number == 3 && gm.MeasureGroup.ShortName == "АНЗ").First().ConfigOptions.Add(anz3_yc1);
-
-
-            ConfigOption anz4_yc1 = new ConfigOption();
-            anz4_yc1.Name = "Обеспечение регистрации СБ, связанных с изменением состава технических средств, ПО и СЗИ";
-
-            GisMeasures.Where(gm => gm.Number == 4 && gm.MeasureGroup.ShortName == "АНЗ").First().ConfigOptions.Add(anz4_yc1);
-
-
-            ConfigOption anz5 = new ConfigOption();
-            anz5.Name = "Контроль правил генерации и смены паролей пользователей в соответствии с ИАФ.1 и ИАФ.4; контроль заведения и удаления учетных записей пользователей в соответствии с УПД.1; контроль реализации правил разграничения доступом в соответствии с УПД.2; контроль реализации полномочий пользователей в соответствии с УПД.4 и УПД.5.";
-
-            ConfigOption anz5_yc1 = new ConfigOption();
-            anz5_yc1.Name = "Обеспечение регистрации СБ, связанных со сменой паролей пользователей, изменением правил разграничения доступа и полномочий пользователей";
-            anz5_yc1.DefenceClass = "2,1";
-            anz5_yc1.Description = "Усиление 1";
-
-            GisMeasures.Where(gm => gm.Number == 5 && gm.MeasureGroup.ShortName == "АНЗ").First().ConfigOptions.Add(anz5);
-            GisMeasures.Where(gm => gm.Number == 5 && gm.MeasureGroup.ShortName == "АНЗ").First().ConfigOptions.Add(anz5_yc1);
-            #endregion
-
-            #region ОЦЛ
-            ConfigOption ocl1_1 = new ConfigOption();
-            ocl1_1.Name = "Обеспечение контроля целостности ПО, СЗИ и средств разработки и отладки";
-
-            ConfigOption ocl1_2 = new ConfigOption();
-            ocl1_2.Name = "Определение периодичности процедур тестирования функций безопасности СЗИ в соответствии с ОРД и параметрами мер АНЗ.1 и АНЗ.2";
-
-            ConfigOption ocl1_yc1 = new ConfigOption();
-            ocl1_yc1.Name = "Осуществление контроля целостности ПО СЗИ по контрольным суммам всех компонентов СЗИ, как в процессе загрузки, так и динамически в процессе работы системы";
-            ocl1_yc1.Description = "Усиление 1";
-            ocl1_yc1.DefenceClass = "2,1";
-
-            ConfigOption ocl1_yc3 = new ConfigOption();
-            ocl1_yc3.Name = "Исключение возможности использования средств разработки и отладки ПО во время обработки и (или) хранения информации в целяъ обеспечения целостности программной среды";
-            ocl1_yc3.Description = "Усиление 3";
-            ocl1_yc3.DefenceClass = "2,1";
-
-            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "ОЦЛ").First().ConfigOptions.Add(ocl1_1);
-            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "ОЦЛ").First().ConfigOptions.Add(ocl1_2);
-            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "ОЦЛ").First().ConfigOptions.Add(ocl1_yc1);
-            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "ОЦЛ").First().ConfigOptions.Add(ocl1_yc3);
-
-
-            ConfigOption ocl2_1 = new ConfigOption();
-            ocl2_1.Name = "Осуществление контроля целостности информации, содержащейся в БД ИС, контролируя целостность структуры БД по наличию имени и (или) по контрольным суммам программных компонент БД, либо контролируя целостность объектов БД с использованием криптографических методов в процессе загрузки или работы ИС с установленной в ОРД периодичностью";
-
-            GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "ОЦЛ").First().ConfigOptions.Add(ocl2_1);
-
-
-            ConfigOption ocl3_1 = new ConfigOption();
-            ocl3_1.Name = "Определение перечня ПО и ПО СЗИ, для которых будет производиться резервное копирование согласно ОРД";
-
-            ConfigOption ocl3_2 = new ConfigOption();
-            ocl3_2.Name = "Определение периодичность создания резервных копий согласно ОРД";
-
-            ConfigOption ocl3_yc1 = new ConfigOption();
-            ocl3_yc1.Name = "Обеспечение восстановлений отдельных функциональных возможностей ИС с применением резервированного ПО зеркальной ИС (сегмента ИС, тех. средства, устройства) в соответствии с параметрами меры ОДТ.2 и ОДТ.4";
-            ocl3_yc1.Description = "Усиление 1";
-            ocl3_yc1.DefenceClass = "1";
-
-            GisMeasures.Where(gm => gm.Number == 3 && gm.MeasureGroup.ShortName == "ОЦЛ").First().ConfigOptions.Add(ocl3_1);
-            GisMeasures.Where(gm => gm.Number == 3 && gm.MeasureGroup.ShortName == "ОЦЛ").First().ConfigOptions.Add(ocl3_yc1);
-            GisMeasures.Where(gm => gm.Number == 3 && gm.MeasureGroup.ShortName == "ОЦЛ").First().ConfigOptions.Add(ocl3_2);
-
-
-            ConfigOption ocl4_1 = new ConfigOption();
-            ocl4_1.Name = "Определение перечня разрешенных отправителей электронныъх писем в соответствии с ОРД";
-
-            ConfigOption ocl4_2 = new ConfigOption();
-            ocl4_2.Name = "Обеспечение запрета приема писем от отправителей, не находящихся в списке разрешенных";
-
-            ConfigOption ocl4_3 = new ConfigOption();
-            ocl4_3.Name = "Обеспечение защиты от спама с применением специализированных СЗ, фильтрующих электронный сообщения с использованием сигнатурных или/и эвристических методов";
-
-            GisMeasures.Where(gm => gm.Number == 4 && gm.MeasureGroup.ShortName == "ОЦЛ").First().ConfigOptions.Add(ocl4_1);
-            GisMeasures.Where(gm => gm.Number == 4 && gm.MeasureGroup.ShortName == "ОЦЛ").First().ConfigOptions.Add(ocl4_2);
-            GisMeasures.Where(gm => gm.Number == 4 && gm.MeasureGroup.ShortName == "ОЦЛ").First().ConfigOptions.Add(ocl4_3);
-
-            ConfigOption ocl5_1 = new ConfigOption();
-            ocl5_1.Name = "Контроль содержания информации, передаваемой из информационной системы, должен обеспечивать: выявление фактов неправомерной передачи защищаемой информации из информационной системы через различные типы сетевых соединений, включая сети связи общего пользования; записи защищаемой информации на неучтенные съемные машинные носители информации; вывода на печать документов, содержащих защищаемую информацию; копирования защищаемой информации в прикладное программное обеспечение из буфера обмена  и реагирование на них";
-
-            ConfigOption ocl5_2 = new ConfigOption();
-            ocl5_2.Name = "Осуществление контроля хранения защищаемой информации на серверах и автоматизированных рабочих местах";
-
-            ConfigOption ocl5_3 = new ConfigOption();
-            ocl5_3.Name = "Осуществление выявления фактов хранения информации на общих сетевых ресурсах";
-
-            ConfigOption ocl5_4 = new ConfigOption();
-            ocl5_4.Name = "Контроль содержания информации, передаваемой из информационной системы, осуществляется по цифровым отпечаткам информации, по регулярным выражениям и (или)по атрибутам безопасности(меткам безопасности) файлов";
-
-            GisMeasures.Where(gm => gm.Number == 5 && gm.MeasureGroup.ShortName == "ОЦЛ").First().ConfigOptions.Add(ocl5_1);
-            GisMeasures.Where(gm => gm.Number == 5 && gm.MeasureGroup.ShortName == "ОЦЛ").First().ConfigOptions.Add(ocl5_2);
-            GisMeasures.Where(gm => gm.Number == 5 && gm.MeasureGroup.ShortName == "ОЦЛ").First().ConfigOptions.Add(ocl5_3);
-            GisMeasures.Where(gm => gm.Number == 5 && gm.MeasureGroup.ShortName == "ОЦЛ").First().ConfigOptions.Add(ocl5_4);
-
-
-            ConfigOption ocl6_1 = new ConfigOption();
-            ocl6_1.Name = "Определение объектов доступа ИС, ввод информации в которые ограничен";
-
-            ConfigOption ocl6_2 = new ConfigOption();
-            ocl6_2.Name = "Определение пользователей ИС, уполномоченных на ввод информации в ИС в соответствии с ОРД";
-
-            GisMeasures.Where(gm => gm.Number == 6 && gm.MeasureGroup.ShortName == "ОЦЛ").First().ConfigOptions.Add(ocl6_1);
-            GisMeasures.Where(gm => gm.Number == 6 && gm.MeasureGroup.ShortName == "ОЦЛ").First().ConfigOptions.Add(ocl6_2);
-
-
-            ConfigOption ocl8_1 = new ConfigOption();
-            ocl8_1.Name = "Обеспечение генерирования сообщений для пользователей об их ошибочных действиях, которые могут потенциально привести к нарушению безопасности информации в ИС";
-
-            ConfigOption ocl8_2 = new ConfigOption();
-            ocl8_2.Name = "Обеспечение регистрации информации об ошибочных действиях пользователей в соответствии с параметрами меры РСБ.3";
-
-
-            ConfigOption ocl8_3 = new ConfigOption();
-            ocl8_3.Name = "Предоставление доступа к сообщениям об ошибочных действиях пользователей только администраторам";
-
-            GisMeasures.Where(gm => gm.Number == 8 && gm.MeasureGroup.ShortName == "ОЦЛ").First().ConfigOptions.Add(ocl8_1);
-            GisMeasures.Where(gm => gm.Number == 8 && gm.MeasureGroup.ShortName == "ОЦЛ").First().ConfigOptions.Add(ocl8_2);
-            GisMeasures.Where(gm => gm.Number == 8 && gm.MeasureGroup.ShortName == "ОЦЛ").First().ConfigOptions.Add(ocl8_3);
-            #endregion
-
-            #region ОДТ
-
-            ConfigOption odt4_1 = new ConfigOption();
-            odt4_1.Name = "Обеспечение резервного копирования с заданной согласно ОРД периодичностью";
-
-            ConfigOption odt4_2 = new ConfigOption();
-            odt4_2.Name = "Определение перечня информации, подлежащей резервному копированию согласно ОРД";
-
-            ConfigOption odt4_3 = new ConfigOption();
-            odt4_3.Name = "Обеспечение регистрации событий, связанных с резервным копированием";
-
-            ConfigOption odt4_4 = new ConfigOption();
-            odt4_4.Name = "Обеспечение защиты резервируемой информации";
-
-            GisMeasures.Where(gm => gm.Number == 4 && gm.MeasureGroup.ShortName == "ОДТ").First().ConfigOptions.Add(odt4_1);
-            GisMeasures.Where(gm => gm.Number == 4 && gm.MeasureGroup.ShortName == "ОДТ").First().ConfigOptions.Add(odt4_2);
-            GisMeasures.Where(gm => gm.Number == 4 && gm.MeasureGroup.ShortName == "ОДТ").First().ConfigOptions.Add(odt4_3);
-            GisMeasures.Where(gm => gm.Number == 4 && gm.MeasureGroup.ShortName == "ОДТ").First().ConfigOptions.Add(odt4_4);
-
-
-            ConfigOption odt5_1 = new ConfigOption();
-            odt5_1.Name = "Определение времени, в течение которого должно быть обеспечено восстановление информациии с резервных МНИ в соответствии с ОРД";
-
-            ConfigOption odt5_2 = new ConfigOption();
-            odt5_2.Name = "Обеспечение регистрации событий, связанных с восстановлением информации с резервных МНИ";
-
-            ConfigOption odt5_yc1 = new ConfigOption();
-            odt5_yc1.Name = "Обеспечение возможности нагруженного (\"горячего\") резервирования";
-            odt5_yc1.Description = "Усиление 1";
-            odt5_yc1.DefenceClass = "1";
-
-            GisMeasures.Where(gm => gm.Number == 5 && gm.MeasureGroup.ShortName == "ОДТ").First().ConfigOptions.Add(odt5_1);
-            GisMeasures.Where(gm => gm.Number == 5 && gm.MeasureGroup.ShortName == "ОДТ").First().ConfigOptions.Add(odt5_2);
-            GisMeasures.Where(gm => gm.Number == 5 && gm.MeasureGroup.ShortName == "ОДТ").First().ConfigOptions.Add(odt5_yc1);
-            #endregion
-
-            #region ЗСВ
-            ConfigOption zcv1_1 = new ConfigOption();
-            zcv1_1.Name = "Обеспечение идентификации и аутентификации субъектов доступа в виртуальной инфраструктуре в соответствии с параметрами мер ИАФ.1 - ИАФ.7 и ОРД";
-
-            ConfigOption zcv1_2 = new ConfigOption();
-            zcv1_2.Name = "Запрет доступа в виртуальную инфраструктуру дял не аутентифицированных субъектов";
-
-            ConfigOption zcv1_3 = new ConfigOption();
-            zcv1_3.Name = "Обеспечение защиты аутентификационной информации при входе в виртуальную инфраструктуру в соответствии с параметрами меры ИАФ.5";
-
-            ConfigOption zcv1_yc1 = new ConfigOption();
-            zcv1_yc1.Name = "Обеспечение взаимной идентификации и аутентификации пользователя и сервера виртуализации при удаленном доступе";
-            zcv1_yc1.DefenceClass = "2,1";
-            zcv1_yc1.Description = "Усиление 1";
-
-            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "ЗСВ").First().ConfigOptions.Add(zcv1_1);
-            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "ЗСВ").First().ConfigOptions.Add(zcv1_2);
-            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "ЗСВ").First().ConfigOptions.Add(zcv1_3);
-            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "ЗСВ").First().ConfigOptions.Add(zcv1_yc1);
-
-
-            ConfigOption zcv2_1 = new ConfigOption();
-            zcv2_1.Name = "Обеспечение управление доступом в виртуальной инфраструктуре согласно параметрам мер УПД.1, УПД.2, УПД.4 - УПД.6, УПД.9 - УПД.13 и ОРД";
-
-            ConfigOption zcv2_yc1 = new ConfigOption();
-            zcv2_yc1.Name = "Доступ к средствам управления ВМ разрешен только администраторам виртуальной инфраструктуры";
-            zcv2_yc1.Description = "Усиление 1";
-            zcv2_yc1.DefenceClass = "2,1";
-
-            ConfigOption zcv2_yc2 = new ConfigOption();
-            zcv2_yc2.Name = "Доступ к конфигурации ВМ разрешен только администраторам виртуальной инфраструктуры";
-            zcv2_yc2.Description = "Усиление 2";
-            zcv2_yc2.DefenceClass = "2,1";
-
-            GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "ЗСВ").First().ConfigOptions.Add(zcv2_1);
-            GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "ЗСВ").First().ConfigOptions.Add(zcv2_yc1);
-            GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "ЗСВ").First().ConfigOptions.Add(zcv2_yc2);
-
-
-            ConfigOption zcv3_1 = new ConfigOption();
-            zcv3_1.Name = "Определение событий безопасности виртуальной инфраструктуры ИС, подлежащих регистрации в соответствии с параметрами мер РСБ.1 - РСБ.3, РСБ.7 и ОРД";
-
-            ConfigOption zcv3_2 = new ConfigOption();
-            zcv3_2.Name = "Обеспечение доступа только уполномоченных пользователей к записям аудита вирутальной инфраструктуры (в соответствии с ОРД и УПД.2)";
-
-            GisMeasures.Where(gm => gm.Number == 3 && gm.MeasureGroup.ShortName == "ЗСВ").First().ConfigOptions.Add(zcv3_1);
-            GisMeasures.Where(gm => gm.Number == 3 && gm.MeasureGroup.ShortName == "ЗСВ").First().ConfigOptions.Add(zcv3_2);
-
-
-            ConfigOption zcv4_1 = new ConfigOption();
-            zcv4_1.Name = "Обеспечение фильтрации сетевого трафиками между компонентами виртуальной инфраструктуры";
-
-            ConfigOption zcv4_2 = new ConfigOption();
-            zcv4_2.Name = "Обеспечение доверенных канала и маршрута внутри ВИ между администратором, пользователем и СЗИ";
-
-            ConfigOption zcv4_3 = new ConfigOption();
-            zcv4_3.Name = "Обеспечение контроля передачи служебных сообщений, передаваемых в виртуальных сетях гипервизора, хостовой ОС, виртуальной вычислительной сети";
-
-            ConfigOption zcv4_4 = new ConfigOption();
-            zcv4_4.Name = "Обеспечение подлинности сетевых соединений внутри ВИ";
-
-            ConfigOption zcv4_5 = new ConfigOption();
-            zcv4_5.Name = "Обеспечение изоляции потоков данных, передаваемых и обрабатываемых компонентами ВИ и сетевых потоков виртуальной вычислительной сети";
-
-            ConfigOption zcv4_yc2 = new ConfigOption();
-            zcv4_yc2.Name = "Обеспечение фильтрации сетевого трафика от (к) каждой гостевой операционной системы, в виртуальных сетях гипервизора и для каждой виртуальной машины";
-            zcv4_yc2.DefenceClass = "1";
-            zcv4_yc2.Description = "Усиление 2";
-
-            GisMeasures.Where(gm => gm.Number == 4 && gm.MeasureGroup.ShortName == "ЗСВ").First().ConfigOptions.Add(zcv4_1);
-            GisMeasures.Where(gm => gm.Number == 4 && gm.MeasureGroup.ShortName == "ЗСВ").First().ConfigOptions.Add(zcv4_2);
-            GisMeasures.Where(gm => gm.Number == 4 && gm.MeasureGroup.ShortName == "ЗСВ").First().ConfigOptions.Add(zcv4_3);
-            GisMeasures.Where(gm => gm.Number == 4 && gm.MeasureGroup.ShortName == "ЗСВ").First().ConfigOptions.Add(zcv4_4);
-            GisMeasures.Where(gm => gm.Number == 4 && gm.MeasureGroup.ShortName == "ЗСВ").First().ConfigOptions.Add(zcv4_5);
-            GisMeasures.Where(gm => gm.Number == 4 && gm.MeasureGroup.ShortName == "ЗСВ").First().ConfigOptions.Add(zcv4_yc2);
-
-
-            ConfigOption zcv5 = new ConfigOption();
-            zcv5.Name = "Обеспечение блокировки попыток несанкционированной загрузки гипервизора, хостовой и гостевых ОС ( применение СДЗ)";
-
-            GisMeasures.Where(gm => gm.Number == 5 && gm.MeasureGroup.ShortName == "ЗСВ").First().ConfigOptions.Add(zcv5);
-
-
-            ConfigOption zcv6_1 = new ConfigOption();
-            zcv6_1.Name = "Обеспечение полного запрета перемещения ВМ (контейнеров)";
-
-            ConfigOption zcv6_2 = new ConfigOption();
-            zcv6_2.Name = "Обеспечение ограничения перемещения ВМ (контейнеров) в пределах ИС, сегмента ИС и меджу сегментами ИС";
-
-            ConfigOption zcv6_yc2 = new ConfigOption();
-            zcv6_yc2.Name = "Осуществление обработки отказов перемещения ВМ (контейнеров) и обрабатываемых на них данных";
-            zcv6_yc2.DefenceClass = "1";
-            zcv6_yc2.Description = "Усиление 2";
-
-            GisMeasures.Where(gm => gm.Number == 6 && gm.MeasureGroup.ShortName == "ЗСВ").First().ConfigOptions.Add(zcv6_1);
-            GisMeasures.Where(gm => gm.Number == 6 && gm.MeasureGroup.ShortName == "ЗСВ").First().ConfigOptions.Add(zcv6_2);
-            GisMeasures.Where(gm => gm.Number == 6 && gm.MeasureGroup.ShortName == "ЗСВ").First().ConfigOptions.Add(zcv6_yc2);
-
-
-            ConfigOption zcv7_1 = new ConfigOption();
-            zcv7_1.Name = "Обеспечение контроля целостности: компонентов, критически важных для функционирования хостовой ОС, гостевых ОС, гипервизора; состава и конфигурации виртуального оборудования; файлов, содержащих параметры настройки виртуализированного ПО и ВМ; файлов-образов ВПО и ВМ";
-
-            ConfigOption zcv7_yc1 = new ConfigOption();
-            zcv7_yc1.Name = "Обеспечение контроля целостности BIOS серверов и консолей управления ВИ";
-            zcv7_yc1.Description = "Усиление 1";
-            zcv7_yc1.DefenceClass = "1";
-
-            ConfigOption zcv7_yc3 = new ConfigOption();
-            zcv7_yc3.Name = "Обеспечение контроля целостности состава аппаратной части компонентов ВИ";
-            zcv7_yc3.Description = "Усиление 3";
-            zcv7_yc3.DefenceClass = "2,1";
-
-            GisMeasures.Where(gm => gm.Number == 7 && gm.MeasureGroup.ShortName == "ЗСВ").First().ConfigOptions.Add(zcv7_1);
-            GisMeasures.Where(gm => gm.Number == 7 && gm.MeasureGroup.ShortName == "ЗСВ").First().ConfigOptions.Add(zcv7_yc1);
-            GisMeasures.Where(gm => gm.Number == 7 && gm.MeasureGroup.ShortName == "ЗСВ").First().ConfigOptions.Add(zcv7_yc3);
-
-
-            ConfigOption zcv8_1 = new ConfigOption();
-            zcv8_1.Name = "Определение данных ВИ ИС, подлежащих резервному копированию (согласно ОРД и параметрам мер ОДТ.2, ОДТ.4, ОДТ.5);";
-
-            ConfigOption zcv8_2 = new ConfigOption();
-            zcv8_2.Name = "Обеспечение резервного копирования: ВМ; данных, обрабатываемых в ИС; ПО ВИ";
-
-            ConfigOption zcv8_yc1 = new ConfigOption();
-            zcv8_yc1.Name = "Обеспечение резервного копирования конфигурации ВИ";
-            zcv8_yc1.DefenceClass = "1";
-            zcv8_yc1.Description = "Усиление 1";
-
-            ConfigOption zcv8_yc2 = new ConfigOption();
-            zcv8_yc2.Name = "Обеспечение резервного копирования ПО серверов и АРМ админстратора управления виртуализацией ";
-            zcv8_yc2.DefenceClass = "1";
-            zcv8_yc2.Description = "Усиление 2";
-
-            ConfigOption zcv8_yc3 = new ConfigOption();
-            zcv8_yc3.Name = "Обеспечение резервирования дистрибутивов средств построения и управления ВИ";
-            zcv8_yc3.DefenceClass = "1";
-            zcv8_yc3.Description = "Усиление 3";
-
-            GisMeasures.Where(gm => gm.Number == 8 && gm.MeasureGroup.ShortName == "ЗСВ").First().ConfigOptions.Add(zcv8_1);
-            GisMeasures.Where(gm => gm.Number == 8 && gm.MeasureGroup.ShortName == "ЗСВ").First().ConfigOptions.Add(zcv8_2);
-            GisMeasures.Where(gm => gm.Number == 8 && gm.MeasureGroup.ShortName == "ЗСВ").First().ConfigOptions.Add(zcv8_yc2);
-            GisMeasures.Where(gm => gm.Number == 8 && gm.MeasureGroup.ShortName == "ЗСВ").First().ConfigOptions.Add(zcv8_yc1);
-            GisMeasures.Where(gm => gm.Number == 8 && gm.MeasureGroup.ShortName == "ЗСВ").First().ConfigOptions.Add(zcv8_yc3);
-
-
-            ConfigOption zcv9_1 = new ConfigOption();
-            zcv9_1.Name = "Обеспечение проверки наличия вредоносного ПО в хостовой ОС, включая котнроль ФС, памяти, запущенных процессов";
-
-            ConfigOption zcv9_2 = new ConfigOption();
-            zcv9_2.Name = "Обеспечение проверки наличия вредоносного ПО в гостевых ОС в процессе их функционирования, включая котнроль ФС, памяти, запущенных процессов";
-
-            ConfigOption zcv9_yc1 = new ConfigOption();
-            zcv9_yc1.Name = "Обеспечение разграничения доступа в ВИ к управлению средствами АВЗ";
-            zcv9_yc1.DefenceClass = "2,1";
-            zcv9_yc1.Description = "Усиление 1";
-
-            GisMeasures.Where(gm => gm.Number == 9 && gm.MeasureGroup.ShortName == "ЗСВ").First().ConfigOptions.Add(zcv9_1);
-            GisMeasures.Where(gm => gm.Number == 9 && gm.MeasureGroup.ShortName == "ЗСВ").First().ConfigOptions.Add(zcv9_2);
-            GisMeasures.Where(gm => gm.Number == 9 && gm.MeasureGroup.ShortName == "ЗСВ").First().ConfigOptions.Add(zcv9_yc1);
-            #endregion
-
-            #region ЗИС
-            ConfigOption zis1_1 = new ConfigOption();
-            zis1_1.Name = "Определение учетных записей администраторов и администраторов безопасности ИС, а также назначение прав таким учетным записям в соответствии с ОРД и параметрами мер УПД.2 и ИАФ.1";
-
-            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "ЗИС").First().ConfigOptions.Add(zis1_1);
-
-
-            ConfigOption zis5_1 = new ConfigOption();
-            zis5_1.Name = "Обеспечение запрета несанкционированной удаленной активации периферийных устройств ввода-вывода, имеющих возможность управления через компоненты ПО";
-
-            ConfigOption zis5_yc2 = new ConfigOption();
-            zis5_yc2.Name = "Обеспечение возможности блокирования входящего и исходящего трафика от пользователей систем, предоставляющих внешние сервисы, в которых настройки сервисов для конечных пользователей устанавливаются провайдерами или самими пользователями";
-            zis5_yc2.Description = "Усиление 2";
-            zis5_yc2.DefenceClass = "1";
-
-            GisMeasures.Where(gm => gm.Number == 5 && gm.MeasureGroup.ShortName == "ЗИС").First().ConfigOptions.Add(zis5_1);
-            GisMeasures.Where(gm => gm.Number == 5 && gm.MeasureGroup.ShortName == "ЗИС").First().ConfigOptions.Add(zis5_yc2);
-
-
-            ConfigOption zis7_1 = new ConfigOption();
-            zis7_1.Name = "Определение перечня разрешенных технологий мобильного кода согласно ОРД";
-
-            ConfigOption zis7_2 = new ConfigOption();
-            zis7_2.Name = "Определение перечня мест разрешенного использования (АРМ, сервера, и др.) технологий мобильного кода согласно ОРД";
-
-            ConfigOption zis7_3 = new ConfigOption();
-            zis7_3.Name = "Исключение возможности использования запрещенного мобильного кода";
-
-            GisMeasures.Where(gm => gm.Number == 7 && gm.MeasureGroup.ShortName == "ЗИС").First().ConfigOptions.Add(zis7_1);
-            GisMeasures.Where(gm => gm.Number == 7 && gm.MeasureGroup.ShortName == "ЗИС").First().ConfigOptions.Add(zis7_2);
-            GisMeasures.Where(gm => gm.Number == 7 && gm.MeasureGroup.ShortName == "ЗИС").First().ConfigOptions.Add(zis7_3);
-
-
-            ConfigOption zis8_1 = new ConfigOption();
-            zis8_1.Name = "Определение перечня разрешенных сервисов передачи речи согласно ОРД";
-
-            ConfigOption zis8_2 = new ConfigOption();
-            zis8_2.Name = "Определение перечня пользователей, для которых разрешено использование сервисов передачи речи согласно ОРД";
-
-            ConfigOption zis8_3 = new ConfigOption();
-            zis8_3.Name = "Обеспечение запрета удаленной конфигурации устройств передачи речи";
-
-            GisMeasures.Where(gm => gm.Number == 8 && gm.MeasureGroup.ShortName == "ЗИС").First().ConfigOptions.Add(zis8_1);
-            GisMeasures.Where(gm => gm.Number == 8 && gm.MeasureGroup.ShortName == "ЗИС").First().ConfigOptions.Add(zis8_2);
-            GisMeasures.Where(gm => gm.Number == 8 && gm.MeasureGroup.ShortName == "ЗИС").First().ConfigOptions.Add(zis8_3);
-
-            ConfigOption zis11_1 = new ConfigOption();
-            zis11_1.Name = "Обеспечение проверки подлинности сторон сетевого соединения в соответствии с параметрами меры ИАФ.2";
-
-            ConfigOption zis11_2 = new ConfigOption();
-            zis11_2.Name = "Обеспечение проверки целостности передаваемых пакетов";
-
-            ConfigOption zis11_yc1 = new ConfigOption();
-            zis11_yc1.Name = "Обеспечение признания сетевого идентификатора сеанса связи недействительным после окончания сетевого соединения";
-            zis11_yc1.DefenceClass = "1";
-            zis11_yc1.Description = "Усиление 1";
-
-            GisMeasures.Where(gm => gm.Number == 11 && gm.MeasureGroup.ShortName == "ЗИС").First().ConfigOptions.Add(zis11_1);
-            GisMeasures.Where(gm => gm.Number == 11 && gm.MeasureGroup.ShortName == "ЗИС").First().ConfigOptions.Add(zis11_2);
-            GisMeasures.Where(gm => gm.Number == 11 && gm.MeasureGroup.ShortName == "ЗИС").First().ConfigOptions.Add(zis11_yc1);
-
-
-            ConfigOption zis12_1 = new ConfigOption();
-            zis12_1.Name = "Определение объектов или типов информации, для которых требуется обеспечение неотказуемости отправки сообщений согласно ОРД";
-
-            ConfigOption zis12_2 = new ConfigOption();
-            zis12_2.Name = "Обеспечение регистрации событий, связанных с отправкой информации между пользователями в соответствии с параметрами меры РСБ.2";
-
-            ConfigOption zis12_3 = new ConfigOption();
-            zis12_3.Name = "Обеспечение целостности информации при ее передаче по каналам связи в соответствии с параметрами меры ЗИС.3";
-
-            GisMeasures.Where(gm => gm.Number == 12 && gm.MeasureGroup.ShortName == "ЗИС").First().ConfigOptions.Add(zis12_1);
-            GisMeasures.Where(gm => gm.Number == 12 && gm.MeasureGroup.ShortName == "ЗИС").First().ConfigOptions.Add(zis12_2);
-            GisMeasures.Where(gm => gm.Number == 12 && gm.MeasureGroup.ShortName == "ЗИС").First().ConfigOptions.Add(zis12_3);
-
-
-            ConfigOption zis13_1 = new ConfigOption();
-            zis13_1.Name = "Определение объектов или типов информации, для которых требуется обеспечение неотказуемости получения сообщений согласно ОРД";
-
-            ConfigOption zis13_2 = new ConfigOption();
-            zis13_2.Name = "Обеспечение регистрации событий, связанных с получением информации пользователями в соответствии с параметрами меры РСБ.2";
-
-            ConfigOption zis13_3 = new ConfigOption();
-            zis13_3.Name = "Обеспечение целостности полученной информации в соответствии с параметрами меры ЗИС.3";
-
-            GisMeasures.Where(gm => gm.Number == 13 && gm.MeasureGroup.ShortName == "ЗИС").First().ConfigOptions.Add(zis13_1);
-            GisMeasures.Where(gm => gm.Number == 13 && gm.MeasureGroup.ShortName == "ЗИС").First().ConfigOptions.Add(zis13_2);
-            GisMeasures.Where(gm => gm.Number == 13 && gm.MeasureGroup.ShortName == "ЗИС").First().ConfigOptions.Add(zis13_3);
-
-
-            ConfigOption zis20_1 = new ConfigOption();
-            zis20_1.Name = "Обеспечение предоставление доступа к параметрам настройки беспроводных соединениий только администраторам";
-
-            ConfigOption zis20_2 = new ConfigOption();
-            zis20_2.Name = "Определение перечня разрешенных для беспроводных соединений интерфейсов согласно ОРД";
-
-            ConfigOption zis20_3 = new ConfigOption();
-            zis20_3.Name = "Обеспечение регистрации событий, связанных с использованием беспроводных соединений";
-
-            GisMeasures.Where(gm => gm.Number == 20 && gm.MeasureGroup.ShortName == "ЗИС").First().ConfigOptions.Add(zis20_1);
-            GisMeasures.Where(gm => gm.Number == 20 && gm.MeasureGroup.ShortName == "ЗИС").First().ConfigOptions.Add(zis20_2);
-            GisMeasures.Where(gm => gm.Number == 20 && gm.MeasureGroup.ShortName == "ЗИС").First().ConfigOptions.Add(zis20_3);
-
-
-            ConfigOption zis21_1 = new ConfigOption();
-            zis21_1.Name = "Обеспечение запрета доступа пользователям к системным ресурсам при их повторном использовании, где хранится информация другого пользователя, посредством затирания и очистки памяти и реестров";
-
-            GisMeasures.Where(gm => gm.Number == 21 && gm.MeasureGroup.ShortName == "ЗИС").First().ConfigOptions.Add(zis21_1);
-
-
-            ConfigOption zis23_1 = new ConfigOption();
-            zis23_1.Name = "Обеспечение управления входящими в и выходящими из ИС информационными потоками на физической или логической границе ИС (сегментов ИС)";
-
-            ConfigOption zis23_2 = new ConfigOption();
-            zis23_2.Name = "Обеспечение взаимодействия с иными ИС только через сетевые интерфейсы, которые обеспечивают контроль и управление информационных потоков";
-
-            ConfigOption zis23_yc2 = new ConfigOption();
-            zis23_yc2.Name = "Обеспечение предоставления доступа во внутренние сегменты ИС из внешних ИС и сетей только через средства защиты периметра";
-            zis23_yc2.DefenceClass = "2,1";
-            zis23_yc2.Description = "Усиление 2";
-
-            ConfigOption zis23_yc3 = new ConfigOption();
-            zis23_yc3.Name = "Обеспечение постоянного и всестороннего контроля входящих и исходящих информационных потоков";
-            zis23_yc3.DefenceClass = "2,1";
-            zis23_yc3.Description = "Усиление 3";
-
-            ConfigOption zis23_yc4d = new ConfigOption();
-            zis23_yc4d.Name = "Обеспечение удаления введенных исключений из правил управления информационными потоками";
-            zis23_yc4d.DefenceClass = "1";
-            zis23_yc4d.Description = "Усиление 4д";
-
-            ConfigOption zis23_yc5 = new ConfigOption();
-            zis23_yc5.Name = "Обеспечение управления информационными потоками на управляемых сетевых интерфейсах по принципу \"запрещено все, что не разрешено\"";
-            zis23_yc5.DefenceClass = "2,1";
-            zis23_yc5.Description = "Усиление 5";
-
-            ConfigOption zis23_yc6 = new ConfigOption();
-            zis23_yc6.Name = "Обеспечение запрета передачи информации за пределы периметра ИС при сбое функционирования средств защиты периметра";
-            zis23_yc6.DefenceClass = "1";
-            zis23_yc6.Description = "Усиление 6";
-
-            ConfigOption zis23_yc7 = new ConfigOption();
-            zis23_yc6.Name = "Обеспечение исключения возможности подключения мобильных и иных тех. средств с внешними ИС и сетями в процессе их удаленного подключения к защищаемой ИС с исп. VPN";
-            zis23_yc6.DefenceClass = "1";
-            zis23_yc6.Description = "Усиление 7";
-
-            GisMeasures.Where(gm => gm.Number == 23 && gm.MeasureGroup.ShortName == "ЗИС").First().ConfigOptions.Add(zis23_1);
-            GisMeasures.Where(gm => gm.Number == 23 && gm.MeasureGroup.ShortName == "ЗИС").First().ConfigOptions.Add(zis23_2);
-            GisMeasures.Where(gm => gm.Number == 23 && gm.MeasureGroup.ShortName == "ЗИС").First().ConfigOptions.Add(zis23_yc2);
-            GisMeasures.Where(gm => gm.Number == 23 && gm.MeasureGroup.ShortName == "ЗИС").First().ConfigOptions.Add(zis23_yc3);
-            GisMeasures.Where(gm => gm.Number == 23 && gm.MeasureGroup.ShortName == "ЗИС").First().ConfigOptions.Add(zis23_yc4d);
-            GisMeasures.Where(gm => gm.Number == 23 && gm.MeasureGroup.ShortName == "ЗИС").First().ConfigOptions.Add(zis23_yc5);
-            GisMeasures.Where(gm => gm.Number == 23 && gm.MeasureGroup.ShortName == "ЗИС").First().ConfigOptions.Add(zis23_yc6);
-            GisMeasures.Where(gm => gm.Number == 23 && gm.MeasureGroup.ShortName == "ЗИС").First().ConfigOptions.Add(zis23_yc7);
-
-
-            ConfigOption zis30_1 = new ConfigOption();
-            zis30_1.Name = "Обеспечение удаления информации в мобильном техническом средстве после завершения сеанса удаленного доступа";
-
-            ConfigOption zis30_2 = new ConfigOption();
-            zis30_2.Name = "Обеспечение запрета автозапуска ПО на мобильных технических устройствах";
-
-            GisMeasures.Where(gm => gm.Number == 30 && gm.MeasureGroup.ShortName == "ЗИС").First().ConfigOptions.Add(zis30_1);
-            GisMeasures.Where(gm => gm.Number == 30 && gm.MeasureGroup.ShortName == "ЗИС").First().ConfigOptions.Add(zis30_2);
-            #endregion
-
-            #endregion
-
-            SaveChanges();
         }
 
         public void SeedForThreat()
@@ -7229,6 +5909,1333 @@ namespace KPSZI.Model
             ABRAW.NDVControlLevel = 4;
             ABRAW.SZISorts.Add(SZISorts.Where(sort => sort.Number == 10).First());
             SZIs.Add(ABRAW);
+
+            #endregion
+
+            SaveChanges();
+
+        }
+
+        public void SeedForConfigOptions()
+        {
+
+            #region Меры + параметры настройки
+
+            #region ИАФ
+            ConfigOption iaf1_1 = new ConfigOption();
+            iaf1_1.Name = "Определение внутренних пользователей";
+            iaf1_1.Description = "К внутренним пользователям относятся должностные лица оператора (пользователи, администраторы), выполняющие свои должностные обязанности (функции) с использованием информации, информационных технологий и технических средств информационной системы в соответствии с должностными регламентами (инструкциями) утвержденными оператором и которым в информационной системе присвоены учетные записи.";
+            iaf1_1.DefenceClass = "0";
+
+            ConfigOption iaf1_2 = new ConfigOption();
+            iaf1_2.Name = "Присвоение учетных записей внутренним пользователям ИС";
+            iaf1_2.DefenceClass = "0";
+
+            ConfigOption iaf1_3 = new ConfigOption();
+            iaf1_3.Name = "Определение видов доступа";
+            iaf1_3.DefenceClass = "0"; ;
+
+            ConfigOption iaf1_4 = new ConfigOption();
+            iaf1_4.Name = "Составление перечня действий, разрешенных до идентификации и аутентификации пользователей";
+            iaf1_4.DefenceClass = "0";
+
+            ConfigOption iaf1_yc1a = new ConfigOption();
+            iaf1_yc1a.Name = "Обеспечение многофакторной (двухфакторной) аутентификации для удаленного доступа с правами привилегированных учетных записей (администраторов)";
+            iaf1_yc1a.Description = "Усиление 1а";
+            iaf1_yc1a.DefenceClass = "2,1";
+
+            ConfigOption iaf1_yc2a = new ConfigOption();
+            iaf1_yc2a.Name = "Обеспечение многофакторной (двухфакторной) аутентификации для удаленного доступа с правами непривилегированных учетных записей (пользователей)";
+            iaf1_yc2a.Description = "Усиление 2а";
+            iaf1_yc2a.DefenceClass = "2,1";
+
+            ConfigOption iaf1_yc3 = new ConfigOption();
+            iaf1_yc3.Name = "Обеспечение многофакторной (двухфакторной) аутентификации для локального доступа с правами привилегированных учетных записей (администраторов)";
+            iaf1_yc3.Description = "Усиление 3";
+            iaf1_yc3.DefenceClass = "1";
+
+            ConfigOption iaf1_yc4 = new ConfigOption();
+            iaf1_yc4.Name = "Обеспечение многофакторной (двухфакторной) аутентификации для локального доступа с правами непривилегированных учетных записей (пользователей)";
+            iaf1_yc4.Description = "Усиление 4";
+            iaf1_yc4.DefenceClass = "1";
+
+            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "ИАФ").First().ConfigOptions.Add(iaf1_1);
+            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "ИАФ").First().ConfigOptions.Add(iaf1_2);
+            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "ИАФ").First().ConfigOptions.Add(iaf1_3);
+            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "ИАФ").First().ConfigOptions.Add(iaf1_4);
+            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "ИАФ").First().ConfigOptions.Add(iaf1_yc1a);
+            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "ИАФ").First().ConfigOptions.Add(iaf1_yc2a);
+            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "ИАФ").First().ConfigOptions.Add(iaf1_yc3);
+            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "ИАФ").First().ConfigOptions.Add(iaf1_yc4);
+
+
+            ConfigOption iaf2_1 = new ConfigOption();
+            iaf2_1.Name = "Определение устройств, подлежащих идентификации и аутентификации до начала информационного взаимодействия";
+            iaf2_1.DefenceClass = "2,1";
+
+            ConfigOption iaf2_2 = new ConfigOption();
+            iaf2_2.Name = "Определение способа идентификации устройства в ИС";
+            iaf2_2.DefenceClass = "2,1";
+            iaf2_2.Description = "Идентификация устройств в информационной системе обеспечивается по логическим именам (имя устройства и (или) ID), логическим адресам (например, IP-адресам) и (или) по физическим адресам (например, МАС-адресам) устройства или по комбинации имени, логического и (или) физического адресов устройства.";
+
+            GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "ИАФ").First().ConfigOptions.Add(iaf2_1);
+            GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "ИАФ").First().ConfigOptions.Add(iaf2_2);
+
+
+            ConfigOption iaf3_1 = new ConfigOption();
+            iaf3_1.Name = "Формирование и присвоение идентификаторов пользователям и (или) устройствам ИС";
+            iaf3_1.DefenceClass = "0";
+
+            ConfigOption iaf3_2 = new ConfigOption();
+            iaf3_2.Name = "Блокирование идентификатора после установленного оператором времени неиспользования";
+            iaf3_2.DefenceClass = "0";
+
+            ConfigOption iaf3_yc1a = new ConfigOption();
+            iaf3_yc1a.Name = "Исключение повторного использования идентификатора пользователя в течение не менее одного года";
+            iaf3_yc1a.Description = "Усиление 1а";
+            iaf3_yc1a.DefenceClass = "3,2";
+
+            ConfigOption iaf3_yc1b = new ConfigOption();
+            iaf3_yc1b.Name = "Исключение повторного использования идентификатора пользователя в течение не менее трех лет";
+            iaf3_yc1b.Description = "Усиление 1б";
+            iaf3_yc1b.DefenceClass = "1";
+
+            ConfigOption iaf3_yc2a = new ConfigOption();
+            iaf3_yc2a.Name = "Блокирование идентификатора пользователя по истечении времени неиспользования не более 90 дней";
+            iaf3_yc2a.Description = "Усиление 2а";
+            iaf3_yc2a.DefenceClass = "3,2";
+
+            ConfigOption iaf3_yc2b = new ConfigOption();
+            iaf3_yc2b.Name = "Блокирование идентификатора пользователя по истечении времени неиспользования не более 45 дней";
+            iaf3_yc2b.Description = "Усиление 2б";
+            iaf3_yc2b.DefenceClass = "1";
+
+            GisMeasures.Where(gm => gm.Number == 3 && gm.MeasureGroup.ShortName == "ИАФ").First().ConfigOptions.Add(iaf3_1);
+            GisMeasures.Where(gm => gm.Number == 3 && gm.MeasureGroup.ShortName == "ИАФ").First().ConfigOptions.Add(iaf3_2);
+            GisMeasures.Where(gm => gm.Number == 3 && gm.MeasureGroup.ShortName == "ИАФ").First().ConfigOptions.Add(iaf3_yc1a);
+            GisMeasures.Where(gm => gm.Number == 3 && gm.MeasureGroup.ShortName == "ИАФ").First().ConfigOptions.Add(iaf3_yc1b);
+            GisMeasures.Where(gm => gm.Number == 3 && gm.MeasureGroup.ShortName == "ИАФ").First().ConfigOptions.Add(iaf3_yc2a);
+            GisMeasures.Where(gm => gm.Number == 3 && gm.MeasureGroup.ShortName == "ИАФ").First().ConfigOptions.Add(iaf3_yc2b);
+
+            ConfigOption iaf4 = new ConfigOption();
+            iaf4.Name = "Управление аутентификацией";
+            iaf4.Description = "Изменение стандартных паролей программных и/или технических средств; генерация и выдача средств аутентификации (паролей) пользователям; установление сложности паролей с требованием к регистру, количеству символов; блокирование и замена средств аутентификации; защита аутентификационной информации";
+            iaf4.DefenceClass = "0";
+
+            ConfigOption iaf4_yc1b = new ConfigOption();
+            iaf4_yc1b.Name = "Длина пароля - от 6 символов; алфавит пароля - от 60 символов; количество попыток ввода до блокировки - от 3 до 10; время блокировки учетной записи или программно-технического средства - от 5 до 30 минут; срок замены пароля - до 120 дней";
+            iaf4_yc1b.DefenceClass = "3";
+            iaf4_yc1b.Description = "Усиление 1б";
+
+            ConfigOption iaf4_yc1c = new ConfigOption();
+            iaf4_yc1c.Name = "Длина пароля - от 6 символов; алфавит пароля - от 70 символов; количество попыток ввода до блокировки - от 3 до 8; время блокировки учетной записи или программно-технического средства - от 10 до 30 минут; срок замены пароля - до 90 дней";
+            iaf4_yc1c.DefenceClass = "2";
+            iaf4_yc1c.Description = "Усиление 1в";
+
+            ConfigOption iaf4_yc1d = new ConfigOption();
+            iaf4_yc1d.Name = "Длина пароля - от 8 символов; алфавит пароля - от 70 символов; количество попыток ввода до блокировки - от 3 до 4; время блокировки учетной записи или программно-технического средства - от 15 до 30 минут; срок замены пароля - до 60 дней";
+            iaf4_yc1d.DefenceClass = "1";
+            iaf4_yc1d.Description = "Усиление 1в";
+
+            GisMeasures.Where(gm => gm.Number == 4 && gm.MeasureGroup.ShortName == "ИАФ").First().ConfigOptions.Add(iaf4);
+            GisMeasures.Where(gm => gm.Number == 4 && gm.MeasureGroup.ShortName == "ИАФ").First().ConfigOptions.Add(iaf4_yc1b);
+            GisMeasures.Where(gm => gm.Number == 4 && gm.MeasureGroup.ShortName == "ИАФ").First().ConfigOptions.Add(iaf4_yc1c);
+            GisMeasures.Where(gm => gm.Number == 4 && gm.MeasureGroup.ShortName == "ИАФ").First().ConfigOptions.Add(iaf4_yc1d);
+
+
+            ConfigOption iaf5 = new ConfigOption();
+            iaf5.Name = "Защита аутентификационной информации";
+            iaf5.DefenceClass = "0";
+            iaf5.Description = "В средствах защиты информации необходимо включить функцию защиты обратной связи – вводимые символы пароля могут отображаться знаками «*», «®» или иными.";
+
+            GisMeasures.Where(gm => gm.Number == 5 && gm.MeasureGroup.ShortName == "ИАФ").First().ConfigOptions.Add(iaf5);
+
+
+            ConfigOption iaf6_1 = new ConfigOption();
+            iaf6_1.Name = "Определение внешних пользователей";
+            iaf6_1.Description = "Внешние пользователи - все, кроме внутренних";
+            iaf6_1.DefenceClass = "0";
+
+            ConfigOption iaf6_2 = new ConfigOption();
+            iaf6_2.Name = "Формирование и присвоение идентификаторов для внешних пользователей";
+            iaf6_2.DefenceClass = "0";
+
+            ConfigOption iaf6_3 = new ConfigOption();
+            iaf6_3.Name = "Установление видов доступа для внешних пользователей";
+            iaf6_3.DefenceClass = "0";
+
+            GisMeasures.Where(gm => gm.Number == 6 && gm.MeasureGroup.ShortName == "ИАФ").First().ConfigOptions.Add(iaf6_1);
+            GisMeasures.Where(gm => gm.Number == 6 && gm.MeasureGroup.ShortName == "ИАФ").First().ConfigOptions.Add(iaf6_2);
+            GisMeasures.Where(gm => gm.Number == 6 && gm.MeasureGroup.ShortName == "ИАФ").First().ConfigOptions.Add(iaf6_3);
+            #endregion
+
+            #region УПД
+
+            ConfigOption upd1_1 = new ConfigOption();
+            upd1_1.Name = "Определение типов учетных записей, объединение их в группы при необходимости";
+            upd1_1.DefenceClass = "0";
+
+            ConfigOption upd1_2 = new ConfigOption();
+            upd1_2.Name = "Реализация верификации пользователя при заведении учетной записи";
+            upd1_2.DefenceClass = "0";
+
+            ConfigOption upd1_3 = new ConfigOption();
+            upd1_3.Name = "Реализация функций управления учетными записями";
+            upd1_3.DefenceClass = "0";
+
+            ConfigOption upd1_4 = new ConfigOption();
+            upd1_4.Name = "Предоставление пользователям прав доступа к объектам доступа ИС";
+            upd1_4.DefenceClass = "0";
+
+            ConfigOption upd1_yc2 = new ConfigOption();
+            upd1_yc2.Name = "Осуществление автоматического блокирования временных учетных записей пользователей по окончании установленного периода времени для их использования";
+            upd1_yc2.DefenceClass = "0";
+
+            ConfigOption upd1_yc3a = new ConfigOption();
+            upd1_yc3a.Name = "Осуществление автоматического блокирования неактивных учетных записей пользователей по окончании установленного периода времени для их использования - более 90 дней";
+            upd1_yc3a.DefenceClass = "2";
+
+            ConfigOption upd1_yc3b = new ConfigOption();
+            upd1_yc3b.Name = "Осуществление автоматического блокирования неактивных учетных записей пользователей по окончании установленного периода времени для их использования - более 45 дней";
+            upd1_yc3b.DefenceClass = "1";
+
+            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd1_1);
+            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd1_2);
+            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd1_3);
+            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd1_4);
+            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd1_yc2);
+            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd1_yc3a);
+            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd1_yc3b);
+
+
+            ConfigOption upd2_1 = new ConfigOption();
+            upd2_1.Name = "Установление метода управления доступом (дискретный, ролевой, мандатный или их комбинация";
+            upd2_1.DefenceClass = "0";
+
+            ConfigOption upd2_2 = new ConfigOption();
+            upd2_2.Name = "Определение типов доступа субъектов к объектам доступа - заполнение матрицы (списков) доступа";
+            upd2_2.DefenceClass = "0";
+
+            ConfigOption upd2_yc1 = new ConfigOption();
+            upd2_yc1.Name = "Управление доступом при входе в ИС";
+            upd2_yc1.DefenceClass = "0";
+
+            ConfigOption upd2_yc2 = new ConfigOption();
+            upd2_yc2.Name = "Управление доступом субъектов к техническим средствам, устройствам и внешним устройствам";
+            upd2_yc2.DefenceClass = "0";
+
+            ConfigOption upd2_yc3 = new ConfigOption();
+            upd2_yc3.Name = "Управление доступом субъектов к объектам, создаваемым общесистемным ПО";
+            upd2_yc3.DefenceClass = "0";
+
+            ConfigOption upd2_yc4 = new ConfigOption();
+            upd2_yc4.Name = "Управление доступом субъектов к объектам, создаваемым специальным и прикладным ПО";
+            upd2_yc4.DefenceClass = "1";
+
+            GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd2_1);
+            GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd2_2);
+            GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd2_yc1);
+            GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd2_yc2);
+            GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd2_yc3);
+            GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd2_yc4);
+
+
+            ConfigOption upd3_1 = new ConfigOption();
+            upd3_1.Name = "Фильтрация информационных потоков в соответствии с установленными правилами";
+            upd3_1.DefenceClass = "2,1";
+
+            ConfigOption upd3_2 = new ConfigOption();
+            upd3_2.Name = "Разрешение передачи информации в ИС только по установленному маршруту";
+            upd3_2.DefenceClass = "2,1";
+
+            ConfigOption upd3_3 = new ConfigOption();
+            upd3_3.Name = "Запись во временное хранилище информации для анализа";
+            upd3_3.DefenceClass = "2,1";
+
+            GisMeasures.Where(gm => gm.Number == 3 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd3_1);
+            GisMeasures.Where(gm => gm.Number == 3 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd3_2);
+            GisMeasures.Where(gm => gm.Number == 3 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd3_3);
+
+
+            ConfigOption upd4 = new ConfigOption();
+            upd4.Name = "Разделение полномочий (ролей) пользователей, администраторов и обеспечивающих функционирование ИС лиц";
+            upd4.Description = "Разделение полномочий пользователей в соответствии с параметрами меры УПД.2";
+            upd4.DefenceClass = "0";
+
+            ConfigOption upd4_yc1 = new ConfigOption();
+            upd4_yc1.Name = "Выполнение каждой роли по обработке информации, администрированию ИС, ее системы защиты, контролю за обеспечением уровня защищенности информации, обеспечению функционирования ИС";
+            upd4_yc1.DefenceClass = "1";
+
+            GisMeasures.Where(gm => gm.Number == 4 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd4);
+            GisMeasures.Where(gm => gm.Number == 4 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd4_yc1);
+
+
+            ConfigOption upd5 = new ConfigOption();
+            upd5.Name = "Назначение минимально необходимых прав и привилегий пользователям для выполнения ими своих должностных обязанностей";
+            upd5.DefenceClass = "0";
+
+            ConfigOption upd5_yc1 = new ConfigOption();
+            upd5_yc1.Name = "Предоставление прав и привилегий по доступу к функциям безопасности (параметрам настройки) СЗИ исключительно администратору безопасности";
+            upd5_yc1.DefenceClass = "1";
+
+            GisMeasures.Where(gm => gm.Number == 5 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd5);
+            GisMeasures.Where(gm => gm.Number == 5 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd5_yc1);
+
+
+            ConfigOption upd6 = new ConfigOption();
+            upd6.Name = "Ограничение количества неуспешных попыток входа в ИС (доступа к ИС) в соответствии с параметрами меры ИАФ.4";
+            upd6.DefenceClass = "0";
+
+            ConfigOption upd6_yc1 = new ConfigOption();
+            upd6_yc1.Name = "Блокировка учетной записи по истечении количества попыток неудачного входа с возможностью разблокирования только администратором безопасности";
+            upd6_yc1.DefenceClass = "1";
+
+            GisMeasures.Where(gm => gm.Number == 6 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd6);
+            GisMeasures.Where(gm => gm.Number == 6 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd6_yc1);
+
+            ConfigOption upd9 = new ConfigOption();
+            upd9.Name = "Определение числа допустимых параллельных сеансов (для ИС/группы/сегмента/пользователя)";
+            upd9.DefenceClass = "1";
+
+            ConfigOption upd9_yc1a = new ConfigOption();
+            upd9_yc1a.Name = "Максимальное количество параллельных сеансов для привилегированных учетных записей (администраторов) с разных устройств (СВТ) не более 2";
+            upd9_yc1a.DefenceClass = "1";
+
+            ConfigOption upd9_yc3 = new ConfigOption();
+            upd9_yc3.Name = "Возможность контроля и отображения для администратора числа активных параллельных сеансов для каждой учетной записи";
+            upd9_yc3.DefenceClass = "1";
+
+            GisMeasures.Where(gm => gm.Number == 9 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd9);
+            GisMeasures.Where(gm => gm.Number == 9 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd9_yc1a);
+            GisMeasures.Where(gm => gm.Number == 9 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd9_yc3);
+
+
+            ConfigOption upd10 = new ConfigOption();
+            upd10.Name = "Блокирование сеанса доступа пользователя в информационную систему должно сохраняться до прохождения им повторной идентификации и аутентификации в соответствии с параметрами меры ИАФ.1";
+            upd10.DefenceClass = "0";
+
+            ConfigOption upd10_yc1a = new ConfigOption();
+            upd10_yc1a.Name = "Блокирование сеанса доступа после времени неактивности пользователя до 15 минут";
+            upd10_yc1a.DefenceClass = "2";
+
+            ConfigOption upd10_yc1b = new ConfigOption();
+            upd10_yc1b.Name = "Блокирование сеанса доступа после времени неактивности пользователя до 5 минут";
+            upd10_yc1b.DefenceClass = "1";
+
+            ConfigOption upd10_yc2 = new ConfigOption();
+            upd10_yc2.Name = "Завершение сеанса доступа после превышения установленного времени неактивности пользователя";
+            upd10_yc2.DefenceClass = "2,1";
+
+            GisMeasures.Where(gm => gm.Number == 10 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd10);
+            GisMeasures.Where(gm => gm.Number == 10 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd10_yc1a);
+            GisMeasures.Where(gm => gm.Number == 10 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd10_yc1b);
+            GisMeasures.Where(gm => gm.Number == 10 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd10_yc2);
+
+
+            ConfigOption upd11 = new ConfigOption();
+            upd11.Name = "Определение перечня действия пользователя, разрешенных до прохождения идентификации и аутентификации";
+            upd11.DefenceClass = "0";
+
+            GisMeasures.Where(gm => gm.Number == 11 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd11);
+
+
+            ConfigOption upd13 = new ConfigOption();
+            upd13.Name = "Установление видов доступа, разрешённых для удалённого доступа к объектам доступа ИС (в соответствии с параметрами меры УПД.2)";
+            upd13.DefenceClass = "0";
+
+            ConfigOption upd13_yc1 = new ConfigOption();
+            upd13_yc1.Name = "Применение автоматизированных средств для мониторинга и контроля удаленного доступа";
+            upd13_yc1.DefenceClass = "1";
+
+            ConfigOption upd13_yc2 = new ConfigOption();
+            upd13_yc2.Name = "Применение минимально необходимого количества точек подключения к ИС при организации удаленного доступа";
+            upd13_yc2.DefenceClass = "0";
+
+            ConfigOption upd13_yc3 = new ConfigOption();
+            upd13_yc3.Name = "Исключение администрирования ИС и системы защиты посредством удаленного доступа";
+            upd13_yc3.DefenceClass = "0";
+
+            ConfigOption upd13_yc5 = new ConfigOption();
+            upd13_yc5.Name = "Обеспечение мониторинга и контроля удаленного доступа на предмет выявления установления несанкционированного соединения технических средств с ИС";
+            upd13_yc5.DefenceClass = "2,1";
+
+            GisMeasures.Where(gm => gm.Number == 13 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd13);
+            GisMeasures.Where(gm => gm.Number == 13 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd13_yc1);
+            GisMeasures.Where(gm => gm.Number == 13 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd13_yc2);
+            GisMeasures.Where(gm => gm.Number == 13 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd13_yc3);
+            GisMeasures.Where(gm => gm.Number == 13 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd13_yc5);
+
+
+            ConfigOption upd14_1 = new ConfigOption();
+            upd14_1.Name = "Ограничение использования технологий беспроводного доступа в соответствии с задачами ИС";
+            upd14_1.DefenceClass = "0";
+
+            ConfigOption upd14_2 = new ConfigOption();
+            upd14_2.Name = "Обеспечение мониторинга применения технологий беспроводного доступа";
+            upd14_2.DefenceClass = "0";
+
+            ConfigOption upd14_3 = new ConfigOption();
+            upd14_3.Name = "Настройка беспроводного доступа пользователей к объектам доступа ИС";
+            upd14_3.DefenceClass = "0";
+
+            ConfigOption upd14_yc1 = new ConfigOption();
+            upd14_yc1.Name = "Обеспечение аутентификации подключаемых с использованием технологий беспроводного доступа устройств в соответствии с параметрами меры ИАФ.2";
+            upd14_yc1.DefenceClass = "0";
+
+            ConfigOption upd14_yc3 = new ConfigOption();
+            upd14_yc3.Name = "Исключается возможность изменения пользователем точек беспроводного доступа";
+            upd14_yc3.DefenceClass = "2,1";
+
+            ConfigOption upd14_yc4 = new ConfigOption();
+            upd14_yc4.Name = "Запрет беспроводного доступа к ИС из-за пределов контролируемой зоны";
+            upd14_yc4.DefenceClass = "1";
+
+            ConfigOption upd14_yc5 = new ConfigOption();
+            upd14_yc5.Name = "Запрет беспроводного доступа от имени администраторов для администрирования ИС и системы защиты";
+            upd14_yc5.DefenceClass = "1";
+
+            GisMeasures.Where(gm => gm.Number == 14 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd14_1);
+            GisMeasures.Where(gm => gm.Number == 14 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd14_2);
+            GisMeasures.Where(gm => gm.Number == 14 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd14_3);
+            GisMeasures.Where(gm => gm.Number == 14 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd14_yc1);
+            GisMeasures.Where(gm => gm.Number == 14 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd14_yc3);
+            GisMeasures.Where(gm => gm.Number == 14 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd14_yc4);
+            GisMeasures.Where(gm => gm.Number == 14 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd14_yc5);
+
+
+            ConfigOption upd15_1 = new ConfigOption();
+            upd15_1.Name = "Определение видов доступа, для которых разрешено использование мобильных технических средств";
+            upd15_1.DefenceClass = "0";
+
+            ConfigOption upd15_2 = new ConfigOption();
+            upd15_2.Name = "Использование в составе ИС мобильных технических средств, в которых реализованы меры защиты информации в соответствии с ЗИС.30";
+            upd15_2.DefenceClass = "0";
+
+            ConfigOption upd15_3 = new ConfigOption();
+            upd15_3.Name = "Ограничение использования мобильных технических средств в соответствии с задачами ИС";
+            upd15_3.DefenceClass = "0";
+
+            ConfigOption upd15_4 = new ConfigOption();
+            upd15_4.Name = "Мониторинг и контроль применения мобильных технических средств на предмет выявления несанкционированного использования для доступа к объектам ИС";
+            upd15_4.DefenceClass = "0";
+
+            ConfigOption upd15_5 = new ConfigOption();
+            upd15_5.Name = "Запрет возможности запуска без команды пользователя в ИС ПО, используемого для взаимодействия с мобильным техническим средством";
+            upd15_5.DefenceClass = "0";
+
+            ConfigOption upd15_yc1 = new ConfigOption();
+            upd15_yc1.Name = "Запрет использования в ИС не входящих в ее состав съемных машинных носителей информации";
+            upd15_yc1.DefenceClass = "2,1";
+
+            ConfigOption upd15_yc2 = new ConfigOption();
+            upd15_yc2.Name = "Запрет использования съемных машинных носителей информации, для которых не определен владелец (пользователь, организация, ответственные за принятие мер защиты информации)";
+            upd15_yc2.DefenceClass = "2,1";
+
+            GisMeasures.Where(gm => gm.Number == 15 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd15_1);
+            GisMeasures.Where(gm => gm.Number == 15 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd15_2);
+            GisMeasures.Where(gm => gm.Number == 15 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd15_3);
+            GisMeasures.Where(gm => gm.Number == 15 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd15_4);
+            GisMeasures.Where(gm => gm.Number == 15 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd15_5);
+            GisMeasures.Where(gm => gm.Number == 15 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd15_yc1);
+            GisMeasures.Where(gm => gm.Number == 15 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd15_yc2);
+
+
+            ConfigOption upd16_1 = new ConfigOption();
+            upd16_1.Name = "Определение системных учетных записей, используемых в рамках взаимодействия";
+            upd16_1.DefenceClass = "0";
+
+            ConfigOption upd16_2 = new ConfigOption();
+            upd16_2.DefenceClass = "0";
+            upd16_2.Name = "Определение ПО, к которому разрешен доступ из внешних ИС";
+
+            ConfigOption upd16_3 = new ConfigOption();
+            upd16_3.Name = "Предоставление доступа к ИС толкьо авторизованным пользователям в соответствии с параметрами меры УПД.2";
+            upd16_3.DefenceClass = "0";
+
+            ConfigOption upd16_yc1a = new ConfigOption();
+            upd16_yc1a.DefenceClass = "0";
+            upd16_yc1a.Description = "Усиление 1а";
+            upd16_yc1a.Name = "Предоставление доступа к ИС пользователям внешних ИС только при наличии договора об информационном взаимодействии";
+
+            ConfigOption upd16_yc1b = new ConfigOption();
+            upd16_yc1b.DefenceClass = "0";
+            upd16_yc1b.Description = "Усиление 1б";
+            upd16_yc1b.Name = "Предоставление доступа к ИС пользователям внешних ИС только при наличии подтверждения выполнения во внешней ИС предъявленных к ней требований о защите информации";
+
+            GisMeasures.Where(gm => gm.Number == 16 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd16_1);
+            GisMeasures.Where(gm => gm.Number == 16 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd16_2);
+            GisMeasures.Where(gm => gm.Number == 16 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd16_3);
+            GisMeasures.Where(gm => gm.Number == 16 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd16_yc1a);
+
+
+            ConfigOption upd17_1 = new ConfigOption();
+            upd17_1.Name = "Обеспечение средством доверенной загрузки блокирования попыток несанкционированной загрузки нештатной ОС или недоступность ресурсов для чтения или омдификации в случае загрузки нештатной ОС";
+            upd17_1.DefenceClass = "2,1";
+
+            ConfigOption upd17_2 = new ConfigOption();
+            upd17_2.Name = "Обеспечение средством доверенной загрузки контроля доступа пользователей к процессу загрузки ОС";
+            upd17_2.DefenceClass = "2,1";
+
+            ConfigOption upd17_3 = new ConfigOption();
+            upd17_3.Name = "Обеспечение средством доверенной загрузки контроля целостности ПО и аппаратных компонентов СВТ";
+            upd17_3.DefenceClass = "2,1";
+
+            ConfigOption upd17_yc1 = new ConfigOption();
+            upd17_yc1.Name = "В ИС должна осуществляться доверенная загрузка уровня базовой системы ввода-вывод или уровня платы расширения";
+            upd17_yc1.DefenceClass = "2";
+            upd17_yc1.Description = "Усиление 1";
+
+            ConfigOption upd17_yc2 = new ConfigOption();
+            upd17_yc2.Name = "В ИС должна осуществляться доверенная загрузка уровня базовой системы ввода-вывод или уровня платы расширения, реализованные на основе программно-аппаратного модуля";
+            upd17_yc2.DefenceClass = "1";
+            upd17_yc2.Description = "Усиление 2";
+
+            GisMeasures.Where(gm => gm.Number == 17 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd17_1);
+            GisMeasures.Where(gm => gm.Number == 17 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd17_2);
+            GisMeasures.Where(gm => gm.Number == 17 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd17_3);
+            GisMeasures.Where(gm => gm.Number == 17 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd17_yc1);
+            GisMeasures.Where(gm => gm.Number == 17 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd17_yc2);
+            #endregion
+
+            #region ОПС
+
+            ConfigOption ops1_1 = new ConfigOption();
+            ops1_1.Name = "Составление перечня компонентов ПО, запускаемых автоматически при загрузке ОС и разрешение их запуска";
+            ops1_1.DefenceClass = "1";
+
+            ConfigOption ops1_2 = new ConfigOption();
+            ops1_2.Name = "Настройка параметров запуска компонентов программного обеспечения от имени учетной записи администратора безопасности таким образом, чтобы текущий пользователь СВТ не мог получить через данные компоненты доступ к объектам, на доступ к которым у него нет прав в соответствии с параметрами меры УПД.2";
+            ops1_2.DefenceClass = "1";
+
+            ConfigOption ops1_3 = new ConfigOption();
+            ops1_3.Name = "Контроль запуска компонентов ПО, обеспечивающий выявление компонентов ПО, не включенных в перечень запускаемых автоматически при загрузке ОС";
+            ops1_3.DefenceClass = "1";
+
+            ConfigOption ops1_yc1 = new ConfigOption();
+            ops1_yc1.DefenceClass = "1";
+            ops1_yc1.Name = "Обеспечение в ИС разрешения запуска только тех компонентов ПО, которые явно разрешены администратором безопасности";
+            ops1_yc1.Description = "Усиление 1";
+
+            ConfigOption ops1_yc2 = new ConfigOption();
+            ops1_yc2.DefenceClass = "1";
+            ops1_yc2.Name = "Обеспечение в ИС использования средств автоматизированного контроля перечня компонентов ПО, запускаемого автоматически при загрузке ОС СВТ";
+            ops1_yc2.Description = "Усиление 2";
+
+            ConfigOption ops1_yc3 = new ConfigOption();
+            ops1_yc3.DefenceClass = "1";
+            ops1_yc3.Name = "Обеспечение в ИС использование автоматизированных механизмов управления запуском компонентов ПО";
+            ops1_yc3.Description = "Усиление 3";
+
+            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "ОПС").First().ConfigOptions.Add(ops1_1);
+            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "ОПС").First().ConfigOptions.Add(ops1_2);
+            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "ОПС").First().ConfigOptions.Add(ops1_3);
+            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "ОПС").First().ConfigOptions.Add(ops1_yc1);
+            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "ОПС").First().ConfigOptions.Add(ops1_yc2);
+            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "ОПС").First().ConfigOptions.Add(ops1_yc3);
+
+
+            ConfigOption ops3_1 = new ConfigOption();
+            ops3_1.Name = "Установка компонентов ПО только разрешенного к установке в ИС (см. \"белый список\" в ОРД) ";
+            ops3_1.DefenceClass = "0";
+
+            ConfigOption ops3_2 = new ConfigOption();
+            ops3_2.Name = "Контроль перечня установленного ПО на соответствие \"белому списку\"";
+            ops3_2.DefenceClass = "0";
+
+            GisMeasures.Where(gm => gm.Number == 3 && gm.MeasureGroup.ShortName == "ОПС").First().ConfigOptions.Add(ops3_1);
+            GisMeasures.Where(gm => gm.Number == 3 && gm.MeasureGroup.ShortName == "ОПС").First().ConfigOptions.Add(ops3_2);
+
+
+            ConfigOption ops4 = new ConfigOption();
+            ops4.Name = "Обеспечение в ИС перехвата записи временной информации в файлы на системном разделе МНИ СВТ и ее перенаправление в память ОЗУ и (или) в другой раздел МНИ с последующей очисткой (стиранием)";
+
+            GisMeasures.Where(gm => gm.Number == 4 && gm.MeasureGroup.ShortName == "ОПС").First().ConfigOptions.Add(ops4);
+            #endregion
+
+            #region ЗНИ
+
+            ConfigOption zni5_1 = new ConfigOption();
+            zni5_1.Name = "Установить разрешенные для ввода-вывода информации интерфейсы";
+
+            ConfigOption zni5_2 = new ConfigOption();
+            zni5_2.Name = "Определение пользователей, уполномоченных на доступ к интерфейсам ввода-вывода (в соответствии с параметрами меры УПД.2)";
+
+            ConfigOption zni5_yc1 = new ConfigOption();
+            zni5_yc1.Name = "Регистрация использования интерфейса ввода-вывода (в соответствии с параметрами меры РСБ.3";
+            zni5_yc1.DefenceClass = "1";
+            zni5_yc1.Description = "Усиление 1";
+
+            GisMeasures.Where(gm => gm.Number == 5 && gm.MeasureGroup.ShortName == "ЗНИ").First().ConfigOptions.Add(zni5_1);
+            GisMeasures.Where(gm => gm.Number == 5 && gm.MeasureGroup.ShortName == "ЗНИ").First().ConfigOptions.Add(zni5_2);
+            GisMeasures.Where(gm => gm.Number == 5 && gm.MeasureGroup.ShortName == "ЗНИ").First().ConfigOptions.Add(zni5_yc1);
+
+
+            ConfigOption zni6_1 = new ConfigOption();
+            zni6_1.Name = "Определение типов носителей информации, ввод-вывод информации на которые подлежит контролю";
+
+            ConfigOption zni6_2 = new ConfigOption();
+            zni6_2.Name = "Определение категорий пользователей, которым предоставлены полномочия по вводу-выводу информации на машинные носители (в соответствии с параметрами меры УПД.2)";
+
+            ConfigOption zni6_3 = new ConfigOption();
+            zni6_3.Name = "Запрет действия по вводу-выводу информации для пользователей, не имеющих полномочий на ввод-вывод информации на носители информации, и на носители, на которые запрещен ввод-вывод";
+
+            GisMeasures.Where(gm => gm.Number == 6 && gm.MeasureGroup.ShortName == "ЗНИ").First().ConfigOptions.Add(zni6_1);
+            GisMeasures.Where(gm => gm.Number == 6 && gm.MeasureGroup.ShortName == "ЗНИ").First().ConfigOptions.Add(zni6_2);
+            GisMeasures.Where(gm => gm.Number == 6 && gm.MeasureGroup.ShortName == "ЗНИ").First().ConfigOptions.Add(zni6_3);
+
+
+            ConfigOption zni7 = new ConfigOption();
+            zni7.Name = "Запрет подключения носителей информации, подключение которых к ИС не разрешено";
+
+            GisMeasures.Where(gm => gm.Number == 7 && gm.MeasureGroup.ShortName == "ЗНИ").First().ConfigOptions.Add(zni7);
+
+
+            ConfigOption zni8_1 = new ConfigOption();
+            zni8_1.Name = "Определение процедур уничтожения (затирания) информации на машинных носителях согласно ОРД";
+
+            ConfigOption zni8_2 = new ConfigOption();
+            zni8_2.Name = "Определение процедур контроля уничтожения (затирания) информации на машинных носителях согласно ОРД";
+
+            ConfigOption zni8_yc1 = new ConfigOption();
+            zni8_yc1.Name = "Обеспечение регистрации и контроля действий по удалению защищаемой информации";
+            zni8_yc1.DefenceClass = "0";
+            zni8_yc1.Description = "Усиление 1";
+
+            ConfigOption zni8_yc2 = new ConfigOption();
+            zni8_yc2.Name = "Периодическая проверка и тестирование средств стирания информации и контроля удаления информации";
+            zni8_yc2.DefenceClass = "1";
+            zni8_yc2.Description = "Усиление 2";
+
+            ConfigOption zni8_yc3 = new ConfigOption();
+            zni8_yc3.Name = "Обеспечение уничтожения стирания информации при первичном подключении к ИС и после приобретения, при использовании в иных ИС, при передаче для постоянного пользования между пользователями, после и перед ремонтом, и в других случаях";
+            zni8_yc3.DefenceClass = "1";
+            zni8_yc3.Description = "Усиление 3";
+
+            ConfigOption zni8_yc5b = new ConfigOption();
+            zni8_yc5b.Name = "Перезапись стираемых файлов случайной битовой последовательностью (БП), удаление записи о файлах, обнуление журнала файловой системы или полная перезапись всего МНИ случайной БП с последующим форматированием";
+            zni8_yc5b.DefenceClass = "3";
+            zni8_yc5b.Description = "Усиление 5б";
+
+            ConfigOption zni8_yc5c = new ConfigOption();
+            zni8_yc5c.Name = "Очистка всего физического пространства МНИ, включая сбойные и резервные элементы памяти спец. программами или утилитами производителя";
+            zni8_yc5c.DefenceClass = "2";
+            zni8_yc5c.Description = "Усиление 5в";
+
+            ConfigOption zni8_yc5d = new ConfigOption();
+            zni8_yc5d.Name = "Полная многократная перезапись МНИ спец. битовыми последовательностями, зависящими от типа накопителя и используемого метода кодирования информации, затем очистка всего физического пространства накопителя, включая сбойные и резервные элементы памяти специализированными программами или утилитами производителя";
+            zni8_yc5d.DefenceClass = "1";
+            zni8_yc5d.Description = "Усиление 5г";
+
+            GisMeasures.Where(gm => gm.Number == 8 && gm.MeasureGroup.ShortName == "ЗНИ").First().ConfigOptions.Add(zni8_1);
+            GisMeasures.Where(gm => gm.Number == 8 && gm.MeasureGroup.ShortName == "ЗНИ").First().ConfigOptions.Add(zni8_2);
+            GisMeasures.Where(gm => gm.Number == 8 && gm.MeasureGroup.ShortName == "ЗНИ").First().ConfigOptions.Add(zni8_yc1);
+            GisMeasures.Where(gm => gm.Number == 8 && gm.MeasureGroup.ShortName == "ЗНИ").First().ConfigOptions.Add(zni8_yc2);
+            GisMeasures.Where(gm => gm.Number == 8 && gm.MeasureGroup.ShortName == "ЗНИ").First().ConfigOptions.Add(zni8_yc3);
+            GisMeasures.Where(gm => gm.Number == 8 && gm.MeasureGroup.ShortName == "ЗНИ").First().ConfigOptions.Add(zni8_yc5b);
+            GisMeasures.Where(gm => gm.Number == 8 && gm.MeasureGroup.ShortName == "ЗНИ").First().ConfigOptions.Add(zni8_yc5c);
+            GisMeasures.Where(gm => gm.Number == 8 && gm.MeasureGroup.ShortName == "ЗНИ").First().ConfigOptions.Add(zni8_yc5d);
+            #endregion
+
+            #region РСБ
+
+            ConfigOption rsb1 = new ConfigOption();
+            rsb1.Name = "Определение перечня и срока хранения событий безопасности в соответствии с ОРД";
+
+            ConfigOption rsb1_yc4a = new ConfigOption();
+            rsb1_yc4a.Name = "Обеспечение срока хранения информации о выявленных СБ не менее 3х месяцев";
+            rsb1_yc4a.DefenceClass = "2";
+            rsb1_yc4a.Description = "Усиление 4а";
+
+            ConfigOption rsb1_yc4b = new ConfigOption();
+            rsb1_yc4b.Name = "Обеспечение срока хранения информации о выявленных СБ и записей системных журналов, которые послужили основанием для регистрации СБ, не менее 3х месяцев";
+            rsb1_yc4b.DefenceClass = "1";
+            rsb1_yc4b.Description = "Усиление 4б";
+
+            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "РСБ").First().ConfigOptions.Add(rsb1);
+            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "РСБ").First().ConfigOptions.Add(rsb1_yc4a);
+            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "РСБ").First().ConfigOptions.Add(rsb1_yc4b);
+
+
+            ConfigOption rsb2_1 = new ConfigOption();
+            rsb2_1.Name = "Определение состава и содержание информации о событиях безопасности в соотвтетствии с ОРД";
+
+            ConfigOption rsb2_2 = new ConfigOption();
+            rsb2_2.Name = "Как минимум информация о событии безопасности содержит: тип СБ, дата и время СБ, идентификационную информацию источника СБ, результат СБ, субъект доступа, связанный с СБ";
+
+            ConfigOption rsb2_yc1a = new ConfigOption();
+            rsb2_yc1a.Name = "Обеспечение записи полнотекстовой записи привилегированных команд (команд, управляющих системными функциями)";
+            rsb2_yc1a.Description = "Усиление 1а";
+            rsb2_yc1a.DefenceClass = "2,1";
+
+            GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "РСБ").First().ConfigOptions.Add(rsb2_1);
+            GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "РСБ").First().ConfigOptions.Add(rsb2_2);
+            GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "РСБ").First().ConfigOptions.Add(rsb2_yc1a);
+
+
+            ConfigOption rsb3 = new ConfigOption();
+            rsb3.Name = "Установить объем памяти, необходимый для хранения информации о СБ в соответствии с ОРД";
+
+            ConfigOption rsb3_yc1 = new ConfigOption();
+            rsb3_yc1.Name = "Обеспечение централизованного автоматизированного управления сбором, записью и хранением информации о СБ";
+            rsb3_yc1.DefenceClass = "2,1";
+            rsb3_yc1.Description = "Усиление 1";
+
+            GisMeasures.Where(gm => gm.Number == 3 && gm.MeasureGroup.ShortName == "РСБ").First().ConfigOptions.Add(rsb3);
+            GisMeasures.Where(gm => gm.Number == 3 && gm.MeasureGroup.ShortName == "РСБ").First().ConfigOptions.Add(rsb3_yc1);
+
+
+            ConfigOption rsb4_1 = new ConfigOption();
+            rsb4_1.Name = "Реагирование на сбои должно обеспечивать предупреждение администраторов о сбоях (аппаратных и программных, переполнении объема памяти, сбоях в механизмах сбора информации) при РСБ";
+
+            ConfigOption rsb4_2 = new ConfigOption();
+            rsb4_2.Name = "Реагирование на сбои должно обеспечивать реагирование на сбои при РСБ путем изменения администраторами параметров сбора, записи и хранения информации о СБ, в т.ч. отключение записи информации о СБ от части компонентов ИС, запись поверх устаревших записей СБ";
+
+            ConfigOption rsb4_yc1a = new ConfigOption();
+            rsb4_yc1a.Name = "Обеспечение выдачи предупреждения администратору при заполнении установленной в ОРД части (% или фактическое значение) объема памяти для хранения информации о СБ";
+            rsb4_yc1a.Description = "Усиление 1а";
+            rsb4_yc1a.DefenceClass = "1";
+
+            ConfigOption rsb4_yc2 = new ConfigOption();
+            rsb4_yc2.Name = "Обеспечение выдачи предупреждения администратору в масштабе времени, близком к реальному, при наступлении критичных сбоев в механизмах сбора информации, определенных оператором";
+            rsb4_yc2.Description = "Усиление 2";
+            rsb4_yc2.DefenceClass = "1";
+
+            GisMeasures.Where(gm => gm.Number == 4 && gm.MeasureGroup.ShortName == "РСБ").First().ConfigOptions.Add(rsb4_1);
+            GisMeasures.Where(gm => gm.Number == 4 && gm.MeasureGroup.ShortName == "РСБ").First().ConfigOptions.Add(rsb4_2);
+            GisMeasures.Where(gm => gm.Number == 4 && gm.MeasureGroup.ShortName == "РСБ").First().ConfigOptions.Add(rsb4_yc1a);
+            GisMeasures.Where(gm => gm.Number == 4 && gm.MeasureGroup.ShortName == "РСБ").First().ConfigOptions.Add(rsb4_yc2);
+
+
+            ConfigOption rsb6 = new ConfigOption();
+            rsb6.Name = "Включить генерацию временных меток (синхронизацию системного времени) для ИС";
+
+            ConfigOption rsb6_yc1 = new ConfigOption();
+            rsb6_yc1.Name = "Выполнение синхронизации системного времени с заданной периодичностью";
+            rsb6_yc1.DefenceClass = "1";
+            rsb6_yc1.Description = "Усиление 1";
+
+            GisMeasures.Where(gm => gm.Number == 6 && gm.MeasureGroup.ShortName == "РСБ").First().ConfigOptions.Add(rsb6);
+            GisMeasures.Where(gm => gm.Number == 6 && gm.MeasureGroup.ShortName == "РСБ").First().ConfigOptions.Add(rsb6_yc1);
+
+
+            ConfigOption rsb7 = new ConfigOption();
+            rsb7.Name = "Установить пользователей ИС, уполномоченных на доступ к записям РСБ и функциям управления РСБ в соответствии с ОРД и параметрами меры УПД.2";
+
+            ConfigOption rsb7_yc1 = new ConfigOption();
+            rsb7_yc1.Name = "Обеспечение обязательного копирования записей РСБ";
+            rsb7_yc1.DefenceClass = "2.1";
+            rsb7_yc1.Description = "Усиление 1";
+
+            GisMeasures.Where(gm => gm.Number == 7 && gm.MeasureGroup.ShortName == "РСБ").First().ConfigOptions.Add(rsb7);
+            GisMeasures.Where(gm => gm.Number == 7 && gm.MeasureGroup.ShortName == "РСБ").First().ConfigOptions.Add(rsb7_yc1);
+            #endregion
+
+            #region АВЗ
+
+            ConfigOption avz1_1 = new ConfigOption();
+            avz1_1.Name = "Предоставить доступ средствам АВЗ к объектам защиты";
+
+            ConfigOption avz1_2 = new ConfigOption();
+            avz1_2.Name = "Обеспечение оповещения администраторов при обнаружении вредоносного ПО";
+
+            ConfigOption avz1_3 = new ConfigOption();
+            avz1_3.Name = "Определение и выполнение действий по реагированю на обнаружение в ИС объектов, зараженных вредоносным ПО";
+
+            ConfigOption avz1_yc1 = new ConfigOption();
+            avz1_yc1.Name = "Обеспечение в ИС предоставления прав по управлению СЗИ администратору безопасности";
+            avz1_yc1.DefenceClass = "0";
+            avz1_yc1.Description = "Усиление 1";
+
+            ConfigOption avz1_yc2 = new ConfigOption();
+            avz1_yc2.Name = "Обеспечение в ИС централизованного управления (контроль актуальности версий ПО и обновлений баз и сигнатур) средствами АВЗ, установленными на компоненты ИС";
+            avz1_yc2.DefenceClass = "2,1";
+            avz1_yc2.Description = "Усиление 2";
+
+            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "АВЗ").First().ConfigOptions.Add(avz1_1);
+            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "АВЗ").First().ConfigOptions.Add(avz1_2);
+            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "АВЗ").First().ConfigOptions.Add(avz1_3);
+            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "АВЗ").First().ConfigOptions.Add(avz1_yc1);
+            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "АВЗ").First().ConfigOptions.Add(avz1_yc2);
+
+
+            ConfigOption avz2_1 = new ConfigOption();
+            avz2_1.Name = "Обеспечение получения уведомлений о необходимости обновлений и непосредственном обновлении признаков вредоносоного ПО";
+
+            ConfigOption avz2_2 = new ConfigOption();
+            avz2_2.Name = "Обеспечение полученния из доверенных источников и установку обновлений базы данных признаков вредоносного ПО";
+
+            ConfigOption avz2_3 = new ConfigOption();
+            avz2_3.Name = "Обеспечение контроля целостности обновлений БД признаков вредоносного ПО";
+
+            ConfigOption avz2_yc1 = new ConfigOption();
+            avz2_yc1.Name = "Централизованное управление обновлением БД признаков вредоносного ПО";
+            avz2_yc1.Description = "Усиление 1";
+            avz2_yc1.DefenceClass = "2,1";
+
+            GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "АВЗ").First().ConfigOptions.Add(avz2_1);
+            GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "АВЗ").First().ConfigOptions.Add(avz2_2);
+            GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "АВЗ").First().ConfigOptions.Add(avz2_3);
+            GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "АВЗ").First().ConfigOptions.Add(avz2_yc1);
+            #endregion
+
+            #region СОВ
+            ConfigOption sov1_1 = new ConfigOption();
+            sov1_1.Name = "Определить перечень учетных записей, способных администрировать СОВ (в соответствии с параметрами меры УПД.2)";
+
+            ConfigOption sov1_yc2 = new ConfigOption();
+            sov1_yc2.Name = "Обеспечение в ИС централизованного управления компонентами СОВ, установленными в различных сегментах ИС";
+            sov1_yc2.Description = "Усиление 2";
+            sov1_yc2.DefenceClass = "2,2";
+
+            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "СОВ").First().ConfigOptions.Add(sov1_1);
+            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "СОВ").First().ConfigOptions.Add(sov1_yc2);
+
+
+            ConfigOption sov2_1 = new ConfigOption();
+            sov2_1.Name = "Обеспечение получения уведомлений о необходимости и непосредственном обновлении базы решающих правил";
+
+            ConfigOption sov2_2 = new ConfigOption();
+            sov2_2.Name = "Обеспечение получения из доверенных источников и установки обновлений базы решающих правил";
+
+            ConfigOption sov2_3 = new ConfigOption();
+            sov2_3.Name = "Обеспечение контроля целостности обновлений базы решающих правил";
+
+            ConfigOption sov2_yc1 = new ConfigOption();
+            sov2_yc1.Name = "Обеспечение централизованного управления обновлением базы решающих правил СОВ";
+            sov2_yc1.DefenceClass = "1";
+            sov2_yc1.Description = "Усиление 1";
+
+            ConfigOption sov2_yc2 = new ConfigOption();
+            sov2_yc2.Name = "Обеспечение возможности редактирования базы решающих правил администраторами для предотвращения компьютерных атак и (или) сокращения нагрузки на ИС, также минимизации ложных срабатываний СОВ";
+            sov2_yc2.DefenceClass = "1";
+            sov2_yc2.Description = "Усиление 2";
+
+            ConfigOption sov2_yc3 = new ConfigOption();
+            sov2_yc3.Name = "Запись о редактировании базы решающих правил СОВ в соответствующем РСБ";
+            sov2_yc3.DefenceClass = "1";
+            sov2_yc3.Description = "Усиление 3";
+
+            GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "СОВ").First().ConfigOptions.Add(sov2_1);
+            GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "СОВ").First().ConfigOptions.Add(sov2_2);
+            GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "СОВ").First().ConfigOptions.Add(sov2_3);
+            GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "СОВ").First().ConfigOptions.Add(sov2_yc1);
+            GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "СОВ").First().ConfigOptions.Add(sov2_yc2);
+            GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "СОВ").First().ConfigOptions.Add(sov2_yc3);
+            #endregion
+
+            #region АНЗ
+
+            ConfigOption anz1_1 = new ConfigOption();
+            anz1_1.Name = "Обеспечение обновлений БД признаков уязвимостей из доверенных источников";
+
+            ConfigOption anz1_2 = new ConfigOption();
+            anz1_2.Name = "Обеспечение поиска уязвимостей, связанных с ошибками кода в ПО, ПО СЗИ, с правильностью установки и настройки СЗИ, тех. средств и ПО, корректностью работы СЗИ при взаимодействии с тех. средствами и ПО";
+
+            ConfigOption anz1_yc4 = new ConfigOption();
+            anz1_yc4.Name = "Обеспечение доступа к функциям анализа уязвимостей только администраторам безопасности";
+            anz1_yc4.DefenceClass = "0";
+            anz1_yc4.Description = "Усиление 4";
+
+            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "АНЗ").First().ConfigOptions.Add(anz1_1);
+            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "АНЗ").First().ConfigOptions.Add(anz1_2);
+            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "АНЗ").First().ConfigOptions.Add(anz1_yc4);
+
+
+            ConfigOption anz2_1 = new ConfigOption();
+            anz2_1.Name = "Получение обновлений из доверенных источников и установка обновления ПО, ПО СЗИ, BIOS";
+
+            GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "АНЗ").First().ConfigOptions.Add(anz2_1);
+
+
+            ConfigOption anz3_yc1 = new ConfigOption();
+            anz3_yc1.Name = "Обеспечение регистрации событий и оповещение администратора о нарушении работоспособности и параметров настройки ПО и ПО СЗИ";
+            anz3_yc1.DefenceClass = "2,1";
+            anz3_yc1.Description = "Усиление 1";
+
+            GisMeasures.Where(gm => gm.Number == 3 && gm.MeasureGroup.ShortName == "АНЗ").First().ConfigOptions.Add(anz3_yc1);
+
+
+            ConfigOption anz4_yc1 = new ConfigOption();
+            anz4_yc1.Name = "Обеспечение регистрации СБ, связанных с изменением состава технических средств, ПО и СЗИ";
+
+            GisMeasures.Where(gm => gm.Number == 4 && gm.MeasureGroup.ShortName == "АНЗ").First().ConfigOptions.Add(anz4_yc1);
+
+
+            ConfigOption anz5 = new ConfigOption();
+            anz5.Name = "Контроль правил генерации и смены паролей пользователей в соответствии с ИАФ.1 и ИАФ.4; контроль заведения и удаления учетных записей пользователей в соответствии с УПД.1; контроль реализации правил разграничения доступом в соответствии с УПД.2; контроль реализации полномочий пользователей в соответствии с УПД.4 и УПД.5.";
+
+            ConfigOption anz5_yc1 = new ConfigOption();
+            anz5_yc1.Name = "Обеспечение регистрации СБ, связанных со сменой паролей пользователей, изменением правил разграничения доступа и полномочий пользователей";
+            anz5_yc1.DefenceClass = "2,1";
+            anz5_yc1.Description = "Усиление 1";
+
+            GisMeasures.Where(gm => gm.Number == 5 && gm.MeasureGroup.ShortName == "АНЗ").First().ConfigOptions.Add(anz5);
+            GisMeasures.Where(gm => gm.Number == 5 && gm.MeasureGroup.ShortName == "АНЗ").First().ConfigOptions.Add(anz5_yc1);
+            #endregion
+
+            #region ОЦЛ
+            ConfigOption ocl1_1 = new ConfigOption();
+            ocl1_1.Name = "Обеспечение контроля целостности ПО, СЗИ и средств разработки и отладки";
+
+            ConfigOption ocl1_2 = new ConfigOption();
+            ocl1_2.Name = "Определение периодичности процедур тестирования функций безопасности СЗИ в соответствии с ОРД и параметрами мер АНЗ.1 и АНЗ.2";
+
+            ConfigOption ocl1_yc1 = new ConfigOption();
+            ocl1_yc1.Name = "Осуществление контроля целостности ПО СЗИ по контрольным суммам всех компонентов СЗИ, как в процессе загрузки, так и динамически в процессе работы системы";
+            ocl1_yc1.Description = "Усиление 1";
+            ocl1_yc1.DefenceClass = "2,1";
+
+            ConfigOption ocl1_yc3 = new ConfigOption();
+            ocl1_yc3.Name = "Исключение возможности использования средств разработки и отладки ПО во время обработки и (или) хранения информации в целяъ обеспечения целостности программной среды";
+            ocl1_yc3.Description = "Усиление 3";
+            ocl1_yc3.DefenceClass = "2,1";
+
+            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "ОЦЛ").First().ConfigOptions.Add(ocl1_1);
+            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "ОЦЛ").First().ConfigOptions.Add(ocl1_2);
+            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "ОЦЛ").First().ConfigOptions.Add(ocl1_yc1);
+            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "ОЦЛ").First().ConfigOptions.Add(ocl1_yc3);
+
+
+            ConfigOption ocl2_1 = new ConfigOption();
+            ocl2_1.Name = "Осуществление контроля целостности информации, содержащейся в БД ИС, контролируя целостность структуры БД по наличию имени и (или) по контрольным суммам программных компонент БД, либо контролируя целостность объектов БД с использованием криптографических методов в процессе загрузки или работы ИС с установленной в ОРД периодичностью";
+
+            GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "ОЦЛ").First().ConfigOptions.Add(ocl2_1);
+
+
+            ConfigOption ocl3_1 = new ConfigOption();
+            ocl3_1.Name = "Определение перечня ПО и ПО СЗИ, для которых будет производиться резервное копирование согласно ОРД";
+
+            ConfigOption ocl3_2 = new ConfigOption();
+            ocl3_2.Name = "Определение периодичность создания резервных копий согласно ОРД";
+
+            ConfigOption ocl3_yc1 = new ConfigOption();
+            ocl3_yc1.Name = "Обеспечение восстановлений отдельных функциональных возможностей ИС с применением резервированного ПО зеркальной ИС (сегмента ИС, тех. средства, устройства) в соответствии с параметрами меры ОДТ.2 и ОДТ.4";
+            ocl3_yc1.Description = "Усиление 1";
+            ocl3_yc1.DefenceClass = "1";
+
+            GisMeasures.Where(gm => gm.Number == 3 && gm.MeasureGroup.ShortName == "ОЦЛ").First().ConfigOptions.Add(ocl3_1);
+            GisMeasures.Where(gm => gm.Number == 3 && gm.MeasureGroup.ShortName == "ОЦЛ").First().ConfigOptions.Add(ocl3_yc1);
+            GisMeasures.Where(gm => gm.Number == 3 && gm.MeasureGroup.ShortName == "ОЦЛ").First().ConfigOptions.Add(ocl3_2);
+
+
+            ConfigOption ocl4_1 = new ConfigOption();
+            ocl4_1.Name = "Определение перечня разрешенных отправителей электронныъх писем в соответствии с ОРД";
+
+            ConfigOption ocl4_2 = new ConfigOption();
+            ocl4_2.Name = "Обеспечение запрета приема писем от отправителей, не находящихся в списке разрешенных";
+
+            ConfigOption ocl4_3 = new ConfigOption();
+            ocl4_3.Name = "Обеспечение защиты от спама с применением специализированных СЗ, фильтрующих электронный сообщения с использованием сигнатурных или/и эвристических методов";
+
+            GisMeasures.Where(gm => gm.Number == 4 && gm.MeasureGroup.ShortName == "ОЦЛ").First().ConfigOptions.Add(ocl4_1);
+            GisMeasures.Where(gm => gm.Number == 4 && gm.MeasureGroup.ShortName == "ОЦЛ").First().ConfigOptions.Add(ocl4_2);
+            GisMeasures.Where(gm => gm.Number == 4 && gm.MeasureGroup.ShortName == "ОЦЛ").First().ConfigOptions.Add(ocl4_3);
+
+            ConfigOption ocl5_1 = new ConfigOption();
+            ocl5_1.Name = "Контроль содержания информации, передаваемой из информационной системы, должен обеспечивать: выявление фактов неправомерной передачи защищаемой информации из информационной системы через различные типы сетевых соединений, включая сети связи общего пользования; записи защищаемой информации на неучтенные съемные машинные носители информации; вывода на печать документов, содержащих защищаемую информацию; копирования защищаемой информации в прикладное программное обеспечение из буфера обмена  и реагирование на них";
+
+            ConfigOption ocl5_2 = new ConfigOption();
+            ocl5_2.Name = "Осуществление контроля хранения защищаемой информации на серверах и автоматизированных рабочих местах";
+
+            ConfigOption ocl5_3 = new ConfigOption();
+            ocl5_3.Name = "Осуществление выявления фактов хранения информации на общих сетевых ресурсах";
+
+            ConfigOption ocl5_4 = new ConfigOption();
+            ocl5_4.Name = "Контроль содержания информации, передаваемой из информационной системы, осуществляется по цифровым отпечаткам информации, по регулярным выражениям и (или)по атрибутам безопасности(меткам безопасности) файлов";
+
+            GisMeasures.Where(gm => gm.Number == 5 && gm.MeasureGroup.ShortName == "ОЦЛ").First().ConfigOptions.Add(ocl5_1);
+            GisMeasures.Where(gm => gm.Number == 5 && gm.MeasureGroup.ShortName == "ОЦЛ").First().ConfigOptions.Add(ocl5_2);
+            GisMeasures.Where(gm => gm.Number == 5 && gm.MeasureGroup.ShortName == "ОЦЛ").First().ConfigOptions.Add(ocl5_3);
+            GisMeasures.Where(gm => gm.Number == 5 && gm.MeasureGroup.ShortName == "ОЦЛ").First().ConfigOptions.Add(ocl5_4);
+
+
+            ConfigOption ocl6_1 = new ConfigOption();
+            ocl6_1.Name = "Определение объектов доступа ИС, ввод информации в которые ограничен";
+
+            ConfigOption ocl6_2 = new ConfigOption();
+            ocl6_2.Name = "Определение пользователей ИС, уполномоченных на ввод информации в ИС в соответствии с ОРД";
+
+            GisMeasures.Where(gm => gm.Number == 6 && gm.MeasureGroup.ShortName == "ОЦЛ").First().ConfigOptions.Add(ocl6_1);
+            GisMeasures.Where(gm => gm.Number == 6 && gm.MeasureGroup.ShortName == "ОЦЛ").First().ConfigOptions.Add(ocl6_2);
+
+
+            ConfigOption ocl8_1 = new ConfigOption();
+            ocl8_1.Name = "Обеспечение генерирования сообщений для пользователей об их ошибочных действиях, которые могут потенциально привести к нарушению безопасности информации в ИС";
+
+            ConfigOption ocl8_2 = new ConfigOption();
+            ocl8_2.Name = "Обеспечение регистрации информации об ошибочных действиях пользователей в соответствии с параметрами меры РСБ.3";
+
+
+            ConfigOption ocl8_3 = new ConfigOption();
+            ocl8_3.Name = "Предоставление доступа к сообщениям об ошибочных действиях пользователей только администраторам";
+
+            GisMeasures.Where(gm => gm.Number == 8 && gm.MeasureGroup.ShortName == "ОЦЛ").First().ConfigOptions.Add(ocl8_1);
+            GisMeasures.Where(gm => gm.Number == 8 && gm.MeasureGroup.ShortName == "ОЦЛ").First().ConfigOptions.Add(ocl8_2);
+            GisMeasures.Where(gm => gm.Number == 8 && gm.MeasureGroup.ShortName == "ОЦЛ").First().ConfigOptions.Add(ocl8_3);
+            #endregion
+
+            #region ОДТ
+
+            ConfigOption odt4_1 = new ConfigOption();
+            odt4_1.Name = "Обеспечение резервного копирования с заданной согласно ОРД периодичностью";
+
+            ConfigOption odt4_2 = new ConfigOption();
+            odt4_2.Name = "Определение перечня информации, подлежащей резервному копированию согласно ОРД";
+
+            ConfigOption odt4_3 = new ConfigOption();
+            odt4_3.Name = "Обеспечение регистрации событий, связанных с резервным копированием";
+
+            ConfigOption odt4_4 = new ConfigOption();
+            odt4_4.Name = "Обеспечение защиты резервируемой информации";
+
+            GisMeasures.Where(gm => gm.Number == 4 && gm.MeasureGroup.ShortName == "ОДТ").First().ConfigOptions.Add(odt4_1);
+            GisMeasures.Where(gm => gm.Number == 4 && gm.MeasureGroup.ShortName == "ОДТ").First().ConfigOptions.Add(odt4_2);
+            GisMeasures.Where(gm => gm.Number == 4 && gm.MeasureGroup.ShortName == "ОДТ").First().ConfigOptions.Add(odt4_3);
+            GisMeasures.Where(gm => gm.Number == 4 && gm.MeasureGroup.ShortName == "ОДТ").First().ConfigOptions.Add(odt4_4);
+
+
+            ConfigOption odt5_1 = new ConfigOption();
+            odt5_1.Name = "Определение времени, в течение которого должно быть обеспечено восстановление информациии с резервных МНИ в соответствии с ОРД";
+
+            ConfigOption odt5_2 = new ConfigOption();
+            odt5_2.Name = "Обеспечение регистрации событий, связанных с восстановлением информации с резервных МНИ";
+
+            ConfigOption odt5_yc1 = new ConfigOption();
+            odt5_yc1.Name = "Обеспечение возможности нагруженного (\"горячего\") резервирования";
+            odt5_yc1.Description = "Усиление 1";
+            odt5_yc1.DefenceClass = "1";
+
+            GisMeasures.Where(gm => gm.Number == 5 && gm.MeasureGroup.ShortName == "ОДТ").First().ConfigOptions.Add(odt5_1);
+            GisMeasures.Where(gm => gm.Number == 5 && gm.MeasureGroup.ShortName == "ОДТ").First().ConfigOptions.Add(odt5_2);
+            GisMeasures.Where(gm => gm.Number == 5 && gm.MeasureGroup.ShortName == "ОДТ").First().ConfigOptions.Add(odt5_yc1);
+            #endregion
+
+            #region ЗСВ
+            ConfigOption zcv1_1 = new ConfigOption();
+            zcv1_1.Name = "Обеспечение идентификации и аутентификации субъектов доступа в виртуальной инфраструктуре в соответствии с параметрами мер ИАФ.1 - ИАФ.7 и ОРД";
+
+            ConfigOption zcv1_2 = new ConfigOption();
+            zcv1_2.Name = "Запрет доступа в виртуальную инфраструктуру дял не аутентифицированных субъектов";
+
+            ConfigOption zcv1_3 = new ConfigOption();
+            zcv1_3.Name = "Обеспечение защиты аутентификационной информации при входе в виртуальную инфраструктуру в соответствии с параметрами меры ИАФ.5";
+
+            ConfigOption zcv1_yc1 = new ConfigOption();
+            zcv1_yc1.Name = "Обеспечение взаимной идентификации и аутентификации пользователя и сервера виртуализации при удаленном доступе";
+            zcv1_yc1.DefenceClass = "2,1";
+            zcv1_yc1.Description = "Усиление 1";
+
+            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "ЗСВ").First().ConfigOptions.Add(zcv1_1);
+            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "ЗСВ").First().ConfigOptions.Add(zcv1_2);
+            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "ЗСВ").First().ConfigOptions.Add(zcv1_3);
+            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "ЗСВ").First().ConfigOptions.Add(zcv1_yc1);
+
+
+            ConfigOption zcv2_1 = new ConfigOption();
+            zcv2_1.Name = "Обеспечение управление доступом в виртуальной инфраструктуре согласно параметрам мер УПД.1, УПД.2, УПД.4 - УПД.6, УПД.9 - УПД.13 и ОРД";
+
+            ConfigOption zcv2_yc1 = new ConfigOption();
+            zcv2_yc1.Name = "Доступ к средствам управления ВМ разрешен только администраторам виртуальной инфраструктуры";
+            zcv2_yc1.Description = "Усиление 1";
+            zcv2_yc1.DefenceClass = "2,1";
+
+            ConfigOption zcv2_yc2 = new ConfigOption();
+            zcv2_yc2.Name = "Доступ к конфигурации ВМ разрешен только администраторам виртуальной инфраструктуры";
+            zcv2_yc2.Description = "Усиление 2";
+            zcv2_yc2.DefenceClass = "2,1";
+
+            GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "ЗСВ").First().ConfigOptions.Add(zcv2_1);
+            GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "ЗСВ").First().ConfigOptions.Add(zcv2_yc1);
+            GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "ЗСВ").First().ConfigOptions.Add(zcv2_yc2);
+
+
+            ConfigOption zcv3_1 = new ConfigOption();
+            zcv3_1.Name = "Определение событий безопасности виртуальной инфраструктуры ИС, подлежащих регистрации в соответствии с параметрами мер РСБ.1 - РСБ.3, РСБ.7 и ОРД";
+
+            ConfigOption zcv3_2 = new ConfigOption();
+            zcv3_2.Name = "Обеспечение доступа только уполномоченных пользователей к записям аудита вирутальной инфраструктуры (в соответствии с ОРД и УПД.2)";
+
+            GisMeasures.Where(gm => gm.Number == 3 && gm.MeasureGroup.ShortName == "ЗСВ").First().ConfigOptions.Add(zcv3_1);
+            GisMeasures.Where(gm => gm.Number == 3 && gm.MeasureGroup.ShortName == "ЗСВ").First().ConfigOptions.Add(zcv3_2);
+
+
+            ConfigOption zcv4_1 = new ConfigOption();
+            zcv4_1.Name = "Обеспечение фильтрации сетевого трафиками между компонентами виртуальной инфраструктуры";
+
+            ConfigOption zcv4_2 = new ConfigOption();
+            zcv4_2.Name = "Обеспечение доверенных канала и маршрута внутри ВИ между администратором, пользователем и СЗИ";
+
+            ConfigOption zcv4_3 = new ConfigOption();
+            zcv4_3.Name = "Обеспечение контроля передачи служебных сообщений, передаваемых в виртуальных сетях гипервизора, хостовой ОС, виртуальной вычислительной сети";
+
+            ConfigOption zcv4_4 = new ConfigOption();
+            zcv4_4.Name = "Обеспечение подлинности сетевых соединений внутри ВИ";
+
+            ConfigOption zcv4_5 = new ConfigOption();
+            zcv4_5.Name = "Обеспечение изоляции потоков данных, передаваемых и обрабатываемых компонентами ВИ и сетевых потоков виртуальной вычислительной сети";
+
+            ConfigOption zcv4_yc2 = new ConfigOption();
+            zcv4_yc2.Name = "Обеспечение фильтрации сетевого трафика от (к) каждой гостевой операционной системы, в виртуальных сетях гипервизора и для каждой виртуальной машины";
+            zcv4_yc2.DefenceClass = "1";
+            zcv4_yc2.Description = "Усиление 2";
+
+            GisMeasures.Where(gm => gm.Number == 4 && gm.MeasureGroup.ShortName == "ЗСВ").First().ConfigOptions.Add(zcv4_1);
+            GisMeasures.Where(gm => gm.Number == 4 && gm.MeasureGroup.ShortName == "ЗСВ").First().ConfigOptions.Add(zcv4_2);
+            GisMeasures.Where(gm => gm.Number == 4 && gm.MeasureGroup.ShortName == "ЗСВ").First().ConfigOptions.Add(zcv4_3);
+            GisMeasures.Where(gm => gm.Number == 4 && gm.MeasureGroup.ShortName == "ЗСВ").First().ConfigOptions.Add(zcv4_4);
+            GisMeasures.Where(gm => gm.Number == 4 && gm.MeasureGroup.ShortName == "ЗСВ").First().ConfigOptions.Add(zcv4_5);
+            GisMeasures.Where(gm => gm.Number == 4 && gm.MeasureGroup.ShortName == "ЗСВ").First().ConfigOptions.Add(zcv4_yc2);
+
+
+            ConfigOption zcv5 = new ConfigOption();
+            zcv5.Name = "Обеспечение блокировки попыток несанкционированной загрузки гипервизора, хостовой и гостевых ОС ( применение СДЗ)";
+
+            GisMeasures.Where(gm => gm.Number == 5 && gm.MeasureGroup.ShortName == "ЗСВ").First().ConfigOptions.Add(zcv5);
+
+
+            ConfigOption zcv6_1 = new ConfigOption();
+            zcv6_1.Name = "Обеспечение полного запрета перемещения ВМ (контейнеров)";
+
+            ConfigOption zcv6_2 = new ConfigOption();
+            zcv6_2.Name = "Обеспечение ограничения перемещения ВМ (контейнеров) в пределах ИС, сегмента ИС и меджу сегментами ИС";
+
+            ConfigOption zcv6_yc2 = new ConfigOption();
+            zcv6_yc2.Name = "Осуществление обработки отказов перемещения ВМ (контейнеров) и обрабатываемых на них данных";
+            zcv6_yc2.DefenceClass = "1";
+            zcv6_yc2.Description = "Усиление 2";
+
+            GisMeasures.Where(gm => gm.Number == 6 && gm.MeasureGroup.ShortName == "ЗСВ").First().ConfigOptions.Add(zcv6_1);
+            GisMeasures.Where(gm => gm.Number == 6 && gm.MeasureGroup.ShortName == "ЗСВ").First().ConfigOptions.Add(zcv6_2);
+            GisMeasures.Where(gm => gm.Number == 6 && gm.MeasureGroup.ShortName == "ЗСВ").First().ConfigOptions.Add(zcv6_yc2);
+
+
+            ConfigOption zcv7_1 = new ConfigOption();
+            zcv7_1.Name = "Обеспечение контроля целостности: компонентов, критически важных для функционирования хостовой ОС, гостевых ОС, гипервизора; состава и конфигурации виртуального оборудования; файлов, содержащих параметры настройки виртуализированного ПО и ВМ; файлов-образов ВПО и ВМ";
+
+            ConfigOption zcv7_yc1 = new ConfigOption();
+            zcv7_yc1.Name = "Обеспечение контроля целостности BIOS серверов и консолей управления ВИ";
+            zcv7_yc1.Description = "Усиление 1";
+            zcv7_yc1.DefenceClass = "1";
+
+            ConfigOption zcv7_yc3 = new ConfigOption();
+            zcv7_yc3.Name = "Обеспечение контроля целостности состава аппаратной части компонентов ВИ";
+            zcv7_yc3.Description = "Усиление 3";
+            zcv7_yc3.DefenceClass = "2,1";
+
+            GisMeasures.Where(gm => gm.Number == 7 && gm.MeasureGroup.ShortName == "ЗСВ").First().ConfigOptions.Add(zcv7_1);
+            GisMeasures.Where(gm => gm.Number == 7 && gm.MeasureGroup.ShortName == "ЗСВ").First().ConfigOptions.Add(zcv7_yc1);
+            GisMeasures.Where(gm => gm.Number == 7 && gm.MeasureGroup.ShortName == "ЗСВ").First().ConfigOptions.Add(zcv7_yc3);
+
+
+            ConfigOption zcv8_1 = new ConfigOption();
+            zcv8_1.Name = "Определение данных ВИ ИС, подлежащих резервному копированию (согласно ОРД и параметрам мер ОДТ.2, ОДТ.4, ОДТ.5);";
+
+            ConfigOption zcv8_2 = new ConfigOption();
+            zcv8_2.Name = "Обеспечение резервного копирования: ВМ; данных, обрабатываемых в ИС; ПО ВИ";
+
+            ConfigOption zcv8_yc1 = new ConfigOption();
+            zcv8_yc1.Name = "Обеспечение резервного копирования конфигурации ВИ";
+            zcv8_yc1.DefenceClass = "1";
+            zcv8_yc1.Description = "Усиление 1";
+
+            ConfigOption zcv8_yc2 = new ConfigOption();
+            zcv8_yc2.Name = "Обеспечение резервного копирования ПО серверов и АРМ админстратора управления виртуализацией ";
+            zcv8_yc2.DefenceClass = "1";
+            zcv8_yc2.Description = "Усиление 2";
+
+            ConfigOption zcv8_yc3 = new ConfigOption();
+            zcv8_yc3.Name = "Обеспечение резервирования дистрибутивов средств построения и управления ВИ";
+            zcv8_yc3.DefenceClass = "1";
+            zcv8_yc3.Description = "Усиление 3";
+
+            GisMeasures.Where(gm => gm.Number == 8 && gm.MeasureGroup.ShortName == "ЗСВ").First().ConfigOptions.Add(zcv8_1);
+            GisMeasures.Where(gm => gm.Number == 8 && gm.MeasureGroup.ShortName == "ЗСВ").First().ConfigOptions.Add(zcv8_2);
+            GisMeasures.Where(gm => gm.Number == 8 && gm.MeasureGroup.ShortName == "ЗСВ").First().ConfigOptions.Add(zcv8_yc2);
+            GisMeasures.Where(gm => gm.Number == 8 && gm.MeasureGroup.ShortName == "ЗСВ").First().ConfigOptions.Add(zcv8_yc1);
+            GisMeasures.Where(gm => gm.Number == 8 && gm.MeasureGroup.ShortName == "ЗСВ").First().ConfigOptions.Add(zcv8_yc3);
+
+
+            ConfigOption zcv9_1 = new ConfigOption();
+            zcv9_1.Name = "Обеспечение проверки наличия вредоносного ПО в хостовой ОС, включая котнроль ФС, памяти, запущенных процессов";
+
+            ConfigOption zcv9_2 = new ConfigOption();
+            zcv9_2.Name = "Обеспечение проверки наличия вредоносного ПО в гостевых ОС в процессе их функционирования, включая котнроль ФС, памяти, запущенных процессов";
+
+            ConfigOption zcv9_yc1 = new ConfigOption();
+            zcv9_yc1.Name = "Обеспечение разграничения доступа в ВИ к управлению средствами АВЗ";
+            zcv9_yc1.DefenceClass = "2,1";
+            zcv9_yc1.Description = "Усиление 1";
+
+            GisMeasures.Where(gm => gm.Number == 9 && gm.MeasureGroup.ShortName == "ЗСВ").First().ConfigOptions.Add(zcv9_1);
+            GisMeasures.Where(gm => gm.Number == 9 && gm.MeasureGroup.ShortName == "ЗСВ").First().ConfigOptions.Add(zcv9_2);
+            GisMeasures.Where(gm => gm.Number == 9 && gm.MeasureGroup.ShortName == "ЗСВ").First().ConfigOptions.Add(zcv9_yc1);
+            #endregion
+
+            #region ЗИС
+            ConfigOption zis1_1 = new ConfigOption();
+            zis1_1.Name = "Определение учетных записей администраторов и администраторов безопасности ИС, а также назначение прав таким учетным записям в соответствии с ОРД и параметрами мер УПД.2 и ИАФ.1";
+
+            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "ЗИС").First().ConfigOptions.Add(zis1_1);
+
+
+            ConfigOption zis5_1 = new ConfigOption();
+            zis5_1.Name = "Обеспечение запрета несанкционированной удаленной активации периферийных устройств ввода-вывода, имеющих возможность управления через компоненты ПО";
+
+            ConfigOption zis5_yc2 = new ConfigOption();
+            zis5_yc2.Name = "Обеспечение возможности блокирования входящего и исходящего трафика от пользователей систем, предоставляющих внешние сервисы, в которых настройки сервисов для конечных пользователей устанавливаются провайдерами или самими пользователями";
+            zis5_yc2.Description = "Усиление 2";
+            zis5_yc2.DefenceClass = "1";
+
+            GisMeasures.Where(gm => gm.Number == 5 && gm.MeasureGroup.ShortName == "ЗИС").First().ConfigOptions.Add(zis5_1);
+            GisMeasures.Where(gm => gm.Number == 5 && gm.MeasureGroup.ShortName == "ЗИС").First().ConfigOptions.Add(zis5_yc2);
+
+
+            ConfigOption zis7_1 = new ConfigOption();
+            zis7_1.Name = "Определение перечня разрешенных технологий мобильного кода согласно ОРД";
+
+            ConfigOption zis7_2 = new ConfigOption();
+            zis7_2.Name = "Определение перечня мест разрешенного использования (АРМ, сервера, и др.) технологий мобильного кода согласно ОРД";
+
+            ConfigOption zis7_3 = new ConfigOption();
+            zis7_3.Name = "Исключение возможности использования запрещенного мобильного кода";
+
+            GisMeasures.Where(gm => gm.Number == 7 && gm.MeasureGroup.ShortName == "ЗИС").First().ConfigOptions.Add(zis7_1);
+            GisMeasures.Where(gm => gm.Number == 7 && gm.MeasureGroup.ShortName == "ЗИС").First().ConfigOptions.Add(zis7_2);
+            GisMeasures.Where(gm => gm.Number == 7 && gm.MeasureGroup.ShortName == "ЗИС").First().ConfigOptions.Add(zis7_3);
+
+
+            ConfigOption zis8_1 = new ConfigOption();
+            zis8_1.Name = "Определение перечня разрешенных сервисов передачи речи согласно ОРД";
+
+            ConfigOption zis8_2 = new ConfigOption();
+            zis8_2.Name = "Определение перечня пользователей, для которых разрешено использование сервисов передачи речи согласно ОРД";
+
+            ConfigOption zis8_3 = new ConfigOption();
+            zis8_3.Name = "Обеспечение запрета удаленной конфигурации устройств передачи речи";
+
+            GisMeasures.Where(gm => gm.Number == 8 && gm.MeasureGroup.ShortName == "ЗИС").First().ConfigOptions.Add(zis8_1);
+            GisMeasures.Where(gm => gm.Number == 8 && gm.MeasureGroup.ShortName == "ЗИС").First().ConfigOptions.Add(zis8_2);
+            GisMeasures.Where(gm => gm.Number == 8 && gm.MeasureGroup.ShortName == "ЗИС").First().ConfigOptions.Add(zis8_3);
+
+            ConfigOption zis11_1 = new ConfigOption();
+            zis11_1.Name = "Обеспечение проверки подлинности сторон сетевого соединения в соответствии с параметрами меры ИАФ.2";
+
+            ConfigOption zis11_2 = new ConfigOption();
+            zis11_2.Name = "Обеспечение проверки целостности передаваемых пакетов";
+
+            ConfigOption zis11_yc1 = new ConfigOption();
+            zis11_yc1.Name = "Обеспечение признания сетевого идентификатора сеанса связи недействительным после окончания сетевого соединения";
+            zis11_yc1.DefenceClass = "1";
+            zis11_yc1.Description = "Усиление 1";
+
+            GisMeasures.Where(gm => gm.Number == 11 && gm.MeasureGroup.ShortName == "ЗИС").First().ConfigOptions.Add(zis11_1);
+            GisMeasures.Where(gm => gm.Number == 11 && gm.MeasureGroup.ShortName == "ЗИС").First().ConfigOptions.Add(zis11_2);
+            GisMeasures.Where(gm => gm.Number == 11 && gm.MeasureGroup.ShortName == "ЗИС").First().ConfigOptions.Add(zis11_yc1);
+
+
+            ConfigOption zis12_1 = new ConfigOption();
+            zis12_1.Name = "Определение объектов или типов информации, для которых требуется обеспечение неотказуемости отправки сообщений согласно ОРД";
+
+            ConfigOption zis12_2 = new ConfigOption();
+            zis12_2.Name = "Обеспечение регистрации событий, связанных с отправкой информации между пользователями в соответствии с параметрами меры РСБ.2";
+
+            ConfigOption zis12_3 = new ConfigOption();
+            zis12_3.Name = "Обеспечение целостности информации при ее передаче по каналам связи в соответствии с параметрами меры ЗИС.3";
+
+            GisMeasures.Where(gm => gm.Number == 12 && gm.MeasureGroup.ShortName == "ЗИС").First().ConfigOptions.Add(zis12_1);
+            GisMeasures.Where(gm => gm.Number == 12 && gm.MeasureGroup.ShortName == "ЗИС").First().ConfigOptions.Add(zis12_2);
+            GisMeasures.Where(gm => gm.Number == 12 && gm.MeasureGroup.ShortName == "ЗИС").First().ConfigOptions.Add(zis12_3);
+
+
+            ConfigOption zis13_1 = new ConfigOption();
+            zis13_1.Name = "Определение объектов или типов информации, для которых требуется обеспечение неотказуемости получения сообщений согласно ОРД";
+
+            ConfigOption zis13_2 = new ConfigOption();
+            zis13_2.Name = "Обеспечение регистрации событий, связанных с получением информации пользователями в соответствии с параметрами меры РСБ.2";
+
+            ConfigOption zis13_3 = new ConfigOption();
+            zis13_3.Name = "Обеспечение целостности полученной информации в соответствии с параметрами меры ЗИС.3";
+
+            GisMeasures.Where(gm => gm.Number == 13 && gm.MeasureGroup.ShortName == "ЗИС").First().ConfigOptions.Add(zis13_1);
+            GisMeasures.Where(gm => gm.Number == 13 && gm.MeasureGroup.ShortName == "ЗИС").First().ConfigOptions.Add(zis13_2);
+            GisMeasures.Where(gm => gm.Number == 13 && gm.MeasureGroup.ShortName == "ЗИС").First().ConfigOptions.Add(zis13_3);
+
+
+            ConfigOption zis20_1 = new ConfigOption();
+            zis20_1.Name = "Обеспечение предоставление доступа к параметрам настройки беспроводных соединениий только администраторам";
+
+            ConfigOption zis20_2 = new ConfigOption();
+            zis20_2.Name = "Определение перечня разрешенных для беспроводных соединений интерфейсов согласно ОРД";
+
+            ConfigOption zis20_3 = new ConfigOption();
+            zis20_3.Name = "Обеспечение регистрации событий, связанных с использованием беспроводных соединений";
+
+            GisMeasures.Where(gm => gm.Number == 20 && gm.MeasureGroup.ShortName == "ЗИС").First().ConfigOptions.Add(zis20_1);
+            GisMeasures.Where(gm => gm.Number == 20 && gm.MeasureGroup.ShortName == "ЗИС").First().ConfigOptions.Add(zis20_2);
+            GisMeasures.Where(gm => gm.Number == 20 && gm.MeasureGroup.ShortName == "ЗИС").First().ConfigOptions.Add(zis20_3);
+
+
+            ConfigOption zis21_1 = new ConfigOption();
+            zis21_1.Name = "Обеспечение запрета доступа пользователям к системным ресурсам при их повторном использовании, где хранится информация другого пользователя, посредством затирания и очистки памяти и реестров";
+
+            GisMeasures.Where(gm => gm.Number == 21 && gm.MeasureGroup.ShortName == "ЗИС").First().ConfigOptions.Add(zis21_1);
+
+
+            ConfigOption zis23_1 = new ConfigOption();
+            zis23_1.Name = "Обеспечение управления входящими в и выходящими из ИС информационными потоками на физической или логической границе ИС (сегментов ИС)";
+
+            ConfigOption zis23_2 = new ConfigOption();
+            zis23_2.Name = "Обеспечение взаимодействия с иными ИС только через сетевые интерфейсы, которые обеспечивают контроль и управление информационных потоков";
+
+            ConfigOption zis23_yc2 = new ConfigOption();
+            zis23_yc2.Name = "Обеспечение предоставления доступа во внутренние сегменты ИС из внешних ИС и сетей только через средства защиты периметра";
+            zis23_yc2.DefenceClass = "2,1";
+            zis23_yc2.Description = "Усиление 2";
+
+            ConfigOption zis23_yc3 = new ConfigOption();
+            zis23_yc3.Name = "Обеспечение постоянного и всестороннего контроля входящих и исходящих информационных потоков";
+            zis23_yc3.DefenceClass = "2,1";
+            zis23_yc3.Description = "Усиление 3";
+
+            ConfigOption zis23_yc4d = new ConfigOption();
+            zis23_yc4d.Name = "Обеспечение удаления введенных исключений из правил управления информационными потоками";
+            zis23_yc4d.DefenceClass = "1";
+            zis23_yc4d.Description = "Усиление 4д";
+
+            ConfigOption zis23_yc5 = new ConfigOption();
+            zis23_yc5.Name = "Обеспечение управления информационными потоками на управляемых сетевых интерфейсах по принципу \"запрещено все, что не разрешено\"";
+            zis23_yc5.DefenceClass = "2,1";
+            zis23_yc5.Description = "Усиление 5";
+
+            ConfigOption zis23_yc6 = new ConfigOption();
+            zis23_yc6.Name = "Обеспечение запрета передачи информации за пределы периметра ИС при сбое функционирования средств защиты периметра";
+            zis23_yc6.DefenceClass = "1";
+            zis23_yc6.Description = "Усиление 6";
+
+            ConfigOption zis23_yc7 = new ConfigOption();
+            zis23_yc7.Name = "Обеспечение исключения возможности подключения мобильных и иных тех. средств с внешними ИС и сетями в процессе их удаленного подключения к защищаемой ИС с исп. VPN";
+            zis23_yc7.DefenceClass = "1";
+            zis23_yc7.Description = "Усиление 7";
+
+            GisMeasures.Where(gm => gm.Number == 23 && gm.MeasureGroup.ShortName == "ЗИС").First().ConfigOptions.Add(zis23_1);
+            GisMeasures.Where(gm => gm.Number == 23 && gm.MeasureGroup.ShortName == "ЗИС").First().ConfigOptions.Add(zis23_2);
+            GisMeasures.Where(gm => gm.Number == 23 && gm.MeasureGroup.ShortName == "ЗИС").First().ConfigOptions.Add(zis23_yc2);
+            GisMeasures.Where(gm => gm.Number == 23 && gm.MeasureGroup.ShortName == "ЗИС").First().ConfigOptions.Add(zis23_yc3);
+            GisMeasures.Where(gm => gm.Number == 23 && gm.MeasureGroup.ShortName == "ЗИС").First().ConfigOptions.Add(zis23_yc4d);
+            GisMeasures.Where(gm => gm.Number == 23 && gm.MeasureGroup.ShortName == "ЗИС").First().ConfigOptions.Add(zis23_yc5);
+            GisMeasures.Where(gm => gm.Number == 23 && gm.MeasureGroup.ShortName == "ЗИС").First().ConfigOptions.Add(zis23_yc6);
+            GisMeasures.Where(gm => gm.Number == 23 && gm.MeasureGroup.ShortName == "ЗИС").First().ConfigOptions.Add(zis23_yc7);
+
+
+            ConfigOption zis30_1 = new ConfigOption();
+            zis30_1.Name = "Обеспечение удаления информации в мобильном техническом средстве после завершения сеанса удаленного доступа";
+
+            ConfigOption zis30_2 = new ConfigOption();
+            zis30_2.Name = "Обеспечение запрета автозапуска ПО на мобильных технических устройствах";
+
+            GisMeasures.Where(gm => gm.Number == 30 && gm.MeasureGroup.ShortName == "ЗИС").First().ConfigOptions.Add(zis30_1);
+            GisMeasures.Where(gm => gm.Number == 30 && gm.MeasureGroup.ShortName == "ЗИС").First().ConfigOptions.Add(zis30_2);
+            #endregion
 
             #endregion
 

@@ -75,6 +75,7 @@ namespace KPSZI
             //stages.Add("tnMeasuresTechno", new StageMeasuresTechno(returnTabPage("tpMeasuresTechno"), returnTreeNode("tnMeasuresTechno"), this, IS));
             stages.Add("tnSZI", new StageSZI(returnTabPage("tpSZI"), returnTreeNode("tnSZI"), this, IS));
             stages.Add("tnTPExport", new StageTPExport(returnTabPage("tpTPExport"), returnTreeNode("tnTPExport"), this, IS));
+            stages.Add("tnConfigOptions", new StageConfigOptions(returnTabPage("tpConfigOptions"), returnTreeNode("tnconfigOptions"), this, IS));
 
             //returnTreeNode("tnActualThreats").ForeColor = Color.Gray;
             //returnTreeNode("tnActualThreats").BackColor = Color.White;
@@ -306,15 +307,15 @@ namespace KPSZI
             {
                 using (KPSZIContext db = new KPSZIContext())
                 {
-                    try
-                    {
+                    //try
+                    //{
                         db.Seed();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message, "Ахтунг!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
+                    //}
+                    //catch (Exception ex)
+                    //{
+                    //    MessageBox.Show(ex.Message, "Ахтунг!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //    return;
+                    //}
                 }
                 MessageBox.Show("База данных проинициализирована начальными значениями", "Это успех, парень!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -339,6 +340,14 @@ namespace KPSZI
         {
             FillThreatsForm form = new FillThreatsForm(this);
             form.Show();
+        }
+
+        private void setConfigOptionsToolStripMenu_Click(object sender, EventArgs e)
+        {
+            using (KPSZIContext db = new KPSZIContext())
+            {
+                db.SeedForConfigOptions();
+            }
         }
     }
 }
