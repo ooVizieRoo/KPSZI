@@ -22,6 +22,7 @@ namespace KPSZI
         internal Dictionary<string, Stage> stages = new Dictionary<string, Stage>();
         TreeNode previousSelectedNode;
         InformationSystem IS = new InformationSystem();
+        internal WaitingSplashMessage wsm;
         Thread t;
 
         public void startSplash()
@@ -69,6 +70,11 @@ namespace KPSZI
             stages.Add("tnTCUI", new StageTCUI(returnTabPage("tpTCUI"), returnTreeNode("tnTCUI"), this, IS));
             stages.Add("tnTechnoGenThreats", new stageTechnoGenThreats(returnTabPage("tpTechnoGenThreats"), returnTreeNode("tnTechnoGenThreats"), this, IS));
             stages.Add("tnSKZI", new StageSKZI(returnTabPage("tpSKZI"), returnTreeNode("tnSKZI"), this, IS));
+            stages.Add("tnMeasures", new StageMeasures(returnTabPage("tpMeasures"), returnTreeNode("tnMeasures"), this, IS));
+            //stages.Add("tnMeasuresTCUI", new StageMeasuresTCUI(returnTabPage("tpMeasuresTCUI"), returnTreeNode("tnMeasuresTCUI"), this, IS));
+            //stages.Add("tnMeasuresTechno", new StageMeasuresTechno(returnTabPage("tpMeasuresTechno"), returnTreeNode("tnMeasuresTechno"), this, IS));
+            stages.Add("tnSZI", new StageSZI(returnTabPage("tpSZI"), returnTreeNode("tnSZI"), this, IS));
+            stages.Add("tnTPExport", new StageTPExport(returnTabPage("tpTPExport"), returnTreeNode("tnTPExport"), this, IS));
 
             //returnTreeNode("tnActualThreats").ForeColor = Color.Gray;
             //returnTreeNode("tnActualThreats").BackColor = Color.White;
@@ -96,6 +102,13 @@ namespace KPSZI
 
             tabControlInfoTypes.TabPages.AddRange(((StageClassification)stages["tnClassification"]).tabPagesInfoTypes.ToArray());
             t.Abort();
+
+            //Создание окна "подождика пока я работаю.."
+            wsm = new WaitingSplashMessage();
+            this.Controls.Add(wsm);
+            wsm.Location = new Point(this.Width / 2 - wsm.Width/2, this.Height / 2 - wsm.Height/2);
+            wsm.BringToFront();
+            wsm.Visible = false;
         }
 
         // возвращает ссылку на TabPage по имени вкладки
@@ -181,7 +194,7 @@ namespace KPSZI
                 {
                     try
                     {
-                        db.Database.ExecuteSqlCommand("SET SCHEMA '" + KPSZIContext.schema_name + "'; TRUNCATE \"GISMeasures\", \"ISPDNMeasures\", \"InfoTypes\", \"IntruderTypes\", \"SFHThreats\", \"MeasureGroups\", \"SFHTypes\", \"SFHs\", \"SZIGISMeasures\", \"SZIISPDNMeasures\", \"SZITypes\", \"SZIs\", \"TCUIThreats\", \"TCUITypes\", \"TCUIs\", \"TechnogenicMeasures\", \"TechnogenicThreats\", \"ThreatSources\", \"ThreatSourceThreats\", \"Threats\", \"ImplementWays\", \"ThreatImplementWays\", \"Vulnerabilities\", \"VulnerabilityThreats\" CASCADE");
+                        db.Database.ExecuteSqlCommand("SET SCHEMA '" + KPSZIContext.schema_name + "'; TRUNCATE \"GISMeasures\", \"ISPDNMeasures\", \"ImplementWayThreats\", \"SFHGISMeasures\", \"ThreatGISMeasures\", \"InfoTypes\", \"IntruderTypes\", \"ThreatSFHs\", \"MeasureGroups\", \"SFHTypes\", \"SFHs\", \"SZIGISMeasures\",  \"SZISorts\", \"SZISortSZIs\", \"SZIs\", \"TCUIThreats\", \"TCUITypes\", \"TCUIs\", \"TechnogenicMeasures\", \"TechnogenicThreats\", \"ThreatSources\", \"ThreatSourceThreats\", \"Threats\", \"ImplementWays\",\"Vulnerabilities\", \"VulnerabilityThreats\" CASCADE");
                     }
                     catch (Exception ex)
                     {

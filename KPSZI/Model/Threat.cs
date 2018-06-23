@@ -84,6 +84,34 @@ namespace KPSZI.Model
             SFHs = new List<SFH>();
         }
 
+        public override bool Equals(object obj)
+        {
+            Threat thr;
+
+            try
+            {
+                thr = (Threat)obj;
+            }
+            catch
+            {
+                return false;
+            }
+
+            if (thr.ThreatNumber == ThreatNumber && thr.Name == Name)
+                return true;
+            return false; 
+        }
+
+        public override int GetHashCode()
+        {
+            return ThreatNumber + Name.Length * 2;
+        }
+
+        public override string ToString()
+        {
+            return "УБИ." + ThreatNumber.ToString("000") + ". " + Name;
+        }
+
         public void setStringImplementWays()
         {
             string s = "";

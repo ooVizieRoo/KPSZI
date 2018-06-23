@@ -38,11 +38,18 @@ namespace KPSZI.Model
         /// Уровень проектной защищенности: 2 - высокий, 1 - средний, 0 - низкий.
         /// </summary>
         public int ProjectSecurity { get; set; }
-
+        /// <summary>
+        /// Соответствие мер угрозам (уточнение адаптированного базового набора мер)
+        /// </summary>
         public virtual ICollection<Threat> Threats { get; set; }
+        /// <summary>
+        /// Навигационное поле для соответствия мер защиты и СФХ (адаптация базового набора мер)
+        /// </summary>
+        public virtual ICollection<GISMeasure> GISMeasures { get; set; }
 
         public SFH()
         {
+            GISMeasures = new List<GISMeasure>();
             Threats = new List<Threat>();
         }
     }

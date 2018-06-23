@@ -29,45 +29,57 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode43 = new System.Windows.Forms.TreeNode("1.1. Параметры ИС");
-            System.Windows.Forms.TreeNode treeNode44 = new System.Windows.Forms.TreeNode("1.2. Классификация ИС");
-            System.Windows.Forms.TreeNode treeNode45 = new System.Windows.Forms.TreeNode("1.3.1. Матрица доступа");
-            System.Windows.Forms.TreeNode treeNode46 = new System.Windows.Forms.TreeNode("1.3.2. Топология сети");
-            System.Windows.Forms.TreeNode treeNode47 = new System.Windows.Forms.TreeNode("1.3.3. Аппаратная конфигурация");
-            System.Windows.Forms.TreeNode treeNode48 = new System.Windows.Forms.TreeNode("1.3. Технологическая информация", new System.Windows.Forms.TreeNode[] {
-            treeNode45,
-            treeNode46,
-            treeNode47});
-            System.Windows.Forms.TreeNode treeNode49 = new System.Windows.Forms.TreeNode("1. Обследование ИС", new System.Windows.Forms.TreeNode[] {
-            treeNode43,
-            treeNode44,
-            treeNode48});
-            System.Windows.Forms.TreeNode treeNode50 = new System.Windows.Forms.TreeNode("2.1. Модель нарушителя");
-            System.Windows.Forms.TreeNode treeNode51 = new System.Windows.Forms.TreeNode("2.2. Потенциальные уязвимости ИС");
-            System.Windows.Forms.TreeNode treeNode52 = new System.Windows.Forms.TreeNode("2.3. Актуальные угрозы (НСД)");
-            System.Windows.Forms.TreeNode treeNode53 = new System.Windows.Forms.TreeNode("2.4. Актуальные угрозы (ТКУИ)");
-            System.Windows.Forms.TreeNode treeNode54 = new System.Windows.Forms.TreeNode("2.5. Актуальные угрозы (Техногенные)");
-            System.Windows.Forms.TreeNode treeNode55 = new System.Windows.Forms.TreeNode("2.6. Актуальность использования СКЗИ");
-            System.Windows.Forms.TreeNode treeNode56 = new System.Windows.Forms.TreeNode("2. Модель угроз", new System.Windows.Forms.TreeNode[] {
-            treeNode50,
-            treeNode51,
-            treeNode52,
-            treeNode53,
-            treeNode54,
-            treeNode55});
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("1.1. Параметры ИС");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("1.2. Классификация ИС");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("1.3.1. Матрица доступа");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("1.3.2. Топология сети");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("1.3.3. Аппаратная конфигурация");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("1.3. Технологическая информация", new System.Windows.Forms.TreeNode[] {
+            treeNode3,
+            treeNode4,
+            treeNode5});
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("1. Обследование ИС", new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2,
+            treeNode6});
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("2.1. Модель нарушителя");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("2.2. Потенциальные уязвимости ИС");
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("2.3. Актуальные угрозы (НСД)");
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("2.4. Актуальные угрозы (ТКУИ)");
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("2.5. Актуальные угрозы (Техногенные)");
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("2.6. Актуальность использования СКЗИ");
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("2. Модель угроз", new System.Windows.Forms.TreeNode[] {
+            treeNode8,
+            treeNode9,
+            treeNode10,
+            treeNode11,
+            treeNode12,
+            treeNode13});
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("4.1. Перечень мер (НСД)");
+            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("4.2. Перечень СЗИ");
+            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("4.3. Экспорт");
+            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("4. Тех. проект", new System.Windows.Forms.TreeNode[] {
+            treeNode15,
+            treeNode16,
+            treeNode17});
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.projectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -92,7 +104,7 @@
             this.tbISName = new System.Windows.Forms.TextBox();
             this.lbIsName = new System.Windows.Forms.Label();
             this.lbInfoTypes = new System.Windows.Forms.CheckedListBox();
-            this.tabControl = new System.Windows.Forms.TabControl();
+            this.tbtpSZI = new System.Windows.Forms.TabControl();
             this.tpClassification = new System.Windows.Forms.TabPage();
             this.labelGISClass = new System.Windows.Forms.Label();
             this.panelPDN = new System.Windows.Forms.Panel();
@@ -262,11 +274,47 @@
             this.utochnAbilsSKKZIcolumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.actualitySKZIColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.otsutstObosnSKZIcolumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tabPage11 = new System.Windows.Forms.TabPage();
-            this.tabPage12 = new System.Windows.Forms.TabPage();
-            this.tabPage13 = new System.Windows.Forms.TabPage();
-            this.tabPage14 = new System.Windows.Forms.TabPage();
-            this.tabPage15 = new System.Windows.Forms.TabPage();
+            this.tpMeasures = new System.Windows.Forms.TabPage();
+            this.btnGetConreteMeasuresList = new System.Windows.Forms.Button();
+            this.btnGetAdaptiveMeasuresList = new System.Windows.Forms.Button();
+            this.btnGetBasicMeasuresList = new System.Windows.Forms.Button();
+            this.pInfoMeasures = new System.Windows.Forms.Panel();
+            this.pbtpMeas = new System.Windows.Forms.PictureBox();
+            this.tbtpMeasDescription = new System.Windows.Forms.TextBox();
+            this.tabControlMeasures = new System.Windows.Forms.TabControl();
+            this.tpBasicMeas = new System.Windows.Forms.TabPage();
+            this.dgvBasicMeas = new System.Windows.Forms.DataGridView();
+            this.tpAdaptiveMeas = new System.Windows.Forms.TabPage();
+            this.dgvAdaptiveMeas = new System.Windows.Forms.DataGridView();
+            this.tpConcreteMeas = new System.Windows.Forms.TabPage();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbConreteTable1 = new System.Windows.Forms.TextBox();
+            this.dgvConcreteMeas = new System.Windows.Forms.DataGridView();
+            this.dgvThrMeas = new System.Windows.Forms.DataGridView();
+            this.tpMeasuresTCUI = new System.Windows.Forms.TabPage();
+            this.tpMeasuresTechno = new System.Windows.Forms.TabPage();
+            this.tpSZI = new System.Windows.Forms.TabPage();
+            this.btnGetRequirm = new System.Windows.Forms.Button();
+            this.panelTPSZI = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.tpSZItbInfo = new System.Windows.Forms.TextBox();
+            this.tabControlSZIs = new System.Windows.Forms.TabControl();
+            this.tpOne = new System.Windows.Forms.TabPage();
+            this.gbNSD = new System.Windows.Forms.GroupBox();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.tbtpSZINDV = new System.Windows.Forms.TextBox();
+            this.tpSZItb2 = new System.Windows.Forms.TextBox();
+            this.tpSZItb1 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.tbSZI = new System.Windows.Forms.TextBox();
+            this.tbSVT = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tpTwo = new System.Windows.Forms.TabPage();
+            this.dgvTest = new System.Windows.Forms.DataGridView();
+            this.tpTPExport = new System.Windows.Forms.TabPage();
             this.tabPage16 = new System.Windows.Forms.TabPage();
             this.comboBoxIntegrit = new System.Windows.Forms.ComboBox();
             this.comboBoxAvailability = new System.Windows.Forms.ComboBox();
@@ -276,10 +324,11 @@
             this.labelAvailability = new System.Windows.Forms.Label();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.iconList = new System.Windows.Forms.ImageList(this.components);
+            this.btnGetSZI = new System.Windows.Forms.Button();
             this.menuStrip.SuspendLayout();
             this.tpOptions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProjectSecurityResult)).BeginInit();
-            this.tabControl.SuspendLayout();
+            this.tbtpSZI.SuspendLayout();
             this.tpClassification.SuspendLayout();
             this.panelPDN.SuspendLayout();
             this.tpTopology.SuspendLayout();
@@ -321,13 +370,32 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvSKZIAttackAbils)).BeginInit();
             this.tpSKZI3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSKZIUtochnAbils)).BeginInit();
+            this.tpMeasures.SuspendLayout();
+            this.pInfoMeasures.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbtpMeas)).BeginInit();
+            this.tabControlMeasures.SuspendLayout();
+            this.tpBasicMeas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBasicMeas)).BeginInit();
+            this.tpAdaptiveMeas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAdaptiveMeas)).BeginInit();
+            this.tpConcreteMeas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvConcreteMeas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvThrMeas)).BeginInit();
+            this.tpSZI.SuspendLayout();
+            this.panelTPSZI.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.tabControlSZIs.SuspendLayout();
+            this.tpOne.SuspendLayout();
+            this.gbNSD.SuspendLayout();
+            this.tpTwo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTest)).BeginInit();
             this.SuspendLayout();
             // 
             // statusStrip1
             // 
             this.statusStrip1.Location = new System.Drawing.Point(0, 540);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1240, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1264, 22);
             this.statusStrip1.TabIndex = 0;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -339,7 +407,7 @@
             this.testPanelToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(1240, 24);
+            this.menuStrip.Size = new System.Drawing.Size(1264, 24);
             this.menuStrip.TabIndex = 1;
             this.menuStrip.Text = "menuStrip";
             // 
@@ -441,37 +509,46 @@
             this.treeView.HideSelection = false;
             this.treeView.Location = new System.Drawing.Point(0, 24);
             this.treeView.Name = "treeView";
-            treeNode43.Name = "tnOptions";
-            treeNode43.Text = "1.1. Параметры ИС";
-            treeNode44.Name = "tnClassification";
-            treeNode44.Text = "1.2. Классификация ИС";
-            treeNode45.Name = "tnAccessMatrix";
-            treeNode45.Text = "1.3.1. Матрица доступа";
-            treeNode46.Name = "tnTopology";
-            treeNode46.Text = "1.3.2. Топология сети";
-            treeNode47.Name = "tnHardware";
-            treeNode47.Text = "1.3.3. Аппаратная конфигурация";
-            treeNode48.Name = "tnTechno";
-            treeNode48.Text = "1.3. Технологическая информация";
-            treeNode49.Name = "Node0";
-            treeNode49.Text = "1. Обследование ИС";
-            treeNode50.Name = "tnIntruder";
-            treeNode50.Text = "2.1. Модель нарушителя";
-            treeNode51.Name = "tnVulnerabilities";
-            treeNode51.Text = "2.2. Потенциальные уязвимости ИС";
-            treeNode52.Name = "tnActualThreats";
-            treeNode52.Text = "2.3. Актуальные угрозы (НСД)";
-            treeNode53.Name = "tnTCUI";
-            treeNode53.Text = "2.4. Актуальные угрозы (ТКУИ)";
-            treeNode54.Name = "tnTechnoGenThreats";
-            treeNode54.Text = "2.5. Актуальные угрозы (Техногенные)";
-            treeNode55.Name = "tnSKZI";
-            treeNode55.Text = "2.6. Актуальность использования СКЗИ";
-            treeNode56.Name = "Node1";
-            treeNode56.Text = "2. Модель угроз";
+            treeNode1.Name = "tnOptions";
+            treeNode1.Text = "1.1. Параметры ИС";
+            treeNode2.Name = "tnClassification";
+            treeNode2.Text = "1.2. Классификация ИС";
+            treeNode3.Name = "tnAccessMatrix";
+            treeNode3.Text = "1.3.1. Матрица доступа";
+            treeNode4.Name = "tnTopology";
+            treeNode4.Text = "1.3.2. Топология сети";
+            treeNode5.Name = "tnHardware";
+            treeNode5.Text = "1.3.3. Аппаратная конфигурация";
+            treeNode6.Name = "tnTechno";
+            treeNode6.Text = "1.3. Технологическая информация";
+            treeNode7.Name = "Node0";
+            treeNode7.Text = "1. Обследование ИС";
+            treeNode8.Name = "tnIntruder";
+            treeNode8.Text = "2.1. Модель нарушителя";
+            treeNode9.Name = "tnVulnerabilities";
+            treeNode9.Text = "2.2. Потенциальные уязвимости ИС";
+            treeNode10.Name = "tnActualThreats";
+            treeNode10.Text = "2.3. Актуальные угрозы (НСД)";
+            treeNode11.Name = "tnTCUI";
+            treeNode11.Text = "2.4. Актуальные угрозы (ТКУИ)";
+            treeNode12.Name = "tnTechnoGenThreats";
+            treeNode12.Text = "2.5. Актуальные угрозы (Техногенные)";
+            treeNode13.Name = "tnSKZI";
+            treeNode13.Text = "2.6. Актуальность использования СКЗИ";
+            treeNode14.Name = "Node1";
+            treeNode14.Text = "2. Модель угроз";
+            treeNode15.Name = "tnMeasures";
+            treeNode15.Text = "4.1. Перечень мер (НСД)";
+            treeNode16.Name = "tnSZI";
+            treeNode16.Text = "4.2. Перечень СЗИ";
+            treeNode17.Name = "tnTPExport";
+            treeNode17.Text = "4.3. Экспорт";
+            treeNode18.Name = "Node0";
+            treeNode18.Text = "4. Тех. проект";
             this.treeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode49,
-            treeNode56});
+            treeNode7,
+            treeNode14,
+            treeNode18});
             this.treeView.Size = new System.Drawing.Size(287, 516);
             this.treeView.TabIndex = 3;
             this.treeView.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.treeView_BeforeSelect);
@@ -490,7 +567,7 @@
             this.tpOptions.Margin = new System.Windows.Forms.Padding(0);
             this.tpOptions.Name = "tpOptions";
             this.tpOptions.Padding = new System.Windows.Forms.Padding(3);
-            this.tpOptions.Size = new System.Drawing.Size(945, 490);
+            this.tpOptions.Size = new System.Drawing.Size(969, 490);
             this.tpOptions.TabIndex = 0;
             this.tpOptions.Text = "tpOptions";
             this.tpOptions.UseVisualStyleBackColor = true;
@@ -622,7 +699,7 @@
             this.tpClassification.Location = new System.Drawing.Point(4, 22);
             this.tpClassification.Name = "tpClassification";
             this.tpClassification.Padding = new System.Windows.Forms.Padding(3);
-            this.tpClassification.Size = new System.Drawing.Size(945, 490);
+            this.tpClassification.Size = new System.Drawing.Size(969, 490);
             this.tpClassification.TabIndex = 1;
             this.tpClassification.Text = "tpClassification";
             this.tpClassification.UseVisualStyleBackColor = true;
@@ -791,7 +868,7 @@
             this.tpAccessMatrix.Location = new System.Drawing.Point(4, 22);
             this.tpAccessMatrix.Name = "tpAccessMatrix";
             this.tpAccessMatrix.Padding = new System.Windows.Forms.Padding(3);
-            this.tpAccessMatrix.Size = new System.Drawing.Size(945, 490);
+            this.tpAccessMatrix.Size = new System.Drawing.Size(969, 490);
             this.tpAccessMatrix.TabIndex = 2;
             this.tpAccessMatrix.Text = "tpAccessMatrix";
             this.tpAccessMatrix.UseVisualStyleBackColor = true;
@@ -803,7 +880,7 @@
             this.tpTopology.Location = new System.Drawing.Point(4, 22);
             this.tpTopology.Name = "tpTopology";
             this.tpTopology.Padding = new System.Windows.Forms.Padding(3);
-            this.tpTopology.Size = new System.Drawing.Size(945, 490);
+            this.tpTopology.Size = new System.Drawing.Size(969, 490);
             this.tpTopology.TabIndex = 3;
             this.tpTopology.Text = "tpTopology";
             this.tpTopology.UseVisualStyleBackColor = true;
@@ -948,7 +1025,7 @@
             this.tpHardware.Location = new System.Drawing.Point(4, 22);
             this.tpHardware.Name = "tpHardware";
             this.tpHardware.Padding = new System.Windows.Forms.Padding(3);
-            this.tpHardware.Size = new System.Drawing.Size(945, 490);
+            this.tpHardware.Size = new System.Drawing.Size(969, 490);
             this.tpHardware.TabIndex = 5;
             this.tpHardware.Text = "tpHardware";
             this.tpHardware.UseVisualStyleBackColor = true;
@@ -1310,7 +1387,7 @@
             this.tpIntruder.Location = new System.Drawing.Point(4, 22);
             this.tpIntruder.Name = "tpIntruder";
             this.tpIntruder.Padding = new System.Windows.Forms.Padding(3);
-            this.tpIntruder.Size = new System.Drawing.Size(945, 490);
+            this.tpIntruder.Size = new System.Drawing.Size(969, 490);
             this.tpIntruder.TabIndex = 4;
             this.tpIntruder.Text = "tpIntruder";
             this.tpIntruder.UseVisualStyleBackColor = true;
@@ -1409,7 +1486,7 @@
             this.tpVulnerabilities.Location = new System.Drawing.Point(4, 22);
             this.tpVulnerabilities.Name = "tpVulnerabilities";
             this.tpVulnerabilities.Padding = new System.Windows.Forms.Padding(3);
-            this.tpVulnerabilities.Size = new System.Drawing.Size(945, 490);
+            this.tpVulnerabilities.Size = new System.Drawing.Size(969, 490);
             this.tpVulnerabilities.TabIndex = 6;
             this.tpVulnerabilities.Text = "tpVulnerabilities";
             this.tpVulnerabilities.UseVisualStyleBackColor = true;
@@ -1425,15 +1502,15 @@
             this.dgvVulnerabilities.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvVulnerabilities.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CheckVulnerability});
-            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle37.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle37.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle37.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle37.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle37.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle37.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle37.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvVulnerabilities.DefaultCellStyle = dataGridViewCellStyle37;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvVulnerabilities.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvVulnerabilities.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvVulnerabilities.Location = new System.Drawing.Point(3, 3);
             this.dgvVulnerabilities.MinimumSize = new System.Drawing.Size(500, 0);
@@ -1442,7 +1519,7 @@
             this.dgvVulnerabilities.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dgvVulnerabilities.ShowCellToolTips = false;
             this.dgvVulnerabilities.ShowEditingIcon = false;
-            this.dgvVulnerabilities.Size = new System.Drawing.Size(939, 484);
+            this.dgvVulnerabilities.Size = new System.Drawing.Size(963, 484);
             this.dgvVulnerabilities.TabIndex = 0;
             // 
             // CheckVulnerability
@@ -1458,7 +1535,7 @@
             this.tpActualThreats.Location = new System.Drawing.Point(4, 22);
             this.tpActualThreats.Name = "tpActualThreats";
             this.tpActualThreats.Padding = new System.Windows.Forms.Padding(3);
-            this.tpActualThreats.Size = new System.Drawing.Size(945, 490);
+            this.tpActualThreats.Size = new System.Drawing.Size(969, 490);
             this.tpActualThreats.TabIndex = 5;
             this.tpActualThreats.Text = "tpActualThreats";
             this.tpActualThreats.UseVisualStyleBackColor = true;
@@ -1472,7 +1549,7 @@
             this.tcThreatsNSD.Location = new System.Drawing.Point(3, 3);
             this.tcThreatsNSD.Name = "tcThreatsNSD";
             this.tcThreatsNSD.SelectedIndex = 0;
-            this.tcThreatsNSD.Size = new System.Drawing.Size(939, 484);
+            this.tcThreatsNSD.Size = new System.Drawing.Size(963, 484);
             this.tcThreatsNSD.TabIndex = 4;
             // 
             // tpThreatsNSD1
@@ -1486,7 +1563,7 @@
             this.tpThreatsNSD1.Location = new System.Drawing.Point(4, 22);
             this.tpThreatsNSD1.Name = "tpThreatsNSD1";
             this.tpThreatsNSD1.Padding = new System.Windows.Forms.Padding(3);
-            this.tpThreatsNSD1.Size = new System.Drawing.Size(931, 458);
+            this.tpThreatsNSD1.Size = new System.Drawing.Size(955, 458);
             this.tpThreatsNSD1.TabIndex = 0;
             this.tpThreatsNSD1.Text = "Итоговый перечень УБИ";
             this.tpThreatsNSD1.UseVisualStyleBackColor = true;
@@ -1544,7 +1621,7 @@
             this.tbThreatDescription.Multiline = true;
             this.tbThreatDescription.Name = "tbThreatDescription";
             this.tbThreatDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tbThreatDescription.Size = new System.Drawing.Size(574, 121);
+            this.tbThreatDescription.Size = new System.Drawing.Size(598, 121);
             this.tbThreatDescription.TabIndex = 2;
             this.tbThreatDescription.Text = "  Выберите угрозу для просмотра описания...";
             // 
@@ -1554,24 +1631,24 @@
             this.dgvThreats.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dgvThreats.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvThreats.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle38.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle38.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle38.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle38.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle38.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvThreats.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle38;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvThreats.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvThreats.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle39.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle39.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle39.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle39.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle39.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle39.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle39.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvThreats.DefaultCellStyle = dataGridViewCellStyle39;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvThreats.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvThreats.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvThreats.EnableHeadersVisualStyles = false;
             this.dgvThreats.Location = new System.Drawing.Point(3, 145);
@@ -1580,7 +1657,7 @@
             this.dgvThreats.ReadOnly = true;
             this.dgvThreats.RowHeadersVisible = false;
             this.dgvThreats.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvThreats.Size = new System.Drawing.Size(925, 310);
+            this.dgvThreats.Size = new System.Drawing.Size(949, 310);
             this.dgvThreats.TabIndex = 0;
             // 
             // tpThreatsNSD2
@@ -1591,7 +1668,7 @@
             this.tpThreatsNSD2.Location = new System.Drawing.Point(4, 22);
             this.tpThreatsNSD2.Name = "tpThreatsNSD2";
             this.tpThreatsNSD2.Padding = new System.Windows.Forms.Padding(3);
-            this.tpThreatsNSD2.Size = new System.Drawing.Size(931, 458);
+            this.tpThreatsNSD2.Size = new System.Drawing.Size(955, 458);
             this.tpThreatsNSD2.TabIndex = 1;
             this.tpThreatsNSD2.Text = "Определение актуальности УБИ";
             this.tpThreatsNSD2.UseVisualStyleBackColor = true;
@@ -1626,7 +1703,7 @@
             this.dgvActualThreatsNSD.RowHeadersVisible = false;
             this.dgvActualThreatsNSD.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(3);
             this.dgvActualThreatsNSD.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvActualThreatsNSD.Size = new System.Drawing.Size(502, 415);
+            this.dgvActualThreatsNSD.Size = new System.Drawing.Size(542, 452);
             this.dgvActualThreatsNSD.TabIndex = 0;
             // 
             // tpThreatsNSD3
@@ -1668,7 +1745,7 @@
             this.tpTCUI.Location = new System.Drawing.Point(4, 22);
             this.tpTCUI.Name = "tpTCUI";
             this.tpTCUI.Padding = new System.Windows.Forms.Padding(3);
-            this.tpTCUI.Size = new System.Drawing.Size(945, 490);
+            this.tpTCUI.Size = new System.Drawing.Size(969, 490);
             this.tpTCUI.TabIndex = 7;
             this.tpTCUI.Text = "tpTCUI";
             this.tpTCUI.UseVisualStyleBackColor = true;
@@ -1682,7 +1759,7 @@
             this.tabControlTCUI.Location = new System.Drawing.Point(3, 3);
             this.tabControlTCUI.Name = "tabControlTCUI";
             this.tabControlTCUI.SelectedIndex = 0;
-            this.tabControlTCUI.Size = new System.Drawing.Size(939, 484);
+            this.tabControlTCUI.Size = new System.Drawing.Size(963, 484);
             this.tabControlTCUI.TabIndex = 0;
             // 
             // tabPageTCUIExist
@@ -1724,7 +1801,7 @@
             this.tabPageTCUIExist.Location = new System.Drawing.Point(4, 22);
             this.tabPageTCUIExist.Name = "tabPageTCUIExist";
             this.tabPageTCUIExist.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageTCUIExist.Size = new System.Drawing.Size(931, 458);
+            this.tabPageTCUIExist.Size = new System.Drawing.Size(955, 458);
             this.tabPageTCUIExist.TabIndex = 0;
             this.tabPageTCUIExist.Text = "Наличие ТКУИ / Уровень проектной защищенности";
             this.tabPageTCUIExist.UseVisualStyleBackColor = true;
@@ -2091,7 +2168,7 @@
             this.tabPageIntrAbil.Location = new System.Drawing.Point(4, 22);
             this.tabPageIntrAbil.Name = "tabPageIntrAbil";
             this.tabPageIntrAbil.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageIntrAbil.Size = new System.Drawing.Size(931, 458);
+            this.tabPageIntrAbil.Size = new System.Drawing.Size(955, 458);
             this.tabPageIntrAbil.TabIndex = 1;
             this.tabPageIntrAbil.Text = "Определение возможностей нарушителя";
             this.tabPageIntrAbil.UseVisualStyleBackColor = true;
@@ -2113,7 +2190,7 @@
             this.tabPageListOfTCUIThreats.Controls.Add(this.lbTCUIInfo);
             this.tabPageListOfTCUIThreats.Location = new System.Drawing.Point(4, 22);
             this.tabPageListOfTCUIThreats.Name = "tabPageListOfTCUIThreats";
-            this.tabPageListOfTCUIThreats.Size = new System.Drawing.Size(931, 458);
+            this.tabPageListOfTCUIThreats.Size = new System.Drawing.Size(955, 458);
             this.tabPageListOfTCUIThreats.TabIndex = 2;
             this.tabPageListOfTCUIThreats.Text = "Итоговый список УБИ ТКУИ";
             this.tabPageListOfTCUIThreats.UseVisualStyleBackColor = true;
@@ -2130,27 +2207,27 @@
             this.dgvActualTCUIThreats.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.actualTCUIName,
             this.actualTCUIDescr});
-            dataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle40.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle40.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle40.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle40.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle40.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle40.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvActualTCUIThreats.DefaultCellStyle = dataGridViewCellStyle40;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvActualTCUIThreats.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvActualTCUIThreats.Location = new System.Drawing.Point(15, 15);
             this.dgvActualTCUIThreats.MultiSelect = false;
             this.dgvActualTCUIThreats.Name = "dgvActualTCUIThreats";
             this.dgvActualTCUIThreats.ReadOnly = true;
-            dataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle41.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle41.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle41.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle41.Padding = new System.Windows.Forms.Padding(3);
-            dataGridViewCellStyle41.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle41.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle41.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvActualTCUIThreats.RowHeadersDefaultCellStyle = dataGridViewCellStyle41;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(3);
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvActualTCUIThreats.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvActualTCUIThreats.RowHeadersVisible = false;
             this.dgvActualTCUIThreats.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvActualTCUIThreats.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
@@ -2190,7 +2267,7 @@
             this.tpTechnoGenThreats.Location = new System.Drawing.Point(4, 22);
             this.tpTechnoGenThreats.Name = "tpTechnoGenThreats";
             this.tpTechnoGenThreats.Padding = new System.Windows.Forms.Padding(3);
-            this.tpTechnoGenThreats.Size = new System.Drawing.Size(945, 490);
+            this.tpTechnoGenThreats.Size = new System.Drawing.Size(969, 490);
             this.tpTechnoGenThreats.TabIndex = 8;
             this.tpTechnoGenThreats.Text = "tpTechnoGenThreats";
             this.tpTechnoGenThreats.UseVisualStyleBackColor = true;
@@ -2230,14 +2307,14 @@
             this.dgvTGThreats.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.descrColumn,
             this.damageGradeColumn});
-            dataGridViewCellStyle43.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle43.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle43.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle43.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle43.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle43.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle43.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTGThreats.DefaultCellStyle = dataGridViewCellStyle43;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTGThreats.DefaultCellStyle = dataGridViewCellStyle7;
             this.dgvTGThreats.Location = new System.Drawing.Point(6, 203);
             this.dgvTGThreats.MultiSelect = false;
             this.dgvTGThreats.Name = "dgvTGThreats";
@@ -2257,15 +2334,15 @@
             // 
             // damageGradeColumn
             // 
-            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle42.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle42.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle42.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle42.Padding = new System.Windows.Forms.Padding(3);
-            dataGridViewCellStyle42.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle42.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle42.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.damageGradeColumn.DefaultCellStyle = dataGridViewCellStyle42;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(3);
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.damageGradeColumn.DefaultCellStyle = dataGridViewCellStyle6;
             this.damageGradeColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
             this.damageGradeColumn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.damageGradeColumn.HeaderText = "Степень ущерба от реализации угрозы";
@@ -2290,14 +2367,14 @@
             this.dgvTGMeasures.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.measure,
             this.Description});
-            dataGridViewCellStyle44.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle44.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle44.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle44.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle44.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle44.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle44.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTGMeasures.DefaultCellStyle = dataGridViewCellStyle44;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTGMeasures.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvTGMeasures.Location = new System.Drawing.Point(6, 15);
             this.dgvTGMeasures.MultiSelect = false;
             this.dgvTGMeasures.Name = "dgvTGMeasures";
@@ -2369,14 +2446,14 @@
             this.dgvActualTGThreats.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvActualTGThreats.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.actualTGTcolumn});
-            dataGridViewCellStyle45.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle45.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle45.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle45.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle45.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle45.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle45.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvActualTGThreats.DefaultCellStyle = dataGridViewCellStyle45;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvActualTGThreats.DefaultCellStyle = dataGridViewCellStyle9;
             this.dgvActualTGThreats.Location = new System.Drawing.Point(15, 22);
             this.dgvActualTGThreats.MultiSelect = false;
             this.dgvActualTGThreats.Name = "dgvActualTGThreats";
@@ -2400,7 +2477,7 @@
             this.tpSKZI.Location = new System.Drawing.Point(4, 22);
             this.tpSKZI.Name = "tpSKZI";
             this.tpSKZI.Padding = new System.Windows.Forms.Padding(3);
-            this.tpSKZI.Size = new System.Drawing.Size(945, 490);
+            this.tpSKZI.Size = new System.Drawing.Size(969, 490);
             this.tpSKZI.TabIndex = 9;
             this.tpSKZI.Text = "tpSKZI";
             this.tpSKZI.UseVisualStyleBackColor = true;
@@ -2414,7 +2491,7 @@
             this.tcSKZI.Location = new System.Drawing.Point(3, 3);
             this.tcSKZI.Name = "tcSKZI";
             this.tcSKZI.SelectedIndex = 0;
-            this.tcSKZI.Size = new System.Drawing.Size(939, 484);
+            this.tcSKZI.Size = new System.Drawing.Size(963, 484);
             this.tcSKZI.TabIndex = 0;
             // 
             // tpSKZI1
@@ -2427,7 +2504,7 @@
             this.tpSKZI1.Location = new System.Drawing.Point(4, 22);
             this.tpSKZI1.Name = "tpSKZI1";
             this.tpSKZI1.Padding = new System.Windows.Forms.Padding(3);
-            this.tpSKZI1.Size = new System.Drawing.Size(931, 458);
+            this.tpSKZI1.Size = new System.Drawing.Size(955, 458);
             this.tpSKZI1.TabIndex = 0;
             this.tpSKZI1.Text = "Актуальность использования СКЗИ";
             this.tpSKZI1.UseVisualStyleBackColor = true;
@@ -2486,7 +2563,7 @@
             this.tpSKZI2.Location = new System.Drawing.Point(4, 22);
             this.tpSKZI2.Name = "tpSKZI2";
             this.tpSKZI2.Padding = new System.Windows.Forms.Padding(3);
-            this.tpSKZI2.Size = new System.Drawing.Size(931, 458);
+            this.tpSKZI2.Size = new System.Drawing.Size(955, 458);
             this.tpSKZI2.TabIndex = 1;
             this.tpSKZI2.Text = "Обобщенные возможности источников атак";
             this.tpSKZI2.UseVisualStyleBackColor = true;
@@ -2504,14 +2581,14 @@
             this.columnAbils,
             this.columnYesNoAbils,
             this.PotencialColumn});
-            dataGridViewCellStyle46.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle46.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle46.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle46.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle46.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle46.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle46.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSKZIAttackAbils.DefaultCellStyle = dataGridViewCellStyle46;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSKZIAttackAbils.DefaultCellStyle = dataGridViewCellStyle10;
             this.dgvSKZIAttackAbils.Location = new System.Drawing.Point(16, 26);
             this.dgvSKZIAttackAbils.MultiSelect = false;
             this.dgvSKZIAttackAbils.Name = "dgvSKZIAttackAbils";
@@ -2566,7 +2643,7 @@
             this.tpSKZI3.Location = new System.Drawing.Point(4, 22);
             this.tpSKZI3.Name = "tpSKZI3";
             this.tpSKZI3.Padding = new System.Windows.Forms.Padding(0, 0, 0, 15);
-            this.tpSKZI3.Size = new System.Drawing.Size(931, 458);
+            this.tpSKZI3.Size = new System.Drawing.Size(955, 458);
             this.tpSKZI3.TabIndex = 2;
             this.tpSKZI3.Text = "Уточненные возможности источников атак";
             this.tpSKZI3.UseVisualStyleBackColor = true;
@@ -2609,14 +2686,14 @@
             this.utochnAbilsSKKZIcolumn,
             this.actualitySKZIColumn,
             this.otsutstObosnSKZIcolumn});
-            dataGridViewCellStyle48.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle48.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle48.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle48.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle48.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle48.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle48.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSKZIUtochnAbils.DefaultCellStyle = dataGridViewCellStyle48;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSKZIUtochnAbils.DefaultCellStyle = dataGridViewCellStyle12;
             this.dgvSKZIUtochnAbils.Location = new System.Drawing.Point(22, 81);
             this.dgvSKZIUtochnAbils.MultiSelect = false;
             this.dgvSKZIUtochnAbils.Name = "dgvSKZIUtochnAbils";
@@ -2630,8 +2707,8 @@
             // 
             // numberSKZIcolumn2
             // 
-            dataGridViewCellStyle47.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.numberSKZIcolumn2.DefaultCellStyle = dataGridViewCellStyle47;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.numberSKZIcolumn2.DefaultCellStyle = dataGridViewCellStyle11;
             this.numberSKZIcolumn2.FillWeight = 6F;
             this.numberSKZIcolumn2.HeaderText = "№";
             this.numberSKZIcolumn2.Name = "numberSKZIcolumn2";
@@ -2668,62 +2745,549 @@
             this.otsutstObosnSKZIcolumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.otsutstObosnSKZIcolumn.Width = 302;
             // 
-            // tabPage11
+            // tpMeasures
             // 
-            this.tabPage11.Location = new System.Drawing.Point(4, 22);
-            this.tabPage11.Name = "tabPage11";
-            this.tabPage11.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage11.Size = new System.Drawing.Size(945, 490);
-            this.tabPage11.TabIndex = 10;
-            this.tabPage11.Text = "tabPage11";
-            this.tabPage11.UseVisualStyleBackColor = true;
+            this.tpMeasures.AutoScroll = true;
+            this.tpMeasures.Controls.Add(this.btnGetConreteMeasuresList);
+            this.tpMeasures.Controls.Add(this.btnGetAdaptiveMeasuresList);
+            this.tpMeasures.Controls.Add(this.btnGetBasicMeasuresList);
+            this.tpMeasures.Controls.Add(this.pInfoMeasures);
+            this.tpMeasures.Controls.Add(this.tabControlMeasures);
+            this.tpMeasures.Location = new System.Drawing.Point(4, 22);
+            this.tpMeasures.Name = "tpMeasures";
+            this.tpMeasures.Padding = new System.Windows.Forms.Padding(3);
+            this.tpMeasures.Size = new System.Drawing.Size(969, 490);
+            this.tpMeasures.TabIndex = 10;
+            this.tpMeasures.Text = "tpMeasures";
+            this.tpMeasures.UseVisualStyleBackColor = true;
             // 
-            // tabPage12
+            // btnGetConreteMeasuresList
             // 
-            this.tabPage12.Location = new System.Drawing.Point(4, 22);
-            this.tabPage12.Name = "tabPage12";
-            this.tabPage12.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage12.Size = new System.Drawing.Size(945, 490);
-            this.tabPage12.TabIndex = 11;
-            this.tabPage12.Text = "tabPage12";
-            this.tabPage12.UseVisualStyleBackColor = true;
+            this.btnGetConreteMeasuresList.Enabled = false;
+            this.btnGetConreteMeasuresList.Location = new System.Drawing.Point(537, 82);
+            this.btnGetConreteMeasuresList.Name = "btnGetConreteMeasuresList";
+            this.btnGetConreteMeasuresList.Size = new System.Drawing.Size(122, 23);
+            this.btnGetConreteMeasuresList.TabIndex = 6;
+            this.btnGetConreteMeasuresList.Text = "Уточненный";
+            this.btnGetConreteMeasuresList.UseVisualStyleBackColor = true;
             // 
-            // tabPage13
+            // btnGetAdaptiveMeasuresList
             // 
-            this.tabPage13.Location = new System.Drawing.Point(4, 22);
-            this.tabPage13.Name = "tabPage13";
-            this.tabPage13.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage13.Size = new System.Drawing.Size(945, 490);
-            this.tabPage13.TabIndex = 12;
-            this.tabPage13.Text = "tabPage13";
-            this.tabPage13.UseVisualStyleBackColor = true;
+            this.btnGetAdaptiveMeasuresList.Enabled = false;
+            this.btnGetAdaptiveMeasuresList.Location = new System.Drawing.Point(397, 82);
+            this.btnGetAdaptiveMeasuresList.Name = "btnGetAdaptiveMeasuresList";
+            this.btnGetAdaptiveMeasuresList.Size = new System.Drawing.Size(109, 23);
+            this.btnGetAdaptiveMeasuresList.TabIndex = 5;
+            this.btnGetAdaptiveMeasuresList.Text = "Адаптированный";
+            this.btnGetAdaptiveMeasuresList.UseVisualStyleBackColor = true;
             // 
-            // tabPage14
+            // btnGetBasicMeasuresList
             // 
-            this.tabPage14.Location = new System.Drawing.Point(4, 22);
-            this.tabPage14.Name = "tabPage14";
-            this.tabPage14.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage14.Size = new System.Drawing.Size(945, 490);
-            this.tabPage14.TabIndex = 13;
-            this.tabPage14.Text = "tabPage14";
-            this.tabPage14.UseVisualStyleBackColor = true;
+            this.btnGetBasicMeasuresList.Location = new System.Drawing.Point(240, 82);
+            this.btnGetBasicMeasuresList.Name = "btnGetBasicMeasuresList";
+            this.btnGetBasicMeasuresList.Size = new System.Drawing.Size(122, 23);
+            this.btnGetBasicMeasuresList.TabIndex = 4;
+            this.btnGetBasicMeasuresList.Text = "Базовый";
+            this.btnGetBasicMeasuresList.UseVisualStyleBackColor = true;
             // 
-            // tabPage15
+            // pInfoMeasures
             // 
-            this.tabPage15.Location = new System.Drawing.Point(4, 22);
-            this.tabPage15.Name = "tabPage15";
-            this.tabPage15.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage15.Size = new System.Drawing.Size(945, 490);
-            this.tabPage15.TabIndex = 14;
-            this.tabPage15.Text = "tabPage15";
-            this.tabPage15.UseVisualStyleBackColor = true;
+            this.pInfoMeasures.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pInfoMeasures.Controls.Add(this.pbtpMeas);
+            this.pInfoMeasures.Controls.Add(this.tbtpMeasDescription);
+            this.pInfoMeasures.Location = new System.Drawing.Point(6, 6);
+            this.pInfoMeasures.Name = "pInfoMeasures";
+            this.pInfoMeasures.Size = new System.Drawing.Size(951, 70);
+            this.pInfoMeasures.TabIndex = 3;
+            // 
+            // pbtpMeas
+            // 
+            this.pbtpMeas.Image = global::KPSZI.Properties.Resources.iconInformation;
+            this.pbtpMeas.Location = new System.Drawing.Point(882, 3);
+            this.pbtpMeas.Name = "pbtpMeas";
+            this.pbtpMeas.Size = new System.Drawing.Size(64, 64);
+            this.pbtpMeas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbtpMeas.TabIndex = 1;
+            this.pbtpMeas.TabStop = false;
+            // 
+            // tbtpMeasDescription
+            // 
+            this.tbtpMeasDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbtpMeasDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tbtpMeasDescription.Location = new System.Drawing.Point(3, 3);
+            this.tbtpMeasDescription.Multiline = true;
+            this.tbtpMeasDescription.Name = "tbtpMeasDescription";
+            this.tbtpMeasDescription.ReadOnly = true;
+            this.tbtpMeasDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tbtpMeasDescription.Size = new System.Drawing.Size(873, 64);
+            this.tbtpMeasDescription.TabIndex = 0;
+            this.tbtpMeasDescription.Text = resources.GetString("tbtpMeasDescription.Text");
+            this.tbtpMeasDescription.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // tabControlMeasures
+            // 
+            this.tabControlMeasures.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
+            this.tabControlMeasures.Controls.Add(this.tpBasicMeas);
+            this.tabControlMeasures.Controls.Add(this.tpAdaptiveMeas);
+            this.tabControlMeasures.Controls.Add(this.tpConcreteMeas);
+            this.tabControlMeasures.ItemSize = new System.Drawing.Size(0, 1);
+            this.tabControlMeasures.Location = new System.Drawing.Point(6, 111);
+            this.tabControlMeasures.Name = "tabControlMeasures";
+            this.tabControlMeasures.SelectedIndex = 0;
+            this.tabControlMeasures.Size = new System.Drawing.Size(955, 373);
+            this.tabControlMeasures.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
+            this.tabControlMeasures.TabIndex = 0;
+            this.tabControlMeasures.TabStop = false;
+            // 
+            // tpBasicMeas
+            // 
+            this.tpBasicMeas.Controls.Add(this.dgvBasicMeas);
+            this.tpBasicMeas.Location = new System.Drawing.Point(4, 5);
+            this.tpBasicMeas.Name = "tpBasicMeas";
+            this.tpBasicMeas.Padding = new System.Windows.Forms.Padding(3);
+            this.tpBasicMeas.Size = new System.Drawing.Size(947, 364);
+            this.tpBasicMeas.TabIndex = 0;
+            this.tpBasicMeas.Text = "Базовый набор мер";
+            this.tpBasicMeas.UseVisualStyleBackColor = true;
+            // 
+            // dgvBasicMeas
+            // 
+            this.dgvBasicMeas.AllowUserToAddRows = false;
+            this.dgvBasicMeas.AllowUserToDeleteRows = false;
+            this.dgvBasicMeas.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvBasicMeas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBasicMeas.DefaultCellStyle = dataGridViewCellStyle13;
+            this.dgvBasicMeas.Location = new System.Drawing.Point(6, 7);
+            this.dgvBasicMeas.MultiSelect = false;
+            this.dgvBasicMeas.Name = "dgvBasicMeas";
+            this.dgvBasicMeas.ReadOnly = true;
+            this.dgvBasicMeas.RowHeadersVisible = false;
+            this.dgvBasicMeas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvBasicMeas.Size = new System.Drawing.Size(929, 364);
+            this.dgvBasicMeas.TabIndex = 0;
+            // 
+            // tpAdaptiveMeas
+            // 
+            this.tpAdaptiveMeas.Controls.Add(this.dgvAdaptiveMeas);
+            this.tpAdaptiveMeas.Location = new System.Drawing.Point(4, 5);
+            this.tpAdaptiveMeas.Name = "tpAdaptiveMeas";
+            this.tpAdaptiveMeas.Padding = new System.Windows.Forms.Padding(3);
+            this.tpAdaptiveMeas.Size = new System.Drawing.Size(947, 364);
+            this.tpAdaptiveMeas.TabIndex = 1;
+            this.tpAdaptiveMeas.Text = "Адаптированный набор мер";
+            this.tpAdaptiveMeas.UseVisualStyleBackColor = true;
+            // 
+            // dgvAdaptiveMeas
+            // 
+            this.dgvAdaptiveMeas.AllowUserToAddRows = false;
+            this.dgvAdaptiveMeas.AllowUserToDeleteRows = false;
+            this.dgvAdaptiveMeas.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvAdaptiveMeas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAdaptiveMeas.DefaultCellStyle = dataGridViewCellStyle14;
+            this.dgvAdaptiveMeas.Location = new System.Drawing.Point(6, 6);
+            this.dgvAdaptiveMeas.MultiSelect = false;
+            this.dgvAdaptiveMeas.Name = "dgvAdaptiveMeas";
+            this.dgvAdaptiveMeas.ReadOnly = true;
+            this.dgvAdaptiveMeas.RowHeadersVisible = false;
+            this.dgvAdaptiveMeas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvAdaptiveMeas.Size = new System.Drawing.Size(929, 352);
+            this.dgvAdaptiveMeas.TabIndex = 1;
+            // 
+            // tpConcreteMeas
+            // 
+            this.tpConcreteMeas.AutoScroll = true;
+            this.tpConcreteMeas.Controls.Add(this.textBox1);
+            this.tpConcreteMeas.Controls.Add(this.tbConreteTable1);
+            this.tpConcreteMeas.Controls.Add(this.dgvConcreteMeas);
+            this.tpConcreteMeas.Controls.Add(this.dgvThrMeas);
+            this.tpConcreteMeas.Location = new System.Drawing.Point(4, 5);
+            this.tpConcreteMeas.Name = "tpConcreteMeas";
+            this.tpConcreteMeas.Padding = new System.Windows.Forms.Padding(3);
+            this.tpConcreteMeas.Size = new System.Drawing.Size(947, 364);
+            this.tpConcreteMeas.TabIndex = 2;
+            this.tpConcreteMeas.Text = "Уточненный набор мер";
+            this.tpConcreteMeas.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox1.Location = new System.Drawing.Point(3, 364);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(918, 33);
+            this.textBox1.TabIndex = 7;
+            this.textBox1.Text = "Итоговый перечень мер по нейтрализации всех УБИ";
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // tbConreteTable1
+            // 
+            this.tbConreteTable1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbConreteTable1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tbConreteTable1.Location = new System.Drawing.Point(6, 6);
+            this.tbConreteTable1.Multiline = true;
+            this.tbConreteTable1.Name = "tbConreteTable1";
+            this.tbConreteTable1.ReadOnly = true;
+            this.tbConreteTable1.Size = new System.Drawing.Size(918, 33);
+            this.tbConreteTable1.TabIndex = 6;
+            this.tbConreteTable1.Text = "Перечень мер, нейтрализующих актуальные угрозы безопасности информации в соответс" +
+    "твии с Моделью угроз";
+            this.tbConreteTable1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // dgvConcreteMeas
+            // 
+            this.dgvConcreteMeas.AllowUserToAddRows = false;
+            this.dgvConcreteMeas.AllowUserToDeleteRows = false;
+            this.dgvConcreteMeas.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvConcreteMeas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvConcreteMeas.DefaultCellStyle = dataGridViewCellStyle15;
+            this.dgvConcreteMeas.Location = new System.Drawing.Point(3, 403);
+            this.dgvConcreteMeas.MultiSelect = false;
+            this.dgvConcreteMeas.Name = "dgvConcreteMeas";
+            this.dgvConcreteMeas.ReadOnly = true;
+            this.dgvConcreteMeas.RowHeadersVisible = false;
+            this.dgvConcreteMeas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvConcreteMeas.Size = new System.Drawing.Size(921, 321);
+            this.dgvConcreteMeas.TabIndex = 2;
+            // 
+            // dgvThrMeas
+            // 
+            this.dgvThrMeas.AllowUserToAddRows = false;
+            this.dgvThrMeas.AllowUserToDeleteRows = false;
+            this.dgvThrMeas.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvThrMeas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvThrMeas.DefaultCellStyle = dataGridViewCellStyle16;
+            this.dgvThrMeas.Location = new System.Drawing.Point(3, 45);
+            this.dgvThrMeas.MultiSelect = false;
+            this.dgvThrMeas.Name = "dgvThrMeas";
+            this.dgvThrMeas.ReadOnly = true;
+            this.dgvThrMeas.RowHeadersVisible = false;
+            this.dgvThrMeas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvThrMeas.Size = new System.Drawing.Size(921, 313);
+            this.dgvThrMeas.TabIndex = 5;
+            // 
+            // tpMeasuresTCUI
+            // 
+            this.tpMeasuresTCUI.Location = new System.Drawing.Point(4, 22);
+            this.tpMeasuresTCUI.Name = "tpMeasuresTCUI";
+            this.tpMeasuresTCUI.Padding = new System.Windows.Forms.Padding(3);
+            this.tpMeasuresTCUI.Size = new System.Drawing.Size(969, 490);
+            this.tpMeasuresTCUI.TabIndex = 11;
+            this.tpMeasuresTCUI.Text = "tpMeasuresTCUI";
+            this.tpMeasuresTCUI.UseVisualStyleBackColor = true;
+            // 
+            // tpMeasuresTechno
+            // 
+            this.tpMeasuresTechno.Location = new System.Drawing.Point(4, 22);
+            this.tpMeasuresTechno.Name = "tpMeasuresTechno";
+            this.tpMeasuresTechno.Padding = new System.Windows.Forms.Padding(3);
+            this.tpMeasuresTechno.Size = new System.Drawing.Size(969, 490);
+            this.tpMeasuresTechno.TabIndex = 12;
+            this.tpMeasuresTechno.Text = "tpMeasuresTechno";
+            this.tpMeasuresTechno.UseVisualStyleBackColor = true;
+            // 
+            // tpSZI
+            // 
+            this.tpSZI.Controls.Add(this.btnGetSZI);
+            this.tpSZI.Controls.Add(this.btnGetRequirm);
+            this.tpSZI.Controls.Add(this.panelTPSZI);
+            this.tpSZI.Controls.Add(this.tabControlSZIs);
+            this.tpSZI.Location = new System.Drawing.Point(4, 22);
+            this.tpSZI.Name = "tpSZI";
+            this.tpSZI.Padding = new System.Windows.Forms.Padding(3);
+            this.tpSZI.Size = new System.Drawing.Size(969, 490);
+            this.tpSZI.TabIndex = 13;
+            this.tpSZI.Text = "tpSZI";
+            this.tpSZI.UseVisualStyleBackColor = true;
+            // 
+            // btnGetRequirm
+            // 
+            this.btnGetRequirm.Location = new System.Drawing.Point(140, 81);
+            this.btnGetRequirm.Name = "btnGetRequirm";
+            this.btnGetRequirm.Size = new System.Drawing.Size(98, 23);
+            this.btnGetRequirm.TabIndex = 2;
+            this.btnGetRequirm.Text = "Требования";
+            this.btnGetRequirm.UseVisualStyleBackColor = true;
+            // 
+            // panelTPSZI
+            // 
+            this.panelTPSZI.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelTPSZI.Controls.Add(this.pictureBox1);
+            this.panelTPSZI.Controls.Add(this.tpSZItbInfo);
+            this.panelTPSZI.Location = new System.Drawing.Point(6, 6);
+            this.panelTPSZI.Name = "panelTPSZI";
+            this.panelTPSZI.Size = new System.Drawing.Size(951, 70);
+            this.panelTPSZI.TabIndex = 4;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::KPSZI.Properties.Resources.iconInformation;
+            this.pictureBox1.Location = new System.Drawing.Point(882, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(64, 64);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
+            // tpSZItbInfo
+            // 
+            this.tpSZItbInfo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tpSZItbInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tpSZItbInfo.Location = new System.Drawing.Point(3, 4);
+            this.tpSZItbInfo.Multiline = true;
+            this.tpSZItbInfo.Name = "tpSZItbInfo";
+            this.tpSZItbInfo.ReadOnly = true;
+            this.tpSZItbInfo.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tpSZItbInfo.Size = new System.Drawing.Size(873, 64);
+            this.tpSZItbInfo.TabIndex = 0;
+            this.tpSZItbInfo.Text = "Перед составлением перечня СЗИ для реализации мер, необходимо определить требован" +
+    "ия к видам СЗИ, которые устанавливаются в зависимости от класса защищенности ИС." +
+    " Для продолжения нажмите \"Требования\"";
+            this.tpSZItbInfo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // tabControlSZIs
+            // 
+            this.tabControlSZIs.Controls.Add(this.tpOne);
+            this.tabControlSZIs.Controls.Add(this.tpTwo);
+            this.tabControlSZIs.Location = new System.Drawing.Point(3, 111);
+            this.tabControlSZIs.Name = "tabControlSZIs";
+            this.tabControlSZIs.SelectedIndex = 0;
+            this.tabControlSZIs.Size = new System.Drawing.Size(963, 373);
+            this.tabControlSZIs.TabIndex = 0;
+            this.tabControlSZIs.TabStop = false;
+            // 
+            // tpOne
+            // 
+            this.tpOne.AutoScroll = true;
+            this.tpOne.Controls.Add(this.gbNSD);
+            this.tpOne.Controls.Add(this.textBox3);
+            this.tpOne.Controls.Add(this.tbtpSZINDV);
+            this.tpOne.Controls.Add(this.tpSZItb2);
+            this.tpOne.Controls.Add(this.tpSZItb1);
+            this.tpOne.Controls.Add(this.label6);
+            this.tpOne.Controls.Add(this.tbSZI);
+            this.tpOne.Controls.Add(this.tbSVT);
+            this.tpOne.Controls.Add(this.label4);
+            this.tpOne.Location = new System.Drawing.Point(4, 22);
+            this.tpOne.Name = "tpOne";
+            this.tpOne.Padding = new System.Windows.Forms.Padding(3);
+            this.tpOne.Size = new System.Drawing.Size(955, 347);
+            this.tpOne.TabIndex = 0;
+            this.tpOne.Text = "Выбор СЗИ";
+            this.tpOne.UseVisualStyleBackColor = true;
+            // 
+            // gbNSD
+            // 
+            this.gbNSD.Controls.Add(this.radioButton3);
+            this.gbNSD.Controls.Add(this.radioButton2);
+            this.gbNSD.Controls.Add(this.radioButton1);
+            this.gbNSD.Enabled = false;
+            this.gbNSD.Location = new System.Drawing.Point(302, 173);
+            this.gbNSD.Name = "gbNSD";
+            this.gbNSD.Size = new System.Drawing.Size(200, 100);
+            this.gbNSD.TabIndex = 17;
+            this.gbNSD.TabStop = false;
+            this.gbNSD.Text = "СЗИ от НСД (СКН, )";
+            // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Location = new System.Drawing.Point(7, 66);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(85, 17);
+            this.radioButton3.TabIndex = 2;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.Text = "radioButton3";
+            this.radioButton3.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(7, 43);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(85, 17);
+            this.radioButton2.TabIndex = 1;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "radioButton2";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(7, 20);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(85, 17);
+            this.radioButton1.TabIndex = 0;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "radioButton1";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // textBox3
+            // 
+            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox3.Location = new System.Drawing.Point(5, 83);
+            this.textBox3.Multiline = true;
+            this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
+            this.textBox3.Size = new System.Drawing.Size(562, 33);
+            this.textBox3.TabIndex = 16;
+            this.textBox3.Text = "Уровень контроля отсутствия недекларированных возможностей для СЗИ, не ниже:";
+            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // tbtpSZINDV
+            // 
+            this.tbtpSZINDV.Location = new System.Drawing.Point(573, 84);
+            this.tbtpSZINDV.Multiline = true;
+            this.tbtpSZINDV.Name = "tbtpSZINDV";
+            this.tbtpSZINDV.ReadOnly = true;
+            this.tbtpSZINDV.Size = new System.Drawing.Size(128, 32);
+            this.tbtpSZINDV.TabIndex = 14;
+            this.tbtpSZINDV.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // tpSZItb2
+            // 
+            this.tpSZItb2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tpSZItb2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tpSZItb2.Location = new System.Drawing.Point(7, 134);
+            this.tpSZItb2.Multiline = true;
+            this.tpSZItb2.Name = "tpSZItb2";
+            this.tpSZItb2.ReadOnly = true;
+            this.tpSZItb2.Size = new System.Drawing.Size(944, 33);
+            this.tpSZItb2.TabIndex = 13;
+            this.tpSZItb2.Text = "Для выполнения требований к использованию предлагаются следующие виды СЗИ. Выбере" +
+    "те представителя для каждого вида:";
+            this.tpSZItb2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // tpSZItb1
+            // 
+            this.tpSZItb1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tpSZItb1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tpSZItb1.Location = new System.Drawing.Point(6, 8);
+            this.tpSZItb1.Multiline = true;
+            this.tpSZItb1.Name = "tpSZItb1";
+            this.tpSZItb1.ReadOnly = true;
+            this.tpSZItb1.Size = new System.Drawing.Size(944, 33);
+            this.tpSZItb1.TabIndex = 12;
+            this.tpSZItb1.Text = "Для выполнения требований к установленному классу защищенности ГИС, необходимо пр" +
+    "именять:";
+            this.tpSZItb1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(118, 55);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(185, 13);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Средства вычислительной техники";
+            // 
+            // tbSZI
+            // 
+            this.tbSZI.BackColor = System.Drawing.SystemColors.Window;
+            this.tbSZI.Location = new System.Drawing.Point(729, 52);
+            this.tbSZI.Name = "tbSZI";
+            this.tbSZI.ReadOnly = true;
+            this.tbSZI.Size = new System.Drawing.Size(100, 20);
+            this.tbSZI.TabIndex = 5;
+            // 
+            // tbSVT
+            // 
+            this.tbSVT.BackColor = System.Drawing.SystemColors.Window;
+            this.tbSVT.Location = new System.Drawing.Point(311, 52);
+            this.tbSVT.Name = "tbSVT";
+            this.tbSVT.ReadOnly = true;
+            this.tbSVT.Size = new System.Drawing.Size(100, 20);
+            this.tbSVT.TabIndex = 3;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(558, 55);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(165, 13);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Средства защиты информации";
+            // 
+            // tpTwo
+            // 
+            this.tpTwo.Controls.Add(this.dgvTest);
+            this.tpTwo.Location = new System.Drawing.Point(4, 22);
+            this.tpTwo.Name = "tpTwo";
+            this.tpTwo.Padding = new System.Windows.Forms.Padding(3);
+            this.tpTwo.Size = new System.Drawing.Size(955, 347);
+            this.tpTwo.TabIndex = 1;
+            this.tpTwo.Text = "tabPage2";
+            this.tpTwo.UseVisualStyleBackColor = true;
+            // 
+            // dgvTest
+            // 
+            this.dgvTest.AllowUserToAddRows = false;
+            this.dgvTest.AllowUserToDeleteRows = false;
+            this.dgvTest.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvTest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTest.DefaultCellStyle = dataGridViewCellStyle17;
+            this.dgvTest.Location = new System.Drawing.Point(13, 20);
+            this.dgvTest.MultiSelect = false;
+            this.dgvTest.Name = "dgvTest";
+            this.dgvTest.ReadOnly = true;
+            this.dgvTest.RowHeadersVisible = false;
+            this.dgvTest.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvTest.Size = new System.Drawing.Size(929, 306);
+            this.dgvTest.TabIndex = 2;
+            // 
+            // tpTPExport
+            // 
+            this.tpTPExport.Location = new System.Drawing.Point(4, 22);
+            this.tpTPExport.Name = "tpTPExport";
+            this.tpTPExport.Padding = new System.Windows.Forms.Padding(3);
+            this.tpTPExport.Size = new System.Drawing.Size(969, 490);
+            this.tpTPExport.TabIndex = 14;
+            this.tpTPExport.Text = "tpTPExport";
+            this.tpTPExport.UseVisualStyleBackColor = true;
             // 
             // tabPage16
             // 
             this.tabPage16.Location = new System.Drawing.Point(4, 22);
             this.tabPage16.Name = "tabPage16";
             this.tabPage16.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage16.Size = new System.Drawing.Size(945, 490);
+            this.tabPage16.Size = new System.Drawing.Size(969, 490);
             this.tabPage16.TabIndex = 15;
             this.tabPage16.Text = "tabPage16";
             this.tabPage16.UseVisualStyleBackColor = true;
@@ -2810,16 +3374,26 @@
             this.iconList.ImageSize = new System.Drawing.Size(16, 16);
             this.iconList.TransparentColor = System.Drawing.Color.Transparent;
             // 
+            // btnGetSZI
+            // 
+            this.btnGetSZI.Location = new System.Drawing.Point(300, 83);
+            this.btnGetSZI.Name = "btnGetSZI";
+            this.btnGetSZI.Size = new System.Drawing.Size(75, 23);
+            this.btnGetSZI.TabIndex = 5;
+            this.btnGetSZI.Text = "СЗИ";
+            this.btnGetSZI.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1240, 562);
+            this.ClientSize = new System.Drawing.Size(1264, 562);
             this.Controls.Add(this.splitter1);
-            this.Controls.Add(this.tabControl);
+            this.Controls.Add(this.tbtpSZI);
             this.Controls.Add(this.treeView);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -2829,7 +3403,7 @@
             this.tpOptions.ResumeLayout(false);
             this.tpOptions.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProjectSecurityResult)).EndInit();
-            this.tabControl.ResumeLayout(false);
+            this.tbtpSZI.ResumeLayout(false);
             this.tpClassification.ResumeLayout(false);
             this.panelPDN.ResumeLayout(false);
             this.panelPDN.PerformLayout();
@@ -2881,13 +3455,36 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvSKZIAttackAbils)).EndInit();
             this.tpSKZI3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSKZIUtochnAbils)).EndInit();
+            this.tpMeasures.ResumeLayout(false);
+            this.pInfoMeasures.ResumeLayout(false);
+            this.pInfoMeasures.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbtpMeas)).EndInit();
+            this.tabControlMeasures.ResumeLayout(false);
+            this.tpBasicMeas.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBasicMeas)).EndInit();
+            this.tpAdaptiveMeas.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAdaptiveMeas)).EndInit();
+            this.tpConcreteMeas.ResumeLayout(false);
+            this.tpConcreteMeas.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvConcreteMeas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvThrMeas)).EndInit();
+            this.tpSZI.ResumeLayout(false);
+            this.panelTPSZI.ResumeLayout(false);
+            this.panelTPSZI.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.tabControlSZIs.ResumeLayout(false);
+            this.tpOne.ResumeLayout(false);
+            this.tpOne.PerformLayout();
+            this.gbNSD.ResumeLayout(false);
+            this.gbNSD.PerformLayout();
+            this.tpTwo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTest)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem projectToolStripMenuItem;
@@ -2895,7 +3492,7 @@
         public System.Windows.Forms.TabPage tpOptions;
         internal System.Windows.Forms.TextBox tbISName;
         private System.Windows.Forms.Label lbIsName;
-        public System.Windows.Forms.TabControl tabControl;
+        public System.Windows.Forms.TabControl tbtpSZI;
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.TabPage tpClassification;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
@@ -2905,11 +3502,11 @@
         private System.Windows.Forms.TabPage tpVulnerabilities;
         private System.Windows.Forms.TabPage tpTechnoGenThreats;
         private System.Windows.Forms.TabPage tpSKZI;
-        private System.Windows.Forms.TabPage tabPage11;
-        private System.Windows.Forms.TabPage tabPage12;
-        private System.Windows.Forms.TabPage tabPage13;
-        private System.Windows.Forms.TabPage tabPage14;
-        private System.Windows.Forms.TabPage tabPage15;
+        private System.Windows.Forms.TabPage tpMeasures;
+        private System.Windows.Forms.TabPage tpMeasuresTCUI;
+        private System.Windows.Forms.TabPage tpMeasuresTechno;
+        private System.Windows.Forms.TabPage tpSZI;
+        private System.Windows.Forms.TabPage tpTPExport;
         private System.Windows.Forms.TabPage tabPage16;
         private System.Windows.Forms.ImageList iconList;
         private System.Windows.Forms.ComboBox comboBoxConfidentiality;
@@ -3083,6 +3680,43 @@
         public System.Windows.Forms.TreeView treeView;
         private System.Windows.Forms.ToolStripMenuItem FillThreatsToolStripMenuItem;
         internal System.Windows.Forms.Label lbSKZIClass;
+        private System.Windows.Forms.Panel pInfoMeasures;
+        private System.Windows.Forms.PictureBox pbtpMeas;
+        internal System.Windows.Forms.Button btnGetBasicMeasuresList;
+        internal System.Windows.Forms.Button btnGetConreteMeasuresList;
+        internal System.Windows.Forms.Button btnGetAdaptiveMeasuresList;
+        internal System.Windows.Forms.TextBox tbtpMeasDescription;
+        internal System.Windows.Forms.TabControl tabControlMeasures;
+        internal System.Windows.Forms.TabPage tpBasicMeas;
+        internal System.Windows.Forms.DataGridView dgvBasicMeas;
+        internal System.Windows.Forms.TabPage tpAdaptiveMeas;
+        internal System.Windows.Forms.DataGridView dgvAdaptiveMeas;
+        internal System.Windows.Forms.TabPage tpConcreteMeas;
+        internal System.Windows.Forms.DataGridView dgvConcreteMeas;
+        internal System.Windows.Forms.DataGridView dgvThrMeas;
+        internal System.Windows.Forms.TextBox textBox1;
+        internal System.Windows.Forms.TextBox tbConreteTable1;
+        private System.Windows.Forms.TabControl tabControlSZIs;
+        private System.Windows.Forms.TabPage tpTwo;
+        internal System.Windows.Forms.Button btnGetRequirm;
+        private System.Windows.Forms.Panel panelTPSZI;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        internal System.Windows.Forms.TextBox tpSZItbInfo;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox tbSZI;
+        private System.Windows.Forms.TextBox tbSVT;
+        private System.Windows.Forms.Label label4;
+        internal System.Windows.Forms.DataGridView dgvTest;
+        internal System.Windows.Forms.TextBox tpSZItb1;
+        internal System.Windows.Forms.TextBox tpSZItb2;
+        internal System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox tbtpSZINDV;
+        private System.Windows.Forms.GroupBox gbNSD;
+        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton1;
+        internal System.Windows.Forms.TabPage tpOne;
+        internal System.Windows.Forms.Button btnGetSZI;
         private System.Windows.Forms.ToolStrip toolStrip1;
         internal System.Windows.Forms.PictureBox pTopology;
         internal System.Windows.Forms.ToolStripButton tsbMove;

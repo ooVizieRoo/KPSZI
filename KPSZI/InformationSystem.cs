@@ -56,9 +56,17 @@ namespace KPSZI
         /// </summary>
         public int ProjectSecutiryLvl;
         /// <summary>
-        /// Список актуальных угроз НСД
+        /// Список актуальных НСД угроз
         /// </summary>
         public List<Threat> listOfActualNSDThreats;
+        /// <summary>
+        /// Сформированный перечень мер после уточнения адаптированного базового набора мер
+        /// </summary>
+        public List<GISMeasure> listOfAllNSDMeasures;
+        /// <summary>
+        /// Перечень СЗИ, применяемых для реализации мер
+        /// </summary>
+        public List<SZI> listOfSZIs; 
 
         public InformationSystem ()
         {
@@ -71,8 +79,11 @@ namespace KPSZI
             listOfImplementWays = new List<ImplementWay>();
             listOfSources = new List<ThreatSource>();
             listOfActualNSDThreats = new List<Threat>();
-        }
+            listOfAllNSDMeasures = new List<GISMeasure>();
+            listOfSZIs = new List<SZI>();
+
     }
+}
 
     /// <summary>
     /// Класс, хранящий информацию об АРМ-ах
