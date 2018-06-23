@@ -38,7 +38,7 @@ namespace KPSZI
 
         private void BtnTest_Click(object sender, EventArgs e)
         {
-            switch (2)//IS.GISClass)
+            switch (IS.GISClass)
             {
                 case 1: { mf.tbtpSZISVT.Text = "не ниже 5-го класса"; mf.tbtpSZISZI.Text = "не ниже 4-го класса"; mf.tbtpSZINDV.Text = "4";  break; }
                 case 2: { mf.tbtpSZISVT.Text = "не ниже 5-го класса"; mf.tbtpSZISZI.Text = "не ниже 5-го класса"; mf.tbtpSZINDV.Text = "4"; break; }

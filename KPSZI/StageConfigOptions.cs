@@ -22,6 +22,8 @@ namespace KPSZI
         
         public override void enterTabPage()
         {
+            mf.dgvConfigNMeasures.Rows.Clear();
+
             using (KPSZIContext db = new KPSZIContext())
             {
                 var tempGM = db.GisMeasures.ToList().Intersect(IS.listOfAllNSDMeasures).ToList();

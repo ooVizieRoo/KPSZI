@@ -177,7 +177,7 @@ namespace KPSZI
             using (KPSZIContext db = new KPSZIContext())
             {
                 int i = 0;
-                ListOfBasicMeasures = db.GisMeasures.Where(gm => gm.MinimalRequirementDefenceClass >= 2).OrderBy(gm => gm.GISMeasureId).ToList();
+                ListOfBasicMeasures = db.GisMeasures.Where(gm => gm.MinimalRequirementDefenceClass >= IS.GISClass).OrderBy(gm => gm.GISMeasureId).ToList();
 
                 foreach(GISMeasure gm in ListOfBasicMeasures)
                 {
