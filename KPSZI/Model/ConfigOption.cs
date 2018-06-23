@@ -12,6 +12,10 @@ namespace KPSZI.Model
     public class ConfigOption
     {
         /// <summary>
+        /// Ключ
+        /// </summary>
+        public int ConfigOptionId { get; set; }
+        /// <summary>
         /// Мера, к которой относится параметр
         /// </summary>
         public virtual GISMeasure GISMeasure { get; set; }
