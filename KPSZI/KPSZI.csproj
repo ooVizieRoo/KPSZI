@@ -115,6 +115,10 @@
     <Compile Include="Migrations\201806230501418_first.Designer.cs">
       <DependentUpon>201806230501418_first.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806230931423_second.cs" />
+    <Compile Include="Migrations\201806230931423_second.Designer.cs">
+      <DependentUpon>201806230931423_second.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\ConfigOption.cs" />
     <Compile Include="Model\ImplementWays.cs" />
@@ -205,6 +209,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806230501418_first.resx">
       <DependentUpon>201806230501418_first.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806230931423_second.resx">
+      <DependentUpon>201806230931423_second.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

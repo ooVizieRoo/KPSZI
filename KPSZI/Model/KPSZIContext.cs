@@ -7234,5 +7234,10 @@ namespace KPSZI.Model
 
             SaveChanges();
         }
+
+        public void SeedForMeasures()
+        {
+
+        }
     } 
 }

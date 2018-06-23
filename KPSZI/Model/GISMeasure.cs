@@ -50,7 +50,7 @@ namespace KPSZI.Model
         /// <summary>
         /// Навигационное поле - коллекция СЗИ, реализующих меры
         /// </summary>
-        public virtual ICollection<SZI> SZIs { get; set; }
+        public virtual ICollection<SZISort> SZISorts { get; set; }
 
         /// <summary>
         /// Коллекция угроз, которые нейтрализует данная мера [навигационное поле]
@@ -73,7 +73,7 @@ namespace KPSZI.Model
         {
             Threats = new List<Threat>();
             this.isOnlyISPDn = false;
-            this.SZIs = new List<SZI>();
+            this.SZISorts = new List<SZISort>();
             SFHs = new List<SFH>();
             this.ConfigOptions = new List<ConfigOption>();
         }

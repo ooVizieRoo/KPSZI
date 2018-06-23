@@ -32,8 +32,6 @@ namespace KPSZI
         public StageMeasures(TabPage stageTab, TreeNode stageNode, MainForm mainForm, InformationSystem IS)
             : base(stageTab, stageNode, mainForm, IS)
         {
-            
-
             //using (KPSZIContext db = new KPSZIContext())
             //{
             //    var Threats = db.Threats.Include("GISMeasures").ToList();
