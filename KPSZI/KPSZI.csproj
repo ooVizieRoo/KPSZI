@@ -103,6 +103,7 @@
     <Compile Include="IntruderAbilityControl.Designer.cs">
       <DependentUpon>IntruderAbilityControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Link.cs" />
     <Compile Include="Migrations\201805070557453_new.cs" />
     <Compile Include="Migrations\201805070557453_new.Designer.cs">
       <DependentUpon>201805070557453_new.cs</DependentUpon>
@@ -110,6 +111,9 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\ImplementWays.cs" />
     <Compile Include="Model\Vulnerability.cs" />
+    <Compile Include="Node.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="splashForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,7 +131,6 @@
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Model\GISClassification.cs" />
     <Compile Include="Model\GISMeasure.cs" />
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -137,7 +140,6 @@
     <Compile Include="Model\ISPDNMeasure.cs" />
     <Compile Include="Model\KPSZIContext.cs" />
     <Compile Include="Model\MeasureGroup.cs" />
-    <Compile Include="Model\RealizationPossibility.cs" />
     <Compile Include="Model\SFH.cs" />
     <Compile Include="Model\SFHType.cs" />
     <Compile Include="Model\SZI.cs" />
@@ -221,6 +223,18 @@
     <None Include="Resources\add.ico" />
     <None Include="Resources\del.ico" />
     <None Include="Resources\edit.ico" />
+    <None Include="Resources\Cursor-Move-2-icon.png" />
+    <None Include="Resources\Editing-Line-icon.png" />
+    <None Include="Resources\Network-Computer-icon.png" />
+    <None Include="Resources\Network-Router-icon.png" />
+    <None Include="Resources\Network-Server-icon.png" />
+    <None Include="Resources\Network-Switch-icon.png" />
+    <None Include="Resources\pc.png" />
+    <None Include="Resources\router.png" />
+    <None Include="Resources\server.png" />
+    <None Include="Resources\switch.png" />
+    <None Include="Resources\User-Interface-Delete-Sign-icon.png" />
+    <None Include="Resources\cloud.jpg" />
     <Content Include="res\icons\document-settings-icon.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

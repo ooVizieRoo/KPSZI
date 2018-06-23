@@ -29,45 +29,45 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("1.1. Параметры ИС");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("1.2. Классификация ИС");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("1.3.1. Матрица доступа");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("1.3.2. Топология сети");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("1.3.3. Аппаратная конфигурация");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("1.3. Технологическая информация", new System.Windows.Forms.TreeNode[] {
-            treeNode3,
-            treeNode4,
-            treeNode5});
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("1. Обследование ИС", new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode6});
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("2.1. Модель нарушителя");
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("2.2. Потенциальные уязвимости ИС");
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("2.3. Актуальные угрозы (НСД)");
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("2.4. Актуальные угрозы (ТКУИ)");
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("2.5. Актуальные угрозы (Техногенные)");
-            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("2.6. Актуальность использования СКЗИ");
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("2. Модель угроз", new System.Windows.Forms.TreeNode[] {
-            treeNode8,
-            treeNode9,
-            treeNode10,
-            treeNode11,
-            treeNode12,
-            treeNode13});
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.TreeNode treeNode43 = new System.Windows.Forms.TreeNode("1.1. Параметры ИС");
+            System.Windows.Forms.TreeNode treeNode44 = new System.Windows.Forms.TreeNode("1.2. Классификация ИС");
+            System.Windows.Forms.TreeNode treeNode45 = new System.Windows.Forms.TreeNode("1.3.1. Матрица доступа");
+            System.Windows.Forms.TreeNode treeNode46 = new System.Windows.Forms.TreeNode("1.3.2. Топология сети");
+            System.Windows.Forms.TreeNode treeNode47 = new System.Windows.Forms.TreeNode("1.3.3. Аппаратная конфигурация");
+            System.Windows.Forms.TreeNode treeNode48 = new System.Windows.Forms.TreeNode("1.3. Технологическая информация", new System.Windows.Forms.TreeNode[] {
+            treeNode45,
+            treeNode46,
+            treeNode47});
+            System.Windows.Forms.TreeNode treeNode49 = new System.Windows.Forms.TreeNode("1. Обследование ИС", new System.Windows.Forms.TreeNode[] {
+            treeNode43,
+            treeNode44,
+            treeNode48});
+            System.Windows.Forms.TreeNode treeNode50 = new System.Windows.Forms.TreeNode("2.1. Модель нарушителя");
+            System.Windows.Forms.TreeNode treeNode51 = new System.Windows.Forms.TreeNode("2.2. Потенциальные уязвимости ИС");
+            System.Windows.Forms.TreeNode treeNode52 = new System.Windows.Forms.TreeNode("2.3. Актуальные угрозы (НСД)");
+            System.Windows.Forms.TreeNode treeNode53 = new System.Windows.Forms.TreeNode("2.4. Актуальные угрозы (ТКУИ)");
+            System.Windows.Forms.TreeNode treeNode54 = new System.Windows.Forms.TreeNode("2.5. Актуальные угрозы (Техногенные)");
+            System.Windows.Forms.TreeNode treeNode55 = new System.Windows.Forms.TreeNode("2.6. Актуальность использования СКЗИ");
+            System.Windows.Forms.TreeNode treeNode56 = new System.Windows.Forms.TreeNode("2. Модель угроз", new System.Windows.Forms.TreeNode[] {
+            treeNode50,
+            treeNode51,
+            treeNode52,
+            treeNode53,
+            treeNode54,
+            treeNode55});
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.projectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -78,6 +78,7 @@
             this.downloadThreatListthrlistxlsxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rewriteThreatsDBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.refreshThreatDBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.FillThreatsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataBaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.initDBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearAllTablesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -110,6 +111,16 @@
             this.labelScale = new System.Windows.Forms.Label();
             this.tpAccessMatrix = new System.Windows.Forms.TabPage();
             this.tpTopology = new System.Windows.Forms.TabPage();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.tsbMove = new System.Windows.Forms.ToolStripButton();
+            this.tsbPc = new System.Windows.Forms.ToolStripButton();
+            this.tsbServer = new System.Windows.Forms.ToolStripButton();
+            this.tsbSwitch = new System.Windows.Forms.ToolStripButton();
+            this.tsbRouter = new System.Windows.Forms.ToolStripButton();
+            this.tsbLink = new System.Windows.Forms.ToolStripButton();
+            this.tsbDelete = new System.Windows.Forms.ToolStripButton();
+            this.tsbCloud = new System.Windows.Forms.ToolStripButton();
+            this.pTopology = new System.Windows.Forms.PictureBox();
             this.tpHardware = new System.Windows.Forms.TabPage();
             this.btnHWDel = new System.Windows.Forms.Button();
             this.btnHWEdit = new System.Windows.Forms.Button();
@@ -165,7 +176,10 @@
             this.tbThreatDescription = new System.Windows.Forms.TextBox();
             this.dgvThreats = new System.Windows.Forms.DataGridView();
             this.tpThreatsNSD2 = new System.Windows.Forms.TabPage();
+            this.btnReady = new System.Windows.Forms.Button();
             this.dgvActualThreatsNSD = new System.Windows.Forms.DataGridView();
+            this.tpThreatsNSD3 = new System.Windows.Forms.TabPage();
+            this.dgvFinalNSDThreats = new System.Windows.Forms.DataGridView();
             this.tpTCUI = new System.Windows.Forms.TabPage();
             this.tabControlTCUI = new System.Windows.Forms.TabControl();
             this.tabPageTCUIExist = new System.Windows.Forms.TabPage();
@@ -262,13 +276,15 @@
             this.labelAvailability = new System.Windows.Forms.Label();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.iconList = new System.Windows.Forms.ImageList(this.components);
-            this.FillThreatsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.tpOptions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProjectSecurityResult)).BeginInit();
             this.tabControl.SuspendLayout();
             this.tpClassification.SuspendLayout();
             this.panelPDN.SuspendLayout();
+            this.tpTopology.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pTopology)).BeginInit();
             this.tpHardware.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHardware)).BeginInit();
             this.gbHW1.SuspendLayout();
@@ -282,6 +298,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvThreats)).BeginInit();
             this.tpThreatsNSD2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvActualThreatsNSD)).BeginInit();
+            this.tpThreatsNSD3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFinalNSDThreats)).BeginInit();
             this.tpTCUI.SuspendLayout();
             this.tabControlTCUI.SuspendLayout();
             this.tabPageTCUIExist.SuspendLayout();
@@ -362,29 +380,36 @@
             this.refreshThreatDBToolStripMenuItem,
             this.FillThreatsToolStripMenuItem});
             this.threatToolStripMenuItem.Name = "threatToolStripMenuItem";
-            this.threatToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.threatToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.threatToolStripMenuItem.Text = "Угрозы";
             // 
             // downloadThreatListthrlistxlsxToolStripMenuItem
             // 
             this.downloadThreatListthrlistxlsxToolStripMenuItem.Name = "downloadThreatListthrlistxlsxToolStripMenuItem";
-            this.downloadThreatListthrlistxlsxToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
+            this.downloadThreatListthrlistxlsxToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
             this.downloadThreatListthrlistxlsxToolStripMenuItem.Text = "Скачать файл \"thrlist.xlsx\"";
             this.downloadThreatListthrlistxlsxToolStripMenuItem.Click += new System.EventHandler(this.downloadThreatListthrlistxlsxToolStripMenuItem_Click);
             // 
             // rewriteThreatsDBToolStripMenuItem
             // 
             this.rewriteThreatsDBToolStripMenuItem.Name = "rewriteThreatsDBToolStripMenuItem";
-            this.rewriteThreatsDBToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
+            this.rewriteThreatsDBToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
             this.rewriteThreatsDBToolStripMenuItem.Text = "Перезаписать базу угроз";
             this.rewriteThreatsDBToolStripMenuItem.Click += new System.EventHandler(this.rewriteThreatsDBToolStripMenuItem_Click);
             // 
             // refreshThreatDBToolStripMenuItem
             // 
             this.refreshThreatDBToolStripMenuItem.Name = "refreshThreatDBToolStripMenuItem";
-            this.refreshThreatDBToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
+            this.refreshThreatDBToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
             this.refreshThreatDBToolStripMenuItem.Text = "Обновить базу угроз";
             this.refreshThreatDBToolStripMenuItem.Click += new System.EventHandler(this.refreshThreatDBToolStripMenuItem_Click);
+            // 
+            // FillThreatsToolStripMenuItem
+            // 
+            this.FillThreatsToolStripMenuItem.Name = "FillThreatsToolStripMenuItem";
+            this.FillThreatsToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
+            this.FillThreatsToolStripMenuItem.Text = "Заполнить угрозы данными";
+            this.FillThreatsToolStripMenuItem.Click += new System.EventHandler(this.FillThreatsToolStripMenuItem_Click);
             // 
             // dataBaseToolStripMenuItem
             // 
@@ -416,37 +441,37 @@
             this.treeView.HideSelection = false;
             this.treeView.Location = new System.Drawing.Point(0, 24);
             this.treeView.Name = "treeView";
-            treeNode1.Name = "tnOptions";
-            treeNode1.Text = "1.1. Параметры ИС";
-            treeNode2.Name = "tnClassification";
-            treeNode2.Text = "1.2. Классификация ИС";
-            treeNode3.Name = "tnAccessMatrix";
-            treeNode3.Text = "1.3.1. Матрица доступа";
-            treeNode4.Name = "tnTopology";
-            treeNode4.Text = "1.3.2. Топология сети";
-            treeNode5.Name = "tnHardware";
-            treeNode5.Text = "1.3.3. Аппаратная конфигурация";
-            treeNode6.Name = "tnTechno";
-            treeNode6.Text = "1.3. Технологическая информация";
-            treeNode7.Name = "Node0";
-            treeNode7.Text = "1. Обследование ИС";
-            treeNode8.Name = "tnIntruder";
-            treeNode8.Text = "2.1. Модель нарушителя";
-            treeNode9.Name = "tnVulnerabilities";
-            treeNode9.Text = "2.2. Потенциальные уязвимости ИС";
-            treeNode10.Name = "tnActualThreats";
-            treeNode10.Text = "2.3. Актуальные угрозы (НСД)";
-            treeNode11.Name = "tnTCUI";
-            treeNode11.Text = "2.4. Актуальные угрозы (ТКУИ)";
-            treeNode12.Name = "tnTechnoGenThreats";
-            treeNode12.Text = "2.5. Актуальные угрозы (Техногенные)";
-            treeNode13.Name = "tnSKZI";
-            treeNode13.Text = "2.6. Актуальность использования СКЗИ";
-            treeNode14.Name = "Node1";
-            treeNode14.Text = "2. Модель угроз";
+            treeNode43.Name = "tnOptions";
+            treeNode43.Text = "1.1. Параметры ИС";
+            treeNode44.Name = "tnClassification";
+            treeNode44.Text = "1.2. Классификация ИС";
+            treeNode45.Name = "tnAccessMatrix";
+            treeNode45.Text = "1.3.1. Матрица доступа";
+            treeNode46.Name = "tnTopology";
+            treeNode46.Text = "1.3.2. Топология сети";
+            treeNode47.Name = "tnHardware";
+            treeNode47.Text = "1.3.3. Аппаратная конфигурация";
+            treeNode48.Name = "tnTechno";
+            treeNode48.Text = "1.3. Технологическая информация";
+            treeNode49.Name = "Node0";
+            treeNode49.Text = "1. Обследование ИС";
+            treeNode50.Name = "tnIntruder";
+            treeNode50.Text = "2.1. Модель нарушителя";
+            treeNode51.Name = "tnVulnerabilities";
+            treeNode51.Text = "2.2. Потенциальные уязвимости ИС";
+            treeNode52.Name = "tnActualThreats";
+            treeNode52.Text = "2.3. Актуальные угрозы (НСД)";
+            treeNode53.Name = "tnTCUI";
+            treeNode53.Text = "2.4. Актуальные угрозы (ТКУИ)";
+            treeNode54.Name = "tnTechnoGenThreats";
+            treeNode54.Text = "2.5. Актуальные угрозы (Техногенные)";
+            treeNode55.Name = "tnSKZI";
+            treeNode55.Text = "2.6. Актуальность использования СКЗИ";
+            treeNode56.Name = "Node1";
+            treeNode56.Text = "2. Модель угроз";
             this.treeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode7,
-            treeNode14});
+            treeNode49,
+            treeNode56});
             this.treeView.Size = new System.Drawing.Size(287, 516);
             this.treeView.TabIndex = 3;
             this.treeView.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.treeView_BeforeSelect);
@@ -773,6 +798,8 @@
             // 
             // tpTopology
             // 
+            this.tpTopology.Controls.Add(this.toolStrip1);
+            this.tpTopology.Controls.Add(this.pTopology);
             this.tpTopology.Location = new System.Drawing.Point(4, 22);
             this.tpTopology.Name = "tpTopology";
             this.tpTopology.Padding = new System.Windows.Forms.Padding(3);
@@ -780,6 +807,112 @@
             this.tpTopology.TabIndex = 3;
             this.tpTopology.Text = "tpTopology";
             this.tpTopology.UseVisualStyleBackColor = true;
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsbMove,
+            this.tsbPc,
+            this.tsbServer,
+            this.tsbSwitch,
+            this.tsbRouter,
+            this.tsbLink,
+            this.tsbDelete,
+            this.tsbCloud});
+            this.toolStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
+            this.toolStrip1.Location = new System.Drawing.Point(3, 3);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(939, 31);
+            this.toolStrip1.TabIndex = 6;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // tsbMove
+            // 
+            this.tsbMove.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbMove.Image = global::KPSZI.Properties.Resources.Cursor_Move_2_icon;
+            this.tsbMove.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbMove.Margin = new System.Windows.Forms.Padding(0, 1, 5, 2);
+            this.tsbMove.Name = "tsbMove";
+            this.tsbMove.Size = new System.Drawing.Size(28, 28);
+            this.tsbMove.Text = "toolStripButton1";
+            // 
+            // tsbPc
+            // 
+            this.tsbPc.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbPc.Image = global::KPSZI.Properties.Resources.Network_Computer_icon;
+            this.tsbPc.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbPc.Margin = new System.Windows.Forms.Padding(0, 1, 5, 2);
+            this.tsbPc.Name = "tsbPc";
+            this.tsbPc.Size = new System.Drawing.Size(28, 28);
+            this.tsbPc.Text = "toolStripButton2";
+            // 
+            // tsbServer
+            // 
+            this.tsbServer.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbServer.Image = global::KPSZI.Properties.Resources.Network_Server_icon;
+            this.tsbServer.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbServer.Margin = new System.Windows.Forms.Padding(0, 1, 5, 2);
+            this.tsbServer.Name = "tsbServer";
+            this.tsbServer.Size = new System.Drawing.Size(28, 28);
+            this.tsbServer.Text = "toolStripButton3";
+            // 
+            // tsbSwitch
+            // 
+            this.tsbSwitch.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbSwitch.Image = global::KPSZI.Properties.Resources.Network_Switch_icon;
+            this.tsbSwitch.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbSwitch.Margin = new System.Windows.Forms.Padding(0, 1, 5, 2);
+            this.tsbSwitch.Name = "tsbSwitch";
+            this.tsbSwitch.Size = new System.Drawing.Size(28, 28);
+            this.tsbSwitch.Text = "toolStripButton4";
+            // 
+            // tsbRouter
+            // 
+            this.tsbRouter.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbRouter.Image = global::KPSZI.Properties.Resources.Network_Router_icon;
+            this.tsbRouter.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbRouter.Name = "tsbRouter";
+            this.tsbRouter.Size = new System.Drawing.Size(28, 28);
+            this.tsbRouter.Text = "toolStripButton5";
+            // 
+            // tsbLink
+            // 
+            this.tsbLink.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbLink.Image = global::KPSZI.Properties.Resources.Editing_Line_icon;
+            this.tsbLink.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbLink.Name = "tsbLink";
+            this.tsbLink.Size = new System.Drawing.Size(28, 28);
+            this.tsbLink.Text = "toolStripButton6";
+            // 
+            // tsbDelete
+            // 
+            this.tsbDelete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbDelete.Image = global::KPSZI.Properties.Resources.User_Interface_Delete_Sign_icon;
+            this.tsbDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbDelete.Name = "tsbDelete";
+            this.tsbDelete.Size = new System.Drawing.Size(28, 28);
+            this.tsbDelete.Text = "toolStripButton7";
+            // 
+            // tsbCloud
+            // 
+            this.tsbCloud.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbCloud.Image = ((System.Drawing.Image)(resources.GetObject("tsbCloud.Image")));
+            this.tsbCloud.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbCloud.Name = "tsbCloud";
+            this.tsbCloud.Size = new System.Drawing.Size(28, 28);
+            this.tsbCloud.Text = "toolStripButton1";
+            // 
+            // pTopology
+            // 
+            this.pTopology.BackColor = System.Drawing.SystemColors.Window;
+            this.pTopology.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pTopology.Location = new System.Drawing.Point(3, 3);
+            this.pTopology.Name = "pTopology";
+            this.pTopology.Size = new System.Drawing.Size(939, 484);
+            this.pTopology.TabIndex = 1;
+            this.pTopology.TabStop = false;
             // 
             // tpHardware
             // 
@@ -1334,6 +1467,7 @@
             // 
             this.tcThreatsNSD.Controls.Add(this.tpThreatsNSD1);
             this.tcThreatsNSD.Controls.Add(this.tpThreatsNSD2);
+            this.tcThreatsNSD.Controls.Add(this.tpThreatsNSD3);
             this.tcThreatsNSD.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcThreatsNSD.Location = new System.Drawing.Point(3, 3);
             this.tcThreatsNSD.Name = "tcThreatsNSD";
@@ -1452,6 +1586,7 @@
             // tpThreatsNSD2
             // 
             this.tpThreatsNSD2.AutoScroll = true;
+            this.tpThreatsNSD2.Controls.Add(this.btnReady);
             this.tpThreatsNSD2.Controls.Add(this.dgvActualThreatsNSD);
             this.tpThreatsNSD2.Location = new System.Drawing.Point(4, 22);
             this.tpThreatsNSD2.Name = "tpThreatsNSD2";
@@ -1460,6 +1595,15 @@
             this.tpThreatsNSD2.TabIndex = 1;
             this.tpThreatsNSD2.Text = "Определение актуальности УБИ";
             this.tpThreatsNSD2.UseVisualStyleBackColor = true;
+            // 
+            // btnReady
+            // 
+            this.btnReady.Location = new System.Drawing.Point(5, 6);
+            this.btnReady.Name = "btnReady";
+            this.btnReady.Size = new System.Drawing.Size(108, 23);
+            this.btnReady.TabIndex = 1;
+            this.btnReady.Text = "Завершить этап";
+            this.btnReady.UseVisualStyleBackColor = true;
             // 
             // dgvActualThreatsNSD
             // 
@@ -1475,15 +1619,48 @@
             this.dgvActualThreatsNSD.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvActualThreatsNSD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvActualThreatsNSD.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
-            this.dgvActualThreatsNSD.Location = new System.Drawing.Point(0, 0);
+            this.dgvActualThreatsNSD.Location = new System.Drawing.Point(6, 35);
             this.dgvActualThreatsNSD.MultiSelect = false;
             this.dgvActualThreatsNSD.Name = "dgvActualThreatsNSD";
             this.dgvActualThreatsNSD.ReadOnly = true;
             this.dgvActualThreatsNSD.RowHeadersVisible = false;
             this.dgvActualThreatsNSD.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(3);
             this.dgvActualThreatsNSD.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvActualThreatsNSD.Size = new System.Drawing.Size(518, 452);
+            this.dgvActualThreatsNSD.Size = new System.Drawing.Size(502, 415);
             this.dgvActualThreatsNSD.TabIndex = 0;
+            // 
+            // tpThreatsNSD3
+            // 
+            this.tpThreatsNSD3.Controls.Add(this.dgvFinalNSDThreats);
+            this.tpThreatsNSD3.Location = new System.Drawing.Point(4, 22);
+            this.tpThreatsNSD3.Name = "tpThreatsNSD3";
+            this.tpThreatsNSD3.Size = new System.Drawing.Size(931, 458);
+            this.tpThreatsNSD3.TabIndex = 2;
+            this.tpThreatsNSD3.Text = "Перечень актуальных УБИ";
+            this.tpThreatsNSD3.UseVisualStyleBackColor = true;
+            // 
+            // dgvFinalNSDThreats
+            // 
+            this.dgvFinalNSDThreats.AllowUserToAddRows = false;
+            this.dgvFinalNSDThreats.AllowUserToDeleteRows = false;
+            this.dgvFinalNSDThreats.AllowUserToResizeColumns = false;
+            this.dgvFinalNSDThreats.AllowUserToResizeRows = false;
+            this.dgvFinalNSDThreats.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvFinalNSDThreats.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.dgvFinalNSDThreats.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dgvFinalNSDThreats.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvFinalNSDThreats.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFinalNSDThreats.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvFinalNSDThreats.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
+            this.dgvFinalNSDThreats.Location = new System.Drawing.Point(0, 0);
+            this.dgvFinalNSDThreats.MultiSelect = false;
+            this.dgvFinalNSDThreats.Name = "dgvFinalNSDThreats";
+            this.dgvFinalNSDThreats.ReadOnly = true;
+            this.dgvFinalNSDThreats.RowHeadersVisible = false;
+            this.dgvFinalNSDThreats.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(3);
+            this.dgvFinalNSDThreats.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvFinalNSDThreats.Size = new System.Drawing.Size(931, 458);
+            this.dgvFinalNSDThreats.TabIndex = 1;
             // 
             // tpTCUI
             // 
@@ -2309,7 +2486,7 @@
             this.tpSKZI2.Location = new System.Drawing.Point(4, 22);
             this.tpSKZI2.Name = "tpSKZI2";
             this.tpSKZI2.Padding = new System.Windows.Forms.Padding(3);
-            this.tpSKZI2.Size = new System.Drawing.Size(966, 464);
+            this.tpSKZI2.Size = new System.Drawing.Size(931, 458);
             this.tpSKZI2.TabIndex = 1;
             this.tpSKZI2.Text = "Обобщенные возможности источников атак";
             this.tpSKZI2.UseVisualStyleBackColor = true;
@@ -2389,7 +2566,7 @@
             this.tpSKZI3.Location = new System.Drawing.Point(4, 22);
             this.tpSKZI3.Name = "tpSKZI3";
             this.tpSKZI3.Padding = new System.Windows.Forms.Padding(0, 0, 0, 15);
-            this.tpSKZI3.Size = new System.Drawing.Size(966, 464);
+            this.tpSKZI3.Size = new System.Drawing.Size(931, 458);
             this.tpSKZI3.TabIndex = 2;
             this.tpSKZI3.Text = "Уточненные возможности источников атак";
             this.tpSKZI3.UseVisualStyleBackColor = true;
@@ -2633,13 +2810,6 @@
             this.iconList.ImageSize = new System.Drawing.Size(16, 16);
             this.iconList.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // FillThreatsToolStripMenuItem
-            // 
-            this.FillThreatsToolStripMenuItem.Name = "FillThreatsToolStripMenuItem";
-            this.FillThreatsToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
-            this.FillThreatsToolStripMenuItem.Text = "Заполнить угрозы данными";
-            this.FillThreatsToolStripMenuItem.Click += new System.EventHandler(this.FillThreatsToolStripMenuItem_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2663,6 +2833,11 @@
             this.tpClassification.ResumeLayout(false);
             this.panelPDN.ResumeLayout(false);
             this.panelPDN.PerformLayout();
+            this.tpTopology.ResumeLayout(false);
+            this.tpTopology.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pTopology)).EndInit();
             this.tpHardware.ResumeLayout(false);
             this.tpHardware.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHardware)).EndInit();
@@ -2680,6 +2855,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvThreats)).EndInit();
             this.tpThreatsNSD2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvActualThreatsNSD)).EndInit();
+            this.tpThreatsNSD3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFinalNSDThreats)).EndInit();
             this.tpTCUI.ResumeLayout(false);
             this.tabControlTCUI.ResumeLayout(false);
             this.tabPageTCUIExist.ResumeLayout(false);
@@ -2906,5 +3083,18 @@
         public System.Windows.Forms.TreeView treeView;
         private System.Windows.Forms.ToolStripMenuItem FillThreatsToolStripMenuItem;
         internal System.Windows.Forms.Label lbSKZIClass;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        internal System.Windows.Forms.PictureBox pTopology;
+        internal System.Windows.Forms.ToolStripButton tsbMove;
+        internal System.Windows.Forms.ToolStripButton tsbPc;
+        internal System.Windows.Forms.ToolStripButton tsbServer;
+        internal System.Windows.Forms.ToolStripButton tsbSwitch;
+        internal System.Windows.Forms.ToolStripButton tsbRouter;
+        internal System.Windows.Forms.ToolStripButton tsbLink;
+        internal System.Windows.Forms.ToolStripButton tsbDelete;
+        internal System.Windows.Forms.ToolStripButton tsbCloud;
+        internal System.Windows.Forms.DataGridView dgvFinalNSDThreats;
+        internal System.Windows.Forms.TabPage tpThreatsNSD3;
+        internal System.Windows.Forms.Button btnReady;
     }
 }
