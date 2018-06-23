@@ -111,9 +111,9 @@
       <DependentUpon>IntruderAbilityControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Link.cs" />
-    <Compile Include="Migrations\201806230318028_dimov.cs" />
-    <Compile Include="Migrations\201806230318028_dimov.Designer.cs">
-      <DependentUpon>201806230318028_dimov.cs</DependentUpon>
+    <Compile Include="Migrations\201806230501418_first.cs" />
+    <Compile Include="Migrations\201806230501418_first.Designer.cs">
+      <DependentUpon>201806230501418_first.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\ConfigOption.cs" />
@@ -203,8 +203,8 @@
       <DependentUpon>Form1.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806230318028_dimov.resx">
-      <DependentUpon>201806230318028_dimov.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201806230501418_first.resx">
+      <DependentUpon>201806230501418_first.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -636,7 +636,8 @@ namespace KPSZI.Model
             SZISorts.AddRange(new List<SZISort> { NSD, SOV, FW, SDZ, AVZ, SKN, ANZ, SRSB, SZSV, SODT });
 
             #endregion
-            
+            SaveChanges();
+
             #region Меры + параметры настройки
 
             #region ИАФ
@@ -2763,6 +2764,7 @@ namespace KPSZI.Model
             Threats.Where(t => t.ThreatNumber == 208).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 24).First());
             Threats.Where(t => t.ThreatNumber == 208).First().Vulnerabilities.Add(Vulnerabilities.Where(v => v.VulnerabilityNumber == 31).First());
             #endregion
+            SaveChanges();
 
             #region Добавление к угрозам способы реализации
             Threats.Where(t => t.ThreatNumber == 1).First().ImplementWays.Add(ImplementWays.Where(w => w.WayNumber == 2).First());
@@ -3172,6 +3174,7 @@ namespace KPSZI.Model
             Threats.Where(t => t.ThreatNumber == 208).First().ImplementWays.Add(ImplementWays.Where(w => w.WayNumber == 2).First());
             Threats.Where(t => t.ThreatNumber == 208).First().ImplementWays.Add(ImplementWays.Where(w => w.WayNumber == 3).First());
             #endregion
+            SaveChanges();
 
             #region Добавление к угрозам СФХ
             Threats.Where(t => t.ThreatNumber == 1).First().SFHs.Add(SFHs.Where(s => s.SFHNumber == 8).First());
@@ -4139,6 +4142,7 @@ namespace KPSZI.Model
             for (int i = 1; i <= 35; i++)
                 Threats.Where(t => t.ThreatNumber == 208).First().SFHs.Add(SFHs.Where(s => s.SFHNumber == i).First());
             #endregion
+            SaveChanges();
 
             #region Добавление к угрозам мер (ИАФ, УПД, ...)
             Threats.Where(t => t.ThreatNumber == 1).First().GISMeasures.Add(GisMeasures.Where(g => g.Number == 1 && g.MeasureGroup.ShortName == "ИАФ").First());
@@ -4914,6 +4918,7 @@ namespace KPSZI.Model
 
 
             #endregion
+            SaveChanges();
 
             #region Добавление к мерам СФХ
             GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "ИАФ").First().SFHs.Add(SFHs.Where(sfh => sfh.SFHNumber == 1).First());
@@ -7064,7 +7069,8 @@ namespace KPSZI.Model
             GisMeasures.Where(gm => gm.Number == 5 && gm.MeasureGroup.ShortName == "ЗТС").First().SFHs.Add(SFHs.Where(sfh => sfh.SFHNumber == 35).First());
 
             #endregion
-            
+            SaveChanges();
+
             #region Добавление СЗИ к видам
             SZI SNS = new SZI();
             SNS.Name = "Secret Net Studio";

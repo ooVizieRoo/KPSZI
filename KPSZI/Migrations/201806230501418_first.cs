@@ -3,10 +3,24 @@ namespace KPSZI.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class dimov : DbMigration
+    public partial class first : DbMigration
     {
         public override void Up()
         {
+            CreateTable(
+                "soooqa.ConfigOptions",
+                c => new
+                    {
+                        ConfigOptionId = c.Int(nullable: false, identity: true),
+                        Name = c.String(),
+                        Description = c.String(),
+                        DefenceClass = c.String(),
+                        GISMeasure_GISMeasureId = c.Int(),
+                    })
+                .PrimaryKey(t => t.ConfigOptionId)
+                .ForeignKey("soooqa.GISMeasures", t => t.GISMeasure_GISMeasureId)
+                .Index(t => t.GISMeasure_GISMeasureId);
+            
             CreateTable(
                 "soooqa.GISMeasures",
                 c => new
@@ -354,6 +368,7 @@ namespace KPSZI.Migrations
             DropForeignKey("soooqa.SZIGISMeasures", "SZI_SZIId", "soooqa.SZIs");
             DropForeignKey("soooqa.ISPDNMeasures", "MeasureGroup_MeasureGroupId", "soooqa.MeasureGroups");
             DropForeignKey("soooqa.GISMeasures", "MeasureGroup_MeasureGroupId", "soooqa.MeasureGroups");
+            DropForeignKey("soooqa.ConfigOptions", "GISMeasure_GISMeasureId", "soooqa.GISMeasures");
             DropIndex("soooqa.VulnerabilityThreats", new[] { "Threat_ThreatId" });
             DropIndex("soooqa.VulnerabilityThreats", new[] { "Vulnerability_VulnerabilityId" });
             DropIndex("soooqa.ThreatSourceThreats", new[] { "Threat_ThreatId" });
@@ -376,6 +391,7 @@ namespace KPSZI.Migrations
             DropIndex("soooqa.SZIs", new[] { "ISPDNMeasure_ISPDNMeasureId" });
             DropIndex("soooqa.ISPDNMeasures", new[] { "MeasureGroup_MeasureGroupId" });
             DropIndex("soooqa.GISMeasures", new[] { "MeasureGroup_MeasureGroupId" });
+            DropIndex("soooqa.ConfigOptions", new[] { "GISMeasure_GISMeasureId" });
             DropTable("soooqa.VulnerabilityThreats");
             DropTable("soooqa.ThreatSourceThreats");
             DropTable("soooqa.ThreatSFHs");
@@ -402,6 +418,7 @@ namespace KPSZI.Migrations
             DropTable("soooqa.ISPDNMeasures");
             DropTable("soooqa.MeasureGroups");
             DropTable("soooqa.GISMeasures");
+            DropTable("soooqa.ConfigOptions");
         }
     }
 }

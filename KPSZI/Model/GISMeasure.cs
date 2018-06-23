@@ -71,11 +71,11 @@ namespace KPSZI.Model
         /// </summary>
         public GISMeasure()
         {
-            this.ConfigOptions = new List<ConfigOption>();
             Threats = new List<Threat>();
             this.isOnlyISPDn = false;
             this.SZIs = new List<SZI>();
             SFHs = new List<SFH>();
+            this.ConfigOptions = new List<ConfigOption>();
         }
 
         public override bool Equals(object obj)
