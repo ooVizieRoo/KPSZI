@@ -349,5 +349,22 @@ namespace KPSZI
                 db.SeedForConfigOptions();
             }
         }
+
+        private void addSZItoMeasuresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (KPSZIContext db = new KPSZIContext())
+            {
+                try
+                {
+                    db.SeedForMeasures();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Внимание!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                MessageBox.Show("Заполнение прошло успешно!", "Внимание!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
     }
 }

@@ -7244,7 +7244,125 @@ namespace KPSZI.Model
 
         public void SeedForMeasures()
         {
+            var NSD = SZISorts.Where(ss => ss.Number == 1).First();
+            NSD.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "ИАФ").First());
+            NSD.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 3 && gm.MeasureGroup.ShortName == "ИАФ").First());
+            NSD.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 4 && gm.MeasureGroup.ShortName == "ИАФ").First());
+            NSD.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 5 && gm.MeasureGroup.ShortName == "ИАФ").First());
+            NSD.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 7 && gm.MeasureGroup.ShortName == "ИАФ").First());
+            NSD.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "УПД").First());
+            NSD.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "УПД").First());
+            NSD.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 4 && gm.MeasureGroup.ShortName == "УПД").First());
+            NSD.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 6 && gm.MeasureGroup.ShortName == "УПД").First());
+            NSD.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 7 && gm.MeasureGroup.ShortName == "УПД").First());
+            NSD.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 8 && gm.MeasureGroup.ShortName == "УПД").First());
+            NSD.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 10 && gm.MeasureGroup.ShortName == "УПД").First());
+            NSD.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 11 && gm.MeasureGroup.ShortName == "УПД").First());
+            NSD.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 14 && gm.MeasureGroup.ShortName == "УПД").First());
+            NSD.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 15 && gm.MeasureGroup.ShortName == "УПД").First());
+            NSD.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "ОПС").First());
+            NSD.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 4 && gm.MeasureGroup.ShortName == "ОПС").First());
+            NSD.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 5 && gm.MeasureGroup.ShortName == "ЗНИ").First());
+            NSD.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 6 && gm.MeasureGroup.ShortName == "ЗНИ").First());
+            NSD.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 7 && gm.MeasureGroup.ShortName == "ЗНИ").First());
+            NSD.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 8 && gm.MeasureGroup.ShortName == "ЗНИ").First());
+            NSD.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "РСБ").First());
+            NSD.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "РСБ").First());
+            NSD.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 3 && gm.MeasureGroup.ShortName == "РСБ").First());
+            NSD.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 4 && gm.MeasureGroup.ShortName == "РСБ").First());
+            NSD.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 5 && gm.MeasureGroup.ShortName == "РСБ").First());
+            NSD.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 8 && gm.MeasureGroup.ShortName == "РСБ").First());
+            NSD.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "СОВ").First());
+            NSD.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "СОВ").First());
+            NSD.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 4 && gm.MeasureGroup.ShortName == "АНЗ").First());
+            NSD.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 5 && gm.MeasureGroup.ShortName == "АНЗ").First());
+            NSD.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "ОЦЛ").First());
+            NSD.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "ОЦЛ").First());
+            NSD.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 3 && gm.MeasureGroup.ShortName == "ОЦЛ").First());
+            NSD.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 5 && gm.MeasureGroup.ShortName == "ОЦЛ").First());
+            NSD.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 6 && gm.MeasureGroup.ShortName == "ОЦЛ").First());
+            NSD.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 8 && gm.MeasureGroup.ShortName == "ОЦЛ").First());
+            NSD.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "ЗСВ").First());
+            NSD.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "ЗИС").First());
+            NSD.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 4 && gm.MeasureGroup.ShortName == "ЗИС").First());
+            NSD.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 5 && gm.MeasureGroup.ShortName == "ЗИС").First());
+            NSD.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 15 && gm.MeasureGroup.ShortName == "ЗИС").First());
+            NSD.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 19 && gm.MeasureGroup.ShortName == "ЗИС").First());
+            NSD.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 21 && gm.MeasureGroup.ShortName == "ЗИС").First());
+            NSD.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 30 && gm.MeasureGroup.ShortName == "ЗИС").First());
+            NSD.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "ИНЦ").First());
+            NSD.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 3 && gm.MeasureGroup.ShortName == "ИНЦ").First());
 
+            var FW = SZISorts.Where(ss => ss.Number == 3).First();
+            FW.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "ИАФ").First());
+            FW.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 6 && gm.MeasureGroup.ShortName == "ИАФ").First());
+            FW.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 3 && gm.MeasureGroup.ShortName == "УПД").First());
+            FW.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 9 && gm.MeasureGroup.ShortName == "УПД").First());
+            FW.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 13 && gm.MeasureGroup.ShortName == "УПД").First());
+            FW.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 14 && gm.MeasureGroup.ShortName == "УПД").First());
+            FW.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 16 && gm.MeasureGroup.ShortName == "УПД").First());
+            FW.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 6 && gm.MeasureGroup.ShortName == "РСБ").First());
+            FW.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "СОВ").First());
+            FW.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "СОВ").First());
+            FW.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 5 && gm.MeasureGroup.ShortName == "ОЦЛ").First());
+            FW.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 6 && gm.MeasureGroup.ShortName == "ОДТ").First());
+            FW.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 3 && gm.MeasureGroup.ShortName == "ЗИС").First());
+            FW.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 11 && gm.MeasureGroup.ShortName == "ЗИС").First());
+            FW.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 16 && gm.MeasureGroup.ShortName == "ЗИС").First());
+            FW.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 17 && gm.MeasureGroup.ShortName == "ЗИС").First());
+            FW.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 20 && gm.MeasureGroup.ShortName == "ЗИС").First());
+            FW.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 22 && gm.MeasureGroup.ShortName == "ЗИС").First());
+            FW.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 23 && gm.MeasureGroup.ShortName == "ЗИС").First());
+            FW.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 24 && gm.MeasureGroup.ShortName == "ЗИС").First());
+
+            var SDZ = SZISorts.Where(ss => ss.Number == 4).First();
+            SDZ.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 17 && gm.MeasureGroup.ShortName == "УПД").First());
+            SDZ.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 5 && gm.MeasureGroup.ShortName == "ЗСВ").First());
+
+            var AVZ = SZISorts.Where(ss => ss.Number == 5).First();
+            AVZ.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 3 && gm.MeasureGroup.ShortName == "ОПС").First());
+            AVZ.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "АВЗ").First());
+            AVZ.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "АВЗ").First());
+            AVZ.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 4 && gm.MeasureGroup.ShortName == "ОЦЛ").First());
+            AVZ.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 9 && gm.MeasureGroup.ShortName == "ЗСВ").First());
+            AVZ.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 7 && gm.MeasureGroup.ShortName == "ЗИС").First());
+
+            var ANZ = SZISorts.Where(ss => ss.Number == 7).First();
+            ANZ.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "АНЗ").First());
+            ANZ.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "АНЗ").First());
+            ANZ.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 3 && gm.MeasureGroup.ShortName == "АНЗ").First());
+            ANZ.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 4 && gm.MeasureGroup.ShortName == "АНЗ").First());
+            ANZ.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "УКФ").First());
+            ANZ.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 4 && gm.MeasureGroup.ShortName == "УКФ").First());
+
+            var SRSB = SZISorts.Where(ss => ss.Number == 8).First();
+            SRSB.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "РСБ").First());
+            SRSB.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "РСБ").First());
+            SRSB.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 3 && gm.MeasureGroup.ShortName == "РСБ").First());
+            SRSB.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 4 && gm.MeasureGroup.ShortName == "РСБ").First());
+            SRSB.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 5 && gm.MeasureGroup.ShortName == "РСБ").First());
+            SRSB.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 8 && gm.MeasureGroup.ShortName == "РСБ").First());
+            SRSB.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 12 && gm.MeasureGroup.ShortName == "ЗИС").First());
+            SRSB.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 13 && gm.MeasureGroup.ShortName == "ЗИС").First());
+            SRSB.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 16 && gm.MeasureGroup.ShortName == "ЗИС").First());
+
+            var SZSV = SZISorts.Where(ss => ss.Number == 9).First();
+            SZSV.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "ЗСВ").First());
+            SZSV.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "ЗСВ").First());
+            SZSV.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 3 && gm.MeasureGroup.ShortName == "ЗСВ").First());
+            SZSV.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 4 && gm.MeasureGroup.ShortName == "ЗСВ").First());
+            SZSV.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 6 && gm.MeasureGroup.ShortName == "ЗСВ").First());
+            SZSV.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 7 && gm.MeasureGroup.ShortName == "ЗСВ").First());
+            SZSV.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 8 && gm.MeasureGroup.ShortName == "ЗСВ").First());
+            SZSV.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 9 && gm.MeasureGroup.ShortName == "ЗСВ").First());
+            SZSV.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 10 && gm.MeasureGroup.ShortName == "ЗСВ").First());
+
+            var SODT = SZISorts.Where(ss => ss.Number == 10).First();
+            SODT.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 4 && gm.MeasureGroup.ShortName == "ОДТ").First());
+            SODT.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 5 && gm.MeasureGroup.ShortName == "ОДТ").First());
+            SODT.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 8 && gm.MeasureGroup.ShortName == "ЗСВ").First());
+
+            SaveChanges();
         }
     } 
 }

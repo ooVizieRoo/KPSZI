@@ -15,25 +15,40 @@ namespace KPSZI
         List<SZI> listOfSZIsFromDB;
         List<RadioButton> radiobuttonsSZISorts;
         List<CheckBox> checkboxesSZISorts;
-        InformationSystem IS;
+
         public StageSZI(TabPage stageTab, TreeNode stageNode, MainForm mainForm, InformationSystem IS)
             : base(stageTab, stageNode, mainForm, IS)
         {
             mf.btnGetRequirm.Click += BtnTest_Click;
             mf.btnGetSZI.Click += BtnGetSZI_Click;
-            this.IS = IS;
         }
 
         private void BtnGetSZI_Click(object sender, EventArgs e)
         {
             mf.dgvTest.Rows.Clear();
+            //using (KPSZIContext db = new KPSZIContext())
+            //{
+            //    int i = 0;
+            //    var listSZI = db.SZIs.ToList().Intersect(IS.listOfSZIs);
+            //    foreach (SZI szi in listSZI)
+            //        mf.dgvTest.Rows.Add(i++, szi.Name);
+            //}
+
             using (KPSZIContext db = new KPSZIContext())
             {
                 int i = 0;
-                var listSZI = db.SZIs.ToList().Intersect(IS.listOfSZIs);
-                foreach (SZI szi in listSZI)
-                    mf.dgvTest.Rows.Add(i++, szi.Name);
+                var listSZISorts = db.SZISorts.ToList();
+
+                foreach (SZISort ss in listSZISorts)
+                {
+                    string measures = "";
+                    foreach (GISMeasure gm in ss.GISMeasures)
+                        measures += gm.MeasureGroup.ShortName + "." + gm.Number + "\n";
+
+                    mf.dgvTest.Rows.Add(++i, ss.Name, measures);
+                }
             }
+
         }
 
         private void BtnTest_Click(object sender, EventArgs e)
@@ -143,8 +158,8 @@ namespace KPSZI
         protected override void initTabPage()
         {
             mf.dgvTest.Columns.Add("Count", "№");
-            mf.dgvTest.Columns.Add("Name", "Наименование");
-
+            mf.dgvTest.Columns.Add("SZI", "Наименование СЗИ");
+            mf.dgvTest.Columns.Add("Measures", "Перечень реализуемых мер");
         }
 
         public override void saveChanges()

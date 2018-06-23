@@ -330,6 +330,8 @@
             this.labelAvailability = new System.Windows.Forms.Label();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.iconList = new System.Windows.Forms.ImageList(this.components);
+            this.measuresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addSZItoMeasuresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.tpOptions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProjectSecurityResult)).BeginInit();
@@ -440,8 +442,9 @@
             // testPanelToolStripMenuItem
             // 
             this.testPanelToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.threatToolStripMenuItem,
             this.dataBaseToolStripMenuItem,
+            this.threatToolStripMenuItem,
+            this.measuresToolStripMenuItem,
             this.параметрыНастройкиToolStripMenuItem});
             this.testPanelToolStripMenuItem.Name = "testPanelToolStripMenuItem";
             this.testPanelToolStripMenuItem.Size = new System.Drawing.Size(85, 20);
@@ -1728,7 +1731,7 @@
             this.dgvActualThreatsNSD.RowHeadersVisible = false;
             this.dgvActualThreatsNSD.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(3);
             this.dgvActualThreatsNSD.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvActualThreatsNSD.Size = new System.Drawing.Size(491, 452);
+            this.dgvActualThreatsNSD.Size = new System.Drawing.Size(474, 452);
             this.dgvActualThreatsNSD.TabIndex = 0;
             // 
             // tpThreatsNSD3
@@ -3255,6 +3258,7 @@
             this.dgvTest.Name = "dgvTest";
             this.dgvTest.ReadOnly = true;
             this.dgvTest.RowHeadersVisible = false;
+            this.dgvTest.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvTest.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTest.Size = new System.Drawing.Size(929, 306);
             this.dgvTest.TabIndex = 2;
@@ -3418,6 +3422,21 @@
             this.iconList.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
             this.iconList.ImageSize = new System.Drawing.Size(16, 16);
             this.iconList.TransparentColor = System.Drawing.Color.Transparent;
+            // 
+            // measuresToolStripMenuItem
+            // 
+            this.measuresToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addSZItoMeasuresToolStripMenuItem});
+            this.measuresToolStripMenuItem.Name = "measuresToolStripMenuItem";
+            this.measuresToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
+            this.measuresToolStripMenuItem.Text = "Меры";
+            // 
+            // addSZItoMeasuresToolStripMenuItem
+            // 
+            this.addSZItoMeasuresToolStripMenuItem.Name = "addSZItoMeasuresToolStripMenuItem";
+            this.addSZItoMeasuresToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.addSZItoMeasuresToolStripMenuItem.Text = "Добавить СЗИ к мерам";
+            this.addSZItoMeasuresToolStripMenuItem.Click += new System.EventHandler(this.addSZItoMeasuresToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -3769,5 +3788,7 @@
         internal System.Windows.Forms.TextBox tbtpSZISZI;
         internal System.Windows.Forms.TextBox tbtpSZISVT;
         internal System.Windows.Forms.TextBox tbtpSZINDV;
+        private System.Windows.Forms.ToolStripMenuItem measuresToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addSZItoMeasuresToolStripMenuItem;
     }
 }
