@@ -137,15 +137,15 @@ namespace KPSZI
 
             btnGetBasicMeasuresList.Text = "Базовый";
             btnGetBasicMeasuresList.Click += BtnGetBasicMeasuresList_Click;
-            mf.tbtpSZI.TabPages[stageTab.Name].Controls.Add(btnGetBasicMeasuresList);
+            mf.tabControl.TabPages[stageTab.Name].Controls.Add(btnGetBasicMeasuresList);
 
             btnGetAdaptiveMeasuresList.Text = "Адаптированный";
             btnGetAdaptiveMeasuresList.Click += BtnGetAdaptiveMeasuresList_Click;
-            mf.tbtpSZI.TabPages[stageTab.Name].Controls.Add(btnGetAdaptiveMeasuresList);
+            mf.tabControl.TabPages[stageTab.Name].Controls.Add(btnGetAdaptiveMeasuresList);
 
             btnGetConreteMeasuresList.Text = "Уточненный";
             btnGetConreteMeasuresList.Click += BtnGetConreteMeasuresList_Click;
-            mf.tbtpSZI.TabPages[stageTab.Name].Controls.Add(btnGetConreteMeasuresList);
+            mf.tabControl.TabPages[stageTab.Name].Controls.Add(btnGetConreteMeasuresList);
 
             btnConsoleClear.Location = new System.Drawing.Point(300, 900);
             btnConsoleClear.Text = "Clear";

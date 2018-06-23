@@ -7,13 +7,13 @@ namespace KPSZI.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class first : IMigrationMetadata
+    public sealed partial class dimov : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(first));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(dimov));
         
         string IMigrationMetadata.Id
         {
-            get { return "201806221228493_first"; }
+            get { return "201806230318028_dimov"; }
         }
         
         string IMigrationMetadata.Source

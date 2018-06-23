@@ -62,10 +62,10 @@
             treeNode15,
             treeNode16,
             treeNode17});
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -104,7 +104,7 @@
             this.tbISName = new System.Windows.Forms.TextBox();
             this.lbIsName = new System.Windows.Forms.Label();
             this.lbInfoTypes = new System.Windows.Forms.CheckedListBox();
-            this.tbtpSZI = new System.Windows.Forms.TabControl();
+            this.tabControl = new System.Windows.Forms.TabControl();
             this.tpClassification = new System.Windows.Forms.TabPage();
             this.labelGISClass = new System.Windows.Forms.Label();
             this.panelPDN = new System.Windows.Forms.Panel();
@@ -294,6 +294,7 @@
             this.tpMeasuresTCUI = new System.Windows.Forms.TabPage();
             this.tpMeasuresTechno = new System.Windows.Forms.TabPage();
             this.tpSZI = new System.Windows.Forms.TabPage();
+            this.btnGetSZI = new System.Windows.Forms.Button();
             this.btnGetRequirm = new System.Windows.Forms.Button();
             this.panelTPSZI = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -324,11 +325,10 @@
             this.labelAvailability = new System.Windows.Forms.Label();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.iconList = new System.Windows.Forms.ImageList(this.components);
-            this.btnGetSZI = new System.Windows.Forms.Button();
             this.menuStrip.SuspendLayout();
             this.tpOptions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProjectSecurityResult)).BeginInit();
-            this.tbtpSZI.SuspendLayout();
+            this.tabControl.SuspendLayout();
             this.tpClassification.SuspendLayout();
             this.panelPDN.SuspendLayout();
             this.tpTopology.SuspendLayout();
@@ -569,7 +569,7 @@
             this.tpOptions.Padding = new System.Windows.Forms.Padding(3);
             this.tpOptions.Size = new System.Drawing.Size(969, 490);
             this.tpOptions.TabIndex = 0;
-            this.tpOptions.Text = "tpOptions";
+            this.tpOptions.Text = "s";
             this.tpOptions.UseVisualStyleBackColor = true;
             // 
             // dgvProjectSecurityResult
@@ -673,11 +673,11 @@
             this.tabControl.Controls.Add(this.tpTCUI);
             this.tabControl.Controls.Add(this.tpTechnoGenThreats);
             this.tabControl.Controls.Add(this.tpSKZI);
-            this.tabControl.Controls.Add(this.tabPage11);
-            this.tabControl.Controls.Add(this.tabPage12);
-            this.tabControl.Controls.Add(this.tabPage13);
-            this.tabControl.Controls.Add(this.tabPage14);
-            this.tabControl.Controls.Add(this.tabPage15);
+            this.tabControl.Controls.Add(this.tpMeasures);
+            this.tabControl.Controls.Add(this.tpMeasuresTCUI);
+            this.tabControl.Controls.Add(this.tpMeasuresTechno);
+            this.tabControl.Controls.Add(this.tpSZI);
+            this.tabControl.Controls.Add(this.tpTPExport);
             this.tabControl.Controls.Add(this.tabPage16);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl.Location = new System.Drawing.Point(287, 24);
@@ -685,7 +685,7 @@
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
             this.tabControl.ShowToolTips = true;
-            this.tabControl.Size = new System.Drawing.Size(953, 516);
+            this.tabControl.Size = new System.Drawing.Size(977, 516);
             this.tabControl.TabIndex = 4;
             // 
             // tpClassification
@@ -699,7 +699,7 @@
             this.tpClassification.Location = new System.Drawing.Point(4, 22);
             this.tpClassification.Name = "tpClassification";
             this.tpClassification.Padding = new System.Windows.Forms.Padding(3);
-            this.tpClassification.Size = new System.Drawing.Size(969, 490);
+            this.tpClassification.Size = new System.Drawing.Size(945, 490);
             this.tpClassification.TabIndex = 1;
             this.tpClassification.Text = "tpClassification";
             this.tpClassification.UseVisualStyleBackColor = true;
@@ -868,7 +868,7 @@
             this.tpAccessMatrix.Location = new System.Drawing.Point(4, 22);
             this.tpAccessMatrix.Name = "tpAccessMatrix";
             this.tpAccessMatrix.Padding = new System.Windows.Forms.Padding(3);
-            this.tpAccessMatrix.Size = new System.Drawing.Size(969, 490);
+            this.tpAccessMatrix.Size = new System.Drawing.Size(945, 490);
             this.tpAccessMatrix.TabIndex = 2;
             this.tpAccessMatrix.Text = "tpAccessMatrix";
             this.tpAccessMatrix.UseVisualStyleBackColor = true;
@@ -880,7 +880,7 @@
             this.tpTopology.Location = new System.Drawing.Point(4, 22);
             this.tpTopology.Name = "tpTopology";
             this.tpTopology.Padding = new System.Windows.Forms.Padding(3);
-            this.tpTopology.Size = new System.Drawing.Size(969, 490);
+            this.tpTopology.Size = new System.Drawing.Size(945, 490);
             this.tpTopology.TabIndex = 3;
             this.tpTopology.Text = "tpTopology";
             this.tpTopology.UseVisualStyleBackColor = true;
@@ -1025,7 +1025,7 @@
             this.tpHardware.Location = new System.Drawing.Point(4, 22);
             this.tpHardware.Name = "tpHardware";
             this.tpHardware.Padding = new System.Windows.Forms.Padding(3);
-            this.tpHardware.Size = new System.Drawing.Size(969, 490);
+            this.tpHardware.Size = new System.Drawing.Size(945, 490);
             this.tpHardware.TabIndex = 5;
             this.tpHardware.Text = "tpHardware";
             this.tpHardware.UseVisualStyleBackColor = true;
@@ -1387,7 +1387,7 @@
             this.tpIntruder.Location = new System.Drawing.Point(4, 22);
             this.tpIntruder.Name = "tpIntruder";
             this.tpIntruder.Padding = new System.Windows.Forms.Padding(3);
-            this.tpIntruder.Size = new System.Drawing.Size(969, 490);
+            this.tpIntruder.Size = new System.Drawing.Size(945, 490);
             this.tpIntruder.TabIndex = 4;
             this.tpIntruder.Text = "tpIntruder";
             this.tpIntruder.UseVisualStyleBackColor = true;
@@ -1486,7 +1486,7 @@
             this.tpVulnerabilities.Location = new System.Drawing.Point(4, 22);
             this.tpVulnerabilities.Name = "tpVulnerabilities";
             this.tpVulnerabilities.Padding = new System.Windows.Forms.Padding(3);
-            this.tpVulnerabilities.Size = new System.Drawing.Size(969, 490);
+            this.tpVulnerabilities.Size = new System.Drawing.Size(945, 490);
             this.tpVulnerabilities.TabIndex = 6;
             this.tpVulnerabilities.Text = "tpVulnerabilities";
             this.tpVulnerabilities.UseVisualStyleBackColor = true;
@@ -1519,7 +1519,7 @@
             this.dgvVulnerabilities.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dgvVulnerabilities.ShowCellToolTips = false;
             this.dgvVulnerabilities.ShowEditingIcon = false;
-            this.dgvVulnerabilities.Size = new System.Drawing.Size(963, 484);
+            this.dgvVulnerabilities.Size = new System.Drawing.Size(939, 484);
             this.dgvVulnerabilities.TabIndex = 0;
             // 
             // CheckVulnerability
@@ -1535,7 +1535,7 @@
             this.tpActualThreats.Location = new System.Drawing.Point(4, 22);
             this.tpActualThreats.Name = "tpActualThreats";
             this.tpActualThreats.Padding = new System.Windows.Forms.Padding(3);
-            this.tpActualThreats.Size = new System.Drawing.Size(969, 490);
+            this.tpActualThreats.Size = new System.Drawing.Size(945, 490);
             this.tpActualThreats.TabIndex = 5;
             this.tpActualThreats.Text = "tpActualThreats";
             this.tpActualThreats.UseVisualStyleBackColor = true;
@@ -1549,7 +1549,7 @@
             this.tcThreatsNSD.Location = new System.Drawing.Point(3, 3);
             this.tcThreatsNSD.Name = "tcThreatsNSD";
             this.tcThreatsNSD.SelectedIndex = 0;
-            this.tcThreatsNSD.Size = new System.Drawing.Size(963, 484);
+            this.tcThreatsNSD.Size = new System.Drawing.Size(939, 484);
             this.tcThreatsNSD.TabIndex = 4;
             // 
             // tpThreatsNSD1
@@ -1563,7 +1563,7 @@
             this.tpThreatsNSD1.Location = new System.Drawing.Point(4, 22);
             this.tpThreatsNSD1.Name = "tpThreatsNSD1";
             this.tpThreatsNSD1.Padding = new System.Windows.Forms.Padding(3);
-            this.tpThreatsNSD1.Size = new System.Drawing.Size(955, 458);
+            this.tpThreatsNSD1.Size = new System.Drawing.Size(931, 458);
             this.tpThreatsNSD1.TabIndex = 0;
             this.tpThreatsNSD1.Text = "Итоговый перечень УБИ";
             this.tpThreatsNSD1.UseVisualStyleBackColor = true;
@@ -1621,7 +1621,7 @@
             this.tbThreatDescription.Multiline = true;
             this.tbThreatDescription.Name = "tbThreatDescription";
             this.tbThreatDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tbThreatDescription.Size = new System.Drawing.Size(598, 121);
+            this.tbThreatDescription.Size = new System.Drawing.Size(574, 121);
             this.tbThreatDescription.TabIndex = 2;
             this.tbThreatDescription.Text = "  Выберите угрозу для просмотра описания...";
             // 
@@ -1657,7 +1657,7 @@
             this.dgvThreats.ReadOnly = true;
             this.dgvThreats.RowHeadersVisible = false;
             this.dgvThreats.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvThreats.Size = new System.Drawing.Size(949, 310);
+            this.dgvThreats.Size = new System.Drawing.Size(925, 310);
             this.dgvThreats.TabIndex = 0;
             // 
             // tpThreatsNSD2
@@ -1703,7 +1703,7 @@
             this.dgvActualThreatsNSD.RowHeadersVisible = false;
             this.dgvActualThreatsNSD.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(3);
             this.dgvActualThreatsNSD.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvActualThreatsNSD.Size = new System.Drawing.Size(542, 452);
+            this.dgvActualThreatsNSD.Size = new System.Drawing.Size(525, 452);
             this.dgvActualThreatsNSD.TabIndex = 0;
             // 
             // tpThreatsNSD3
@@ -1711,7 +1711,7 @@
             this.tpThreatsNSD3.Controls.Add(this.dgvFinalNSDThreats);
             this.tpThreatsNSD3.Location = new System.Drawing.Point(4, 22);
             this.tpThreatsNSD3.Name = "tpThreatsNSD3";
-            this.tpThreatsNSD3.Size = new System.Drawing.Size(931, 458);
+            this.tpThreatsNSD3.Size = new System.Drawing.Size(955, 458);
             this.tpThreatsNSD3.TabIndex = 2;
             this.tpThreatsNSD3.Text = "Перечень актуальных УБИ";
             this.tpThreatsNSD3.UseVisualStyleBackColor = true;
@@ -1736,7 +1736,7 @@
             this.dgvFinalNSDThreats.RowHeadersVisible = false;
             this.dgvFinalNSDThreats.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(3);
             this.dgvFinalNSDThreats.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvFinalNSDThreats.Size = new System.Drawing.Size(931, 458);
+            this.dgvFinalNSDThreats.Size = new System.Drawing.Size(955, 458);
             this.dgvFinalNSDThreats.TabIndex = 1;
             // 
             // tpTCUI
@@ -1745,7 +1745,7 @@
             this.tpTCUI.Location = new System.Drawing.Point(4, 22);
             this.tpTCUI.Name = "tpTCUI";
             this.tpTCUI.Padding = new System.Windows.Forms.Padding(3);
-            this.tpTCUI.Size = new System.Drawing.Size(969, 490);
+            this.tpTCUI.Size = new System.Drawing.Size(945, 490);
             this.tpTCUI.TabIndex = 7;
             this.tpTCUI.Text = "tpTCUI";
             this.tpTCUI.UseVisualStyleBackColor = true;
@@ -1759,7 +1759,7 @@
             this.tabControlTCUI.Location = new System.Drawing.Point(3, 3);
             this.tabControlTCUI.Name = "tabControlTCUI";
             this.tabControlTCUI.SelectedIndex = 0;
-            this.tabControlTCUI.Size = new System.Drawing.Size(963, 484);
+            this.tabControlTCUI.Size = new System.Drawing.Size(939, 484);
             this.tabControlTCUI.TabIndex = 0;
             // 
             // tabPageTCUIExist
@@ -1801,7 +1801,7 @@
             this.tabPageTCUIExist.Location = new System.Drawing.Point(4, 22);
             this.tabPageTCUIExist.Name = "tabPageTCUIExist";
             this.tabPageTCUIExist.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageTCUIExist.Size = new System.Drawing.Size(955, 458);
+            this.tabPageTCUIExist.Size = new System.Drawing.Size(931, 458);
             this.tabPageTCUIExist.TabIndex = 0;
             this.tabPageTCUIExist.Text = "Наличие ТКУИ / Уровень проектной защищенности";
             this.tabPageTCUIExist.UseVisualStyleBackColor = true;
@@ -2267,7 +2267,7 @@
             this.tpTechnoGenThreats.Location = new System.Drawing.Point(4, 22);
             this.tpTechnoGenThreats.Name = "tpTechnoGenThreats";
             this.tpTechnoGenThreats.Padding = new System.Windows.Forms.Padding(3);
-            this.tpTechnoGenThreats.Size = new System.Drawing.Size(969, 490);
+            this.tpTechnoGenThreats.Size = new System.Drawing.Size(945, 490);
             this.tpTechnoGenThreats.TabIndex = 8;
             this.tpTechnoGenThreats.Text = "tpTechnoGenThreats";
             this.tpTechnoGenThreats.UseVisualStyleBackColor = true;
@@ -2477,7 +2477,7 @@
             this.tpSKZI.Location = new System.Drawing.Point(4, 22);
             this.tpSKZI.Name = "tpSKZI";
             this.tpSKZI.Padding = new System.Windows.Forms.Padding(3);
-            this.tpSKZI.Size = new System.Drawing.Size(969, 490);
+            this.tpSKZI.Size = new System.Drawing.Size(945, 490);
             this.tpSKZI.TabIndex = 9;
             this.tpSKZI.Text = "tpSKZI";
             this.tpSKZI.UseVisualStyleBackColor = true;
@@ -2491,7 +2491,7 @@
             this.tcSKZI.Location = new System.Drawing.Point(3, 3);
             this.tcSKZI.Name = "tcSKZI";
             this.tcSKZI.SelectedIndex = 0;
-            this.tcSKZI.Size = new System.Drawing.Size(963, 484);
+            this.tcSKZI.Size = new System.Drawing.Size(939, 484);
             this.tcSKZI.TabIndex = 0;
             // 
             // tpSKZI1
@@ -2504,7 +2504,7 @@
             this.tpSKZI1.Location = new System.Drawing.Point(4, 22);
             this.tpSKZI1.Name = "tpSKZI1";
             this.tpSKZI1.Padding = new System.Windows.Forms.Padding(3);
-            this.tpSKZI1.Size = new System.Drawing.Size(955, 458);
+            this.tpSKZI1.Size = new System.Drawing.Size(931, 458);
             this.tpSKZI1.TabIndex = 0;
             this.tpSKZI1.Text = "Актуальность использования СКЗИ";
             this.tpSKZI1.UseVisualStyleBackColor = true;
@@ -2756,7 +2756,7 @@
             this.tpMeasures.Location = new System.Drawing.Point(4, 22);
             this.tpMeasures.Name = "tpMeasures";
             this.tpMeasures.Padding = new System.Windows.Forms.Padding(3);
-            this.tpMeasures.Size = new System.Drawing.Size(969, 490);
+            this.tpMeasures.Size = new System.Drawing.Size(945, 490);
             this.tpMeasures.TabIndex = 10;
             this.tpMeasures.Text = "tpMeasures";
             this.tpMeasures.UseVisualStyleBackColor = true;
@@ -3000,7 +3000,7 @@
             this.tpMeasuresTCUI.Location = new System.Drawing.Point(4, 22);
             this.tpMeasuresTCUI.Name = "tpMeasuresTCUI";
             this.tpMeasuresTCUI.Padding = new System.Windows.Forms.Padding(3);
-            this.tpMeasuresTCUI.Size = new System.Drawing.Size(969, 490);
+            this.tpMeasuresTCUI.Size = new System.Drawing.Size(945, 490);
             this.tpMeasuresTCUI.TabIndex = 11;
             this.tpMeasuresTCUI.Text = "tpMeasuresTCUI";
             this.tpMeasuresTCUI.UseVisualStyleBackColor = true;
@@ -3010,7 +3010,7 @@
             this.tpMeasuresTechno.Location = new System.Drawing.Point(4, 22);
             this.tpMeasuresTechno.Name = "tpMeasuresTechno";
             this.tpMeasuresTechno.Padding = new System.Windows.Forms.Padding(3);
-            this.tpMeasuresTechno.Size = new System.Drawing.Size(969, 490);
+            this.tpMeasuresTechno.Size = new System.Drawing.Size(945, 490);
             this.tpMeasuresTechno.TabIndex = 12;
             this.tpMeasuresTechno.Text = "tpMeasuresTechno";
             this.tpMeasuresTechno.UseVisualStyleBackColor = true;
@@ -3024,10 +3024,19 @@
             this.tpSZI.Location = new System.Drawing.Point(4, 22);
             this.tpSZI.Name = "tpSZI";
             this.tpSZI.Padding = new System.Windows.Forms.Padding(3);
-            this.tpSZI.Size = new System.Drawing.Size(969, 490);
+            this.tpSZI.Size = new System.Drawing.Size(945, 490);
             this.tpSZI.TabIndex = 13;
             this.tpSZI.Text = "tpSZI";
             this.tpSZI.UseVisualStyleBackColor = true;
+            // 
+            // btnGetSZI
+            // 
+            this.btnGetSZI.Location = new System.Drawing.Point(300, 83);
+            this.btnGetSZI.Name = "btnGetSZI";
+            this.btnGetSZI.Size = new System.Drawing.Size(75, 23);
+            this.btnGetSZI.TabIndex = 5;
+            this.btnGetSZI.Text = "СЗИ";
+            this.btnGetSZI.UseVisualStyleBackColor = true;
             // 
             // btnGetRequirm
             // 
@@ -3277,7 +3286,7 @@
             this.tpTPExport.Location = new System.Drawing.Point(4, 22);
             this.tpTPExport.Name = "tpTPExport";
             this.tpTPExport.Padding = new System.Windows.Forms.Padding(3);
-            this.tpTPExport.Size = new System.Drawing.Size(969, 490);
+            this.tpTPExport.Size = new System.Drawing.Size(945, 490);
             this.tpTPExport.TabIndex = 14;
             this.tpTPExport.Text = "tpTPExport";
             this.tpTPExport.UseVisualStyleBackColor = true;
@@ -3287,7 +3296,7 @@
             this.tabPage16.Location = new System.Drawing.Point(4, 22);
             this.tabPage16.Name = "tabPage16";
             this.tabPage16.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage16.Size = new System.Drawing.Size(969, 490);
+            this.tabPage16.Size = new System.Drawing.Size(945, 490);
             this.tabPage16.TabIndex = 15;
             this.tabPage16.Text = "tabPage16";
             this.tabPage16.UseVisualStyleBackColor = true;
@@ -3374,22 +3383,13 @@
             this.iconList.ImageSize = new System.Drawing.Size(16, 16);
             this.iconList.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // btnGetSZI
-            // 
-            this.btnGetSZI.Location = new System.Drawing.Point(300, 83);
-            this.btnGetSZI.Name = "btnGetSZI";
-            this.btnGetSZI.Size = new System.Drawing.Size(75, 23);
-            this.btnGetSZI.TabIndex = 5;
-            this.btnGetSZI.Text = "СЗИ";
-            this.btnGetSZI.UseVisualStyleBackColor = true;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 562);
             this.Controls.Add(this.splitter1);
-            this.Controls.Add(this.tbtpSZI);
+            this.Controls.Add(this.tabControl);
             this.Controls.Add(this.treeView);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip);
@@ -3403,7 +3403,7 @@
             this.tpOptions.ResumeLayout(false);
             this.tpOptions.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProjectSecurityResult)).EndInit();
-            this.tbtpSZI.ResumeLayout(false);
+            this.tabControl.ResumeLayout(false);
             this.tpClassification.ResumeLayout(false);
             this.panelPDN.ResumeLayout(false);
             this.panelPDN.PerformLayout();
@@ -3492,7 +3492,7 @@
         public System.Windows.Forms.TabPage tpOptions;
         internal System.Windows.Forms.TextBox tbISName;
         private System.Windows.Forms.Label lbIsName;
-        public System.Windows.Forms.TabControl tbtpSZI;
+        public System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.TabPage tpClassification;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;

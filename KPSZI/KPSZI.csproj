@@ -104,16 +104,16 @@
     <Compile Include="FillThreatsForm.Designer.cs">
       <DependentUpon>FillThreatsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="GeneratedClass.cs" />
     <Compile Include="IntruderAbilityControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="IntruderAbilityControl.Designer.cs">
       <DependentUpon>IntruderAbilityControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201806221228493_first.cs" />
-    <Compile Include="Migrations\201806221228493_first.Designer.cs">
-      <DependentUpon>201806221228493_first.cs</DependentUpon>
+    <Compile Include="Link.cs" />
+    <Compile Include="Migrations\201806230318028_dimov.cs" />
+    <Compile Include="Migrations\201806230318028_dimov.Designer.cs">
+      <DependentUpon>201806230318028_dimov.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\ImplementWays.cs" />
@@ -201,8 +201,8 @@
       <DependentUpon>Form1.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806221228493_first.resx">
-      <DependentUpon>201806221228493_first.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201806230318028_dimov.resx">
+      <DependentUpon>201806230318028_dimov.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

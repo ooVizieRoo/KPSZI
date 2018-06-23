@@ -3,7 +3,7 @@ namespace KPSZI.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class first : DbMigration
+    public partial class dimov : DbMigration
     {
         public override void Up()
         {
