@@ -26,6 +26,7 @@ namespace KPSZI
 
         private void BtnGetSZI_Click(object sender, EventArgs e)
         {
+            mf.dgvTest.Rows.Clear();
             using (KPSZIContext db = new KPSZIContext())
             {
                 int i = 0;
@@ -35,9 +36,25 @@ namespace KPSZI
             }
         }
 
-
         private void BtnTest_Click(object sender, EventArgs e)
         {
+            switch (2)//IS.GISClass)
+            {
+                case 1: { mf.tbtpSZISVT.Text = "не ниже 5-го класса"; mf.tbtpSZISZI.Text = "не ниже 4-го класса"; mf.tbtpSZINDV.Text = "4";  break; }
+                case 2: { mf.tbtpSZISVT.Text = "не ниже 5-го класса"; mf.tbtpSZISZI.Text = "не ниже 5-го класса"; mf.tbtpSZINDV.Text = "4"; break; }
+                case 3: { mf.tbtpSZISVT.Text = "не ниже 5-го класса"; mf.tbtpSZISZI.Text = "не ниже 6-го класса"; mf.tbtpSZINDV.Text = "не требуется"; break; }
+                default:
+                    {
+                        if (MessageBox.Show("Не определен класс защищенности для дальнейшней работы. \nПерейти во вкладку \"Классификация\"", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            mf.treeView.SelectedNode = mf.returnTreeNode("tnClassification");
+                            return;
+                        }
+                        else
+                            return;
+                    }
+            }
+
             using (KPSZIContext db = new KPSZIContext())
             {
                 listOfSZIsFromDB = db.SZIs.ToList();

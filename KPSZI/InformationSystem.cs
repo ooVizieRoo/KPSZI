@@ -21,6 +21,9 @@ namespace KPSZI
         /// 1, 2, 3, 4 - соответственно.
         /// </summary>
         public int levelOfPDN;
+        /// <summary>
+        /// Тип актуальных угроз (для ПДн)
+        /// </summary>
         public int typeOfActualThreats;
         /// <summary>
         /// Список видов информации, обрабатываемых в данной ИС

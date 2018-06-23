@@ -22,7 +22,7 @@ namespace KPSZI
         public List<TabPage> tabPagesInfoTypes = new List<TabPage>();
 
         protected override void initTabPage()
-        {/*
+        {
             using (Model.KPSZIContext db = new KPSZIContext())
             {
                 foreach (InfoType it in db.InfoTypes)
@@ -71,7 +71,7 @@ namespace KPSZI
             mf.checkBoxSubjectsStaff.CheckedChanged += new System.EventHandler(checkBoxSubjectsStaff_CheckedChanged);
             mf.comboBoxHundred.SelectedIndexChanged += new System.EventHandler(ISPDNLevelCalculate);
             mf.comboBoxActualThreatsType.SelectedIndexChanged += new System.EventHandler(ISPDNLevelCalculate);
-            */
+            
         }
         
         public override void saveChanges()

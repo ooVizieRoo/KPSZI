@@ -85,5 +85,27 @@ namespace KPSZI.Model
             DiscSpaceRequirements = 0;
             //this.ISPDNMeasures = new List<ISPDNMeasure>();
         }
+
+        public override bool Equals(object obj)
+        {
+            SZI szi;
+            try
+            {
+                szi = (SZI)obj;
+            }
+            catch
+            {
+                return false;
+            }
+            if (this.Name == szi.Name)
+                return true;
+
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return Name.Length + DateOfEnd.GetHashCode();
+        }
     }
 }
