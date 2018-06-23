@@ -281,9 +281,26 @@
             this.tpMeasuresTCUI = new System.Windows.Forms.TabPage();
             this.tpMeasuresTechno = new System.Windows.Forms.TabPage();
             this.tpSZI = new System.Windows.Forms.TabPage();
+            this.btnGetRequirm = new System.Windows.Forms.Button();
+            this.panelTPSZI = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.tpSZItbInfo = new System.Windows.Forms.TextBox();
             this.tabControlSZIs = new System.Windows.Forms.TabControl();
             this.tpOne = new System.Windows.Forms.TabPage();
+            this.gbNSD = new System.Windows.Forms.GroupBox();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.tbtpSZINDV = new System.Windows.Forms.TextBox();
+            this.tpSZItb2 = new System.Windows.Forms.TextBox();
+            this.tpSZItb1 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.tbSZI = new System.Windows.Forms.TextBox();
+            this.tbSVT = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.tpTwo = new System.Windows.Forms.TabPage();
+            this.dgvTest = new System.Windows.Forms.DataGridView();
             this.tpTPExport = new System.Windows.Forms.TabPage();
             this.tabPage16 = new System.Windows.Forms.TabPage();
             this.comboBoxIntegrit = new System.Windows.Forms.ComboBox();
@@ -294,23 +311,7 @@
             this.labelAvailability = new System.Windows.Forms.Label();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.iconList = new System.Windows.Forms.ImageList(this.components);
-            this.btnGetRequirm = new System.Windows.Forms.Button();
-            this.panelTPSZI = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.tpSZItbInfo = new System.Windows.Forms.TextBox();
-            this.dgvTest = new System.Windows.Forms.DataGridView();
-            this.label4 = new System.Windows.Forms.Label();
-            this.tbSVT = new System.Windows.Forms.TextBox();
-            this.tbSZI = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.tpSZItb1 = new System.Windows.Forms.TextBox();
-            this.tpSZItb2 = new System.Windows.Forms.TextBox();
-            this.tbtpSZINDV = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.gbNSD = new System.Windows.Forms.GroupBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.btnGetSZI = new System.Windows.Forms.Button();
             this.menuStrip.SuspendLayout();
             this.tpOptions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProjectSecurityResult)).BeginInit();
@@ -363,13 +364,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvConcreteMeas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvThrMeas)).BeginInit();
             this.tpSZI.SuspendLayout();
-            this.tabControlSZIs.SuspendLayout();
-            this.tpOne.SuspendLayout();
-            this.tpTwo.SuspendLayout();
             this.panelTPSZI.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTest)).BeginInit();
+            this.tabControlSZIs.SuspendLayout();
+            this.tpOne.SuspendLayout();
             this.gbNSD.SuspendLayout();
+            this.tpTwo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTest)).BeginInit();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -2846,6 +2847,7 @@
             // 
             // tpSZI
             // 
+            this.tpSZI.Controls.Add(this.btnGetSZI);
             this.tpSZI.Controls.Add(this.btnGetRequirm);
             this.tpSZI.Controls.Add(this.panelTPSZI);
             this.tpSZI.Controls.Add(this.tabControlSZIs);
@@ -2856,6 +2858,51 @@
             this.tpSZI.TabIndex = 13;
             this.tpSZI.Text = "tpSZI";
             this.tpSZI.UseVisualStyleBackColor = true;
+            // 
+            // btnGetRequirm
+            // 
+            this.btnGetRequirm.Location = new System.Drawing.Point(140, 81);
+            this.btnGetRequirm.Name = "btnGetRequirm";
+            this.btnGetRequirm.Size = new System.Drawing.Size(98, 23);
+            this.btnGetRequirm.TabIndex = 2;
+            this.btnGetRequirm.Text = "Требования";
+            this.btnGetRequirm.UseVisualStyleBackColor = true;
+            // 
+            // panelTPSZI
+            // 
+            this.panelTPSZI.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelTPSZI.Controls.Add(this.pictureBox1);
+            this.panelTPSZI.Controls.Add(this.tpSZItbInfo);
+            this.panelTPSZI.Location = new System.Drawing.Point(6, 6);
+            this.panelTPSZI.Name = "panelTPSZI";
+            this.panelTPSZI.Size = new System.Drawing.Size(951, 70);
+            this.panelTPSZI.TabIndex = 4;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::KPSZI.Properties.Resources.iconInformation;
+            this.pictureBox1.Location = new System.Drawing.Point(882, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(64, 64);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
+            // tpSZItbInfo
+            // 
+            this.tpSZItbInfo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tpSZItbInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tpSZItbInfo.Location = new System.Drawing.Point(3, 4);
+            this.tpSZItbInfo.Multiline = true;
+            this.tpSZItbInfo.Name = "tpSZItbInfo";
+            this.tpSZItbInfo.ReadOnly = true;
+            this.tpSZItbInfo.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tpSZItbInfo.Size = new System.Drawing.Size(873, 64);
+            this.tpSZItbInfo.TabIndex = 0;
+            this.tpSZItbInfo.Text = "Перед составлением перечня СЗИ для реализации мер, необходимо определить требован" +
+    "ия к видам СЗИ, которые устанавливаются в зависимости от класса защищенности ИС." +
+    " Для продолжения нажмите \"Требования\"";
+            this.tpSZItbInfo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tabControlSZIs
             // 
@@ -2870,6 +2917,7 @@
             // 
             // tpOne
             // 
+            this.tpOne.AutoScroll = true;
             this.tpOne.Controls.Add(this.gbNSD);
             this.tpOne.Controls.Add(this.textBox3);
             this.tpOne.Controls.Add(this.tbtpSZINDV);
@@ -2887,6 +2935,139 @@
             this.tpOne.Text = "Выбор СЗИ";
             this.tpOne.UseVisualStyleBackColor = true;
             // 
+            // gbNSD
+            // 
+            this.gbNSD.Controls.Add(this.radioButton3);
+            this.gbNSD.Controls.Add(this.radioButton2);
+            this.gbNSD.Controls.Add(this.radioButton1);
+            this.gbNSD.Enabled = false;
+            this.gbNSD.Location = new System.Drawing.Point(302, 173);
+            this.gbNSD.Name = "gbNSD";
+            this.gbNSD.Size = new System.Drawing.Size(200, 100);
+            this.gbNSD.TabIndex = 17;
+            this.gbNSD.TabStop = false;
+            this.gbNSD.Text = "СЗИ от НСД (СКН, )";
+            // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Location = new System.Drawing.Point(7, 66);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(85, 17);
+            this.radioButton3.TabIndex = 2;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.Text = "radioButton3";
+            this.radioButton3.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(7, 43);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(85, 17);
+            this.radioButton2.TabIndex = 1;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "radioButton2";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(7, 20);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(85, 17);
+            this.radioButton1.TabIndex = 0;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "radioButton1";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // textBox3
+            // 
+            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox3.Location = new System.Drawing.Point(5, 83);
+            this.textBox3.Multiline = true;
+            this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
+            this.textBox3.Size = new System.Drawing.Size(562, 33);
+            this.textBox3.TabIndex = 16;
+            this.textBox3.Text = "Уровень контроля отсутствия недекларированных возможностей для СЗИ, не ниже:";
+            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // tbtpSZINDV
+            // 
+            this.tbtpSZINDV.Location = new System.Drawing.Point(573, 84);
+            this.tbtpSZINDV.Multiline = true;
+            this.tbtpSZINDV.Name = "tbtpSZINDV";
+            this.tbtpSZINDV.ReadOnly = true;
+            this.tbtpSZINDV.Size = new System.Drawing.Size(128, 32);
+            this.tbtpSZINDV.TabIndex = 14;
+            this.tbtpSZINDV.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // tpSZItb2
+            // 
+            this.tpSZItb2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tpSZItb2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tpSZItb2.Location = new System.Drawing.Point(7, 134);
+            this.tpSZItb2.Multiline = true;
+            this.tpSZItb2.Name = "tpSZItb2";
+            this.tpSZItb2.ReadOnly = true;
+            this.tpSZItb2.Size = new System.Drawing.Size(944, 33);
+            this.tpSZItb2.TabIndex = 13;
+            this.tpSZItb2.Text = "Для выполнения требований к использованию предлагаются следующие виды СЗИ. Выбере" +
+    "те представителя для каждого вида:";
+            this.tpSZItb2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // tpSZItb1
+            // 
+            this.tpSZItb1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tpSZItb1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tpSZItb1.Location = new System.Drawing.Point(6, 8);
+            this.tpSZItb1.Multiline = true;
+            this.tpSZItb1.Name = "tpSZItb1";
+            this.tpSZItb1.ReadOnly = true;
+            this.tpSZItb1.Size = new System.Drawing.Size(944, 33);
+            this.tpSZItb1.TabIndex = 12;
+            this.tpSZItb1.Text = "Для выполнения требований к установленному классу защищенности ГИС, необходимо пр" +
+    "именять:";
+            this.tpSZItb1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(118, 55);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(185, 13);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Средства вычислительной техники";
+            // 
+            // tbSZI
+            // 
+            this.tbSZI.BackColor = System.Drawing.SystemColors.Window;
+            this.tbSZI.Location = new System.Drawing.Point(729, 52);
+            this.tbSZI.Name = "tbSZI";
+            this.tbSZI.ReadOnly = true;
+            this.tbSZI.Size = new System.Drawing.Size(100, 20);
+            this.tbSZI.TabIndex = 5;
+            // 
+            // tbSVT
+            // 
+            this.tbSVT.BackColor = System.Drawing.SystemColors.Window;
+            this.tbSVT.Location = new System.Drawing.Point(311, 52);
+            this.tbSVT.Name = "tbSVT";
+            this.tbSVT.ReadOnly = true;
+            this.tbSVT.Size = new System.Drawing.Size(100, 20);
+            this.tbSVT.TabIndex = 3;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(558, 55);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(165, 13);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Средства защиты информации";
+            // 
             // tpTwo
             // 
             this.tpTwo.Controls.Add(this.dgvTest);
@@ -2897,6 +3078,29 @@
             this.tpTwo.TabIndex = 1;
             this.tpTwo.Text = "tabPage2";
             this.tpTwo.UseVisualStyleBackColor = true;
+            // 
+            // dgvTest
+            // 
+            this.dgvTest.AllowUserToAddRows = false;
+            this.dgvTest.AllowUserToDeleteRows = false;
+            this.dgvTest.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvTest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTest.DefaultCellStyle = dataGridViewCellStyle17;
+            this.dgvTest.Location = new System.Drawing.Point(13, 20);
+            this.dgvTest.MultiSelect = false;
+            this.dgvTest.Name = "dgvTest";
+            this.dgvTest.ReadOnly = true;
+            this.dgvTest.RowHeadersVisible = false;
+            this.dgvTest.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvTest.Size = new System.Drawing.Size(929, 306);
+            this.dgvTest.TabIndex = 2;
             // 
             // tpTPExport
             // 
@@ -3000,206 +3204,14 @@
             this.iconList.ImageSize = new System.Drawing.Size(16, 16);
             this.iconList.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // btnGetRequirm
+            // btnGetSZI
             // 
-            this.btnGetRequirm.Location = new System.Drawing.Point(140, 81);
-            this.btnGetRequirm.Name = "btnGetRequirm";
-            this.btnGetRequirm.Size = new System.Drawing.Size(98, 23);
-            this.btnGetRequirm.TabIndex = 2;
-            this.btnGetRequirm.Text = "Требования";
-            this.btnGetRequirm.UseVisualStyleBackColor = true;
-            // 
-            // panelTPSZI
-            // 
-            this.panelTPSZI.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelTPSZI.Controls.Add(this.pictureBox1);
-            this.panelTPSZI.Controls.Add(this.tpSZItbInfo);
-            this.panelTPSZI.Location = new System.Drawing.Point(6, 6);
-            this.panelTPSZI.Name = "panelTPSZI";
-            this.panelTPSZI.Size = new System.Drawing.Size(951, 70);
-            this.panelTPSZI.TabIndex = 4;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::KPSZI.Properties.Resources.iconInformation;
-            this.pictureBox1.Location = new System.Drawing.Point(882, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(64, 64);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
-            // tpSZItbInfo
-            // 
-            this.tpSZItbInfo.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tpSZItbInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tpSZItbInfo.Location = new System.Drawing.Point(3, 4);
-            this.tpSZItbInfo.Multiline = true;
-            this.tpSZItbInfo.Name = "tpSZItbInfo";
-            this.tpSZItbInfo.ReadOnly = true;
-            this.tpSZItbInfo.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tpSZItbInfo.Size = new System.Drawing.Size(873, 64);
-            this.tpSZItbInfo.TabIndex = 0;
-            this.tpSZItbInfo.Text = "Перед составлением перечня СЗИ для реализации мер, необходимо определить требован" +
-    "ия к видам СЗИ, которые устанавливаются в зависимости от класса защищенности ИС." +
-    " Для продолжения нажмите \"Требования\"";
-            this.tpSZItbInfo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // dgvTest
-            // 
-            this.dgvTest.AllowUserToAddRows = false;
-            this.dgvTest.AllowUserToDeleteRows = false;
-            this.dgvTest.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvTest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTest.DefaultCellStyle = dataGridViewCellStyle17;
-            this.dgvTest.Location = new System.Drawing.Point(13, 20);
-            this.dgvTest.MultiSelect = false;
-            this.dgvTest.Name = "dgvTest";
-            this.dgvTest.ReadOnly = true;
-            this.dgvTest.RowHeadersVisible = false;
-            this.dgvTest.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTest.Size = new System.Drawing.Size(929, 306);
-            this.dgvTest.TabIndex = 2;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(558, 55);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(165, 13);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Средства защиты информации";
-            // 
-            // tbSVT
-            // 
-            this.tbSVT.BackColor = System.Drawing.SystemColors.Window;
-            this.tbSVT.Location = new System.Drawing.Point(311, 52);
-            this.tbSVT.Name = "tbSVT";
-            this.tbSVT.ReadOnly = true;
-            this.tbSVT.Size = new System.Drawing.Size(100, 20);
-            this.tbSVT.TabIndex = 3;
-            // 
-            // tbSZI
-            // 
-            this.tbSZI.BackColor = System.Drawing.SystemColors.Window;
-            this.tbSZI.Location = new System.Drawing.Point(729, 52);
-            this.tbSZI.Name = "tbSZI";
-            this.tbSZI.ReadOnly = true;
-            this.tbSZI.Size = new System.Drawing.Size(100, 20);
-            this.tbSZI.TabIndex = 5;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(118, 55);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(185, 13);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "Средства вычислительной техники";
-            // 
-            // tpSZItb1
-            // 
-            this.tpSZItb1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tpSZItb1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tpSZItb1.Location = new System.Drawing.Point(6, 8);
-            this.tpSZItb1.Multiline = true;
-            this.tpSZItb1.Name = "tpSZItb1";
-            this.tpSZItb1.ReadOnly = true;
-            this.tpSZItb1.Size = new System.Drawing.Size(944, 33);
-            this.tpSZItb1.TabIndex = 12;
-            this.tpSZItb1.Text = "Для выполнения требований к установленному классу защищенности ГИС, необходимо пр" +
-    "именять:";
-            this.tpSZItb1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // tpSZItb2
-            // 
-            this.tpSZItb2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tpSZItb2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tpSZItb2.Location = new System.Drawing.Point(7, 134);
-            this.tpSZItb2.Multiline = true;
-            this.tpSZItb2.Name = "tpSZItb2";
-            this.tpSZItb2.ReadOnly = true;
-            this.tpSZItb2.Size = new System.Drawing.Size(944, 33);
-            this.tpSZItb2.TabIndex = 13;
-            this.tpSZItb2.Text = "Для выполнения требований к использованию предлагаются следующие виды СЗИ. Выбере" +
-    "те представителя для каждого вида:";
-            this.tpSZItb2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // tbtpSZINDV
-            // 
-            this.tbtpSZINDV.Location = new System.Drawing.Point(573, 84);
-            this.tbtpSZINDV.Multiline = true;
-            this.tbtpSZINDV.Name = "tbtpSZINDV";
-            this.tbtpSZINDV.ReadOnly = true;
-            this.tbtpSZINDV.Size = new System.Drawing.Size(128, 32);
-            this.tbtpSZINDV.TabIndex = 14;
-            this.tbtpSZINDV.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox3
-            // 
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox3.Location = new System.Drawing.Point(5, 83);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(562, 33);
-            this.textBox3.TabIndex = 16;
-            this.textBox3.Text = "Уровень контроля отсутствия недекларированных возможностей для СЗИ, не ниже:";
-            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // gbNSD
-            // 
-            this.gbNSD.Controls.Add(this.radioButton3);
-            this.gbNSD.Controls.Add(this.radioButton2);
-            this.gbNSD.Controls.Add(this.radioButton1);
-            this.gbNSD.Enabled = false;
-            this.gbNSD.Location = new System.Drawing.Point(7, 173);
-            this.gbNSD.Name = "gbNSD";
-            this.gbNSD.Size = new System.Drawing.Size(200, 100);
-            this.gbNSD.TabIndex = 17;
-            this.gbNSD.TabStop = false;
-            this.gbNSD.Text = "СЗИ от НСД (СКН, )";
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(7, 20);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(85, 17);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "radioButton1";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(7, 43);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(85, 17);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "radioButton2";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton3
-            // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(7, 66);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(85, 17);
-            this.radioButton3.TabIndex = 2;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "radioButton3";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.btnGetSZI.Location = new System.Drawing.Point(300, 83);
+            this.btnGetSZI.Name = "btnGetSZI";
+            this.btnGetSZI.Size = new System.Drawing.Size(75, 23);
+            this.btnGetSZI.TabIndex = 5;
+            this.btnGetSZI.Text = "СЗИ";
+            this.btnGetSZI.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -3281,16 +3293,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvConcreteMeas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvThrMeas)).EndInit();
             this.tpSZI.ResumeLayout(false);
-            this.tabControlSZIs.ResumeLayout(false);
-            this.tpOne.ResumeLayout(false);
-            this.tpOne.PerformLayout();
-            this.tpTwo.ResumeLayout(false);
             this.panelTPSZI.ResumeLayout(false);
             this.panelTPSZI.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTest)).EndInit();
+            this.tabControlSZIs.ResumeLayout(false);
+            this.tpOne.ResumeLayout(false);
+            this.tpOne.PerformLayout();
             this.gbNSD.ResumeLayout(false);
             this.gbNSD.PerformLayout();
+            this.tpTwo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTest)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3509,7 +3521,6 @@
         internal System.Windows.Forms.TextBox textBox1;
         internal System.Windows.Forms.TextBox tbConreteTable1;
         private System.Windows.Forms.TabControl tabControlSZIs;
-        private System.Windows.Forms.TabPage tpOne;
         private System.Windows.Forms.TabPage tpTwo;
         internal System.Windows.Forms.Button btnGetRequirm;
         private System.Windows.Forms.Panel panelTPSZI;
@@ -3528,5 +3539,7 @@
         private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
+        internal System.Windows.Forms.TabPage tpOne;
+        internal System.Windows.Forms.Button btnGetSZI;
     }
 }
