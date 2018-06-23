@@ -33,7 +33,7 @@ namespace KPSZI
         
         protected override void initTabPage()
         {
-            using (KPSZIContext db = new KPSZIContext())
+            /*using (KPSZIContext db = new KPSZIContext())
             {
                 //Инициализация списка угроз
                 listThreats = db.Threats.OrderBy(t => t.ThreatNumber).ToList();
@@ -118,6 +118,7 @@ namespace KPSZI
             mf.btnGotoDamage.Click += new System.EventHandler(btnGotoDamage_Click);
             mf.dgvActualThreatsNSD.SelectionChanged += new System.EventHandler(dgvActualThreats_SelectionChanged);
             mf.btnReady.Click += new System.EventHandler(btnReady_Click);
+            */
         }
 
         public void initTabPageThreatsNSD2()

@@ -81,6 +81,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.projectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -328,6 +330,10 @@
             this.labelAvailability = new System.Windows.Forms.Label();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.iconList = new System.Windows.Forms.ImageList(this.components);
+            this.dgvConfigNMeasures = new System.Windows.Forms.DataGridView();
+            this.lbConfigOptionsInfo = new System.Windows.Forms.Label();
+            this.measureColumnForConfigOptions = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.configColumnForConfigOptions = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip.SuspendLayout();
             this.tpOptions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProjectSecurityResult)).BeginInit();
@@ -392,6 +398,8 @@
             this.gbNSD.SuspendLayout();
             this.tpTwo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTest)).BeginInit();
+            this.tpConfigOptions.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvConfigNMeasures)).BeginInit();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -1725,7 +1733,7 @@
             this.dgvActualThreatsNSD.RowHeadersVisible = false;
             this.dgvActualThreatsNSD.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(3);
             this.dgvActualThreatsNSD.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvActualThreatsNSD.Size = new System.Drawing.Size(474, 452);
+            this.dgvActualThreatsNSD.Size = new System.Drawing.Size(457, 452);
             this.dgvActualThreatsNSD.TabIndex = 0;
             // 
             // tpThreatsNSD3
@@ -3315,6 +3323,8 @@
             // 
             // tpConfigOptions
             // 
+            this.tpConfigOptions.Controls.Add(this.lbConfigOptionsInfo);
+            this.tpConfigOptions.Controls.Add(this.dgvConfigNMeasures);
             this.tpConfigOptions.Location = new System.Drawing.Point(4, 22);
             this.tpConfigOptions.Name = "tpConfigOptions";
             this.tpConfigOptions.Padding = new System.Windows.Forms.Padding(3);
@@ -3404,6 +3414,61 @@
             this.iconList.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
             this.iconList.ImageSize = new System.Drawing.Size(16, 16);
             this.iconList.TransparentColor = System.Drawing.Color.Transparent;
+            // 
+            // dgvConfigNMeasures
+            // 
+            this.dgvConfigNMeasures.AllowUserToAddRows = false;
+            this.dgvConfigNMeasures.AllowUserToDeleteRows = false;
+            this.dgvConfigNMeasures.AllowUserToResizeColumns = false;
+            this.dgvConfigNMeasures.AllowUserToResizeRows = false;
+            this.dgvConfigNMeasures.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvConfigNMeasures.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.dgvConfigNMeasures.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgvConfigNMeasures.ColumnHeadersHeight = 35;
+            this.dgvConfigNMeasures.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvConfigNMeasures.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.measureColumnForConfigOptions,
+            this.configColumnForConfigOptions});
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle18.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.ButtonFace;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvConfigNMeasures.DefaultCellStyle = dataGridViewCellStyle18;
+            this.dgvConfigNMeasures.Location = new System.Drawing.Point(6, 59);
+            this.dgvConfigNMeasures.Name = "dgvConfigNMeasures";
+            this.dgvConfigNMeasures.ReadOnly = true;
+            this.dgvConfigNMeasures.RowHeadersVisible = false;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvConfigNMeasures.RowsDefaultCellStyle = dataGridViewCellStyle19;
+            this.dgvConfigNMeasures.Size = new System.Drawing.Size(955, 425);
+            this.dgvConfigNMeasures.TabIndex = 0;
+            // 
+            // lbConfigOptionsInfo
+            // 
+            this.lbConfigOptionsInfo.AutoSize = true;
+            this.lbConfigOptionsInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbConfigOptionsInfo.Location = new System.Drawing.Point(6, 30);
+            this.lbConfigOptionsInfo.Name = "lbConfigOptionsInfo";
+            this.lbConfigOptionsInfo.Size = new System.Drawing.Size(364, 18);
+            this.lbConfigOptionsInfo.TabIndex = 1;
+            this.lbConfigOptionsInfo.Text = "Определение требований к параметрам настройки";
+            // 
+            // measureColumnForConfigOptions
+            // 
+            this.measureColumnForConfigOptions.HeaderText = "Мера защиты информации";
+            this.measureColumnForConfigOptions.Name = "measureColumnForConfigOptions";
+            this.measureColumnForConfigOptions.ReadOnly = true;
+            // 
+            // configColumnForConfigOptions
+            // 
+            this.configColumnForConfigOptions.FillWeight = 194.9239F;
+            this.configColumnForConfigOptions.HeaderText = "Требования к параметрам настройки";
+            this.configColumnForConfigOptions.Name = "configColumnForConfigOptions";
+            this.configColumnForConfigOptions.ReadOnly = true;
             // 
             // MainForm
             // 
@@ -3501,6 +3566,9 @@
             this.gbNSD.PerformLayout();
             this.tpTwo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTest)).EndInit();
+            this.tpConfigOptions.ResumeLayout(false);
+            this.tpConfigOptions.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvConfigNMeasures)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3754,5 +3822,9 @@
         internal System.Windows.Forms.Button btnReady;
         private System.Windows.Forms.ToolStripMenuItem параметрыНастройкиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem setConfigOptionsToolStripMenu;
+        private System.Windows.Forms.Label lbConfigOptionsInfo;
+        public System.Windows.Forms.DataGridView dgvConfigNMeasures;
+        private System.Windows.Forms.DataGridViewTextBoxColumn measureColumnForConfigOptions;
+        private System.Windows.Forms.DataGridViewTextBoxColumn configColumnForConfigOptions;
     }
 }
