@@ -108,6 +108,7 @@
       <DependentUpon>201805180415017_upd_after_add_SFH-Measures_dependencies.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Model\ConfigOption.cs" />
     <Compile Include="Model\ImplementWays.cs" />
     <Compile Include="Model\Vulnerability.cs" />
     <Compile Include="splashForm.cs">
@@ -154,6 +155,7 @@
     <Compile Include="Stage.cs" />
     <Compile Include="StageAccessMatrix.cs" />
     <Compile Include="StageClassification.cs" />
+    <Compile Include="StageConfigOptions.cs" />
     <Compile Include="StageIntruder.cs" />
     <Compile Include="StageOptions.cs" />
     <Compile Include="StageHardware.cs" />

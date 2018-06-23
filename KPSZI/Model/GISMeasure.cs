@@ -62,10 +62,16 @@ namespace KPSZI.Model
         public virtual ICollection<SFH> SFHs { get; set; }
 
         /// <summary>
+        /// Коллекция необходимых для реализации меры параметров настройки
+        /// </summary>
+        public virtual ICollection<ConfigOption> ConfigOptions { get; set; }
+
+        /// <summary>
         /// Конструктор для инициализации коллекции навигационного поля
         /// </summary>
         public GISMeasure()
         {
+            this.ConfigOptions = new List<ConfigOption>();
             Threats = new List<Threat>();
             this.isOnlyISPDn = false;
             this.SZIs = new List<SZI>();
