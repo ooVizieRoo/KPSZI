@@ -158,9 +158,19 @@ namespace KPSZI
 
         private void BtnGetBasicMeasuresList_Click(object sender, EventArgs e)
         {
+            if (IS.GISClass == 0)
+            {
+                if (MessageBox.Show("Не определен класс защищенности для дальнейшней работы. \nПерейти во вкладку \"Классификация\"?", "Внимание!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    mf.treeView.SelectedNode = mf.returnTreeNode("tnClassification");
+                    return;
+                }
+                else
+                    return;
+            }
+
             mf.wsm.Visible = true;
             mf.wsm.Update();
-
 
             mf.tabControlMeasures.TabPages.Clear();
 

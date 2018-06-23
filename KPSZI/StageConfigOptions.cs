@@ -22,6 +22,9 @@ namespace KPSZI
         
         public override void enterTabPage()
         {
+            mf.wsm.Visible = true;
+            mf.wsm.Update();
+
             mf.dgvConfigNMeasures.Rows.Clear();
 
             using (KPSZIContext db = new KPSZIContext())
@@ -41,6 +44,7 @@ namespace KPSZI
                         mf.dgvConfigNMeasures.Rows.Add(dgr);
                 }
             }
+            mf.wsm.Visible = false;
         }
 
         public override void saveChanges()
