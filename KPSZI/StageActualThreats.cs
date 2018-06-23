@@ -11,7 +11,7 @@ namespace KPSZI
 {
     class StageActualThreats : Stage
     {
-        List<Threat> listThreats;
+        public List<Threat> listThreats;
         List<Vulnerability> listVulnerabilities;
         List<SFH> listSFHs;
         List<ImplementWay> listImplementWays;
@@ -36,86 +36,88 @@ namespace KPSZI
             using (KPSZIContext db = new KPSZIContext())
             {
                 //Инициализация списка угроз
-            //    listThreats = db.Threats.OrderBy(t => t.ThreatNumber).ToList();
-            //    foreach (Threat threat in listThreats)
-            //    {
-            //        threat.Vulnerabilities = db.Threats.Where(t1 => t1.ThreatNumber == threat.ThreatNumber).First().Vulnerabilities;
-            //        threat.SFHs = db.Threats.Where(t2 => t2.ThreatNumber == threat.ThreatNumber).First().SFHs;
-            //        threat.ImplementWays = db.Threats.Where(t3 => t3.ThreatNumber == threat.ThreatNumber).First().ImplementWays;
-            //        threat.ThreatSources = db.Threats.Where(t4 => t4.ThreatNumber == threat.ThreatNumber).First().ThreatSources;
-            //        threat.GISMeasures = db.Threats.Where(t5 => t5.ThreatNumber == threat.ThreatNumber).First().GISMeasures;
-            //        threat.setStringVulnerabilities();
-            //        threat.setStringSFHs();
-            //        threat.setStringImplementWays();
-            //        threat.setStringSources();
-            //    }
+                listThreats = db.Threats.OrderBy(t => t.ThreatNumber).ToList();
+                foreach (Threat threat in listThreats)
+                {
+                    threat.Vulnerabilities = db.Threats.Where(t1 => t1.ThreatNumber == threat.ThreatNumber).First().Vulnerabilities;
+                    threat.SFHs = db.Threats.Where(t2 => t2.ThreatNumber == threat.ThreatNumber).First().SFHs;
+                    threat.ImplementWays = db.Threats.Where(t3 => t3.ThreatNumber == threat.ThreatNumber).First().ImplementWays;
+                    threat.ThreatSources = db.Threats.Where(t4 => t4.ThreatNumber == threat.ThreatNumber).First().ThreatSources;
+                    threat.GISMeasures = db.Threats.Where(t5 => t5.ThreatNumber == threat.ThreatNumber).First().GISMeasures;
+                    threat.setStringVulnerabilities();
+                    threat.setStringSFHs();
+                    threat.setStringImplementWays();
+                    threat.setStringSources();
+                }
 
-            //    listVulnerabilities = db.Vulnerabilities.OrderBy(v => v.VulnerabilityNumber).ToList();
-            //    listSFHs = db.SFHs.OrderBy(s => s.SFHNumber).ToList();
-            //    listImplementWays = db.ImplementWays.OrderBy(w => w.WayNumber).ToList();
-            //    listSources = db.ThreatSources.OrderBy(so => so.ThreatSourceId).ToList();
-            //    foreach (Vulnerability vul in listVulnerabilities)
-            //        vul.Threats = db.Vulnerabilities.Where(v1 => v1.VulnerabilityNumber == vul.VulnerabilityNumber).First().Threats;
-            //    foreach (SFH sfh in listSFHs)
-            //        sfh.Threats = db.SFHs.Where(s1 => s1.SFHNumber == sfh.SFHNumber).First().Threats;
-            //    foreach (ImplementWay iw in listImplementWays)
-            //        iw.Threats = db.ImplementWays.Where(w1 => w1.WayNumber == iw.WayNumber).First().Threats;
-            //    foreach (ThreatSource ts in listSources)
-            //        ts.Threats = db.ThreatSources.Where(so1 => so1.ThreatSourceId == ts.ThreatSourceId).First().Threats;
-            //    listFilteredThreats = new List<Threat>();
+                listVulnerabilities = db.Vulnerabilities.OrderBy(v => v.VulnerabilityNumber).ToList();
+                listSFHs = db.SFHs.OrderBy(s => s.SFHNumber).ToList();
+                listImplementWays = db.ImplementWays.OrderBy(w => w.WayNumber).ToList();
+                listSources = db.ThreatSources.OrderBy(so => so.ThreatSourceId).ToList();
+                foreach (Vulnerability vul in listVulnerabilities)
+                    vul.Threats = db.Vulnerabilities.Where(v1 => v1.VulnerabilityNumber == vul.VulnerabilityNumber).First().Threats;
+                foreach (SFH sfh in listSFHs)
+                    sfh.Threats = db.SFHs.Where(s1 => s1.SFHNumber == sfh.SFHNumber).First().Threats;
+                foreach (ImplementWay iw in listImplementWays)
+                    iw.Threats = db.ImplementWays.Where(w1 => w1.WayNumber == iw.WayNumber).First().Threats;
+                foreach (ThreatSource ts in listSources)
+                    ts.Threats = db.ThreatSources.Where(so1 => so1.ThreatSourceId == ts.ThreatSourceId).First().Threats;
+                listFilteredThreats = new List<Threat>();
             }
 
-            //mf.tcThreatsNSD.TabPages.Remove(mf.tpThreatsNSD2);
+            mf.tcThreatsNSD.TabPages.Remove(mf.tpThreatsNSD2);
+            mf.tcThreatsNSD.TabPages.Remove(mf.tpThreatsNSD3);
 
-            //mf.dgvThreats.DataSource = listThreats;
-            //mf.dgvThreats.Columns["ThreatID"].Visible = false;
-            //mf.dgvThreats.Columns["ThreatSources"].Visible = false;
-            //mf.dgvThreats.Columns["DateOfChange"].Visible = false;
-            //mf.dgvThreats.Columns["DateOfAdd"].Visible = false;
-            //mf.dgvThreats.Columns["ImplementWays"].Visible = false;
-            //mf.dgvThreats.Columns["SFHs"].Visible = false;
-            //mf.dgvThreats.Columns["Vulnerabilities"].Visible = false;
-            //mf.dgvThreats.Columns["Description"].Visible = false;
-            //mf.dgvThreats.Columns["ObjectOfInfluence"].Visible = false;
-            //mf.dgvThreats.Columns["GISMeasures"].Visible = false;
+            mf.dgvThreats.DataSource = listThreats;
+            mf.dgvThreats.Columns["ThreatID"].Visible = false;
+            mf.dgvThreats.Columns["ThreatSources"].Visible = false;
+            mf.dgvThreats.Columns["DateOfChange"].Visible = false;
+            mf.dgvThreats.Columns["DateOfAdd"].Visible = false;
+            mf.dgvThreats.Columns["ImplementWays"].Visible = false;
+            mf.dgvThreats.Columns["SFHs"].Visible = false;
+            mf.dgvThreats.Columns["Vulnerabilities"].Visible = false;
+            mf.dgvThreats.Columns["Description"].Visible = false;
+            mf.dgvThreats.Columns["ObjectOfInfluence"].Visible = false;
+            mf.dgvThreats.Columns["GISMeasures"].Visible = false;
 
-            //mf.dgvThreats.Columns["ThreatNumber"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            //mf.dgvThreats.Columns["ConfidenceViolation"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            //mf.dgvThreats.Columns["IntegrityViolation"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            //mf.dgvThreats.Columns["AvailabilityViolation"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            mf.dgvThreats.Columns["ThreatNumber"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            mf.dgvThreats.Columns["ConfidenceViolation"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            mf.dgvThreats.Columns["IntegrityViolation"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            mf.dgvThreats.Columns["AvailabilityViolation"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
 
-            //mf.dgvThreats.Columns["ThreatID"].DisplayIndex = 0;
-            //mf.dgvThreats.Columns["ThreatNumber"].Width = 60;
-            //mf.dgvThreats.Columns["ThreatNumber"].DisplayIndex = 1;
-            //mf.dgvThreats.Columns["ThreatNumber"].HeaderText = "№ УБИ";
-            //mf.dgvThreats.Columns["Name"].HeaderText = "Название УБИ";
-            //mf.dgvThreats.Columns["Name"].DisplayIndex = 2;
-            //mf.dgvThreats.Columns["ConfidenceViolation"].Width = 30;
-            //mf.dgvThreats.Columns["ConfidenceViolation"].HeaderText = "К";
-            //mf.dgvThreats.Columns["ConfidenceViolation"].DisplayIndex = 3;
-            //mf.dgvThreats.Columns["IntegrityViolation"].Width = 30;
-            //mf.dgvThreats.Columns["IntegrityViolation"].HeaderText = "Ц";
-            //mf.dgvThreats.Columns["IntegrityViolation"].DisplayIndex = 4;
-            //mf.dgvThreats.Columns["AvailabilityViolation"].Width = 30;
-            //mf.dgvThreats.Columns["AvailabilityViolation"].HeaderText = "Д";
-            //mf.dgvThreats.Columns["AvailabilityViolation"].DisplayIndex = 5;
-            //mf.dgvThreats.Columns["stringVuls"].HeaderText = "Уязвимости";
-            //mf.dgvThreats.Columns["stringVuls"].DisplayIndex = 6;
-            //mf.dgvThreats.Columns["stringWays"].HeaderText = "Способы реализации УБИ";
-            //mf.dgvThreats.Columns["stringWays"].DisplayIndex = 7;
-            //mf.dgvThreats.Columns["stringSFHS"].HeaderText = "СФХ";
-            //mf.dgvThreats.Columns["stringSFHS"].DisplayIndex = 8;
-            //mf.dgvThreats.Columns["stringSources"].HeaderText = "Источник угрозы";
-            //mf.dgvThreats.Columns["stringSources"].DisplayIndex = 9;
+            mf.dgvThreats.Columns["ThreatID"].DisplayIndex = 0;
+            mf.dgvThreats.Columns["ThreatNumber"].Width = 60;
+            mf.dgvThreats.Columns["ThreatNumber"].DisplayIndex = 1;
+            mf.dgvThreats.Columns["ThreatNumber"].HeaderText = "№ УБИ";
+            mf.dgvThreats.Columns["Name"].HeaderText = "Название УБИ";
+            mf.dgvThreats.Columns["Name"].DisplayIndex = 2;
+            mf.dgvThreats.Columns["ConfidenceViolation"].Width = 30;
+            mf.dgvThreats.Columns["ConfidenceViolation"].HeaderText = "К";
+            mf.dgvThreats.Columns["ConfidenceViolation"].DisplayIndex = 3;
+            mf.dgvThreats.Columns["IntegrityViolation"].Width = 30;
+            mf.dgvThreats.Columns["IntegrityViolation"].HeaderText = "Ц";
+            mf.dgvThreats.Columns["IntegrityViolation"].DisplayIndex = 4;
+            mf.dgvThreats.Columns["AvailabilityViolation"].Width = 30;
+            mf.dgvThreats.Columns["AvailabilityViolation"].HeaderText = "Д";
+            mf.dgvThreats.Columns["AvailabilityViolation"].DisplayIndex = 5;
+            mf.dgvThreats.Columns["stringVuls"].HeaderText = "Уязвимости";
+            mf.dgvThreats.Columns["stringVuls"].DisplayIndex = 6;
+            mf.dgvThreats.Columns["stringWays"].HeaderText = "Способы реализации УБИ";
+            mf.dgvThreats.Columns["stringWays"].DisplayIndex = 7;
+            mf.dgvThreats.Columns["stringSFHS"].HeaderText = "СФХ";
+            mf.dgvThreats.Columns["stringSFHS"].DisplayIndex = 8;
+            mf.dgvThreats.Columns["stringSources"].HeaderText = "Источник угрозы";
+            mf.dgvThreats.Columns["stringSources"].DisplayIndex = 9;
 
-            //mf.dgvThreats.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            mf.dgvThreats.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
-            //mf.dgvThreats.SelectionChanged += new System.EventHandler(dgvThreats_SelectionChanged);
-            //mf.tpActualThreats.Resize += new System.EventHandler(tpActualThreats_Resize);
-            //mf.clbThreatFilter.SelectedIndexChanged += new System.EventHandler(clbThreatFilter_SelectedIndexChanged);
-            //mf.tcThreatsNSD.SelectedIndexChanged += new System.EventHandler(tcThreatsNSD_SelectedIndexChanged);
-            //mf.btnGotoDamage.Click += new System.EventHandler(btnGotoDamage_Click);
-            //mf.dgvActualThreatsNSD.SelectionChanged += new System.EventHandler(dgvActualThreats_SelectionChanged);
+            mf.dgvThreats.SelectionChanged += new System.EventHandler(dgvThreats_SelectionChanged);
+            mf.tpActualThreats.Resize += new System.EventHandler(tpActualThreats_Resize);
+            mf.clbThreatFilter.SelectedIndexChanged += new System.EventHandler(clbThreatFilter_SelectedIndexChanged);
+            mf.tcThreatsNSD.SelectedIndexChanged += new System.EventHandler(tcThreatsNSD_SelectedIndexChanged);
+            mf.btnGotoDamage.Click += new System.EventHandler(btnGotoDamage_Click);
+            mf.dgvActualThreatsNSD.SelectionChanged += new System.EventHandler(dgvActualThreats_SelectionChanged);
+            mf.btnReady.Click += new System.EventHandler(btnReady_Click);
         }
 
         public void initTabPageThreatsNSD2()
@@ -161,9 +163,45 @@ namespace KPSZI
             DDControl = new DamageDegreeControl(IS.listOfInfoTypes, listFilteredThreats, damageDegreeInput, mf);
             DDControl.Location = new Point(mf.tpThreatsNSD2.Width - DDControl.Width, 0);
             DDControl.Anchor = (AnchorStyles.Top | AnchorStyles.Right);
-            mf.tpThreatsNSD2.Controls.Add(DDControl);
+            mf.tpThreatsNSD2.Controls.Add(DDControl);   
 
             mf.tcThreatsNSD.SelectedTab = mf.tpThreatsNSD2;
+        }
+
+        public void initTabPageThreatsNSD3()
+        {
+            // дизайн DataGridView для вывода перечня актуальных УБИ
+            mf.dgvFinalNSDThreats.Columns.Clear();
+            mf.dgvFinalNSDThreats.Rows.Clear();
+
+            mf.dgvFinalNSDThreats.Columns.Add("ThreatNumber", "№");
+            mf.dgvFinalNSDThreats.Columns["ThreatNumber"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            mf.dgvFinalNSDThreats.Columns["ThreatNumber"].Width = 40;
+
+            mf.dgvFinalNSDThreats.Columns.Add("Name", "Название УБИ");
+
+            // Заполнение Dgv
+            int i = 0;
+            IS.listOfActualNSDThreats.Clear();
+            foreach (DataGridViewRow row in mf.dgvActualThreatsNSD.Rows)
+            {
+                int indexActuality = mf.dgvActualThreatsNSD.Columns["IsActual"].Index;
+                if (row.Cells[indexActuality].Value.ToString() != "Актуальная") continue;
+                int indexNumber = mf.dgvFinalNSDThreats.Columns["ThreatNumber"].Index;
+
+                mf.dgvFinalNSDThreats.Rows.Add();
+                mf.dgvFinalNSDThreats.Rows[i].Cells[mf.dgvFinalNSDThreats.Columns["ThreatNumber"].Index].Value = 
+                    row.Cells[mf.dgvActualThreatsNSD.Columns["ThreatNumber"].Index].Value.ToString();
+                mf.dgvFinalNSDThreats.Rows[i].Cells[mf.dgvFinalNSDThreats.Columns["Name"].Index].Value =
+                    row.Cells[mf.dgvActualThreatsNSD.Columns["Name"].Index].Value.ToString();
+
+                int tNumber = Convert.ToInt32(row.Cells[mf.dgvActualThreatsNSD.Columns["ThreatNumber"].Index].Value.ToString());
+                
+                IS.listOfActualNSDThreats.Add(listThreats.Where(t => t.ThreatNumber == tNumber).FirstOrDefault());
+                i++;
+            }
+
+            mf.tcThreatsNSD.SelectedTab = mf.tpThreatsNSD3;
         }
 
         public void calcFeasibility()
@@ -206,6 +244,34 @@ namespace KPSZI
                         }
                 }
             }
+        }
+
+        
+        private void btnReady_Click(object sender, EventArgs e)
+        {
+            int k = 0;
+            foreach (DataGridViewRow row in mf.dgvActualThreatsNSD.Rows)
+            {
+                int indexActuality = mf.dgvActualThreatsNSD.Columns["IsActual"].Index;
+                if (row.Cells[indexActuality].Value != null && row.Cells[indexActuality].Value.ToString() != "")
+                    k++;
+            }
+
+            if (k == mf.dgvActualThreatsNSD.Rows.Count)
+            {
+                if (!mf.tcThreatsNSD.TabPages.Contains(mf.tpThreatsNSD3))
+                {
+                    mf.tcThreatsNSD.TabPages.Add(mf.tpThreatsNSD3);
+                    initTabPageThreatsNSD3();
+                }
+                else
+                if (MessageBox.Show("Обновить итоговый список актуальных угроз?", "Требуется подтверждение!", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    initTabPageThreatsNSD3();
+                }
+            }
+            else
+                MessageBox.Show("Актуальность не определена для всех угроз. Укажите степень ущерба.", "Внимание", MessageBoxButtons.OK);
         }
 
         public override void enterTabPage()
@@ -311,7 +377,7 @@ namespace KPSZI
             else
                 listThreatsBySFH.AddRange(listThreats);
 
-            listFilteredThreats = intersectThreatLists(listThreatsBySource, intersectThreatLists(listThreatsByWay, intersectThreatLists(listThreatsByVul, listThreatsBySFH)));
+            listFilteredThreats = intersectLists(listThreatsBySource, intersectLists(listThreatsByWay, intersectLists(listThreatsByVul, listThreatsBySFH)));
             mf.dgvThreats.DataSource = listFilteredThreats;
             mf.lblThreatsCount.Text = "Кол-во УБИ: " + mf.dgvThreats.RowCount;
         }
@@ -327,7 +393,7 @@ namespace KPSZI
             return result;
         }
 
-        private List<Threat> intersectThreatLists(List<Threat> first, List<Threat> second)
+        private List<Threat> intersectLists(List<Threat> first, List<Threat> second)
         {
             List<Threat> result = new List<Threat>();
             
@@ -350,7 +416,7 @@ namespace KPSZI
         {
             mf.dgvThreats.Height = mf.tpThreatsNSD1.Height - 145;
             if (DDControl != null)
-                mf.dgvActualThreatsNSD.Width = mf.tpThreatsNSD2.Width - DDControl.Width - 20;
+                mf.dgvActualThreatsNSD.Width = mf.tpThreatsNSD2.Width - DDControl.Width - 30;
             mf.dgvActualThreatsNSD.Height = mf.tpThreatsNSD2.Height - 5;
         }
 

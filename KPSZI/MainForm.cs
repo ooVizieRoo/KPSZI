@@ -22,20 +22,42 @@ namespace KPSZI
         internal Dictionary<string, Stage> stages = new Dictionary<string, Stage>();
         TreeNode previousSelectedNode;
         InformationSystem IS = new InformationSystem();
+        internal WaitingSplashMessage wsm;
+        Thread t;
 
         public void startSplash()
         {
-                Application.Run(new splashForm());
+            Application.Run(new splashForm());
         }
 
         public MainForm()
         {
-            Thread t = new Thread(startSplash);
+            t = new Thread(startSplash);
             t.Start();
+
+            // check database connectio before starting application
+            using (KPSZIContext db = new KPSZIContext())
+            {
+                if (!db.Database.Exists())
+                {
+                    t.Abort();
+                    this.Close();
+                    MessageBox.Show("Ошибка подключения к базе данных КПСЗИ");                        
+                }
+                else
+                    initForm();                    
+            }
+
+            KeyPreview = true;
+            SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.UserPaint, true);
+        }
+
+        private void initForm()
+        {
             InitializeComponent();
-            
+
             Icon = new Icon("res/icons/mf.ico");
-            
+
             // Заполняем коллекцию этапами (название, ссылка на вкладку, ссылка на пункт в дереве) 
             stages.Add("tnOptions", new StageOptions(returnTabPage("tpOptions"), returnTreeNode("tnOptions"), this, IS));
             stages.Add("tnClassification", new StageClassification(returnTabPage("tpClassification"), returnTreeNode("tnClassification"), this, IS));
@@ -48,6 +70,11 @@ namespace KPSZI
             stages.Add("tnTCUI", new StageTCUI(returnTabPage("tpTCUI"), returnTreeNode("tnTCUI"), this, IS));
             stages.Add("tnTechnoGenThreats", new stageTechnoGenThreats(returnTabPage("tpTechnoGenThreats"), returnTreeNode("tnTechnoGenThreats"), this, IS));
             stages.Add("tnSKZI", new StageSKZI(returnTabPage("tpSKZI"), returnTreeNode("tnSKZI"), this, IS));
+            stages.Add("tnMeasures", new StageMeasures(returnTabPage("tpMeasures"), returnTreeNode("tnMeasures"), this, IS));
+            //stages.Add("tnMeasuresTCUI", new StageMeasuresTCUI(returnTabPage("tpMeasuresTCUI"), returnTreeNode("tnMeasuresTCUI"), this, IS));
+            //stages.Add("tnMeasuresTechno", new StageMeasuresTechno(returnTabPage("tpMeasuresTechno"), returnTreeNode("tnMeasuresTechno"), this, IS));
+            stages.Add("tnSZI", new StageSZI(returnTabPage("tpSZI"), returnTreeNode("tnSZI"), this, IS));
+            stages.Add("tnTPExport", new StageTPExport(returnTabPage("tpTPExport"), returnTreeNode("tnTPExport"), this, IS));
 
             //returnTreeNode("tnActualThreats").ForeColor = Color.Gray;
             //returnTreeNode("tnActualThreats").BackColor = Color.White;
@@ -60,21 +87,28 @@ namespace KPSZI
             iconList.Images.Add(Image.FromFile(@"res\icons\document-settings-icon.png"));
             iconList.Images.Add(Image.FromFile(@"res\icons\left-arrow-icon.png"));
             iconList.Images.Add(Image.FromFile(@"res\icons\right-arrow-icon.png"));
-            
+
             treeView.ImageList = iconList;
 
             // развернуть дерево
             treeView.ExpandAll();
 
-            foreach(TabPage tab in tabControl.TabPages)
+            foreach (TabPage tab in tabControl.TabPages)
                 tab.AutoScroll = true;
 
-            menuStrip.BackColor = Color.FromArgb(234,240,255);
+            menuStrip.BackColor = Color.FromArgb(234, 240, 255);
             //this.BackColor = Color.FromArgb(234, 240, 255);
 
 
             tabControlInfoTypes.TabPages.AddRange(((StageClassification)stages["tnClassification"]).tabPagesInfoTypes.ToArray());
             t.Abort();
+
+            //Создание окна "подождика пока я работаю.."
+            wsm = new WaitingSplashMessage();
+            this.Controls.Add(wsm);
+            wsm.Location = new Point(this.Width / 2 - wsm.Width/2, this.Height / 2 - wsm.Height/2);
+            wsm.BringToFront();
+            wsm.Visible = false;
         }
 
         // возвращает ссылку на TabPage по имени вкладки
@@ -160,7 +194,7 @@ namespace KPSZI
                 {
                     try
                     {
-                        db.Database.ExecuteSqlCommand("SET SCHEMA '" + KPSZIContext.schema_name + "'; TRUNCATE \"GISMeasures\", \"ISPDNMeasures\", \"InfoTypes\", \"IntruderTypes\", \"SFHThreats\", \"MeasureGroups\", \"SFHTypes\", \"SFHs\", \"SZIGISMeasures\", \"SZIISPDNMeasures\", \"SZITypes\", \"SZIs\", \"TCUIThreats\", \"TCUITypes\", \"TCUIs\", \"TechnogenicMeasures\", \"TechnogenicThreats\", \"ThreatSources\", \"ThreatSourceThreats\", \"Threats\", \"ImplementWays\", \"ThreatImplementWays\", \"Vulnerabilities\", \"VulnerabilityThreats\" CASCADE");
+                        db.Database.ExecuteSqlCommand("SET SCHEMA '" + KPSZIContext.schema_name + "'; TRUNCATE \"GISMeasures\", \"ISPDNMeasures\", \"ImplementWayThreats\", \"SFHGISMeasures\", \"ThreatGISMeasures\", \"InfoTypes\", \"IntruderTypes\", \"ThreatSFHs\", \"MeasureGroups\", \"SFHTypes\", \"SFHs\", \"SZIGISMeasures\",  \"SZISorts\", \"SZISortSZIs\", \"SZIs\", \"TCUIThreats\", \"TCUITypes\", \"TCUIs\", \"TechnogenicMeasures\", \"TechnogenicThreats\", \"ThreatSources\", \"ThreatSourceThreats\", \"Threats\", \"ImplementWays\",\"Vulnerabilities\", \"VulnerabilityThreats\" CASCADE");
                     }
                     catch (Exception ex)
                     {
@@ -264,21 +298,6 @@ namespace KPSZI
             MessageBox.Show("Файл успешно загружен", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        // Переключение по вкладкам Вперед и Назад
-        // Работает в пределах одного родительского элемента
-        private void PrevStage_Click(object sender, EventArgs e)
-        {
-            TreeNode tn = treeView.SelectedNode.PrevNode;
-            if (tn != null)
-                treeView.SelectedNode = tn;
-        }
-        private void NextStage_Click(object sender, EventArgs e)
-        {
-            TreeNode tn = treeView.SelectedNode.NextNode;
-            if (tn != null)
-                treeView.SelectedNode = tn;
-        }
-
         private void initDBToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // инициализация БД начальным значениями из метода Model.KPSZIContext.Seed()
@@ -318,7 +337,7 @@ namespace KPSZI
 
         private void FillThreatsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FillThreatsForm form = new FillThreatsForm();
+            FillThreatsForm form = new FillThreatsForm(this);
             form.Show();
         }
     }

@@ -12,6 +12,7 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -24,7 +25,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -51,12 +51,18 @@
     <StartupObject>KPSZI.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Word, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\packages\Microsoft.Office.Interop.Word.15.0.4797.1003\lib\net20\Microsoft.Office.Interop.Word.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Mono.Security, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
@@ -83,6 +89,7 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DamageDegreeControl.cs">
@@ -103,14 +110,18 @@
     <Compile Include="IntruderAbilityControl.Designer.cs">
       <DependentUpon>IntruderAbilityControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201805180415017_upd_after_add_SFH-Measures_dependencies.cs" />
-    <Compile Include="Migrations\201805180415017_upd_after_add_SFH-Measures_dependencies.Designer.cs">
-      <DependentUpon>201805180415017_upd_after_add_SFH-Measures_dependencies.cs</DependentUpon>
+    <Compile Include="Link.cs" />
+    <Compile Include="Migrations\201806230318028_dimov.cs" />
+    <Compile Include="Migrations\201806230318028_dimov.Designer.cs">
+      <DependentUpon>201806230318028_dimov.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\ConfigOption.cs" />
     <Compile Include="Model\ImplementWays.cs" />
     <Compile Include="Model\Vulnerability.cs" />
+    <Compile Include="Node.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="splashForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,7 +139,6 @@
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Model\GISClassification.cs" />
     <Compile Include="Model\GISMeasure.cs" />
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -138,11 +148,10 @@
     <Compile Include="Model\ISPDNMeasure.cs" />
     <Compile Include="Model\KPSZIContext.cs" />
     <Compile Include="Model\MeasureGroup.cs" />
-    <Compile Include="Model\RealizationPossibility.cs" />
     <Compile Include="Model\SFH.cs" />
     <Compile Include="Model\SFHType.cs" />
     <Compile Include="Model\SZI.cs" />
-    <Compile Include="Model\SZIType.cs" />
+    <Compile Include="Model\SZISort.cs" />
     <Compile Include="Model\TCUI.cs" />
     <Compile Include="Model\TCUIThreat.cs" />
     <Compile Include="Model\TCUIType.cs" />
@@ -157,14 +166,25 @@
     <Compile Include="StageClassification.cs" />
     <Compile Include="StageConfigOptions.cs" />
     <Compile Include="StageIntruder.cs" />
+    <Compile Include="StageMeasures.cs" />
+    <Compile Include="StageMeasuresTCUI.cs" />
+    <Compile Include="StageMeasuresTechno.cs" />
     <Compile Include="StageOptions.cs" />
     <Compile Include="StageHardware.cs" />
     <Compile Include="StageSKZI.cs" />
+    <Compile Include="StageSZI.cs" />
     <Compile Include="StageTCUI.cs" />
     <Compile Include="StageTechno.cs" />
     <Compile Include="stageTechnoGenThreats.cs" />
     <Compile Include="StageTopology.cs" />
+    <Compile Include="StageTPExport.cs" />
     <Compile Include="StageVulnerabilities.cs" />
+    <Compile Include="WaitingSplashMessage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WaitingSplashMessage.Designer.cs">
+      <DependentUpon>WaitingSplashMessage.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="DamageDegreeControl.resx">
       <DependentUpon>DamageDegreeControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -183,8 +203,8 @@
       <DependentUpon>Form1.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805180415017_upd_after_add_SFH-Measures_dependencies.resx">
-      <DependentUpon>201805180415017_upd_after_add_SFH-Measures_dependencies.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201806230318028_dimov.resx">
+      <DependentUpon>201806230318028_dimov.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -198,6 +218,9 @@
     </Compile>
     <EmbeddedResource Include="splashForm.resx">
       <DependentUpon>splashForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaitingSplashMessage.resx">
+      <DependentUpon>WaitingSplashMessage.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -223,6 +246,19 @@
     <None Include="Resources\add.ico" />
     <None Include="Resources\del.ico" />
     <None Include="Resources\edit.ico" />
+    <None Include="Resources\Cursor-Move-2-icon.png" />
+    <None Include="Resources\Editing-Line-icon.png" />
+    <None Include="Resources\Network-Computer-icon.png" />
+    <None Include="Resources\Network-Router-icon.png" />
+    <None Include="Resources\Network-Server-icon.png" />
+    <None Include="Resources\Network-Switch-icon.png" />
+    <None Include="Resources\pc.png" />
+    <None Include="Resources\router.png" />
+    <None Include="Resources\server.png" />
+    <None Include="Resources\switch.png" />
+    <None Include="Resources\User-Interface-Delete-Sign-icon.png" />
+    <None Include="Resources\cloud.jpg" />
+    <None Include="Resources\book-297319_960_720.png" />
     <Content Include="res\icons\document-settings-icon.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

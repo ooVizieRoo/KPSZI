@@ -9,27 +9,32 @@ namespace KPSZI.Model
     /// <summary>
     /// Типы СЗИ - СОВ, СДЗ, etc.
     /// </summary>
-    public class SZIType
+    public class SZISort
     {
         /// <summary>
         /// Первичный ключ
         /// </summary>
-        public int SZITypeId { get; set; }
-        
+        public int SZISortId { get; set; }
         /// <summary>
-        /// Название типа СЗИ
+        /// Название вида СЗИ
         /// </summary>
         public string Name { get; set; }
-
         /// <summary>
-        /// Список средств СЗИ данного типа
+        /// Короткое название вида СЗИ
+        /// </summary>
+        public string ShortName { get; set; }
+        /// <summary>
+        /// Костыль для идентификации вида СЗИ в базе
+        /// </summary>
+        public int Number { get; set; }
+        /// <summary>
+        /// Список средств СЗИ данного вида
         /// </summary>
         public virtual ICollection<SZI> SZIs { get; set; }
-
         /// <summary>
         /// Конструктор для создания списка
         /// </summary>
-        public SZIType()
+        public SZISort()
         {
             this.SZIs = new List<SZI>();
         }
