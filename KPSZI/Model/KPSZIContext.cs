@@ -5902,7 +5902,7 @@ namespace KPSZI.Model
             SZIs.Add(SZVDL);
 
             SZI ABRAW = new SZI();
-            ABRAW.Name = "Acronis Backup & Recovery 11 Advanced Workstation";
+            ABRAW.Name = "Acronis Backup and Recovery 11 Advanced Workstation";
             ABRAW.Certificate = "2678";
             ABRAW.DateOfEnd = DateTime.Parse("16.07.2018");
             ABRAW.TU = "+";
@@ -5911,7 +5911,7 @@ namespace KPSZI.Model
             SZIs.Add(ABRAW);
 
             SZI VEEAM = new SZI();
-            VEEAM.Name = "Veeam Backup & Replication";
+            VEEAM.Name = "Veeam Backup and Replication";
             VEEAM.Certificate = "3482";
             VEEAM.DateOfEnd = DateTime.Parse("23.12.2021");
             VEEAM.TU = "+";
