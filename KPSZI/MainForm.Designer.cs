@@ -309,6 +309,7 @@
             this.tpSZItbInfo = new System.Windows.Forms.TextBox();
             this.tabControlSZIs = new System.Windows.Forms.TabControl();
             this.tpOne = new System.Windows.Forms.TabPage();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.tbtpSZINDV = new System.Windows.Forms.TextBox();
             this.tpSZItb2 = new System.Windows.Forms.TextBox();
@@ -336,7 +337,6 @@
             this.labelAvailability = new System.Windows.Forms.Label();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.iconList = new System.Windows.Forms.ImageList(this.components);
-            this.panel1 = new System.Windows.Forms.Panel();
             this.menuStrip.SuspendLayout();
             this.tpOptions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProjectSecurityResult)).BeginInit();
@@ -737,7 +737,6 @@
             this.tabControl.ShowToolTips = true;
             this.tabControl.Size = new System.Drawing.Size(977, 516);
             this.tabControl.TabIndex = 4;
-            this.tabControl.SelectedIndexChanged += new System.EventHandler(this.tabControl_SelectedIndexChanged);
             // 
             // tpClassification
             // 
@@ -1762,7 +1761,7 @@
             this.dgvActualThreatsNSD.RowHeadersVisible = false;
             this.dgvActualThreatsNSD.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(3);
             this.dgvActualThreatsNSD.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvActualThreatsNSD.Size = new System.Drawing.Size(457, 452);
+            this.dgvActualThreatsNSD.Size = new System.Drawing.Size(440, 452);
             this.dgvActualThreatsNSD.TabIndex = 0;
             // 
             // tpThreatsNSD3
@@ -2868,7 +2867,6 @@
             this.pbtpMeas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbtpMeas.TabIndex = 1;
             this.pbtpMeas.TabStop = false;
-            this.pbtpMeas.Click += new System.EventHandler(this.pbtpMeas_Click);
             // 
             // tbtpMeasDescription
             // 
@@ -2883,7 +2881,6 @@
             this.tbtpMeasDescription.TabIndex = 0;
             this.tbtpMeasDescription.Text = resources.GetString("tbtpMeasDescription.Text");
             this.tbtpMeasDescription.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tbtpMeasDescription.TextChanged += new System.EventHandler(this.tbtpMeasDescription_TextChanged);
             // 
             // tabControlMeasures
             // 
@@ -3175,6 +3172,15 @@
             this.tpOne.Text = "Требования к СЗИ";
             this.tpOne.UseVisualStyleBackColor = true;
             // 
+            // panel1
+            // 
+            this.panel1.AutoScroll = true;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(3, 179);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(949, 165);
+            this.panel1.TabIndex = 17;
+            // 
             // textBox3
             // 
             this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -3324,7 +3330,7 @@
             // 
             // btnExportConfigOptions
             // 
-            this.btnExportConfigOptions.Location = new System.Drawing.Point(615, 461);
+            this.btnExportConfigOptions.Location = new System.Drawing.Point(629, 461);
             this.btnExportConfigOptions.Name = "btnExportConfigOptions";
             this.btnExportConfigOptions.Size = new System.Drawing.Size(331, 23);
             this.btnExportConfigOptions.TabIndex = 5;
@@ -3388,14 +3394,14 @@
             dataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvConfigNMeasures.DefaultCellStyle = dataGridViewCellStyle19;
-            this.dgvConfigNMeasures.Location = new System.Drawing.Point(6, 59);
+            this.dgvConfigNMeasures.Location = new System.Drawing.Point(9, 105);
             this.dgvConfigNMeasures.Name = "dgvConfigNMeasures";
             this.dgvConfigNMeasures.ReadOnly = true;
             this.dgvConfigNMeasures.RowHeadersVisible = false;
             dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvConfigNMeasures.RowsDefaultCellStyle = dataGridViewCellStyle20;
             this.dgvConfigNMeasures.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvConfigNMeasures.Size = new System.Drawing.Size(955, 350);
+            this.dgvConfigNMeasures.Size = new System.Drawing.Size(951, 350);
             this.dgvConfigNMeasures.TabIndex = 0;
             // 
             // measureColumnForConfigOptions
@@ -3492,15 +3498,6 @@
             this.iconList.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
             this.iconList.ImageSize = new System.Drawing.Size(16, 16);
             this.iconList.TransparentColor = System.Drawing.Color.Transparent;
-            // 
-            // panel1
-            // 
-            this.panel1.AutoScroll = true;
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(3, 179);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(949, 165);
-            this.panel1.TabIndex = 17;
             // 
             // MainForm
             // 
