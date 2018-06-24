@@ -349,5 +349,20 @@ namespace KPSZI
                 db.SeedForConfigOptions();
             }
         }
+
+        private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbtpMeasDescription_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pbtpMeas_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -318,7 +318,10 @@
             this.dgvTest = new System.Windows.Forms.DataGridView();
             this.tpTPExport = new System.Windows.Forms.TabPage();
             this.tpConfigOptions = new System.Windows.Forms.TabPage();
-            this.lbConfigOptionsInfo = new System.Windows.Forms.Label();
+            this.btnExportConfigOptions = new System.Windows.Forms.Button();
+            this.pConfOpt = new System.Windows.Forms.Panel();
+            this.pbInfoConfOpt = new System.Windows.Forms.PictureBox();
+            this.tbInfoConfOpt = new System.Windows.Forms.TextBox();
             this.dgvConfigNMeasures = new System.Windows.Forms.DataGridView();
             this.measureColumnForConfigOptions = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.configColumnForConfigOptions = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -394,6 +397,8 @@
             this.tpTwo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTest)).BeginInit();
             this.tpConfigOptions.SuspendLayout();
+            this.pConfOpt.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInfoConfOpt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConfigNMeasures)).BeginInit();
             this.SuspendLayout();
             // 
@@ -712,6 +717,7 @@
             this.tabControl.ShowToolTips = true;
             this.tabControl.Size = new System.Drawing.Size(977, 516);
             this.tabControl.TabIndex = 4;
+            this.tabControl.SelectedIndexChanged += new System.EventHandler(this.tabControl_SelectedIndexChanged);
             // 
             // tpClassification
             // 
@@ -1728,7 +1734,7 @@
             this.dgvActualThreatsNSD.RowHeadersVisible = false;
             this.dgvActualThreatsNSD.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(3);
             this.dgvActualThreatsNSD.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvActualThreatsNSD.Size = new System.Drawing.Size(491, 452);
+            this.dgvActualThreatsNSD.Size = new System.Drawing.Size(457, 452);
             this.dgvActualThreatsNSD.TabIndex = 0;
             // 
             // tpThreatsNSD3
@@ -2834,6 +2840,7 @@
             this.pbtpMeas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbtpMeas.TabIndex = 1;
             this.pbtpMeas.TabStop = false;
+            this.pbtpMeas.Click += new System.EventHandler(this.pbtpMeas_Click);
             // 
             // tbtpMeasDescription
             // 
@@ -2848,6 +2855,7 @@
             this.tbtpMeasDescription.TabIndex = 0;
             this.tbtpMeasDescription.Text = resources.GetString("tbtpMeasDescription.Text");
             this.tbtpMeasDescription.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbtpMeasDescription.TextChanged += new System.EventHandler(this.tbtpMeasDescription_TextChanged);
             // 
             // tabControlMeasures
             // 
@@ -3271,7 +3279,8 @@
             // 
             // tpConfigOptions
             // 
-            this.tpConfigOptions.Controls.Add(this.lbConfigOptionsInfo);
+            this.tpConfigOptions.Controls.Add(this.btnExportConfigOptions);
+            this.tpConfigOptions.Controls.Add(this.pConfOpt);
             this.tpConfigOptions.Controls.Add(this.dgvConfigNMeasures);
             this.tpConfigOptions.Location = new System.Drawing.Point(4, 22);
             this.tpConfigOptions.Name = "tpConfigOptions";
@@ -3281,15 +3290,48 @@
             this.tpConfigOptions.Text = "tpConfigOptions";
             this.tpConfigOptions.UseVisualStyleBackColor = true;
             // 
-            // lbConfigOptionsInfo
+            // btnExportConfigOptions
             // 
-            this.lbConfigOptionsInfo.AutoSize = true;
-            this.lbConfigOptionsInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbConfigOptionsInfo.Location = new System.Drawing.Point(6, 30);
-            this.lbConfigOptionsInfo.Name = "lbConfigOptionsInfo";
-            this.lbConfigOptionsInfo.Size = new System.Drawing.Size(364, 18);
-            this.lbConfigOptionsInfo.TabIndex = 1;
-            this.lbConfigOptionsInfo.Text = "Определение требований к параметрам настройки";
+            this.btnExportConfigOptions.Location = new System.Drawing.Point(615, 461);
+            this.btnExportConfigOptions.Name = "btnExportConfigOptions";
+            this.btnExportConfigOptions.Size = new System.Drawing.Size(331, 23);
+            this.btnExportConfigOptions.TabIndex = 5;
+            this.btnExportConfigOptions.Text = "Экспорт документа \"Требования к параметрам настройки\"";
+            this.btnExportConfigOptions.UseVisualStyleBackColor = true;
+            // 
+            // pConfOpt
+            // 
+            this.pConfOpt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pConfOpt.Controls.Add(this.pbInfoConfOpt);
+            this.pConfOpt.Controls.Add(this.tbInfoConfOpt);
+            this.pConfOpt.Location = new System.Drawing.Point(9, 9);
+            this.pConfOpt.Name = "pConfOpt";
+            this.pConfOpt.Size = new System.Drawing.Size(951, 89);
+            this.pConfOpt.TabIndex = 4;
+            // 
+            // pbInfoConfOpt
+            // 
+            this.pbInfoConfOpt.Image = global::KPSZI.Properties.Resources.iconInformation;
+            this.pbInfoConfOpt.Location = new System.Drawing.Point(882, 11);
+            this.pbInfoConfOpt.Name = "pbInfoConfOpt";
+            this.pbInfoConfOpt.Size = new System.Drawing.Size(64, 64);
+            this.pbInfoConfOpt.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbInfoConfOpt.TabIndex = 1;
+            this.pbInfoConfOpt.TabStop = false;
+            // 
+            // tbInfoConfOpt
+            // 
+            this.tbInfoConfOpt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbInfoConfOpt.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tbInfoConfOpt.Location = new System.Drawing.Point(3, 1);
+            this.tbInfoConfOpt.Multiline = true;
+            this.tbInfoConfOpt.Name = "tbInfoConfOpt";
+            this.tbInfoConfOpt.ReadOnly = true;
+            this.tbInfoConfOpt.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tbInfoConfOpt.Size = new System.Drawing.Size(873, 87);
+            this.tbInfoConfOpt.TabIndex = 0;
+            this.tbInfoConfOpt.Text = resources.GetString("tbInfoConfOpt.Text");
+            this.tbInfoConfOpt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // dgvConfigNMeasures
             // 
@@ -3314,14 +3356,14 @@
             dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvConfigNMeasures.DefaultCellStyle = dataGridViewCellStyle18;
-            this.dgvConfigNMeasures.Location = new System.Drawing.Point(6, 59);
+            this.dgvConfigNMeasures.Location = new System.Drawing.Point(6, 104);
             this.dgvConfigNMeasures.Name = "dgvConfigNMeasures";
             this.dgvConfigNMeasures.ReadOnly = true;
             this.dgvConfigNMeasures.RowHeadersVisible = false;
             dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvConfigNMeasures.RowsDefaultCellStyle = dataGridViewCellStyle19;
             this.dgvConfigNMeasures.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvConfigNMeasures.Size = new System.Drawing.Size(955, 425);
+            this.dgvConfigNMeasures.Size = new System.Drawing.Size(955, 350);
             this.dgvConfigNMeasures.TabIndex = 0;
             // 
             // measureColumnForConfigOptions
@@ -3514,7 +3556,9 @@
             this.tpTwo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTest)).EndInit();
             this.tpConfigOptions.ResumeLayout(false);
-            this.tpConfigOptions.PerformLayout();
+            this.pConfOpt.ResumeLayout(false);
+            this.pConfOpt.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInfoConfOpt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConfigNMeasures)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -3762,12 +3806,15 @@
         internal System.Windows.Forms.Button btnReady;
         private System.Windows.Forms.ToolStripMenuItem параметрыНастройкиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem setConfigOptionsToolStripMenu;
-        private System.Windows.Forms.Label lbConfigOptionsInfo;
         public System.Windows.Forms.DataGridView dgvConfigNMeasures;
         private System.Windows.Forms.DataGridViewTextBoxColumn measureColumnForConfigOptions;
         private System.Windows.Forms.DataGridViewTextBoxColumn configColumnForConfigOptions;
         internal System.Windows.Forms.TextBox tbtpSZISZI;
         internal System.Windows.Forms.TextBox tbtpSZISVT;
         internal System.Windows.Forms.TextBox tbtpSZINDV;
+        private System.Windows.Forms.Panel pConfOpt;
+        private System.Windows.Forms.PictureBox pbInfoConfOpt;
+        internal System.Windows.Forms.TextBox tbInfoConfOpt;
+        internal System.Windows.Forms.Button btnExportConfigOptions;
     }
 }
