@@ -28,7 +28,6 @@ namespace KPSZI
         List<GISMeasure> ListOfAdaptiveMeasures = new List<GISMeasure>();
         List<GISMeasure> ListOfConcreteMeasures = new List<GISMeasure>();
 
-
         public StageMeasures(TabPage stageTab, TreeNode stageNode, MainForm mainForm, InformationSystem IS)
             : base(stageTab, stageNode, mainForm, IS)
         {
@@ -158,9 +157,19 @@ namespace KPSZI
 
         private void BtnGetBasicMeasuresList_Click(object sender, EventArgs e)
         {
+            if (IS.GISClass == 0)
+            {
+                if (MessageBox.Show("Не определен класс защищенности для дальнейшней работы. \nПерейти во вкладку \"Классификация\"?", "Внимание!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    mf.treeView.SelectedNode = mf.returnTreeNode("tnClassification");
+                    return;
+                }
+                else
+                    return;
+            }
+
             mf.wsm.Visible = true;
             mf.wsm.Update();
-
 
             mf.tabControlMeasures.TabPages.Clear();
 
@@ -286,7 +295,6 @@ namespace KPSZI
 
             mf.wsm.Visible = false;
         }
-
 
         private void BtnExportSFHConsole_Click(object sender, EventArgs e)
         {

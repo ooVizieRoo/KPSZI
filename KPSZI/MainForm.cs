@@ -35,14 +35,14 @@ namespace KPSZI
             t = new Thread(startSplash);
             t.Start();
 
-            // check database connectio before starting application
+            // check database connection before starting application
             using (KPSZIContext db = new KPSZIContext())
             {
                 if (!db.Database.Exists())
                 {
                     t.Abort();
                     this.Close();
-                    MessageBox.Show("Ошибка подключения к базе данных КПСЗИ");                        
+                    MessageBox.Show("Ошибка подключения к базе данных КПСЗИ", "Внимание!", MessageBoxButtons.OK,MessageBoxIcon.Exclamation);                        
                 }
                 else
                     initForm();                    
@@ -350,19 +350,21 @@ namespace KPSZI
             }
         }
 
-        private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
+        private void addSZItoMeasuresToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void tbtpMeasDescription_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pbtpMeas_Click(object sender, EventArgs e)
-        {
-
+            using (KPSZIContext db = new KPSZIContext())
+            {
+                try
+                {
+                    db.SeedForMeasures();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Внимание!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                MessageBox.Show("Заполнение прошло успешно!", "Внимание!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }
