@@ -26,6 +26,13 @@ namespace KPSZI
 
         private void BtnGetSZI_Click(object sender, EventArgs e)
         {
+            mf.wsm.Visible = true;
+            mf.wsm.Update();
+
+            mf.tabControlSZIs.TabPages.Clear();
+            mf.tabControlSZIs.TabPages.Add(mf.tpSZItpReq);
+            mf.tabControlSZIs.TabPages.Add(mf.tpSZItpSZIs);
+            mf.tabControlSZIs.SelectedTab = mf.tpSZItpSZIs;
             mf.dgvSZI.Rows.Clear();
 
             using (KPSZIContext db = new KPSZIContext())
@@ -40,22 +47,29 @@ namespace KPSZI
                     if (gm.SZISorts.Count == 0)
                         continue;
 
-                    string sziSorts = "";
-                    
+                    string szis = "";
+                    List<SZI> _szis = new List<SZI>(); 
                     foreach (SZISort ss in gm.SZISorts)
                     {
-                        foreach(SZI szi in ss.SZIs.ToList().Intersect(IS.listOfSZIs))
-                        {
-                            sziSorts += szi.Name + "\n";
-                        }
+                        _szis = ss.SZIs.ToList().Intersect(IS.listOfSZIs).ToList();
+                        
                     }
-                    mf.dgvSZI.Rows.Add(++i, gm.ToString(), sziSorts);
+                    _szis = _szis.Distinct().ToList();
+
+                    foreach (SZI szi in _szis)
+                    {
+                        szis += szi.Name + "\n";
+                    }
+                    mf.dgvSZI.Rows.Add(++i, gm.ToString(), szis);
                 }
             }
+            mf.wsm.Visible = false;
         }
 
         private void BtnGetRequirm_Click(object sender, EventArgs e)
         {
+            mf.tabControlSZIs.TabPages.Clear();
+
             switch (IS.GISClass)
             {
                 case 1: { mf.tbtpSZISVT.Text = "не ниже 5-го класса"; mf.tbtpSZISZI.Text = "не ниже 4-го класса"; mf.tbtpSZINDV.Text = "4";  break; }
@@ -72,6 +86,9 @@ namespace KPSZI
                             return;
                     }
             }
+
+
+            mf.tabControlSZIs.TabPages.Add(mf.tpSZItpReq);
             using (KPSZIContext db = new KPSZIContext())
             {
                 listOfSZIsFromDB = db.SZIs.ToList();
@@ -93,7 +110,7 @@ namespace KPSZI
                 radiobuttonsSZISorts = new List<RadioButton>();
                 checkboxesSZISorts = new List<CheckBox>();
 
-                mf.panel1.Controls.Clear();
+                mf.ptpSZIforSZI.Controls.Clear();
 
                 int i = 0;
                 int j = 0;
@@ -131,7 +148,23 @@ namespace KPSZI
                             gb.Controls.Add(cb);
                             j++;
                         }
-                        
+
+                        //ставим птичку на первом добавленном СЗИ
+                        if (gb.Controls.Count == 1)
+                        {
+                            var ctrl = gb.Controls[0];
+                            if (ctrl is CheckBox)
+                            {
+                                var _cb = (CheckBox)ctrl;
+                                _cb.Checked = true;
+                            }
+
+                            if (ctrl is RadioButton)
+                            {
+                                var _rb = (RadioButton)ctrl;
+                                _rb.Checked = true;
+                            }
+                        }
                     }
 
                     gb.Size = new Size(300, 25 + j * 17);
@@ -143,6 +176,16 @@ namespace KPSZI
                     switch (szisort.ShortName)
                     {
                         case "СЗИ от НСД": { description = "Средство защиты информации от несанкционированного доступа. Может реализовывать функции средства контроля съемных машинных носителей"; break; }
+                        case "СОВ": { description = "Средство обнаружения вторжений. Может реализовывать функции межсетевых экранов, поэтому не имеет смысла выбирать отличное от него, т.к. приведет к дополнительным затратам. Требования к СОВ утверждены Приказом ФСТЭК России от 6 декабря 2011 г. № 638."; break; }
+                        case "МСЭ": { description = "Межсетевой экран. Может реализовывать функции средств обнаружения вторжений, поэтому не имеет смысла выбирать отличное от него, т.к. приведет к дополнительным затратам. Требования к Межсетевым экранам утверждены Приказом ФСТЭК России от 9 февраля 2016 г. № 9."; break; }
+                        case "СДЗ": { description = "Средство доверенной загрузки. Обеспечивает доверенную загрузку СВТ. Требования к СДЗ утверждены Приказом ФСТЭК России от 27 сентября 2013 г. № 119."; break; }
+                        case "САВЗ": { description = "Средство антивирусной защиты. Обеспечивает защиту от компьютерных вирусов. Требования к САВЗ утверждены Приказом ФСТЭК России от 20 марта 2012 г. № 28."; break; }
+                        case "СКН": { description = "Средство контроля съемных машинных носителей информации. Обеспечивает защиту от компьютерных вирусов. Требования к СКН утверждены Приказом ФСТЭК России от 28 июля 2014 г. № 87."; break; }
+                        case "САНЗ": { description = "Средство анализа (контроля) защищенности информационной системы. Предназначено для анализа защищенности информации в корпоративных сетях. Специальных требований, кроме наличия сертификата ФСТЭК России, к данному виду СЗИ не устанавливается."; break; }
+                        case "СРСБ": { description = "Средство регистрации событий безопасности. Предназначено для управления событиями и информацией ИБ с целью выявления инцидентов в режиме реального времени. Специальных требований, кроме наличия сертификата ФСТЭК России, к данному виду СЗИ не устанавливается."; break; }
+                        case "СЗСВ": { description = "Средство защиты среды виртуализации. Предназначено для защиты среды виртуальной инфраструктуры предприятия. Специальных требований, кроме наличия сертификата ФСТЭК России, к данному виду СЗИ не устанавливается."; break; }
+                        case "СРК": { description = "Средство резервного копирования и восстановления информации. Предназначено для обеспечения целостности и доступности информации. Специальных требований, кроме наличия сертификата ФСТЭК России, к данному виду СЗИ не устанавливается."; break; }
+
                         default: { description = "Описание отсутствует"; break; }
                     }
 
@@ -151,11 +194,12 @@ namespace KPSZI
                     tb.Multiline = true;
                     tb.TextAlign = HorizontalAlignment.Left;
                     tb.Location = new Point(gb.Location.X + gb.Size.Width + 5, gb.Location.Y + 8);
-                    tb.Size = new Size(stageTab.Size.Width - 7 - gb.Size.Width - 5 - 30, gb.Size.Height - 8);
+                    tb.Size = new Size(stageTab.Size.Width - 7 - gb.Size.Width - 5 - 50, gb.Size.Height - 8);
                     tb.BackColor = SystemColors.Control;
 
-                    mf.panel1.Controls.Add(tb);
-                    mf.panel1.Controls.Add(gb);
+                    
+                    mf.ptpSZIforSZI.Controls.Add(tb);
+                    mf.ptpSZIforSZI.Controls.Add(gb);
                     
                     i++;
                 }
@@ -185,6 +229,8 @@ namespace KPSZI
 
         protected override void initTabPage()
         {
+            mf.tabControlSZIs.TabPages.Clear();
+
             mf.dgvSZI.Columns.Add("Count", "№");
             mf.dgvSZI.Columns.Add("Measure", "Наименование меры");
             mf.dgvSZI.Columns.Add("SZIs", "Техническое средство");

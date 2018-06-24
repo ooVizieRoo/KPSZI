@@ -66,7 +66,7 @@ namespace KPSZI.Model
             upd.GISMeasures.Add(new GISMeasure { Number = 3, Description = "Управление (фильтрация, маршрутизация, контроль соединений, однонаправленная передача и иные способы управления) информационными потоками между устройствами, сегментами информационной системы, а также между информационными системами", MinimalRequirementDefenceClass = 3 });
             upd.GISMeasures.Add(new GISMeasure { Number = 4, Description = "Разделение полномочий (ролей) пользователей, администраторов и лиц, обеспечивающих функционирование информационной системы", MinimalRequirementDefenceClass = 3 });
             upd.GISMeasures.Add(new GISMeasure { Number = 5, Description = "Назначение минимально необходимых прав и привилегий пользователям, администраторам и лицам, обеспечивающим функционирование информационной системы", MinimalRequirementDefenceClass = 3 });
-            upd.GISMeasures.Add(new GISMeasure { Number = 6, Description = "Ограничение неуспешных попыток входа в информационную систему(доступа к информационной системе)", MinimalRequirementDefenceClass = 3 });
+            upd.GISMeasures.Add(new GISMeasure { Number = 6, Description = "Ограничение неуспешных попыток входа в информационную систему (доступа к информационной системе)", MinimalRequirementDefenceClass = 3 });
             upd.GISMeasures.Add(new GISMeasure { Number = 7, Description = "Предупреждение пользователя при его входе в информационную систему о том, что в информационной системе реализованы меры защиты информации (персональных данных), и о необходимости соблюдения им установленных оператором правил обработки информации (персональных данных)", MinimalRequirementDefenceClass = 0 });
             upd.GISMeasures.Add(new GISMeasure { Number = 8, Description = "Оповещение пользователя после успешного входа в информационную систему о его предыдущем входе в информационную систему", MinimalRequirementDefenceClass = 0 });
             upd.GISMeasures.Add(new GISMeasure { Number = 9, Description = "Ограничение числа параллельных сеансов доступа для каждой учетной записи пользователя информационной системы", MinimalRequirementDefenceClass = 1 });
@@ -145,7 +145,7 @@ namespace KPSZI.Model
             ocl.GISMeasures.Add(new GISMeasure { Number = 1, Description = "Контроль целостности программного обеспечения, включая программное обеспечение средств защиты информации", MinimalRequirementDefenceClass = 2 });
             ocl.GISMeasures.Add(new GISMeasure { Number = 2, Description = "Контроль целостности информации (персональных данных), содержащейся в базах данных информационной системы", MinimalRequirementDefenceClass = 0 });
             ocl.GISMeasures.Add(new GISMeasure { Number = 3, Description = "Обеспечение возможности восстановления программного обеспечения, включая программное обеспечение средств защиты информации, при возникновении нештатных ситуаций", MinimalRequirementDefenceClass = 3 });
-            ocl.GISMeasures.Add(new GISMeasure { Number = 4, Description = "Обнаружение и реагирование на поступление в информационную систему незапрашиваемых электронных сообщений(писем, документов) и иной информации, не относящихся к функционированию информационной системы (защита от спама)", MinimalRequirementDefenceClass = 2 });
+            ocl.GISMeasures.Add(new GISMeasure { Number = 4, Description = "Обнаружение и реагирование на поступление в информационную систему незапрашиваемых электронных сообщений (писем, документов) и иной информации, не относящихся к функционированию информационной системы (защита от спама)", MinimalRequirementDefenceClass = 2 });
             ocl.GISMeasures.Add(new GISMeasure { Number = 5, Description = "Контроль содержания информации, передаваемой из информационной системы (контейнерный, основанный на свойствах объекта доступа, и контентный, основанный на поиске запрещенной к передаче информации с использованием сигнатур, масок и иных методов), и исключение неправомерной передачи информации из информационной системы", MinimalRequirementDefenceClass = 0 });
             ocl.GISMeasures.Add(new GISMeasure { Number = 6, Description = "Ограничение прав пользователей по вводу информации в информационную систему", MinimalRequirementDefenceClass = 1 });
             ocl.GISMeasures.Add(new GISMeasure { Number = 7, Description = "Контроль точности, полноты и правильности данных, вводимых в информационную систему", MinimalRequirementDefenceClass = 0 });
@@ -5902,13 +5902,22 @@ namespace KPSZI.Model
             SZIs.Add(SZVDL);
 
             SZI ABRAW = new SZI();
-            ABRAW.Name = "Backup & Recovery 11 Advanced Workstation";
+            ABRAW.Name = "Acronis Backup & Recovery 11 Advanced Workstation";
             ABRAW.Certificate = "2678";
             ABRAW.DateOfEnd = DateTime.Parse("16.07.2018");
             ABRAW.TU = "+";
             ABRAW.NDVControlLevel = 4;
             ABRAW.SZISorts.Add(SZISorts.Where(sort => sort.Number == 10).First());
             SZIs.Add(ABRAW);
+
+            SZI VEEAM = new SZI();
+            VEEAM.Name = "Veeam Backup & Replication";
+            VEEAM.Certificate = "3482";
+            VEEAM.DateOfEnd = DateTime.Parse("23.12.2021");
+            VEEAM.TU = "+";
+            VEEAM.NDVControlLevel = 4;
+            VEEAM.SZISorts.Add(SZISorts.Where(sort => sort.Number == 10).First());
+            SZIs.Add(VEEAM);
 
             #endregion
 
