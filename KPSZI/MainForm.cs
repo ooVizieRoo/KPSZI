@@ -35,14 +35,14 @@ namespace KPSZI
             t = new Thread(startSplash);
             t.Start();
 
-            // check database connectio before starting application
+            // check database connection before starting application
             using (KPSZIContext db = new KPSZIContext())
             {
                 if (!db.Database.Exists())
                 {
                     t.Abort();
                     this.Close();
-                    MessageBox.Show("Ошибка подключения к базе данных КПСЗИ");                        
+                    MessageBox.Show("Ошибка подключения к базе данных КПСЗИ", "Внимание!", MessageBoxButtons.OK,MessageBoxIcon.Exclamation);                        
                 }
                 else
                     initForm();                    

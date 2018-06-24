@@ -7293,6 +7293,10 @@ namespace KPSZI.Model
             NSD.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "ИНЦ").First());
             NSD.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 3 && gm.MeasureGroup.ShortName == "ИНЦ").First());
 
+            var SOV = SZISorts.Where(ss => ss.Number == 2).First();
+            SOV.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "СОВ").First());
+            SOV.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "СОВ").First());
+
             var FW = SZISorts.Where(ss => ss.Number == 3).First();
             FW.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 2 && gm.MeasureGroup.ShortName == "ИАФ").First());
             FW.GISMeasures.Add(GisMeasures.Where(gm => gm.Number == 6 && gm.MeasureGroup.ShortName == "ИАФ").First());

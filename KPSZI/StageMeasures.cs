@@ -28,7 +28,6 @@ namespace KPSZI
         List<GISMeasure> ListOfAdaptiveMeasures = new List<GISMeasure>();
         List<GISMeasure> ListOfConcreteMeasures = new List<GISMeasure>();
 
-
         public StageMeasures(TabPage stageTab, TreeNode stageNode, MainForm mainForm, InformationSystem IS)
             : base(stageTab, stageNode, mainForm, IS)
         {
@@ -296,7 +295,6 @@ namespace KPSZI
 
             mf.wsm.Visible = false;
         }
-
 
         private void BtnExportSFHConsole_Click(object sender, EventArgs e)
         {
