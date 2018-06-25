@@ -52,5 +52,20 @@ namespace KPSZI.Model
             GISMeasures = new List<GISMeasure>();
             Threats = new List<Threat>();
         }
+
+        public override bool Equals(object obj)
+        {
+            var sfh = (SFH)obj;
+
+            if (sfh.Name == Name)
+                return true;
+
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return Name.Count();
+        }
     }
 }

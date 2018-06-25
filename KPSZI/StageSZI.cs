@@ -21,58 +21,324 @@ namespace KPSZI
             : base(stageTab, stageNode, mainForm, IS)
         {
             mf.btnGetRequirm.Click += BtnGetRequirm_Click;
-            mf.btnGetSZI.Click += BtnGetSZI_Click;
+            mf.btnGetSZIs.Click += BtnGetSZIs_Click;
+            mf.btnGetMeasSZIs.Click += BtnGetMeasSZIs_Click;
+            mf.btnExportTP.Click += BtnExportTP_Click;
         }
 
-        private void BtnGetSZI_Click(object sender, EventArgs e)
+
+        protected override void initTabPage()
         {
-            mf.wsm.Visible = true;
-            mf.wsm.Update();
-
             mf.tabControlSZIs.TabPages.Clear();
-            mf.tabControlSZIs.TabPages.Add(mf.tpSZItpReq);
-            mf.tabControlSZIs.TabPages.Add(mf.tpSZItpSZIs);
-            mf.tabControlSZIs.SelectedTab = mf.tpSZItpSZIs;
-            mf.dgvSZI.Rows.Clear();
 
+            mf.dgvSZIs.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            mf.dgvSZIs.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            mf.dgvSZIs.Columns.Add("Count", @"№ п\п");
+            mf.dgvSZIs.Columns[0].Width = 30;
+            mf.dgvSZIs.Columns.Add("Name", "Наименование СЗИ");
+            mf.dgvSZIs.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            mf.dgvSZIs.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            mf.dgvSZIs.Columns.Add("Sort", "Относится к видам");
+            mf.dgvSZIs.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            mf.dgvSZIs.Columns.Add("Cert", "Сертификат");
+            mf.dgvSZIs.Columns[3].Width = 120;
+            //mf.dgvSZIs.Columns.Add("Class", "Класс защищенности");
+            //mf.dgvSZIs.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            mf.dgvSZIs.Columns.Add("NDV", "УКО НДВ");
+            mf.dgvSZIs.Columns[4].Width = 35;
+            mf.dgvSZIs.Columns.Add("SVT", "СВТ");
+            mf.dgvSZIs.Columns[5].Width = 35;
+            mf.dgvSZIs.Columns.Add("TU", "ТУ");
+            mf.dgvSZIs.Columns[6].Width = 30;
+
+
+            mf.dgvMeasSZIs.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            mf.dgvMeasSZIs.Columns.Add("Count", @"№ п\п");
+            mf.dgvMeasSZIs.Columns.Add("Measure", "Наименование меры");
+            mf.dgvMeasSZIs.Columns.Add("SZIs", "Техническое средство");
+            mf.dgvMeasSZIs.Columns[0].Width = 30;//.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            mf.dgvMeasSZIs.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            mf.dgvMeasSZIs.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+        }
+
+        public override void saveChanges()
+        {
+
+        }
+
+        public override void enterTabPage()
+        {
+
+        }
+
+        private void BtnExportTP_Click(object sender, EventArgs e)
+        {
+            Microsoft.Office.Interop.Word._Application oWord = new Microsoft.Office.Interop.Word.Application();
+            Microsoft.Office.Interop.Word._Document oDoc = oWord.Documents.Add(Environment.CurrentDirectory + "\\template.docx");
+            Microsoft.Office.Interop.Word.Table wordTable;
+            Microsoft.Office.Interop.Word.Range bm;
+            int row = 0;
             using (KPSZIContext db = new KPSZIContext())
             {
-                int i = 0;
-                var listSZISorts = db.SZISorts.ToList();
 
-                var listMeasues = db.GisMeasures.ToList().Intersect(IS.listOfAllNSDMeasures).ToList();
+                #region Заполнение СФХ
+                var listOfSFHs = db.SFHs.ToList().Intersect(IS.listOfSFHs).ToList();
+                var listOfSFHTypes = new List<SFHType>();
 
-                foreach (GISMeasure gm in listMeasues)
+                foreach (SFH sfh in listOfSFHs)
+                    listOfSFHTypes.Add(sfh.SFHType);
+                listOfSFHTypes = listOfSFHTypes.Distinct().OrderBy(st => st.SFHTypeId).ToList();
+
+                bm = oDoc.Bookmarks["SFH"].Range;
+                bm.Tables.Add(bm, listOfSFHTypes.Count, 2, Type.Missing, Type.Missing);
+                wordTable = bm.Tables[1];
+                wordTable.Borders.InsideLineStyle = Microsoft.Office.Interop.Word.WdLineStyle.wdLineStyleSingle;
+                wordTable.Borders.OutsideLineStyle = Microsoft.Office.Interop.Word.WdLineStyle.wdLineStyleSingle;
+                wordTable.Rows.Alignment = Microsoft.Office.Interop.Word.WdRowAlignment.wdAlignRowLeft;
+                wordTable.Range.Cells.VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+                wordTable.Range.Select();
+
+                List<SFHType> lst = new List<SFHType>();
+
+                row = 1;
+
+                foreach (SFHType sfhtype in listOfSFHTypes)
                 {
-                    if (gm.SZISorts.Count == 0)
+                    if (IS.listOfSFHs.Where(s => s.SFHType.Name == sfhtype.Name).ToList().Count == 0)
                         continue;
 
-                    string szis = "";
-                    List<SZI> _szis = new List<SZI>(); 
-                    foreach (SZISort ss in gm.SZISorts)
+                    wordTable.Cell(row, 1).Range.Text = sfhtype.Name;
+                    foreach (SFH sfh in IS.listOfSFHs.Where(sfh => sfh.SFHType.Name == sfhtype.Name).ToList())
                     {
-                        _szis = ss.SZIs.ToList().Intersect(IS.listOfSZIs).ToList();
-                        
+                        wordTable.Cell(row, 2).Range.Text += sfh.Name;
                     }
-                    _szis = _szis.Distinct().ToList();
-
-                    foreach (SZI szi in _szis)
-                    {
-                        szis += szi.Name + "\n";
-                    }
-                    mf.dgvSZI.Rows.Add(++i, gm.ToString(), szis);
+                    row++;
                 }
-            }
-            mf.wsm.Visible = false;
-        }
 
+                #endregion
+
+                #region Базовый набор мер
+                bm = oDoc.Bookmarks["Basic_Set"].Range;
+                bm.Tables.Add(bm, mf.dgvBasicMeas.Rows.Count + 1, 2, Type.Missing, Type.Missing);
+                wordTable = bm.Tables[1];
+                wordTable.Borders.InsideLineStyle = Microsoft.Office.Interop.Word.WdLineStyle.wdLineStyleSingle;
+                wordTable.Borders.OutsideLineStyle = Microsoft.Office.Interop.Word.WdLineStyle.wdLineStyleSingle;
+                wordTable.Columns.PreferredWidthType = Microsoft.Office.Interop.Word.WdPreferredWidthType.wdPreferredWidthPercent;
+                wordTable.Columns[1].PreferredWidth = 6f;
+                wordTable.Columns[2].PreferredWidth = 94f;
+                wordTable.Rows.Alignment = Microsoft.Office.Interop.Word.WdRowAlignment.wdAlignRowLeft;
+                wordTable.Rows[1].Alignment = Microsoft.Office.Interop.Word.WdRowAlignment.wdAlignRowCenter;
+                wordTable.Range.Cells.VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+                wordTable.Range.Select();
+
+                wordTable.Cell(1, 1).Range.Text = "№ п/п";
+                wordTable.Cell(1, 2).Range.Text = "Наименование базовой меры";
+
+                row = 2;
+                foreach (DataGridViewRow dgvrow in mf.dgvBasicMeas.Rows)
+                {
+                    wordTable.Cell(row, 1).Range.Text = (row - 1).ToString();
+                    wordTable.Cell(row++, 2).Range.Text = dgvrow.Cells[1].Value.ToString();
+                }
+
+                #endregion
+
+                #region Адаптация базового набора мер
+                bm = oDoc.Bookmarks["Adaptive_Set"].Range;
+                bm.Tables.Add(bm, mf.dgvAdaptiveMeas.Rows.Count + 1, 2, Type.Missing, Type.Missing);
+                wordTable = bm.Tables[1];
+                wordTable.Borders.InsideLineStyle = Microsoft.Office.Interop.Word.WdLineStyle.wdLineStyleSingle;
+                wordTable.Borders.OutsideLineStyle = Microsoft.Office.Interop.Word.WdLineStyle.wdLineStyleSingle;
+                wordTable.Columns.PreferredWidthType = Microsoft.Office.Interop.Word.WdPreferredWidthType.wdPreferredWidthPercent;
+                wordTable.Columns[1].PreferredWidth = 6f;
+                wordTable.Columns[2].PreferredWidth = 94f;
+                wordTable.Rows.Alignment = Microsoft.Office.Interop.Word.WdRowAlignment.wdAlignRowLeft;
+                wordTable.Rows[1].Alignment = Microsoft.Office.Interop.Word.WdRowAlignment.wdAlignRowCenter;
+                wordTable.Range.Cells.VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+                wordTable.Range.Select();
+
+                wordTable.Cell(1, 1).Range.Text = "№ п/п";
+                wordTable.Cell(1, 2).Range.Text = "Наименование меры";
+
+                row = 2;
+                foreach (DataGridViewRow dgvrow in mf.dgvAdaptiveMeas.Rows)
+                {
+                    wordTable.Cell(row, 1).Range.Text = (row - 1).ToString();
+                    wordTable.Cell(row++, 2).Range.Text = dgvrow.Cells[1].Value.ToString();
+                }
+                #endregion
+
+                #region Уточненение адаптированного базового набора мер
+                //Вывод УБИ-меры
+                bm = oDoc.Bookmarks["Thr_Meas"].Range;
+                bm.Tables.Add(bm, mf.dgvThrMeas.Rows.Count + 1, 3, Type.Missing, Type.Missing);
+                wordTable = bm.Tables[1];
+                wordTable.Borders.InsideLineStyle = Microsoft.Office.Interop.Word.WdLineStyle.wdLineStyleSingle;
+                wordTable.Borders.OutsideLineStyle = Microsoft.Office.Interop.Word.WdLineStyle.wdLineStyleSingle;
+                wordTable.Columns.PreferredWidthType = Microsoft.Office.Interop.Word.WdPreferredWidthType.wdPreferredWidthPercent;
+                wordTable.Columns[1].PreferredWidth = 6f;
+                wordTable.Columns[2].PreferredWidth = 19f;
+                wordTable.Columns[3].PreferredWidth = 75f;
+                wordTable.Rows.Alignment = Microsoft.Office.Interop.Word.WdRowAlignment.wdAlignRowLeft;
+                wordTable.Rows[1].Alignment = Microsoft.Office.Interop.Word.WdRowAlignment.wdAlignRowCenter;
+                wordTable.Range.Cells.VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+                wordTable.Range.Select();
+
+                wordTable.Cell(1, 1).Range.Text = "№ п/п";
+                wordTable.Cell(1, 2).Range.Text = "Наименование угрозы";
+                wordTable.Cell(1, 3).Range.Text = "Меры по нейтрализации УБИ";
+
+                row = 2;
+                foreach (DataGridViewRow dgvrow in mf.dgvThrMeas.Rows)
+                {
+                    wordTable.Cell(row, 1).Range.Text = (row - 1).ToString();
+                    wordTable.Cell(row, 2).Range.Text = dgvrow.Cells[1].Value.ToString();
+                    wordTable.Cell(row++, 3).Range.Text = dgvrow.Cells[2].Value.ToString();
+                }
+
+                ////Вывод добавляемых мер
+                //bm = oDoc.Bookmarks["Add_Meas"].Range;
+                //bm.Tables.Add(bm, mf.dgvThrMeas.Rows.Count + 1, 2, Type.Missing, Type.Missing);
+                //wordTable = bm.Tables[1];
+                //wordTable.Borders.InsideLineStyle = Microsoft.Office.Interop.Word.WdLineStyle.wdLineStyleSingle;
+                //wordTable.Borders.OutsideLineStyle = Microsoft.Office.Interop.Word.WdLineStyle.wdLineStyleSingle;
+                //wordTable.Columns.PreferredWidthType = Microsoft.Office.Interop.Word.WdPreferredWidthType.wdPreferredWidthPercent;
+                //wordTable.Columns[1].PreferredWidth = 6f;
+                //wordTable.Columns[2].PreferredWidth = 94f;
+                //wordTable.Rows.Alignment = Microsoft.Office.Interop.Word.WdRowAlignment.wdAlignRowLeft;
+                //wordTable.Rows[1].Alignment = Microsoft.Office.Interop.Word.WdRowAlignment.wdAlignRowCenter;
+                //wordTable.Range.Cells.VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+                //wordTable.Range.Select();
+
+                //wordTable.Cell(1, 1).Range.Text = "№ п/п";
+                //wordTable.Cell(1, 2).Range.Text = "Наименование добавляемой меры";
+
+                //row = 2;
+                //foreach (DataGridViewRow dgvrow in mf.dgvThrMeas.Rows)
+                //{
+                //    wordTable.Cell(row, 1).Range.Text = (row - 1).ToString();
+                //    wordTable.Cell(row++, 2).Range.Text = dgvrow.Cells[1].Value.ToString();
+                //}
+                #endregion
+
+                #region Итоговый перечень мер
+                bm = oDoc.Bookmarks["Final_Set"].Range;
+                bm.Tables.Add(bm, mf.dgvConcreteMeas.Rows.Count + 1, 2, Type.Missing, Type.Missing);
+                wordTable = bm.Tables[1];
+                wordTable.Borders.InsideLineStyle = Microsoft.Office.Interop.Word.WdLineStyle.wdLineStyleSingle;
+                wordTable.Borders.OutsideLineStyle = Microsoft.Office.Interop.Word.WdLineStyle.wdLineStyleSingle;
+                wordTable.Columns.PreferredWidthType = Microsoft.Office.Interop.Word.WdPreferredWidthType.wdPreferredWidthPercent;
+                wordTable.Columns[1].PreferredWidth = 6f;
+                wordTable.Columns[2].PreferredWidth = 94f;
+                wordTable.Rows.Alignment = Microsoft.Office.Interop.Word.WdRowAlignment.wdAlignRowLeft;
+                wordTable.Rows[1].Alignment = Microsoft.Office.Interop.Word.WdRowAlignment.wdAlignRowCenter;
+                wordTable.Range.Cells.VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+                wordTable.Range.Select();
+
+                wordTable.Cell(1, 1).Range.Text = "№ п/п";
+                wordTable.Cell(1, 2).Range.Text = "Наименование меры";
+
+                row = 2;
+                foreach (DataGridViewRow dgvrow in mf.dgvConcreteMeas.Rows)
+                {
+                    wordTable.Cell(row, 1).Range.Text = (row - 1).ToString();
+                    wordTable.Cell(row++, 2).Range.Text = dgvrow.Cells[1].Value.ToString();
+                }
+                #endregion
+
+                #region Перечень предлагаемых СЗИ
+                bm = oDoc.Bookmarks["SZIs_Set"].Range;
+                bm.Tables.Add(bm, mf.dgvSZIs.Rows.Count + 1, 5, Type.Missing, Type.Missing);
+                wordTable = bm.Tables[1];
+                wordTable.Borders.InsideLineStyle = Microsoft.Office.Interop.Word.WdLineStyle.wdLineStyleSingle;
+                wordTable.Borders.OutsideLineStyle = Microsoft.Office.Interop.Word.WdLineStyle.wdLineStyleSingle;
+                wordTable.Columns.PreferredWidthType = Microsoft.Office.Interop.Word.WdPreferredWidthType.wdPreferredWidthPercent;
+                wordTable.Columns[1].PreferredWidth = 4.5f;
+                wordTable.Columns[2].PreferredWidth = 36.3f;
+                wordTable.Columns[3].PreferredWidth = 19.6f;
+                wordTable.Columns[4].PreferredWidth = 25.7f;
+                wordTable.Columns[5].PreferredWidth = 13.6f;
+
+                wordTable.Rows.Alignment = Microsoft.Office.Interop.Word.WdRowAlignment.wdAlignRowLeft;
+                wordTable.Rows[1].Alignment = Microsoft.Office.Interop.Word.WdRowAlignment.wdAlignRowCenter;
+                wordTable.Range.Cells.VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+                wordTable.Range.Select();
+
+                wordTable.Cell(1, 1).Range.Text = "№";
+                wordTable.Cell(1, 2).Range.Text = "Наименование СЗИ";
+                wordTable.Cell(1, 3).Range.Text = "Вид";
+                wordTable.Cell(1, 4).Range.Text = "Сертификат";
+                wordTable.Cell(1, 5).Range.Text = "Уровень контроля отсутствия НДВ";
+
+
+                row = 2;
+                foreach (DataGridViewRow dgvrow in mf.dgvSZIs.Rows)
+                {
+                    wordTable.Cell(row, 1).Range.Text = (row - 1).ToString();
+                    wordTable.Cell(row, 2).Range.Text = dgvrow.Cells[1].Value.ToString();
+                    wordTable.Cell(row, 3).Range.Text = dgvrow.Cells[2].Value.ToString();
+                    wordTable.Cell(row, 4).Range.Text = dgvrow.Cells[3].Value.ToString();
+                    wordTable.Cell(row++, 5).Range.Text = dgvrow.Cells[4].Value.ToString();
+
+                }
+                #endregion
+
+                #region Мера-СЗИ
+                bm = oDoc.Bookmarks["Meas_SZIs"].Range;
+                bm.Tables.Add(bm, mf.dgvMeasSZIs.Rows.Count + 1, 3, Type.Missing, Type.Missing);
+                wordTable = bm.Tables[1];
+                wordTable.Borders.InsideLineStyle = Microsoft.Office.Interop.Word.WdLineStyle.wdLineStyleSingle;
+                wordTable.Borders.OutsideLineStyle = Microsoft.Office.Interop.Word.WdLineStyle.wdLineStyleSingle;
+                wordTable.Columns.PreferredWidthType = Microsoft.Office.Interop.Word.WdPreferredWidthType.wdPreferredWidthPercent;
+                wordTable.Columns[1].PreferredWidth = 6f;
+                wordTable.Columns[2].PreferredWidth = 60f;
+                wordTable.Columns[3].PreferredWidth = 34f;
+
+                wordTable.Rows.Alignment = Microsoft.Office.Interop.Word.WdRowAlignment.wdAlignRowLeft;
+                wordTable.Rows[1].Alignment = Microsoft.Office.Interop.Word.WdRowAlignment.wdAlignRowCenter;
+                wordTable.Range.Cells.VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+                wordTable.Range.Select();
+
+                wordTable.Cell(1, 1).Range.Text = @"№ п\п";
+                wordTable.Cell(1, 2).Range.Text = "Название меры";
+                wordTable.Cell(1, 3).Range.Text = "Перечень СЗИ";
+
+
+                row = 2;
+                foreach (DataGridViewRow dgvrow in mf.dgvMeasSZIs.Rows)
+                {
+                    wordTable.Cell(row, 1).Range.Text = (row - 1).ToString();
+                    wordTable.Cell(row, 2).Range.Text = dgvrow.Cells[1].Value.ToString();
+                    wordTable.Cell(row++, 3).Range.Text = dgvrow.Cells[2].Value.ToString();
+
+                }
+                #endregion
+
+
+
+                oDoc.Activate();
+                oWord.Visible = true;
+            }
+        }
+        #region События
         private void BtnGetRequirm_Click(object sender, EventArgs e)
         {
+            if (IS.listOfAllNSDMeasures.Count == 0)
+            {
+                if (MessageBox.Show("Не определен перечень мер защиты информации, необходимый для дальнейшней работы. \nПерейти во вкладку \"Перечень мер\"?", "Внимание!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    mf.treeView.SelectedNode = mf.returnTreeNode("tnMeasures");
+                    return;
+                }
+                else
+                    return;
+            }
+
             mf.tabControlSZIs.TabPages.Clear();
 
             switch (IS.GISClass)
             {
-                case 1: { mf.tbtpSZISVT.Text = "не ниже 5-го класса"; mf.tbtpSZISZI.Text = "не ниже 4-го класса"; mf.tbtpSZINDV.Text = "4";  break; }
+                case 1: { mf.tbtpSZISVT.Text = "не ниже 5-го класса"; mf.tbtpSZISZI.Text = "не ниже 4-го класса"; mf.tbtpSZINDV.Text = "4"; break; }
                 case 2: { mf.tbtpSZISVT.Text = "не ниже 5-го класса"; mf.tbtpSZISZI.Text = "не ниже 5-го класса"; mf.tbtpSZINDV.Text = "4"; break; }
                 case 3: { mf.tbtpSZISVT.Text = "не ниже 5-го класса"; mf.tbtpSZISZI.Text = "не ниже 6-го класса"; mf.tbtpSZINDV.Text = "не требуется"; break; }
                 default:
@@ -196,14 +462,80 @@ namespace KPSZI
                     tb.Location = new Point(gb.Location.X + gb.Size.Width + 5, gb.Location.Y + 8);
                     tb.Size = new Size(stageTab.Size.Width - 7 - gb.Size.Width - 5 - 50, gb.Size.Height - 8);
                     tb.BackColor = SystemColors.Control;
+                    tb.ReadOnly = true;
 
-                    
+
                     mf.ptpSZIforSZI.Controls.Add(tb);
                     mf.ptpSZIforSZI.Controls.Add(gb);
-                    
+
                     i++;
                 }
             }
+        }
+
+        private void BtnGetSZIs_Click(object sender, EventArgs e)
+        {
+            mf.dgvSZIs.Rows.Clear();
+            mf.tabControlSZIs.TabPages.Clear();
+            mf.tabControlSZIs.TabPages.Add(mf.tpSZItpSZIs);
+            int i = 0;
+
+            using (KPSZIContext db = new KPSZIContext())
+            {
+                var tempListSZIs = db.SZIs.ToList().Intersect(IS.listOfSZIs).ToList();
+
+                foreach (SZI szi in tempListSZIs)
+                {
+                    string sorts = "";
+                    foreach (SZISort ss in szi.SZISorts)
+                        sorts += ss.Name + ", ";
+                    sorts = sorts.TrimEnd(' ');
+                    sorts = sorts.TrimEnd(',');
+                    mf.dgvSZIs.Rows.Add(++i, szi.Name, sorts, "№"+szi.Certificate + ", до " + szi.DateOfEnd.ToShortDateString(), szi.NDVControlLevel, szi.SVTClass, szi.TU);
+                }
+            }
+        }
+
+        private void BtnGetMeasSZIs_Click(object sender, EventArgs e)
+        {
+            mf.wsm.Visible = true;
+            mf.wsm.Update();
+
+            mf.tabControlSZIs.TabPages.Clear();
+            mf.tabControlSZIs.TabPages.Add(mf.tpSZItpSZIs);
+            mf.tabControlSZIs.TabPages.Add(mf.tpSZItpMeasSZIs);
+            mf.tabControlSZIs.SelectedTab = mf.tpSZItpMeasSZIs;
+            mf.dgvMeasSZIs.Rows.Clear();
+
+            using (KPSZIContext db = new KPSZIContext())
+            {
+                int i = 0;
+                var listSZISorts = db.SZISorts.ToList();
+
+                var listMeasues = db.GisMeasures.ToList().Intersect(IS.listOfAllNSDMeasures).ToList();
+
+                foreach (GISMeasure gm in listMeasues)
+                {
+                    if (gm.SZISorts.Count == 0)
+                        continue;
+
+                    string szis = "";
+                    List<SZI> _szis = new List<SZI>();
+                    foreach (SZISort ss in gm.SZISorts)
+                    {
+                        _szis = ss.SZIs.ToList().Intersect(IS.listOfSZIs).ToList();
+
+                    }
+                    _szis = _szis.Distinct().ToList();
+
+                    foreach (SZI szi in _szis)
+                    {
+                        szis += szi.Name + "\n";
+                    }
+                    mf.dgvMeasSZIs.Rows.Add(++i, gm.ToString(), szis);
+                }
+            }
+            mf.wsm.Visible = false;
         }
 
         private void Rb_CheckedChanged(object sender, EventArgs e)
@@ -227,26 +559,6 @@ namespace KPSZI
             }
         }
 
-        protected override void initTabPage()
-        {
-            mf.tabControlSZIs.TabPages.Clear();
-
-            mf.dgvSZI.Columns.Add("Count", "№");
-            mf.dgvSZI.Columns.Add("Measure", "Наименование меры");
-            mf.dgvSZI.Columns.Add("SZIs", "Техническое средство");
-            mf.dgvSZI.Columns[0].Width = 15;//.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
-            mf.dgvSZI.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            mf.dgvSZI.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-        }
-
-        public override void saveChanges()
-        {
-
-        }
-
-        public override void enterTabPage()
-        {
-
-        }
+        #endregion
     }
 }
