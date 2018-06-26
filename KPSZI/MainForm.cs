@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
+using Microsoft.Office.Interop.Word;
 
 namespace KPSZI
 {
@@ -27,29 +28,31 @@ namespace KPSZI
 
         public void startSplash()
         {
-            Application.Run(new splashForm());
+            System.Windows.Forms.Application.Run(new splashForm());
         }
 
         public MainForm()
         {
             t = new Thread(startSplash);
             t.Start();
-
-            // check database connection before starting application
-            using (KPSZIContext db = new KPSZIContext())
-            {
-                if (!db.Database.Exists())
-                {
-                    t.Abort();
-                    this.Close();
-                    MessageBox.Show("Ошибка подключения к базе данных КПСЗИ", "Внимание!", MessageBoxButtons.OK,MessageBoxIcon.Exclamation);                        
-                }
-                else
-                    initForm();                    
-            }
+            initForm();
+            // check database connectio before starting application
+            //using (KPSZIContext db = new KPSZIContext())
+            //{
+            //    if (!db.Database.Exists())
+            //    {
+            //        t.Abort();
+            //        this.Close();
+            //        MessageBox.Show("Ошибка подключения к базе данных КПСЗИ");                        
+            //    }
+            //    else
+            //        initForm();                    
+            //}
 
             KeyPreview = true;
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.UserPaint, true);
+
+            treeView.SelectedNode = returnTreeNode("tnOptions");
         }
 
         private void initForm()
@@ -74,7 +77,7 @@ namespace KPSZI
             //stages.Add("tnMeasuresTCUI", new StageMeasuresTCUI(returnTabPage("tpMeasuresTCUI"), returnTreeNode("tnMeasuresTCUI"), this, IS));
             //stages.Add("tnMeasuresTechno", new StageMeasuresTechno(returnTabPage("tpMeasuresTechno"), returnTreeNode("tnMeasuresTechno"), this, IS));
             stages.Add("tnSZI", new StageSZI(returnTabPage("tpSZI"), returnTreeNode("tnSZI"), this, IS));
-            stages.Add("tnTPExport", new StageTPExport(returnTabPage("tpTPExport"), returnTreeNode("tnTPExport"), this, IS));
+            //stages.Add("tnTPExport", new StageTPExport(returnTabPage("tpTPExport"), returnTreeNode("tnTPExport"), this, IS));
             stages.Add("tnConfigOptions", new StageConfigOptions(returnTabPage("tpConfigOptions"), returnTreeNode("tnconfigOptions"), this, IS));
 
             //returnTreeNode("tnActualThreats").ForeColor = Color.Gray;
@@ -107,7 +110,7 @@ namespace KPSZI
             //Создание окна "подождика пока я работаю.."
             wsm = new WaitingSplashMessage();
             this.Controls.Add(wsm);
-            wsm.Location = new Point(this.Width / 2 - wsm.Width/2, this.Height / 2 - wsm.Height/2);
+            wsm.Location = new System.Drawing.Point(this.Width / 2 - wsm.Width/2, this.Height / 2 - wsm.Height/2);
             wsm.BringToFront();
             wsm.Visible = false;
         }

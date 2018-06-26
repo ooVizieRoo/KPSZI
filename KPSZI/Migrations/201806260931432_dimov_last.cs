@@ -3,7 +3,7 @@ namespace KPSZI.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class first : DbMigration
+    public partial class dimov_last : DbMigration
     {
         public override void Up()
         {
@@ -31,10 +31,13 @@ namespace KPSZI.Migrations
                         MinimalRequirementDefenceClass = c.Int(nullable: false),
                         isOnlyISPDn = c.Boolean(nullable: false),
                         MeasureGroup_MeasureGroupId = c.Int(),
+                        SZI_SZIId = c.Int(),
                     })
                 .PrimaryKey(t => t.GISMeasureId)
                 .ForeignKey("soooqa.MeasureGroups", t => t.MeasureGroup_MeasureGroupId)
-                .Index(t => t.MeasureGroup_MeasureGroupId);
+                .ForeignKey("soooqa.SZIs", t => t.SZI_SZIId)
+                .Index(t => t.MeasureGroup_MeasureGroupId)
+                .Index(t => t.SZI_SZIId);
             
             CreateTable(
                 "soooqa.MeasureGroups",
@@ -239,16 +242,16 @@ namespace KPSZI.Migrations
                 .PrimaryKey(t => t.TechnogenicThreatId);
             
             CreateTable(
-                "soooqa.SZIGISMeasures",
+                "soooqa.SZISortGISMeasures",
                 c => new
                     {
-                        SZI_SZIId = c.Int(nullable: false),
+                        SZISort_SZISortId = c.Int(nullable: false),
                         GISMeasure_GISMeasureId = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => new { t.SZI_SZIId, t.GISMeasure_GISMeasureId })
-                .ForeignKey("soooqa.SZIs", t => t.SZI_SZIId, cascadeDelete: true)
+                .PrimaryKey(t => new { t.SZISort_SZISortId, t.GISMeasure_GISMeasureId })
+                .ForeignKey("soooqa.SZISorts", t => t.SZISort_SZISortId, cascadeDelete: true)
                 .ForeignKey("soooqa.GISMeasures", t => t.GISMeasure_GISMeasureId, cascadeDelete: true)
-                .Index(t => t.SZI_SZIId)
+                .Index(t => t.SZISort_SZISortId)
                 .Index(t => t.GISMeasure_GISMeasureId);
             
             CreateTable(
@@ -364,8 +367,9 @@ namespace KPSZI.Migrations
             DropForeignKey("soooqa.SZIs", "ISPDNMeasure_ISPDNMeasureId", "soooqa.ISPDNMeasures");
             DropForeignKey("soooqa.SZISortSZIs", "SZI_SZIId", "soooqa.SZIs");
             DropForeignKey("soooqa.SZISortSZIs", "SZISort_SZISortId", "soooqa.SZISorts");
-            DropForeignKey("soooqa.SZIGISMeasures", "GISMeasure_GISMeasureId", "soooqa.GISMeasures");
-            DropForeignKey("soooqa.SZIGISMeasures", "SZI_SZIId", "soooqa.SZIs");
+            DropForeignKey("soooqa.SZISortGISMeasures", "GISMeasure_GISMeasureId", "soooqa.GISMeasures");
+            DropForeignKey("soooqa.SZISortGISMeasures", "SZISort_SZISortId", "soooqa.SZISorts");
+            DropForeignKey("soooqa.GISMeasures", "SZI_SZIId", "soooqa.SZIs");
             DropForeignKey("soooqa.ISPDNMeasures", "MeasureGroup_MeasureGroupId", "soooqa.MeasureGroups");
             DropForeignKey("soooqa.GISMeasures", "MeasureGroup_MeasureGroupId", "soooqa.MeasureGroups");
             DropForeignKey("soooqa.ConfigOptions", "GISMeasure_GISMeasureId", "soooqa.GISMeasures");
@@ -383,13 +387,14 @@ namespace KPSZI.Migrations
             DropIndex("soooqa.SFHGISMeasures", new[] { "SFH_SFHId" });
             DropIndex("soooqa.SZISortSZIs", new[] { "SZI_SZIId" });
             DropIndex("soooqa.SZISortSZIs", new[] { "SZISort_SZISortId" });
-            DropIndex("soooqa.SZIGISMeasures", new[] { "GISMeasure_GISMeasureId" });
-            DropIndex("soooqa.SZIGISMeasures", new[] { "SZI_SZIId" });
+            DropIndex("soooqa.SZISortGISMeasures", new[] { "GISMeasure_GISMeasureId" });
+            DropIndex("soooqa.SZISortGISMeasures", new[] { "SZISort_SZISortId" });
             DropIndex("soooqa.TCUIThreats", new[] { "TCUI_TCUIId" });
             DropIndex("soooqa.TCUIs", new[] { "TCUIType_TCUITypeId" });
             DropIndex("soooqa.SFHs", new[] { "SFHType_SFHTypeId" });
             DropIndex("soooqa.SZIs", new[] { "ISPDNMeasure_ISPDNMeasureId" });
             DropIndex("soooqa.ISPDNMeasures", new[] { "MeasureGroup_MeasureGroupId" });
+            DropIndex("soooqa.GISMeasures", new[] { "SZI_SZIId" });
             DropIndex("soooqa.GISMeasures", new[] { "MeasureGroup_MeasureGroupId" });
             DropIndex("soooqa.ConfigOptions", new[] { "GISMeasure_GISMeasureId" });
             DropTable("soooqa.VulnerabilityThreats");
@@ -399,7 +404,7 @@ namespace KPSZI.Migrations
             DropTable("soooqa.ThreatGISMeasures");
             DropTable("soooqa.SFHGISMeasures");
             DropTable("soooqa.SZISortSZIs");
-            DropTable("soooqa.SZIGISMeasures");
+            DropTable("soooqa.SZISortGISMeasures");
             DropTable("soooqa.TechnogenicThreats");
             DropTable("soooqa.TechnogenicMeasures");
             DropTable("soooqa.TCUITypes");

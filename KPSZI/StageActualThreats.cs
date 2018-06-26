@@ -1,4 +1,5 @@
 ﻿using KPSZI.Model;
+using Microsoft.Office.Interop.Word;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -14,6 +15,7 @@ namespace KPSZI
         public List<Threat> listThreats;
         List<Vulnerability> listVulnerabilities;
         List<SFH> listSFHs;
+        List<SFHType> listSFHTypes;
         List<ImplementWay> listImplementWays;
         List<ThreatSource> listSources;
         List<Threat> listFilteredThreats;
@@ -33,7 +35,6 @@ namespace KPSZI
 
         protected override void initTabPage()
         {
-         /*   
             using (KPSZIContext db = new KPSZIContext())
             {
                 //Инициализация списка угроз
@@ -51,20 +52,26 @@ namespace KPSZI
                     threat.setStringSources();
                 }
 
-            listVulnerabilities = db.Vulnerabilities.OrderBy(v => v.VulnerabilityNumber).ToList();
-            listSFHs = db.SFHs.OrderBy(s => s.SFHNumber).ToList();
-            listImplementWays = db.ImplementWays.OrderBy(w => w.WayNumber).ToList();
-            listSources = db.ThreatSources.OrderBy(so => so.ThreatSourceId).ToList();
-            foreach (Vulnerability vul in listVulnerabilities)
-                vul.Threats = db.Vulnerabilities.Where(v1 => v1.VulnerabilityNumber == vul.VulnerabilityNumber).First().Threats;
-            foreach (SFH sfh in listSFHs)
-                sfh.Threats = db.SFHs.Where(s1 => s1.SFHNumber == sfh.SFHNumber).First().Threats;
-            foreach (ImplementWay iw in listImplementWays)
-                iw.Threats = db.ImplementWays.Where(w1 => w1.WayNumber == iw.WayNumber).First().Threats;
-            foreach (ThreatSource ts in listSources)
-                ts.Threats = db.ThreatSources.Where(so1 => so1.ThreatSourceId == ts.ThreatSourceId).First().Threats;
-            listFilteredThreats = new List<Threat>();
-        }
+                listVulnerabilities = db.Vulnerabilities.OrderBy(v => v.VulnerabilityNumber).ToList();
+                listSFHs = db.SFHs.OrderBy(s => s.SFHNumber).ToList();
+                listSFHTypes = db.SFHTypes.OrderBy(st => st.SFHTypeId).ToList();
+                //foreach (SFHType sfhtype in listSFHTypes)
+                //{
+                //    sfhtype.SFHs = listSFHs.Where(sfh => sfh.SFHType == sfhtype).ToList();
+                    
+                //}
+                listImplementWays = db.ImplementWays.OrderBy(w => w.WayNumber).ToList();
+                listSources = db.ThreatSources.OrderBy(so => so.ThreatSourceId).ToList();
+                foreach (Vulnerability vul in listVulnerabilities)
+                    vul.Threats = db.Vulnerabilities.Where(v1 => v1.VulnerabilityNumber == vul.VulnerabilityNumber).First().Threats;
+                foreach (SFH sfh in listSFHs)
+                    sfh.Threats = db.SFHs.Where(s1 => s1.SFHNumber == sfh.SFHNumber).First().Threats;
+                foreach (ImplementWay iw in listImplementWays)
+                    iw.Threats = db.ImplementWays.Where(w1 => w1.WayNumber == iw.WayNumber).First().Threats;
+                foreach (ThreatSource ts in listSources)
+                    ts.Threats = db.ThreatSources.Where(so1 => so1.ThreatSourceId == ts.ThreatSourceId).First().Threats;
+                listFilteredThreats = new List<Threat>();
+            }
 
             mf.dgvThreats.DefaultCellStyle.SelectionBackColor = Color.AliceBlue;
             mf.dgvThreats.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
@@ -122,7 +129,7 @@ namespace KPSZI
             mf.btnGotoDamage.Click += new System.EventHandler(btnGotoDamage_Click);
             mf.dgvActualThreatsNSD.SelectionChanged += new System.EventHandler(dgvActualThreats_SelectionChanged);
             mf.btnReady.Click += new System.EventHandler(btnReady_Click);
-    */    
+            mf.ThreatModelToolStripMenuItem.Click += new System.EventHandler(ThreatModelToolStripMenuItem_Click);
         }
 
         public void initTabPageThreatsNSD2()
@@ -168,7 +175,7 @@ namespace KPSZI
                     new int[IS.listOfInfoTypes.Count, 3, 7]);
 
             DDControl = new DamageDegreeControl(IS.listOfInfoTypes, listFilteredThreats, damageDegreeInput, mf);
-            DDControl.Location = new Point(mf.tpThreatsNSD2.Width - DDControl.Width, 0);
+            DDControl.Location = new System.Drawing.Point(mf.tpThreatsNSD2.Width - DDControl.Width, 0);
             DDControl.Anchor = (AnchorStyles.Top | AnchorStyles.Right);
             mf.tpThreatsNSD2.Controls.Add(DDControl);   
 
@@ -343,45 +350,29 @@ namespace KPSZI
 
             // фильтрация УБИ по источнику угрозы
             if (mf.clbThreatFilter.GetItemCheckState(0) == CheckState.Checked)
-            {
-                listThreatsBySource = new List<Threat>();
-
                 foreach (ThreatSource ts in IS.listOfSources)
                     listThreatsBySource = unionLists(listThreatsBySource, listSources.Where(lts => lts.ThreatSourceId == ts.ThreatSourceId).First().Threats.ToList());
-            }
             else
                 listThreatsBySource.AddRange(listThreats);
 
             // фильтрация УБИ по способам реализации
             if (mf.clbThreatFilter.GetItemCheckState(1) == CheckState.Checked)
-            {
-                listThreatsByWay = new List<Threat>();
-
                 foreach (ImplementWay iw in IS.listOfImplementWays)
                     listThreatsByWay = unionLists(listThreatsByWay, listImplementWays.Where(way => way.WayNumber == iw.WayNumber).First().Threats.ToList());
-            }
             else
                 listThreatsByWay.AddRange(listThreats);
 
             // фильтрация УБИ по уязвимостям
             if (mf.clbThreatFilter.GetItemCheckState(2) == CheckState.Checked)
-            {
-                listThreatsByVul = new List<Threat>();
-
                 foreach (Vulnerability vul in IS.listOfVulnerabilities)
                     listThreatsByVul = unionLists(listThreatsByVul, listVulnerabilities.Where(w => w.VulnerabilityNumber == vul.VulnerabilityNumber).First().Threats.ToList());
-            }
             else
                 listThreatsByVul.AddRange(listThreats);
 
             // фильтрация УБИ по СФХ
             if (mf.clbThreatFilter.GetItemCheckState(3) == CheckState.Checked)
-            {
-                listThreatsBySFH = new List<Threat>();
-
                 foreach (SFH sfh in IS.listOfSFHs)
                     listThreatsBySFH = unionLists(listThreatsBySFH, listSFHs.Where(s => s.SFHNumber == sfh.SFHNumber).First().Threats.ToList());
-            }
             else
                 listThreatsBySFH.AddRange(listThreats);
 
@@ -425,7 +416,7 @@ namespace KPSZI
             mf.dgvThreats.Height = mf.tpThreatsNSD1.Height - 145;
             if (DDControl != null)
                 mf.dgvActualThreatsNSD.Width = mf.tpThreatsNSD2.Width - DDControl.Width - 30;
-            mf.dgvActualThreatsNSD.Height = mf.tpThreatsNSD2.Height - 5;
+            mf.dgvActualThreatsNSD.Height = mf.tpThreatsNSD2.Height - 50;
         }
 
         private void clbThreatFilter_SelectedIndexChanged(object sender, EventArgs e)
@@ -443,7 +434,7 @@ namespace KPSZI
             // выбрать все критерии фильтра УБИ
             for (int i = 0; i < mf.clbThreatFilter.Items.Count; i++)
                 mf.clbThreatFilter.SetItemChecked(i, true);
-
+            filterThreatList();
             if (mf.dgvThreats.Rows.Count == 0)
             {
                 MessageBox.Show("Введите исходные данные для получения списка УБИ", "Список УБИ пуст", MessageBoxButtons.OK);
@@ -483,6 +474,408 @@ namespace KPSZI
                 return;
             int threatNnew = (int)mf.dgvActualThreatsNSD.SelectedRows[0].Cells[mf.dgvActualThreatsNSD.Columns["ThreatNumber"].Index].Value;
             DDControl.Update(threatNnew);
+        }
+
+
+        
+        private void ThreatModelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            mf.wsm.Visible = true;
+            mf.wsm.Update();
+
+            _Application oWord = new Microsoft.Office.Interop.Word.Application();
+            _Document oDoc = oWord.Documents.Add(Environment.CurrentDirectory + "\\template.docx");
+            Table wordTable;
+            //oWord.Visible = true;
+
+            #region Расчет уровня проектной защищенности
+            wordTable = oDoc.Tables[1];
+            int rowN = 4;
+            Console.WriteLine(IS.listOfSFHs.Count + "");
+            foreach(SFHType sfhtype in listSFHTypes)
+            {
+                foreach (SFH sfh in listSFHs.Where(sfh => sfh.SFHType == sfhtype).ToList())
+                {
+                    if (IS.listOfSFHs.Where(l => l.SFHNumber == sfh.SFHNumber).ToList().Count > 0)
+                        wordTable.Cell(rowN, 4 - sfh.ProjectSecurity).Range.Text = "+";
+                    rowN++;
+                }
+                rowN++;
+            }
+            rowN++;
+            wordTable.Cell(rowN++, 2).Range.Text = mf.dgvProjectSecurityResult.Rows[0].Cells[1].Value.ToString();
+            wordTable.Cell(rowN++, 3).Range.Text = mf.dgvProjectSecurityResult.Rows[1].Cells[1].Value.ToString();
+            wordTable.Cell(rowN, 4).Range.Text = mf.dgvProjectSecurityResult.Rows[2].Cells[1].Value.ToString();
+            #endregion
+
+            #region Виды, типы и потенциал нарушителя
+            Range bm = oDoc.Bookmarks["Intruder_Table"].Range;
+
+            int rowsNumber = 1;
+            foreach (System.Windows.Forms.CheckBox i in mf.clbIntruderTypes.Controls)
+                if (i.CheckState == CheckState.Checked)
+                    rowsNumber++;
+
+            bm.Tables.Add(bm, rowsNumber, 3, Type.Missing, Type.Missing);
+            wordTable = bm.Tables[1];
+
+            wordTable.Borders.InsideLineStyle = WdLineStyle.wdLineStyleSingle;
+            wordTable.Borders.OutsideLineStyle = WdLineStyle.wdLineStyleSingle;
+            wordTable.Columns.PreferredWidthType = Microsoft.Office.Interop.Word.WdPreferredWidthType.wdPreferredWidthPercent;
+            wordTable.Columns[1].PreferredWidth = 50f;
+            wordTable.Columns[2].PreferredWidth = 25f;
+            wordTable.Columns[3].PreferredWidth = 25f;
+            wordTable.Rows.Alignment = Microsoft.Office.Interop.Word.WdRowAlignment.wdAlignRowLeft;
+            wordTable.Rows[1].Alignment = Microsoft.Office.Interop.Word.WdRowAlignment.wdAlignRowCenter;
+            wordTable.Range.Cells.VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+            wordTable.Range.Select();
+
+            wordTable.Cell(1, 1).Range.Text = "Вид нарушителя";
+            wordTable.Cell(1, 2).Range.Text = "Тип нарушителя";
+            wordTable.Cell(1, 3).Range.Text = "Потенциал нарушителя";
+
+            int row = 2;
+            foreach (System.Windows.Forms.CheckBox i in mf.clbIntruderTypes.Controls)
+            {
+                if (i.CheckState == CheckState.Checked)
+                {
+                    wordTable.Cell(row, 1).Range.Text = i.Text;
+                    wordTable.Cell(row, 2).Range.Text = ((StageIntruder)mf.stages["tnIntruder"]).getIntruderType(i.Text);
+                    wordTable.Cell(row++, 3).Range.Text = ((StageIntruder)mf.stages["tnIntruder"]).getIntruderPotencial(i.Text);
+                }
+            }
+            #endregion
+
+            #region Фильтрация по нарушителю (1)
+            bm = oDoc.Bookmarks["NSD_Filter_1_Intruder"].Range;
+
+            mf.clbThreatFilter.SetItemChecked(0, true);
+            mf.clbThreatFilter.SetItemChecked(1, false);
+            mf.clbThreatFilter.SetItemChecked(2, false);
+            mf.clbThreatFilter.SetItemChecked(3, false);
+            filterThreatList();
+
+            bm.Tables.Add(bm, listFilteredThreats.Count + 1, 3, Type.Missing, Type.Missing);
+            wordTable = bm.Tables[1];
+
+            wordTable.Borders.InsideLineStyle = WdLineStyle.wdLineStyleSingle;
+            wordTable.Borders.OutsideLineStyle = WdLineStyle.wdLineStyleSingle;
+            wordTable.Columns.PreferredWidthType = Microsoft.Office.Interop.Word.WdPreferredWidthType.wdPreferredWidthPercent;
+            wordTable.Columns[1].PreferredWidth = 7.7f;
+            wordTable.Columns[2].PreferredWidth = 55f;
+            wordTable.Columns[3].PreferredWidth = 37.3f;
+            wordTable.Rows.Alignment = Microsoft.Office.Interop.Word.WdRowAlignment.wdAlignRowLeft;
+            wordTable.Rows[1].Alignment = Microsoft.Office.Interop.Word.WdRowAlignment.wdAlignRowCenter;
+            wordTable.Range.Cells.VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+            wordTable.Range.Select();
+
+            wordTable.Cell(1, 1).Range.Text = "№ п/п";
+            wordTable.Cell(1, 2).Range.Text = "Идентификатор и название УБИ";
+            wordTable.Cell(1, 3).Range.Text = "Источник УБИ (нарушитель)";
+
+            row = 2;
+            foreach (Threat t in listFilteredThreats)
+            {
+                wordTable.Cell(row, 1).Range.Text = (row - 1).ToString();
+                wordTable.Cell(row, 2).Range.Text = "УБИ." + t.ThreatNumber + " " + t.Name.ToString();
+                wordTable.Cell(row++, 3).Range.Text = t.stringSources;
+            }
+            #endregion
+
+            #region Фильтрация по уязвимостям (2)
+            bm = oDoc.Bookmarks["NSD_Filter_2_Vuls"].Range;
+
+            mf.clbThreatFilter.SetItemChecked(0, true);
+            mf.clbThreatFilter.SetItemChecked(1, false);
+            mf.clbThreatFilter.SetItemChecked(2, true);
+            mf.clbThreatFilter.SetItemChecked(3, false);
+            filterThreatList();
+
+            bm.Tables.Add(bm, listFilteredThreats.Count + 1, 3, Type.Missing, Type.Missing);
+            wordTable = bm.Tables[1];
+
+            wordTable.Borders.InsideLineStyle = WdLineStyle.wdLineStyleSingle;
+            wordTable.Borders.OutsideLineStyle = WdLineStyle.wdLineStyleSingle;
+            wordTable.Columns.PreferredWidthType = Microsoft.Office.Interop.Word.WdPreferredWidthType.wdPreferredWidthPercent;
+            wordTable.Columns[1].PreferredWidth = 8f;
+            wordTable.Columns[2].PreferredWidth = 42f;
+            wordTable.Columns[3].PreferredWidth = 50f;
+            wordTable.Rows.Alignment = Microsoft.Office.Interop.Word.WdRowAlignment.wdAlignRowLeft;
+            wordTable.Rows[1].Alignment = Microsoft.Office.Interop.Word.WdRowAlignment.wdAlignRowCenter;
+            wordTable.Range.Cells.VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+            wordTable.Range.Select();
+
+            wordTable.Cell(1, 1).Range.Text = "№ п/п";
+            wordTable.Cell(1, 2).Range.Text = "Идентификатор и название УБИ";
+            wordTable.Cell(1, 3).Range.Text = "Уязвимости, способствующие реализации УБИ";
+
+            row = 2;
+            foreach (Threat t in listFilteredThreats)
+            {
+                
+                wordTable.Cell(row, 1).Range.Text = (row - 1).ToString();
+                wordTable.Cell(row, 2).Range.Text = "УБИ." + t.ThreatNumber + " " + t.Name.ToString();
+                wordTable.Cell(row++, 3).Range.Text = t.stringVuls;
+            }
+            #endregion
+
+            #region Фильтрация по способам реализации (3)
+            bm = oDoc.Bookmarks["NSD_Filter_3_Implement"].Range;
+
+            mf.clbThreatFilter.SetItemChecked(0, true);
+            mf.clbThreatFilter.SetItemChecked(1, true);
+            mf.clbThreatFilter.SetItemChecked(2, true);
+            mf.clbThreatFilter.SetItemChecked(3, false);
+            filterThreatList();
+
+            bm.Tables.Add(bm, listFilteredThreats.Count + 1, 3, Type.Missing, Type.Missing);
+            wordTable = bm.Tables[1];
+
+            wordTable.Borders.InsideLineStyle = WdLineStyle.wdLineStyleSingle;
+            wordTable.Borders.OutsideLineStyle = WdLineStyle.wdLineStyleSingle;
+            wordTable.Columns.PreferredWidthType = Microsoft.Office.Interop.Word.WdPreferredWidthType.wdPreferredWidthPercent;
+            wordTable.Columns[1].PreferredWidth = 8f;
+            wordTable.Columns[2].PreferredWidth = 27f;
+            wordTable.Columns[3].PreferredWidth = 65f;
+            wordTable.Rows.Alignment = Microsoft.Office.Interop.Word.WdRowAlignment.wdAlignRowLeft;
+            wordTable.Rows[1].Alignment = Microsoft.Office.Interop.Word.WdRowAlignment.wdAlignRowCenter;
+            wordTable.Range.Cells.VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+            wordTable.Range.Select();
+
+            wordTable.Cell(1, 1).Range.Text = "№ п/п";
+            wordTable.Cell(1, 2).Range.Text = "Идентификатор и название УБИ";
+            wordTable.Cell(1, 3).Range.Text = "Возможные способы реализации УБИ";
+
+            row = 2;
+            foreach (Threat t in listFilteredThreats)
+            {
+                wordTable.Cell(row, 1).Range.Text = (row - 1).ToString();
+                wordTable.Cell(row, 2).Range.Text = "УБИ." + t.ThreatNumber + " " + t.Name.ToString();
+                wordTable.Cell(row++, 3).Range.Text = t.stringWays;
+            }
+            #endregion
+
+            #region Фильтрация по СФХ (4)
+            bm = oDoc.Bookmarks["NSD_Filter_4_SFH"].Range;
+
+            mf.clbThreatFilter.SetItemChecked(0, true);
+            mf.clbThreatFilter.SetItemChecked(1, true);
+            mf.clbThreatFilter.SetItemChecked(2, true);
+            mf.clbThreatFilter.SetItemChecked(3, true);
+            filterThreatList();
+
+            bm.Tables.Add(bm, listFilteredThreats.Count + 1, 3, Type.Missing, Type.Missing);
+            wordTable = bm.Tables[1];
+
+            wordTable.Borders.InsideLineStyle = WdLineStyle.wdLineStyleSingle;
+            wordTable.Borders.OutsideLineStyle = WdLineStyle.wdLineStyleSingle;
+            wordTable.Columns.PreferredWidthType = Microsoft.Office.Interop.Word.WdPreferredWidthType.wdPreferredWidthPercent;
+            wordTable.Columns[1].PreferredWidth = 8f;
+            wordTable.Columns[2].PreferredWidth = 27f;
+            wordTable.Columns[3].PreferredWidth = 65f;
+            wordTable.Rows.Alignment = Microsoft.Office.Interop.Word.WdRowAlignment.wdAlignRowLeft;
+            wordTable.Rows[1].Alignment = Microsoft.Office.Interop.Word.WdRowAlignment.wdAlignRowCenter;
+            wordTable.Range.Cells.VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+            wordTable.Range.Select();
+
+            wordTable.Cell(1, 1).Range.Text = "№ п/п";
+            wordTable.Cell(1, 2).Range.Text = "Идентификатор и название УБИ";
+            wordTable.Cell(1, 3).Range.Text = "Описание УБИ";
+
+            row = 2;
+            foreach (Threat t in listFilteredThreats)
+            {
+                wordTable.Cell(row, 1).Range.Text = (row - 1).ToString();
+                wordTable.Cell(row, 2).Range.Text = "УБИ." + t.ThreatNumber + " " + t.Name.ToString();
+                wordTable.Cell(row++, 3).Range.Text = t.Description;
+            }
+            #endregion
+
+            #region Уровень проектной защищенности (слово)
+            bm = oDoc.Bookmarks["Project_Security"].Range;
+            string PSLtext = "";
+            switch (IS.ProjectSecutiryLvl)
+            {
+                case 0:
+                    PSLtext = "низкий";
+                    break;
+                case 1:
+                    PSLtext = "средний";
+                    break;
+                case 2:
+                    PSLtext = "высокий";
+                    break;
+            }
+            bm.Text = PSLtext;
+            #endregion
+
+            #region Возможность реализации УБИ
+            bm = oDoc.Bookmarks["Feasibility"].Range;
+
+            bm.Tables.Add(bm, mf.dgvActualThreatsNSD.Rows.Count + 1, 5, Type.Missing, Type.Missing);
+            wordTable = bm.Tables[1];
+
+            wordTable.Borders.InsideLineStyle = WdLineStyle.wdLineStyleSingle;
+            wordTable.Borders.OutsideLineStyle = WdLineStyle.wdLineStyleSingle;
+            wordTable.Columns.PreferredWidthType = Microsoft.Office.Interop.Word.WdPreferredWidthType.wdPreferredWidthPercent;
+            wordTable.Columns[1].PreferredWidth = 8f;
+            wordTable.Columns[2].PreferredWidth = 29.8f;
+            wordTable.Columns[3].PreferredWidth = 24.6f;
+            wordTable.Columns[4].PreferredWidth = 20.2f;
+            wordTable.Columns[5].PreferredWidth = 17.4f;
+            wordTable.Rows.Alignment = Microsoft.Office.Interop.Word.WdRowAlignment.wdAlignRowLeft;
+            wordTable.Rows[1].Alignment = Microsoft.Office.Interop.Word.WdRowAlignment.wdAlignRowCenter;
+            wordTable.Range.Cells.VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+            wordTable.Range.Select();
+
+            wordTable.Cell(1, 1).Range.Text = "№ п/п";
+            wordTable.Cell(1, 2).Range.Text = "Идентификатор и название УБИ";
+            wordTable.Cell(1, 3).Range.Text = "Источник угрозы (нарушитель)";
+            wordTable.Cell(1, 4).Range.Text = "Уровень проектной защищенности ИС";
+            wordTable.Cell(1, 5).Range.Text = "Возможность реализации угрозы";
+
+            wordTable.Cell(2, 4).Range.Text = PSLtext;
+
+            row = 2;
+            foreach (Threat t in listFilteredThreats)
+            {
+                wordTable.Cell(row, 1).Range.Text = (row - 1).ToString();
+                wordTable.Cell(row, 2).Range.Text = "УБИ." + t.ThreatNumber + " " + t.Name.ToString();
+                wordTable.Cell(row++, 3).Range.Text = t.stringSources;
+            }
+            row = 2;
+            foreach (DataGridViewRow dgvrow in mf.dgvActualThreatsNSD.Rows)
+                wordTable.Cell(row++, 5).Range.Text = dgvrow.Cells[2].Value.ToString();
+
+            wordTable.Rows[2].Cells[4].Merge(wordTable.Rows[mf.dgvActualThreatsNSD.Rows.Count + 1].Cells[4]);
+            #endregion
+
+            #region Степени ущерба
+            bm = oDoc.Bookmarks["Damage_Degree"].Range;
+
+            //bm.Tables.Add(bm, mf.dgvActualThreatsNSD.Rows.Count + 2, 3 + IS.listOfInfoTypes.Count, Type.Missing, Type.Missing);
+            wordTable = bm.Tables[1];
+
+            //wordTable.Borders.InsideLineStyle = WdLineStyle.wdLineStyleSingle;
+            //wordTable.Borders.OutsideLineStyle = WdLineStyle.wdLineStyleSingle;
+            //wordTable.Columns.PreferredWidthType = Microsoft.Office.Interop.Word.WdPreferredWidthType.wdPreferredWidthPercent;
+            //wordTable.Columns[1].PreferredWidth = 7f;
+            //wordTable.Columns[2].PreferredWidth = 33.1f;
+
+            //wordTable.Columns[3].PreferredWidth = 45.1f;
+
+            //wordTable.Columns[5].PreferredWidth = 13.8f;
+            //wordTable.Rows.Alignment = Microsoft.Office.Interop.Word.WdRowAlignment.wdAlignRowLeft;
+            //wordTable.Rows[1].Alignment = Microsoft.Office.Interop.Word.WdRowAlignment.wdAlignRowCenter;
+            //wordTable.Range.Cells.VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+            wordTable.Range.Select();
+
+            //wordTable.Cell(1, 1).Range.Text = "№ п/п";
+            //wordTable.Cell(1, 2).Range.Text = "Идентификатор и название УБИ";
+            //wordTable.Cell(1, 3).Range.Text = "Степень ущерба в результате наруше-ния каждого свойства безопасности относительно всех видов ущерба";
+            //wordTable.Cell(1, 3 + IS.listOfInfoTypes.Count).Range.Text = "Итоговая степень ущерба";
+            //wordTable.Rows[1].Cells[1].Merge(wordTable.Rows[2].Cells[1]);
+            //wordTable.Rows[1].Cells[2].Merge(wordTable.Rows[2].Cells[2]);
+            //wordTable.Rows[1].Cells[3 + IS.listOfInfoTypes.Count].Merge(wordTable.Rows[2].Cells[3 + IS.listOfInfoTypes.Count]);
+            //if (IS.listOfInfoTypes.Count >= 2)
+            //    wordTable.Rows[1].Cells[3].Merge(wordTable.Rows[1].Cells[2 + IS.listOfInfoTypes.Count]);
+            int infoN = 0;
+            wordTable.Cell(2, 3).Split(1, IS.listOfInfoTypes.Count);
+            foreach (InfoType info in IS.listOfInfoTypes)
+            {
+                wordTable.Cell(2, 3 + infoN).Range.Text = info.TypeName;
+                infoN++;
+            }
+
+            row = 3;
+            
+            foreach (DataGridViewRow dgvrow in mf.dgvActualThreatsNSD.Rows)
+            {
+                wordTable.Rows.Add();
+                wordTable.Cell(row, 1).Range.Text = (row - 1).ToString();
+                wordTable.Cell(row, 2).Range.Text = "УБИ." + dgvrow.Cells[0].Value.ToString() + " " + dgvrow.Cells[1].Value.ToString();
+                infoN = 0;
+                foreach (InfoType info in IS.listOfInfoTypes)
+                {
+                    switch (calcMaxDDInfo(Convert.ToInt32(dgvrow.Cells[0].Value.ToString()), info))
+                    {
+                        case 3:
+                            wordTable.Cell(row, 3 + infoN).Range.Text = "Высокая";
+                            break;
+                        case 2:
+                            wordTable.Cell(row, 3 + infoN).Range.Text = "Средняя";
+                            break;
+                        case 1:
+                            wordTable.Cell(row, 3 + infoN).Range.Text = "Низкая";
+                            break;
+                        case 0:
+                            wordTable.Cell(row, 3 + infoN).Range.Text = "Не определена";
+                            break;
+                    }
+                    infoN++;
+                }
+                wordTable.Cell(row++, 3 + IS.listOfInfoTypes.Count).Range.Text = dgvrow.Cells[3].Value.ToString();
+            }
+            //damageDegreeInput[currentThreatNumber][itype, iCIA, iDT] = 3;
+            #endregion
+
+            #region Актуальные УБИ НСД
+            bm = oDoc.Bookmarks["ACT_NSD"].Range;
+
+            bm.Tables.Add(bm, mf.dgvActualThreatsNSD.Rows.Count + 1, 5, Type.Missing, Type.Missing);
+            wordTable = bm.Tables[1];
+
+            wordTable.Borders.InsideLineStyle = WdLineStyle.wdLineStyleSingle;
+            wordTable.Borders.OutsideLineStyle = WdLineStyle.wdLineStyleSingle;
+            wordTable.Columns.PreferredWidthType = Microsoft.Office.Interop.Word.WdPreferredWidthType.wdPreferredWidthPercent;
+            wordTable.Columns[1].PreferredWidth = 7f;
+            wordTable.Columns[2].PreferredWidth = 35.3f;
+            wordTable.Columns[3].PreferredWidth = 18.2f;
+            wordTable.Columns[4].PreferredWidth = 21.2f;
+            wordTable.Columns[5].PreferredWidth = 18.1f;
+            wordTable.Rows.Alignment = Microsoft.Office.Interop.Word.WdRowAlignment.wdAlignRowLeft;
+            wordTable.Rows[1].Alignment = Microsoft.Office.Interop.Word.WdRowAlignment.wdAlignRowCenter;
+            wordTable.Range.Cells.VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+            wordTable.Range.Select();
+
+            wordTable.Cell(1, 1).Range.Text = "№ п/п";
+            wordTable.Cell(1, 2).Range.Text = "Идентификатор и название УБИ";
+            wordTable.Cell(1, 3).Range.Text = "Возможность реализации УБИ";
+            wordTable.Cell(1, 4).Range.Text = "Степень возможного ущерба в результате реализации УБИ";
+            wordTable.Cell(1, 5).Range.Text = "Актуальность";
+
+            row = 2;
+            foreach (DataGridViewRow dgvrow in mf.dgvActualThreatsNSD.Rows)
+            {
+                wordTable.Cell(row, 1).Range.Text = (row - 1).ToString();
+                wordTable.Cell(row, 2).Range.Text = "УБИ." + dgvrow.Cells[0].Value.ToString() + " " + dgvrow.Cells[1].Value.ToString();
+                wordTable.Cell(row, 3).Range.Text = dgvrow.Cells[2].Value.ToString();
+                wordTable.Cell(row, 4).Range.Text = dgvrow.Cells[3].Value.ToString();
+                wordTable.Cell(row++, 5).Range.Text = dgvrow.Cells[4].Value.ToString();
+            }
+            #endregion
+            
+            //bm.Text = "hello";
+            oDoc.Activate();
+            mf.FindAndReplace(oWord, "{Название ИС}", IS.ISName);
+
+            //oDoc.SaveAs(FileName: Environment.CurrentDirectory + "\\2.docx");
+            //oDoc.Close();
+            mf.wsm.Visible = false;
+            oWord.Visible = true;
+        }
+
+        public int calcMaxDDInfo(int threatNumber, InfoType info)
+        {
+            int max = 0;
+            for (int iCIA = 0; iCIA < 3; iCIA++)
+                for (int iDT = 0; iDT < 7; iDT++)
+                {
+                    int current = damageDegreeInput[threatNumber][IS.listOfInfoTypes.IndexOf(info), iCIA, iDT];
+                    if (current > max)
+                        max = current;
+                }
+            return max;        
         }
     }
 }

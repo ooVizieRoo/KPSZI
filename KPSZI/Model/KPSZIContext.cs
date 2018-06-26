@@ -291,7 +291,7 @@ namespace KPSZI.Model
             sfh4.SFHs.Add(new SFH { SFHNumber = 19, Name = "Невзаимодействующая с системами", ProjectSecurity = 1 });
 
             SFHType sfh5 = new SFHType();
-            sfh5.Name = "По наличию (отсутствию) взаимосвязей (подключений)";
+            sfh5.Name = "По наличию подключений к сетям связи общего пользования";
             sfh5.MultipleChoice = false;
             sfh5.SFHs.Add(new SFH { SFHNumber = 20, Name = "Подключенная к сетям связи общего пользования", ProjectSecurity = 0 });
             sfh5.SFHs.Add(new SFH { SFHNumber = 21, Name = "Подключенная через выделенную инфрастркутуру (gov.ru ил иную)", ProjectSecurity = 1 });
