@@ -341,7 +341,7 @@ namespace KPSZI
             mf.wsm.Update();
 
             Microsoft.Office.Interop.Word._Application oWord = new Microsoft.Office.Interop.Word.Application();
-            Microsoft.Office.Interop.Word._Document oDoc = oWord.Documents.Add(Environment.CurrentDirectory + "\\template.docx");
+            Microsoft.Office.Interop.Word._Document oDoc = oWord.Documents.Add(Environment.CurrentDirectory + "\\templateTP.docx");
             Microsoft.Office.Interop.Word.Table wordTable;
             Microsoft.Office.Interop.Word.Range bm;
             int row = 0;
