@@ -158,15 +158,15 @@ namespace KPSZI
                             string measure = dgvr.Cells[0].Value.ToString();
                             List<SZISort> szisorts = db.GisMeasures.Where(m => (m.MeasureGroup.ShortName + "." + m.Number + " "+m.Description) == measure).First().SZISorts.ToList();
 
-                            
-                            foreach(SZI sz in IS.listOfSZIs)
+                            var listOfSZIs = db.SZIs.ToList().Intersect(IS.listOfSZIs).ToList();
+                            foreach(SZI sz in listOfSZIs)
                             {
                                 SZI m = db.SZIs.Where(t => t.SZIId == sz.SZIId).First();
                                 sz.SZISorts = m.SZISorts.ToList();
                             }
                             foreach (SZISort s in szisorts)
                             {
-                                szis += s.Name /* + ": "+IS.listOfSZIs.Where(szi => szi.SZISorts.Contains(s)).First().Name */+ ", ";
+                                szis += s.Name  + ": "+listOfSZIs.Where(szi => szi.SZISorts.Contains(s)).First().Name + ", ";
                             }
                             if (szis != "")
                             {
