@@ -194,5 +194,29 @@ namespace KPSZI
         {
             
         }
+
+        //private void dgvThreats_SelectionChanged(object sender, EventArgs e)
+        //{
+        //    if (dgvThreats.SelectedRows.Count == 0)
+        //        return;
+        //    int threatNumber = Convert.ToInt32(dgvThreats.SelectedRows[0].
+        //        Cells[dgvThreats.Columns["ThreatNumber"].Index].Value.ToString());
+        //    Console.WriteLine(threatNumber);
+
+        //    using (KPSZIContext db = new KPSZIContext())
+        //    {
+        //        List<ImplementWay> listImplement = db.Threats.Where(t => t.ThreatNumber == threatNumber).FirstOrDefault().ImplementWays.ToList();
+        //        foreach (ImplementWay iw in listImplement)
+        //        {
+        //            foreach(Control control in clbImplementWays.Controls)
+        //            {
+        //                if (!(control is CheckBox))
+        //                    return;
+        //                CheckBox cb = control as CheckBox;
+        //                foreach()
+        //            }
+        //        }
+        //    }
+        //}
     }
 }

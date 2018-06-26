@@ -63,7 +63,6 @@ namespace KPSZI
             mf.tsbServer.Click += new EventHandler(tsbServer_Click);
             mf.tsbRouter.Click += new EventHandler(tsbRouter_Click);
             mf.tsbSwitch.Click += new EventHandler(tsbSwitch_Click);
-            mf.tsbCloud.Click += new EventHandler(tsbCloud_Click);
             mf.KeyDown += new KeyEventHandler(Form_KeyDown);
 
             setMode(Mode.Move);
@@ -91,7 +90,6 @@ namespace KPSZI
             mf.tsbServer.Checked = false;
             mf.tsbRouter.Checked = false;
             mf.tsbSwitch.Checked = false;
-            mf.tsbCloud.Checked = false;
 
             switch (nodeType)
             {

@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{878B353E-0106-448F-8AA0-ECDFE7F1F498}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>KPSZI</RootNamespace>
     <AssemblyName>KPSZI</AssemblyName>
@@ -252,7 +252,6 @@
     <None Include="Resources\Editing-Line-icon.png" />
     <None Include="Resources\Network-Computer-icon.png" />
     <None Include="Resources\Network-Router-icon.png" />
-    <None Include="Resources\Network-Server-icon.png" />
     <None Include="Resources\Network-Switch-icon.png" />
     <None Include="Resources\pc.png" />
     <None Include="Resources\router.png" />
@@ -282,6 +281,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Shield.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Network-Server-icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -55,11 +55,6 @@ namespace KPSZI
                 listVulnerabilities = db.Vulnerabilities.OrderBy(v => v.VulnerabilityNumber).ToList();
                 listSFHs = db.SFHs.OrderBy(s => s.SFHNumber).ToList();
                 listSFHTypes = db.SFHTypes.OrderBy(st => st.SFHTypeId).ToList();
-                //foreach (SFHType sfhtype in listSFHTypes)
-                //{
-                //    sfhtype.SFHs = listSFHs.Where(sfh => sfh.SFHType == sfhtype).ToList();
-                    
-                //}
                 listImplementWays = db.ImplementWays.OrderBy(w => w.WayNumber).ToList();
                 listSources = db.ThreatSources.OrderBy(so => so.ThreatSourceId).ToList();
                 foreach (Vulnerability vul in listVulnerabilities)
@@ -77,50 +72,50 @@ namespace KPSZI
             mf.dgvThreats.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
 
             mf.tcThreatsNSD.TabPages.Remove(mf.tpThreatsNSD2);
-        mf.tcThreatsNSD.TabPages.Remove(mf.tpThreatsNSD3);
+            mf.tcThreatsNSD.TabPages.Remove(mf.tpThreatsNSD3);
 
-        mf.dgvThreats.DataSource = listThreats;
-        mf.dgvThreats.Columns["ThreatID"].Visible = false;
-        mf.dgvThreats.Columns["ThreatSources"].Visible = false;
-        mf.dgvThreats.Columns["DateOfChange"].Visible = false;
-        mf.dgvThreats.Columns["DateOfAdd"].Visible = false;
-        mf.dgvThreats.Columns["ImplementWays"].Visible = false;
-        mf.dgvThreats.Columns["SFHs"].Visible = false;
-        mf.dgvThreats.Columns["Vulnerabilities"].Visible = false;
-        mf.dgvThreats.Columns["Description"].Visible = false;
-        mf.dgvThreats.Columns["ObjectOfInfluence"].Visible = false;
-        mf.dgvThreats.Columns["GISMeasures"].Visible = false;
+            mf.dgvThreats.DataSource = listThreats;
+            mf.dgvThreats.Columns["ThreatID"].Visible = false;
+            mf.dgvThreats.Columns["ThreatSources"].Visible = false;
+            mf.dgvThreats.Columns["DateOfChange"].Visible = false;
+            mf.dgvThreats.Columns["DateOfAdd"].Visible = false;
+            mf.dgvThreats.Columns["ImplementWays"].Visible = false;
+            mf.dgvThreats.Columns["SFHs"].Visible = false;
+            mf.dgvThreats.Columns["Vulnerabilities"].Visible = false;
+            mf.dgvThreats.Columns["Description"].Visible = false;
+            mf.dgvThreats.Columns["ObjectOfInfluence"].Visible = false;
+            mf.dgvThreats.Columns["GISMeasures"].Visible = false;
 
-        mf.dgvThreats.Columns["ThreatNumber"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-        mf.dgvThreats.Columns["ConfidenceViolation"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-        mf.dgvThreats.Columns["IntegrityViolation"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-        mf.dgvThreats.Columns["AvailabilityViolation"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            mf.dgvThreats.Columns["ThreatNumber"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            mf.dgvThreats.Columns["ConfidenceViolation"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            mf.dgvThreats.Columns["IntegrityViolation"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            mf.dgvThreats.Columns["AvailabilityViolation"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
 
-        mf.dgvThreats.Columns["ThreatID"].DisplayIndex = 0;
-        mf.dgvThreats.Columns["ThreatNumber"].Width = 60;
-        mf.dgvThreats.Columns["ThreatNumber"].DisplayIndex = 1;
-        mf.dgvThreats.Columns["ThreatNumber"].HeaderText = "№ УБИ";
-        mf.dgvThreats.Columns["Name"].HeaderText = "Название УБИ";
-        mf.dgvThreats.Columns["Name"].DisplayIndex = 2;
-        mf.dgvThreats.Columns["ConfidenceViolation"].Width = 30;
-        mf.dgvThreats.Columns["ConfidenceViolation"].HeaderText = "К";
-        mf.dgvThreats.Columns["ConfidenceViolation"].DisplayIndex = 3;
-        mf.dgvThreats.Columns["IntegrityViolation"].Width = 30;
-        mf.dgvThreats.Columns["IntegrityViolation"].HeaderText = "Ц";
-        mf.dgvThreats.Columns["IntegrityViolation"].DisplayIndex = 4;
-        mf.dgvThreats.Columns["AvailabilityViolation"].Width = 30;
-        mf.dgvThreats.Columns["AvailabilityViolation"].HeaderText = "Д";
-        mf.dgvThreats.Columns["AvailabilityViolation"].DisplayIndex = 5;
-        mf.dgvThreats.Columns["stringVuls"].HeaderText = "Уязвимости";
-        mf.dgvThreats.Columns["stringVuls"].DisplayIndex = 6;
-        mf.dgvThreats.Columns["stringWays"].HeaderText = "Способы реализации УБИ";
-        mf.dgvThreats.Columns["stringWays"].DisplayIndex = 7;
-        mf.dgvThreats.Columns["stringSFHS"].HeaderText = "СФХ";
-        mf.dgvThreats.Columns["stringSFHS"].DisplayIndex = 8;
-        mf.dgvThreats.Columns["stringSources"].HeaderText = "Источник угрозы";
-        mf.dgvThreats.Columns["stringSources"].DisplayIndex = 9;
+            mf.dgvThreats.Columns["ThreatID"].DisplayIndex = 0;
+            mf.dgvThreats.Columns["ThreatNumber"].Width = 60;
+            mf.dgvThreats.Columns["ThreatNumber"].DisplayIndex = 1;
+            mf.dgvThreats.Columns["ThreatNumber"].HeaderText = "№ УБИ";
+            mf.dgvThreats.Columns["Name"].HeaderText = "Название УБИ";
+            mf.dgvThreats.Columns["Name"].DisplayIndex = 2;
+            mf.dgvThreats.Columns["ConfidenceViolation"].Width = 30;
+            mf.dgvThreats.Columns["ConfidenceViolation"].HeaderText = "К";
+            mf.dgvThreats.Columns["ConfidenceViolation"].DisplayIndex = 3;
+            mf.dgvThreats.Columns["IntegrityViolation"].Width = 30;
+            mf.dgvThreats.Columns["IntegrityViolation"].HeaderText = "Ц";
+            mf.dgvThreats.Columns["IntegrityViolation"].DisplayIndex = 4;
+            mf.dgvThreats.Columns["AvailabilityViolation"].Width = 30;
+            mf.dgvThreats.Columns["AvailabilityViolation"].HeaderText = "Д";
+            mf.dgvThreats.Columns["AvailabilityViolation"].DisplayIndex = 5;
+            mf.dgvThreats.Columns["stringVuls"].HeaderText = "Уязвимости";
+            mf.dgvThreats.Columns["stringVuls"].DisplayIndex = 6;
+            mf.dgvThreats.Columns["stringWays"].HeaderText = "Способы реализации УБИ";
+            mf.dgvThreats.Columns["stringWays"].DisplayIndex = 7;
+            mf.dgvThreats.Columns["stringSFHS"].HeaderText = "СФХ";
+            mf.dgvThreats.Columns["stringSFHS"].DisplayIndex = 8;
+            mf.dgvThreats.Columns["stringSources"].HeaderText = "Источник угрозы";
+            mf.dgvThreats.Columns["stringSources"].DisplayIndex = 9;
 
-        mf.dgvThreats.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            mf.dgvThreats.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
             mf.dgvThreats.SelectionChanged += new System.EventHandler(dgvThreats_SelectionChanged);
             mf.tpActualThreats.Resize += new System.EventHandler(tpActualThreats_Resize);
@@ -129,7 +124,13 @@ namespace KPSZI
             mf.btnGotoDamage.Click += new System.EventHandler(btnGotoDamage_Click);
             mf.dgvActualThreatsNSD.SelectionChanged += new System.EventHandler(dgvActualThreats_SelectionChanged);
             mf.btnReady.Click += new System.EventHandler(btnReady_Click);
-            mf.ThreatModelToolStripMenuItem.Click += new System.EventHandler(ThreatModelToolStripMenuItem_Click);
+            mf.btnExportModelThreats.Click += new System.EventHandler(btnExportModelThreats_Click);
+
+            mf.clbThreatFilter.SetItemChecked(0, false);
+            mf.clbThreatFilter.SetItemChecked(1, false);
+            mf.clbThreatFilter.SetItemChecked(2, false);
+            mf.clbThreatFilter.SetItemChecked(3, false);
+            filterThreatList();
         }
 
         public void initTabPageThreatsNSD2()
@@ -292,14 +293,7 @@ namespace KPSZI
         public override void enterTabPage()
         {
             mf.lblThreatsCount.Text = "Кол-во УБИ: " + mf.dgvThreats.RowCount;
-            if (firstEnter)
-            {
-                mf.clbThreatFilter.SetItemChecked(0, true);
-                mf.clbThreatFilter.SetItemChecked(1, true);
-                mf.clbThreatFilter.SetItemChecked(2, true);
-                mf.clbThreatFilter.SetItemChecked(3, true);
-                firstEnter = false;
-            }
+            
             if (mf.tcThreatsNSD.SelectedTab == mf.tpThreatsNSD1)
             {
                 filterThreatList();
@@ -476,9 +470,20 @@ namespace KPSZI
             DDControl.Update(threatNnew);
         }
 
+        public int calcMaxDDInfo(int threatNumber, InfoType info)
+        {
+            int max = 0;
+            for (int iCIA = 0; iCIA < 3; iCIA++)
+                for (int iDT = 0; iDT < 7; iDT++)
+                {
+                    int current = damageDegreeInput[threatNumber][IS.listOfInfoTypes.IndexOf(info), iCIA, iDT];
+                    if (current > max)
+                        max = current;
+                }
+            return max;        
+        }
 
-        
-        private void ThreatModelToolStripMenuItem_Click(object sender, EventArgs e)
+        private void btnExportModelThreats_Click(object sender, EventArgs e)
         {
             mf.wsm.Visible = true;
             mf.wsm.Update();
@@ -492,7 +497,7 @@ namespace KPSZI
             wordTable = oDoc.Tables[1];
             int rowN = 4;
             Console.WriteLine(IS.listOfSFHs.Count + "");
-            foreach(SFHType sfhtype in listSFHTypes)
+            foreach (SFHType sfhtype in listSFHTypes)
             {
                 foreach (SFH sfh in listSFHs.Where(sfh => sfh.SFHType == sfhtype).ToList())
                 {
@@ -509,7 +514,7 @@ namespace KPSZI
             #endregion
 
             #region Виды, типы и потенциал нарушителя
-            Range bm = oDoc.Bookmarks["Intruder_Table"].Range;
+            bm = oDoc.Bookmarks["Intruder_Table"].Range;
 
             int rowsNumber = 1;
             foreach (System.Windows.Forms.CheckBox i in mf.clbIntruderTypes.Controls)
@@ -612,7 +617,7 @@ namespace KPSZI
             row = 2;
             foreach (Threat t in listFilteredThreats)
             {
-                
+
                 wordTable.Cell(row, 1).Range.Text = (row - 1).ToString();
                 wordTable.Cell(row, 2).Range.Text = "УБИ." + t.ThreatNumber + " " + t.Name.ToString();
                 wordTable.Cell(row++, 3).Range.Text = t.stringVuls;
@@ -788,7 +793,7 @@ namespace KPSZI
             }
 
             row = 3;
-            
+
             foreach (DataGridViewRow dgvrow in mf.dgvActualThreatsNSD.Rows)
             {
                 wordTable.Rows.Add();
@@ -854,28 +859,15 @@ namespace KPSZI
                 wordTable.Cell(row++, 5).Range.Text = dgvrow.Cells[4].Value.ToString();
             }
             #endregion
-            
+
             //bm.Text = "hello";
             oDoc.Activate();
-            mf.FindAndReplace(oWord, "{Название ИС}", IS.ISName);
+            mf.FindAndReplace(oWord, "{Название ИС}", "ГИС \"" + IS.ISName + "\"");
 
             //oDoc.SaveAs(FileName: Environment.CurrentDirectory + "\\2.docx");
             //oDoc.Close();
             mf.wsm.Visible = false;
             oWord.Visible = true;
-        }
-
-        public int calcMaxDDInfo(int threatNumber, InfoType info)
-        {
-            int max = 0;
-            for (int iCIA = 0; iCIA < 3; iCIA++)
-                for (int iDT = 0; iDT < 7; iDT++)
-                {
-                    int current = damageDegreeInput[threatNumber][IS.listOfInfoTypes.IndexOf(info), iCIA, iDT];
-                    if (current > max)
-                        max = current;
-                }
-            return max;        
         }
     }
 }
