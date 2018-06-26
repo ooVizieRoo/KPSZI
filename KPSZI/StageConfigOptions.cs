@@ -186,7 +186,7 @@ namespace KPSZI
                             for (int i = 0 ; i < configOptions.Length-1; i++)
                             {
                                 //Параметры
-                                char divider = i == 0 ? '.' : ';';
+                                char divider = i == configOptions.Length -2 ? '.' : ';';
                                 wordParag.Range.Text = "\t– "+configOptions[i] + divider;
                                 wordParag.Range.Font.Name = "Times New Roman";
                                 wordParag.Range.Font.Size = 12;
