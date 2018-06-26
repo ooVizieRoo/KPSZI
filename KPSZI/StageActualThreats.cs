@@ -66,7 +66,10 @@ namespace KPSZI
             listFilteredThreats = new List<Threat>();
         }
 
-        mf.tcThreatsNSD.TabPages.Remove(mf.tpThreatsNSD2);
+            mf.dgvThreats.DefaultCellStyle.SelectionBackColor = Color.AliceBlue;
+            mf.dgvThreats.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
+
+            mf.tcThreatsNSD.TabPages.Remove(mf.tpThreatsNSD2);
         mf.tcThreatsNSD.TabPages.Remove(mf.tpThreatsNSD3);
 
         mf.dgvThreats.DataSource = listThreats;
@@ -124,6 +127,8 @@ namespace KPSZI
         public void initTabPageThreatsNSD2()
         {
             // дизайн DataGridView для определения актуальных УБИ
+            mf.dgvActualThreatsNSD.DefaultCellStyle.SelectionBackColor = Color.AliceBlue;
+            mf.dgvThreats.DefaultCellStyle.SelectionForeColor = Color.Black;
             mf.dgvActualThreatsNSD.Columns.Clear();
             mf.dgvActualThreatsNSD.Rows.Clear();
             
@@ -174,8 +179,9 @@ namespace KPSZI
             // дизайн DataGridView для вывода перечня актуальных УБИ
             mf.dgvFinalNSDThreats.Columns.Clear();
             mf.dgvFinalNSDThreats.Rows.Clear();
-
-            mf.dgvFinalNSDThreats.Columns.Add("ThreatNumber", "№");
+            mf.dgvFinalNSDThreats.DefaultCellStyle.SelectionBackColor = Color.AliceBlue;
+            mf.dgvFinalNSDThreats.DefaultCellStyle.SelectionForeColor = Color.Black;
+                mf.dgvFinalNSDThreats.Columns.Add("ThreatNumber", "№");
             mf.dgvFinalNSDThreats.Columns["ThreatNumber"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             mf.dgvFinalNSDThreats.Columns["ThreatNumber"].Width = 40;
 

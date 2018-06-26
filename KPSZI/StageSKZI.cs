@@ -92,7 +92,7 @@ namespace KPSZI
 
             dialogFormSKZI = new Form();
             dialogFormSKZI.FormBorderStyle = FormBorderStyle.FixedDialog;
-            dialogFormSKZI.Icon = new System.Drawing.Icon("res/icons/mf.ico");
+            dialogFormSKZI.Icon = KPSZI.Properties.Resources.mf;
             dialogFormSKZI.MaximizeBox = false;
             dialogFormSKZI.MinimizeBox = false;
 

@@ -134,6 +134,7 @@ namespace KPSZI
                     wordParag.Range.Font.Name = "Times New Roman";
                     wordParag.Range.Font.Size = 16;
                     wordParag.Range.Font.Bold = 1;
+                    wordParag.Range.Font.Italic = 0;
                     wordParag.Range.Paragraphs.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphJustify;
 
                     wordParag.Range.InsertParagraphAfter();
@@ -147,19 +148,51 @@ namespace KPSZI
                             wordParag.Range.Font.Name = "Times New Roman";
                             wordParag.Range.Font.Size = 14;
                             wordParag.Range.Font.Bold = 1;
+                            wordParag.Range.Font.Italic = 0;
                             wordParag.Range.Paragraphs.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphJustify;
 
                             wordParag.Range.InsertParagraphAfter();
+
+                            //тип сзи
+                            string szis = "";
+                            string measure = dgvr.Cells[0].Value.ToString();
+                            List<SZISort> szisorts = db.GisMeasures.Where(m => (m.MeasureGroup.ShortName + "." + m.Number + " "+m.Description) == measure).First().SZISorts.ToList();
+
+                            
+                            foreach(SZI sz in IS.listOfSZIs)
+                            {
+                                SZI m = db.SZIs.Where(t => t.SZIId == sz.SZIId).First();
+                                sz.SZISorts = m.SZISorts.ToList();
+                            }
+                            foreach (SZISort s in szisorts)
+                            {
+                                szis += s.Name /* + ": "+IS.listOfSZIs.Where(szi => szi.SZISorts.Contains(s)).First().Name */+ ", ";
+                            }
+                            if (szis != "")
+                            {
+                                szis = szis.Substring(0, szis.Length - 2) + ".";
+
+                                wordParag.Range.Text = '\t' + szis;
+                                wordParag.Range.Font.Name = "Times New Roman";
+                                wordParag.Range.Font.Size = 14;
+                                wordParag.Range.Font.Bold = 0;
+                                wordParag.Range.Font.Italic = 1;
+                                wordParag.Range.Paragraphs.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphJustify;
+
+                                wordParag.Range.InsertParagraphAfter();
+                            }
+                            
 
                             string[] configOptions = dgvr.Cells[1].Value.ToString().Split('\n');
                             for (int i = 0 ; i < configOptions.Length-1; i++)
                             {
                                 //Параметры
                                 char divider = i == 0 ? '.' : ';';
-                                wordParag.Range.Text = '\t'+configOptions[i] + divider;
+                                wordParag.Range.Text = "\t–"+configOptions[i] + divider;
                                 wordParag.Range.Font.Name = "Times New Roman";
                                 wordParag.Range.Font.Size = 12;
                                 wordParag.Range.Font.Bold = 0;
+                                wordParag.Range.Font.Italic = 0;
                                 wordParag.Range.Paragraphs.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphJustify;
                                 wordParag.Range.InsertParagraphAfter();
                             }

@@ -111,6 +111,16 @@ namespace KPSZI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap document_settings_icon {
+            get {
+                object obj = ResourceManager.GetObject("document_settings_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
         internal static System.Drawing.Icon edit {
@@ -127,6 +137,46 @@ namespace KPSZI.Properties {
             get {
                 object obj = ResourceManager.GetObject("Editing_Line_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap folder_icon {
+            get {
+                object obj = ResourceManager.GetObject("folder_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap iconInformation {
+            get {
+                object obj = ResourceManager.GetObject("iconInformation", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap left_arrow_icon {
+            get {
+                object obj = ResourceManager.GetObject("left_arrow_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon mf {
+            get {
+                object obj = ResourceManager.GetObject("mf", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
         
@@ -183,6 +233,16 @@ namespace KPSZI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap right_arrow_icon {
+            get {
+                object obj = ResourceManager.GetObject("right_arrow_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap router {
             get {
                 object obj = ResourceManager.GetObject("router", resourceCulture);
@@ -203,9 +263,9 @@ namespace KPSZI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap User_Interface_Delete_Sign_icon {
+        internal static System.Drawing.Bitmap Shield {
             get {
-                object obj = ResourceManager.GetObject("User_Interface_Delete_Sign_icon", resourceCulture);
+                object obj = ResourceManager.GetObject("Shield", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -213,9 +273,9 @@ namespace KPSZI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap iconInformation {
+        internal static System.Drawing.Bitmap User_Interface_Delete_Sign_icon {
             get {
-                object obj = ResourceManager.GetObject("iconInformation", resourceCulture);
+                object obj = ResourceManager.GetObject("User_Interface_Delete_Sign_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

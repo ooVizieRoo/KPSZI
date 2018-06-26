@@ -63,7 +63,6 @@
             treeNode16,
             treeNode17});
             System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("Параметры настройки");
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -84,6 +83,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.projectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -337,6 +337,9 @@
             this.labelAvailability = new System.Windows.Forms.Label();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.iconList = new System.Windows.Forms.ImageList(this.components);
+            this.panelStageClass = new System.Windows.Forms.Panel();
+            this.pbStageClass = new System.Windows.Forms.PictureBox();
+            this.tbStageClass = new System.Windows.Forms.TextBox();
             this.menuStrip.SuspendLayout();
             this.tpOptions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProjectSecurityResult)).BeginInit();
@@ -404,6 +407,8 @@
             this.pConfOpt.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbInfoConfOpt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConfigNMeasures)).BeginInit();
+            this.panelStageClass.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStageClass)).BeginInit();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -740,6 +745,7 @@
             // 
             // tpClassification
             // 
+            this.tpClassification.Controls.Add(this.panelStageClass);
             this.tpClassification.Controls.Add(this.labelGISClass);
             this.tpClassification.Controls.Add(this.panelPDN);
             this.tpClassification.Controls.Add(this.tabControlInfoTypes);
@@ -758,7 +764,7 @@
             // 
             this.labelGISClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.labelGISClass.ForeColor = System.Drawing.Color.Red;
-            this.labelGISClass.Location = new System.Drawing.Point(14, 226);
+            this.labelGISClass.Location = new System.Drawing.Point(33, 328);
             this.labelGISClass.Name = "labelGISClass";
             this.labelGISClass.Size = new System.Drawing.Size(389, 39);
             this.labelGISClass.TabIndex = 14;
@@ -775,7 +781,7 @@
             this.panelPDN.Controls.Add(this.comboBoxActualThreatsType);
             this.panelPDN.Controls.Add(this.labelActualThreatType);
             this.panelPDN.Controls.Add(this.labelISPDN);
-            this.panelPDN.Location = new System.Drawing.Point(420, 3);
+            this.panelPDN.Location = new System.Drawing.Point(439, 105);
             this.panelPDN.Name = "panelPDN";
             this.panelPDN.Size = new System.Drawing.Size(397, 281);
             this.panelPDN.TabIndex = 12;
@@ -876,7 +882,7 @@
             // 
             // tabControlInfoTypes
             // 
-            this.tabControlInfoTypes.Location = new System.Drawing.Point(18, 77);
+            this.tabControlInfoTypes.Location = new System.Drawing.Point(37, 179);
             this.tabControlInfoTypes.Name = "tabControlInfoTypes";
             this.tabControlInfoTypes.SelectedIndex = 0;
             this.tabControlInfoTypes.Size = new System.Drawing.Size(385, 137);
@@ -890,7 +896,7 @@
             "Федеральный",
             "Региональный",
             "Объектовый"});
-            this.comboBoxScale.Location = new System.Drawing.Point(271, 14);
+            this.comboBoxScale.Location = new System.Drawing.Point(290, 116);
             this.comboBoxScale.Name = "comboBoxScale";
             this.comboBoxScale.Size = new System.Drawing.Size(127, 21);
             this.comboBoxScale.TabIndex = 10;
@@ -898,7 +904,7 @@
             // label
             // 
             this.label.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label.Location = new System.Drawing.Point(15, 48);
+            this.label.Location = new System.Drawing.Point(34, 150);
             this.label.Name = "label";
             this.label.Size = new System.Drawing.Size(388, 37);
             this.label.TabIndex = 4;
@@ -907,7 +913,7 @@
             // labelScale
             // 
             this.labelScale.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelScale.Location = new System.Drawing.Point(15, 15);
+            this.labelScale.Location = new System.Drawing.Point(34, 117);
             this.labelScale.Name = "labelScale";
             this.labelScale.Size = new System.Drawing.Size(250, 23);
             this.labelScale.TabIndex = 3;
@@ -1761,7 +1767,7 @@
             this.dgvActualThreatsNSD.RowHeadersVisible = false;
             this.dgvActualThreatsNSD.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(3);
             this.dgvActualThreatsNSD.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvActualThreatsNSD.Size = new System.Drawing.Size(440, 452);
+            this.dgvActualThreatsNSD.Size = new System.Drawing.Size(423, 452);
             this.dgvActualThreatsNSD.TabIndex = 0;
             // 
             // tpThreatsNSD3
@@ -3499,6 +3505,40 @@
             this.iconList.ImageSize = new System.Drawing.Size(16, 16);
             this.iconList.TransparentColor = System.Drawing.Color.Transparent;
             // 
+            // panelStageClass
+            // 
+            this.panelStageClass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelStageClass.Controls.Add(this.pbStageClass);
+            this.panelStageClass.Controls.Add(this.tbStageClass);
+            this.panelStageClass.Location = new System.Drawing.Point(9, 13);
+            this.panelStageClass.Name = "panelStageClass";
+            this.panelStageClass.Size = new System.Drawing.Size(951, 70);
+            this.panelStageClass.TabIndex = 15;
+            // 
+            // pbStageClass
+            // 
+            this.pbStageClass.Image = global::KPSZI.Properties.Resources.iconInformation;
+            this.pbStageClass.Location = new System.Drawing.Point(882, 3);
+            this.pbStageClass.Name = "pbStageClass";
+            this.pbStageClass.Size = new System.Drawing.Size(64, 64);
+            this.pbStageClass.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbStageClass.TabIndex = 1;
+            this.pbStageClass.TabStop = false;
+            // 
+            // tbStageClass
+            // 
+            this.tbStageClass.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbStageClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tbStageClass.Location = new System.Drawing.Point(3, 3);
+            this.tbStageClass.Multiline = true;
+            this.tbStageClass.Name = "tbStageClass";
+            this.tbStageClass.ReadOnly = true;
+            this.tbStageClass.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tbStageClass.Size = new System.Drawing.Size(873, 64);
+            this.tbStageClass.TabIndex = 0;
+            this.tbStageClass.Text = resources.GetString("tbStageClass.Text");
+            this.tbStageClass.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3598,6 +3638,9 @@
             this.pConfOpt.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbInfoConfOpt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConfigNMeasures)).EndInit();
+            this.panelStageClass.ResumeLayout(false);
+            this.panelStageClass.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStageClass)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3857,5 +3900,8 @@
         private System.Windows.Forms.ToolStripMenuItem measuresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addSZItoMeasuresToolStripMenuItem;
         internal System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelStageClass;
+        private System.Windows.Forms.PictureBox pbStageClass;
+        internal System.Windows.Forms.TextBox tbStageClass;
     }
 }

@@ -56,7 +56,7 @@ namespace KPSZI
         {
             InitializeComponent();
 
-            Icon = new Icon("res/icons/mf.ico");
+            Icon = KPSZI.Properties.Resources.mf;
 
             // Заполняем коллекцию этапами (название, ссылка на вкладку, ссылка на пункт в дереве) 
             stages.Add("tnOptions", new StageOptions(returnTabPage("tpOptions"), returnTreeNode("tnOptions"), this, IS));
@@ -84,10 +84,10 @@ namespace KPSZI
             tabControl.TabPages.Clear();
 
             // связываем дерево с набором иконок
-            iconList.Images.Add(Image.FromFile(@"res\icons\folder-icon.png"));
-            iconList.Images.Add(Image.FromFile(@"res\icons\document-settings-icon.png"));
-            iconList.Images.Add(Image.FromFile(@"res\icons\left-arrow-icon.png"));
-            iconList.Images.Add(Image.FromFile(@"res\icons\right-arrow-icon.png"));
+            iconList.Images.Add(KPSZI.Properties.Resources.folder_icon);
+            iconList.Images.Add(KPSZI.Properties.Resources.document_settings_icon);
+            iconList.Images.Add(KPSZI.Properties.Resources.left_arrow_icon);
+            iconList.Images.Add(KPSZI.Properties.Resources.right_arrow_icon);
 
             treeView.ImageList = iconList;
 
