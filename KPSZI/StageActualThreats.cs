@@ -476,13 +476,17 @@ namespace KPSZI
             DDControl.Update(threatNnew);
         }
 
+
         
         private void ThreatModelToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            mf.wsm.Visible = true;
+            mf.wsm.Update();
+
             _Application oWord = new Microsoft.Office.Interop.Word.Application();
             _Document oDoc = oWord.Documents.Add(Environment.CurrentDirectory + "\\template.docx");
             Table wordTable;
-            oWord.Visible = true;
+            //oWord.Visible = true;
 
             #region Расчет уровня проектной защищенности
             wordTable = oDoc.Tables[1];
@@ -857,6 +861,8 @@ namespace KPSZI
 
             //oDoc.SaveAs(FileName: Environment.CurrentDirectory + "\\2.docx");
             //oDoc.Close();
+            mf.wsm.Visible = false;
+            oWord.Visible = true;
         }
 
         public int calcMaxDDInfo(int threatNumber, InfoType info)
