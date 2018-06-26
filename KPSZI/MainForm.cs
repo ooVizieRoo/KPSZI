@@ -195,7 +195,7 @@ namespace KPSZI
                 {
                     try
                     {
-                        db.Database.ExecuteSqlCommand("SET SCHEMA '" + KPSZIContext.schema_name + "'; TRUNCATE \"GISMeasures\", \"ISPDNMeasures\", \"ImplementWayThreats\", \"SFHGISMeasures\", \"ThreatGISMeasures\", \"InfoTypes\", \"IntruderTypes\", \"ThreatSFHs\", \"MeasureGroups\", \"SFHTypes\", \"SFHs\", \"SZIGISMeasures\",  \"SZISorts\", \"SZISortSZIs\", \"SZIs\", \"TCUIThreats\", \"TCUITypes\", \"TCUIs\", \"TechnogenicMeasures\", \"TechnogenicThreats\", \"ThreatSources\", \"ThreatSourceThreats\", \"Threats\", \"ImplementWays\",\"Vulnerabilities\", \"VulnerabilityThreats\" CASCADE");
+                        db.Database.ExecuteSqlCommand("SET SCHEMA '" + KPSZIContext.schema_name + "'; TRUNCATE \"ConfigOptions\",\"GISMeasures\", \"ISPDNMeasures\", \"ImplementWayThreats\", \"ImplementWays\", \"InfoTypes\", \"IntruderTypes\", \"MeasureGroups\", \"SFHGISMeasures\", \"SFHTypes\", \"SFHs\", \"SZISortGISMeasures\", \"SZISortSZIs\", \"SZISorts\",  \"SZIs\", \"TCUIThreats\", \"TCUITypes\", \"TCUIs\", \"TechnogenicMeasures\", \"TechnogenicThreats\", \"ThreatGISMeasures\",  \"ThreatSFHs\", \"ThreatSourceThreats\", \"ThreatSources\", \"Threats\", \"Vulnerabilities\", \"VulnerabilityThreats\" CASCADE");
                     }
                     catch (Exception ex)
                     {
@@ -365,6 +365,29 @@ namespace KPSZI
                 }
                 MessageBox.Show("Заполнение прошло успешно!", "Внимание!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        internal void FindAndReplace(Microsoft.Office.Interop.Word._Application doc, object findText, object replaceWithText)
+        {
+            object matchCase = false;
+            object matchWholeWord = true;
+            object matchWildCards = false;
+            object matchSoundsLike = false;
+            object matchAllWordForms = false;
+            object forward = true;
+            object format = false;
+            object matchKashida = false;
+            object matchDiacritics = false;
+            object matchAlefHamza = false;
+            object matchControl = false;
+            object read_only = false;
+            object visible = true;
+            object replace = 2;
+            object wrap = 1;
+
+            doc.Selection.Find.Execute(ref findText, ref matchCase, ref matchWholeWord,
+                ref matchWildCards, ref matchSoundsLike, ref matchAllWordForms, ref forward, ref wrap, ref format, ref replaceWithText, ref replace,
+                ref matchKashida, ref matchDiacritics, ref matchAlefHamza, ref matchControl);
         }
     }
 }

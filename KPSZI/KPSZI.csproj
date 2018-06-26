@@ -265,11 +265,10 @@
     <None Include="Resources\User-Interface-Delete-Sign-icon.png" />
     <None Include="Resources\cloud.jpg" />
     <None Include="Resources\book-297319_960_720.png" />
-    <None Include="Resources\document-settings-icon.png" />
-    <None Include="Resources\folder-icon.png" />
-    <None Include="Resources\left-arrow-icon.png" />
-    <None Include="Resources\right-arrow-icon.png" />
-    <None Include="Resources\Shield.png" />
+    <None Include="Resources\word.ico" />
+    <None Include="Resources\word.png" />
+    <None Include="Resources\word1.png" />
+    
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">

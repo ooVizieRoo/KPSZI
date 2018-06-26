@@ -183,6 +183,16 @@ namespace KPSZI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap iconInformation {
+            get {
+                object obj = ResourceManager.GetObject("iconInformation", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Network_Computer_icon {
             get {
                 object obj = ResourceManager.GetObject("Network_Computer_icon", resourceCulture);
@@ -273,8 +283,29 @@ namespace KPSZI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap User_Interface_Delete_Sign_icon {
+        internal static System.Drawing.Bitmap word {
             get {
+                object obj = ResourceManager.GetObject("word", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap word1 {
+            get {
+                object obj = ResourceManager.GetObject("word1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap User_Interface_Delete_Sign_icon
+        {
+            get
+            {
                 object obj = ResourceManager.GetObject("User_Interface_Delete_Sign_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }

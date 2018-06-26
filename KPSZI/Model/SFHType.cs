@@ -34,5 +34,20 @@ namespace KPSZI.Model
         {
             this.SFHs = new List<SFH>();
         }
+
+        public override bool Equals(object obj)
+        {
+            var sfhtype = (SFHType)obj;
+
+            if (sfhtype.Name == Name)
+                return true;
+
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return Name.Count();
+        }
     }
 }
