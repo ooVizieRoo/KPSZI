@@ -514,7 +514,7 @@ namespace KPSZI
             #endregion
 
             #region Виды, типы и потенциал нарушителя
-            bm = oDoc.Bookmarks["Intruder_Table"].Range;
+            Range bm = oDoc.Bookmarks["Intruder_Table"].Range;
 
             int rowsNumber = 1;
             foreach (System.Windows.Forms.CheckBox i in mf.clbIntruderTypes.Controls)
