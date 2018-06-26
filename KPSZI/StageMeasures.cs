@@ -24,60 +24,59 @@ namespace KPSZI
         Button btnGetConreteMeasuresList;
         Button btnConsoleClear = new Button();
 
-        List<GISMeasure> ListOfBasicMeasures = new List<GISMeasure>();
-        List<GISMeasure> ListOfAdaptiveMeasures = new List<GISMeasure>();
-        List<GISMeasure> ListOfConcreteMeasures = new List<GISMeasure>();
-
+        public static List<GISMeasure> ListOfBasicMeasures = new List<GISMeasure>();
+        public static List<GISMeasure> ListOfAdaptiveMeasures = new List<GISMeasure>();
+        public static List<GISMeasure> ListOfExcludedMeasures = new List<GISMeasure>();
+        public static List<GISMeasure> ListOfConcreteMeasures = new List<GISMeasure>();
+        public static List<GISMeasure> ListOfAddedMeasures = new List<GISMeasure>();
 
         public StageMeasures(TabPage stageTab, TreeNode stageNode, MainForm mainForm, InformationSystem IS)
             : base(stageTab, stageNode, mainForm, IS)
         {
-            
-
-            //using (KPSZIContext db = new KPSZIContext())
-            //{
-            //    var Threats = db.Threats.Include("GISMeasures").ToList();
-            //    IS.listOfActualNSDThreats = Threats.Where(t =>
-            //        t.ThreatNumber == 4 ||
-            //        t.ThreatNumber == 7 ||
-            //        t.ThreatNumber == 16 ||
-            //        t.ThreatNumber == 18 ||
-            //        t.ThreatNumber == 23 ||
-            //        t.ThreatNumber == 30 ||
-            //        t.ThreatNumber == 31 ||
-            //        t.ThreatNumber == 32 ||
-            //        t.ThreatNumber == 39 ||
-            //        t.ThreatNumber == 42 ||
-            //        t.ThreatNumber == 45 ||
-            //        t.ThreatNumber == 18 ||
-            //        t.ThreatNumber == 53 ||
-            //        t.ThreatNumber == 67 ||
-            //        t.ThreatNumber == 72 ||
-            //        t.ThreatNumber == 88 ||
-            //        t.ThreatNumber == 91 ||
-            //        t.ThreatNumber == 94 ||
-            //        t.ThreatNumber == 95 ||
-            //        t.ThreatNumber == 111 ||
-            //        t.ThreatNumber == 113 ||
-            //        t.ThreatNumber == 117 ||
-            //        t.ThreatNumber == 122 ||
-            //        t.ThreatNumber == 127 ||
-            //        t.ThreatNumber == 131 ||
-            //        t.ThreatNumber == 132 ||
-            //        t.ThreatNumber == 139 ||
-            //        t.ThreatNumber == 156 ||
-            //        t.ThreatNumber == 157 ||
-            //        t.ThreatNumber == 160 ||
-            //        t.ThreatNumber == 179 ||
-            //        t.ThreatNumber == 180 ||
-            //        t.ThreatNumber == 182 ||
-            //        t.ThreatNumber == 185 ||
-            //        t.ThreatNumber == 186 ||
-            //        t.ThreatNumber == 190 ||
-            //        t.ThreatNumber == 191 ||
-            //        t.ThreatNumber == 201
-            //    ).ToList();
-            //}
+            using (KPSZIContext db = new KPSZIContext())
+            {
+                var Threats = db.Threats.Include("GISMeasures").ToList();
+                IS.listOfActualNSDThreats = Threats.Where(t =>
+                    t.ThreatNumber == 4 ||
+                    t.ThreatNumber == 7 ||
+                    t.ThreatNumber == 16 ||
+                    t.ThreatNumber == 18 ||
+                    t.ThreatNumber == 23 ||
+                    t.ThreatNumber == 30 ||
+                    t.ThreatNumber == 31 ||
+                    t.ThreatNumber == 32 ||
+                    t.ThreatNumber == 39 ||
+                    t.ThreatNumber == 42 ||
+                    t.ThreatNumber == 45 ||
+                    t.ThreatNumber == 18 ||
+                    t.ThreatNumber == 53 ||
+                    t.ThreatNumber == 67 ||
+                    t.ThreatNumber == 72 ||
+                    t.ThreatNumber == 88 ||
+                    t.ThreatNumber == 91 ||
+                    t.ThreatNumber == 94 ||
+                    t.ThreatNumber == 95 ||
+                    t.ThreatNumber == 111 ||
+                    t.ThreatNumber == 113 ||
+                    t.ThreatNumber == 117 ||
+                    t.ThreatNumber == 122 ||
+                    t.ThreatNumber == 127 ||
+                    t.ThreatNumber == 131 ||
+                    t.ThreatNumber == 132 ||
+                    t.ThreatNumber == 139 ||
+                    t.ThreatNumber == 156 ||
+                    t.ThreatNumber == 157 ||
+                    t.ThreatNumber == 160 ||
+                    t.ThreatNumber == 179 ||
+                    t.ThreatNumber == 180 ||
+                    t.ThreatNumber == 182 ||
+                    t.ThreatNumber == 185 ||
+                    t.ThreatNumber == 186 ||
+                    t.ThreatNumber == 190 ||
+                    t.ThreatNumber == 191 ||
+                    t.ThreatNumber == 201
+                ).ToList();
+            }
         }
 
         protected override void initTabPage()
@@ -160,9 +159,19 @@ namespace KPSZI
 
         private void BtnGetBasicMeasuresList_Click(object sender, EventArgs e)
         {
+            if (IS.GISClass == 0)
+            {
+                if (MessageBox.Show("Не определен класс защищенности для дальнейшней работы. \nПерейти во вкладку \"Классификация\"?", "Внимание!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    mf.treeView.SelectedNode = mf.returnTreeNode("tnClassification");
+                    return;
+                }
+                else
+                    return;
+            }
+
             mf.wsm.Visible = true;
             mf.wsm.Update();
-
 
             mf.tabControlMeasures.TabPages.Clear();
 
@@ -179,7 +188,7 @@ namespace KPSZI
             using (KPSZIContext db = new KPSZIContext())
             {
                 int i = 0;
-                ListOfBasicMeasures = db.GisMeasures.Where(gm => gm.MinimalRequirementDefenceClass >= 2).OrderBy(gm => gm.GISMeasureId).ToList();
+                ListOfBasicMeasures = db.GisMeasures.Where(gm => gm.MinimalRequirementDefenceClass >= IS.GISClass).OrderBy(gm => gm.GISMeasureId).ToList();
 
                 foreach(GISMeasure gm in ListOfBasicMeasures)
                 {
@@ -227,6 +236,7 @@ namespace KPSZI
                     Console.WriteLine(gm.ToString());
                     mf.dgvAdaptiveMeas.Rows.Add(++i, gm.ToString());
                 }
+                ListOfExcludedMeasures = ListOfBasicMeasures.Except(ListOfAdaptiveMeasures).ToList();
 
                 Console.WriteLine("Базовый: {0}\nАдаптированный: {1}\nПересечение: {2}", ListOfBasicMeasures.Count, listOfGMForSFHs.Count, ListOfAdaptiveMeasures.Count);
             }
@@ -284,11 +294,11 @@ namespace KPSZI
                 }
                 Console.WriteLine("Базовый: {0}\nАдаптированный: {1}\nУточненный: {2}", ListOfBasicMeasures.Count, ListOfAdaptiveMeasures.Count, ListOfConcreteMeasures.Count);
                 IS.listOfAllNSDMeasures = ListOfConcreteMeasures;
+                ListOfAddedMeasures = ListOfConcreteMeasures.Except(ListOfAdaptiveMeasures).ToList();
             }
 
             mf.wsm.Visible = false;
         }
-
 
         private void BtnExportSFHConsole_Click(object sender, EventArgs e)
         {

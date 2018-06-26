@@ -21,7 +21,16 @@ namespace KPSZI
         /// 1, 2, 3, 4 - соответственно.
         /// </summary>
         public int levelOfPDN;
+        /// <summary>
+        /// Тип актуальных угроз (для ПДн)
+        /// </summary>
         public int typeOfActualThreats;
+
+        /// <summary>
+        /// 3,2,1 - класс защищенности ГИС
+        /// </summary>
+        public int GISClass;
+
         /// <summary>
         /// Список видов информации, обрабатываемых в данной ИС
         /// </summary>
@@ -71,6 +80,7 @@ namespace KPSZI
         public InformationSystem ()
         {
             ISName = "";
+            GISClass = 0;
             listOfInfoTypes = new List<InfoType>();
             listOfSFHs = new List<SFH>();
             listOfCategoriesPDN = new List<string>();

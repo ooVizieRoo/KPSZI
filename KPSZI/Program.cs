@@ -23,7 +23,7 @@ namespace KPSZI
             //catch(ObjectDisposedException e)
             //{
             //    Application.Exit();
-            //}
+           // }
             
             
         }

@@ -50,8 +50,10 @@
   <PropertyGroup>
     <StartupObject>KPSZI.Program</StartupObject>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\mf.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -111,11 +113,7 @@
       <DependentUpon>IntruderAbilityControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Link.cs" />
-    <Compile Include="Migrations\201806230318028_dimov.cs" />
-    <Compile Include="Migrations\201806230318028_dimov.Designer.cs">
-      <DependentUpon>201806230318028_dimov.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Model\ConfigOption.cs" />
     <Compile Include="Model\ImplementWays.cs" />
     <Compile Include="Model\Vulnerability.cs" />
     <Compile Include="Node.cs">
@@ -163,6 +161,7 @@
     <Compile Include="Stage.cs" />
     <Compile Include="StageAccessMatrix.cs" />
     <Compile Include="StageClassification.cs" />
+    <Compile Include="StageConfigOptions.cs" />
     <Compile Include="StageIntruder.cs" />
     <Compile Include="StageMeasures.cs" />
     <Compile Include="StageMeasuresTCUI.cs" />
@@ -200,9 +199,6 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806230318028_dimov.resx">
-      <DependentUpon>201806230318028_dimov.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -257,25 +253,9 @@
     <None Include="Resources\User-Interface-Delete-Sign-icon.png" />
     <None Include="Resources\cloud.jpg" />
     <None Include="Resources\book-297319_960_720.png" />
-    <Content Include="res\icons\document-settings-icon.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="res\icons\folder-icon.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="res\icons\left-arrow-icon.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="res\icons\mf.ico">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="res\icons\right-arrow-icon.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <None Include="res\icons\Shield.jpg" />
-    <Content Include="res\icons\Shield.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <None Include="Resources\word.ico" />
+    <None Include="Resources\word.png" />
+    <None Include="Resources\word1.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
@@ -288,6 +268,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mf.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

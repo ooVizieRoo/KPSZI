@@ -32,6 +32,10 @@ namespace KPSZI.Model
         /// </summary>
         public virtual ICollection<SZI> SZIs { get; set; }
         /// <summary>
+        /// Меры, которые реализует данный вид СЗИ
+        /// </summary>
+        public virtual ICollection<GISMeasure> GISMeasures { get; set; }
+        /// <summary>
         /// Конструктор для создания списка
         /// </summary>
         public SZISort()

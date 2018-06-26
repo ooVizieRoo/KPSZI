@@ -180,7 +180,7 @@ namespace KPSZI
 
             dialogForm = new Form();
             dialogForm.Size = new Size { Height = 235, Width = 550 };
-            dialogForm.Icon = new Icon("res/icons/mf.ico");
+            dialogForm.Icon = KPSZI.Properties.Resources.mf;
             dialogForm.FormBorderStyle = FormBorderStyle.FixedDialog;
             dialogForm.MaximizeBox = false;
             dialogForm.MinimizeBox = false;

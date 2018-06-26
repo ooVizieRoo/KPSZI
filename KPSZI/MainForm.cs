@@ -59,7 +59,7 @@ namespace KPSZI
         {
             InitializeComponent();
 
-            Icon = new Icon("res/icons/mf.ico");
+            Icon = KPSZI.Properties.Resources.mf;
 
             // Заполняем коллекцию этапами (название, ссылка на вкладку, ссылка на пункт в дереве) 
             stages.Add("tnOptions", new StageOptions(returnTabPage("tpOptions"), returnTreeNode("tnOptions"), this, IS));
@@ -78,6 +78,7 @@ namespace KPSZI
             //stages.Add("tnMeasuresTechno", new StageMeasuresTechno(returnTabPage("tpMeasuresTechno"), returnTreeNode("tnMeasuresTechno"), this, IS));
             stages.Add("tnSZI", new StageSZI(returnTabPage("tpSZI"), returnTreeNode("tnSZI"), this, IS));
             stages.Add("tnTPExport", new StageTPExport(returnTabPage("tpTPExport"), returnTreeNode("tnTPExport"), this, IS));
+            stages.Add("tnConfigOptions", new StageConfigOptions(returnTabPage("tpConfigOptions"), returnTreeNode("tnconfigOptions"), this, IS));
 
             //returnTreeNode("tnActualThreats").ForeColor = Color.Gray;
             //returnTreeNode("tnActualThreats").BackColor = Color.White;
@@ -86,10 +87,10 @@ namespace KPSZI
             tabControl.TabPages.Clear();
 
             // связываем дерево с набором иконок
-            iconList.Images.Add(Image.FromFile(@"res\icons\folder-icon.png"));
-            iconList.Images.Add(Image.FromFile(@"res\icons\document-settings-icon.png"));
-            iconList.Images.Add(Image.FromFile(@"res\icons\left-arrow-icon.png"));
-            iconList.Images.Add(Image.FromFile(@"res\icons\right-arrow-icon.png"));
+            iconList.Images.Add(KPSZI.Properties.Resources.folder_icon);
+            iconList.Images.Add(KPSZI.Properties.Resources.document_settings_icon);
+            iconList.Images.Add(KPSZI.Properties.Resources.left_arrow_icon);
+            iconList.Images.Add(KPSZI.Properties.Resources.right_arrow_icon);
 
             treeView.ImageList = iconList;
 
@@ -197,7 +198,7 @@ namespace KPSZI
                 {
                     try
                     {
-                        db.Database.ExecuteSqlCommand("SET SCHEMA '" + KPSZIContext.schema_name + "'; TRUNCATE \"GISMeasures\", \"ISPDNMeasures\", \"ImplementWayThreats\", \"SFHGISMeasures\", \"ThreatGISMeasures\", \"InfoTypes\", \"IntruderTypes\", \"ThreatSFHs\", \"MeasureGroups\", \"SFHTypes\", \"SFHs\", \"SZIGISMeasures\",  \"SZISorts\", \"SZISortSZIs\", \"SZIs\", \"TCUIThreats\", \"TCUITypes\", \"TCUIs\", \"TechnogenicMeasures\", \"TechnogenicThreats\", \"ThreatSources\", \"ThreatSourceThreats\", \"Threats\", \"ImplementWays\",\"Vulnerabilities\", \"VulnerabilityThreats\" CASCADE");
+                        db.Database.ExecuteSqlCommand("SET SCHEMA '" + KPSZIContext.schema_name + "'; TRUNCATE \"ConfigOptions\",\"GISMeasures\", \"ISPDNMeasures\", \"ImplementWayThreats\", \"ImplementWays\", \"InfoTypes\", \"IntruderTypes\", \"MeasureGroups\", \"SFHGISMeasures\", \"SFHTypes\", \"SFHs\", \"SZISortGISMeasures\", \"SZISortSZIs\", \"SZISorts\",  \"SZIs\", \"TCUIThreats\", \"TCUITypes\", \"TCUIs\", \"TechnogenicMeasures\", \"TechnogenicThreats\", \"ThreatGISMeasures\",  \"ThreatSFHs\", \"ThreatSourceThreats\", \"ThreatSources\", \"Threats\", \"Vulnerabilities\", \"VulnerabilityThreats\" CASCADE");
                     }
                     catch (Exception ex)
                     {
@@ -309,15 +310,15 @@ namespace KPSZI
             {
                 using (KPSZIContext db = new KPSZIContext())
                 {
-                    try
-                    {
+                    //try
+                    //{
                         db.Seed();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message, "Ахтунг!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
+                    //}
+                    //catch (Exception ex)
+                    //{
+                    //    MessageBox.Show(ex.Message, "Ахтунг!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //    return;
+                    //}
                 }
                 MessageBox.Show("База данных проинициализирована начальными значениями", "Это успех, парень!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -344,7 +345,32 @@ namespace KPSZI
             form.Show();
         }
 
-        public void FindAndReplace(Microsoft.Office.Interop.Word._Application doc, object findText, object replaceWithText)
+        private void setConfigOptionsToolStripMenu_Click(object sender, EventArgs e)
+        {
+            using (KPSZIContext db = new KPSZIContext())
+            {
+                db.SeedForConfigOptions();
+            }
+        }
+
+        private void addSZItoMeasuresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (KPSZIContext db = new KPSZIContext())
+            {
+                try
+                {
+                    db.SeedForMeasures();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Внимание!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                MessageBox.Show("Заполнение прошло успешно!", "Внимание!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        internal void FindAndReplace(Microsoft.Office.Interop.Word._Application doc, object findText, object replaceWithText)
         {
             object matchCase = false;
             object matchWholeWord = true;

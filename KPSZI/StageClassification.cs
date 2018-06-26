@@ -71,7 +71,6 @@ namespace KPSZI
             mf.checkBoxSubjectsStaff.CheckedChanged += new System.EventHandler(checkBoxSubjectsStaff_CheckedChanged);
             mf.comboBoxHundred.SelectedIndexChanged += new System.EventHandler(ISPDNLevelCalculate);
             mf.comboBoxActualThreatsType.SelectedIndexChanged += new System.EventHandler(ISPDNLevelCalculate);
-            
         }
         
         public override void saveChanges()
@@ -145,25 +144,39 @@ namespace KPSZI
                 case "Высокий":
                     {
                         mf.labelGISClass.Text = "К1 - 1 класс защищенности";
+                        IS.GISClass = 1;
                         break;
                     }
                 case "Средний":
                     {
                         if (scaleGIS == "Федеральный")
+                        {
                             mf.labelGISClass.Text = "К1 - 1 класс защищенности";
+                            IS.GISClass = 1;
+                        }
                         else
+                        {
                             mf.labelGISClass.Text = "К2 - 2 класс защищенности";
-                        break;
+                            IS.GISClass = 2;
+                        }
+                            break;
                     }
                 case "Низкий":
                     {
                         if (scaleGIS == "Федеральный")
+                        {
                             mf.labelGISClass.Text = "К2 - 2 класс защищенности";
+                            IS.GISClass = 2;
+                        }
                         else
+                        {
                             mf.labelGISClass.Text = "К3 - 3 класс защищенности";
+                            IS.GISClass = 3;
+                        }
                         break;
                     }
             }
+
         }
 
         public void ISPDNLevelCalculate(object sender, EventArgs e)

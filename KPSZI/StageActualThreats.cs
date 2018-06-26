@@ -32,7 +32,7 @@ namespace KPSZI
             
             
         }
-        
+
         protected override void initTabPage()
         {
             using (KPSZIContext db = new KPSZIContext())
@@ -73,51 +73,54 @@ namespace KPSZI
                 listFilteredThreats = new List<Threat>();
             }
 
+            mf.dgvThreats.DefaultCellStyle.SelectionBackColor = Color.AliceBlue;
+            mf.dgvThreats.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
+
             mf.tcThreatsNSD.TabPages.Remove(mf.tpThreatsNSD2);
-            mf.tcThreatsNSD.TabPages.Remove(mf.tpThreatsNSD3);
+        mf.tcThreatsNSD.TabPages.Remove(mf.tpThreatsNSD3);
 
-            mf.dgvThreats.DataSource = listThreats;
-            mf.dgvThreats.Columns["ThreatID"].Visible = false;
-            mf.dgvThreats.Columns["ThreatSources"].Visible = false;
-            mf.dgvThreats.Columns["DateOfChange"].Visible = false;
-            mf.dgvThreats.Columns["DateOfAdd"].Visible = false;
-            mf.dgvThreats.Columns["ImplementWays"].Visible = false;
-            mf.dgvThreats.Columns["SFHs"].Visible = false;
-            mf.dgvThreats.Columns["Vulnerabilities"].Visible = false;
-            mf.dgvThreats.Columns["Description"].Visible = false;
-            mf.dgvThreats.Columns["ObjectOfInfluence"].Visible = false;
-            mf.dgvThreats.Columns["GISMeasures"].Visible = false;
+        mf.dgvThreats.DataSource = listThreats;
+        mf.dgvThreats.Columns["ThreatID"].Visible = false;
+        mf.dgvThreats.Columns["ThreatSources"].Visible = false;
+        mf.dgvThreats.Columns["DateOfChange"].Visible = false;
+        mf.dgvThreats.Columns["DateOfAdd"].Visible = false;
+        mf.dgvThreats.Columns["ImplementWays"].Visible = false;
+        mf.dgvThreats.Columns["SFHs"].Visible = false;
+        mf.dgvThreats.Columns["Vulnerabilities"].Visible = false;
+        mf.dgvThreats.Columns["Description"].Visible = false;
+        mf.dgvThreats.Columns["ObjectOfInfluence"].Visible = false;
+        mf.dgvThreats.Columns["GISMeasures"].Visible = false;
 
-            mf.dgvThreats.Columns["ThreatNumber"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            mf.dgvThreats.Columns["ConfidenceViolation"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            mf.dgvThreats.Columns["IntegrityViolation"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            mf.dgvThreats.Columns["AvailabilityViolation"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+        mf.dgvThreats.Columns["ThreatNumber"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+        mf.dgvThreats.Columns["ConfidenceViolation"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+        mf.dgvThreats.Columns["IntegrityViolation"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+        mf.dgvThreats.Columns["AvailabilityViolation"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
 
-            mf.dgvThreats.Columns["ThreatID"].DisplayIndex = 0;
-            mf.dgvThreats.Columns["ThreatNumber"].Width = 60;
-            mf.dgvThreats.Columns["ThreatNumber"].DisplayIndex = 1;
-            mf.dgvThreats.Columns["ThreatNumber"].HeaderText = "№ УБИ";
-            mf.dgvThreats.Columns["Name"].HeaderText = "Название УБИ";
-            mf.dgvThreats.Columns["Name"].DisplayIndex = 2;
-            mf.dgvThreats.Columns["ConfidenceViolation"].Width = 30;
-            mf.dgvThreats.Columns["ConfidenceViolation"].HeaderText = "К";
-            mf.dgvThreats.Columns["ConfidenceViolation"].DisplayIndex = 3;
-            mf.dgvThreats.Columns["IntegrityViolation"].Width = 30;
-            mf.dgvThreats.Columns["IntegrityViolation"].HeaderText = "Ц";
-            mf.dgvThreats.Columns["IntegrityViolation"].DisplayIndex = 4;
-            mf.dgvThreats.Columns["AvailabilityViolation"].Width = 30;
-            mf.dgvThreats.Columns["AvailabilityViolation"].HeaderText = "Д";
-            mf.dgvThreats.Columns["AvailabilityViolation"].DisplayIndex = 5;
-            mf.dgvThreats.Columns["stringVuls"].HeaderText = "Уязвимости";
-            mf.dgvThreats.Columns["stringVuls"].DisplayIndex = 6;
-            mf.dgvThreats.Columns["stringWays"].HeaderText = "Способы реализации УБИ";
-            mf.dgvThreats.Columns["stringWays"].DisplayIndex = 7;
-            mf.dgvThreats.Columns["stringSFHS"].HeaderText = "СФХ";
-            mf.dgvThreats.Columns["stringSFHS"].DisplayIndex = 8;
-            mf.dgvThreats.Columns["stringSources"].HeaderText = "Источник угрозы";
-            mf.dgvThreats.Columns["stringSources"].DisplayIndex = 9;
+        mf.dgvThreats.Columns["ThreatID"].DisplayIndex = 0;
+        mf.dgvThreats.Columns["ThreatNumber"].Width = 60;
+        mf.dgvThreats.Columns["ThreatNumber"].DisplayIndex = 1;
+        mf.dgvThreats.Columns["ThreatNumber"].HeaderText = "№ УБИ";
+        mf.dgvThreats.Columns["Name"].HeaderText = "Название УБИ";
+        mf.dgvThreats.Columns["Name"].DisplayIndex = 2;
+        mf.dgvThreats.Columns["ConfidenceViolation"].Width = 30;
+        mf.dgvThreats.Columns["ConfidenceViolation"].HeaderText = "К";
+        mf.dgvThreats.Columns["ConfidenceViolation"].DisplayIndex = 3;
+        mf.dgvThreats.Columns["IntegrityViolation"].Width = 30;
+        mf.dgvThreats.Columns["IntegrityViolation"].HeaderText = "Ц";
+        mf.dgvThreats.Columns["IntegrityViolation"].DisplayIndex = 4;
+        mf.dgvThreats.Columns["AvailabilityViolation"].Width = 30;
+        mf.dgvThreats.Columns["AvailabilityViolation"].HeaderText = "Д";
+        mf.dgvThreats.Columns["AvailabilityViolation"].DisplayIndex = 5;
+        mf.dgvThreats.Columns["stringVuls"].HeaderText = "Уязвимости";
+        mf.dgvThreats.Columns["stringVuls"].DisplayIndex = 6;
+        mf.dgvThreats.Columns["stringWays"].HeaderText = "Способы реализации УБИ";
+        mf.dgvThreats.Columns["stringWays"].DisplayIndex = 7;
+        mf.dgvThreats.Columns["stringSFHS"].HeaderText = "СФХ";
+        mf.dgvThreats.Columns["stringSFHS"].DisplayIndex = 8;
+        mf.dgvThreats.Columns["stringSources"].HeaderText = "Источник угрозы";
+        mf.dgvThreats.Columns["stringSources"].DisplayIndex = 9;
 
-            mf.dgvThreats.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+        mf.dgvThreats.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
             mf.dgvThreats.SelectionChanged += new System.EventHandler(dgvThreats_SelectionChanged);
             mf.tpActualThreats.Resize += new System.EventHandler(tpActualThreats_Resize);
@@ -132,6 +135,8 @@ namespace KPSZI
         public void initTabPageThreatsNSD2()
         {
             // дизайн DataGridView для определения актуальных УБИ
+            mf.dgvActualThreatsNSD.DefaultCellStyle.SelectionBackColor = Color.AliceBlue;
+            mf.dgvThreats.DefaultCellStyle.SelectionForeColor = Color.Black;
             mf.dgvActualThreatsNSD.Columns.Clear();
             mf.dgvActualThreatsNSD.Rows.Clear();
             
@@ -182,8 +187,9 @@ namespace KPSZI
             // дизайн DataGridView для вывода перечня актуальных УБИ
             mf.dgvFinalNSDThreats.Columns.Clear();
             mf.dgvFinalNSDThreats.Rows.Clear();
-
-            mf.dgvFinalNSDThreats.Columns.Add("ThreatNumber", "№");
+            mf.dgvFinalNSDThreats.DefaultCellStyle.SelectionBackColor = Color.AliceBlue;
+            mf.dgvFinalNSDThreats.DefaultCellStyle.SelectionForeColor = Color.Black;
+                mf.dgvFinalNSDThreats.Columns.Add("ThreatNumber", "№");
             mf.dgvFinalNSDThreats.Columns["ThreatNumber"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             mf.dgvFinalNSDThreats.Columns["ThreatNumber"].Width = 40;
 
