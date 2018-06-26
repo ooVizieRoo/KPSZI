@@ -24,9 +24,11 @@ namespace KPSZI
         Button btnGetConreteMeasuresList;
         Button btnConsoleClear = new Button();
 
-        List<GISMeasure> ListOfBasicMeasures = new List<GISMeasure>();
-        List<GISMeasure> ListOfAdaptiveMeasures = new List<GISMeasure>();
-        List<GISMeasure> ListOfConcreteMeasures = new List<GISMeasure>();
+        public static List<GISMeasure> ListOfBasicMeasures = new List<GISMeasure>();
+        public static List<GISMeasure> ListOfAdaptiveMeasures = new List<GISMeasure>();
+        public static List<GISMeasure> ListOfExcludedMeasures = new List<GISMeasure>();
+        public static List<GISMeasure> ListOfConcreteMeasures = new List<GISMeasure>();
+        public static List<GISMeasure> ListOfAddedMeasures = new List<GISMeasure>();
 
         public StageMeasures(TabPage stageTab, TreeNode stageNode, MainForm mainForm, InformationSystem IS)
             : base(stageTab, stageNode, mainForm, IS)
@@ -234,6 +236,7 @@ namespace KPSZI
                     Console.WriteLine(gm.ToString());
                     mf.dgvAdaptiveMeas.Rows.Add(++i, gm.ToString());
                 }
+                ListOfExcludedMeasures = ListOfBasicMeasures.Except(ListOfAdaptiveMeasures).ToList();
 
                 Console.WriteLine("Базовый: {0}\nАдаптированный: {1}\nПересечение: {2}", ListOfBasicMeasures.Count, listOfGMForSFHs.Count, ListOfAdaptiveMeasures.Count);
             }
@@ -291,6 +294,7 @@ namespace KPSZI
                 }
                 Console.WriteLine("Базовый: {0}\nАдаптированный: {1}\nУточненный: {2}", ListOfBasicMeasures.Count, ListOfAdaptiveMeasures.Count, ListOfConcreteMeasures.Count);
                 IS.listOfAllNSDMeasures = ListOfConcreteMeasures;
+                ListOfAddedMeasures = ListOfConcreteMeasures.Except(ListOfAdaptiveMeasures).ToList();
             }
 
             mf.wsm.Visible = false;

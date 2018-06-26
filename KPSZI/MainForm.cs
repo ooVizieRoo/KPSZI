@@ -367,7 +367,7 @@ namespace KPSZI
             }
         }
 
-        private void FindAndReplace(Microsoft.Office.Interop.Word._Application doc, object findText, object replaceWithText)
+        internal void FindAndReplace(Microsoft.Office.Interop.Word._Application doc, object findText, object replaceWithText)
         {
             object matchCase = false;
             object matchWholeWord = true;

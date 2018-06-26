@@ -24,8 +24,10 @@ namespace KPSZI
             mf.btnGetSZIs.Click += BtnGetSZIs_Click;
             mf.btnGetMeasSZIs.Click += BtnGetMeasSZIs_Click;
             mf.btnExportTP.Click += BtnExportTP_Click;
+            mf.tabControlSZIs.Selecting += TabControlSZIs_Selecting;
         }
 
+        
 
         protected override void initTabPage()
         {
@@ -71,258 +73,12 @@ namespace KPSZI
 
         }
 
-        private void BtnExportTP_Click(object sender, EventArgs e)
-        {
-            Microsoft.Office.Interop.Word._Application oWord = new Microsoft.Office.Interop.Word.Application();
-            Microsoft.Office.Interop.Word._Document oDoc = oWord.Documents.Add(Environment.CurrentDirectory + "\\template.docx");
-            Microsoft.Office.Interop.Word.Table wordTable;
-            Microsoft.Office.Interop.Word.Range bm;
-            int row = 0;
-            using (KPSZIContext db = new KPSZIContext())
-            {
-
-                #region Заполнение СФХ
-                var listOfSFHs = db.SFHs.ToList().Intersect(IS.listOfSFHs).ToList();
-                var listOfSFHTypes = new List<SFHType>();
-
-                foreach (SFH sfh in listOfSFHs)
-                    listOfSFHTypes.Add(sfh.SFHType);
-                listOfSFHTypes = listOfSFHTypes.Distinct().OrderBy(st => st.SFHTypeId).ToList();
-
-                bm = oDoc.Bookmarks["SFH"].Range;
-                bm.Tables.Add(bm, listOfSFHTypes.Count, 2, Type.Missing, Type.Missing);
-                wordTable = bm.Tables[1];
-                wordTable.Borders.InsideLineStyle = Microsoft.Office.Interop.Word.WdLineStyle.wdLineStyleSingle;
-                wordTable.Borders.OutsideLineStyle = Microsoft.Office.Interop.Word.WdLineStyle.wdLineStyleSingle;
-                wordTable.Rows.Alignment = Microsoft.Office.Interop.Word.WdRowAlignment.wdAlignRowLeft;
-                wordTable.Range.Cells.VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
-                wordTable.Range.Select();
-
-                List<SFHType> lst = new List<SFHType>();
-
-                row = 1;
-
-                foreach (SFHType sfhtype in listOfSFHTypes)
-                {
-                    if (IS.listOfSFHs.Where(s => s.SFHType.Name == sfhtype.Name).ToList().Count == 0)
-                        continue;
-
-                    wordTable.Cell(row, 1).Range.Text = sfhtype.Name;
-                    foreach (SFH sfh in IS.listOfSFHs.Where(sfh => sfh.SFHType.Name == sfhtype.Name).ToList())
-                    {
-                        wordTable.Cell(row, 2).Range.Text += sfh.Name;
-                    }
-                    row++;
-                }
-
-                #endregion
-
-                #region Базовый набор мер
-                bm = oDoc.Bookmarks["Basic_Set"].Range;
-                bm.Tables.Add(bm, mf.dgvBasicMeas.Rows.Count + 1, 2, Type.Missing, Type.Missing);
-                wordTable = bm.Tables[1];
-                wordTable.Borders.InsideLineStyle = Microsoft.Office.Interop.Word.WdLineStyle.wdLineStyleSingle;
-                wordTable.Borders.OutsideLineStyle = Microsoft.Office.Interop.Word.WdLineStyle.wdLineStyleSingle;
-                wordTable.Columns.PreferredWidthType = Microsoft.Office.Interop.Word.WdPreferredWidthType.wdPreferredWidthPercent;
-                wordTable.Columns[1].PreferredWidth = 6f;
-                wordTable.Columns[2].PreferredWidth = 94f;
-                wordTable.Rows.Alignment = Microsoft.Office.Interop.Word.WdRowAlignment.wdAlignRowLeft;
-                wordTable.Rows[1].Alignment = Microsoft.Office.Interop.Word.WdRowAlignment.wdAlignRowCenter;
-                wordTable.Range.Cells.VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
-                wordTable.Range.Select();
-
-                wordTable.Cell(1, 1).Range.Text = "№ п/п";
-                wordTable.Cell(1, 2).Range.Text = "Наименование базовой меры";
-
-                row = 2;
-                foreach (DataGridViewRow dgvrow in mf.dgvBasicMeas.Rows)
-                {
-                    wordTable.Cell(row, 1).Range.Text = (row - 1).ToString();
-                    wordTable.Cell(row++, 2).Range.Text = dgvrow.Cells[1].Value.ToString();
-                }
-
-                #endregion
-
-                #region Адаптация базового набора мер
-                bm = oDoc.Bookmarks["Adaptive_Set"].Range;
-                bm.Tables.Add(bm, mf.dgvAdaptiveMeas.Rows.Count + 1, 2, Type.Missing, Type.Missing);
-                wordTable = bm.Tables[1];
-                wordTable.Borders.InsideLineStyle = Microsoft.Office.Interop.Word.WdLineStyle.wdLineStyleSingle;
-                wordTable.Borders.OutsideLineStyle = Microsoft.Office.Interop.Word.WdLineStyle.wdLineStyleSingle;
-                wordTable.Columns.PreferredWidthType = Microsoft.Office.Interop.Word.WdPreferredWidthType.wdPreferredWidthPercent;
-                wordTable.Columns[1].PreferredWidth = 6f;
-                wordTable.Columns[2].PreferredWidth = 94f;
-                wordTable.Rows.Alignment = Microsoft.Office.Interop.Word.WdRowAlignment.wdAlignRowLeft;
-                wordTable.Rows[1].Alignment = Microsoft.Office.Interop.Word.WdRowAlignment.wdAlignRowCenter;
-                wordTable.Range.Cells.VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
-                wordTable.Range.Select();
-
-                wordTable.Cell(1, 1).Range.Text = "№ п/п";
-                wordTable.Cell(1, 2).Range.Text = "Наименование меры";
-
-                row = 2;
-                foreach (DataGridViewRow dgvrow in mf.dgvAdaptiveMeas.Rows)
-                {
-                    wordTable.Cell(row, 1).Range.Text = (row - 1).ToString();
-                    wordTable.Cell(row++, 2).Range.Text = dgvrow.Cells[1].Value.ToString();
-                }
-                #endregion
-
-                #region Уточненение адаптированного базового набора мер
-                //Вывод УБИ-меры
-                bm = oDoc.Bookmarks["Thr_Meas"].Range;
-                bm.Tables.Add(bm, mf.dgvThrMeas.Rows.Count + 1, 3, Type.Missing, Type.Missing);
-                wordTable = bm.Tables[1];
-                wordTable.Borders.InsideLineStyle = Microsoft.Office.Interop.Word.WdLineStyle.wdLineStyleSingle;
-                wordTable.Borders.OutsideLineStyle = Microsoft.Office.Interop.Word.WdLineStyle.wdLineStyleSingle;
-                wordTable.Columns.PreferredWidthType = Microsoft.Office.Interop.Word.WdPreferredWidthType.wdPreferredWidthPercent;
-                wordTable.Columns[1].PreferredWidth = 6f;
-                wordTable.Columns[2].PreferredWidth = 19f;
-                wordTable.Columns[3].PreferredWidth = 75f;
-                wordTable.Rows.Alignment = Microsoft.Office.Interop.Word.WdRowAlignment.wdAlignRowLeft;
-                wordTable.Rows[1].Alignment = Microsoft.Office.Interop.Word.WdRowAlignment.wdAlignRowCenter;
-                wordTable.Range.Cells.VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
-                wordTable.Range.Select();
-
-                wordTable.Cell(1, 1).Range.Text = "№ п/п";
-                wordTable.Cell(1, 2).Range.Text = "Наименование угрозы";
-                wordTable.Cell(1, 3).Range.Text = "Меры по нейтрализации УБИ";
-
-                row = 2;
-                foreach (DataGridViewRow dgvrow in mf.dgvThrMeas.Rows)
-                {
-                    wordTable.Cell(row, 1).Range.Text = (row - 1).ToString();
-                    wordTable.Cell(row, 2).Range.Text = dgvrow.Cells[1].Value.ToString();
-                    wordTable.Cell(row++, 3).Range.Text = dgvrow.Cells[2].Value.ToString();
-                }
-
-                ////Вывод добавляемых мер
-                //bm = oDoc.Bookmarks["Add_Meas"].Range;
-                //bm.Tables.Add(bm, mf.dgvThrMeas.Rows.Count + 1, 2, Type.Missing, Type.Missing);
-                //wordTable = bm.Tables[1];
-                //wordTable.Borders.InsideLineStyle = Microsoft.Office.Interop.Word.WdLineStyle.wdLineStyleSingle;
-                //wordTable.Borders.OutsideLineStyle = Microsoft.Office.Interop.Word.WdLineStyle.wdLineStyleSingle;
-                //wordTable.Columns.PreferredWidthType = Microsoft.Office.Interop.Word.WdPreferredWidthType.wdPreferredWidthPercent;
-                //wordTable.Columns[1].PreferredWidth = 6f;
-                //wordTable.Columns[2].PreferredWidth = 94f;
-                //wordTable.Rows.Alignment = Microsoft.Office.Interop.Word.WdRowAlignment.wdAlignRowLeft;
-                //wordTable.Rows[1].Alignment = Microsoft.Office.Interop.Word.WdRowAlignment.wdAlignRowCenter;
-                //wordTable.Range.Cells.VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
-                //wordTable.Range.Select();
-
-                //wordTable.Cell(1, 1).Range.Text = "№ п/п";
-                //wordTable.Cell(1, 2).Range.Text = "Наименование добавляемой меры";
-
-                //row = 2;
-                //foreach (DataGridViewRow dgvrow in mf.dgvThrMeas.Rows)
-                //{
-                //    wordTable.Cell(row, 1).Range.Text = (row - 1).ToString();
-                //    wordTable.Cell(row++, 2).Range.Text = dgvrow.Cells[1].Value.ToString();
-                //}
-                #endregion
-
-                #region Итоговый перечень мер
-                bm = oDoc.Bookmarks["Final_Set"].Range;
-                bm.Tables.Add(bm, mf.dgvConcreteMeas.Rows.Count + 1, 2, Type.Missing, Type.Missing);
-                wordTable = bm.Tables[1];
-                wordTable.Borders.InsideLineStyle = Microsoft.Office.Interop.Word.WdLineStyle.wdLineStyleSingle;
-                wordTable.Borders.OutsideLineStyle = Microsoft.Office.Interop.Word.WdLineStyle.wdLineStyleSingle;
-                wordTable.Columns.PreferredWidthType = Microsoft.Office.Interop.Word.WdPreferredWidthType.wdPreferredWidthPercent;
-                wordTable.Columns[1].PreferredWidth = 6f;
-                wordTable.Columns[2].PreferredWidth = 94f;
-                wordTable.Rows.Alignment = Microsoft.Office.Interop.Word.WdRowAlignment.wdAlignRowLeft;
-                wordTable.Rows[1].Alignment = Microsoft.Office.Interop.Word.WdRowAlignment.wdAlignRowCenter;
-                wordTable.Range.Cells.VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
-                wordTable.Range.Select();
-
-                wordTable.Cell(1, 1).Range.Text = "№ п/п";
-                wordTable.Cell(1, 2).Range.Text = "Наименование меры";
-
-                row = 2;
-                foreach (DataGridViewRow dgvrow in mf.dgvConcreteMeas.Rows)
-                {
-                    wordTable.Cell(row, 1).Range.Text = (row - 1).ToString();
-                    wordTable.Cell(row++, 2).Range.Text = dgvrow.Cells[1].Value.ToString();
-                }
-                #endregion
-
-                #region Перечень предлагаемых СЗИ
-                bm = oDoc.Bookmarks["SZIs_Set"].Range;
-                bm.Tables.Add(bm, mf.dgvSZIs.Rows.Count + 1, 5, Type.Missing, Type.Missing);
-                wordTable = bm.Tables[1];
-                wordTable.Borders.InsideLineStyle = Microsoft.Office.Interop.Word.WdLineStyle.wdLineStyleSingle;
-                wordTable.Borders.OutsideLineStyle = Microsoft.Office.Interop.Word.WdLineStyle.wdLineStyleSingle;
-                wordTable.Columns.PreferredWidthType = Microsoft.Office.Interop.Word.WdPreferredWidthType.wdPreferredWidthPercent;
-                wordTable.Columns[1].PreferredWidth = 4.5f;
-                wordTable.Columns[2].PreferredWidth = 36.3f;
-                wordTable.Columns[3].PreferredWidth = 19.6f;
-                wordTable.Columns[4].PreferredWidth = 25.7f;
-                wordTable.Columns[5].PreferredWidth = 13.6f;
-
-                wordTable.Rows.Alignment = Microsoft.Office.Interop.Word.WdRowAlignment.wdAlignRowLeft;
-                wordTable.Rows[1].Alignment = Microsoft.Office.Interop.Word.WdRowAlignment.wdAlignRowCenter;
-                wordTable.Range.Cells.VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
-                wordTable.Range.Select();
-
-                wordTable.Cell(1, 1).Range.Text = "№";
-                wordTable.Cell(1, 2).Range.Text = "Наименование СЗИ";
-                wordTable.Cell(1, 3).Range.Text = "Вид";
-                wordTable.Cell(1, 4).Range.Text = "Сертификат";
-                wordTable.Cell(1, 5).Range.Text = "Уровень контроля отсутствия НДВ";
-
-
-                row = 2;
-                foreach (DataGridViewRow dgvrow in mf.dgvSZIs.Rows)
-                {
-                    wordTable.Cell(row, 1).Range.Text = (row - 1).ToString();
-                    wordTable.Cell(row, 2).Range.Text = dgvrow.Cells[1].Value.ToString();
-                    wordTable.Cell(row, 3).Range.Text = dgvrow.Cells[2].Value.ToString();
-                    wordTable.Cell(row, 4).Range.Text = dgvrow.Cells[3].Value.ToString();
-                    wordTable.Cell(row++, 5).Range.Text = dgvrow.Cells[4].Value.ToString();
-
-                }
-                #endregion
-
-                #region Мера-СЗИ
-                bm = oDoc.Bookmarks["Meas_SZIs"].Range;
-                bm.Tables.Add(bm, mf.dgvMeasSZIs.Rows.Count + 1, 3, Type.Missing, Type.Missing);
-                wordTable = bm.Tables[1];
-                wordTable.Borders.InsideLineStyle = Microsoft.Office.Interop.Word.WdLineStyle.wdLineStyleSingle;
-                wordTable.Borders.OutsideLineStyle = Microsoft.Office.Interop.Word.WdLineStyle.wdLineStyleSingle;
-                wordTable.Columns.PreferredWidthType = Microsoft.Office.Interop.Word.WdPreferredWidthType.wdPreferredWidthPercent;
-                wordTable.Columns[1].PreferredWidth = 6f;
-                wordTable.Columns[2].PreferredWidth = 60f;
-                wordTable.Columns[3].PreferredWidth = 34f;
-
-                wordTable.Rows.Alignment = Microsoft.Office.Interop.Word.WdRowAlignment.wdAlignRowLeft;
-                wordTable.Rows[1].Alignment = Microsoft.Office.Interop.Word.WdRowAlignment.wdAlignRowCenter;
-                wordTable.Range.Cells.VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
-                wordTable.Range.Select();
-
-                wordTable.Cell(1, 1).Range.Text = @"№ п\п";
-                wordTable.Cell(1, 2).Range.Text = "Название меры";
-                wordTable.Cell(1, 3).Range.Text = "Перечень СЗИ";
-
-
-                row = 2;
-                foreach (DataGridViewRow dgvrow in mf.dgvMeasSZIs.Rows)
-                {
-                    wordTable.Cell(row, 1).Range.Text = (row - 1).ToString();
-                    wordTable.Cell(row, 2).Range.Text = dgvrow.Cells[1].Value.ToString();
-                    wordTable.Cell(row++, 3).Range.Text = dgvrow.Cells[2].Value.ToString();
-
-                }
-                #endregion
-
-
-
-                oDoc.Activate();
-                oWord.Visible = true;
-            }
-        }
         #region События
         private void BtnGetRequirm_Click(object sender, EventArgs e)
         {
+            mf.wsm.Visible = true;
+            mf.wsm.Update();
+
             if (IS.listOfAllNSDMeasures.Count == 0)
             {
                 if (MessageBox.Show("Не определен перечень мер защиты информации, необходимый для дальнейшней работы. \nПерейти во вкладку \"Перечень мер\"?", "Внимание!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -335,7 +91,7 @@ namespace KPSZI
             }
 
             mf.tabControlSZIs.TabPages.Clear();
-
+            mf.tpSZItbInfo.Text = "Ниже представлены сформированные требования к средствам защиты информации согласно классу защищенности информационной системы и условиям функционирования. В соответствии с требованиям сформирован перечень видов СЗИ и их представителей. После осуществления выбора, нажмите \"СЗИ\", чтобы просмотреть информацию о них.";
             switch (IS.GISClass)
             {
                 case 1: { mf.tbtpSZISVT.Text = "не ниже 5-го класса"; mf.tbtpSZISZI.Text = "не ниже 4-го класса"; mf.tbtpSZINDV.Text = "4"; break; }
@@ -471,15 +227,19 @@ namespace KPSZI
                     i++;
                 }
             }
+            mf.wsm.Visible = false;
         }
 
         private void BtnGetSZIs_Click(object sender, EventArgs e)
         {
+            mf.wsm.Visible = true;
+            mf.wsm.Update();
+
             mf.dgvSZIs.Rows.Clear();
             mf.tabControlSZIs.TabPages.Clear();
             mf.tabControlSZIs.TabPages.Add(mf.tpSZItpSZIs);
             int i = 0;
-
+            mf.tpSZItbInfo.Text = "В таблице представлен перечень выбранных Вами средств защиты и краткая информация о них. Для формирования перечня реализуемых технических мер этими средствами нажмите \"Реализация тех. мер\"";
             using (KPSZIContext db = new KPSZIContext())
             {
                 var tempListSZIs = db.SZIs.ToList().Intersect(IS.listOfSZIs).ToList();
@@ -494,6 +254,7 @@ namespace KPSZI
                     mf.dgvSZIs.Rows.Add(++i, szi.Name, sorts, "№"+szi.Certificate + ", до " + szi.DateOfEnd.ToShortDateString(), szi.NDVControlLevel, szi.SVTClass, szi.TU);
                 }
             }
+            mf.wsm.Visible = false;
         }
 
         private void BtnGetMeasSZIs_Click(object sender, EventArgs e)
@@ -506,7 +267,7 @@ namespace KPSZI
             mf.tabControlSZIs.TabPages.Add(mf.tpSZItpMeasSZIs);
             mf.tabControlSZIs.SelectedTab = mf.tpSZItpMeasSZIs;
             mf.dgvMeasSZIs.Rows.Clear();
-
+            mf.tpSZItbInfo.Text = "В таблице представлен перечень реализуемых Вами технических мер выбранными Вами средствамизащиты. Для экспорта технического проекта нажмите на кнопку с иконкой Microsoft Office Word";
             using (KPSZIContext db = new KPSZIContext())
             {
                 int i = 0;
@@ -557,6 +318,280 @@ namespace KPSZI
                 if (!cb.Checked && IS.listOfSZIs.Contains(szi))
                     IS.listOfSZIs.Remove(szi);
             }
+        }
+
+        private void TabControlSZIs_Selecting(object sender, TabControlCancelEventArgs e)
+        {
+            //TabPage tp = (TabPage)sender;
+            
+            if (e.TabPage == mf.tpSZItpReq)
+                mf.tpSZItbInfo.Text = "Ниже представлены сформированные требования к средствам защиты информации согласно классу защищенности информационной системы и условиям функционирования. В соответствии с требованиям сформирован перечень видов СЗИ и их представителей. После осуществления выбора, нажмите \"СЗИ\", чтобы просмотреть информацию о них.";
+
+            if (e.TabPage == mf.tpSZItpSZIs)
+                mf.tpSZItbInfo.Text = "В таблице представлен перечень выбранных Вами средств защиты и краткая информация о них. Для формирования перечня реализуемых технических мер этими средствами нажмите \"Реализация тех. мер\"";
+
+            if (e.TabPage == mf.tpSZItpMeasSZIs)
+                mf.tpSZItbInfo.Text = "В таблице представлен перечень реализуемых технических мер выбранными Вами средствами защиты. Для экспорта технического проекта нажмите на кнопку с иконкой Microsoft Office Word";
+
+        }
+
+        private void BtnExportTP_Click(object sender, EventArgs e)
+        {
+            mf.wsm.Visible = true;
+            mf.wsm.Update();
+
+            Microsoft.Office.Interop.Word._Application oWord = new Microsoft.Office.Interop.Word.Application();
+            Microsoft.Office.Interop.Word._Document oDoc = oWord.Documents.Add(Environment.CurrentDirectory + "\\template.docx");
+            Microsoft.Office.Interop.Word.Table wordTable;
+            Microsoft.Office.Interop.Word.Range bm;
+            int row = 0;
+            using (KPSZIContext db = new KPSZIContext())
+            {
+
+                #region Заполнение СФХ
+                var listOfSFHs = db.SFHs.ToList().Intersect(IS.listOfSFHs).ToList();
+                var listOfSFHTypes = new List<SFHType>();
+
+                foreach (SFH sfh in listOfSFHs)
+                    listOfSFHTypes.Add(sfh.SFHType);
+                listOfSFHTypes = listOfSFHTypes.Distinct().OrderBy(st => st.SFHTypeId).ToList();
+
+                bm = oDoc.Bookmarks["SFH"].Range;
+                bm.Tables.Add(bm, listOfSFHTypes.Count, 2, Type.Missing, Type.Missing);
+                wordTable = bm.Tables[1];
+                wordTable.Borders.InsideLineStyle = Microsoft.Office.Interop.Word.WdLineStyle.wdLineStyleSingle;
+                wordTable.Borders.OutsideLineStyle = Microsoft.Office.Interop.Word.WdLineStyle.wdLineStyleSingle;
+                wordTable.Rows.Alignment = Microsoft.Office.Interop.Word.WdRowAlignment.wdAlignRowLeft;
+                wordTable.Range.Cells.VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+                wordTable.Range.Select();
+
+                List<SFHType> lst = new List<SFHType>();
+
+                row = 1;
+
+                foreach (SFHType sfhtype in listOfSFHTypes)
+                {
+                    if (IS.listOfSFHs.Where(s => s.SFHType.Name == sfhtype.Name).ToList().Count == 0)
+                        continue;
+
+                    wordTable.Cell(row, 1).Range.Text = sfhtype.Name;
+                    foreach (SFH sfh in IS.listOfSFHs.Where(sfh => sfh.SFHType.Name == sfhtype.Name).ToList())
+                    {
+                        wordTable.Cell(row, 2).Range.Text += sfh.Name;
+                    }
+                    row++;
+                }
+
+                #endregion
+
+                #region Базовый набор мер
+                bm = oDoc.Bookmarks["Basic_Set"].Range;
+                bm.Tables.Add(bm, mf.dgvBasicMeas.Rows.Count + 1, 2, Type.Missing, Type.Missing);
+                wordTable = bm.Tables[1];
+                wordTable.Borders.InsideLineStyle = Microsoft.Office.Interop.Word.WdLineStyle.wdLineStyleSingle;
+                wordTable.Borders.OutsideLineStyle = Microsoft.Office.Interop.Word.WdLineStyle.wdLineStyleSingle;
+                wordTable.Columns.PreferredWidthType = Microsoft.Office.Interop.Word.WdPreferredWidthType.wdPreferredWidthPercent;
+                wordTable.Columns[1].PreferredWidth = 6f;
+                wordTable.Columns[2].PreferredWidth = 94f;
+                wordTable.Rows.Alignment = Microsoft.Office.Interop.Word.WdRowAlignment.wdAlignRowLeft;
+                wordTable.Rows[1].Alignment = Microsoft.Office.Interop.Word.WdRowAlignment.wdAlignRowCenter;
+                wordTable.Range.Cells.VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+                wordTable.Range.Select();
+
+                wordTable.Cell(1, 1).Range.Text = "№ п/п";
+                wordTable.Cell(1, 2).Range.Text = "Наименование базовой меры";
+
+                row = 2;
+                foreach (DataGridViewRow dgvrow in mf.dgvBasicMeas.Rows)
+                {
+                    wordTable.Cell(row, 1).Range.Text = (row - 1).ToString();
+                    wordTable.Cell(row++, 2).Range.Text = dgvrow.Cells[1].Value.ToString();
+                }
+
+                #endregion
+
+                #region Адаптация базового набора мер
+                bm = oDoc.Bookmarks["Adaptive_Set"].Range;
+                bm.Tables.Add(bm, StageMeasures.ListOfExcludedMeasures.Count + 1, 2, Type.Missing, Type.Missing);
+                wordTable = bm.Tables[1];
+                wordTable.Borders.InsideLineStyle = Microsoft.Office.Interop.Word.WdLineStyle.wdLineStyleSingle;
+                wordTable.Borders.OutsideLineStyle = Microsoft.Office.Interop.Word.WdLineStyle.wdLineStyleSingle;
+                wordTable.Columns.PreferredWidthType = Microsoft.Office.Interop.Word.WdPreferredWidthType.wdPreferredWidthPercent;
+                wordTable.Columns[1].PreferredWidth = 6f;
+                wordTable.Columns[2].PreferredWidth = 94f;
+                wordTable.Rows.Alignment = Microsoft.Office.Interop.Word.WdRowAlignment.wdAlignRowLeft;
+                wordTable.Rows[1].Alignment = Microsoft.Office.Interop.Word.WdRowAlignment.wdAlignRowCenter;
+                wordTable.Range.Cells.VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+                wordTable.Range.Select();
+
+                wordTable.Cell(1, 1).Range.Text = "№ п/п";
+                wordTable.Cell(1, 2).Range.Text = "Наименование меры";
+
+                row = 2;
+                foreach (GISMeasure gm in StageMeasures.ListOfExcludedMeasures)
+                {
+                    wordTable.Cell(row, 1).Range.Text = (row - 1).ToString();
+                    wordTable.Cell(row++, 2).Range.Text = gm.ToString();
+                }
+                #endregion
+
+                #region Уточненение адаптированного базового набора мер
+                //Вывод УБИ-меры
+                bm = oDoc.Bookmarks["Thr_Meas"].Range;
+                bm.Tables.Add(bm, mf.dgvThrMeas.Rows.Count + 1, 3, Type.Missing, Type.Missing);
+                wordTable = bm.Tables[1];
+                wordTable.Borders.InsideLineStyle = Microsoft.Office.Interop.Word.WdLineStyle.wdLineStyleSingle;
+                wordTable.Borders.OutsideLineStyle = Microsoft.Office.Interop.Word.WdLineStyle.wdLineStyleSingle;
+                wordTable.Columns.PreferredWidthType = Microsoft.Office.Interop.Word.WdPreferredWidthType.wdPreferredWidthPercent;
+                wordTable.Columns[1].PreferredWidth = 6f;
+                wordTable.Columns[2].PreferredWidth = 19f;
+                wordTable.Columns[3].PreferredWidth = 75f;
+                wordTable.Rows.Alignment = Microsoft.Office.Interop.Word.WdRowAlignment.wdAlignRowLeft;
+                wordTable.Rows[1].Alignment = Microsoft.Office.Interop.Word.WdRowAlignment.wdAlignRowCenter;
+                wordTable.Range.Cells.VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+                wordTable.Range.Select();
+
+                wordTable.Cell(1, 1).Range.Text = "№ п/п";
+                wordTable.Cell(1, 2).Range.Text = "Наименование угрозы";
+                wordTable.Cell(1, 3).Range.Text = "Меры по нейтрализации УБИ";
+
+                row = 2;
+                foreach (DataGridViewRow dgvrow in mf.dgvThrMeas.Rows)
+                {
+                    wordTable.Cell(row, 1).Range.Text = (row - 1).ToString();
+                    wordTable.Cell(row, 2).Range.Text = dgvrow.Cells[1].Value.ToString();
+                    wordTable.Cell(row++, 3).Range.Text = dgvrow.Cells[2].Value.ToString();
+                }
+
+                //Вывод добавляемых мер
+                bm = oDoc.Bookmarks["Add_Meas"].Range;
+                bm.Tables.Add(bm, StageMeasures.ListOfAddedMeasures.Count + 1, 2, Type.Missing, Type.Missing);
+                wordTable = bm.Tables[1];
+                wordTable.Borders.InsideLineStyle = Microsoft.Office.Interop.Word.WdLineStyle.wdLineStyleSingle;
+                wordTable.Borders.OutsideLineStyle = Microsoft.Office.Interop.Word.WdLineStyle.wdLineStyleSingle;
+                wordTable.Columns.PreferredWidthType = Microsoft.Office.Interop.Word.WdPreferredWidthType.wdPreferredWidthPercent;
+                wordTable.Columns[1].PreferredWidth = 6f;
+                wordTable.Columns[2].PreferredWidth = 94f;
+                wordTable.Rows.Alignment = Microsoft.Office.Interop.Word.WdRowAlignment.wdAlignRowLeft;
+                wordTable.Rows[1].Alignment = Microsoft.Office.Interop.Word.WdRowAlignment.wdAlignRowCenter;
+                wordTable.Range.Cells.VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+                wordTable.Range.Select();
+
+                wordTable.Cell(1, 1).Range.Text = "№ п/п";
+                wordTable.Cell(1, 2).Range.Text = "Наименование добавляемой меры";
+
+                row = 2;
+                foreach (GISMeasure gm in StageMeasures.ListOfAddedMeasures)
+                {
+                    wordTable.Cell(row, 1).Range.Text = (row - 1).ToString();
+                    wordTable.Cell(row++, 2).Range.Text = gm.ToString();
+                }
+                #endregion
+
+                #region Итоговый перечень мер
+                bm = oDoc.Bookmarks["Final_Set"].Range;
+                bm.Tables.Add(bm, mf.dgvConcreteMeas.Rows.Count + 1, 2, Type.Missing, Type.Missing);
+                wordTable = bm.Tables[1];
+                wordTable.Borders.InsideLineStyle = Microsoft.Office.Interop.Word.WdLineStyle.wdLineStyleSingle;
+                wordTable.Borders.OutsideLineStyle = Microsoft.Office.Interop.Word.WdLineStyle.wdLineStyleSingle;
+                wordTable.Columns.PreferredWidthType = Microsoft.Office.Interop.Word.WdPreferredWidthType.wdPreferredWidthPercent;
+                wordTable.Columns[1].PreferredWidth = 6f;
+                wordTable.Columns[2].PreferredWidth = 94f;
+                wordTable.Rows.Alignment = Microsoft.Office.Interop.Word.WdRowAlignment.wdAlignRowLeft;
+                wordTable.Rows[1].Alignment = Microsoft.Office.Interop.Word.WdRowAlignment.wdAlignRowCenter;
+                wordTable.Range.Cells.VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+                wordTable.Range.Select();
+
+                wordTable.Cell(1, 1).Range.Text = "№ п/п";
+                wordTable.Cell(1, 2).Range.Text = "Наименование меры";
+
+                row = 2;
+                foreach (DataGridViewRow dgvrow in mf.dgvConcreteMeas.Rows)
+                {
+                    wordTable.Cell(row, 1).Range.Text = (row - 1).ToString();
+                    wordTable.Cell(row++, 2).Range.Text = dgvrow.Cells[1].Value.ToString();
+                }
+                #endregion
+
+                #region Перечень предлагаемых СЗИ
+                bm = oDoc.Bookmarks["SZIs_Set"].Range;
+                bm.Tables.Add(bm, mf.dgvSZIs.Rows.Count + 1, 5, Type.Missing, Type.Missing);
+                wordTable = bm.Tables[1];
+                wordTable.Borders.InsideLineStyle = Microsoft.Office.Interop.Word.WdLineStyle.wdLineStyleSingle;
+                wordTable.Borders.OutsideLineStyle = Microsoft.Office.Interop.Word.WdLineStyle.wdLineStyleSingle;
+                wordTable.Columns.PreferredWidthType = Microsoft.Office.Interop.Word.WdPreferredWidthType.wdPreferredWidthPercent;
+                wordTable.Columns[1].PreferredWidth = 4.5f;
+                wordTable.Columns[2].PreferredWidth = 36.3f;
+                wordTable.Columns[3].PreferredWidth = 19.6f;
+                wordTable.Columns[4].PreferredWidth = 25.7f;
+                wordTable.Columns[5].PreferredWidth = 13.6f;
+
+                wordTable.Rows.Alignment = Microsoft.Office.Interop.Word.WdRowAlignment.wdAlignRowLeft;
+                wordTable.Rows[1].Alignment = Microsoft.Office.Interop.Word.WdRowAlignment.wdAlignRowCenter;
+                wordTable.Range.Cells.VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+                wordTable.Range.Select();
+
+                wordTable.Cell(1, 1).Range.Text = "№";
+                wordTable.Cell(1, 2).Range.Text = "Наименование СЗИ";
+                wordTable.Cell(1, 3).Range.Text = "Вид";
+                wordTable.Cell(1, 4).Range.Text = "Сертификат";
+                wordTable.Cell(1, 5).Range.Text = "Уровень контроля отсутствия НДВ";
+
+
+                row = 2;
+                foreach (DataGridViewRow dgvrow in mf.dgvSZIs.Rows)
+                {
+                    wordTable.Cell(row, 1).Range.Text = (row - 1).ToString();
+                    wordTable.Cell(row, 2).Range.Text = dgvrow.Cells[1].Value.ToString();
+                    wordTable.Cell(row, 3).Range.Text = dgvrow.Cells[2].Value.ToString();
+                    wordTable.Cell(row, 4).Range.Text = dgvrow.Cells[3].Value.ToString();
+                    wordTable.Cell(row++, 5).Range.Text = dgvrow.Cells[4].Value.ToString();
+
+                }
+                #endregion
+
+                #region Мера-СЗИ
+                bm = oDoc.Bookmarks["Meas_SZIs"].Range;
+                bm.Tables.Add(bm, mf.dgvMeasSZIs.Rows.Count + 1, 3, Type.Missing, Type.Missing);
+                wordTable = bm.Tables[1];
+                wordTable.Borders.InsideLineStyle = Microsoft.Office.Interop.Word.WdLineStyle.wdLineStyleSingle;
+                wordTable.Borders.OutsideLineStyle = Microsoft.Office.Interop.Word.WdLineStyle.wdLineStyleSingle;
+                wordTable.Columns.PreferredWidthType = Microsoft.Office.Interop.Word.WdPreferredWidthType.wdPreferredWidthPercent;
+                wordTable.Columns[1].PreferredWidth = 6f;
+                wordTable.Columns[2].PreferredWidth = 60f;
+                wordTable.Columns[3].PreferredWidth = 34f;
+
+                wordTable.Rows.Alignment = Microsoft.Office.Interop.Word.WdRowAlignment.wdAlignRowLeft;
+                wordTable.Rows[1].Alignment = Microsoft.Office.Interop.Word.WdRowAlignment.wdAlignRowCenter;
+                wordTable.Range.Cells.VerticalAlignment = Microsoft.Office.Interop.Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+                wordTable.Range.Select();
+
+                wordTable.Cell(1, 1).Range.Text = @"№ п\п";
+                wordTable.Cell(1, 2).Range.Text = "Название меры";
+                wordTable.Cell(1, 3).Range.Text = "Перечень СЗИ";
+
+
+                row = 2;
+                foreach (DataGridViewRow dgvrow in mf.dgvMeasSZIs.Rows)
+                {
+                    wordTable.Cell(row, 1).Range.Text = (row - 1).ToString();
+                    wordTable.Cell(row, 2).Range.Text = dgvrow.Cells[1].Value.ToString();
+                    wordTable.Cell(row++, 3).Range.Text = dgvrow.Cells[2].Value.ToString();
+
+                }
+                #endregion
+
+                #region Замена слов
+                mf.FindAndReplace(oWord, "{ИМЯ_ИС}", IS.ISName);
+                mf.FindAndReplace(oWord, "{КЗ}", IS.GISClass);
+
+                #endregion
+
+
+                oDoc.Activate();
+                oWord.Visible = true;
+            }
+            mf.wsm.Visible = false;
         }
 
         #endregion
