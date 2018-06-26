@@ -5932,17 +5932,17 @@ namespace KPSZI.Model
 
             #region ИАФ
             ConfigOption iaf1_1 = new ConfigOption();
-            iaf1_1.Name = "Определение внутренних пользователей";
+            iaf1_1.Name = "Определение учентых записей внутренних пользователей согласно матрице доступа и ОРД";
             iaf1_1.Description = "К внутренним пользователям относятся должностные лица оператора (пользователи, администраторы), выполняющие свои должностные обязанности (функции) с использованием информации, информационных технологий и технических средств информационной системы в соответствии с должностными регламентами (инструкциями) утвержденными оператором и которым в информационной системе присвоены учетные записи";
 
             ConfigOption iaf1_2 = new ConfigOption();
-            iaf1_2.Name = "Присвоение учетных записей внутренним пользователям ИС";
+            iaf1_2.Name = "Присвоение учетных записей внутренним пользователям ИС согласно ОРД";
 
             ConfigOption iaf1_3 = new ConfigOption();
-            iaf1_3.Name = "Определение видов доступа";
+            iaf1_3.Name = "Определение разрешенных видов доступа (удаленный, локальный) согласно ОРД";
 
             ConfigOption iaf1_4 = new ConfigOption();
-            iaf1_4.Name = "Составление перечня действий, разрешенных до идентификации и аутентификации пользователей";
+            iaf1_4.Name = "Определение перечня действий, разрешенных до идентификации и аутентификации пользователей";
 
             ConfigOption iaf1_yc1a = new ConfigOption();
             iaf1_yc1a.Name = "Обеспечение многофакторной (двухфакторной) аутентификации для удаленного доступа с правами привилегированных учетных записей (администраторов)";
@@ -5975,7 +5975,7 @@ namespace KPSZI.Model
 
 
             ConfigOption iaf2_1 = new ConfigOption();
-            iaf2_1.Name = "Определение устройств, подлежащих идентификации и аутентификации до начала информационного взаимодействия";
+            iaf2_1.Name = "Определение устройств, подлежащих идентификации и аутентификации до начала информационного взаимодействия с другими ИС";
             iaf2_1.DefenceClass = "2,1";
 
             ConfigOption iaf2_2 = new ConfigOption();
@@ -5989,10 +5989,7 @@ namespace KPSZI.Model
 
             ConfigOption iaf3_1 = new ConfigOption();
             iaf3_1.Name = "Формирование и присвоение идентификаторов пользователям и (или) устройствам ИС";
-
-            ConfigOption iaf3_2 = new ConfigOption();
-            iaf3_2.Name = "Блокирование идентификатора после установленного оператором времени неиспользования";
-
+            
             ConfigOption iaf3_yc1a = new ConfigOption();
             iaf3_yc1a.Name = "Исключение повторного использования идентификатора пользователя в течение не менее одного года";
             iaf3_yc1a.Description = "Усиление 1а";
@@ -6014,7 +6011,6 @@ namespace KPSZI.Model
             iaf3_yc2b.DefenceClass = "1";
 
             GisMeasures.Where(gm => gm.Number == 3 && gm.MeasureGroup.ShortName == "ИАФ").First().ConfigOptions.Add(iaf3_1);
-            GisMeasures.Where(gm => gm.Number == 3 && gm.MeasureGroup.ShortName == "ИАФ").First().ConfigOptions.Add(iaf3_2);
             GisMeasures.Where(gm => gm.Number == 3 && gm.MeasureGroup.ShortName == "ИАФ").First().ConfigOptions.Add(iaf3_yc1a);
             GisMeasures.Where(gm => gm.Number == 3 && gm.MeasureGroup.ShortName == "ИАФ").First().ConfigOptions.Add(iaf3_yc1b);
             GisMeasures.Where(gm => gm.Number == 3 && gm.MeasureGroup.ShortName == "ИАФ").First().ConfigOptions.Add(iaf3_yc2a);
@@ -6022,7 +6018,7 @@ namespace KPSZI.Model
 
             ConfigOption iaf4 = new ConfigOption();
             iaf4.Name = "Управление аутентификацией";
-            iaf4.Description = "Изменение стандартных паролей программных и/или технических средств; генерация и выдача средств аутентификации (паролей) пользователям; установление сложности паролей с требованием к регистру, количеству символов; блокирование и замена средств аутентификации; защита аутентификационной информации";
+            iaf4.Description = "Изменение стандартных паролей программных и/или технических средств; генерация и выдача средств аутентификации (паролей) пользователям";
             iaf4.DefenceClass = "0";
 
             ConfigOption iaf4_yc1b = new ConfigOption();
@@ -6055,8 +6051,8 @@ namespace KPSZI.Model
 
 
             ConfigOption iaf6_1 = new ConfigOption();
-            iaf6_1.Name = "Определение внешних пользователей";
-            iaf6_1.Description = "Внешние пользователи - все, кроме внутренних";
+            iaf6_1.Name = "Определение перечня внешних пользователей согласно ОРД";
+            iaf6_1.Description = "К внешним пользователям относятся не указанные в параметрах меры ИАФ.1 в качестве внутренних";
             iaf6_1.DefenceClass = "0";
 
             ConfigOption iaf6_2 = new ConfigOption();
@@ -6064,8 +6060,8 @@ namespace KPSZI.Model
             iaf6_2.DefenceClass = "0";
 
             ConfigOption iaf6_3 = new ConfigOption();
-            iaf6_3.Name = "Установление видов доступа для внешних пользователей";
-            iaf6_3.DefenceClass = "0";
+            iaf6_3.Name = "Установление разрешенных видов доступа для внешних пользователей (локальный, удаленный) согласно ОРД";
+            iaf6_3.DefenceClass = "0"; 
 
             GisMeasures.Where(gm => gm.Number == 6 && gm.MeasureGroup.ShortName == "ИАФ").First().ConfigOptions.Add(iaf6_1);
             GisMeasures.Where(gm => gm.Number == 6 && gm.MeasureGroup.ShortName == "ИАФ").First().ConfigOptions.Add(iaf6_2);
@@ -6075,7 +6071,7 @@ namespace KPSZI.Model
             #region УПД
 
             ConfigOption upd1_1 = new ConfigOption();
-            upd1_1.Name = "Определение типов учетных записей, объединение их в группы при необходимости";
+            upd1_1.Name = "Определение типов учетных записей (администратор, пользователь, и др.), объединение их в группы (при необходимости)";
             upd1_1.DefenceClass = "0";
 
             ConfigOption upd1_2 = new ConfigOption();
@@ -6083,18 +6079,13 @@ namespace KPSZI.Model
             upd1_2.DefenceClass = "0";
 
             ConfigOption upd1_3 = new ConfigOption();
-            upd1_3.Name = "Реализация функций управления учетными записями";
+            upd1_3.Name = "Реализация функций управления учетными записями для администраторов ИС";
             upd1_3.DefenceClass = "0";
 
             ConfigOption upd1_4 = new ConfigOption();
             upd1_4.Name = "Предоставление пользователям прав доступа к объектам доступа ИС";
             upd1_4.DefenceClass = "0";
-
-            ConfigOption upd1_yc2 = new ConfigOption();
-            upd1_yc2.Name = "Осуществление автоматического блокирования временных учетных записей пользователей по окончании установленного периода времени для их использования";
-            upd1_yc2.DefenceClass = "0";
-            upd1_yc2.Description = "Усиление 2";
-
+            
             ConfigOption upd1_yc3a = new ConfigOption();
             upd1_yc3a.Name = "Осуществление автоматического блокирования неактивных учетных записей пользователей по окончании установленного периода времени для их использования - более 90 дней";
             upd1_yc3a.DefenceClass = "2";
@@ -6109,13 +6100,12 @@ namespace KPSZI.Model
             GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd1_2);
             GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd1_3);
             GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd1_4);
-            GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd1_yc2);
             GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd1_yc3a);
             GisMeasures.Where(gm => gm.Number == 1 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd1_yc3b);
 
 
             ConfigOption upd2_1 = new ConfigOption();
-            upd2_1.Name = "Установление метода управления доступом (дискретный, ролевой, мандатный или их комбинация";
+            upd2_1.Name = "Установление метода управления доступом (дискретный, ролевой, мандатный или их комбинация)";
             upd2_1.DefenceClass = "0";
 
             ConfigOption upd2_2 = new ConfigOption();
@@ -6155,11 +6145,11 @@ namespace KPSZI.Model
             upd3_1.DefenceClass = "2,1";
 
             ConfigOption upd3_2 = new ConfigOption();
-            upd3_2.Name = "Разрешение передачи информации в ИС только по установленному маршруту";
+            upd3_2.Name = "Разрешение передачи информации в ИС только по установленным в ОРД маршрутам";
             upd3_2.DefenceClass = "2,1";
 
             ConfigOption upd3_3 = new ConfigOption();
-            upd3_3.Name = "Запись во временное хранилище информации для анализа";
+            upd3_3.Name = "Обеспечение возможности записи во временное хранилище информации для анализа";
             upd3_3.DefenceClass = "2,1";
 
             GisMeasures.Where(gm => gm.Number == 3 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd3_1);
@@ -6169,7 +6159,7 @@ namespace KPSZI.Model
 
             ConfigOption upd4 = new ConfigOption();
             upd4.Name = "Разделение полномочий (ролей) пользователей, администраторов и обеспечивающих функционирование ИС лиц";
-            upd4.Description = "Разделение полномочий пользователей в соответствии с параметрами меры УПД.2";
+            upd4.Description = "В соответствии с параметрами меры УПД.2";
             upd4.DefenceClass = "0";
 
             ConfigOption upd4_yc1 = new ConfigOption();
@@ -6207,7 +6197,7 @@ namespace KPSZI.Model
             GisMeasures.Where(gm => gm.Number == 6 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd6_yc1);
 
             ConfigOption upd9 = new ConfigOption();
-            upd9.Name = "Определение числа допустимых параллельных сеансов (для ИС/группы/сегмента/пользователя)";
+            upd9.Name = "Определение числа допустимых параллельных сеансов (сессий, для ИС/группы/сегмента/пользователя)";
             upd9.DefenceClass = "1";
 
             ConfigOption upd9_yc1a = new ConfigOption();
@@ -6251,7 +6241,7 @@ namespace KPSZI.Model
 
 
             ConfigOption upd11 = new ConfigOption();
-            upd11.Name = "Определение перечня действия пользователя, разрешенных до прохождения идентификации и аутентификации";
+            upd11.Name = "Определение перечня действий пользователя, разрешенных до прохождения идентификации и аутентификации согласно ОРД";
             upd11.DefenceClass = "0";
 
             GisMeasures.Where(gm => gm.Number == 11 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd11);
@@ -6265,12 +6255,7 @@ namespace KPSZI.Model
             upd13_yc1.Name = "Применение автоматизированных средств для мониторинга и контроля удаленного доступа";
             upd13_yc1.DefenceClass = "1";
             upd13_yc1.Description = "Усиление 1";
-
-            ConfigOption upd13_yc2 = new ConfigOption();
-            upd13_yc2.Name = "Применение минимально необходимого количества точек подключения к ИС при организации удаленного доступа";
-            upd13_yc2.DefenceClass = "0";
-            upd13_yc2.Description = "Усиление 2";
-
+            
             ConfigOption upd13_yc3 = new ConfigOption();
             upd13_yc3.Name = "Исключение администрирования ИС и системы защиты посредством удаленного доступа";
             upd13_yc3.DefenceClass = "0";
@@ -6283,7 +6268,6 @@ namespace KPSZI.Model
 
             GisMeasures.Where(gm => gm.Number == 13 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd13);
             GisMeasures.Where(gm => gm.Number == 13 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd13_yc1);
-            GisMeasures.Where(gm => gm.Number == 13 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd13_yc2);
             GisMeasures.Where(gm => gm.Number == 13 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd13_yc3);
             GisMeasures.Where(gm => gm.Number == 13 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd13_yc5);
 
@@ -6297,7 +6281,7 @@ namespace KPSZI.Model
             upd14_2.DefenceClass = "0";
 
             ConfigOption upd14_3 = new ConfigOption();
-            upd14_3.Name = "Настройка беспроводного доступа пользователей к объектам доступа ИС";
+            upd14_3.Name = "Настройка беспроводного доступа пользователей к объектам доступа ИС при необходимости использования согласно ОРД";
             upd14_3.DefenceClass = "0";
 
             ConfigOption upd14_yc1 = new ConfigOption();
@@ -6306,12 +6290,12 @@ namespace KPSZI.Model
             upd14_yc1.Description = "Усиление 1";
 
             ConfigOption upd14_yc3 = new ConfigOption();
-            upd14_yc3.Name = "Исключается возможность изменения пользователем точек беспроводного доступа";
+            upd14_yc3.Name = "Исключение возможности изменения пользователем точек беспроводного доступа";
             upd14_yc3.DefenceClass = "2,1";
             upd14_yc3.Description = "Усиление 3";
 
             ConfigOption upd14_yc4 = new ConfigOption();
-            upd14_yc4.Name = "Запрет беспроводного доступа к ИС из-за пределов контролируемой зоны";
+            upd14_yc4.Name = "Реализация запрета беспроводного доступа к ИС из-за пределов контролируемой зоны";
             upd14_yc4.DefenceClass = "1";
             upd14_yc4.Description = "Усиление 4";
 
@@ -6330,13 +6314,9 @@ namespace KPSZI.Model
 
 
             ConfigOption upd15_1 = new ConfigOption();
-            upd15_1.Name = "Определение видов доступа, для которых разрешено использование мобильных технических средств";
+            upd15_1.Name = "Определение видов доступа, для которых разрешено использование мобильных технических средств (согласно ОРД)";
             upd15_1.DefenceClass = "0";
-
-            ConfigOption upd15_2 = new ConfigOption();
-            upd15_2.Name = "Использование в составе ИС мобильных технических средств, в которых реализованы меры защиты информации в соответствии с ЗИС.30";
-            upd15_2.DefenceClass = "0";
-
+            
             ConfigOption upd15_3 = new ConfigOption();
             upd15_3.Name = "Ограничение использования мобильных технических средств в соответствии с задачами ИС";
             upd15_3.DefenceClass = "0";
@@ -6350,7 +6330,7 @@ namespace KPSZI.Model
             upd15_5.DefenceClass = "0";
 
             ConfigOption upd15_yc1 = new ConfigOption();
-            upd15_yc1.Name = "Запрет использования в ИС не входящих в ее состав съемных машинных носителей информации";
+            upd15_yc1.Name = "Запрет использования в ИС не входящих в ее состав съемных машинных носителей информации посредством идентификации и аутентификации СМНИ";
             upd15_yc1.DefenceClass = "2,1";
             upd15_yc1.Description = "Усиление 1";
 
@@ -6360,7 +6340,6 @@ namespace KPSZI.Model
             upd15_yc2.Description = "Усиление 2";
 
             GisMeasures.Where(gm => gm.Number == 15 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd15_1);
-            GisMeasures.Where(gm => gm.Number == 15 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd15_2);
             GisMeasures.Where(gm => gm.Number == 15 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd15_3);
             GisMeasures.Where(gm => gm.Number == 15 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd15_4);
             GisMeasures.Where(gm => gm.Number == 15 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd15_5);
@@ -6369,7 +6348,7 @@ namespace KPSZI.Model
 
 
             ConfigOption upd16_1 = new ConfigOption();
-            upd16_1.Name = "Определение системных учетных записей, используемых в рамках взаимодействия";
+            upd16_1.Name = "Определение перечня системных учетных записей, используемых в рамках взаимодействия с иными ИС, согласно ОРД";
             upd16_1.DefenceClass = "0";
 
             ConfigOption upd16_2 = new ConfigOption();
@@ -6379,11 +6358,7 @@ namespace KPSZI.Model
             ConfigOption upd16_3 = new ConfigOption();
             upd16_3.Name = "Предоставление доступа к ИС только авторизованным пользователям в соответствии с параметрами меры УПД.2";
             upd16_3.DefenceClass = "0";
-
-            ConfigOption upd16_yc1a = new ConfigOption();
-            upd16_yc1a.DefenceClass = "0";
-            upd16_yc1a.Description = "Усиление 1а";
-            upd16_yc1a.Name = "Предоставление доступа к ИС пользователям внешних ИС только при наличии договора об информационном взаимодействии";
+            
 
             ConfigOption upd16_yc1b = new ConfigOption();
             upd16_yc1b.DefenceClass = "0";
@@ -6393,7 +6368,6 @@ namespace KPSZI.Model
             GisMeasures.Where(gm => gm.Number == 16 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd16_1);
             GisMeasures.Where(gm => gm.Number == 16 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd16_2);
             GisMeasures.Where(gm => gm.Number == 16 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd16_3);
-            GisMeasures.Where(gm => gm.Number == 16 && gm.MeasureGroup.ShortName == "УПД").First().ConfigOptions.Add(upd16_yc1a);
 
 
             ConfigOption upd17_1 = new ConfigOption();
@@ -6463,11 +6437,11 @@ namespace KPSZI.Model
 
 
             ConfigOption ops3_1 = new ConfigOption();
-            ops3_1.Name = "Установка компонентов ПО только разрешенного к установке в ИС (см. \"белый список\" в ОРД)";
+            ops3_1.Name = "Установка компонентов ПО только разрешенного к установке в ИС (см. \"Белый список ПО\" в ОРД)";
             ops3_1.DefenceClass = "0";
 
             ConfigOption ops3_2 = new ConfigOption();
-            ops3_2.Name = "Контроль перечня установленного ПО на соответствие \"белому списку\"";
+            ops3_2.Name = "Контроль перечня установленного ПО на соответствие \"Белому списку ПО\"";
             ops3_2.DefenceClass = "0";
 
             GisMeasures.Where(gm => gm.Number == 3 && gm.MeasureGroup.ShortName == "ОПС").First().ConfigOptions.Add(ops3_1);
@@ -6483,13 +6457,13 @@ namespace KPSZI.Model
             #region ЗНИ
 
             ConfigOption zni5_1 = new ConfigOption();
-            zni5_1.Name = "Установить разрешенные для ввода-вывода информации интерфейсы";
+            zni5_1.Name = "Установление разрешенных для ввода-вывода информации интерфейсы (например, USB-порты, SATA-интерфейсы) согласно ОРД";
 
             ConfigOption zni5_2 = new ConfigOption();
-            zni5_2.Name = "Определение пользователей, уполномоченных на доступ к интерфейсам ввода-вывода (в соответствии с параметрами меры УПД.2)";
+            zni5_2.Name = "Составление переченя пользователей, уполномоченных на доступ к интерфейсам ввода-вывода (в соответствии с параметрами меры УПД.2)";
 
             ConfigOption zni5_yc1 = new ConfigOption();
-            zni5_yc1.Name = "Регистрация использования интерфейса ввода-вывода (в соответствии с параметрами меры РСБ.3";
+            zni5_yc1.Name = "Регистрация использования интерфейса ввода-вывода (в соответствии с параметрами меры РСБ.3)";
             zni5_yc1.DefenceClass = "1";
             zni5_yc1.Description = "Усиление 1";
 
@@ -6513,16 +6487,16 @@ namespace KPSZI.Model
 
 
             ConfigOption zni7 = new ConfigOption();
-            zni7.Name = "Запрет подключения носителей информации, подключение которых к ИС не разрешено";
+            zni7.Name = "Обеспечение запрета подключения носителей информации, подключение которых к ИС не разрешено";
 
             GisMeasures.Where(gm => gm.Number == 7 && gm.MeasureGroup.ShortName == "ЗНИ").First().ConfigOptions.Add(zni7);
 
 
             ConfigOption zni8_1 = new ConfigOption();
-            zni8_1.Name = "Определение процедур уничтожения (затирания) информации на машинных носителях согласно ОРД";
+            zni8_1.Name = "Обеспечение возможности реализации процедур уничтожения (затирания) информации на машинных носителях согласно ОРД";
 
             ConfigOption zni8_2 = new ConfigOption();
-            zni8_2.Name = "Определение процедур контроля уничтожения (затирания) информации на машинных носителях согласно ОРД";
+            zni8_2.Name = "Обеспечение возможности реализации процедур контроля уничтожения (затирания) информации на машинных носителях согласно ОРД";
 
             ConfigOption zni8_yc1 = new ConfigOption();
             zni8_yc1.Name = "Обеспечение регистрации и контроля действий по удалению защищаемой информации";
