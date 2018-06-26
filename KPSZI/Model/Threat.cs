@@ -125,14 +125,23 @@ namespace KPSZI.Model
         public void setStringSources()
         {
             string s = "";
+            int[] maxPotencial = new int[2] { -1, -1 };
             foreach (ThreatSource ts in ThreatSources)
             {
-                if (ts.Potencial == 3) continue;
-                s += (ts.InternalIntruder ? "Внутренний" : "Внешний") + " нарушитель " + 
-                    (ts.Potencial == 0 ? "с низким" : (ts.Potencial == 1 ? "со средним" : "с высоким")) + " потенциалом;\n";
+                int intern = ts.InternalIntruder ? 0 : 1;
+                if (maxPotencial[intern] < ts.Potencial)
+                    maxPotencial[intern] = ts.Potencial;
             }
-            if (s != "")
-                s = s.Remove(s.Length - 1);
+            if (maxPotencial[0] != -1)
+                s += "тип – внутренний, потенциал – " + (maxPotencial[0] == 0 ? "базовый (низкий)" :
+                    (maxPotencial[0] == 1 ? "базовый (средний)" : "высокий"));
+            if (maxPotencial[0] != -1 && maxPotencial[1] != -1)
+                s += ";\n";
+            if (maxPotencial[1] != -1)
+                s += "тип – внешний, потенциал – " + (maxPotencial[1] == 0 ? "базовый (низкий)." :
+                    (maxPotencial[1] == 1 ? "базовый (средний)." : "высокий."));
+            if (maxPotencial[1] == 3)
+                s = "Нарушитель не подразумевается.";
             stringSources = s;
         }
 

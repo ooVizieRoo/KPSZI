@@ -272,6 +272,7 @@
     <Content Include="res\icons\right-arrow-icon.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="res\icons\Shield.jpg" />
     <Content Include="res\icons\Shield.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

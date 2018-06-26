@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
+using Microsoft.Office.Interop.Word;
 
 namespace KPSZI
 {
@@ -27,29 +28,31 @@ namespace KPSZI
 
         public void startSplash()
         {
-            Application.Run(new splashForm());
+            System.Windows.Forms.Application.Run(new splashForm());
         }
 
         public MainForm()
         {
             t = new Thread(startSplash);
             t.Start();
-
+            initForm();
             // check database connectio before starting application
-            using (KPSZIContext db = new KPSZIContext())
-            {
-                if (!db.Database.Exists())
-                {
-                    t.Abort();
-                    this.Close();
-                    MessageBox.Show("Ошибка подключения к базе данных КПСЗИ");                        
-                }
-                else
-                    initForm();                    
-            }
+            //using (KPSZIContext db = new KPSZIContext())
+            //{
+            //    if (!db.Database.Exists())
+            //    {
+            //        t.Abort();
+            //        this.Close();
+            //        MessageBox.Show("Ошибка подключения к базе данных КПСЗИ");                        
+            //    }
+            //    else
+            //        initForm();                    
+            //}
 
             KeyPreview = true;
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.UserPaint, true);
+
+            treeView.SelectedNode = returnTreeNode("tnOptions");
         }
 
         private void initForm()
@@ -106,7 +109,7 @@ namespace KPSZI
             //Создание окна "подождика пока я работаю.."
             wsm = new WaitingSplashMessage();
             this.Controls.Add(wsm);
-            wsm.Location = new Point(this.Width / 2 - wsm.Width/2, this.Height / 2 - wsm.Height/2);
+            wsm.Location = new System.Drawing.Point(this.Width / 2 - wsm.Width/2, this.Height / 2 - wsm.Height/2);
             wsm.BringToFront();
             wsm.Visible = false;
         }
@@ -339,6 +342,29 @@ namespace KPSZI
         {
             FillThreatsForm form = new FillThreatsForm(this);
             form.Show();
+        }
+
+        public void FindAndReplace(Microsoft.Office.Interop.Word._Application doc, object findText, object replaceWithText)
+        {
+            object matchCase = false;
+            object matchWholeWord = true;
+            object matchWildCards = false;
+            object matchSoundsLike = false;
+            object matchAllWordForms = false;
+            object forward = true;
+            object format = false;
+            object matchKashida = false;
+            object matchDiacritics = false;
+            object matchAlefHamza = false;
+            object matchControl = false;
+            object read_only = false;
+            object visible = true;
+            object replace = 2;
+            object wrap = 1;
+
+            doc.Selection.Find.Execute(ref findText, ref matchCase, ref matchWholeWord,
+                ref matchWildCards, ref matchSoundsLike, ref matchAllWordForms, ref forward, ref wrap, ref format, ref replaceWithText, ref replace,
+                ref matchKashida, ref matchDiacritics, ref matchAlefHamza, ref matchControl);
         }
     }
 }
