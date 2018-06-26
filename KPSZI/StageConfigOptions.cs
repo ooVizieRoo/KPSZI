@@ -103,7 +103,6 @@ namespace KPSZI
             Microsoft.Office.Interop.Word.Document wordDoc;
             Microsoft.Office.Interop.Word.Paragraph wordParag;
 
-            wordApp.Visible = true;
 
             wordDoc = wordApp.Documents.Add(Type.Missing, Type.Missing, Type.Missing, Type.Missing);
 
@@ -166,7 +165,7 @@ namespace KPSZI
                             }
                             foreach (SZISort s in szisorts)
                             {
-                                szis += s.Name  + ": "+listOfSZIs.Where(szi => szi.SZISorts.Contains(s)).First().Name + ", ";
+                                szis += s.Name  + ": "+listOfSZIs.Where(szi => szi.SZISorts.Contains(s)).First().Name + "; ";
                             }
                             if (szis != "")
                             {
@@ -187,8 +186,8 @@ namespace KPSZI
                             for (int i = 0 ; i < configOptions.Length-1; i++)
                             {
                                 //Параметры
-                                char divider = i == 0 ? '.' : ';';
-                                wordParag.Range.Text = "\t–"+configOptions[i] + divider;
+                                char divider = i == configOptions.Length -2 ? '.' : ';';
+                                wordParag.Range.Text = "\t– "+configOptions[i] + divider;
                                 wordParag.Range.Font.Name = "Times New Roman";
                                 wordParag.Range.Font.Size = 12;
                                 wordParag.Range.Font.Bold = 0;
@@ -203,7 +202,8 @@ namespace KPSZI
                     }
                     wordParag.Range.InsertParagraphAfter();
                 }
-                
+                wordApp.Visible = true;
+
                 mf.wsm.Visible = false;
             }
         }

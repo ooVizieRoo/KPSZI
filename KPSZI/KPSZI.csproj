@@ -252,7 +252,6 @@
     <None Include="Resources\Editing-Line-icon.png" />
     <None Include="Resources\Network-Computer-icon.png" />
     <None Include="Resources\Network-Router-icon.png" />
-    <None Include="Resources\Network-Server-icon.png" />
     <None Include="Resources\Network-Switch-icon.png" />
     <None Include="Resources\pc.png" />
     <None Include="Resources\router.png" />
@@ -282,6 +281,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Shield.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Network-Server-icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
