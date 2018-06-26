@@ -375,10 +375,13 @@ namespace KPSZI
                         continue;
 
                     wordTable.Cell(row, 1).Range.Text = sfhtype.Name;
+                    string sfhs = "";
                     foreach (SFH sfh in IS.listOfSFHs.Where(sfh => sfh.SFHType.Name == sfhtype.Name).ToList())
                     {
-                        wordTable.Cell(row, 2).Range.Text += sfh.Name;
+                        sfhs += sfh.Name + ", ";
                     }
+                    sfhs = sfhs.TrimEnd(' ').TrimEnd(',');
+                    wordTable.Cell(row, 2).Range.Text = sfhs;
                     row++;
                 }
 
