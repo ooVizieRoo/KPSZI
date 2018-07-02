@@ -334,11 +334,6 @@ namespace KPSZI
             base.OnKeyPress(e);
         }
 
-        private void tabPageTCUIExist_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void FillThreatsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FillThreatsForm form = new FillThreatsForm(this);
@@ -351,6 +346,7 @@ namespace KPSZI
             {
                 db.SeedForConfigOptions();
             }
+            MessageBox.Show("Заполнение прошло успешно!", "Это успех, парень!", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void addSZItoMeasuresToolStripMenuItem_Click(object sender, EventArgs e)
@@ -392,7 +388,5 @@ namespace KPSZI
                 ref matchWildCards, ref matchSoundsLike, ref matchAllWordForms, ref forward, ref wrap, ref format, ref replaceWithText, ref replace,
                 ref matchKashida, ref matchDiacritics, ref matchAlefHamza, ref matchControl);
         }
-
-        
     }
 }

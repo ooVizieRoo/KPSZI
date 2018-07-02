@@ -6,14 +6,14 @@ namespace KPSZI.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class dimov_last : IMigrationMetadata
+    [GeneratedCode("EntityFramework.Migrations", "6.0.0-20911")]
+    public sealed partial class first : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(dimov_last));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(first));
         
         string IMigrationMetadata.Id
         {
-            get { return "201806260931432_dimov_last"; }
+            get { return "201807020900354_first"; }
         }
         
         string IMigrationMetadata.Source

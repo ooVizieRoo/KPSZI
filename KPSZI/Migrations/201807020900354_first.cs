@@ -3,7 +3,7 @@ namespace KPSZI.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class dimov_last : DbMigration
+    public partial class first : DbMigration
     {
         public override void Up()
         {
@@ -373,6 +373,8 @@ namespace KPSZI.Migrations
             DropForeignKey("soooqa.ISPDNMeasures", "MeasureGroup_MeasureGroupId", "soooqa.MeasureGroups");
             DropForeignKey("soooqa.GISMeasures", "MeasureGroup_MeasureGroupId", "soooqa.MeasureGroups");
             DropForeignKey("soooqa.ConfigOptions", "GISMeasure_GISMeasureId", "soooqa.GISMeasures");
+            DropIndex("soooqa.TCUIs", new[] { "TCUIType_TCUITypeId" });
+            DropIndex("soooqa.TCUIThreats", new[] { "TCUI_TCUIId" });
             DropIndex("soooqa.VulnerabilityThreats", new[] { "Threat_ThreatId" });
             DropIndex("soooqa.VulnerabilityThreats", new[] { "Vulnerability_VulnerabilityId" });
             DropIndex("soooqa.ThreatSourceThreats", new[] { "Threat_ThreatId" });
@@ -383,18 +385,16 @@ namespace KPSZI.Migrations
             DropIndex("soooqa.ImplementWayThreats", new[] { "ImplementWay_ImplementWayId" });
             DropIndex("soooqa.ThreatGISMeasures", new[] { "GISMeasure_GISMeasureId" });
             DropIndex("soooqa.ThreatGISMeasures", new[] { "Threat_ThreatId" });
+            DropIndex("soooqa.SFHs", new[] { "SFHType_SFHTypeId" });
             DropIndex("soooqa.SFHGISMeasures", new[] { "GISMeasure_GISMeasureId" });
             DropIndex("soooqa.SFHGISMeasures", new[] { "SFH_SFHId" });
+            DropIndex("soooqa.SZIs", new[] { "ISPDNMeasure_ISPDNMeasureId" });
             DropIndex("soooqa.SZISortSZIs", new[] { "SZI_SZIId" });
             DropIndex("soooqa.SZISortSZIs", new[] { "SZISort_SZISortId" });
             DropIndex("soooqa.SZISortGISMeasures", new[] { "GISMeasure_GISMeasureId" });
             DropIndex("soooqa.SZISortGISMeasures", new[] { "SZISort_SZISortId" });
-            DropIndex("soooqa.TCUIThreats", new[] { "TCUI_TCUIId" });
-            DropIndex("soooqa.TCUIs", new[] { "TCUIType_TCUITypeId" });
-            DropIndex("soooqa.SFHs", new[] { "SFHType_SFHTypeId" });
-            DropIndex("soooqa.SZIs", new[] { "ISPDNMeasure_ISPDNMeasureId" });
-            DropIndex("soooqa.ISPDNMeasures", new[] { "MeasureGroup_MeasureGroupId" });
             DropIndex("soooqa.GISMeasures", new[] { "SZI_SZIId" });
+            DropIndex("soooqa.ISPDNMeasures", new[] { "MeasureGroup_MeasureGroupId" });
             DropIndex("soooqa.GISMeasures", new[] { "MeasureGroup_MeasureGroupId" });
             DropIndex("soooqa.ConfigOptions", new[] { "GISMeasure_GISMeasureId" });
             DropTable("soooqa.VulnerabilityThreats");

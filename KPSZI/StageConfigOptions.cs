@@ -99,7 +99,17 @@ namespace KPSZI
             mf.wsm.Visible = true;
             mf.wsm.Update();
 
-            Microsoft.Office.Interop.Word.Application wordApp = new Microsoft.Office.Interop.Word.Application();
+            Microsoft.Office.Interop.Word._Application wordApp = null;
+            try
+            {
+                wordApp = new Microsoft.Office.Interop.Word.Application();
+            }
+            catch
+            {
+                mf.wsm.Visible = false;
+                MessageBox.Show("На ПК не установлен пакет Microsoft Office Word 2007 или позднее. Экспорт невозможен.", "Внимание!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             Microsoft.Office.Interop.Word.Document wordDoc;
             Microsoft.Office.Interop.Word.Paragraph wordParag;
 
@@ -155,7 +165,7 @@ namespace KPSZI
                             //тип сзи
                             string szis = "";
                             string measure = dgvr.Cells[0].Value.ToString();
-                            List<SZISort> szisorts = db.GisMeasures.Where(m => (m.MeasureGroup.ShortName + "." + m.Number + " "+m.Description) == measure).First().SZISorts.ToList();
+                            List<SZISort> szisorts = db.GisMeasures.ToList().Where(m => (m.MeasureGroup.ShortName + "." + m.Number + " "+m.Description) == measure).First().SZISorts.ToList();
 
                             var listOfSZIs = db.SZIs.ToList().Intersect(IS.listOfSZIs).ToList();
                             foreach(SZI sz in listOfSZIs)
