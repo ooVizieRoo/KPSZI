@@ -3,12 +3,12 @@ namespace KPSZI.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class dimov_last : DbMigration
+    public partial class first : DbMigration
     {
         public override void Up()
         {
             CreateTable(
-                "soooqa.ConfigOptions",
+                "dbo.ConfigOptions",
                 c => new
                     {
                         ConfigOptionId = c.Int(nullable: false, identity: true),
@@ -18,11 +18,11 @@ namespace KPSZI.Migrations
                         GISMeasure_GISMeasureId = c.Int(),
                     })
                 .PrimaryKey(t => t.ConfigOptionId)
-                .ForeignKey("soooqa.GISMeasures", t => t.GISMeasure_GISMeasureId)
+                .ForeignKey("dbo.GISMeasures", t => t.GISMeasure_GISMeasureId)
                 .Index(t => t.GISMeasure_GISMeasureId);
             
             CreateTable(
-                "soooqa.GISMeasures",
+                "dbo.GISMeasures",
                 c => new
                     {
                         GISMeasureId = c.Int(nullable: false, identity: true),
@@ -34,13 +34,13 @@ namespace KPSZI.Migrations
                         SZI_SZIId = c.Int(),
                     })
                 .PrimaryKey(t => t.GISMeasureId)
-                .ForeignKey("soooqa.MeasureGroups", t => t.MeasureGroup_MeasureGroupId)
-                .ForeignKey("soooqa.SZIs", t => t.SZI_SZIId)
+                .ForeignKey("dbo.MeasureGroups", t => t.MeasureGroup_MeasureGroupId)
+                .ForeignKey("dbo.SZIs", t => t.SZI_SZIId)
                 .Index(t => t.MeasureGroup_MeasureGroupId)
                 .Index(t => t.SZI_SZIId);
             
             CreateTable(
-                "soooqa.MeasureGroups",
+                "dbo.MeasureGroups",
                 c => new
                     {
                         MeasureGroupId = c.Int(nullable: false, identity: true),
@@ -51,7 +51,7 @@ namespace KPSZI.Migrations
                 .PrimaryKey(t => t.MeasureGroupId);
             
             CreateTable(
-                "soooqa.ISPDNMeasures",
+                "dbo.ISPDNMeasures",
                 c => new
                     {
                         ISPDNMeasureId = c.Int(nullable: false, identity: true),
@@ -61,11 +61,11 @@ namespace KPSZI.Migrations
                         MeasureGroup_MeasureGroupId = c.Int(),
                     })
                 .PrimaryKey(t => t.ISPDNMeasureId)
-                .ForeignKey("soooqa.MeasureGroups", t => t.MeasureGroup_MeasureGroupId)
+                .ForeignKey("dbo.MeasureGroups", t => t.MeasureGroup_MeasureGroupId)
                 .Index(t => t.MeasureGroup_MeasureGroupId);
             
             CreateTable(
-                "soooqa.SZIs",
+                "dbo.SZIs",
                 c => new
                     {
                         SZIId = c.Int(nullable: false, identity: true),
@@ -83,11 +83,11 @@ namespace KPSZI.Migrations
                         ISPDNMeasure_ISPDNMeasureId = c.Int(),
                     })
                 .PrimaryKey(t => t.SZIId)
-                .ForeignKey("soooqa.ISPDNMeasures", t => t.ISPDNMeasure_ISPDNMeasureId)
+                .ForeignKey("dbo.ISPDNMeasures", t => t.ISPDNMeasure_ISPDNMeasureId)
                 .Index(t => t.ISPDNMeasure_ISPDNMeasureId);
             
             CreateTable(
-                "soooqa.SZISorts",
+                "dbo.SZISorts",
                 c => new
                     {
                         SZISortId = c.Int(nullable: false, identity: true),
@@ -98,7 +98,7 @@ namespace KPSZI.Migrations
                 .PrimaryKey(t => t.SZISortId);
             
             CreateTable(
-                "soooqa.SFHs",
+                "dbo.SFHs",
                 c => new
                     {
                         SFHId = c.Int(nullable: false, identity: true),
@@ -108,11 +108,11 @@ namespace KPSZI.Migrations
                         SFHType_SFHTypeId = c.Int(),
                     })
                 .PrimaryKey(t => t.SFHId)
-                .ForeignKey("soooqa.SFHTypes", t => t.SFHType_SFHTypeId)
+                .ForeignKey("dbo.SFHTypes", t => t.SFHType_SFHTypeId)
                 .Index(t => t.SFHType_SFHTypeId);
             
             CreateTable(
-                "soooqa.SFHTypes",
+                "dbo.SFHTypes",
                 c => new
                     {
                         SFHTypeId = c.Int(nullable: false, identity: true),
@@ -122,7 +122,7 @@ namespace KPSZI.Migrations
                 .PrimaryKey(t => t.SFHTypeId);
             
             CreateTable(
-                "soooqa.Threats",
+                "dbo.Threats",
                 c => new
                     {
                         ThreatId = c.Int(nullable: false, identity: true),
@@ -139,7 +139,7 @@ namespace KPSZI.Migrations
                 .PrimaryKey(t => t.ThreatId);
             
             CreateTable(
-                "soooqa.ImplementWays",
+                "dbo.ImplementWays",
                 c => new
                     {
                         ImplementWayId = c.Int(nullable: false, identity: true),
@@ -149,7 +149,7 @@ namespace KPSZI.Migrations
                 .PrimaryKey(t => t.ImplementWayId);
             
             CreateTable(
-                "soooqa.ThreatSources",
+                "dbo.ThreatSources",
                 c => new
                     {
                         ThreatSourceId = c.Int(nullable: false, identity: true),
@@ -159,7 +159,7 @@ namespace KPSZI.Migrations
                 .PrimaryKey(t => t.ThreatSourceId);
             
             CreateTable(
-                "soooqa.Vulnerabilities",
+                "dbo.Vulnerabilities",
                 c => new
                     {
                         VulnerabilityId = c.Int(nullable: false, identity: true),
@@ -170,7 +170,7 @@ namespace KPSZI.Migrations
                 .PrimaryKey(t => t.VulnerabilityId);
             
             CreateTable(
-                "soooqa.InfoTypes",
+                "dbo.InfoTypes",
                 c => new
                     {
                         InfoTypeId = c.Int(nullable: false, identity: true),
@@ -179,7 +179,7 @@ namespace KPSZI.Migrations
                 .PrimaryKey(t => t.InfoTypeId);
             
             CreateTable(
-                "soooqa.IntruderTypes",
+                "dbo.IntruderTypes",
                 c => new
                     {
                         IntruderTypeId = c.Int(nullable: false, identity: true),
@@ -188,7 +188,7 @@ namespace KPSZI.Migrations
                 .PrimaryKey(t => t.IntruderTypeId);
             
             CreateTable(
-                "soooqa.TCUIs",
+                "dbo.TCUIs",
                 c => new
                     {
                         TCUIId = c.Int(nullable: false, identity: true),
@@ -196,11 +196,11 @@ namespace KPSZI.Migrations
                         TCUIType_TCUITypeId = c.Int(),
                     })
                 .PrimaryKey(t => t.TCUIId)
-                .ForeignKey("soooqa.TCUITypes", t => t.TCUIType_TCUITypeId)
+                .ForeignKey("dbo.TCUITypes", t => t.TCUIType_TCUITypeId)
                 .Index(t => t.TCUIType_TCUITypeId);
             
             CreateTable(
-                "soooqa.TCUIThreats",
+                "dbo.TCUIThreats",
                 c => new
                     {
                         TCUIThreatId = c.Int(nullable: false, identity: true),
@@ -210,11 +210,11 @@ namespace KPSZI.Migrations
                         TCUI_TCUIId = c.Int(),
                     })
                 .PrimaryKey(t => t.TCUIThreatId)
-                .ForeignKey("soooqa.TCUIs", t => t.TCUI_TCUIId)
+                .ForeignKey("dbo.TCUIs", t => t.TCUI_TCUIId)
                 .Index(t => t.TCUI_TCUIId);
             
             CreateTable(
-                "soooqa.TCUITypes",
+                "dbo.TCUITypes",
                 c => new
                     {
                         TCUITypeId = c.Int(nullable: false, identity: true),
@@ -223,7 +223,7 @@ namespace KPSZI.Migrations
                 .PrimaryKey(t => t.TCUITypeId);
             
             CreateTable(
-                "soooqa.TechnogenicMeasures",
+                "dbo.TechnogenicMeasures",
                 c => new
                     {
                         TechnogenicMeasureId = c.Int(nullable: false, identity: true),
@@ -232,7 +232,7 @@ namespace KPSZI.Migrations
                 .PrimaryKey(t => t.TechnogenicMeasureId);
             
             CreateTable(
-                "soooqa.TechnogenicThreats",
+                "dbo.TechnogenicThreats",
                 c => new
                     {
                         TechnogenicThreatId = c.Int(nullable: false, identity: true),
@@ -242,106 +242,106 @@ namespace KPSZI.Migrations
                 .PrimaryKey(t => t.TechnogenicThreatId);
             
             CreateTable(
-                "soooqa.SZISortGISMeasures",
+                "dbo.SZISortGISMeasures",
                 c => new
                     {
                         SZISort_SZISortId = c.Int(nullable: false),
                         GISMeasure_GISMeasureId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => new { t.SZISort_SZISortId, t.GISMeasure_GISMeasureId })
-                .ForeignKey("soooqa.SZISorts", t => t.SZISort_SZISortId, cascadeDelete: true)
-                .ForeignKey("soooqa.GISMeasures", t => t.GISMeasure_GISMeasureId, cascadeDelete: true)
+                .ForeignKey("dbo.SZISorts", t => t.SZISort_SZISortId, cascadeDelete: true)
+                .ForeignKey("dbo.GISMeasures", t => t.GISMeasure_GISMeasureId, cascadeDelete: true)
                 .Index(t => t.SZISort_SZISortId)
                 .Index(t => t.GISMeasure_GISMeasureId);
             
             CreateTable(
-                "soooqa.SZISortSZIs",
+                "dbo.SZISortSZIs",
                 c => new
                     {
                         SZISort_SZISortId = c.Int(nullable: false),
                         SZI_SZIId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => new { t.SZISort_SZISortId, t.SZI_SZIId })
-                .ForeignKey("soooqa.SZISorts", t => t.SZISort_SZISortId, cascadeDelete: true)
-                .ForeignKey("soooqa.SZIs", t => t.SZI_SZIId, cascadeDelete: true)
+                .ForeignKey("dbo.SZISorts", t => t.SZISort_SZISortId, cascadeDelete: true)
+                .ForeignKey("dbo.SZIs", t => t.SZI_SZIId, cascadeDelete: true)
                 .Index(t => t.SZISort_SZISortId)
                 .Index(t => t.SZI_SZIId);
             
             CreateTable(
-                "soooqa.SFHGISMeasures",
+                "dbo.SFHGISMeasures",
                 c => new
                     {
                         SFH_SFHId = c.Int(nullable: false),
                         GISMeasure_GISMeasureId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => new { t.SFH_SFHId, t.GISMeasure_GISMeasureId })
-                .ForeignKey("soooqa.SFHs", t => t.SFH_SFHId, cascadeDelete: true)
-                .ForeignKey("soooqa.GISMeasures", t => t.GISMeasure_GISMeasureId, cascadeDelete: true)
+                .ForeignKey("dbo.SFHs", t => t.SFH_SFHId, cascadeDelete: true)
+                .ForeignKey("dbo.GISMeasures", t => t.GISMeasure_GISMeasureId, cascadeDelete: true)
                 .Index(t => t.SFH_SFHId)
                 .Index(t => t.GISMeasure_GISMeasureId);
             
             CreateTable(
-                "soooqa.ThreatGISMeasures",
+                "dbo.ThreatGISMeasures",
                 c => new
                     {
                         Threat_ThreatId = c.Int(nullable: false),
                         GISMeasure_GISMeasureId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => new { t.Threat_ThreatId, t.GISMeasure_GISMeasureId })
-                .ForeignKey("soooqa.Threats", t => t.Threat_ThreatId, cascadeDelete: true)
-                .ForeignKey("soooqa.GISMeasures", t => t.GISMeasure_GISMeasureId, cascadeDelete: true)
+                .ForeignKey("dbo.Threats", t => t.Threat_ThreatId, cascadeDelete: true)
+                .ForeignKey("dbo.GISMeasures", t => t.GISMeasure_GISMeasureId, cascadeDelete: true)
                 .Index(t => t.Threat_ThreatId)
                 .Index(t => t.GISMeasure_GISMeasureId);
             
             CreateTable(
-                "soooqa.ImplementWayThreats",
+                "dbo.ImplementWayThreats",
                 c => new
                     {
                         ImplementWay_ImplementWayId = c.Int(nullable: false),
                         Threat_ThreatId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => new { t.ImplementWay_ImplementWayId, t.Threat_ThreatId })
-                .ForeignKey("soooqa.ImplementWays", t => t.ImplementWay_ImplementWayId, cascadeDelete: true)
-                .ForeignKey("soooqa.Threats", t => t.Threat_ThreatId, cascadeDelete: true)
+                .ForeignKey("dbo.ImplementWays", t => t.ImplementWay_ImplementWayId, cascadeDelete: true)
+                .ForeignKey("dbo.Threats", t => t.Threat_ThreatId, cascadeDelete: true)
                 .Index(t => t.ImplementWay_ImplementWayId)
                 .Index(t => t.Threat_ThreatId);
             
             CreateTable(
-                "soooqa.ThreatSFHs",
+                "dbo.ThreatSFHs",
                 c => new
                     {
                         Threat_ThreatId = c.Int(nullable: false),
                         SFH_SFHId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => new { t.Threat_ThreatId, t.SFH_SFHId })
-                .ForeignKey("soooqa.Threats", t => t.Threat_ThreatId, cascadeDelete: true)
-                .ForeignKey("soooqa.SFHs", t => t.SFH_SFHId, cascadeDelete: true)
+                .ForeignKey("dbo.Threats", t => t.Threat_ThreatId, cascadeDelete: true)
+                .ForeignKey("dbo.SFHs", t => t.SFH_SFHId, cascadeDelete: true)
                 .Index(t => t.Threat_ThreatId)
                 .Index(t => t.SFH_SFHId);
             
             CreateTable(
-                "soooqa.ThreatSourceThreats",
+                "dbo.ThreatSourceThreats",
                 c => new
                     {
                         ThreatSource_ThreatSourceId = c.Int(nullable: false),
                         Threat_ThreatId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => new { t.ThreatSource_ThreatSourceId, t.Threat_ThreatId })
-                .ForeignKey("soooqa.ThreatSources", t => t.ThreatSource_ThreatSourceId, cascadeDelete: true)
-                .ForeignKey("soooqa.Threats", t => t.Threat_ThreatId, cascadeDelete: true)
+                .ForeignKey("dbo.ThreatSources", t => t.ThreatSource_ThreatSourceId, cascadeDelete: true)
+                .ForeignKey("dbo.Threats", t => t.Threat_ThreatId, cascadeDelete: true)
                 .Index(t => t.ThreatSource_ThreatSourceId)
                 .Index(t => t.Threat_ThreatId);
             
             CreateTable(
-                "soooqa.VulnerabilityThreats",
+                "dbo.VulnerabilityThreats",
                 c => new
                     {
                         Vulnerability_VulnerabilityId = c.Int(nullable: false),
                         Threat_ThreatId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => new { t.Vulnerability_VulnerabilityId, t.Threat_ThreatId })
-                .ForeignKey("soooqa.Vulnerabilities", t => t.Vulnerability_VulnerabilityId, cascadeDelete: true)
-                .ForeignKey("soooqa.Threats", t => t.Threat_ThreatId, cascadeDelete: true)
+                .ForeignKey("dbo.Vulnerabilities", t => t.Vulnerability_VulnerabilityId, cascadeDelete: true)
+                .ForeignKey("dbo.Threats", t => t.Threat_ThreatId, cascadeDelete: true)
                 .Index(t => t.Vulnerability_VulnerabilityId)
                 .Index(t => t.Threat_ThreatId);
             
@@ -349,81 +349,81 @@ namespace KPSZI.Migrations
         
         public override void Down()
         {
-            DropForeignKey("soooqa.TCUIs", "TCUIType_TCUITypeId", "soooqa.TCUITypes");
-            DropForeignKey("soooqa.TCUIThreats", "TCUI_TCUIId", "soooqa.TCUIs");
-            DropForeignKey("soooqa.VulnerabilityThreats", "Threat_ThreatId", "soooqa.Threats");
-            DropForeignKey("soooqa.VulnerabilityThreats", "Vulnerability_VulnerabilityId", "soooqa.Vulnerabilities");
-            DropForeignKey("soooqa.ThreatSourceThreats", "Threat_ThreatId", "soooqa.Threats");
-            DropForeignKey("soooqa.ThreatSourceThreats", "ThreatSource_ThreatSourceId", "soooqa.ThreatSources");
-            DropForeignKey("soooqa.ThreatSFHs", "SFH_SFHId", "soooqa.SFHs");
-            DropForeignKey("soooqa.ThreatSFHs", "Threat_ThreatId", "soooqa.Threats");
-            DropForeignKey("soooqa.ImplementWayThreats", "Threat_ThreatId", "soooqa.Threats");
-            DropForeignKey("soooqa.ImplementWayThreats", "ImplementWay_ImplementWayId", "soooqa.ImplementWays");
-            DropForeignKey("soooqa.ThreatGISMeasures", "GISMeasure_GISMeasureId", "soooqa.GISMeasures");
-            DropForeignKey("soooqa.ThreatGISMeasures", "Threat_ThreatId", "soooqa.Threats");
-            DropForeignKey("soooqa.SFHs", "SFHType_SFHTypeId", "soooqa.SFHTypes");
-            DropForeignKey("soooqa.SFHGISMeasures", "GISMeasure_GISMeasureId", "soooqa.GISMeasures");
-            DropForeignKey("soooqa.SFHGISMeasures", "SFH_SFHId", "soooqa.SFHs");
-            DropForeignKey("soooqa.SZIs", "ISPDNMeasure_ISPDNMeasureId", "soooqa.ISPDNMeasures");
-            DropForeignKey("soooqa.SZISortSZIs", "SZI_SZIId", "soooqa.SZIs");
-            DropForeignKey("soooqa.SZISortSZIs", "SZISort_SZISortId", "soooqa.SZISorts");
-            DropForeignKey("soooqa.SZISortGISMeasures", "GISMeasure_GISMeasureId", "soooqa.GISMeasures");
-            DropForeignKey("soooqa.SZISortGISMeasures", "SZISort_SZISortId", "soooqa.SZISorts");
-            DropForeignKey("soooqa.GISMeasures", "SZI_SZIId", "soooqa.SZIs");
-            DropForeignKey("soooqa.ISPDNMeasures", "MeasureGroup_MeasureGroupId", "soooqa.MeasureGroups");
-            DropForeignKey("soooqa.GISMeasures", "MeasureGroup_MeasureGroupId", "soooqa.MeasureGroups");
-            DropForeignKey("soooqa.ConfigOptions", "GISMeasure_GISMeasureId", "soooqa.GISMeasures");
-            DropIndex("soooqa.VulnerabilityThreats", new[] { "Threat_ThreatId" });
-            DropIndex("soooqa.VulnerabilityThreats", new[] { "Vulnerability_VulnerabilityId" });
-            DropIndex("soooqa.ThreatSourceThreats", new[] { "Threat_ThreatId" });
-            DropIndex("soooqa.ThreatSourceThreats", new[] { "ThreatSource_ThreatSourceId" });
-            DropIndex("soooqa.ThreatSFHs", new[] { "SFH_SFHId" });
-            DropIndex("soooqa.ThreatSFHs", new[] { "Threat_ThreatId" });
-            DropIndex("soooqa.ImplementWayThreats", new[] { "Threat_ThreatId" });
-            DropIndex("soooqa.ImplementWayThreats", new[] { "ImplementWay_ImplementWayId" });
-            DropIndex("soooqa.ThreatGISMeasures", new[] { "GISMeasure_GISMeasureId" });
-            DropIndex("soooqa.ThreatGISMeasures", new[] { "Threat_ThreatId" });
-            DropIndex("soooqa.SFHGISMeasures", new[] { "GISMeasure_GISMeasureId" });
-            DropIndex("soooqa.SFHGISMeasures", new[] { "SFH_SFHId" });
-            DropIndex("soooqa.SZISortSZIs", new[] { "SZI_SZIId" });
-            DropIndex("soooqa.SZISortSZIs", new[] { "SZISort_SZISortId" });
-            DropIndex("soooqa.SZISortGISMeasures", new[] { "GISMeasure_GISMeasureId" });
-            DropIndex("soooqa.SZISortGISMeasures", new[] { "SZISort_SZISortId" });
-            DropIndex("soooqa.TCUIThreats", new[] { "TCUI_TCUIId" });
-            DropIndex("soooqa.TCUIs", new[] { "TCUIType_TCUITypeId" });
-            DropIndex("soooqa.SFHs", new[] { "SFHType_SFHTypeId" });
-            DropIndex("soooqa.SZIs", new[] { "ISPDNMeasure_ISPDNMeasureId" });
-            DropIndex("soooqa.ISPDNMeasures", new[] { "MeasureGroup_MeasureGroupId" });
-            DropIndex("soooqa.GISMeasures", new[] { "SZI_SZIId" });
-            DropIndex("soooqa.GISMeasures", new[] { "MeasureGroup_MeasureGroupId" });
-            DropIndex("soooqa.ConfigOptions", new[] { "GISMeasure_GISMeasureId" });
-            DropTable("soooqa.VulnerabilityThreats");
-            DropTable("soooqa.ThreatSourceThreats");
-            DropTable("soooqa.ThreatSFHs");
-            DropTable("soooqa.ImplementWayThreats");
-            DropTable("soooqa.ThreatGISMeasures");
-            DropTable("soooqa.SFHGISMeasures");
-            DropTable("soooqa.SZISortSZIs");
-            DropTable("soooqa.SZISortGISMeasures");
-            DropTable("soooqa.TechnogenicThreats");
-            DropTable("soooqa.TechnogenicMeasures");
-            DropTable("soooqa.TCUITypes");
-            DropTable("soooqa.TCUIThreats");
-            DropTable("soooqa.TCUIs");
-            DropTable("soooqa.IntruderTypes");
-            DropTable("soooqa.InfoTypes");
-            DropTable("soooqa.Vulnerabilities");
-            DropTable("soooqa.ThreatSources");
-            DropTable("soooqa.ImplementWays");
-            DropTable("soooqa.Threats");
-            DropTable("soooqa.SFHTypes");
-            DropTable("soooqa.SFHs");
-            DropTable("soooqa.SZISorts");
-            DropTable("soooqa.SZIs");
-            DropTable("soooqa.ISPDNMeasures");
-            DropTable("soooqa.MeasureGroups");
-            DropTable("soooqa.GISMeasures");
-            DropTable("soooqa.ConfigOptions");
+            DropForeignKey("dbo.TCUIs", "TCUIType_TCUITypeId", "dbo.TCUITypes");
+            DropForeignKey("dbo.TCUIThreats", "TCUI_TCUIId", "dbo.TCUIs");
+            DropForeignKey("dbo.VulnerabilityThreats", "Threat_ThreatId", "dbo.Threats");
+            DropForeignKey("dbo.VulnerabilityThreats", "Vulnerability_VulnerabilityId", "dbo.Vulnerabilities");
+            DropForeignKey("dbo.ThreatSourceThreats", "Threat_ThreatId", "dbo.Threats");
+            DropForeignKey("dbo.ThreatSourceThreats", "ThreatSource_ThreatSourceId", "dbo.ThreatSources");
+            DropForeignKey("dbo.ThreatSFHs", "SFH_SFHId", "dbo.SFHs");
+            DropForeignKey("dbo.ThreatSFHs", "Threat_ThreatId", "dbo.Threats");
+            DropForeignKey("dbo.ImplementWayThreats", "Threat_ThreatId", "dbo.Threats");
+            DropForeignKey("dbo.ImplementWayThreats", "ImplementWay_ImplementWayId", "dbo.ImplementWays");
+            DropForeignKey("dbo.ThreatGISMeasures", "GISMeasure_GISMeasureId", "dbo.GISMeasures");
+            DropForeignKey("dbo.ThreatGISMeasures", "Threat_ThreatId", "dbo.Threats");
+            DropForeignKey("dbo.SFHs", "SFHType_SFHTypeId", "dbo.SFHTypes");
+            DropForeignKey("dbo.SFHGISMeasures", "GISMeasure_GISMeasureId", "dbo.GISMeasures");
+            DropForeignKey("dbo.SFHGISMeasures", "SFH_SFHId", "dbo.SFHs");
+            DropForeignKey("dbo.SZIs", "ISPDNMeasure_ISPDNMeasureId", "dbo.ISPDNMeasures");
+            DropForeignKey("dbo.SZISortSZIs", "SZI_SZIId", "dbo.SZIs");
+            DropForeignKey("dbo.SZISortSZIs", "SZISort_SZISortId", "dbo.SZISorts");
+            DropForeignKey("dbo.SZISortGISMeasures", "GISMeasure_GISMeasureId", "dbo.GISMeasures");
+            DropForeignKey("dbo.SZISortGISMeasures", "SZISort_SZISortId", "dbo.SZISorts");
+            DropForeignKey("dbo.GISMeasures", "SZI_SZIId", "dbo.SZIs");
+            DropForeignKey("dbo.ISPDNMeasures", "MeasureGroup_MeasureGroupId", "dbo.MeasureGroups");
+            DropForeignKey("dbo.GISMeasures", "MeasureGroup_MeasureGroupId", "dbo.MeasureGroups");
+            DropForeignKey("dbo.ConfigOptions", "GISMeasure_GISMeasureId", "dbo.GISMeasures");
+            DropIndex("dbo.VulnerabilityThreats", new[] { "Threat_ThreatId" });
+            DropIndex("dbo.VulnerabilityThreats", new[] { "Vulnerability_VulnerabilityId" });
+            DropIndex("dbo.ThreatSourceThreats", new[] { "Threat_ThreatId" });
+            DropIndex("dbo.ThreatSourceThreats", new[] { "ThreatSource_ThreatSourceId" });
+            DropIndex("dbo.ThreatSFHs", new[] { "SFH_SFHId" });
+            DropIndex("dbo.ThreatSFHs", new[] { "Threat_ThreatId" });
+            DropIndex("dbo.ImplementWayThreats", new[] { "Threat_ThreatId" });
+            DropIndex("dbo.ImplementWayThreats", new[] { "ImplementWay_ImplementWayId" });
+            DropIndex("dbo.ThreatGISMeasures", new[] { "GISMeasure_GISMeasureId" });
+            DropIndex("dbo.ThreatGISMeasures", new[] { "Threat_ThreatId" });
+            DropIndex("dbo.SFHGISMeasures", new[] { "GISMeasure_GISMeasureId" });
+            DropIndex("dbo.SFHGISMeasures", new[] { "SFH_SFHId" });
+            DropIndex("dbo.SZISortSZIs", new[] { "SZI_SZIId" });
+            DropIndex("dbo.SZISortSZIs", new[] { "SZISort_SZISortId" });
+            DropIndex("dbo.SZISortGISMeasures", new[] { "GISMeasure_GISMeasureId" });
+            DropIndex("dbo.SZISortGISMeasures", new[] { "SZISort_SZISortId" });
+            DropIndex("dbo.TCUIThreats", new[] { "TCUI_TCUIId" });
+            DropIndex("dbo.TCUIs", new[] { "TCUIType_TCUITypeId" });
+            DropIndex("dbo.SFHs", new[] { "SFHType_SFHTypeId" });
+            DropIndex("dbo.SZIs", new[] { "ISPDNMeasure_ISPDNMeasureId" });
+            DropIndex("dbo.ISPDNMeasures", new[] { "MeasureGroup_MeasureGroupId" });
+            DropIndex("dbo.GISMeasures", new[] { "SZI_SZIId" });
+            DropIndex("dbo.GISMeasures", new[] { "MeasureGroup_MeasureGroupId" });
+            DropIndex("dbo.ConfigOptions", new[] { "GISMeasure_GISMeasureId" });
+            DropTable("dbo.VulnerabilityThreats");
+            DropTable("dbo.ThreatSourceThreats");
+            DropTable("dbo.ThreatSFHs");
+            DropTable("dbo.ImplementWayThreats");
+            DropTable("dbo.ThreatGISMeasures");
+            DropTable("dbo.SFHGISMeasures");
+            DropTable("dbo.SZISortSZIs");
+            DropTable("dbo.SZISortGISMeasures");
+            DropTable("dbo.TechnogenicThreats");
+            DropTable("dbo.TechnogenicMeasures");
+            DropTable("dbo.TCUITypes");
+            DropTable("dbo.TCUIThreats");
+            DropTable("dbo.TCUIs");
+            DropTable("dbo.IntruderTypes");
+            DropTable("dbo.InfoTypes");
+            DropTable("dbo.Vulnerabilities");
+            DropTable("dbo.ThreatSources");
+            DropTable("dbo.ImplementWays");
+            DropTable("dbo.Threats");
+            DropTable("dbo.SFHTypes");
+            DropTable("dbo.SFHs");
+            DropTable("dbo.SZISorts");
+            DropTable("dbo.SZIs");
+            DropTable("dbo.ISPDNMeasures");
+            DropTable("dbo.MeasureGroups");
+            DropTable("dbo.GISMeasures");
+            DropTable("dbo.ConfigOptions");
         }
     }
 }

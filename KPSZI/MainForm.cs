@@ -168,21 +168,21 @@ namespace KPSZI
                 {
                     FileInfo fi = new FileInfo("thrlist.xlsx");
 
-                    try
-                    {
-                        // Каскадное удаление данных вместе с внешними ключами
-                        db.Database.ExecuteSqlCommand("SET SCHEMA '" + KPSZIContext.schema_name + "'; TRUNCATE \"Threats\" CASCADE;");
+                    //try
+                    //{
+                        //// Каскадное удаление данных вместе с внешними ключами
+                        //db.Database.ExecuteSqlCommand("SET SCHEMA '" + KPSZIContext.schema_name + "'; TRUNCATE \"Threats\" CASCADE;");
 
                         db.Threats.AddRange(Threat.GetThreatsFromXlsx(fi, db));
                         db.SaveChanges();
                         db.SeedForThreat();
                         db.SaveChanges();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("В rewriteThreatsDBToolStripMenuItem_Click Exception!\n" + ex.Message, "Ахтунг!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
+                    //}
+                    //catch (Exception ex)
+                    //{
+                    //    MessageBox.Show("В rewriteThreatsDBToolStripMenuItem_Click Exception!\n" + ex.Message, "Ахтунг!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //    return;
+                    //}
 
                 }
                 MessageBox.Show("Таблица угроз успешно перезаписана!", "Это успех, парень!", MessageBoxButtons.OK, MessageBoxIcon.Information);

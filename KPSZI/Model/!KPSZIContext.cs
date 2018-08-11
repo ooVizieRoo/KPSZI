@@ -36,11 +36,11 @@ namespace KPSZI.Model
         public DbSet<ImplementWay> ImplementWays { get; set; }
         public DbSet<Vulnerability> Vulnerabilities { get; set; }
 
-        //protected override void OnModelCreating(DbModelBuilder builder)
-        //{
-        //    builder.HasDefaultSchema(schema_name);
-        //    base.OnModelCreating(builder);
-        //}
+        protected override void OnModelCreating(DbModelBuilder builder)
+        {
+            builder.HasDefaultSchema(schema_name);
+            base.OnModelCreating(builder);
+        }
 
         public void Seed()
         {
