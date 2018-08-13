@@ -224,9 +224,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Security.config">
+    <None Include="template.docx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <SubType>Designer</SubType>
+    </None>
+    <None Include="templateTP.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -274,12 +276,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Network-Server-icon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="kpsziDataBase.mdf" />
-    <Content Include="kpsziDataBase_log.ldf">
-      <DependentUpon>kpsziDataBase.mdf</DependentUpon>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
