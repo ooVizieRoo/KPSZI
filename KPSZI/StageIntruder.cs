@@ -57,7 +57,7 @@ namespace KPSZI
                 cb.CheckedChanged += new System.EventHandler(cbWay_CheckedChanged);
                 yLoc += y;
                 k++;
-                mf.clbImplementWays.Controls.Add(cb);                
+                mf.clbImplementWays.Controls.Add(cb);
             }
             yLoc += 14;
             mf.clbImplementWays.Height = yLoc;

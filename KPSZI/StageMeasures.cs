@@ -33,50 +33,51 @@ namespace KPSZI
         public StageMeasures(TabPage stageTab, TreeNode stageNode, MainForm mainForm, InformationSystem IS)
             : base(stageTab, stageNode, mainForm, IS)
         {
-            using (KPSZIContext db = new KPSZIContext())
-            {
-                var Threats = db.Threats.Include("GISMeasures").ToList();
-                IS.listOfActualNSDThreats = Threats.Where(t =>
-                    t.ThreatNumber == 4 ||
-                    t.ThreatNumber == 7 ||
-                    t.ThreatNumber == 16 ||
-                    t.ThreatNumber == 18 ||
-                    t.ThreatNumber == 23 ||
-                    t.ThreatNumber == 30 ||
-                    t.ThreatNumber == 31 ||
-                    t.ThreatNumber == 32 ||
-                    t.ThreatNumber == 39 ||
-                    t.ThreatNumber == 42 ||
-                    t.ThreatNumber == 45 ||
-                    t.ThreatNumber == 18 ||
-                    t.ThreatNumber == 53 ||
-                    t.ThreatNumber == 67 ||
-                    t.ThreatNumber == 72 ||
-                    t.ThreatNumber == 88 ||
-                    t.ThreatNumber == 91 ||
-                    t.ThreatNumber == 94 ||
-                    t.ThreatNumber == 95 ||
-                    t.ThreatNumber == 111 ||
-                    t.ThreatNumber == 113 ||
-                    t.ThreatNumber == 117 ||
-                    t.ThreatNumber == 122 ||
-                    t.ThreatNumber == 127 ||
-                    t.ThreatNumber == 131 ||
-                    t.ThreatNumber == 132 ||
-                    t.ThreatNumber == 139 ||
-                    t.ThreatNumber == 156 ||
-                    t.ThreatNumber == 157 ||
-                    t.ThreatNumber == 160 ||
-                    t.ThreatNumber == 179 ||
-                    t.ThreatNumber == 180 ||
-                    t.ThreatNumber == 182 ||
-                    t.ThreatNumber == 185 ||
-                    t.ThreatNumber == 186 ||
-                    t.ThreatNumber == 190 ||
-                    t.ThreatNumber == 191 ||
-                    t.ThreatNumber == 201
-                ).ToList();
-            }
+            ////Дебаг вариант с статическими угрозами
+            //using (KPSZIContext db = new KPSZIContext())
+            //{
+            //    var Threats = db.Threats.Include("GISMeasures").ToList();
+            //    IS.listOfActualNSDThreats = Threats.Where(t =>
+            //        t.ThreatNumber == 4 ||
+            //        t.ThreatNumber == 7 ||
+            //        t.ThreatNumber == 16 ||
+            //        t.ThreatNumber == 18 ||
+            //        t.ThreatNumber == 23 ||
+            //        t.ThreatNumber == 30 ||
+            //        t.ThreatNumber == 31 ||
+            //        t.ThreatNumber == 32 ||
+            //        t.ThreatNumber == 39 ||
+            //        t.ThreatNumber == 42 ||
+            //        t.ThreatNumber == 45 ||
+            //        t.ThreatNumber == 18 ||
+            //        t.ThreatNumber == 53 ||
+            //        t.ThreatNumber == 67 ||
+            //        t.ThreatNumber == 72 ||
+            //        t.ThreatNumber == 88 ||
+            //        t.ThreatNumber == 91 ||
+            //        t.ThreatNumber == 94 ||
+            //        t.ThreatNumber == 95 ||
+            //        t.ThreatNumber == 111 ||
+            //        t.ThreatNumber == 113 ||
+            //        t.ThreatNumber == 117 ||
+            //        t.ThreatNumber == 122 ||
+            //        t.ThreatNumber == 127 ||
+            //        t.ThreatNumber == 131 ||
+            //        t.ThreatNumber == 132 ||
+            //        t.ThreatNumber == 139 ||
+            //        t.ThreatNumber == 156 ||
+            //        t.ThreatNumber == 157 ||
+            //        t.ThreatNumber == 160 ||
+            //        t.ThreatNumber == 179 ||
+            //        t.ThreatNumber == 180 ||
+            //        t.ThreatNumber == 182 ||
+            //        t.ThreatNumber == 185 ||
+            //        t.ThreatNumber == 186 ||
+            //        t.ThreatNumber == 190 ||
+            //        t.ThreatNumber == 191 ||
+            //        t.ThreatNumber == 201
+            //    ).ToList();
+            //}
         }
 
         protected override void initTabPage()

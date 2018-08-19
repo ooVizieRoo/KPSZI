@@ -16,16 +16,17 @@ namespace KPSZI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //try
-            //{
+            try
+            {
                 Application.Run(new MainForm());
-            //}
-            //catch(ObjectDisposedException e)
-            //{
-            //    Application.Exit();
-           // }
-            
-            
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                //Application.Exit();
+            }
+
+
         }
     }
 }

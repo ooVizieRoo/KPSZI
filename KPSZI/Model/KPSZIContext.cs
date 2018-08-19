@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLite.CodeFirst;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -36,11 +37,11 @@ namespace KPSZI.Model
         public DbSet<ImplementWay> ImplementWays { get; set; }
         public DbSet<Vulnerability> Vulnerabilities { get; set; }
 
-        //protected override void OnModelCreating(DbModelBuilder builder)
-        //{
-        //    builder.HasDefaultSchema(schema_name);
-        //    base.OnModelCreating(builder);
-        //}
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            var sqliteConnectionInitializer = new SqliteCreateDatabaseIfNotExists<KPSZIContext>(modelBuilder);
+            Database.SetInitializer(sqliteConnectionInitializer);
+        }
 
         public void Seed()
         {

@@ -488,8 +488,28 @@ namespace KPSZI
             mf.wsm.Visible = true;
             mf.wsm.Update();
 
-            _Application oWord = new Microsoft.Office.Interop.Word.Application();
-            _Document oDoc = oWord.Documents.Add(Environment.CurrentDirectory + "\\template.docx");
+            Microsoft.Office.Interop.Word._Application oWord = null;
+            try
+            {
+                oWord = new Microsoft.Office.Interop.Word.Application();
+            }
+            catch
+            {
+                mf.wsm.Visible = false;
+                MessageBox.Show("На ПК не установлен пакет Microsoft Office Word 2007 или позднее. Экспорт невозможен.", "Внимание!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            Microsoft.Office.Interop.Word._Document oDoc = null;
+            try
+            {
+                oDoc = oWord.Documents.Add(Environment.CurrentDirectory + "\\template.docx");
+            }
+            catch
+            {
+                mf.wsm.Visible = false;
+                MessageBox.Show("Отсутствует файл шаблона тех. проекта \"template.docx\". Экспорт невозможен.", "Внимание!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             Table wordTable;
             //oWord.Visible = true;
 

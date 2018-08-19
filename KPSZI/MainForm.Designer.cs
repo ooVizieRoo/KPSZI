@@ -1924,7 +1924,6 @@
             this.tabPageTCUIExist.TabIndex = 0;
             this.tabPageTCUIExist.Text = "Наличие ТКУИ / Уровень проектной защищенности";
             this.tabPageTCUIExist.UseVisualStyleBackColor = true;
-            this.tabPageTCUIExist.Click += new System.EventHandler(this.tabPageTCUIExist_Click);
             // 
             // cbATS
             // 

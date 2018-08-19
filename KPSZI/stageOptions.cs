@@ -42,7 +42,7 @@ namespace KPSZI
                 ((ListBox)mf.lbInfoTypes).ValueMember = "InfoTypeId";
 
                 mf.lbInfoTypes.Size = new Size(400, 16 * mf.lbInfoTypes.Items.Count);
-                
+
                 //Инициализация СФХ групбоксов
                 listSFHTypes = db.SFHTypes.ToList();
                 listSFHs = db.SFHs.ToList();
@@ -59,9 +59,9 @@ namespace KPSZI
                 foreach (SFHType itemSFHType in listSFHTypes)
                 {
                     gb = new GroupBox();
-                    gb.Location = new Point(7, gbY);                    
+                    gb.Location = new Point(7, gbY);
                     gb.Text = itemSFHType.Name;
-                    foreach(SFH itemSFH in itemSFHType.SFHs)
+                    foreach (SFH itemSFH in itemSFHType.SFHs)
                     {
                         if (itemSFHType.MultipleChoice)
                         {
@@ -74,7 +74,8 @@ namespace KPSZI
                             checkboxesSFH.Add(cb);
                             gb.Controls.Add(cb);
                             j++;
-                        } else
+                        }
+                        else
                         {
                             rb = new RadioButton();
                             rb.Text = itemSFH.Name;
